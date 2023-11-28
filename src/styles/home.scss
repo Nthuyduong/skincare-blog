@@ -1,0 +1,54 @@
+@use 'variables' as v;
+.recently-update{
+  padding-top: 100px;
+}
+.article-info{
+  border-bottom: 1px solid v.$border2_color;
+}
+.category-destination{
+  padding-top: 100px;
+  .h-popular-des-ct{
+    overflow: hidden;
+    .category-des-content{
+      top: 45%;
+      right: 25%;
+      .top-destination-title{
+        border-bottom: 1px solid v.$border2_color;
+      }
+      .sub-title{
+        border-bottom: 1px solid v.$border2_color;
+      }
+      .article-count{
+        border-right: 1px solid v.$text_color;
+      }
+    }
+  }
+}
+.home-about{
+  border-top: 1px solid v.$border2_color;
+  border-bottom: 1px solid v.$border2_color;
+  margin-bottom: 100px;
+  .about-intro{
+    border-right: 1px solid v.$border2_color;
+    .relative{
+      height: 100%;
+      .absolute{
+        bottom: 0;
+      }
+    }
+  }
+}
+.home-contact-me{
+  position: relative;
+  height: 430px;
+  //padding: 140px 40px;
+  background-image: url("../imgs/contact.jpg");
+  .contact-inner{
+    position: absolute;
+    top: 45%;
+    left: 60px;
+    display: inline-block;
+    padding: 40px 40px;
+    background-color: #fff;
+  }
+}

@@ -1,0 +1,53 @@
+@use "variables" as v;
+.article-sidebar{
+  .sidebar{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    .article-recently{
+      border: 1px solid v.$border2_color;
+      padding: 20px;
+    }
+    .welcome-content{
+      border: 1px solid v.$border2_color;
+      padding: 20px;
+    }
+    .share-on-social{
+      border: 1px solid v.$border2_color;
+      padding: 20px;
+    }
+  }
+}
+.main-article{
+  padding-bottom: 60px;
+  border-bottom: 1px solid v.$border2_color;
+  .sub-main-article{
+  }
+  .article-title{
+    border-bottom :1px solid v.$border2_color;
+  }
+}
+.comment{
+  .comment-main{
+    padding: 24px 0;
+  }
+  .comment-border{
+    border-bottom: 1px solid v.$border2_color;
+  }
+  .cmt-select{
+    border: 1px solid v.$border2_color;
+    padding: 8px 8px;
+    background: transparent;
+  }
+}
+.leavecmt{
+  padding-top:60px;
+  border-top: 1px solid v.$border2_color;
+  .user-cmt{
+    display: inline-grid;
+    width: 100%;
+  }
+}
+textarea{
+  background: transparent;
+}

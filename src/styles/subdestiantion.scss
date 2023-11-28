@@ -1,0 +1,30 @@
+@use "variables" as v;
+.top-sub-destination{
+  .top-sub-inner{
+    .top-main{
+      .top-content{
+        top: 40%;
+        right: 32%;
+      }
+    }
+    .top3-content{
+      border-top: 1px solid v.$border2_color;
+      border-bottom: 1px solid v.$border2_color;
+      .absolute{
+        bottom: 30px;
+      }
+    }
+  }
+}
+.subdes-banner{
+  .subdes-content{
+    top: 25%;
+    right: 30%;
+    .des-count{
+      border-right: 1px solid #fff;
+    }
+    .show-all-btn{
+      margin-top: 150px;
+    }
+  }
+}

@@ -1,36 +1,26 @@
-// import '../styles/app.scss'
-import Layout from '../layout/layout';
-// import { I18nextProvider} from 'react-i18next';
-// import i18n from '../lang'
-// import 'react-datepicker/dist/react-datepicker.css';
-// import store from '../store'
-import { Provider } from 'react-redux';
-// import NProgress from 'nprogress';
-// import 'nprogress/nprogress.css';
-import { useEffect } from 'react';
-import Router from 'next/router';
-import { useRouter } from 'next/router';
-import { ROUTES } from '../utils/constants';
-// import { handleRouteChange }  from '../utils/permission';
+import Layout from '../components/layout';
+import '../styles/app.scss';
 
+// i18n middleware cho chức năng đa ngôn ngữ
+import { I18nextProvider } from 'react-i18next';
+import i18n from '../lang/index';
+
+// middleware cho chức năng redux
+import { Provider } from 'react-redux';
+import store from '../store/index';
 
 const MyApp = ({ Component, pageProps }) => {
 
     return(
-        <Provider>
-            <Layout>
-                <Component {...pageProps} />
-            </Layout>
+        <Provider store={store}>
+            <I18nextProvider i18n={i18n}>
+                <Layout>
+                    <Component {...pageProps} />
+                </Layout>
+            </I18nextProvider>
         </Provider>
+        
     )
 }
-
-// const redirectURL = (ctx, url) => {
-//     if (typeof window !== 'undefined') {
-//         window.location = url;
-//     } else {
-//         ctx.res.writeHead(302, { Location: url }).end()
-//     }
-// }
 
 export default MyApp;

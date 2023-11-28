@@ -1,11 +1,16 @@
-export const ROUTES = {
-    HOME: 'user/home',
-    CATEGORY: 'user/category',
-    SEARCH: 'user/search',
-    SUBCATEGORY: 'sub-category',
-    ABOUT: 'user/about',
-    LOGIN: 'admin/login',
-    DASHBOARD: 'admin/dashboard',
-    ADCATEGORY: 'admin/category',
-    POST: 'admin/post'
+export const ROUTER = {
+    TEST: '/test',
+    HOME: '/',
+    DESTINATION: '/destination',
+    SUBDES: '/sub-des',
+    ARTICLE: '/article',
+    ABOUT: '/about',
+    GALLERY: '/gallery',
+    CONTACT: '/contact',
+    SEARCH: '/search',
+    ADMIN: '/admin',
+    ADDASHBOARD: '/admin/dashboard',
+    ADPOST: '/admin/post',
+    ADCATEGORY: '/admin/category',
+    ADLOGIN: '/admin/login',
 }

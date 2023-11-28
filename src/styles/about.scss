@@ -1,0 +1,83 @@
+@use 'variables' as v;
+
+.about-banner{
+  padding-bottom: 60px;
+  border-bottom: 1px solid v.$border2_color;
+}
+.about-intro{
+  padding-top: 60px;
+  .intro-decor{
+    right: 45%;
+  }
+  .intro-inner{
+    padding-top: 60px;
+    .intro-content{
+    }
+  }
+}
+.about-me{
+  margin-top: 60px;
+  margin-bottom: 60px;
+  border-top: 1px solid v.$border2_color;
+  border-bottom: 1px solid v.$border2_color;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  .about-right{
+    .about-content{
+      background-color: v.$border_color;
+      padding: 50px 50px;
+    }
+  }
+}
+.what-we-do{
+  padding-bottom: 60px;
+  border-bottom: 1px solid v.$border2_color;
+  .we-do{
+    border: 1px solid v.$border2_color;
+    padding: 24px;
+  }
+}
+.about-blog{
+  padding-top: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid v.$border2_color;
+
+}
+.blog-mission{
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+}
+.contact-me{
+  background-color: v.$border_color;
+  padding: 100px;
+  .contact-me-inner{
+    background-color: v.$bg_color;
+    padding: 60px;
+  }
+}
+.subscribe-blog{
+  padding-top: 60px;
+  .email-signup{
+    input{
+      padding: 8px 4px;
+    }
+  }
+}
+
+//we do new
+.wedo-new{
+  padding-bottom: 60px;
+  border-bottom: 1px solid v.$border2_color;
+  .wedo-first{
+    border-left: 1px solid v.$border2_color;
+  }
+  .decor-line{
+    height: 1px;
+    background-color: v.$border2_color;
+  }
+  .card-right{
+    border-left: 1px solid v.$border2_color;
+    border-right: 1px solid v.$border2_color;
+  }
+}

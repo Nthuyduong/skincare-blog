@@ -1,0 +1,137 @@
+// css for slider
+.slider-wrp {
+    //overflow: hidden;
+    width: 100%;
+    position: relative;
+    .slider-items {
+        gap: var(--slide-gap);
+    }
+    @media screen and (max-width: 768px) {
+        .slider-items {
+            gap: var(--slide-gap-mobile);
+        }
+    }
+    .slider-control {
+        width: 100%;
+        //opacity: 0;
+        .prev-button {
+            position: absolute;
+            //top: 50%;
+            left: -20px;
+            z-index: 1000000;
+            transform: translateY(-50%);
+            transition: opacity var(--transition-duration) cubic-bezier(0.645, 0.045, 0.355, 1) 0s;  
+        }
+        .next-button {
+            z-index: 1000000;
+            transform: translateY(-50%);
+            position: absolute;
+            //left: auto;
+            right: -20px;
+            transition: opacity var(--transition-duration) cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+        }
+        .btn-disable {
+            opacity: 0.5;
+        }
+        
+    }
+    @media (max-width: 768px) {
+        .slider-control {
+            opacity: 1;
+        }
+    }
+    
+}
+.slider-wrp:hover {
+    .slider-control {
+        opacity: 1;
+    }
+}
+
+.slider-items {
+    display: flex;
+    overflow: hidden;
+}
+.slider-item {
+    width: 100%;
+    transition: all var(--transition-duration) cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+}
+
+// css for modal
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+    //display: flex;
+    //justify-content: center;
+    //align-items: center;
+    //position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100000;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+    overflow: hidden;
+}
+
+.modal-open {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.modal-dialog {
+    background: white;
+    //width: 500px;
+    //height: auto;
+    //display: flex;
+    //align-items: center;
+    //justify-content: center;
+    //flex-direction: column;
+    .modal-header{
+        margin-bottom: 20px;
+    }
+}
+.modal-invisible-background {
+    background: transparent !important;
+}
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #FFF;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+.category {
+    width: 500px;
+    height: 100%;
+    padding: 30px 30px;
+    position: absolute;
+    right: 0;
+}
+
+@keyframes rotation {
+0% {
+    transform: rotate(0deg);
+}
+100% {
+    transform: rotate(360deg);
+}
+} 
