@@ -1,0 +1,105 @@
+@use "variables" as v;
+//ADMIN PAGE WIDTH
+.admin-wrapper{
+  padding-left: 270px;
+  padding-right: 30px;
+  background: #fff;
+  min-height: 100vh;
+}
+//TABLE FOR ADMIN PAGE
+.admin-tbl{
+  flex-direction: column;
+  .tbl-row{
+    flex-direction: row;
+    border-bottom: 1px solid v.$border_color;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    margin-bottom: 4px;
+  }
+  .admin-tbl-title{
+    background: v.$border_color;
+    .post-list{
+
+    }
+  }
+  .cell{
+    text-align: center;
+    padding-left: 4px;
+    padding-right: 4px;
+    margin:auto;
+    flex-grow: 1;
+    flex-basis:0;
+    flex-shrink: 0;
+  }
+  .cell-md{
+    flex-grow: 1.5;
+    flex-shrink: 0;
+    flex-basis: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: clip;
+  }
+  .cell-sm{
+    text-align: center;
+    margin: auto;
+    flex-grow: 0.5;
+    flex-shrink: 0;
+    flex-basis: 0;
+  }
+  .cell-ssm{
+    text-align: center;
+    margin: auto;
+    flex-grow: 0.2;
+    flex-shrink: 0;
+    flex-basis: 0;
+  }
+}
+.stt{
+  width: 100px;
+  text-align: center;
+  border-radius: 16px;
+  padding:4px 12px;
+}
+.stt1{
+  background-color: #6A7CE9;
+}
+.stt2{
+  background-color: #55BF9C;
+}
+.stt3{
+  background-color: #E96A6A;
+}
+.stt4{
+  background-color: #F0905A;
+}
+.sl-box, .search-bar-box{
+  border: 1px solid v.$border2_color;
+  padding:8px;
+  width: 100%;
+}
+//TABS STYLE
+.tabs-container{
+  .my-tabs{
+    border-bottom: 1px solid #ccc;
+    min-width: 200px;
+  }
+  .my-tabs.active{
+    border-bottom: 1px solid #333;
+  }
+}
+//imput style
+.admin-inpu{
+  border-bottom: 1px solid #ccc;
+}
+.admin-inpu:focus-visible{
+  outline: none;
+}
+.sort-date{
+  min-height: 36.5px;
+  border: 1px solid v.$border2_color;
+}
+.my-line{
+  background: v.$border2_color;
+  height: 1px;
+  width: 100%;
+}

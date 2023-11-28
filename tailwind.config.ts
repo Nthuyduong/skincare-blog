@@ -1,20 +1,39 @@
-import type { Config } from 'tailwindcss'
+/** @type {import('tailwindcss').Config} */
 
-const config: Config = {
-  content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+
+module.exports = {
+  content: ["./src/**/*.{html,js}"],
   theme: {
-    extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
+    // extend: {
+    //   animation: {
+    //     'infinite-scroll': 'infinite-scroll 25s linear infinite',
+    //   },
+    //   keyframes: {
+    //     'infinite-scroll': {
+    //       from: { transform: 'translateX(0)' },
+    //       to: { transform: 'translateX(-100%)' },
+    //     }
+    //   }
+    // },
+    colors: {
+      'primary': '#232D3E',
+      'secondary': '#DFE3EA',
+      'tertiary': '#131416',
+      'white': '#ffffff',
+      'black': '#000000',
     },
+    fontFamily: {
+      // sans: ['Graphik', 'sans-serif'],
+      // serif: ['Merriweather', 'serif'],
+    },
+    spacing: {
+      '1': '8px',
+      '2': '12px',
+      '3': '16px',
+      '4': '24px',
+      '5': '32px',
+      '6': '48px',
+    }
   },
   plugins: [],
 }
-export default config
