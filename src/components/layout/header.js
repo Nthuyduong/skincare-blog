@@ -39,6 +39,11 @@ const Header = () => {
     }
     return(
         <div>
+            <div className="top-header flex justify-center p-4">
+                <div className="">
+                    <img className="h-5" src="./img/logo.svg" alt="smile" loading="lazy"/>
+                </div>
+            </div>
             {/*search popdown*/}
             <div id="search-popdown" className={`searchbar ${showw ? 's-true' : 's-false'}`}>
                 <div className="search-bar-inner">
@@ -93,18 +98,18 @@ const Header = () => {
                                 </button>
                             </div>
                             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                                <div className="hidden sm:ml-0 md:ml-0 sm:block">
-                                    <div className="flex space-x-4">
+                                <div className="w-full hidden sm:ml-0 md:ml-0 sm:block">
+                                    <div className="flex space-x-4 justify-center">
                                         {/*Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white"*/}
                                         <div className="bg-gray-900 rounded-md pr-3 py-4">
-                                            <Link href={ROUTER.HOME} className="nav-link">{t('header.home')}</Link>
+                                            <Link href={ROUTER.HOME} className="nav-link">{t('header.guide')}</Link>
                                         </div>
                                         <div className="text-gray-300 hover:text-gray rounded-md pr-3 py-4">
-                                            <Link href={ROUTER.ABOUT} className="nav-link">{t('header.about')}</Link>
+                                            <Link href={ROUTER.ABOUT} className="nav-link">{t('header.routine')}</Link>
                                         </div>
                                         <div className="relative destination-navdrop">
                                             <div className="navdrop-title z-50 text-gray-300 hover:text-gray rounded-md pr-3 py-4">
-                                                <Link href={ROUTER.DESTINATION} className="flex nav-link">DESTINATIONS
+                                                <Link href={ROUTER.DESTINATION} className="flex nav-link">{t('header.review')}
                                                     <span className="ml-1">
                                                         <img className="icon-ssm" src="./img/icon/chevron-down-black.svg" alt="smile" loading="lazy"/>
                                                     </span>
@@ -129,8 +134,12 @@ const Header = () => {
                                             </div>
                                         </div>
                                         <div className="rounded-md pr-4 py-4">
-                                            <Link href={ROUTER.CONTACT} className="nav-link">CONTACT</Link>
+                                            <Link href={ROUTER.CONTACT} className="nav-link">{t('header.tips')}</Link>
                                         </div>
+                                        <div className="rounded-md py-4 pr-0">
+                                            <Link href={ROUTER.CONTACT} className="nav-link">{t('header.about')}</Link>
+                                        </div>
+
                                     </div>
                                 </div>
                                 <div className="flex flex-shrink-0 items-center">
@@ -141,34 +150,34 @@ const Header = () => {
                             </div>
                             <div className="absolute inset-y-0 right-0 flex items-center sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                                 <div className="flex">
-                                    <div className="flex px-2 gap-2 items-center">
-                                        <div 
-                                            className={`cursor-pointer${getLanguage() == 'en' ? ' font-bold' : ''}`}
-                                            onClick={() => changeLanguage('en')}
-                                        >
-                                            en
-                                        </div>
-                                        <div 
-                                            className={`cursor-pointer${getLanguage() == 'vn' ? ' font-bold' : ''}`}
-                                            onClick={() => changeLanguage('vn')}
-                                        >
-                                            vn
-                                        </div>
-                                    </div>
-                                    <div className="flex px-2 gap-2 items-center">
-                                        <div 
-                                            className={`cursor-pointer${getTheme() == 'light' ? ' font-bold' : ''}`}
-                                            onClick={() => handleSetTheme('light')}
-                                        >
-                                            light
-                                        </div>
-                                        <div 
-                                            className={`cursor-pointer${getTheme() == 'dark' ? ' font-bold': ''}`}
-                                            onClick={() => handleSetTheme('dark')}
-                                        >
-                                            dark
-                                        </div>
-                                    </div>
+                                    {/*<div className="flex px-2 gap-2 items-center">*/}
+                                    {/*    <div */}
+                                    {/*        className={`cursor-pointer${getLanguage() == 'en' ? ' font-bold' : ''}`}*/}
+                                    {/*        onClick={() => changeLanguage('en')}*/}
+                                    {/*    >*/}
+                                    {/*        en*/}
+                                    {/*    </div>*/}
+                                    {/*    <div */}
+                                    {/*        className={`cursor-pointer${getLanguage() == 'vn' ? ' font-bold' : ''}`}*/}
+                                    {/*        onClick={() => changeLanguage('vn')}*/}
+                                    {/*    >*/}
+                                    {/*        vn*/}
+                                    {/*    </div>*/}
+                                    {/*</div>*/}
+                                    {/*<div className="flex px-2 gap-2 items-center">*/}
+                                    {/*    <div */}
+                                    {/*        className={`cursor-pointer${getTheme() == 'light' ? ' font-bold' : ''}`}*/}
+                                    {/*        onClick={() => handleSetTheme('light')}*/}
+                                    {/*    >*/}
+                                    {/*        light*/}
+                                    {/*    </div>*/}
+                                    {/*    <div */}
+                                    {/*        className={`cursor-pointer${getTheme() == 'dark' ? ' font-bold': ''}`}*/}
+                                    {/*        onClick={() => handleSetTheme('dark')}*/}
+                                    {/*    >*/}
+                                    {/*        dark*/}
+                                    {/*    </div>*/}
+                                    {/*</div>*/}
                                     <div>
                                         <button type="button"
                                                 onClick={toggleVisibility}
@@ -176,12 +185,12 @@ const Header = () => {
                                             <img className="icon-ssm" src="./img/icon/search.svg" alt="smile" loading="lazy"/>
                                         </button>
                                     </div>
-                                    <div>
-                                        <button type="button"
-                                                className="relative rounded-full bg-gray-800 p-1 text-gray-400 focus:outline-none">
-                                            <img className="icon-ssm" src="./img/icon/heart.svg" alt="smile" loading="lazy"/>
-                                        </button>
-                                    </div>
+                                    {/*<div>*/}
+                                    {/*    <button type="button"*/}
+                                    {/*            className="relative rounded-full bg-gray-800 p-1 text-gray-400 focus:outline-none">*/}
+                                    {/*        <img className="icon-ssm" src="./img/icon/heart.svg" alt="smile" loading="lazy"/>*/}
+                                    {/*    </button>*/}
+                                    {/*</div>*/}
                                 </div>
                             </div>
                         </div>

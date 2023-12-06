@@ -1,7 +1,10 @@
 {
-    "home": "Home",
+    "home": "Guides & Tutorials",
     "header": {
-        "home": "HOME",
-        "about": "ABOUT"
+        "guide": "Guides & Tutorials",
+        "routine": "The Skincare Routines",
+        "review": "Testings & Reviews",
+        "tips": "Tips & Advices",
+        "about": "About"
     }
 }

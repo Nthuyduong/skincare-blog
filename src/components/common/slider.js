@@ -1,13 +1,13 @@
 import React, { useState, Children, cloneElement, useEffect, useRef } from "react";
 import { useWindowSize } from "../../hooks/dom";
 
-const Slider = ({ 
+const Slider = ({
     configs,
-    children 
+    children
 }) => {
 
     const windowSize = useWindowSize();
-    
+
     const ref = useRef(null);
     const refWrp = useRef(null);
 
@@ -73,15 +73,15 @@ const Slider = ({
 
         // cập nhật kích thước trình duyệt
         setDimensions({
-            width: windowSize.width,
-            height: windowSize.height,
+            width: window.innerWidth,
+            height: window.innerHeight,
         });
 
         //tính số lượng slide sẽ hiển thị trên một hàng, cách tính như ở trên
         //configs ghi đè thuộc tính của defaultConfigs width trình duyệt > 768
-        sliderPerRow = windowSize.width > 768 ? configs.sliderPerRow : configs.sliderPerRowMobile;
+        sliderPerRow = window.innerWidth > 768 ? configs.sliderPerRow : configs.sliderPerRowMobile;
         maxSlide = countChildren - sliderPerRow;
-        gap = windowSize.width > 768 ? configs.gap : configs.gapMobile;
+        gap = window.innerWidth > 768 ? configs.gap : configs.gapMobile;
         runSlider();
     }
 
@@ -203,8 +203,8 @@ const Slider = ({
                 <div
                     className="slider-items"
                     ref={ref}
-                    style={{ 
-                        width: `var(${(countChildren / configs.sliderPerRow) * 100}% + ${(gap * maxSlide) / configs.sliderPerRow}px)`, 
+                    style={{
+                        width: `var(${(countChildren / configs.sliderPerRow) * 100}% + ${(gap * maxSlide) / configs.sliderPerRow}px)`,
                         "--transition-duration": `${configs.duration ?? 400}ms`,
                         "--slide-gap": `${configs.gap ?? 0}px`,
                         "--slide-gap-mobile": `${configs.gapMobile ?? 0}px`,
@@ -217,7 +217,7 @@ const Slider = ({
                     })}
                 </div>
             </div>
-            
+
             <div className="slider-control">
                 <div className={`prev-button ${ disablePrev ? 'btn-disable': '' }`}>
                     <button className="my-prev-btn" onClick={prevSlide}>
