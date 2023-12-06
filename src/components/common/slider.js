@@ -10,6 +10,7 @@ const Slider = ({
 
     const ref = useRef(null);
     const refWrp = useRef(null);
+    const refContent = useRef(null);
 
     const defaultConfigs = {
         sliderPerRow: 3,
@@ -29,17 +30,9 @@ const Slider = ({
     //Khai báo các biến với giá trị ban đầu bằng 0
     //active: vị trí slide hiện tại
     const [active, setActive] = useState(0);
-    //dragX: giá trị margin-left của slider container
-    const [dragX, setDragX] = useState(0);
     //khai báo biến trạng thái của hai nút
     const [disableNext, setDisableNext] = useState(false);
     const [disablePrev, setDisablePrev] = useState(true);
-
-    //Theo dõi kích thước width + height của trình duyệt, nếu có thay đổi thì dimensions được thay bằng setDimension
-    const [dimensions, setDimensions] = React.useState({
-        width: windowSize.width,
-        height: windowSize.height,
-    });
 
     //API children (module trong React): thành phần con của một thành phần (component)
     const countChildren = Children.count(children);
@@ -49,34 +42,44 @@ const Slider = ({
     //Nếu độ rộng của trình duyệt > 768 => sliderPerRow = sliderPerRow (3) còn không thì sẽ là sliderPerMobile (2.5)
     //dùng configs để ghi đè giá trị tương ứng của defaultConfigs
     let sliderPerRow = windowSize.width > 768 ? configs.sliderPerRow : configs.sliderPerRowMobile;
+    let scrollLeft = refContent.current?.scrollLeft;
+
     //Tính toán số lượng slide tối đa có thể di  (tổng số slide - số slide hiển thị/ row)
     let maxSlide = countChildren - sliderPerRow;
     //Tính toán kích thước của một slide (100% / số slide hiển thị trên một hàng)
     let gap = windowSize.width > 768 ? configs.gap : configs.gapMobile;
 
-    //giá trị trong hàm callback (active, dragX) thay đổi thì hàm callback sẽ được gọi tới để kích hoạt hàm runSlider
+    useEffect(() => {
+        handleResize();
+    }, [windowSize])
+    
+
+    //giá trị trong hàm callback (active) thay đổi thì hàm callback sẽ được gọi tới để kích hoạt hàm runSlider
     useEffect(() => {
         runSlider();
-    }, [active, dragX])
+    }, [active])
 
     useEffect(() => {
         //sự kiến lắng nghe để biết nếu cửa sổ trình duyệt resize thì hàm handleResize sẽ được gọi tới
         window.addEventListener('resize', handleResize);
+        window.addEventListener('orientationchange', handleResize);
+        refContent.current.addEventListener('scroll', handleScroll)
 
         //loại bỏ sử kiện, lý do thì chưa biết
-        return () => window.removeEventListener('resize', handleResize, false);
+        return () => {
+            window.removeEventListener('resize', handleResize, false)
+            window.removeEventListener('orientationchange', handleResize, false)
+            if(refContent.current) refContent.current.removeEventListener('scroll', handleScroll, false)
+        };
     }, [])
+
+    const handleScroll = () => {
+        scrollLeft = refContent.current?.scrollLeft;
+        resolveButton();
+    }
 
     //hàm handleResize
     const handleResize = () => {
-        console.log('resize');
-
-        // cập nhật kích thước trình duyệt
-        setDimensions({
-            width: window.innerWidth,
-            height: window.innerHeight,
-        });
-
         //tính số lượng slide sẽ hiển thị trên một hàng, cách tính như ở trên
         //configs ghi đè thuộc tính của defaultConfigs width trình duyệt > 768
         sliderPerRow = window.innerWidth > 768 ? configs.sliderPerRow : configs.sliderPerRowMobile;
@@ -88,41 +91,17 @@ const Slider = ({
     //hàm run slider
     const runSlider = () => {
 
-        // cập nhật trạng thái disableNext và Prev
-        setDisableNext(false);
-        setDisablePrev(false);
-
-        // Kiểm tra nếu đang ở slide đầu tiên, vô hiệu hóa nút Prev
-        if (active === 0) {
-            setDisablePrev(true);
-        }
-        // Kiểm tra nếu đang ở slide cuối cùng, vô hiệu hóa nút Next
-        if (active >= maxSlide) {
-            setDisableNext(true);
-        }
+        let slides = ref.current.children;
 
         // Cập nhật chiều rộng của slider container
         ref.current.style.width = `calc(${(countChildren / sliderPerRow) * 100 + '%'} + ${(gap * maxSlide) / sliderPerRow + 'px'})`;
-        // Tính toán và cập nhật giá trị transformX để di chuyển slider
-        let transformX = active * 100 / countChildren;
-        // Nếu giá trị transformX vượt quá giới hạn thì cập nhật lại giá trị transformX bằng vị trí cuối cùng
-        if (transformX > (100 / countChildren) * maxSlide) {
-            transformX = (100 / countChildren) * maxSlide
-        }
-        // Cập nhật style của slider container với hiệu ứng transition
-        ref.current.style.transition = `transform var(--transition-duration) cubic-bezier(0.645, 0.045, 0.355, 1) 0s${
-            dragX
-              ? ""
-              : ", margin var(--transition-duration) cubic-bezier(0.645, 0.045, 0.355, 1) 0s"
-          }`
-        // Di chuyển slider bằng cách thiết lập giá trị transform
-        ref.current.style.transform = `translateX(calc(-${transformX}% - ${(gap * active) / countChildren}px))`;
-
-
-        //nếu cho phép drag, cập nhật giá trị margin-left
-        if (configs.allowDrag) {
-            ref.current.style.marginLeft = dragX + 'px';
-        }
+        
+        refContent.current.scrollTo({
+        left:
+            slides[active].offsetLeft -
+            parseInt(getComputedStyle(refContent.current).paddingLeft),
+        behavior: "smooth",
+        });
 
         //nếu có auto slide thì thiết lập timeout
         if (configs.auto) {
@@ -138,16 +117,56 @@ const Slider = ({
         }
     }
 
+    const resolveButton = () => {
+        console.log(isDisablePrev())
+        if (isDisablePrev()) {
+            setDisablePrev(true);
+        } else {
+            setDisablePrev(false);
+        }
+        
+        if (isDisableNext()) {
+            setDisableNext(true);
+        } else {
+            setDisableNext(false);
+        }
+    }
+
+    const isDisablePrev = () => {
+        if (scrollLeft <= 0) {
+            return true;
+        }
+        return false;
+    }
+
+    const isDisableNext = () => {
+        if (scrollLeft >= refContent.current.scrollWidth - refContent.current.offsetWidth) {
+            return true;
+        }
+        return false;
+    }
+
+    const getActive = () => {
+        return Math.round(refContent.current.scrollLeft / refContent.current.scrollWidth * countChildren);
+    }
     //
     const nextSlide = () => {
+        const activeSlide = getActive();
         if (active < maxSlide) {
-            setActive(active + 1);
+            setActive(activeSlide + 1);
+        }
+        if (active === maxSlide && !isDisableNext()) {
+            setActive(maxSlide);
         }
     }
 
     const prevSlide = () => {
-        if (active > 0) {
-            setActive(active - 1);
+        const activeSlide = getActive();
+        if (activeSlide > 0) {
+            setActive(activeSlide - 1);
+        }
+        if (activeSlide === 0 && !isDisablePrev()) {
+            setActive(0);
         }
     }
 
@@ -161,60 +180,28 @@ const Slider = ({
         }
     }
 
-    const startDrag = (e) => {
-        let clientX = e instanceof TouchEvent ? e.touches[0].clientX : e.clientX;
-        let draxTemp = dragX;
-
-        let onMoving = (e) => {
-            draxTemp = (e instanceof TouchEvent ? e.touches[0].clientX : e.clientX) - clientX;
-            setDragX(draxTemp)
-        }
-        let onEnd = (e) => {
-            if (
-                Math.abs(draxTemp) > windowSize.width * 0.1
-            ) {
-                let step = Math.round(Math.abs(draxTemp) / refWrp.current.offsetWidth * sliderPerRow);
-
-                if (draxTemp > 0) {
-                    changeSlide(active - (step));
-                } else {
-                    changeSlide(active + (step));
-                }
-            }
-            setDragX(0);
-            document.removeEventListener('mousemove', onMoving);
-            document.removeEventListener('mouseup', onEnd);
-            document.removeEventListener('touchmove', onMoving);
-            document.removeEventListener('touchend', onEnd);
-        }
-        document.addEventListener('mousemove', onMoving);
-        document.addEventListener('mouseup', onEnd);
-        document.addEventListener('touchmove', onMoving);
-        document.addEventListener('touchend', onEnd);
-    }
-
     return (
         <div
             className="slider-wrp"
-            onMouseDown={startDrag}
-            onTouchStart={startDrag}
             ref={refWrp}
         >   <div className="overflow-hidden">
-                <div
-                    className="slider-items"
-                    ref={ref}
-                    style={{
-                        width: `var(${(countChildren / configs.sliderPerRow) * 100}% + ${(gap * maxSlide) / configs.sliderPerRow}px)`,
-                        "--transition-duration": `${configs.duration ?? 400}ms`,
-                        "--slide-gap": `${configs.gap ?? 0}px`,
-                        "--slide-gap-mobile": `${configs.gapMobile ?? 0}px`,
-                    }}
-                >
-                    {Children.map(children, (child, index) => {
-                        return cloneElement(child, {
-                            className: `slider-item ${child.props.className} ${active === index ? 'slide-active' : ''}`
-                        })
-                    })}
+                <div className="slider-content" ref={refContent}>
+                    <div
+                        className="slider-items"
+                        ref={ref}
+                        style={{ 
+                            width: `var(${(countChildren / configs.sliderPerRow) * 100}% + ${(gap * maxSlide) / configs.sliderPerRow}px)`, 
+                            "--transition-duration": `${configs.duration ?? 400}ms`,
+                            "--slide-gap": `${configs.gap ?? 0}px`,
+                            "--slide-gap-mobile": `${configs.gapMobile ?? 0}px`,
+                        }}
+                    >
+                        {Children.map(children, (child, index) => {
+                            return cloneElement(child, {
+                                className: `slider-item ${child.props.className} ${active === index ? 'slide-active' : ''}`,
+                            })
+                        })}
+                    </div>
                 </div>
             </div>
 
