@@ -101,15 +101,35 @@ const Header = () => {
                                 <div className="w-full hidden sm:ml-0 md:ml-0 sm:block">
                                     <div className="flex space-x-4 justify-center">
                                         {/*Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white"*/}
-                                        <div className="bg-gray-900 rounded-md pr-3 py-4">
-                                            <Link href={ROUTER.HOME} className="nav-link">{t('header.guide')}</Link>
+                                        <div className="relative bg-gray-900 guide-navdrop rounded-md">
+                                            <div className="navdrop-title pr-3 py-4">
+                                                <Link href={ROUTER.HOME} className="flex nav-link">{t('header.guide')}
+                                                    <span className="ml-1">
+                                                        <img className="icon-ssm" src="./img/icon/chevron-down-black.svg" alt="smile" loading="lazy"/>
+                                                    </span>
+                                                </Link>
+                                            </div>
+                                            <div className="navdrop-inner absolute">
+                                                <div className="block px-4 py-2 text-sm text-gray-700">
+                                                    <Link href={ROUTER.SUBDES} className="nav-link">Help for beginners</Link>
+                                                </div>
+                                                <div className="block px-4 py-2 text-sm text-gray-700">
+                                                    <Link href={ROUTER.SUBDES} className="nav-link">How to clean</Link>
+                                                </div>
+                                                <div className="block px-4 py-2 text-sm text-gray-700">
+                                                    <Link href={ROUTER.SUBDES} className="nav-link">How to choose</Link>
+                                                </div>
+                                                <div className="block px-4 py-2 text-sm text-gray-700">
+                                                    <Link href={ROUTER.SUBDES} className="nav-link">Layer skincare</Link>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div className="text-gray-300 hover:text-gray rounded-md pr-3 py-4">
-                                            <Link href={ROUTER.ABOUT} className="nav-link">{t('header.routine')}</Link>
+                                            <Link href={ROUTER.ABOUT} className="nav-link">{t('header.review')}</Link>
                                         </div>
                                         <div className="relative destination-navdrop">
                                             <div className="navdrop-title z-50 text-gray-300 hover:text-gray rounded-md pr-3 py-4">
-                                                <Link href={ROUTER.DESTINATION} className="flex nav-link">{t('header.review')}
+                                                <Link href={ROUTER.DESTINATION} className="flex nav-link">{t('header.routine')}
                                                     <span className="ml-1">
                                                         <img className="icon-ssm" src="./img/icon/chevron-down-black.svg" alt="smile" loading="lazy"/>
                                                     </span>

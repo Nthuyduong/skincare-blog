@@ -1,5 +1,6 @@
 import React from "react";
 import Link from 'next/link'
+import {ROUTER} from "../../utils/constants";
 
 const Sidebar = () => {
     return(
@@ -13,7 +14,7 @@ const Sidebar = () => {
             <div className="sidebar-content">
                 <div className="content-first pb-2">
                     <ul>
-                        <li><Link href="#">Dashboard</Link></li>
+                        <li><Link href={ROUTER.ADDASHBOARD}>Dashboard</Link></li>
                         <li><Link href="#">Category</Link></li>
                         <li><Link href="#">Post</Link></li>
                         <li><Link href="#">Gallery</Link></li>

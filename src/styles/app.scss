@@ -220,16 +220,19 @@ body{
   .nav-blog-inner{
     border-bottom: 1px solid v.$border_color;
   }
-  .destination-navdrop{
+  .guide-navdrop, .destination-navdrop{
     .navdrop-inner{
       z-index: 3000;
       display: none;
       width: max-content;
-      background: v.$bg_color;
+      background: #fff;
       border-left: 1px solid v.$border_color;
       border-right: 1px solid v.$border_color;
       border-bottom: 1px solid v.$border_color;
     }
+  }
+  .guide-navdrop:hover .navdrop-inner{
+    display: block;
   }
   .destination-navdrop:hover .navdrop-inner{
     display: block;
