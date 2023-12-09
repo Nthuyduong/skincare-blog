@@ -1,4 +1,24 @@
 @use "variables" as v;
+
+//.sub-des-page{
+//  margin-top: -30px;
+//  .sub-des-inner{
+//    .left-menu{
+//      border-right:1px solid v.$border2_color;
+//      padding-top: 80px;
+//      .left-menu-inner{
+//        .menu-fixed{
+//          li{
+//            border-bottom: 1px solid #ccc;
+//          }
+//        }
+//      }
+//    }
+//    .right-all-posts{
+//      padding-top: 80px;
+//    }
+//  }
+//}
 .top-sub-destination{
   .top-sub-inner{
     .top-main{
@@ -8,8 +28,7 @@
       }
     }
     .top3-content{
-      border-top: 1px solid v.$border2_color;
-      border-bottom: 1px solid v.$border2_color;
+
       .absolute{
         bottom: 30px;
       }
