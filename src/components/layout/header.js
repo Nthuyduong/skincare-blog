@@ -103,7 +103,7 @@ const Header = () => {
                                         {/*Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white"*/}
                                         <div className="relative bg-gray-900 guide-navdrop rounded-md">
                                             <div className="navdrop-title pr-3 py-4">
-                                                <Link href={ROUTER.HOME} className="flex nav-link">{t('header.guide')}
+                                                <Link href={ROUTER.DESTINATION} className="flex nav-link">{t('header.guide')}
                                                     <span className="ml-1">
                                                         <img className="icon-ssm" src="./img/icon/chevron-down-black.svg" alt="smile" loading="lazy"/>
                                                     </span>
@@ -124,9 +124,6 @@ const Header = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="text-gray-300 hover:text-gray rounded-md pr-3 py-4">
-                                            <Link href={ROUTER.ABOUT} className="nav-link">{t('header.review')}</Link>
-                                        </div>
                                         <div className="relative destination-navdrop">
                                             <div className="navdrop-title z-50 text-gray-300 hover:text-gray rounded-md pr-3 py-4">
                                                 <Link href={ROUTER.DESTINATION} className="flex nav-link">{t('header.routine')}
@@ -137,27 +134,41 @@ const Header = () => {
                                             </div>
                                             <div className="navdrop-inner absolute left-30 w-48 py-1">
                                                 <div className="block px-4 py-2 text-sm text-gray-700">
-                                                    <Link href={ROUTER.SUBDES} className="nav-link">Drink & Coffee</Link>
+                                                    <Link href={ROUTER.SUBDES} className="nav-link">Routine by skin types</Link>
                                                 </div>
                                                 <div className="block px-4 py-2 text-sm text-gray-700">
-                                                    <Link href={ROUTER.SUBDES} className="nav-link">Food & Cake</Link>
+                                                    <Link href={ROUTER.SUBDES} className="nav-link">Season routine</Link>
                                                 </div>
                                                 <div className="block px-4 py-2 text-sm text-gray-700">
-                                                    <Link href={ROUTER.SUBDES} className="nav-link">Music & Art</Link>
-                                                </div>
-                                                <div className="block px-4 py-2 text-sm text-gray-700">
-                                                    <Link href={ROUTER.SUBDES} className="nav-link">Learn & Work</Link>
-                                                </div>
-                                                <div className="block px-4 py-2 text-sm text-gray-700">
-                                                    <Link href={ROUTER.SUBDES} className="nav-link">Photo Spots</Link>
+                                                    <Link href={ROUTER.SUBDES} className="nav-link">My routine</Link>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div className="text-gray-300 hover:text-gray rounded-md pr-3 py-4">
+                                            <Link href={ROUTER.ABOUT} className="nav-link">{t('header.review')}</Link>
                                         </div>
                                         <div className="rounded-md pr-4 py-4">
                                             <Link href={ROUTER.CONTACT} className="nav-link">{t('header.tips')}</Link>
                                         </div>
-                                        <div className="rounded-md py-4 pr-0">
-                                            <Link href={ROUTER.CONTACT} className="nav-link">{t('header.about')}</Link>
+                                        <div className="relative destination-navdrop">
+                                            <div className="navdrop-title z-50 text-gray-300 hover:text-gray py-4 pr-0">
+                                                <Link href={ROUTER.CONTACT} className="nav-link flex">{t('header.about')}
+                                                    <span className="ml-1">
+                                                        <img className="icon-ssm" src="./img/icon/chevron-down-black.svg" alt="smile" loading="lazy"/>
+                                                    </span>
+                                                </Link>
+                                            </div>
+                                            <div className="navdrop-inner absolute left-30 w-48 py-1">
+                                                <div className="block px-4 py-2 text-sm text-gray-700">
+                                                    <Link href={ROUTER.SUBDES} className="nav-link">About Blog</Link>
+                                                </div>
+                                                <div className="block px-4 py-2 text-sm text-gray-700">
+                                                    <Link href={ROUTER.SUBDES} className="nav-link">My skin history</Link>
+                                                </div>
+                                                <div className="block px-4 py-2 text-sm text-gray-700">
+                                                    <Link href={ROUTER.SUBDES} className="nav-link">Contact me</Link>
+                                                </div>
+                                            </div>
                                         </div>
 
                                     </div>
