@@ -1,4 +1,18 @@
+import {useDispatch} from "react-redux";
+import {showModal} from "../../store/modal/modal.action";
+
 const Adminpostpage = () => {
+
+    const dispatch = useDispatch();
+
+    const handleCreatePost = () => {
+        // gọi action show modal loading
+        dispatch(showModal({
+            name: "post",
+            enableClickOutside: true,
+        }))
+    }
+
     return(
         <div>
             <div className="post-page">
@@ -6,7 +20,7 @@ const Adminpostpage = () => {
                 <div className="grid grid-cols-5 gap-4">
                     <div className="col-span-3"></div>
                     <div className="col-span-1">
-                        <button className="my-btn-pr w-full">Create new post</button>
+                        <button onClick={handleCreatePost} className="my-btn-pr w-full">Create new post</button>
                     </div>
                     <div className="col-span-1">
                         <button className="my-btn-pr w-full">Delete post</button>

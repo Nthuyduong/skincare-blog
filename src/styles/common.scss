@@ -133,6 +133,13 @@
     position: absolute;
     right: 0;
 }
+.post{
+    height: 100%;
+    width: calc(100% - 16.666667%);
+    position: absolute;
+    right: 0;
+    padding: 30px;
+}
 
 @keyframes rotation {
 0% {

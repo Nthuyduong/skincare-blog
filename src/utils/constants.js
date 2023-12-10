@@ -13,4 +13,5 @@ export const ROUTER = {
     ADPOST: '/admin/post',
     ADCATEGORY: '/admin/category',
     ADLOGIN: '/admin/login',
+    CREATEPOST: '/admin/create_post'
 }

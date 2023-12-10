@@ -6,6 +6,7 @@ import { hideModal } from "../../store/modal/modal.action";
 
 import ModalLoading from "./loading";
 import ModalCategory from "./category";
+import ModalPost from "./post";
 
 import { useClickOutside } from "../../hooks/dom";
 
@@ -24,6 +25,8 @@ const Modals = () => {
         switch (name) {
             case "category":
                 return <ModalCategory/>
+            case "post":
+                return <ModalPost/>
             case "loading":
                 return <ModalLoading data={data} />;
             default:

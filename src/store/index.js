@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import modalReducer from './modal';
 import categoryReducer from './newcategory';
+import newpostReducer from './newPost';
 
 // khai báo các reducer trong store
 // Những cái data chung như modal, alert, , ... thì nên tạo reducer riêng
@@ -9,6 +10,7 @@ import categoryReducer from './newcategory';
 const reducer = {
     modal: modalReducer,
     category: categoryReducer,
+    post: newpostReducer,
     // user: userReducer,
 };
 
