@@ -1,4 +1,12 @@
 @use 'variables' as v;
+.home-banner{
+  .banner-right{
+    background-image: url("../imgs/banner2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+}
 .recently-update{
   padding-top: 100px;
 }

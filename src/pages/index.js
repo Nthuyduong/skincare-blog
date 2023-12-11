@@ -4,128 +4,33 @@ import { ROUTER } from "../utils/constants";
 import Slider from "../components/common/slider";
 
 const Home = () => {
-    const configs = {
-        sliderPerRow: 3,
-        sliderPerRowMobile: 2.5,
-        allowDrag: true,
-        duration: 400,
-        auto: false,
-        autoDuration: 1000,
-        gap: 40,
-        gapMobile: 10,
-    }
-    const [activeIndex, setActiveIndex] = useState(0);
 
-    const slidesData = [
-        {
-            id: 1,
-            items: [
-                {
-                    image: "./img/home/article.jpg",
-                    tag: "Drink & Coffee",
-                    time: "November 6, 2023",
-                    title: "Top 5 Coffee Shop in HaNoi",
-                },
-                {
-                    image: "./img/home/article.jpg",
-                    tag: "Learn & Work",
-                    time: "November 6, 2023",
-                    title: "Beautiful places for study",
-                },
-                {
-                    image: "./img/home/article.jpg",
-                    tag: "Drink & Coffee",
-                    time: "November 6, 2023",
-                    title: "Why Sorota Coffee is so hot?",
-                },
-                {
-                    image: "./img/home/article.jpg",
-                    tag: "Drink & Coffee",
-                    time: "November 6, 2023",
-                    title: "Title 1",
-                },
-            ],
-        },
-        {
-            id: 2,
-            items: [
-                {
-                    image: "./img/home/article.jpg",
-                    tag: "Photo Spots",
-                    time: "November 6, 2023",
-                    title: "Welcome to Hanoi, Vietnam",
-                },
-                {
-                    image: "./img/home/article.jpg",
-                    tag: "Music & Art",
-                    time: "November 6, 2023",
-                    title: "Best Handmade ceramic shop",
-                },
-                {
-                    image: "./img/home/article.jpg",
-                    tag: "Drink & Coffee",
-                    time: "November 6, 2023",
-                    title: "Find your best destinations",
-                },
-                {
-                    image: "./img/home/article.jpg",
-                    tag: "Drink & Coffee",
-                    time: "November 6, 2023",
-                    title: "Title 1",
-                },
-            ],
-        },
-        {
-            id: 3,
-            items: [
-                {
-                    image: "./img/home/article.jpg",
-                    tag: "Drink & Coffee",
-                    time: "November 6, 2023",
-                    title: "Title 1",
-                },
-                {
-                    image: "./img/home/article.jpg",
-                    tag: "Photo Spots",
-                    time: "November 6, 2023",
-                    title: "Hanoi in my heart",
-                },
-                {
-                    image: "./img/home/article.jpg",
-                    tag: "Drink & Coffee",
-                    time: "November 6, 2023",
-                    title: "Title 1",
-                },
-                {
-                    image: "./img/home/article.jpg",
-                    tag: "Drink & Coffee",
-                    time: "November 6, 2023",
-                    title: "Title 1",
-                },
-            ],
-        },
-        // Add more objects as needed
-    ];
-
-
-    const nextSlide = () => {
-        setActiveIndex((prevIndex) => (prevIndex + 1) % slidesData.length);
-    };
-
-    const prevSlide = () => {
-        setActiveIndex((prevIndex) => (prevIndex - 1 + slidesData.length) % slidesData.length);
-    };
     return (
         <div>
-            <div className="container-fluid">
-                <div className="home-banner">
-                    <img className="w-full" src="./img/home/banner.jpg" alt="smile" loading="lazy"/>
+            {/*banner*/}
+            <div className="home-banner grid grid-cols-12">
+                <div className="col-span-6 banner-left">
+                    <img className="w-full" src="./img/home/banner.png" alt="smile" loading="lazy"/>
                 </div>
-                {/*Test slider*/}
+                <div className="col-span-6 banner-right">
+                    <div className="grid grid-cols-5 h-full">
+                        <div className="col-span-1">
+
+                        </div>
+                        <div className="col-span-4 flex items-center">
+                            <div>
+                                <img className="" src="./img/home/banner-top.png" alt="smile" loading="lazy"/>
+                            </div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="container-fluid">
 
                 {/*Lastest on this blog*/}
                 <div className="recently-update">
-                    <div className="heading_3 mb-4">Recently Update</div>
+                    <div className="heading_3 mb-4">Most useful articles</div>
                     <div className="">
                         <Slider
                             configs={{
