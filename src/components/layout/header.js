@@ -117,7 +117,7 @@ const Header = () => {
                                                     <Link href={ROUTER.SUBDES} className="nav-link">How to clean</Link>
                                                 </div>
                                                 <div className="block px-4 py-2 text-sm text-gray-700">
-                                                    <Link href={ROUTER.SUBDES} className="nav-link">How to choose</Link>
+                                                    <Link href={ROUTER.SUBDES} className="nav-link">Shopping guide</Link>
                                                 </div>
                                                 <div className="block px-4 py-2 text-sm text-gray-700">
                                                     <Link href={ROUTER.SUBDES} className="nav-link">Layer skincare</Link>
@@ -152,7 +152,7 @@ const Header = () => {
                                         </div>
                                         <div className="relative destination-navdrop">
                                             <div className="navdrop-title z-50 text-gray-300 hover:text-gray py-4 pr-0">
-                                                <Link href={ROUTER.CONTACT} className="nav-link flex">{t('header.about')}
+                                                <Link href="#" className="nav-link flex">{t('header.about')}
                                                     <span className="ml-1">
                                                         <img className="icon-ssm" src="./img/icon/chevron-down-black.svg" alt="smile" loading="lazy"/>
                                                     </span>
@@ -160,13 +160,13 @@ const Header = () => {
                                             </div>
                                             <div className="navdrop-inner absolute left-30 w-48 py-1">
                                                 <div className="block px-4 py-2 text-sm text-gray-700">
-                                                    <Link href={ROUTER.SUBDES} className="nav-link">About Blog</Link>
+                                                    <Link href={ROUTER.ABOUT} className="nav-link">About Blog</Link>
                                                 </div>
                                                 <div className="block px-4 py-2 text-sm text-gray-700">
                                                     <Link href={ROUTER.SUBDES} className="nav-link">My skin history</Link>
                                                 </div>
                                                 <div className="block px-4 py-2 text-sm text-gray-700">
-                                                    <Link href={ROUTER.SUBDES} className="nav-link">Contact me</Link>
+                                                    <Link href={ROUTER.CONTACT} className="nav-link">Contact me</Link>
                                                 </div>
                                             </div>
                                         </div>

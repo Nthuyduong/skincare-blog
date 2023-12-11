@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Link from 'next/link'
 import { ROUTER } from "../utils/constants";
 import Slider from "../components/common/slider";
@@ -8,23 +8,28 @@ const Home = () => {
     return (
         <div>
             {/*banner*/}
-            <div className="home-banner grid grid-cols-12">
-                <div className="col-span-6 banner-left">
-                    <img className="w-full" src="./img/home/banner.png" alt="smile" loading="lazy"/>
-                </div>
-                <div className="col-span-6 banner-right">
-                    <div className="grid grid-cols-5 h-full">
-                        <div className="col-span-1">
+            <div className="home-banner">
+                <img className="w-full" src="./img/home/banner.png" alt="smile" loading="lazy"/>
+                {/*<div className="col-span-6 banner-left">*/}
+                {/*    <img className="w-full" src="./img/home/banner.png" alt="smile" loading="lazy"/>*/}
+                {/*</div>*/}
+                {/*<div className="col-span-6 banner-right">*/}
+                {/*    <div className="grid grid-cols-6 h-full flex items-center">*/}
+                {/*        <div className="col-span-1">*/}
 
-                        </div>
-                        <div className="col-span-4 flex items-center">
-                            <div>
-                                <img className="" src="./img/home/banner-top.png" alt="smile" loading="lazy"/>
-                            </div>
-                            <div></div>
-                        </div>
-                    </div>
-                </div>
+                {/*        </div>*/}
+                {/*        <div className="col-span-4 flex">*/}
+                {/*            <div className="relative">*/}
+                {/*                <img className="" src="./img/home/banner-top.png" alt="smile" loading="lazy"/>*/}
+                {/*            </div>*/}
+                {/*            /!*<div className="absolute spin-logo">*!/*/}
+                {/*            /!*    <img className="" src="./img/home/logo-test.svg" alt="smile" loading="lazy"/>*!/*/}
+                {/*            /!*</div>*!/*/}
+                {/*        </div>*/}
+                {/*        <div className="col-span-1">*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
             </div>
             <div className="container-fluid">
 
@@ -556,6 +561,14 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
+                {/*<div className="contact-me ">*/}
+                {/*    <div className="contact-me-inner">*/}
+                {/*        <div className="heading_3 md:mb-4">Work With Me</div>*/}
+                {/*        <div className="mb-3">Are you interested in collaborating? Contact me for more information or hire me for a UI freelance,*/}
+                {/*            please visit my portfolio <a>https://nthuyduong.github.io.</a></div>*/}
+                {/*        <div className="medium_text">Get in touch: Nthduong898@gmail.com</div>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
                 <div className="subscribe-blog">
                     <div className="grid grid-cols-6">
                         <div className="col-span-2"></div>

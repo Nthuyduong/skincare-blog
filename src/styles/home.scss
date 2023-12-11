@@ -1,10 +1,13 @@
 @use 'variables' as v;
 .home-banner{
   .banner-right{
-    background-image: url("../imgs/banner2.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    //background-image: url("../imgs/banner2.png");
+    //background-size: cover;
+    //background-repeat: no-repeat;
+    //background-attachment: fixed;
+    .spin-logo{
+      right: 10%;
+    }
   }
 }
 .recently-update{
@@ -50,7 +53,10 @@
   position: relative;
   height: 430px;
   //padding: 140px 40px;
-  background-image: url("../imgs/contact.jpg");
+  background-image: url("../imgs/contactme.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   .contact-inner{
     position: absolute;
     top: 45%;

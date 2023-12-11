@@ -49,10 +49,13 @@
 
 }
 .contact-me{
-  background-color: v.$border_color;
+  background-image: url("../imgs/contactme.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   padding: 100px;
   .contact-me-inner{
-    background-color: v.$bg_color;
+    background-color: #fff;
     padding: 60px;
   }
 }
