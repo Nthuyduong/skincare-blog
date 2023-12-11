@@ -103,3 +103,32 @@
   height: 1px;
   width: 100%;
 }
+
+//Create a new post
+.create-new-post{
+  .create-function{
+    border-bottom: 1px solid v.$border2_color;
+  }
+  .create-content{
+    width: 100%;
+  }
+  //Setting bar - Create a new post
+  .setting-bar{
+    background: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 167.5px;
+    right: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    .post-side-setting{
+      padding: 20px;
+      background-color: #F9F9FB;
+    }
+  }
+  .setting-bar.open{
+    width: 25%;
+    margin-left: 25%;
+  }
+}
