@@ -41,7 +41,7 @@ const Header = () => {
         <div>
             <div className="top-header flex justify-center p-4">
                 <div className="">
-                    <img className="h-5" src="./img/logo.svg" alt="smile" loading="lazy"/>
+                    <img className="h-5" src="./img/logo2.svg" alt="smile" loading="lazy"/>
                 </div>
             </div>
             {/*search popdown*/}

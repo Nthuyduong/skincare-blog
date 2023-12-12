@@ -189,7 +189,7 @@ const Home = () => {
                         <div className="flex justify-center">
                             {/*breadcrumb*/}
                             <div className="flex self-center">
-                                <div className="heading_3">Popular Destinations</div>
+                                <div className="heading_3">Skincare Guides & Tutorials</div>
                             </div>
                             {/*Change layout*/}
                             <div className="self-center flex ml-auto">
@@ -216,14 +216,11 @@ const Home = () => {
                                     width={100}/>
                             </div>
                             <div className="category-des-content">
-                                <div className="heading_4 top-destination-title py-3">Drink & Coffee</div>
+                                <div className="heading_4 top-destination-title py-2">How to clean</div>
                                 <div className="flex py-2 sub-title">
                                     <div className="flex">
-                                        <div className="flex article-count pr-1">
+                                        <div className="flex pr-1">
                                             <div>10 Blogs Article</div>
-                                        </div>
-                                        <div className="flex location-count pl-1">
-                                            <div>20 Location</div>
                                         </div>
                                     </div>
                                     <div className="ml-auto">
@@ -244,14 +241,11 @@ const Home = () => {
                                 />
                             </div>
                             <div className="category-des-content">
-                                <div className="heading_4 top-destination-title py-3">Drink & Coffee</div>
+                                <div className="heading_4 top-destination-title py-2">Shopping guide</div>
                                 <div className="flex py-2 sub-title">
                                     <div className="flex">
-                                        <div className="flex article-count pr-1">
+                                        <div className="flex pr-1">
                                             <div>10 Blogs Article</div>
-                                        </div>
-                                        <div className="flex location-count pl-1">
-                                            <div>20 Location</div>
                                         </div>
                                     </div>
                                     <div className="ml-auto">
