@@ -179,14 +179,14 @@ const About = () => {
                         </div>
                     </div>
                     <div className="col-span-12 md:col-span-6 img-abt-blog">
-                        <img className="w-100" src="./img/about/abt-blog.jpg" alt="smile" loading="lazy"/>
+                        <img className="w-100" src="./img/about/abt-blog.png" alt="smile" loading="lazy"/>
                     </div>
                 </div>
             </div>
             <div className="blog-mission">
                 <div className="grid grid-cols-12 mission-inner flex gap-5">
                     <div className="col-span-12 md:col-span-6 img-mission">
-                        <img className="w-100" src="./img/about/mission.jpg" alt="smile" loading="lazy"/>
+                        <img className="w-100" src="./img/about/mission.png" alt="smile" loading="lazy"/>
                     </div>
                     <div className="col-span-12 md:col-span-6 mission-content m-auto md:p-5">
                         <div className="heading_3 mb-2">My mission</div>
@@ -207,23 +207,23 @@ const About = () => {
                     <div className="medium_text">Get in touch: Nthduong898@gmail.com</div>
                 </div>
             </div>
-            <div className="subscribe-blog">
-                <div className="grid grid-cols-6">
-                    <div className="md:col-span-2"></div>
-                    <div className="col-span-6 md:col-span-2">
-                        <div className="">
-                            <div className="heading_3 text-center mb-5">Sign Up For Newsletters</div>
-                            <div>
-                                <div className="email-signup my-input mb-3">
-                                    <input className="w-full" placeholder="Email address"/>
-                                </div>
-                                <button className="w-full my-btn-pr" type="submit">Subscribe</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="md:col-span-2"></div>
-                </div>
-            </div>
+            {/*<div className="subscribe-blog">*/}
+            {/*    <div className="grid grid-cols-6">*/}
+            {/*        <div className="md:col-span-2"></div>*/}
+            {/*        <div className="col-span-6 md:col-span-2">*/}
+            {/*            <div className="">*/}
+            {/*                <div className="heading_3 text-center mb-5">Sign Up For Newsletters</div>*/}
+            {/*                <div>*/}
+            {/*                    <div className="email-signup my-input mb-3">*/}
+            {/*                        <input className="w-full" placeholder="Email address"/>*/}
+            {/*                    </div>*/}
+            {/*                    <button className="w-full my-btn-pr" type="submit">Subscribe</button>*/}
+            {/*                </div>*/}
+            {/*            </div>*/}
+            {/*        </div>*/}
+            {/*        <div className="md:col-span-2"></div>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
         </div>
     )
 }
