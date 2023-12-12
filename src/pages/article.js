@@ -1,12 +1,14 @@
+import React from "react";
+
 const Article = () => {
     return (
-        <div>
+        <div className="article-single-post">
             <div className="container-fluid">
                 <div className="grid grid-cols-12">
                     <div className="col-span-8">
                         <div className="main-article">
                             {/*pagination*/}
-                            <div className="mb-2">
+                            <div className="mb-4">
                                 <ul className="flex">
                                     <li><a href="#">Home</a></li>
                                     <li className="mx-2">/</li>
@@ -15,8 +17,11 @@ const Article = () => {
                                     <li><a href="#">Drink & Coffee</a></li>
                                 </ul>
                             </div>
+                            <div className="mb-4 heading_2 article-title">
+                                Vietnam With Kids: 6 Best Vietnam Family Holiday Destinations + Travel Tips
+                            </div>
                             {/*author and more information*/}
-                            <div className="my-2 sub-main-article py-2">
+                            <div className="my-2 mb-5 sub-main-article py-2">
                                 <div className="flex">
                                     <div className="flex">
                                         <div>By Nthduong</div>
@@ -29,9 +34,6 @@ const Article = () => {
                                     </div>
                                     <div className="ml-auto">About 10 minutes read</div>
                                 </div>
-                            </div>
-                            <div className="heading_2 mb-5 pb-5 article-title">
-                                Vietnam With Kids: 6 Best Vietnam Family Holiday Destinations + Travel Tips
                             </div>
                             <div className="article-content">
                                 <div className="mb-2 font-medium">
@@ -104,8 +106,8 @@ const Article = () => {
                                             <img className="w-full rounded-3xl" src="./img/article/avata.jpg" alt="smile" loading="lazy"/>
                                         </div>
                                         <div>
-                                            <div>3 days ago</div>
                                             <div className="medium_text">Nthuyduong</div>
+                                            <div>3 days ago</div>
                                         </div>
                                     </div>
                                     <div className="flex ml-auto">
@@ -117,6 +119,7 @@ const Article = () => {
                                     Baking time will vary if you change the pan size. Every oven is different so I can’t say
                                     for certain what you’ll need to adjust it to. Be  sure to check on the cakes while they are baking.
                                 </div>
+                                <div className="mt-3"><a className="text-link" href="#">Reply</a></div>
                             </div>
                             <div className="comment-border"></div>
                             <div className="comment-main">
@@ -126,8 +129,8 @@ const Article = () => {
                                             <img className="w-full rounded-3xl" src="./img/article/avata.jpg" alt="smile" loading="lazy"/>
                                         </div>
                                         <div>
-                                            <div>3 days ago</div>
                                             <div className="medium_text">Nthuyduong</div>
+                                            <div>3 days ago</div>
                                         </div>
                                     </div>
                                     <div className="flex ml-auto">
@@ -139,6 +142,7 @@ const Article = () => {
                                     Baking time will vary if you change the pan size. Every oven is different so I can’t say
                                     for certain what you’ll need to adjust it to. Be  sure to check on the cakes while they are baking.
                                 </div>
+                                <div className="mt-3"><a className="text-link" href="#">Reply</a></div>
                             </div>
                             <div className="comment-border"></div>
                             <div className="comment-main">
@@ -148,8 +152,8 @@ const Article = () => {
                                             <img className="w-full rounded-3xl" src="./img/article/avata.jpg" alt="smile" loading="lazy"/>
                                         </div>
                                         <div>
-                                            <div>3 days ago</div>
                                             <div className="medium_text">Nthuyduong</div>
+                                            <div>3 days ago</div>
                                         </div>
                                     </div>
                                     <div className="flex ml-auto">
@@ -161,6 +165,7 @@ const Article = () => {
                                     Baking time will vary if you change the pan size. Every oven is different so I can’t say
                                     for certain what you’ll need to adjust it to. Be  sure to check on the cakes while they are baking.
                                 </div>
+                                <div className="mt-3"><a className="text-link" href="#">Reply</a></div>
                             </div>
                             <div className="comment-border"></div>
                             <div className="comment-main">
@@ -170,12 +175,12 @@ const Article = () => {
                                             <img className="w-full rounded-3xl" src="./img/article/avata.jpg" alt="smile" loading="lazy"/>
                                         </div>
                                         <div>
-                                            <div className="mr-2">3 days ago</div>
                                             <div className="medium_text">Nthuyduong</div>
+                                            <div className="">3 days ago</div>
                                         </div>
                                     </div>
                                     <div className="flex ml-auto">
-                                        <div >10</div>
+                                        <div className="mr-2">10</div>
                                         <div>heart</div>
                                     </div>
                                 </div>
@@ -183,6 +188,21 @@ const Article = () => {
                                     Baking time will vary if you change the pan size. Every oven is different so I can’t say
                                     for certain what you’ll need to adjust it to. Be  sure to check on the cakes while they are baking.
                                 </div>
+                                <div className="mt-3"><a className="text-link" href="#">Reply</a></div>
+                            </div>
+                            {/*paginate*/}
+                            <div className="mt-5 paginate flex w-full justify-center">
+                                <a>
+                                    Previous
+                                    <span></span>
+                                </a>
+                                <div className="mx-2 pagi-item p-3 rounded-full flex">1</div>
+                                <div className="pagi-item p-3 rounded-full flex">2</div>
+                                <div className="mx-2 pagi-item p-3 rounded-full flex">3</div>
+                                <a>
+                                    Next
+                                    <span></span>
+                                </a>
                             </div>
                         </div>
                         {/*Leave a comment*/}

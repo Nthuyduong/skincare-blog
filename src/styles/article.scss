@@ -1,4 +1,7 @@
 @use "variables" as v;
+.article-single-post{
+  margin-top: 60px;
+}
 .article-sidebar{
   .sidebar{
     position: -webkit-sticky;
@@ -21,9 +24,9 @@
 .main-article{
   padding-bottom: 60px;
   border-bottom: 1px solid v.$border2_color;
+
   .sub-main-article{
-  }
-  .article-title{
+    border-top :1px solid v.$border2_color;
     border-bottom :1px solid v.$border2_color;
   }
 }
@@ -38,6 +41,16 @@
     border: 1px solid v.$border2_color;
     padding: 8px 8px;
     background: transparent;
+  }
+  .paginate{
+    align-items: center;
+    .pagi-item{
+      background: #ccc;
+      height: 12px;
+      width: 12px;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }
 .leavecmt{
