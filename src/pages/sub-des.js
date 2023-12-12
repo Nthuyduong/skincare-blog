@@ -63,7 +63,7 @@ const Sub_destination = () => {
                                 </div>
                             </div>
                             <div className="all-post">
-                                <div className="grid grid-cols-3">
+                                <div className="grid grid-cols-3 gap-4">
                                     <div className="col-span-1">
                                         <div>
                                             <div>

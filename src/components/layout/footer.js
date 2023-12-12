@@ -6,25 +6,25 @@ const Footer = () => {
         <div className="blog-footer" id="blog-footer">
             <div className="blog-footer-inner">
                 <div className="grid grid-cols-6 footer-popular">
-                    <div className="sub-menu">
-                        <div className="mb-3">POPULAR</div>
-                        <ul>
-                            <li>
-                                <Link href={ROUTER.HOME} className="nav-link">Weading Photo Spots</Link>
-                            </li>
-                            <li className="">
-                                <Link href={ROUTER.HOME} className="nav-link">Ceramic Handmade Shop</Link>
-                            </li>
-                            <li>
-                                <Link href={ROUTER.HOME} className="nav-link">National Library</Link>
-                            </li>
-                            <li>
-                                <Link href={ROUTER.HOME} className="nav-link">Gusto Chela Coffee</Link>
-                            </li>
+                    {/*<div className="sub-menu">*/}
+                    {/*    <div className="mb-3">POPULAR</div>*/}
+                    {/*    <ul>*/}
+                    {/*        <li>*/}
+                    {/*            <Link href={ROUTER.HOME} className="nav-link">Weading Photo Spots</Link>*/}
+                    {/*        </li>*/}
+                    {/*        <li className="">*/}
+                    {/*            <Link href={ROUTER.HOME} className="nav-link">Ceramic Handmade Shop</Link>*/}
+                    {/*        </li>*/}
+                    {/*        <li>*/}
+                    {/*            <Link href={ROUTER.HOME} className="nav-link">National Library</Link>*/}
+                    {/*        </li>*/}
+                    {/*        <li>*/}
+                    {/*            <Link href={ROUTER.HOME} className="nav-link">Gusto Chela Coffee</Link>*/}
+                    {/*        </li>*/}
 
-                        </ul>
-                    </div>
-                    <div className="footer-info">
+                    {/*    </ul>*/}
+                    {/*</div>*/}
+                    <div className="footer-info col-span-1">
                         <div className="sub-menu">
                             <div className="mb-3">INTEREST</div>
                             <ul>
@@ -40,7 +40,7 @@ const Footer = () => {
                             </ul>
                         </div>
                     </div>
-                    <div className="footer-contact">
+                    <div className="footer-contact col-span-1">
                         <div className="sub-menu">
                             <div className="mb-3">INFO</div>
                             <ul>
@@ -53,7 +53,7 @@ const Footer = () => {
                             </ul>
                         </div>
                     </div>
-                    <div className=""></div>
+                    <div className="col-span-2"></div>
                     <div className="col-span-2">
                         <div className="mb-2">Enter your email address to receive new posts in your inbox and seasonal newsletters with
                             extra goodies!</div>
