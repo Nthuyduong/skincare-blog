@@ -15,7 +15,13 @@
       }
     }
     .right-all-posts{
-      padding-top: 60px;
+      padding-top: 32px;
+      .title-page{
+        .main-title{
+          top: 35%;
+          left: 5%;
+        }
+      }
     }
   }
 }

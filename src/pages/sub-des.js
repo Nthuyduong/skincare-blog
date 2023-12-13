@@ -20,16 +20,10 @@ const Sub_destination = () => {
                             </div>
                         </div>
                         <div className="col-span-10 right-all-posts">
-                            <div className="title-page">
-                                <div className="heading mb-4">Destinations</div>
-                                <div className="grid grid-cols-10">
-                                    <div className="col-span-1"></div>
-                                    <div className="col-span-6">
-                                        Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit
-                                        consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed.
-                                        Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
-                                    </div>
-                                    <div className="col-span-3"></div>
+                            <div className="relative title-page">
+                                <img className="w-100" src="./img/subdes/sub-banner.png" alt="smile" loading="lazy"/>
+                                <div className="absolute main-title">
+                                    <div className="heading mb-4">Testings & Reviews</div>
                                 </div>
                             </div>
                             <div className="destination-title my-5">
