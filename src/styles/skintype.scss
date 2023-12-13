@@ -1,0 +1,15 @@
+@use 'variables' as v;
+.skintype-page{
+  padding-top: 60px;
+  .head-content{
+    .heading{
+      margin-bottom: 26px;
+    }
+  }
+  .skin-bar{
+    border-bottom: 1px solid v.$border2_color;
+  }
+  .all-faq{
+
+  }
+}

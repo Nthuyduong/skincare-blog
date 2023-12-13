@@ -41,7 +41,7 @@ const Header = () => {
         <div>
             <div className="top-header flex justify-center p-4">
                 <div className="">
-                    <img className="h-5" src="./img/logo2.svg" alt="smile" loading="lazy"/>
+                    <img className="h-4" src="./img/logo2.svg" alt="smile" loading="lazy"/>
                 </div>
             </div>
             {/*search popdown*/}
@@ -163,7 +163,7 @@ const Header = () => {
                                                     <Link href={ROUTER.ABOUT} className="nav-link">About Blog</Link>
                                                 </div>
                                                 <div className="block px-4 py-2 text-sm text-gray-700">
-                                                    <Link href={ROUTER.SUBDES} className="nav-link">My skin history</Link>
+                                                    <Link href={ROUTER.SKINTYPE} className="nav-link">My skin history</Link>
                                                 </div>
                                                 <div className="block px-4 py-2 text-sm text-gray-700">
                                                     <Link href={ROUTER.CONTACT} className="nav-link">Contact me</Link>
