@@ -96,67 +96,67 @@ const Skintype = () => {
                         </div>
                     </div>
                 </div>
-                <div className="must-read mt60">
-                    <div className="flex mb-5 items-center">
-                        <div className="mr-auto">
-                            <div className="heading_3">Must-read topic to shine your skin</div>
-                        </div>
-                        <div className="">
-                            <a className="text-link" href="#">View all</a>
-                        </div>
-                    </div>
-                    <div className="grid grid-cols-4 gap-4">
-                        <div className="col-span-4 md:col-span-2 h-popular-des-ct">
-                            <div className="des-ct-img overflow-hidden">
-                                <img
-                                    className="w-full"
-                                    src="./img/home/category1.jpg"
-                                    alt="smile"
-                                    loading="lazy"
-                                    height={100}
-                                    width={100}/>
-                            </div>
-                            <div className="category-des-content">
-                                <div className="heading_4 top-destination-title py-2">How to clean</div>
-                                <div className="flex py-2 sub-title">
-                                    <div className="flex">
-                                        <div className="flex pr-1">
-                                            <div>10 Blogs Article</div>
-                                        </div>
-                                    </div>
-                                    <div className="ml-auto">
-                                        <a className="text-link" href="#">View all</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-span-4 md:col-span-2 h-popular-des-ct">
-                            <div className="des-ct-img overflow-hidden">
-                                <img
-                                    className="w-full"
-                                    src="./img/home/category.jpg"
-                                    alt="smile"
-                                    loading="lazy"
-                                    height={100}
-                                    width={100}
-                                />
-                            </div>
-                            <div className="category-des-content">
-                                <div className="heading_4 top-destination-title py-2">Shopping guide</div>
-                                <div className="flex py-2 sub-title">
-                                    <div className="flex">
-                                        <div className="flex pr-1">
-                                            <div>10 Blogs Article</div>
-                                        </div>
-                                    </div>
-                                    <div className="ml-auto">
-                                        <a className="text-link" href="#">View all</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {/*<div className="must-read mt60">*/}
+                {/*    <div className="flex mb-5 items-center">*/}
+                {/*        <div className="mr-auto">*/}
+                {/*            <div className="heading_3">Must-read topic to shine your skin</div>*/}
+                {/*        </div>*/}
+                {/*        <div className="">*/}
+                {/*            <a className="text-link" href="#">View all</a>*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*    <div className="grid grid-cols-4 gap-4">*/}
+                {/*        <div className="col-span-4 md:col-span-2 h-popular-des-ct">*/}
+                {/*            <div className="des-ct-img overflow-hidden">*/}
+                {/*                <img*/}
+                {/*                    className="w-full"*/}
+                {/*                    src="./img/home/category1.jpg"*/}
+                {/*                    alt="smile"*/}
+                {/*                    loading="lazy"*/}
+                {/*                    height={100}*/}
+                {/*                    width={100}/>*/}
+                {/*            </div>*/}
+                {/*            <div className="category-des-content">*/}
+                {/*                <div className="heading_4 top-destination-title py-2">How to clean</div>*/}
+                {/*                <div className="flex py-2 sub-title">*/}
+                {/*                    <div className="flex">*/}
+                {/*                        <div className="flex pr-1">*/}
+                {/*                            <div>10 Blogs Article</div>*/}
+                {/*                        </div>*/}
+                {/*                    </div>*/}
+                {/*                    <div className="ml-auto">*/}
+                {/*                        <a className="text-link" href="#">View all</a>*/}
+                {/*                    </div>*/}
+                {/*                </div>*/}
+                {/*            </div>*/}
+                {/*        </div>*/}
+                {/*        <div className="col-span-4 md:col-span-2 h-popular-des-ct">*/}
+                {/*            <div className="des-ct-img overflow-hidden">*/}
+                {/*                <img*/}
+                {/*                    className="w-full"*/}
+                {/*                    src="./img/home/category.jpg"*/}
+                {/*                    alt="smile"*/}
+                {/*                    loading="lazy"*/}
+                {/*                    height={100}*/}
+                {/*                    width={100}*/}
+                {/*                />*/}
+                {/*            </div>*/}
+                {/*            <div className="category-des-content">*/}
+                {/*                <div className="heading_4 top-destination-title py-2">Shopping guide</div>*/}
+                {/*                <div className="flex py-2 sub-title">*/}
+                {/*                    <div className="flex">*/}
+                {/*                        <div className="flex pr-1">*/}
+                {/*                            <div>10 Blogs Article</div>*/}
+                {/*                        </div>*/}
+                {/*                    </div>*/}
+                {/*                    <div className="ml-auto">*/}
+                {/*                        <a className="text-link" href="#">View all</a>*/}
+                {/*                    </div>*/}
+                {/*                </div>*/}
+                {/*            </div>*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
             </div>
         </div>
     )
