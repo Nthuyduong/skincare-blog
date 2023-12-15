@@ -25,6 +25,7 @@ $body_text: 14px;
 $small_text: 12px;
 
 body{
+  background: v.$bg_color;
   min-height: 100vh;
 }
 .page{
@@ -226,7 +227,7 @@ body{
       z-index: 3000;
       display: none;
       width: max-content;
-      background: #fff;
+      background: v.$bg_color;
       border-left: 1px solid v.$border_color;
       border-right: 1px solid v.$border_color;
       border-bottom: 1px solid v.$border_color;

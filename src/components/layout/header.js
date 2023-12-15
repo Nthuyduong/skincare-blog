@@ -40,9 +40,11 @@ const Header = () => {
     return(
         <div>
             <div className="top-header flex justify-center p-4">
-                <div className="">
-                    <img className="h-4" src="./img/logo2.svg" alt="smile" loading="lazy"/>
-                </div>
+                <Link href={ROUTER.HOME} className="">
+                    <div className="">
+                        <img className="h-4" src="./img/logo2.svg" alt="smile" loading="lazy"/>
+                    </div>
+                </Link>
             </div>
             {/*search popdown*/}
             <div id="search-popdown" className={`searchbar ${showw ? 's-true' : 's-false'}`}>

@@ -1,6 +1,9 @@
 @use 'variables' as v;
 .skintype-page{
-  padding-top: 60px;
+  .mt60{
+    padding-top: 80px;
+  }
+  padding-top: 40px;
   .head-content{
     .heading{
       margin-bottom: 26px;

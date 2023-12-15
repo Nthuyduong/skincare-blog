@@ -1,5 +1,8 @@
 import {useDispatch} from "react-redux";
 import {showModal} from "../../store/modal/modal.action";
+import {ROUTER} from "../../utils/constants";
+import React from "react";
+import Link from 'next/link'
 
 const Adminpostpage = () => {
 
@@ -10,7 +13,11 @@ const Adminpostpage = () => {
                 <div className="grid grid-cols-5 gap-4">
                     <div className="col-span-3"></div>
                     <div className="col-span-1">
-                        <button className="my-btn-pr w-full">Create new post</button>
+                        <button className="my-btn-pr w-full">
+                            <Link href={ROUTER.CREATEPOST}>
+                                Create new post
+                            </Link>
+                        </button>
                     </div>
                     <div className="col-span-1">
                         <button className="my-btn-pr w-full">Delete post</button>
