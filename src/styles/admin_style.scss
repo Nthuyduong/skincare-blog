@@ -117,18 +117,19 @@
     background: rgba(0, 0, 0, 0.5);
     height: 100%;
     width: 0;
-    position: fixed;
-    top: 167.5px;
     right: 0;
     overflow-x: hidden;
     transition: 0.5s;
+    position: sticky;
+    top: 0;
     .post-side-setting{
       padding: 20px;
       background-color: #F9F9FB;
+      height: 100%;
     }
   }
   .setting-bar.open{
-    width: 25%;
-    margin-left: 25%;
+    height: auto;
+    width: 41.6667% !important;
   }
 }

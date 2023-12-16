@@ -20,7 +20,7 @@ const Createpost = () => {
                     <div className="heading_1">Create new post</div>
                     <div>Upload new blog article here!</div>
                 </div>
-                <div className="grid grid-cols-12 gap-4 create-function pb-4 mb-4">
+                <div className="grid grid-cols-12 gap-4 create-function pb-4">
                     <div className="col-span-5">
 
                     </div>
@@ -39,8 +39,8 @@ const Createpost = () => {
                 </div>
             </div>
             <div>
-                <div className="gap-4">
-                    <div className="create-content">
+                <div className="gap-4 flex">
+                    <div className="create-content pt-4">
                         <Test/>
                     </div>
                     <div className={`setting-bar ${
