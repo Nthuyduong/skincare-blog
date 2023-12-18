@@ -14,5 +14,6 @@ export const ROUTER = {
     ADCATEGORY: '/admin/category',
     ADLOGIN: '/admin/login',
     CREATEPOST: '/admin/create_post',
-    SKINTYPE: '/skintype'
+    SKINTYPE: '/skintype',
+    ADSUBCATE: '/admin/sub-category',
 }

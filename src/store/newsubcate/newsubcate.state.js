@@ -1,8 +1,8 @@
 const state = {
-    modalNewPost: {
+    modalNewSubcate: {
         show: false,
     },
-    NewPostConfirm: {
+    NewSubcateConfirm: {
         show: false,
         title: null,
         callback: null,

@@ -1,17 +1,15 @@
-import {useDispatch} from "react-redux";
-import { showCategory } from "../../store/newcategory/category.action";
-import ModalCategory from "../../components/modal/category";
-import {showModal} from "../../store/modal/modal.action";
 import React from "react";
+import {useDispatch} from "react-redux";
+import {showModal} from "../../store/modal/modal.action";
 
-const Admincategory = () => {
+const SubCategory = () => {
 
     const dispatch = useDispatch();
 
-    const handleAddCategory = () => {
+    const handleAddSubCate = () => {
         // gọi action show modal loading
         dispatch(showModal({
-            name: "category",
+            name: "subcate",
             enableClickOutside: true,
         }))
     }
@@ -19,7 +17,7 @@ const Admincategory = () => {
     return(
         <div>
             <div className="category-page">
-                <div className="heading_1 mb-6">Category page</div>
+                <div className="heading_1 mb-6">Sub-Category page</div>
                 <div className="grid grid-cols-4 gap-4">
                     <div className="col-span-1">
                         <div className="search-bar-box flex">
@@ -36,7 +34,7 @@ const Admincategory = () => {
                         </select>
                     </div>
                     <div className="col-span-1">
-                        <button onClick={handleAddCategory} className="my-btn-pr w-full">New Category</button>
+                        <button onClick={handleAddSubCate} className="my-btn-pr w-full">New Category</button>
                     </div>
                     <div className="col-span-1">
                         <button className="my-btn-pr w-full">Delete category</button>
@@ -59,7 +57,7 @@ const Admincategory = () => {
                     </div>
                     <div className="post-list">
                         <div className="flex tbl-row">
-                            <div className="">
+                            <div>
                                 <input type="checkbox"/>
                             </div>
                             <div className="cell-ssm">ID</div>
@@ -79,7 +77,7 @@ const Admincategory = () => {
                             <div className="cell">Action</div>
                         </div>
                         <div className="flex tbl-row">
-                            <div className="">
+                            <div>
                                 <input type="checkbox"/>
                             </div>
                             <div className="cell-ssm">ID</div>
@@ -88,7 +86,6 @@ const Admincategory = () => {
                             <div className="cell">Post title</div>
                             <div className="cell">Author</div>
                             <div className="cell">
-
                             </div>
                             <div className="cell">
                                 <select className="sl-box">
@@ -101,7 +98,7 @@ const Admincategory = () => {
                             <div className="cell">Action</div>
                         </div>
                         <div className="flex tbl-row">
-                            <div className="">
+                            <div>
                                 <input type="checkbox"/>
                             </div>
                             <div className="cell-ssm">ID</div>
@@ -128,4 +125,5 @@ const Admincategory = () => {
         </div>
     )
 }
-export default Admincategory;
+
+export default SubCategory;

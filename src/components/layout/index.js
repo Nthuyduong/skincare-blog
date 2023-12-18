@@ -72,9 +72,9 @@ const Layout = ({ children }) => {
     if (discardElement.some((route) => pathname.includes(route))) {
         return (
             <div className="page">
-                <Sidebar/>
+                {pathname.includes(ROUTER.ADLOGIN) ? null : <Sidebar/>}
                 {/*<div className={`page-body-wrapper ${show && 'admin-wrapper'}`}>*/}
-                <div className={`page-body-wrapper admin-wrapper`}>
+                <div className={`page-body-wrapper ${pathname.includes(ROUTER.ADLOGIN) ? '' : 'admin-wrapper'}`}>
                     {/*<button onClick={handleLoading}>*/}
                     {/*    show loading*/}
                     {/*</button>*/}

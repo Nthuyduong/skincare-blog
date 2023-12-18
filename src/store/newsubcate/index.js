@@ -1,7 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-import reducer from "./newpost.reducer";
-import initialState from "./newpost.state";
+import reducer from "./newsubcate.reducer";
+import initialState from "./newsubcate.state";
 
 const modalNewPost = createSlice({
     name: 'modalNewPost',

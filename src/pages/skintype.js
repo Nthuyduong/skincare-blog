@@ -36,6 +36,7 @@ const Skintype = () => {
                         </div>
                         <div className="col-span-8">
                             <div className="collapse">
+                                <div className=""></div>
                                 <div className="content"></div>
                             </div>
                         </div>

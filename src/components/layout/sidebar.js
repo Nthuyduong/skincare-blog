@@ -19,8 +19,8 @@ const Sidebar = () => {
                 <div className="content-first pb-2">
                     <ul>
                         <li><Link href={ROUTER.ADDASHBOARD}>Dashboard</Link></li>
-                        <li><Link href="#">Category</Link></li>
-                        <li><Link href="#">Sub-Category</Link></li>
+                        <li><Link href={ROUTER.ADCATEGORY}>Category</Link></li>
+                        <li><Link href={ROUTER.ADSUBCATE}>Sub-Category</Link></li>
                         <li><Link href={ROUTER.ADPOST}>Post</Link></li>
                     </ul>
                 </div>
