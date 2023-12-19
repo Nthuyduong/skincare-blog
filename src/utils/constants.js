@@ -16,4 +16,6 @@ export const ROUTER = {
     CREATEPOST: '/admin/create_post',
     SKINTYPE: '/skintype',
     ADSUBCATE: '/admin/sub-category',
+    NOTFOUND: '/notfound',
+    TESTREVIEW: '/test_review'
 }

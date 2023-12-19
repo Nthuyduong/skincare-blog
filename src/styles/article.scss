@@ -64,3 +64,22 @@
 textarea{
   background: transparent;
 }
+
+//article single page - test n review page
+.test-review-page{
+  .banner-left{
+    background: #EBE4DC;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .banner-right{
+    img{
+      position: absolute;
+      height: 100%;
+      width: 50%;
+      left: 50%;
+      top: 0%;
+      object-fit: cover;
+    }
+  }
+}

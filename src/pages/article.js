@@ -7,8 +7,8 @@ const Article = () => {
                 <div className="grid grid-cols-12">
                     <div className="col-span-8">
                         <div className="main-article">
-                            {/*pagination*/}
-                            <div className="mb-4">
+                            {/*breadcrumb*/}
+                            <div className="mb-4 my-breadcrumb">
                                 <ul className="flex">
                                     <li><a href="#">Home</a></li>
                                     <li className="mx-2">/</li>

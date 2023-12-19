@@ -147,7 +147,7 @@ const Header = () => {
                                             </div>
                                         </div>
                                         <div className="text-gray-300 hover:text-gray rounded-md pr-3 py-4">
-                                            <Link href={ROUTER.ABOUT} className="nav-link">{t('header.review')}</Link>
+                                            <Link href={ROUTER.SUBDES} className="nav-link">{t('header.review')}</Link>
                                         </div>
                                         <div className="rounded-md pr-4 py-4">
                                             <Link href={ROUTER.CONTACT} className="nav-link">{t('header.tips')}</Link>
