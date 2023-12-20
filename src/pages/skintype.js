@@ -1,6 +1,75 @@
 import React from "react";
+import {useState} from "react";
 
 const Skintype = () => {
+
+    const faqData = [
+        {
+            question: 'What is your skin type?',
+            answer: 'Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque' +
+                'vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor',
+        },
+        {
+            question: 'Recommend products to treat you dry skin',
+            answer: 'Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque' +
+                'vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor',
+        },
+        {
+            question: 'Did you have acne in the pass?',
+            answer: 'Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque' +
+                'vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor',
+        },
+        {
+            question: 'How did you do to treat your acne?',
+            answer: 'Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque' +
+                'vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor',
+        },
+        {
+            question: 'The must-have skincare products you need?',
+            answer: 'Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque' +
+                'vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor',
+        },
+        {
+            question: 'What is your current skincare routine?',
+            answer: 'Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque' +
+                'vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor',
+        },
+        {
+            question: 'Do you alter your skincare routine with each changing season?',
+            answer: 'Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque' +
+                'vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor',
+        },
+        {
+            question: 'A different method to achieve healthy and beautiful skin',
+            answer: 'Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque' +
+                'vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor',
+        }
+    ];
+
+    const [activeIndex, setActiveIndex] = useState(null);
+
+    const toggleCollapse = (index) => {
+        setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
+    };
+
+    const faqElements = faqData.map((faq, index) => (
+        <div key={index} className="my-collapse">
+            <div className="mb-1 question-container flex" onClick={() => toggleCollapse(index)}>
+                <div className="question mr-auto medium_text">
+                    {/* Question is now in a separate div */}
+                    {faq.question}
+                </div>
+                <button>
+                    {/* You can style this button if needed */}
+                    +
+                </button>
+            </div>
+            <div className={`content-container ${activeIndex === index ? 'expanded' : 'collapsed'}`}>
+                {/* Content to be collapsed */}
+                <p>{faq.answer}</p>
+            </div>
+        </div>
+    ));
     return (
         <div className="skintype-page">
             <div className="container-fluid">
@@ -35,9 +104,8 @@ const Skintype = () => {
                             </div>
                         </div>
                         <div className="col-span-8">
-                            <div className="collapse">
-                                <div className=""></div>
-                                <div className="content"></div>
+                            <div className="">
+                                {faqElements}
                             </div>
                         </div>
                     </div>

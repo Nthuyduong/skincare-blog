@@ -16,3 +16,19 @@
 
   }
 }
+.my-collapse{
+  padding: 16px 0;
+  border-bottom: 1px solid v.$border2_color;
+  .question-container{
+    cursor: pointer;
+  }
+  .collapsed{
+    display: none;
+    overflow: hidden;
+    transition: height 0.3s ease;
+  }
+  .expanded{
+    height: max-content;
+    transition: height 0.3s ease
+  }
+}
