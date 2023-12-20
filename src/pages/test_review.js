@@ -25,7 +25,7 @@ const Testreview = () => {
             <div
                 key={index}
                 onClick={() => handleTabClick(index)}
-                className={`my-tabs text-center py-2 ${activeTab === index ? 'active' : ''}`}
+                className={`my-tabs text-center py-2 px-3 ${activeTab === index ? 'active' : ''}`}
             >
                 {tab.title}
             </div>
@@ -62,19 +62,59 @@ const Testreview = () => {
                     </div>
                 </div>
             </div>
-            <div className="container-fluid">
-                <div className="flex">
+            <div className="container-fluid ntd-tabs">
+                <div className="flex tabs-all-here">
                     {renderTabs()}
                 </div>
                 <div className="mt-4">
                     {activeTab === 0 && (
                         <div className="">
-
+                            <div>Why is it different</div>
+                            <div>SKIN PERFECTING 2% BHA Gel Exfoliant is a leave-on, water-light formula that gently and
+                                naturally exfoliates dead skin, just like your skin did when you were younger. This creates
+                                an immediate and dramatic improvement in skin's appearance and feel. Your skin will look more
+                                radiant and smooth, with diminished pore size, while softening the appearance of wrinkles.
+                                This exfoliant has a pH range of 3.2–3.8.</div>
+                            <div>What does it do?</div>
+                            <div>Works to create a younger appearance, revealing a glowing, smoother radiance, and diminishes
+                                pores, smooths bumps, and minimizes lines and wrinkles. It also provides long-lasting
+                                hydration for healthier-looking skin. It’s suitable even for skin prone to milia.</div>
+                            <div>Ingredient</div>
+                            <div>Water, Methylpropanediol, Butylene Glycol, (hydration), Polysorbate 20 (texture-enhancing),
+                                Salicylic Acid (beta hydroxy acid/exfoliant), Phytosphingosine (skin-renewing), Hydroxyethylcellulose
+                                (texture-enhancing), Vitis Vinifera Seed Extract (grape extract/antioxidant), Camellia Sinensis
+                                Flower/Leaf/Stem Extract (green tea/antioxidant) Epilobium Angustifolium Flower/Leaf/Stem
+                                Extract (willow herb/skin-soothing), Bisabolol (skin-soothing), Sodium Hydroxide (pH-adjusting),
+                                Tetrasodium EDTA (stabilizer).</div>
+                            <div>Storage Information</div>
+                            <div>Dry, cool place. Avoid direct sunlight, where there is high temperature or humidity.
+                                Close the lid after use</div>
                         </div>
                     )}
                     {activeTab === 1 && (
                         <div className="">
 
+                        </div>
+                    )}
+                    {activeTab === 2 && (
+                        <div>
+                            <div>
+                            Regardless of which exfoliant you choose, it is important that you use it after cleansing and
+                            toning. Other products in your routine, such as a serum and a day or night cream, should be
+                            applied after your exfoliant, starting from thinnest to thickest texture. An occasional-use
+                            rinse-off BHA peel should be applied to cleansed skin and rinsed after several minutes.
+                            Pat skin dry and follow with the rest of your routine. Please note you should not use the
+                            rinse-off peel on the same day as your other leave-on exfoliants.</div>
+                            <div>Tips to achieve the best results with a BHA exfoliant</div>
+                            <div>
+                                <ul>
+                                    <li>You don’t have to wait until your skin has absorbed the different products in your
+                                        routine. The BHA will still work if you apply other products immediately before or after.</li>
+                                    <li>Exfoliants can be applied to the skin under and around your eyes, but not underneath your eyebrows.</li>
+                                    <li>While daily exfoliation works best for most people, exfoliating every other day may be a better option for you.
+                                        Take some time to experiment.</li>
+                                </ul>
+                            </div>
                         </div>
                     )}
                 </div>

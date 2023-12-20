@@ -67,19 +67,35 @@ textarea{
 
 //article single page - test n review page
 .test-review-page{
-  .banner-left{
-    background: #EBE4DC;
-    padding-top: 80px;
-    padding-bottom: 80px;
+  .review-banner{
+    .banner-left{
+      background: #EBE4DC;
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+    .banner-right{
+      img{
+        position: absolute;
+        height: 100%;
+        width: 50%;
+        left: 50%;
+        top: 0%;
+        object-fit: cover;
+      }
+    }
   }
-  .banner-right{
-    img{
-      position: absolute;
-      height: 100%;
-      width: 50%;
-      left: 50%;
-      top: 0%;
-      object-fit: cover;
+  .ntd-tabs{
+    margin-top: 60px;
+    .tabs-all-here{
+      border-bottom: 1px solid #999;
+      cursor: pointer;
+      .my-tabs{
+        color: #999;
+      }
+      .my-tabs.active{
+        color: #333;
+        border-bottom: 1px solid #333;
+      }
     }
   }
 }
