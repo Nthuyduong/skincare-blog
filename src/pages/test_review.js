@@ -1,8 +1,36 @@
 import {ROUTER} from "../utils/constants";
 import Link from "next/link";
-import React from "react";
+import React, {useRef, useState} from "react";
 
 const Testreview = () => {
+
+    // tabs
+    const tabsRef = useRef([
+        { title: 'Description'},
+        { title: 'Who should use?'},
+        { title: 'How to use'},
+        { title: 'My skin result'},
+        { title: 'Reviews'},
+    ]);
+
+    const [activeTab, setActiveTab] = useState(0);
+
+    const handleTabClick = (index) => {
+        setActiveTab(index);
+    };
+
+    //hàm map để thực hiện lặp qua các mảng
+    const renderTabs = () => {
+        return tabsRef.current.map((tab, index) => (
+            <div
+                key={index}
+                onClick={() => handleTabClick(index)}
+                className={`my-tabs text-center py-2 ${activeTab === index ? 'active' : ''}`}
+            >
+                {tab.title}
+            </div>
+        ));
+    };
 
     return (
         <div className="test-review-page">
@@ -35,7 +63,21 @@ const Testreview = () => {
                 </div>
             </div>
             <div className="container-fluid">
+                <div className="flex">
+                    {renderTabs()}
+                </div>
+                <div className="mt-4">
+                    {activeTab === 0 && (
+                        <div className="">
 
+                        </div>
+                    )}
+                    {activeTab === 1 && (
+                        <div className="">
+
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     )

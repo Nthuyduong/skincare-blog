@@ -1,8 +1,11 @@
-import React from "react";
+import React, {useRef} from "react";
 import {useState} from "react";
+import {ROUTER} from "../utils/constants";
+import Link from "next/link";
 
 const Skintype = () => {
 
+    // FAQs
     const faqData = [
         {
             question: 'What is your skin type?',
@@ -127,8 +130,14 @@ const Skintype = () => {
                                     <img className="w-full" src="./img/skintype/1.png" alt="smile" loading="lazy"/>
                                 </div>
                                 <div className="mt-3">
-                                    <div className="small_text mb-1">Testings & Reviews</div>
-                                    <div className="medium_text">BHA Paula's Choice</div>
+                                    <div className="small_text mb-1">
+                                        Testings & Reviews
+                                    </div>
+                                    <div className="medium_text">
+                                        <Link href={ROUTER.TESTREVIEW}>
+                                            BHA Paula's Choice
+                                        </Link>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -139,7 +148,11 @@ const Skintype = () => {
                                 </div>
                                 <div className="mt-3">
                                     <div className="small_text mb-1">Testings & Reviews</div>
-                                    <div className="medium_text">BHA Paula's Choice</div>
+                                    <div className="medium_text">
+                                        <Link href={ROUTER.TESTREVIEW}>
+                                            BHA Paula's Choice
+                                        </Link>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -150,7 +163,11 @@ const Skintype = () => {
                                 </div>
                                 <div className="mt-3">
                                     <div className="small_text mb-1">Testings & Reviews</div>
-                                    <div className="medium_text">BHA Paula's Choice</div>
+                                    <div className="medium_text">
+                                        <Link href={ROUTER.TESTREVIEW}>
+                                            BHA Paula's Choice
+                                        </Link>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -161,7 +178,11 @@ const Skintype = () => {
                                 </div>
                                 <div className="mt-3">
                                     <div className="small_text mb-1">Testings & Reviews</div>
-                                    <div className="medium_text">BHA Paula's Choice</div>
+                                    <div className="medium_text">
+                                        <Link href={ROUTER.TESTREVIEW}>
+                                            BHA Paula's Choice
+                                        </Link>
+                                    </div>
                                 </div>
                             </div>
                         </div>
