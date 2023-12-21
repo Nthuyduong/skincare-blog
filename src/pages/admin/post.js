@@ -110,7 +110,8 @@ const Adminpostpage = () => {
                             </div>
                             <div className="cell">
                                 <div className="flex justify-center">
-                                    <img className="icon-sm mr-2" src="../img/icon/zoom-in.svg" alt="smile" loading="lazy"/>
+                                    <img className="icon-sm" src="../img/icon/zoom-in.svg" alt="smile" loading="lazy"/>
+                                    <img className="icon-sm mx-2" src="../img/icon/edit.svg" alt="smile" loading="lazy"/>
                                     <img className="icon-sm" src="../img/icon/trash.svg" alt="smile" loading="lazy"/>
                                 </div>
                             </div>
@@ -136,7 +137,8 @@ const Adminpostpage = () => {
                             </div>
                             <div className="cell">
                                 <div className="flex justify-center">
-                                    <img className="icon-sm mr-2" src="../img/icon/zoom-in.svg" alt="smile" loading="lazy"/>
+                                    <img className="icon-sm" src="../img/icon/zoom-in.svg" alt="smile" loading="lazy"/>
+                                    <img className="icon-sm mx-2" src="../img/icon/edit.svg" alt="smile" loading="lazy"/>
                                     <img className="icon-sm" src="../img/icon/trash.svg" alt="smile" loading="lazy"/>
                                 </div>
                             </div>
@@ -162,7 +164,8 @@ const Adminpostpage = () => {
                             </div>
                             <div className="cell">
                                 <div className="flex justify-center">
-                                    <img className="icon-sm mr-2" src="../img/icon/zoom-in.svg" alt="smile" loading="lazy"/>
+                                    <img className="icon-sm" src="../img/icon/zoom-in.svg" alt="smile" loading="lazy"/>
+                                    <img className="icon-sm mx-2" src="../img/icon/edit.svg" alt="smile" loading="lazy"/>
                                     <img className="icon-sm" src="../img/icon/trash.svg" alt="smile" loading="lazy"/>
                                 </div>
                             </div>

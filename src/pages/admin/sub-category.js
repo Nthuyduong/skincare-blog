@@ -47,8 +47,7 @@ const SubCategory = () => {
                             <input type="checkbox"/>
                         </div>
                         <div className="cell-ssm">ID</div>
-                        <div className="cell">Category name</div>
-                        <div className="cell">Feature image</div>
+                        <div className="cell">Name</div>
                         <div className="cell">Description</div>
                         <div className="cell">Sub-category</div>
                         <div className="cell">Total post</div>
@@ -61,8 +60,7 @@ const SubCategory = () => {
                                 <input type="checkbox"/>
                             </div>
                             <div className="cell-ssm">ID</div>
-                            <div className="cell">Date & Time</div>
-                            <div className="cell">Feature image</div>
+                            <div className="cell">Name</div>
                             <div className="cell">Post title</div>
                             <div className="cell">Author</div>
                             <div className="cell"></div>
@@ -74,15 +72,20 @@ const SubCategory = () => {
                                     <option value="">New</option>
                                 </select>
                             </div>
-                            <div className="cell">Action</div>
+                            <div className="cell">
+                                <div className="flex justify-center">
+                                    <img className="icon-sm" src="../img/icon/zoom-in.svg" alt="smile" loading="lazy"/>
+                                    <img className="icon-sm mx-2" src="../img/icon/edit.svg" alt="smile" loading="lazy"/>
+                                    <img className="icon-sm" src="../img/icon/trash.svg" alt="smile" loading="lazy"/>
+                                </div>
+                            </div>
                         </div>
                         <div className="flex tbl-row">
                             <div>
                                 <input type="checkbox"/>
                             </div>
                             <div className="cell-ssm">ID</div>
-                            <div className="cell">Date & Time</div>
-                            <div className="cell">Feature image</div>
+                            <div className="cell">Name</div>
                             <div className="cell">Post title</div>
                             <div className="cell">Author</div>
                             <div className="cell">
@@ -95,15 +98,20 @@ const SubCategory = () => {
                                     <option value="">New</option>
                                 </select>
                             </div>
-                            <div className="cell">Action</div>
+                            <div className="cell">
+                                <div className="flex justify-center">
+                                    <img className="icon-sm" src="../img/icon/zoom-in.svg" alt="smile" loading="lazy"/>
+                                    <img className="icon-sm mx-2" src="../img/icon/edit.svg" alt="smile" loading="lazy"/>
+                                    <img className="icon-sm" src="../img/icon/trash.svg" alt="smile" loading="lazy"/>
+                                </div>
+                            </div>
                         </div>
                         <div className="flex tbl-row">
                             <div>
                                 <input type="checkbox"/>
                             </div>
                             <div className="cell-ssm">ID</div>
-                            <div className="cell">Date & Time</div>
-                            <div className="cell">Feature image</div>
+                            <div className="cell">Name</div>
                             <div className="cell">Post title</div>
                             <div className="cell">Author</div>
                             <div className="cell">
@@ -117,7 +125,13 @@ const SubCategory = () => {
                                     <option value="">New</option>
                                 </select>
                             </div>
-                            <div className="cell">Action</div>
+                            <div className="cell">
+                                <div className="flex justify-center">
+                                    <img className="icon-sm" src="../img/icon/zoom-in.svg" alt="smile" loading="lazy"/>
+                                    <img className="icon-sm mx-2" src="../img/icon/edit.svg" alt="smile" loading="lazy"/>
+                                    <img className="icon-sm" src="../img/icon/trash.svg" alt="smile" loading="lazy"/>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
