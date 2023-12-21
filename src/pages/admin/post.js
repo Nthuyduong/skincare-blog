@@ -3,21 +3,37 @@ import {showModal} from "../../store/modal/modal.action";
 import {ROUTER} from "../../utils/constants";
 import React from "react";
 import Link from 'next/link'
+import {useState} from "react";
 
 const Adminpostpage = () => {
+
+    const [paginationPage, setPaginationPage] = useState(1);
+
+    const handlePageClick = (go) => {
+        if (go === '+1') {
+            setPaginationPage((prevPage) => prevPage + 1);
+        } else if (go === '-1') {
+            setPaginationPage((prevPage) => prevPage - 1);
+        } else {
+            setPaginationPage(parseInt(go, 10));
+        }
+    };
 
     return(
         <div>
             <div className="post-page">
                 <div className="heading_1 mb-6">Post Page</div>
                 <div className="grid grid-cols-5 gap-4">
-                    <div className="col-span-3"></div>
+                    <div className="col-span-2"></div>
                     <div className="col-span-1">
                         <button className="my-btn-pr w-full">
                             <Link href={ROUTER.CREATEPOST}>
                                 Create new post
                             </Link>
                         </button>
+                    </div>
+                    <div className="col-span-1">
+                        <button className="my-btn-pr w-full">Update post</button>
                     </div>
                     <div className="col-span-1">
                         <button className="my-btn-pr w-full">Delete post</button>
@@ -63,23 +79,27 @@ const Adminpostpage = () => {
                 {/*POST TABLE*/}
                 <div className="admin-tbl">
                     <div className="flex tbl-row admin-tbl-title">
+                        <div className="select-all">
+                            <input type="checkbox"/>
+                        </div>
                         <div className="cell-ssm">ID</div>
-                        <div className="cell">Date & Time</div>
-                        <div className="cell">Feature image</div>
+                        <div className="cell-sm">Date</div>
                         <div className="cell">Post title</div>
+                        <div className="cell">Description</div>
                         <div className="cell">Author</div>
-                        <div className="cell">Status</div>
                         <div className="cell">Action</div>
-                        <div className="cell">Action</div>
+                        <div className="cell"></div>
                     </div>
                     <div className="post-list">
                         <div className="flex tbl-row">
+                            <div className="select-all">
+                                <input type="checkbox"/>
+                            </div>
                             <div className="cell-ssm">ID</div>
-                            <div className="cell">Date & Time</div>
-                            <div className="cell">Feature image</div>
+                            <div className="cell-sm">Date</div>
                             <div className="cell">Post title</div>
+                            <div className="cell">Description</div>
                             <div className="cell">Author</div>
-                            <div className="cell">Status</div>
                             <div className="cell">
                                 <select className="sl-box">
                                     <option value="" defaultValue hidden>Choose status</option>
@@ -88,16 +108,23 @@ const Adminpostpage = () => {
                                     <option value="">New</option>
                                 </select>
                             </div>
-                            <div className="cell">Action</div>
+                            <div className="cell">
+                                <div className="flex justify-center">
+                                    <img className="icon-sm mr-2" src="../img/icon/zoom-in.svg" alt="smile" loading="lazy"/>
+                                    <img className="icon-sm" src="../img/icon/trash.svg" alt="smile" loading="lazy"/>
+                                </div>
+                            </div>
                         </div>
                         <div className="flex tbl-row">
+                            <div className="select-all">
+                                <input type="checkbox"/>
+                            </div>
                             <div className="cell-ssm">ID</div>
-                            <div className="cell">Date & Time</div>
-                            <div className="cell">Feature image</div>
+                            <div className="cell-sm">Date</div>
                             <div className="cell">Post title</div>
-                            <div className="cell">Author</div>
+                            <div className="cell">Description</div>
                             <div className="cell">
-
+                                Author
                             </div>
                             <div className="cell">
                                 <select className="sl-box">
@@ -107,16 +134,23 @@ const Adminpostpage = () => {
                                     <option value="">New</option>
                                 </select>
                             </div>
-                            <div className="cell">Action</div>
+                            <div className="cell">
+                                <div className="flex justify-center">
+                                    <img className="icon-sm mr-2" src="../img/icon/zoom-in.svg" alt="smile" loading="lazy"/>
+                                    <img className="icon-sm" src="../img/icon/trash.svg" alt="smile" loading="lazy"/>
+                                </div>
+                            </div>
                         </div>
                         <div className="flex tbl-row">
+                            <div className="select-all">
+                                <input type="checkbox"/>
+                            </div>
                             <div className="cell-ssm">ID</div>
-                            <div className="cell">Date & Time</div>
-                            <div className="cell">Feature image</div>
+                            <div className="cell-sm">Date</div>
                             <div className="cell">Post title</div>
-                            <div className="cell">Author</div>
+                            <div className="cell">Description</div>
                             <div className="cell">
-
+                                Author
                             </div>
                             <div className="cell">
                                 <select className="sl-box">
@@ -126,9 +160,30 @@ const Adminpostpage = () => {
                                     <option value="">New</option>
                                 </select>
                             </div>
-                            <div className="cell">Action</div>
+                            <div className="cell">
+                                <div className="flex justify-center">
+                                    <img className="icon-sm mr-2" src="../img/icon/zoom-in.svg" alt="smile" loading="lazy"/>
+                                    <img className="icon-sm" src="../img/icon/trash.svg" alt="smile" loading="lazy"/>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            {/*Pagination*/}
+            <div>
+                <div className="flex justify-end content_detail__pagination cdp" actpage={paginationPage}>
+                    <a href="#!-1" className="cdp_i" onClick={() => handlePageClick('-1')}>
+                        prev
+                    </a>
+                    {Array.from({ length: 20 }, (_, i) => (
+                        <a key={i} href={`#!${i + 1}`} className="cdp_i" onClick={() => handlePageClick(`${i + 1}`)}>
+                            {i + 1}
+                        </a>
+                    ))}
+                    <a href="#!+1" className="cdp_i" onClick={() => handlePageClick('+1')}>
+                        next
+                    </a>
                 </div>
             </div>
         </div>

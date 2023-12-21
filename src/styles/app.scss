@@ -203,7 +203,6 @@ body{
 }
 //Header
 #blog-nav{
-
   .active{
     width: 100%;
     position: fixed;
@@ -262,7 +261,6 @@ body{
     }
   }
 }
-
 @media only screen and (min-width: 768px) {
   .container-fluid{
     padding-left: 120px;
@@ -287,7 +285,6 @@ body{
 .icon-ssm{
   height: 20px;
 }
-
 //hover gallery img to see content
 .gallery-s{
   .gallery-inner{
@@ -299,7 +296,6 @@ body{
 .gallery-s:hover .gallery-content{
   display: block;
 }
-
 //My carousel
 .slider-wrp{
   .slider-control{

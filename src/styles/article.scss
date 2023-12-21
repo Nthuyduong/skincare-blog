@@ -84,17 +84,21 @@ textarea{
       }
     }
   }
-  .ntd-tabs{
+  .main-content{
     margin-top: 60px;
-    .tabs-all-here{
-      border-bottom: 1px solid #999;
-      cursor: pointer;
-      .my-tabs{
-        color: #999;
-      }
-      .my-tabs.active{
-        color: #333;
-        border-bottom: 1px solid #333;
+    .ntd-tabs{
+      height: 400px;
+      margin-bottom: 60px;
+      .tabs-all-here{
+        border-bottom: 1px solid #999;
+        cursor: pointer;
+        .my-tabs{
+          color: #999;
+        }
+        .my-tabs.active{
+          color: #333;
+          border-bottom: 1px solid #333;
+        }
       }
     }
   }
