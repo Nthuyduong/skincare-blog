@@ -19,7 +19,7 @@ const Header = () => {
 
     const [show, setShow] = useState(false)
     const controlNavbar = () => {
-        if (window.scrollY > 300 ) {
+        if (window.scrollY > 72 ) {
             setShow(true)
         }else{
             setShow(false)
@@ -73,8 +73,8 @@ const Header = () => {
                 </div>
             </div>
             {/*nav bar*/}
-            <div className={`active ${show && 'hidden'}`}>
-                <nav className="nav_blog" id="blog-nav">
+            <div className={`container-fluid active ${show && 'sticky-wrapper menu-opacity'}`}>
+                <nav className="nav_blog w-full" id="blog-nav">
                     <div className="nav-blog-inner px-0 sm:px-0 lg:px-0">
                         <div className="relative flex h-16 items-center justify-between">
                             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
