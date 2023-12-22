@@ -3,38 +3,68 @@ import React from "react";
 const Article = () => {
     return (
         <div className="article-single-post">
-            <div className="container-fluid">
-                <div className="grid grid-cols-12">
-                    <div className="col-span-8">
-                        <div className="main-article">
-                            {/*breadcrumb*/}
-                            <div className="mb-4 my-breadcrumb">
-                                <ul className="flex">
-                                    <li><a href="#">Home</a></li>
-                                    <li className="mx-2">/</li>
-                                    <li><a href="#">Destinations</a></li>
-                                    <li className="mx-2">/</li>
-                                    <li><a href="#">Drink & Coffee</a></li>
-                                </ul>
-                            </div>
-                            <div className="mb-4 heading_2 article-title">
-                                Vietnam With Kids: 6 Best Vietnam Family Holiday Destinations + Travel Tips
-                            </div>
-                            {/*author and more information*/}
-                            <div className="my-2 mb-5 sub-main-article py-2">
-                                <div className="flex">
-                                    <div className="flex">
-                                        <div>By Nthduong</div>
-                                        <div className="flex ml-3">
-                                            <div className="mr-1">
-                                                <img className="icon-sm" src="./img/icon/clock.svg" alt="smile" loading="lazy"/>
-                                            </div>
-                                            <div>November 6, 2023</div>
-                                        </div>
+            <div className="test-review-page">
+                <div className="review-banner">
+                    <div className="relative">
+                        <div className="container-fluid banner-left">
+                            <div className="grid grid-cols-12">
+                                <div className="col-span-5">
+                                    {/*breadcrumb*/}
+                                    <div className="mb-3 my-breadcrumb">
+                                        <ul className="flex">
+                                            <li><a href="#">Home</a></li>
+                                            <li className="mx-2">/</li>
+                                            <li><a href="#">Tests and Reviews</a></li>
+                                            <li className="mx-2">/</li>
+                                            <li><a href="#">Paula's Choice 2% BHA liquid exfoliant</a></li>
+                                        </ul>
                                     </div>
-                                    <div className="ml-auto">About 10 minutes read</div>
+                                    <div className="heading_3 mb-2">What does Paula's Choice 2% BHA liquid exfoliant do?</div>
+                                    <div className="medium_text mb-3">Sharing my skincare journey from the past to the present, along with my routine. I hope it provides helpful insights for you!</div>
+                                    <div className="small_text">Writen by: Nthduong</div>
+                                    <div className="small_text">16/01/2024</div>
+                                    <div className="small_text">About 10 minutes to read</div>
                                 </div>
                             </div>
+                        </div>
+                        <div className="banner-right">
+                            <img className="w-full" src="./img/testnreview/t1.png" alt="smile" loading="lazy"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="container-fluid">
+                <div className="grid grid-cols-9">
+                    <div className="col-span-7 article-out">
+                        <div className="main-article">
+                            {/*breadcrumb*/}
+                            {/*<div className="mb-4 my-breadcrumb">*/}
+                            {/*    <ul className="flex">*/}
+                            {/*        <li><a href="#">Home</a></li>*/}
+                            {/*        <li className="mx-2">/</li>*/}
+                            {/*        <li><a href="#">Destinations</a></li>*/}
+                            {/*        <li className="mx-2">/</li>*/}
+                            {/*        <li><a href="#">Drink & Coffee</a></li>*/}
+                            {/*    </ul>*/}
+                            {/*</div>*/}
+                            {/*<div className="mb-4 heading_2 article-title">*/}
+                            {/*    Vietnam With Kids: 6 Best Vietnam Family Holiday Destinations + Travel Tips*/}
+                            {/*</div>*/}
+                            {/*author and more information*/}
+                            {/*<div className="my-2 mb-5 sub-main-article py-2">*/}
+                            {/*    <div className="flex">*/}
+                            {/*        <div className="flex">*/}
+                            {/*            <div>By Nthduong</div>*/}
+                            {/*            <div className="flex ml-3">*/}
+                            {/*                <div className="mr-1">*/}
+                            {/*                    <img className="icon-sm" src="./img/icon/clock.svg" alt="smile" loading="lazy"/>*/}
+                            {/*                </div>*/}
+                            {/*                <div>November 6, 2023</div>*/}
+                            {/*            </div>*/}
+                            {/*        </div>*/}
+                            {/*        <div className="ml-auto">About 10 minutes read</div>*/}
+                            {/*    </div>*/}
+                            {/*</div>*/}
                             <div className="article-content">
                                 <div className="mb-2 font-medium">
                                     Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit
@@ -46,9 +76,9 @@ const Article = () => {
                                     Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
                                     Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
                                 </div>
-                                <div className="my-4">
-                                    <img className="w-full" src="./img/article/article.jpg" alt="smile" loading="lazy"/>
-                                </div>
+                                {/*<div className="my-4">*/}
+                                {/*    <img className="w-full" src="./img/article/article.jpg" alt="smile" loading="lazy"/>*/}
+                                {/*</div>*/}
                                 <div>
                                     Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
                                     Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
@@ -233,8 +263,7 @@ const Article = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-span-1"></div>
-                    <div className="col-span-3 article-sidebar">
+                    <div className="col-span-2 article-sidebar">
                         <div className="sidebar">
                             <div className="article-recently">
                                 <div className="heading_4 mb-3">Recently update</div>
@@ -247,17 +276,17 @@ const Article = () => {
                                     </ul>
                                 </div>
                             </div>
-                            <div>
-                                <div className="mt-4">
-                                    <img className="w-100" src="./img/article/myimg.jpg" alt="smile" loading="lazy"/>
-                                </div>
-                                <div className="text-center welcome-content">
-                                    <div className="heading_4 mb-2">Welcome to blog!</div>
-                                    <div>Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit
-                                        consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque
-                                        sed. Diam nec ut sed est sit in tortor.</div>
-                                </div>
-                            </div>
+                            {/*<div>*/}
+                            {/*    <div className="mt-4">*/}
+                            {/*        <img className="w-100" src="./img/article/myimg.jpg" alt="smile" loading="lazy"/>*/}
+                            {/*    </div>*/}
+                            {/*    <div className="text-center welcome-content">*/}
+                            {/*        <div className="heading_4 mb-2">Welcome to blog!</div>*/}
+                            {/*        <div>Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit*/}
+                            {/*            consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque*/}
+                            {/*            sed. Diam nec ut sed est sit in tortor.</div>*/}
+                            {/*    </div>*/}
+                            {/*</div>*/}
                             <div className="my-4">
                                 <div className="heading_4 mb-3">Sign up for email</div>
                                 <div>
@@ -304,6 +333,7 @@ const Article = () => {
                             </div>
                         </div>
                     </div>
+                    {/*<div className="col-span-1"></div>*/}
                 </div>
             </div>
         </div>

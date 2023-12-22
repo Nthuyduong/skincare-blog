@@ -1,8 +1,15 @@
 @use "variables" as v;
 .article-single-post{
-  margin-top: 60px;
+  //margin-top: 60px;
+  .article-out{
+    padding: 60px 60px 0 60px;
+    .article-content{
+      padding-bottom: 60px;
+    }
+  }
 }
 .article-sidebar{
+  padding-top: 60px;
   .sidebar{
     position: -webkit-sticky;
     position: sticky;
@@ -22,7 +29,6 @@
   }
 }
 .main-article{
-  padding-bottom: 60px;
   border-bottom: 1px solid v.$border2_color;
 
   .sub-main-article{

@@ -1,8 +1,25 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Link from 'next/link'
 import { ROUTER } from "../utils/constants";
 
 const Sub_destination = () => {
+
+    // const [show, setShow] = useState(false);
+    // const controlTitlebar = () => {
+    //     if(window.scrollY > 280) {
+    //         setShow(true)
+    //     }
+    //     else{
+    //         setShow(false)
+    //     }
+    // }
+    //
+    // useEffect(() => {
+    //     window.addEventListener('scroll', controlTitlebar)
+    //     return () => {
+    //         window.removeEventListener('scroll', controlTitlebar)
+    //     }
+    // }, [])
     return (
         <div className="sub-des-page">
             <div className="sub-des-inner">
