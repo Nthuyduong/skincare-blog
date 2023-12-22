@@ -12,14 +12,37 @@ const Header = () => {
 
     // Test for button search
     const [showw, setShoww] = useState(false);
+    const [prevScrollY, setPrevScrollY] = useState(0);
 
     const toggleVisibility = () => {
         setShoww(!showw);
     };
 
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollThreshold = 0.05;
+            const scrollY = window.scrollY;
+            const isScrollingUp = scrollY < prevScrollY;
+
+            if ((scrollY > scrollThreshold) || (showw && isScrollingUp) || (showw && 's-true')){
+                setShoww(false);
+            } else if (!showw && !isScrollingUp) {
+                setShoww(true);
+            }
+
+            setPrevScrollY(scrollY);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [prevScrollY, showw]);
+
     const [show, setShow] = useState(false)
     const controlNavbar = () => {
-        if (window.scrollY > 72 ) {
+        if (window.scrollY > 86 ) {
             setShow(true)
         }else{
             setShow(false)
@@ -39,29 +62,37 @@ const Header = () => {
     }
     return(
         <div>
-            <div className="top-header flex justify-center p-4">
-                <Link href={ROUTER.HOME} className="">
-                    <div className="">
+            <div className="top-header flex justify-center p-4 container-fluid justify-center w-full items-center">
+                <Link href={ROUTER.HOME} className="flex-1">
+                    <div className="flex items-center justify-center w-full">
                         <img className="h-4" src="./img/logo2.svg" alt="smile" loading="lazy"/>
                     </div>
                 </Link>
+                <div className="">
+                    <button type="button"
+                            onClick={toggleVisibility}
+                            className="relative rounded-full bg-gray-800 p-1 text-gray-400 focus:outline-none">
+                        <img className="icon-ssm" src="./img/icon/search.svg" alt="smile" loading="lazy"/>
+                    </button>
+                </div>
             </div>
+            {/*${show ? 'search-hide' : 'search-unhide'}*/}
             {/*search popdown*/}
-            <div id="search-popdown" className={`searchbar ${showw ? 's-true' : 's-false'}`}>
+            <div id="search-popdown" className={`searchbar ${showw ? 's-true' : 's-false'} `}>
                 <div className="search-bar-inner">
                     <div className="search-here">
                         <div className="grid grid-cols-12">
-                            <div className="col-span-10 self-center">
+                            <div className="col-span-11 self-center">
                                 <div className="flex">
                                     <div className="flex align-center self-center pr-2">
                                         <img className="icon-ssm" src="./img/icon/Search.svg" alt="smile" loading="lazy"/>
                                     </div>
-                                    <div className="my-search-bar nav-search">
-                                        <input className="searchbar-head p-1" placeholder="Search your destination..."/>
+                                    <div className="my-search-bar nav-search w-full">
+                                        <input className="searchbar-head p-1" placeholder="Enter article name and hit enter..."/>
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-span-2 close-search">
+                            <div className="col-span-1 close-search">
                                 <button type="button"
                                         onClick={toggleVisibility}
                                         className="relative rounded-full bg-gray-800 p-1 text-gray-400 focus:outline-none">
@@ -73,7 +104,7 @@ const Header = () => {
                 </div>
             </div>
             {/*nav bar*/}
-            <div className={`container-fluid active ${show && 'sticky-wrapper menu-opacity'}`}>
+            <div className={`container-fluid active ${show && 'sticky-wrapper'}`}>
                 <nav className="nav_blog w-full" id="blog-nav">
                     <div className="nav-blog-inner px-0 sm:px-0 lg:px-0">
                         <div className="relative flex h-16 items-center justify-between">
@@ -211,13 +242,7 @@ const Header = () => {
                                     {/*        dark*/}
                                     {/*    </div>*/}
                                     {/*</div>*/}
-                                    <div>
-                                        <button type="button"
-                                                onClick={toggleVisibility}
-                                                className="relative rounded-full bg-gray-800 p-1 text-gray-400 focus:outline-none">
-                                            <img className="icon-ssm" src="./img/icon/search.svg" alt="smile" loading="lazy"/>
-                                        </button>
-                                    </div>
+
                                     {/*<div>*/}
                                     {/*    <button type="button"*/}
                                     {/*            className="relative rounded-full bg-gray-800 p-1 text-gray-400 focus:outline-none">*/}
