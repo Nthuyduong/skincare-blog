@@ -104,7 +104,7 @@ const Header = () => {
                 </div>
             </div>
             {/*nav bar*/}
-            <div className={`container-fluid active ${show && 'sticky-wrapper'}`}>
+            <div className={`container-fluid nav-active ${show && 'sticky-wrapper'}`}>
                 <nav className="nav_blog w-full" id="blog-nav">
                     <div className="nav-blog-inner px-0 sm:px-0 lg:px-0">
                         <div className="relative flex h-16 items-center justify-between">
