@@ -57,7 +57,101 @@ const Sub_destination = () => {
                                 </div>
                             </div>
                             <div className="all-post">
-                                <div className="grid grid-cols-3 gap-4">
+                                <div className="grid grid-cols-3 gap-4 mb-3">
+                                    <div className="col-span-1">
+                                        <div>
+                                            <div>
+                                                <img className="w-100" src="./img/home/article.jpg" alt="smile" loading="lazy"/>
+                                            </div>
+                                            <div>
+                                                <div className="py-1 mb-1">
+                                                    <div className="mb-1">
+                                                        <div className="small_text">November 8, 2023</div>
+                                                    </div>
+                                                    <div className="heading_5">Top 5 beautiful Coffee Shop in HaNoi</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-span-1">
+                                        <div>
+                                            <div>
+                                                <img className="w-100" src="./img/home/article.jpg" alt="smile" loading="lazy"/>
+                                            </div>
+                                            <div>
+                                                <div className="py-1 mb-1">
+                                                    <div className="mb-1">
+                                                        <div className="small_text">November 8, 2023</div>
+                                                    </div>
+                                                    <div className="heading_5">Top 5 beautiful Coffee Shop in HaNoi</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-span-1">
+                                        <div>
+                                            <div>
+                                                <img className="w-100" src="./img/home/article.jpg" alt="smile" loading="lazy"/>
+                                            </div>
+                                            <div>
+                                                <div className="py-1 mb-1">
+                                                    <div className="mb-1">
+                                                        <div className="small_text">November 8, 2023</div>
+                                                    </div>
+                                                    <div className="heading_5">Top 5 beautiful Coffee Shop in HaNoi</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="grid grid-cols-3 gap-4 mb-3">
+                                    <div className="col-span-1">
+                                        <div>
+                                            <div>
+                                                <img className="w-100" src="./img/home/article.jpg" alt="smile" loading="lazy"/>
+                                            </div>
+                                            <div>
+                                                <div className="py-1 mb-1">
+                                                    <div className="mb-1">
+                                                        <div className="small_text">November 8, 2023</div>
+                                                    </div>
+                                                    <div className="heading_5">Top 5 beautiful Coffee Shop in HaNoi</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-span-1">
+                                        <div>
+                                            <div>
+                                                <img className="w-100" src="./img/home/article.jpg" alt="smile" loading="lazy"/>
+                                            </div>
+                                            <div>
+                                                <div className="py-1 mb-1">
+                                                    <div className="mb-1">
+                                                        <div className="small_text">November 8, 2023</div>
+                                                    </div>
+                                                    <div className="heading_5">Top 5 beautiful Coffee Shop in HaNoi</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-span-1">
+                                        <div>
+                                            <div>
+                                                <img className="w-100" src="./img/home/article.jpg" alt="smile" loading="lazy"/>
+                                            </div>
+                                            <div>
+                                                <div className="py-1 mb-1">
+                                                    <div className="mb-1">
+                                                        <div className="small_text">November 8, 2023</div>
+                                                    </div>
+                                                    <div className="heading_5">Top 5 beautiful Coffee Shop in HaNoi</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="grid grid-cols-3 gap-4 mb-3">
                                     <div className="col-span-1">
                                         <div>
                                             <div>

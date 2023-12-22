@@ -1,12 +1,14 @@
 @use "variables" as v;
 
 .sub-des-page{
-
   .sub-des-inner{
     .left-menu{
       border-right:1px solid v.$border2_color;
       padding-top: 60px;
       .left-menu-inner{
+        position: sticky;
+        top: 154px;
+        padding-bottom: 60px;
         .menu-fixed{
           li{
             border-bottom: 1px solid #ccc;
