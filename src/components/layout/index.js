@@ -9,6 +9,7 @@ import Modals from "../modal";
 
 import { useDispatch } from "react-redux";
 import { showModal } from "../../store/modal/modal.action";
+import Toasts from "../common/toast/toasts";
 
 const Layout = ({ children }) => {
     // khai báo dispatch để sử dụng action cho store modal
@@ -106,6 +107,7 @@ const Layout = ({ children }) => {
                 <img className="icon-sm" src="/img/icon/chevron-up-black.svg" alt="smile" loading="lazy"/>
             </div>
             <Modals/>
+            <Toasts />
         </div>
     )
 }

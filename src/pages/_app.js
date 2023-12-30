@@ -9,15 +9,18 @@ import i18n from '../lang/index';
 // middleware cho chức năng redux
 import { Provider } from 'react-redux';
 import store from '../store/index';
+import { ToastProvider } from '../components/common/toast/toastContext';
 
 const MyApp = ({ Component, pageProps }) => {
 
     return(
         <Provider store={store}>
             <I18nextProvider i18n={i18n}>
-                <Layout>
-                    <Component {...pageProps} />
-                </Layout>
+                <ToastProvider>
+                    <Layout>
+                        <Component {...pageProps} />
+                    </Layout>
+                </ToastProvider>
             </I18nextProvider>
         </Provider>
         
