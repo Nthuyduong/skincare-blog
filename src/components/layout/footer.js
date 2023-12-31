@@ -26,7 +26,7 @@ const Footer = () => {
                     {/*    </ul>*/}
                     {/*</div>*/}
                     <div className="col-span-4 flex justify-center footer-logo">
-                        <img className="w-2/4" src="../img/footer-logo.svg" alt="smile" loading="lazy"/>
+                        <img className="w-2/5" src="../img/footer-logo.svg" alt="smile" loading="lazy"/>
                     </div>
                     <div className="col-span-4 footer-info flex">
                         <div className="mr-5">
@@ -63,11 +63,13 @@ const Footer = () => {
                         <div className="mb-2">Enter your email address to receive new posts in your inbox and seasonal newsletters with
                             extra goodies!</div>
                         <div>
-                            <div>
-                                <div className="my-input mb-3">
-                                    <input className="w-full p-1" placeholder="Email address"/>
+                            <div className="flex sub-input">
+                                <div className="w-full">
+                                    <input className="w-full py-1 pr-1" placeholder="Email address"/>
                                 </div>
-                                <button className="w-full my-btn-pr" type="submit">Subscribe</button>
+                                <button className="" type="submit">
+                                    <img className="w-full" src="../img/icon/arrow-right-circle.svg" alt="smile" loading="lazy"/>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -76,7 +78,7 @@ const Footer = () => {
             <div className="footer-sub">
                 <div className="grid grid-cols-12">
                     <div className="col-span-12">
-                        <div className="text-center">COPYRIGHT © 2023 · Nthduong Blog. ALL RIGHTS RESERVED</div>
+                        <div className="text-center copy-right">COPYRIGHT © 2023 · Nthduong Blog. ALL RIGHTS RESERVED</div>
                     </div>
                     {/*<div className="col-span-3">*/}
                     {/*    <div className="my-social flex w-full">*/}

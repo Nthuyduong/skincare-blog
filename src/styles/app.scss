@@ -136,6 +136,9 @@ input{
 input:focus-visible{
   outline: v.$subcolor2 solid 1px;
 }
+.sub-input{
+  border-bottom: 1px solid v.$border2_color;
+}
 .nav-search{
   border: none !important;
 }
@@ -268,6 +271,9 @@ body{
   .footer-sub{
     padding-top: 20px;
     padding-bottom: 20px;
+    .copy-right{
+      color: #333;
+    }
     .my-social{
       justify-content: end;
     }
