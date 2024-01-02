@@ -191,7 +191,7 @@ body{
 .searchbar{
   position: fixed;
   z-index: 3000;
-  background: v.$bg_color;
+  background: #000;
   top:84px;
   right:0;
   left: 0;
@@ -221,6 +221,7 @@ body{
   //background-color: v.$bg_color;
   //border-bottom: 1px solid v.$border_color;
   z-index: 9999;
+  border-bottom: 1px solid #e0e0e0;
 }
 .nav-active.move{
   margin-top: 84px !important;
@@ -235,7 +236,7 @@ body{
 }
 .nav_blog{
   .nav-blog-inner{
-    border-bottom: 1px solid v.$border_color;
+
   }
   .guide-navdrop, .destination-navdrop{
     .navdrop-inner{
@@ -260,6 +261,9 @@ body{
 #blog-footer{
   margin-top: 100px;
   //background: #000;
+  input:focus-visible{
+    outline: none;
+  }
   .sub-menu ul li:hover a{
     color: #666;
   }
