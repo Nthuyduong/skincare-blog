@@ -163,7 +163,7 @@ const Home = () => {
                                 <div className="col-span-12 md:col-span-4">
                                     <div>
                                         <Link href={ROUTER.ARTICLE}>
-                                            <img className="w-full" src="./img/home/article.jpg" alt="smile" loading="lazy"/>
+                                            <img className="w-full" src="./img/home/article.jpg" alt="smile" loading="lazy" />
                                         </Link>
                                     </div>
                                     <div>
@@ -209,7 +209,7 @@ const Home = () => {
                             <div className="des-ct-img overflow-hidden">
                                 <img
                                     className="w-full"
-                                    src="./img/home/category1.jpg"
+                                    src="./img/home/category1.png"
                                     alt="smile"
                                     loading="lazy"
                                     height={100}
@@ -233,7 +233,7 @@ const Home = () => {
                             <div className="des-ct-img overflow-hidden">
                                 <img
                                     className="w-full"
-                                    src="./img/home/category.jpg"
+                                    src="./img/home/category.png"
                                     alt="smile"
                                     loading="lazy"
                                     height={100}
