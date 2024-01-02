@@ -26,7 +26,8 @@ $body_text: 14px;
 $small_text: 12px;
 
 body{
-  background: v.$bg_color;
+  //background: v.$bg_color;
+  background: #fff;
   min-height: 100vh;
 }
 .page{
@@ -196,7 +197,7 @@ body{
   left: 0;
   .search-bar-inner{
     .search-here{
-      border-bottom: 1px solid v.$border_color;
+      //border-bottom: 1px solid v.$border_color;
       .grid{
         height: 69px;
         .close-search{
@@ -216,9 +217,13 @@ body{
   display: flex;
   justify-content:center;
   align-items: center;
-  background-color: v.$bg_color;
+  background: #fff;
+  //background-color: v.$bg_color;
   //border-bottom: 1px solid v.$border_color;
   z-index: 9999;
+}
+.nav-active.move{
+  margin-top: 84px !important;
 }
 .sticky-wrapper{
   position: fixed;
@@ -237,7 +242,8 @@ body{
       z-index: 3000;
       display: none;
       width: max-content;
-      background: v.$bg_color;
+      background: #fff;
+      //background: v.$bg_color;
       border-left: 1px solid v.$border_color;
       border-right: 1px solid v.$border_color;
       border-bottom: 1px solid v.$border_color;
@@ -253,6 +259,7 @@ body{
 //Footer
 #blog-footer{
   margin-top: 100px;
+  //background: #000;
   .sub-menu ul li:hover a{
     color: #666;
   }

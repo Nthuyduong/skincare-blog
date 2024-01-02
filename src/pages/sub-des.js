@@ -57,17 +57,17 @@ const Sub_destination = () => {
                                     </div>
                                     <div className="self-center flex ml-auto">
                                         <div className="flex justify-center">
-                                            <div className="flex des-count pr-3">
-                                                <div className="pr-1">
-                                                    <img className="icon-sm" src="./img/icon/map-black.svg" alt="#" loading="lazy"></img>
-                                                </div>
-                                                <div>5 Destinations</div>
-                                            </div>
+                                            {/*<div className="flex des-count pr-3">*/}
+                                            {/*    <div className="pr-1">*/}
+                                            {/*        <img className="icon-sm" src="./img/icon/grid.svg" alt="#" loading="lazy"></img>*/}
+                                            {/*    </div>*/}
+                                            {/*    <div>4 Categories</div>*/}
+                                            {/*</div>*/}
                                             <div className="flex location-count pl-3">
                                                 <div className="pr-1">
-                                                    <img className="icon-sm" src="./img/icon/map-pin-black.svg" alt="#" loading="lazy"></img>
+                                                    <img className="icon-sm" src="./img/icon/book-open.svg" alt="#" loading="lazy"></img>
                                                 </div>
-                                                <div>400 Locations</div>
+                                                <div>50 Articles</div>
                                             </div>
                                         </div>
                                     </div>
