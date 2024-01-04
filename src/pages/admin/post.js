@@ -9,18 +9,14 @@ import { usePost } from "../../store/post/usePost";
 import { formatDate } from "../../utils/format";
 import Pagination from "../../components/common/pagination";
 import { useRouter } from 'next/router';
-import { useSearchParams } from 'next/navigation'
 
-
-const Adminpostpage = (page) => {
+const Adminpostpage = ({ page }) => {
 
     const router = useRouter();
-    const searchParams = useSearchParams();
 
     const { fetchBlogPosts, posts, paginate } = usePost();
 
     useEffect(() => {
-        const page = searchParams.get('page');
         fetchBlogPosts(page || 1);
     }, []);
 
@@ -161,5 +157,5 @@ Adminpostpage.getInitialProps = async ({ query }) => {
 
     return { page }
 }
-
 export default Adminpostpage;
+
