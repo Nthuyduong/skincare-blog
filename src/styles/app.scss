@@ -205,8 +205,9 @@ body{
   .search-bar-inner{
     background: #fff;
     .search-here{
+      padding: 50px 0 50px;
       .search-box{
-        border-bottom: 1px solid v.$border2_color;
+        //border-bottom: 1px solid v.$border2_color;
       }
       //border-bottom: 1px solid v.$border_color;
       //.grid{
@@ -239,6 +240,7 @@ body{
 .sticky-wrapper{
   position: fixed;
   top: 0px;
+  background-color: #fff0;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 4px;
   .nav-blog-inner{
     border-bottom: 0 !important;
@@ -246,7 +248,6 @@ body{
 }
 .sticky-wrapper{
   backdrop-filter: blur(10px);
-  background-color: #fff0;
   opacity: .7;
   transition: opacity 0s cubic-bezier(.215,.61,.355,1);
 }

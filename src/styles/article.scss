@@ -3,6 +3,21 @@
   //margin-top: 60px;
   .article-out{
     padding: 60px 60px 0 0px;
+    .catalog{
+      margin-bottom: 30px;
+      .list{
+        padding: 30px;
+        border: 1px solid v.$border2_color;
+        .all-list{
+          ul li{
+            margin-bottom: 8px;
+          }
+          ul li:last-child{
+            margin-bottom: 0px;
+          }
+        }
+      }
+    }
     .article-content{
       padding-bottom: 60px;
     }

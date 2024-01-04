@@ -37,16 +37,29 @@ const Article = () => {
             <div className="container-fluid">
                 <div className="grid grid-cols-12">
                     <div className="col-span-9 article-out">
+                        <div className="article-summary mb-4">
+                            <div className="font-medium">
+                                Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit
+                                consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque
+                                sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
+                                Blandit consequat quisque vitae ornare diam netus tellus.
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+
+                            </div>
+                        </div>
                         {/*menu*/}
-                        <div className="catalog">
+                        <div className="catalog w-3/5">
                             <div className="list">
-                                <div className="list-title"></div>
+                                <div className="list-title heading_6 mb-3">In this post</div>
                                 <div className="all-list">
-                                    <ul>
-                                        <li><a>list</a></li>
-                                        <li><a>list</a></li>
-                                        <li><a>list</a></li>
-                                        <li><a>list</a></li>
+                                    <ul className="list-here">
+                                        <li><a>1. What is AHA?</a></li>
+                                        <li><a>2. Who should use it?</a></li>
+                                        <li><a>3. How to use</a></li>
+                                        <li><a>4. Side effect</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -82,7 +95,7 @@ const Article = () => {
                             {/*</div>*/}
                             <div className="article-content">
                                 <div>
-                                    <div className="mb-2 font-medium">
+                                    <div className="">
                                         Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit
                                         consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque
                                         sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
