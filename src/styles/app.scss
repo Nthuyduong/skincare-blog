@@ -265,9 +265,15 @@ body{
       width: max-content;
       background: #fff;
       //background: v.$bg_color;
-      border-left: 1px solid v.$border_color;
-      border-right: 1px solid v.$border_color;
-      border-bottom: 1px solid v.$border_color;
+      border-left: 1px solid #e0e0e0;
+      border-right: 1px solid #e0e0e0;
+      border-bottom: 1px solid #e0e0e0;
+      .sub-menu{
+        color: #666666;
+      }
+      .sub-menu:hover{
+        color: #000;
+      }
     }
   }
   .guide-navdrop:hover .navdrop-inner{
@@ -291,13 +297,13 @@ body{
 .blog-footer{
   padding: 0 20px;
   .blog-footer-inner{
-    border-top: 1px solid v.$border_color;
-    border-bottom: 1px solid v.$border_color;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
     .footer-sub, .footer-info{
       padding: 60px 0;
     }
     .footer-logo, .footer-info{
-      border-right: 1px solid v.$border_color;
+      border-right: 1px solid #ccc;
     }
   }
   .footer-sub{

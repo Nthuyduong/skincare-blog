@@ -169,17 +169,17 @@ const Header = () => {
                                                     </span>
                                                     </Link>
                                                 </div>
-                                                <div className="navdrop-inner absolute">
-                                                    <div className="block px-4 py-2 text-sm text-gray-700">
+                                                <div className="navdrop-inner absolute py-1">
+                                                    <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
                                                         <Link href={ROUTER.SUBDES} className="nav-link">Help for beginners</Link>
                                                     </div>
-                                                    <div className="block px-4 py-2 text-sm text-gray-700">
+                                                    <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
                                                         <Link href={ROUTER.SUBDES} className="nav-link">How to clean</Link>
                                                     </div>
-                                                    <div className="block px-4 py-2 text-sm text-gray-700">
+                                                    <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
                                                         <Link href={ROUTER.SUBDES} className="nav-link">Shopping guide</Link>
                                                     </div>
-                                                    <div className="block px-4 py-2 text-sm text-gray-700">
+                                                    <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
                                                         <Link href={ROUTER.SUBDES} className="nav-link">Layer skincare</Link>
                                                     </div>
                                                 </div>
@@ -193,13 +193,13 @@ const Header = () => {
                                                     </Link>
                                                 </div>
                                                 <div className="navdrop-inner absolute left-30 w-48 py-1">
-                                                    <div className="block px-4 py-2 text-sm text-gray-700">
+                                                    <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
                                                         <Link href={ROUTER.SUBDES} className="nav-link">Routine by skin types</Link>
                                                     </div>
-                                                    <div className="block px-4 py-2 text-sm text-gray-700">
+                                                    <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
                                                         <Link href={ROUTER.SUBDES} className="nav-link">Season routine</Link>
                                                     </div>
-                                                    <div className="block px-4 py-2 text-sm text-gray-700">
+                                                    <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
                                                         <Link href={ROUTER.SUBDES} className="nav-link">My routine</Link>
                                                     </div>
                                                 </div>
@@ -219,13 +219,13 @@ const Header = () => {
                                                     </Link>
                                                 </div>
                                                 <div className="navdrop-inner absolute left-30 w-48 py-1">
-                                                    <div className="block px-4 py-2 text-sm text-gray-700">
+                                                    <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
                                                         <Link href={ROUTER.ABOUT} className="nav-link">About Blog</Link>
                                                     </div>
-                                                    <div className="block px-4 py-2 text-sm text-gray-700">
+                                                    <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
                                                         <Link href={ROUTER.SKINTYPE} className="nav-link">My skin history</Link>
                                                     </div>
-                                                    <div className="block px-4 py-2 text-sm text-gray-700">
+                                                    <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
                                                         <Link href={ROUTER.CONTACT} className="nav-link">Contact me</Link>
                                                     </div>
                                                 </div>
