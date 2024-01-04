@@ -247,9 +247,9 @@ body{
   }
 }
 .sticky-wrapper{
-  backdrop-filter: blur(10px);
-  opacity: .7;
-  transition: opacity 0s cubic-bezier(.215,.61,.355,1);
+  transition: backdrop-filter .5s cubic-bezier(.215,.61,.355,1),background-color .8s cubic-bezier(.215,.61,.355,1),-webkit-backdrop-filter .5s cubic-bezier(.215,.61,.355,1);
+  backdrop-filter: blur(20px);
+  //opacity: .7;
 }
 .not-sticky{
   border-bottom: 1px solid #e0e0e0;

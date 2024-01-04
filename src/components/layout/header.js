@@ -62,7 +62,7 @@ const Header = () => {
     }
     return(
         <div>
-            <div className="top-header flex justify-center p-4 container-fluid justify-center w-full items-center">
+            <div className="top-header flex justify-center p-3 container-fluid justify-center w-full items-center">
                 <div className="color-mode">
                     <div className="mode-inner">
                         {/*sun icon*/}
@@ -162,7 +162,7 @@ const Header = () => {
                                         <div className="flex space-x-4 justify-center">
                                             {/*Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white"*/}
                                             <div className="relative bg-gray-900 guide-navdrop rounded-md">
-                                                <div className="navdrop-title pr-3 py-3">
+                                                <div className="navdrop-title pr-3 py-4">
                                                     <Link href={ROUTER.DESTINATION} className="flex nav-link">{t('header.guide')}
                                                         <span className="ml-1">
                                                         <img className="icon-ssm" src="./img/icon/chevron-down-black.svg" alt="smile" loading="lazy"/>
@@ -185,7 +185,7 @@ const Header = () => {
                                                 </div>
                                             </div>
                                             <div className="relative destination-navdrop">
-                                                <div className="navdrop-title z-50 text-gray-300 hover:text-gray rounded-md pr-3 py-3">
+                                                <div className="navdrop-title z-50 text-gray-300 hover:text-gray rounded-md pr-3 py-4">
                                                     <Link href={ROUTER.DESTINATION} className="flex nav-link">{t('header.routine')}
                                                         <span className="ml-1">
                                                         <img className="icon-ssm" src="./img/icon/chevron-down-black.svg" alt="smile" loading="lazy"/>
@@ -204,14 +204,14 @@ const Header = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="text-gray-300 hover:text-gray rounded-md pr-3 py-3">
+                                            <div className="text-gray-300 hover:text-gray rounded-md pr-3 py-4">
                                                 <Link href={ROUTER.SUBDES} className="nav-link">{t('header.review')}</Link>
                                             </div>
-                                            <div className="rounded-md pr-4 py-3">
+                                            <div className="rounded-md pr-4 py-4">
                                                 <Link href={ROUTER.CONTACT} className="nav-link">{t('header.tips')}</Link>
                                             </div>
                                             <div className="relative destination-navdrop">
-                                                <div className="navdrop-title z-50 text-gray-300 hover:text-gray py-3 pr-0">
+                                                <div className="navdrop-title z-50 text-gray-300 hover:text-gray py-4 pr-0">
                                                     <Link href="#" className="nav-link flex">{t('header.about')}
                                                         <span className="ml-1">
                                                         <img className="icon-ssm" src="./img/icon/chevron-down-black.svg" alt="smile" loading="lazy"/>
