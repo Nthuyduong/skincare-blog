@@ -35,8 +35,22 @@ const Article = () => {
                 </div>
             </div>
             <div className="container-fluid">
-                <div className="grid grid-cols-9">
-                    <div className="col-span-7 article-out">
+                <div className="grid grid-cols-12">
+                    <div className="col-span-9 article-out">
+                        {/*menu*/}
+                        <div className="catalog">
+                            <div className="list">
+                                <div className="list-title"></div>
+                                <div className="all-list">
+                                    <ul>
+                                        <li><a>list</a></li>
+                                        <li><a>list</a></li>
+                                        <li><a>list</a></li>
+                                        <li><a>list</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                         <div className="main-article">
                             {/*breadcrumb*/}
                             {/*<div className="mb-4 my-breadcrumb">*/}
@@ -279,7 +293,7 @@ const Article = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-span-2 article-sidebar">
+                    <div className="col-span-3 article-sidebar">
                         <div className="sidebar">
                             <div className="article-recently">
                                 <div className="heading_4 mb-3">Recently update</div>
