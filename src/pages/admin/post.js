@@ -3,11 +3,14 @@ import {showModal} from "../../store/modal/modal.action";
 import {ROUTER} from "../../utils/constants";
 import React from "react";
 import Link from 'next/link'
-import {useRouter} from 'next/router';
+import { useState } from "react";
+import { useEffect } from "react";
+import { usePost } from "../../store/post/usePost";
+import { formatDate } from "../../utils/format";
 import Pagination from "../../components/common/pagination";
-import {usePost} from "../../store/post/usePost";
-import {useSearchParams} from "next/navigation";
-import {useEffect} from "react";
+import { useRouter } from 'next/router';
+import { useSearchParams } from 'next/navigation'
+
 
 const Adminpostpage = (page) => {
 
@@ -117,8 +120,10 @@ const Adminpostpage = (page) => {
                                         <input type="checkbox"/>
                                     </div>
                                     <div className="cell-ssm">{post.id}</div>
-                                    <div className="cell-sm">{post.publish_date}</div>
+
+                                    <div className="cell-sm">{formatDate(post.publish_date)}</div>
                                     <div className="cell">{post.title}</div>
+                                    <div className="cell">{post.summary}</div>
                                     <div className="cell">{post.author}</div>
                                     <div className="cell">
                                         <select className="sl-box">
@@ -140,7 +145,6 @@ const Adminpostpage = (page) => {
                     </div>
                 </div>
             </div>
-            {/*Pagination*/}
             <Pagination
                 className="pagination-bar"
                 currentPage={paginate?.current}
