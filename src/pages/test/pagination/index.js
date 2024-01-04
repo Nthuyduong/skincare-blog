@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import Pagination from '../../../components/common/pagination';
-import data from './data.js';
+import data from './data.json';
 
 let PageSize = 10;
 
@@ -26,9 +26,9 @@ export default function App() {
           </tr>
         </thead>
         <tbody>
-          {currentTableData.map(item => {
+          {currentTableData.map((item, index) => {
             return (
-              <tr>
+              <tr key={index}>
                 <td>{item.id}</td>
                 <td>{item.first_name}</td>
                 <td>{item.last_name}</td>
