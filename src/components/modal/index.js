@@ -7,6 +7,7 @@ import { hideModal } from "../../store/modal/modal.action";
 import ModalLoading from "./loading";
 import ModalCategory from "./category";
 import ModalSubcate from "./subcate";
+import ModalDelete from "./deletepopup";
 
 import { useClickOutside } from "../../hooks/dom";
 
@@ -29,6 +30,8 @@ const Modals = () => {
                 return <ModalPost/>
             case "subcate":
                 return <ModalSubcate/>
+            case "deletepopup":
+                return <ModalDelete/>
             case "loading":
                 return <ModalLoading data={data} />;
             default:

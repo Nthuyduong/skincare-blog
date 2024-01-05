@@ -9,7 +9,8 @@ const Pagination = props => {
     siblingCount = 1,
     currentPage,
     pageSize,
-    className
+    className,
+    finalPage,
   } = props;
 
   const paginationRange = usePagination({
@@ -24,11 +25,13 @@ const Pagination = props => {
   }
 
   const onNext = () => {
-    onPageChange(currentPage + 1);
+    if(currentPage >= finalPage) return;
+    onPageChange(parseInt(currentPage) + 1);
   };
 
   const onPrevious = () => {
-    onPageChange(currentPage - 1);
+    if(currentPage === 1) return;
+    onPageChange(parseInt(currentPage) - 1);
   };
 
   let lastPage = paginationRange[paginationRange.length - 1];
@@ -44,13 +47,14 @@ const Pagination = props => {
       >
         <div className="arrow left" />
       </li>
-      {paginationRange.map(pageNumber => {
+      {paginationRange.map((pageNumber, index) => {
         if (pageNumber === DOTS) {
-          return <li className="pagination-item dots">&#8230;</li>;
+          return <li key={index} className="pagination-item dots">&#8230;</li>;
         }
 
         return (
           <li
+            key={index}
             className={classnames('pagination-item', {
               selected: pageNumber === currentPage
             })}

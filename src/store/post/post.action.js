@@ -1,4 +1,4 @@
 import { createAction } from "@reduxjs/toolkit";
 
-// action get list
-export const getList = createAction("post/GET_LIST");
+//action get post
+export const fetchBlogPostsAction = createAction("post/GET_POSTS");

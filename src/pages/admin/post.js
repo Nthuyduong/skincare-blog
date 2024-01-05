@@ -4,20 +4,41 @@ import {ROUTER} from "../../utils/constants";
 import React from "react";
 import Link from 'next/link'
 import {useState} from "react";
+import {useRouter} from 'next/router';
+import pagination from "../../components/common/pagination";
+import {usePost} from "../../store/post/usePost";
+import {useSearchParams} from "next/navigation";
+import {useEffect} from "react";
 
 const Adminpostpage = () => {
 
-    const [paginationPage, setPaginationPage] = useState(1);
+    const router = useRouter();
+    const searchParams = useSearchParams();
+
+    const { fetchBlogPosts, posts, paginate } = usePost();
+
+    useEffect(() => {
+        const page = searchParams.get('page');
+        fetchBlogPosts(page || 1);
+    }, []);
 
     const handlePageClick = (go) => {
-        if (go === '+1') {
-            setPaginationPage((prevPage) => prevPage + 1);
-        } else if (go === '-1') {
-            setPaginationPage((prevPage) => prevPage - 1);
-        } else {
-            setPaginationPage(parseInt(go, 10));
-        }
+        router.push({
+            pathname: ROUTER.ADPOST,
+            query: { page : go},
+        });
+        fetchBlogPosts(go);
     };
+
+    // Delete pop up
+    const dispatch = useDispatch();
+
+    const handleDeletePopup = () => {
+        dispatch(showModal({
+            name: "deletepopup",
+            enableClickOutside: true,
+        }))
+    }
 
     return(
         <div>
@@ -28,7 +49,7 @@ const Adminpostpage = () => {
                     <div className="col-span-1">
                         <button className="my-btn-pr w-full">
                             <Link href={ROUTER.CREATEPOST}>
-                                Create new post
+                                Create post
                             </Link>
                         </button>
                     </div>
@@ -36,7 +57,7 @@ const Adminpostpage = () => {
                         <button className="my-btn-pr w-full">Update post</button>
                     </div>
                     <div className="col-span-1">
-                        <button className="my-btn-pr w-full">Delete post</button>
+                        <button onClick={handleDeletePopup} className="my-btn-pr w-full">Delete post</button>
                     </div>
                 </div>
                 <div className="my-line my-4"></div>
@@ -85,110 +106,43 @@ const Adminpostpage = () => {
                         <div className="cell-ssm">ID</div>
                         <div className="cell-sm">Date</div>
                         <div className="cell">Post title</div>
-                        <div className="cell">Description</div>
                         <div className="cell">Author</div>
                         <div className="cell">Action</div>
                         <div className="cell"></div>
                     </div>
                     <div className="post-list">
-                        <div className="flex tbl-row">
-                            <div className="select-all">
-                                <input type="checkbox"/>
-                            </div>
-                            <div className="cell-ssm">ID</div>
-                            <div className="cell-sm">Date</div>
-                            <div className="cell">Post title</div>
-                            <div className="cell">Description</div>
-                            <div className="cell">Author</div>
-                            <div className="cell">
-                                <select className="sl-box">
-                                    <option value="" defaultValue hidden>Choose status</option>
-                                    <option value="">Published</option>
-                                    <option value="">Draft</option>
-                                    <option value="">New</option>
-                                </select>
-                            </div>
-                            <div className="cell">
-                                <div className="flex justify-center">
-                                    <img className="icon-sm" src="../img/icon/zoom-in.svg" alt="smile" loading="lazy"/>
-                                    <img className="icon-sm mx-2" src="../img/icon/edit.svg" alt="smile" loading="lazy"/>
-                                    <img className="icon-sm" src="../img/icon/trash.svg" alt="smile" loading="lazy"/>
+                        {(posts || []).map((post, index) => {
+                            return (
+                                <div className="flex tbl-row" key={index}>
+                                    <div className="select-all">
+                                        <input type="checkbox"/>
+                                    </div>
+                                    <div className="cell-ssm">{post.id}</div>
+                                    <div className="cell-sm">{post.publish_date}</div>
+                                    <div className="cell">{post.title}</div>
+                                    <div className="cell">{post.author}</div>
+                                    <div className="cell">
+                                        <select className="sl-box">
+                                            <option value="" defaultValue hidden>Choose status</option>
+                                            <option value="">Published</option>
+                                            <option value="">Draft</option>
+                                        </select>
+                                    </div>
+                                    <div className="cell">
+                                        <div className="flex justify-center">
+                                            <img className="icon-sm" src="../img/icon/zoom-in.svg" alt="smile" loading="lazy"/>
+                                            <img className="icon-sm mx-2" src="../img/icon/edit.svg" alt="smile" loading="lazy"/>
+                                            <img className="icon-sm" src="../img/icon/trash.svg" alt="smile" loading="lazy"/>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div className="flex tbl-row">
-                            <div className="select-all">
-                                <input type="checkbox"/>
-                            </div>
-                            <div className="cell-ssm">ID</div>
-                            <div className="cell-sm">Date</div>
-                            <div className="cell">Post title</div>
-                            <div className="cell">Description</div>
-                            <div className="cell">
-                                Author
-                            </div>
-                            <div className="cell">
-                                <select className="sl-box">
-                                    <option value="" defaultValue hidden>Choose status</option>
-                                    <option value="">Published</option>
-                                    <option value="">Draft</option>
-                                    <option value="">New</option>
-                                </select>
-                            </div>
-                            <div className="cell">
-                                <div className="flex justify-center">
-                                    <img className="icon-sm" src="../img/icon/zoom-in.svg" alt="smile" loading="lazy"/>
-                                    <img className="icon-sm mx-2" src="../img/icon/edit.svg" alt="smile" loading="lazy"/>
-                                    <img className="icon-sm" src="../img/icon/trash.svg" alt="smile" loading="lazy"/>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="flex tbl-row">
-                            <div className="select-all">
-                                <input type="checkbox"/>
-                            </div>
-                            <div className="cell-ssm">ID</div>
-                            <div className="cell-sm">Date</div>
-                            <div className="cell">Post title</div>
-                            <div className="cell">Description</div>
-                            <div className="cell">
-                                Author
-                            </div>
-                            <div className="cell">
-                                <select className="sl-box">
-                                    <option value="" defaultValue hidden>Choose status</option>
-                                    <option value="">Published</option>
-                                    <option value="">Draft</option>
-                                    <option value="">New</option>
-                                </select>
-                            </div>
-                            <div className="cell">
-                                <div className="flex justify-center">
-                                    <img className="icon-sm" src="../img/icon/zoom-in.svg" alt="smile" loading="lazy"/>
-                                    <img className="icon-sm mx-2" src="../img/icon/edit.svg" alt="smile" loading="lazy"/>
-                                    <img className="icon-sm" src="../img/icon/trash.svg" alt="smile" loading="lazy"/>
-                                </div>
-                            </div>
-                        </div>
+                            )
+                        })}
                     </div>
                 </div>
             </div>
             {/*Pagination*/}
-            <div>
-                <div className="flex justify-end content_detail__pagination cdp" actpage={paginationPage}>
-                    <a href="#!-1" className="cdp_i" onClick={() => handlePageClick('-1')}>
-                        prev
-                    </a>
-                    {Array.from({ length: 20 }, (_, i) => (
-                        <a key={i} href={`#!${i + 1}`} className="cdp_i" onClick={() => handlePageClick(`${i + 1}`)}>
-                            {i + 1}
-                        </a>
-                    ))}
-                    <a href="#!+1" className="cdp_i" onClick={() => handlePageClick('+1')}>
-                        next
-                    </a>
-                </div>
-            </div>
+
         </div>
     )
 }

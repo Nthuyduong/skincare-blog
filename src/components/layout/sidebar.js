@@ -4,7 +4,7 @@ import {ROUTER} from "../../utils/constants";
 
 const Sidebar = () => {
     return(
-        <div id="sidebar" className="w-2/12 h-full fixed p-3">
+        <div id="sidebar" className="w-2/12 h-full fixed p-5">
             <div className="flex sidebar-title pb-4">
                 <div className="font-bold logo">
                     <Link href={ROUTER.ADDASHBOARD}>

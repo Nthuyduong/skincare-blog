@@ -204,11 +204,28 @@ const Header = () => {
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div className="relative destination-navdrop">
+                                                <div className="navdrop-title z-50 text-gray-300 hover:text-gray py-4 pr-0">
+                                                    <Link href="#" className="nav-link flex">Skincare Nerd
+                                                        <span className="ml-1">
+                                                        <img className="icon-ssm" src="./img/icon/chevron-down-black.svg" alt="smile" loading="lazy"/>
+                                                    </span>
+                                                    </Link>
+                                                </div>
+                                                <div className="navdrop-inner absolute left-30 w-48 py-1">
+                                                    <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
+                                                        <Link href={ROUTER.SUBDES} className="nav-link">Skin concerns</Link>
+                                                    </div>
+                                                    <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
+                                                        <Link href={ROUTER.SUBDES} className="nav-link">Skincare Ingredients</Link>
+                                                    </div>
+                                                    <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
+                                                        <Link href={ROUTER.SUBDES} className="nav-link">Tips & Advices</Link>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div className="text-gray-300 hover:text-gray rounded-md pr-3 py-4">
                                                 <Link href={ROUTER.SUBDES} className="nav-link">{t('header.review')}</Link>
-                                            </div>
-                                            <div className="rounded-md pr-4 py-4">
-                                                <Link href={ROUTER.CONTACT} className="nav-link">{t('header.tips')}</Link>
                                             </div>
                                             <div className="relative destination-navdrop">
                                                 <div className="navdrop-title z-50 text-gray-300 hover:text-gray py-4 pr-0">

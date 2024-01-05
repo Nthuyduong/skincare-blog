@@ -23,12 +23,12 @@
     cursor: pointer;
   }
   .collapsed{
-    display: none;
+    height: 0;
     overflow: hidden;
-    transition: height 0.3s ease;
+    transition: height 0.3s ease-in;
   }
   .expanded{
     height: max-content;
-    transition: height 0.3s ease
+    transition: height 0.3s ease-out;
   }
 }
