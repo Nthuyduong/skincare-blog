@@ -3,7 +3,6 @@ import {showModal} from "../../store/modal/modal.action";
 import {ROUTER} from "../../utils/constants";
 import React from "react";
 import Link from 'next/link'
-import { useState } from "react";
 import { useEffect } from "react";
 import { usePost } from "../../store/post/usePost";
 import { formatDate } from "../../utils/format";
