@@ -23,7 +23,6 @@ const MyApp = ({ Component, pageProps }) => {
                 </ToastProvider>
             </I18nextProvider>
         </Provider>
-        
     )
 }
 

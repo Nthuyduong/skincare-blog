@@ -91,7 +91,7 @@ const Layout = ({ children }) => {
         // có thể áp dụng cách này cho trường hợp muốn làm chức năng theme dark/light
         // theme dark/light color: --primary, --secondary, --tertiary, --white, --black
         <div 
-            className="page"
+            className="page bg-white dark:bg-black"
             style={{
                 "--font-family": getLanguage() == 'vn' ? 'serif' : '',
                 "--text-primary": getTheme() == 'light' ? 'black' : 'white',
