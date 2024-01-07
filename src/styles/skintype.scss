@@ -15,20 +15,34 @@
   .all-faq{
 
   }
-}
-.my-collapse{
-  padding: 14px 0;
-  border-bottom: 1px solid v.$border2_color;
-  .question-container{
-    cursor: pointer;
-  }
-  .collapsed{
-    height: 0;
-    overflow: hidden;
-    transition: height 0.3s ease-in;
+  .my-collapse{
+    padding: 14px 0;
+    border-bottom: 1px solid v.$border2_color;
+    .question-container{
+      cursor: pointer;
+    }
+    .btn-question{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.35s ease;
+    }
+    .container-container{
+      transition: all 0.5s ease;
+      max-height: 0;
+      overflow: hidden;
+    }
   }
   .expanded{
-    height: max-content;
-    transition: height 0.3s ease-out;
+    .btn-question{
+      transition: rotate(180deg);
+    }
+    .content-container{
+      max-height: 100px;
+      p{
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   }
 }

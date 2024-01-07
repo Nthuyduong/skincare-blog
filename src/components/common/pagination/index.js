@@ -25,6 +25,7 @@ const Pagination = props => {
   }
 
   const onNext = () => {
+    console.log(finalPage)
     if(currentPage >= finalPage) return;
     onPageChange(parseInt(currentPage) + 1);
   };

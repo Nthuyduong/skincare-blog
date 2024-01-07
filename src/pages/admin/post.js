@@ -3,14 +3,13 @@ import {showModal} from "../../store/modal/modal.action";
 import {ROUTER} from "../../utils/constants";
 import React from "react";
 import Link from 'next/link'
-import {useState} from "react";
 import {useRouter} from 'next/router';
-import pagination from "../../components/common/pagination";
+import Pagination from "../../components/common/pagination";
 import {usePost} from "../../store/post/usePost";
 import {useSearchParams} from "next/navigation";
 import {useEffect} from "react";
 
-const Adminpostpage = () => {
+const Adminpostpage = (page) => {
 
     const router = useRouter();
     const searchParams = useSearchParams();
@@ -111,7 +110,7 @@ const Adminpostpage = () => {
                         <div className="cell"></div>
                     </div>
                     <div className="post-list">
-                        {(posts || []).map((post, index) => {
+                        {(posts).map((post, index) => {
                             return (
                                 <div className="flex tbl-row" key={index}>
                                     <div className="select-all">
@@ -142,8 +141,21 @@ const Adminpostpage = () => {
                 </div>
             </div>
             {/*Pagination*/}
-
+            <Pagination
+                className="pagination-bar"
+                currentPage={paginate?.current}
+                totalCount={paginate?.count}
+                pageSize={paginate?.limit}
+                finalPage={paginate?.last}
+                onPageChange={page => handlePageClick(page)}
+            />
         </div>
     )
 }
+Adminpostpage.getInitialProps = async ({ query }) => {
+    const { page } = query
+
+    return { page }
+}
+
 export default Adminpostpage;
