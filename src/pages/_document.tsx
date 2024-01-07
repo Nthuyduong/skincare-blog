@@ -12,8 +12,6 @@ export default function Document() {
                 type="text/javascript"
                 dangerouslySetInnerHTML={{
                 __html: `
-                    console.log('document')
-                    console.log(window.matchMedia('(prefers-color-scheme: dark)'))
                     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                         document.documentElement.classList.add('dark')
                     } else {
@@ -22,8 +20,10 @@ export default function Document() {
                     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
                         if (event.matches) {
                             document.documentElement.classList.add('dark')
+                            localStorage.setItem('theme', 'dark')
                         } else {
                             document.documentElement.classList.remove('dark')
+                            localStorage.removeItem('theme')
                         }
                     });
                 `,
