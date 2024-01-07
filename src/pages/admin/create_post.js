@@ -1,7 +1,28 @@
 import React, {Component, useState} from 'react';
-import Test from "../test";
+
+import dynamic from 'next/dynamic';
+
+import draftToHtml from 'draftjs-to-html';
+import { EditorState, convertToRaw } from 'draft-js';
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+const Editor = dynamic(
+    () => import('react-draft-wysiwyg').then(mod => mod.Editor),
+    { ssr: false }
+)
+import { usePost } from '../../store/post/usePost';
 
 const Createpost = () => {
+
+    const { createBlogPost } = usePost();
+
+    const [editorState, setEditorState] = useState(EditorState.createEmpty());
+    const [title, setTitle] = useState('');
+    const [slug, setSlug] = useState('');
+    const [summary, setsummary] = useState('');
+
+    const onEditorStateChange = (editorState) => {
+        setEditorState(editorState);
+    };
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -13,6 +34,24 @@ const Createpost = () => {
         setIsMenuOpen(false);
     };
 
+    const convertHtml = () => {
+        return convertImage(draftToHtml(convertToRaw(editorState.getCurrentContent())));
+    }
+
+    const convertImage = (htmlText) => {
+        return htmlText.replace(/<div style="text-align:none;"><img/g, '<div style="text-align:center;"><img')
+    }
+
+    const handleClick = () => {
+        createBlogPost({
+            title: title,
+            slug: slug,
+            summary: summary,
+            content: convertHtml(convertToRaw(editorState.getCurrentContent())),
+            content_draft: convertHtml(convertToRaw(editorState.getCurrentContent())),
+        })
+    }
+
     return(
         <div className="create-new-post">
             <div className="create-post-top">
@@ -20,9 +59,14 @@ const Createpost = () => {
                     <div className="heading_1">Create new post</div>
                     <div>Upload new blog article here!</div>
                 </div>
-                <div className="grid grid-cols-12 gap-4 create-function pb-4">
-                    <div className="col-span-5">
-
+                <div className="flex justify-end gap-4 create-function pb-4">
+                    <div className="col-span-2">
+                        <button 
+                            className="my-btn-pr w-full"
+                            onClick={() => {handleClick()}}
+                        >
+                            Create post
+                        </button>
                     </div>
                     <div className="col-span-2">
                         <button className="w-full my-btn-pr w-full">Preview post</button>
@@ -41,7 +85,49 @@ const Createpost = () => {
             <div>
                 <div className="gap-4 flex">
                     <div className="create-content pt-4">
-                        <Test/>
+                        <div className='input-wrp'>
+                            <div className="mb-1">Title</div>
+                            <div className="search-bar-box">
+                                <input 
+                                    name="category-slug"
+                                    className="w-full" 
+                                    type="text"
+                                    placeholder="Enter title"
+                                    onChange={(e) => {setTitle(e.target.value)}}
+                                />
+                            </div>
+                        </div>
+                        <div className='input-wrp'>
+                            <div className="mb-1">Slug</div>
+                            <div className="search-bar-box">
+                                <input 
+                                    name="category-slug"
+                                    className="w-full" 
+                                    type="text"
+                                    placeholder="Enter title"
+                                    onChange={(e) => {setSlug(e.target.value)}}
+                                />
+                            </div>
+                        </div>
+                        <div className='input-wrp'>
+                            <div className="mb-1">summary</div>
+                            <div className="search-bar-box">
+                                <textarea 
+                                    className="w-full" 
+                                    rows="5"
+                                    placeholder="Enter summary"
+                                    onChange={(e) => {setsummary(e.target.value)}}
+                                ></textarea>
+                            </div>
+                        </div>
+                        <div className="text-editor-wrp">
+                            <Editor
+                                editorState={editorState}
+                                wrapperClassName="demo-wrapper"
+                                editorClassName="demo-editor"
+                                onEditorStateChange={onEditorStateChange}
+                            />
+                        </div>
                     </div>
                     <div className={`setting-bar ${
                         isMenuOpen ? 'open' : ''

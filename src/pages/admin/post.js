@@ -115,8 +115,7 @@ const Adminpostpage = ({ page }) => {
                                         <input type="checkbox"/>
                                     </div>
                                     <div className="cell-ssm">{post.id}</div>
-
-                                    <div className="cell-sm">{formatDate(post.publish_date)}</div>
+                                    <div className="cell-sm">{ formatDate(post.publish_date)}</div>
                                     <div className="cell">{post.title}</div>
                                     <div className="cell">{post.summary}</div>
                                     <div className="cell">{post.author}</div>
@@ -157,4 +156,3 @@ Adminpostpage.getInitialProps = async ({ query }) => {
     return { page }
 }
 export default Adminpostpage;
-

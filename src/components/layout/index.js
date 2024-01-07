@@ -82,6 +82,7 @@ const Layout = ({ children }) => {
                     {children}
                 </div>
                 <Modals/>
+                <Toasts />
             </div>
         );
     }

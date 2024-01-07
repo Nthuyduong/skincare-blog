@@ -10,7 +10,7 @@ const Pagination = props => {
     currentPage,
     pageSize,
     className,
-    finalPage,
+    finalPage
   } = props;
 
   const paginationRange = usePagination({
@@ -25,7 +25,7 @@ const Pagination = props => {
   }
 
   const onNext = () => {
-    if(currentPage >= finalPage) return;
+    if (currentPage >= finalPage) return;
     onPageChange(parseInt(currentPage) + 1);
   };
 

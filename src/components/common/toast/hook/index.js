@@ -4,7 +4,7 @@ let id = 1;
 
 export const useToast = ({ duration, position } = {
     duration: 5000,
-    position: 'top-right'
+    position: 'bottom-right'
 }) => {
   const [toasts, setToasts] = useState([]);
 
