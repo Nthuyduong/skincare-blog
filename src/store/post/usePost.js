@@ -27,11 +27,9 @@ export const usePost = () => {
         formData.append('content', data.content);
         formData.append('content_draft', data.content_draft);
         formData.append('status', 0);
-        console.log('show');
         dispatch(showModal({ name: 'loading', enableClickOutside: false }));
         const res = await createBlogPostApi(formData);
         dispatch(hideModal());
-        console.log(res)
         if (res?.status == 1) {
             addToast('New post created!', 'success');
         } else {
