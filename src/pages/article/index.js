@@ -383,4 +383,18 @@ const Article = () => {
     )
 }
 
-export default Article;
+export async function getInitialProps({ query }) {
+    const { slug } = query;
+    // const res = await getBlogBySlugApi(slug);
+    // const res = await fetch('https://app.radiance-aura.blog/api/blogs')
+    // console.log(res)
+    // const blog = await res.json();
+
+    return {
+        props: {
+            slug: slug
+        }
+    }
+}
+
+export default ArticleDetail;
