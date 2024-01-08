@@ -10,20 +10,22 @@ import i18n from '../lang/index';
 import { Provider } from 'react-redux';
 import store from '../store/index';
 import { ToastProvider } from '../components/common/toast/toastContext';
+import { RouterProvider } from '../provider/router';
 
 const MyApp = ({ Component, pageProps }) => {
 
     return(
         <Provider store={store}>
-            <I18nextProvider i18n={i18n}>
-                <ToastProvider>
-                    <Layout>
-                        <Component {...pageProps} />
-                    </Layout>
-                </ToastProvider>
-            </I18nextProvider>
+            <RouterProvider>
+                <I18nextProvider i18n={i18n}>
+                    <ToastProvider>
+                        <Layout>
+                            <Component {...pageProps} />
+                        </Layout>
+                    </ToastProvider>
+                </I18nextProvider>
+            </RouterProvider>
         </Provider>
-        
     )
 }
 

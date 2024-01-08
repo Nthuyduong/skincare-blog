@@ -49,7 +49,7 @@ const Modals = () => {
     return (
         <div className="modal-backdrop">
             <div className="modal modal-open">
-                <div className={`modal-dialog ${invisibleBackground ? 'modal-invisible-background': ''}${name}`}>
+                <div className={`modal-dialog ${invisibleBackground ? 'modal-invisible-background': ''} ${name}`}>
                     <div className="modal-header">
                         <button className="close" onClick={handleHide}>
                             <span aria-hidden="true">&times;</span>

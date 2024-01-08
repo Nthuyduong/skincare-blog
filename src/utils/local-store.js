@@ -19,7 +19,7 @@ export const getTheme = () => {
     if (typeof window !== 'undefined') {
         const theme = localStorage.getItem(THEME);
         if (theme) {
-            return JSON.parse(theme);
+            return theme;
         }
     }
     return 'light';

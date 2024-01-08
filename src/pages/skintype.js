@@ -59,16 +59,15 @@ const Skintype = () => {
         <div key={index} className={`my-collapse ${activeIndex === index ? 'expanded' : ''}`}>
             <div className="mb-1 question-container flex" onClick={() => toggleCollapse(index)}>
                 <div className="question mr-auto medium_text">
-                    <div className="btn-question">
-                        <svg role="presentation" focusable="false" width="8" height="6"
-                             className="icon icon-chevron-bottom-small" viewBox="0 0 8 6">
-                            <path d="m1 1.5 3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5"></path>
-                        </svg>
-                    </div>
+                    {faq.question}
+                </div>
+                <div class="btn-question">
+                <svg role="presentation" focusable="false" width="8" height="6" class="icon icon-chevron-bottom-small" viewBox="0 0 8 6">
+                    <path d="m1 1.5 3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+                </svg>
                 </div>
             </div>
             <div className={`content-container`}>
-                {/* Content to be collapsed */}
                 <p>{faq.answer}</p>
             </div>
         </div>

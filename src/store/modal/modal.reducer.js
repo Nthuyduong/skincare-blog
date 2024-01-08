@@ -3,11 +3,16 @@
 const reducer = {
 
     SHOW_MODAL: (state, { payload }) => {
+        console.log('a', payload)
         state.modal.show = true;
         state.modal.name = payload.name;
         state.modal.data = payload.data;
-        state.modal.invisibleBackground = payload.invisibleBackground;
-        state.modal.enableClickOutside = payload.enableClickOutside;
+        if (payload.invisibleBackground !== undefined) {
+            state.modal.invisibleBackground = payload.invisibleBackground;
+        }
+        if (payload.enableClickOutside !== undefined) {
+            state.modal.enableClickOutside = payload.enableClickOutside;
+        }
     },
 
     HIDE_MODAL: (state, {}) => {

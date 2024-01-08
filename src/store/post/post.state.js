@@ -9,4 +9,12 @@ const state = {
     },
     // trạng thái loading khi gọi api
     loading: false,
+
+    post: {
+        id: null,
+        title: null,
+        description: null,
+    }
 }
+
+export default state;
