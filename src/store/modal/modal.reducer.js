@@ -3,7 +3,6 @@
 const reducer = {
 
     SHOW_MODAL: (state, { payload }) => {
-        console.log('a', payload)
         state.modal.show = true;
         state.modal.name = payload.name;
         state.modal.data = payload.data;

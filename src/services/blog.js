@@ -10,10 +10,48 @@ export const fetchBlogPostsApi = async (page = 1) => {
         });
         return response.data.data;
     } catch (error) {
-        console.log(error);
-        return null;
+        if (error.response.data) {
+            return error.response.data;
+        } else {
+            return {
+                status: 0,
+                msg: error.response.statusText,
+            };
+        }
     }
 };
+
+export const getBlogByIdApi = async (id) => {
+    try {
+        const response = await fetchApi.get(`/blogs/${id}`);
+        return response.data;
+    } catch (error) {
+        if (error.response.data) {
+            return error.response.data;
+        } else {
+            return {
+                status: 0,
+                msg: error.response.statusText,
+            };
+        }
+    }
+}
+
+export const getBlogBySlugApi = async (slug) => {
+    try {
+        const response = await fetchApi.get(`/blogs/slug/${slug}`);
+        return response.data;
+    } catch (error) {
+        if (error?.response?.data) {
+            return error?.response?.data;
+        } else {
+            return {
+                status: 0,
+                msg: error?.response?.statusText,
+            };
+        }
+    }
+}
 
 export  const createBlogPostApi = async (data) => {
     try {

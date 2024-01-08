@@ -1,12 +1,12 @@
 import {useDispatch} from "react-redux";
-import {showModal} from "../../store/modal/modal.action";
-import {ROUTER} from "../../utils/constants";
+import {showModal} from "@store/modal/modal.action";
+import {ROUTER} from "@utils/constants";
 import React from "react";
 import Link from 'next/link'
 import { useEffect } from "react";
-import { usePost } from "../../store/post/usePost";
-import { formatDate } from "../../utils/format";
-import Pagination from "../../components/common/pagination";
+import { usePost } from "@store/post/usePost";
+import { formatDate } from "@utils/format";
+import Pagination from "@components/common/pagination";
 import { useRouter } from 'next/router';
 
 const Adminpostpage = ({ page }) => {
@@ -116,7 +116,8 @@ const Adminpostpage = ({ page }) => {
                                     </div>
                                     <div className="cell-ssm">{post.id}</div>
                                     <div className="cell-sm">{ formatDate(post.publish_date)}</div>
-                                    <div className="cell">{post.title}</div>
+                                    <div className="cell">
+                                        <Link href={'/admin/posts/' + post.id}>{post.title}</Link></div>
                                     <div className="cell">{post.summary}</div>
                                     <div className="cell">{post.author}</div>
                                     <div className="cell">
