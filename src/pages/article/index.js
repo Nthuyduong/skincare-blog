@@ -29,7 +29,7 @@ const Article = () => {
                             </div>
                         </div>
                         <div className="banner-right">
-                            <img className="w-full" src="./img/testnreview/t1.png" alt="smile" loading="lazy"/>
+                            <img className="w-full" src="/img/testnreview/t1.png" alt="smile" loading="lazy"/>
                         </div>
                     </div>
                 </div>

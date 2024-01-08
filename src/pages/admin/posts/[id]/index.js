@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react';
+import React, {Component, useState, useEffect} from 'react';
 
 import dynamic from 'next/dynamic';
 
@@ -9,16 +9,27 @@ const Editor = dynamic(
     () => import('react-draft-wysiwyg').then(mod => mod.Editor),
     { ssr: false }
 )
-import { usePost } from '../../store/post/usePost';
+import { usePost } from '@hooks/usePost';
+import Link from 'next/link';
 
-const Createpost = () => {
+const EditPost = ({ id }) => {
 
-    const { createBlogPost } = usePost();
+    const { getBlogById, post } = usePost();
 
     const [editorState, setEditorState] = useState(EditorState.createEmpty());
     const [title, setTitle] = useState('');
     const [slug, setSlug] = useState('');
     const [summary, setsummary] = useState('');
+
+    useEffect(() => {
+        getBlogById(id);
+    }, []);
+
+    useEffect(() => {
+        setTitle(post.title || '');
+        setSlug(post.slug || '');
+        setsummary(post.summary || '');
+    }, [post]);
 
     const onEditorStateChange = (editorState) => {
         setEditorState(editorState);
@@ -56,7 +67,7 @@ const Createpost = () => {
         <div className="create-new-post">
             <div className="create-post-top">
                 <div className="pt-5">
-                    <div className="heading_1">Create new post</div>
+                    <div className="heading_1">Update post</div>
                     <div>Upload new blog article here!</div>
                 </div>
                 <div className="flex justify-end gap-4 create-function pb-4">
@@ -69,7 +80,9 @@ const Createpost = () => {
                         </button>
                     </div>
                     <div className="col-span-2">
-                        <button className="w-full my-btn-pr w-full">Preview post</button>
+                        <button className="w-full my-btn-pr w-full">
+                            <Link href={`/article/${post.slug}`}>Preview post</Link>
+                        </button>
                     </div>
                     <div className="col-span-2">
                         <button className="w-full my-btn-pr w-full">Publish post</button>
@@ -94,6 +107,7 @@ const Createpost = () => {
                                     type="text"
                                     placeholder="Enter title"
                                     onChange={(e) => {setTitle(e.target.value)}}
+                                    value={title}
                                 />
                             </div>
                         </div>
@@ -106,6 +120,7 @@ const Createpost = () => {
                                     type="text"
                                     placeholder="Enter title"
                                     onChange={(e) => {setSlug(e.target.value)}}
+                                    value={slug}
                                 />
                             </div>
                         </div>
@@ -117,6 +132,7 @@ const Createpost = () => {
                                     rows="5"
                                     placeholder="Enter summary"
                                     onChange={(e) => {setsummary(e.target.value)}}
+                                    value={summary}
                                 ></textarea>
                             </div>
                         </div>
@@ -187,6 +203,10 @@ const Createpost = () => {
         </div>
     )
 }
-
-export default Createpost;
+EditPost.getInitialProps = async ({ query }) => {
+    const { id } = query
+    console.log(query)
+    return { id }
+}
+export default EditPost;
 

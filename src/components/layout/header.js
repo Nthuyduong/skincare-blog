@@ -68,13 +68,13 @@ const Header = () => {
                         {/*sun icon*/}
                         <div className="light-mode">
                             <span>
-                                <img className="" src="./img/icon/sun.svg" alt="smile" loading="lazy"/>
+                                <img className="" src="/img/icon/sun.svg" alt="smile" loading="lazy"/>
                             </span>
                         </div>
                         {/*moon icon*/}
                         <div className="dark-mode">
                             <span>
-                                <img className="" src="./img/icon/moon.svg" alt="smile" loading="lazy"/>
+                                <img className="" src="/img/icon/moon.svg" alt="smile" loading="lazy"/>
                             </span>
                         </div>
                     </div>
@@ -85,14 +85,14 @@ const Header = () => {
                 </div>
                 <Link href={ROUTER.HOME} className="flex-1">
                     <div className="flex items-center justify-center w-full">
-                        <img className="h-4" src="./img/logo2.svg" alt="smile" loading="lazy"/>
+                        <img className="h-4" src="/img/logo2.svg" alt="smile" loading="lazy"/>
                     </div>
                 </Link>
                 <div className="">
                     <button type="button"
                             onClick={toggleVisibility}
                             className="relative rounded-full bg-gray-800 p-1 text-gray-400 focus:outline-none">
-                        <img className="icon-ssm" src="./img/icon/search.svg" alt="smile" loading="lazy"/>
+                        <img className="icon-ssm" src="/img/icon/search.svg" alt="smile" loading="lazy"/>
                     </button>
                 </div>
             </div>
@@ -107,7 +107,7 @@ const Header = () => {
                                 <div className="flex search-box">
                                     <div className="flex mr-auto w-full">
                                         <div className="flex align-center self-center pr-2">
-                                            <img className="icon-ssm" src="./img/icon/Search.svg" alt="smile" loading="lazy"/>
+                                            <img className="icon-ssm" src="/img/icon/Search.svg" alt="smile" loading="lazy"/>
                                         </div>
                                         <div className="my-search-bar nav-search w-full">
                                             <input className="searchbar-head p-1 w-full" placeholder="Enter article name and hit enter..."/>
@@ -116,7 +116,7 @@ const Header = () => {
                                     <button type="button"
                                             onClick={toggleVisibility}
                                             className="relative rounded-full bg-gray-800 p-1 text-gray-400 focus:outline-none">
-                                        <img className="icon-ssm" src="./img/icon/x.svg" alt="smile" loading="lazy"/>
+                                        <img className="icon-ssm" src="/img/icon/x.svg" alt="smile" loading="lazy"/>
                                     </button>
                                 </div>
 
@@ -165,7 +165,7 @@ const Header = () => {
                                                 <div className="navdrop-title pr-3 py-4">
                                                     <Link href={ROUTER.DESTINATION} className="flex nav-link">{t('header.guide')}
                                                         <span className="ml-1">
-                                                        <img className="icon-ssm" src="./img/icon/chevron-down-black.svg" alt="smile" loading="lazy"/>
+                                                        <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="lazy"/>
                                                     </span>
                                                     </Link>
                                                 </div>
@@ -188,7 +188,7 @@ const Header = () => {
                                                 <div className="navdrop-title z-50 text-gray-300 hover:text-gray rounded-md pr-3 py-4">
                                                     <Link href={ROUTER.DESTINATION} className="flex nav-link">{t('header.routine')}
                                                         <span className="ml-1">
-                                                        <img className="icon-ssm" src="./img/icon/chevron-down-black.svg" alt="smile" loading="lazy"/>
+                                                        <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="lazy"/>
                                                     </span>
                                                     </Link>
                                                 </div>
@@ -208,7 +208,7 @@ const Header = () => {
                                                 <div className="navdrop-title z-50 text-gray-300 hover:text-gray py-4 pr-0">
                                                     <Link href="#" className="nav-link flex">Skincare Nerd
                                                         <span className="ml-1">
-                                                        <img className="icon-ssm" src="./img/icon/chevron-down-black.svg" alt="smile" loading="lazy"/>
+                                                        <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="lazy"/>
                                                     </span>
                                                     </Link>
                                                 </div>
@@ -231,7 +231,7 @@ const Header = () => {
                                                 <div className="navdrop-title z-50 text-gray-300 hover:text-gray py-4 pr-0">
                                                     <Link href="#" className="nav-link flex">{t('header.about')}
                                                         <span className="ml-1">
-                                                        <img className="icon-ssm" src="./img/icon/chevron-down-black.svg" alt="smile" loading="lazy"/>
+                                                        <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="lazy"/>
                                                     </span>
                                                     </Link>
                                                 </div>
