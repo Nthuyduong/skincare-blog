@@ -75,7 +75,7 @@ const Home = () => {
                                 <div className="col-span-12 md:col-span-4">
                                     <div>
                                         <Link href={ROUTER.ARTICLE}>
-                                            <img className="w-full" src="./img/home/article.jpg" alt="smile" loading="lazy"/>
+                                            <img className="w-full" src="./img/home/article1.jpg" alt="smile" loading="lazy"/>
                                         </Link>
                                     </div>
                                     <div>
@@ -97,7 +97,7 @@ const Home = () => {
                                 <div className="col-span-12 md:col-span-4">
                                     <div>
                                         <Link href={ROUTER.ARTICLE}>
-                                            <img className="w-full" src="./img/home/article.jpg" alt="smile" loading="lazy"/>
+                                            <img className="w-full" src="./img/home/article2.jpg" alt="smile" loading="lazy"/>
                                         </Link>
                                     </div>
                                     <div>

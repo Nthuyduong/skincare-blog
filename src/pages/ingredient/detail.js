@@ -1,12 +1,13 @@
 import React from "react";
+import Ingredient from "./index";
 
-const Article = () => {
+const IngredientDetail = () => {
     return (
         <div className="article-single-post">
             <div className="test-review-page">
                 <div className="review-banner">
                     <div className="relative">
-                        <div className="container-fluid banner-left">
+                        <div className="container-fluid banner-left dark:text-black">
                             <div className="grid grid-cols-12">
                                 <div className="col-span-5">
                                     {/*breadcrumb*/}
@@ -14,17 +15,18 @@ const Article = () => {
                                         <ul className="flex">
                                             <li><a href="#">Home</a></li>
                                             <li className="mx-2">/</li>
-                                            <li><a href="#">Tests and Reviews</a></li>
+                                            <li><a href="#">Skincare Nerd</a></li>
                                             <li className="mx-2">/</li>
-                                            <li><a href="#">Paula's Choice 2% BHA liquid exfoliant</a></li>
+                                            <li><a href="#">Nuturish</a></li>
                                         </ul>
                                     </div>
-                                    <div className="heading_3 mb-2">What does Paula's Choice 2% BHA liquid exfoliant do?</div>
-                                    <div className="medium_text mb-3">Sharing my skincare journey from the past to the present, along with my routine. I hope it provides helpful insights for you!</div>
+                                    <div className="heading_3 mb-2">Happiness: The Secret to Beautiful Skin Every Day</div>
+                                    <div className="medium_text mb-4">Uncover the secret to daily beautiful, radiant skin:
+                                        happiness. Explore how joy transforms your beauty routine, embracing your natural glow with each passing day</div>
                                     <div className="small_text">Writen by: Nthduong</div>
-                                    <div className="small_text">16/01/2024</div>
+                                    <div className="small_text my-1">Publish date: 16/01/2024</div>
                                     <div className="small_text">About 10 minutes to read</div>
-                                    <div className="medium_text mt-3">Is this article helpful?</div>
+                                    <div className="medium_text mt-4">Is this article helpful?</div>
                                 </div>
                             </div>
                         </div>
@@ -38,11 +40,16 @@ const Article = () => {
                 <div className="grid grid-cols-12">
                     <div className="col-span-9 article-out">
                         <div className="article-summary mb-4">
+                            <div className="font-medium mb-2">
+                                We all know how stress can negatively impact our skin, leading to issues like breakouts,
+                                dark circles, and dryness. Chronic stress takes a toll on our skin health. However, the
+                                positive effects of happiness on our skin often go unnoticed. Happiness is a crucial factor
+                                in achieving a naturally radiant complexion that lasts.
+                            </div>
                             <div className="font-medium">
-                                Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit
-                                consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque
-                                sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
-                                Blandit consequat quisque vitae ornare diam netus tellus.
+                                In this post, we'll delve into how stress affects the skin negatively, explore the ways in
+                                which happiness can enhance your skin, and discuss practical tips for prioritizing joy in
+                                your daily life. Our aim is to empower you with insights that contribute to long-lasting skin wellness
                             </div>
                         </div>
                         <div>
@@ -94,58 +101,57 @@ const Article = () => {
                             {/*    </div>*/}
                             {/*</div>*/}
                             <div className="article-content">
+                                <div className="grid grid-cols-6 gap-4">
+                                    <div className="col-span-3">
+                                        <img className="w-full" src="/img/article/article1.png" alt="smile" loading="lazy"/>
+                                    </div>
+                                    <div className="col-span-3 flex items-center">
+                                        <div className="">
+                                            <div className="mb-3 heading_5">Stress Negatively Impacts Your Skin</div>
+                                            <div className="mb-1">According to WebMD, the mind and the skin are closely related. This explains
+                                                why chronic stress harms your skin. For instance, when you are more stressed
+                                                and tense, your body in turn releases stress hormones that increase your skin’s
+                                                oil production. This increase in oil production then increases your chances of experiencing breakouts.
+                                            </div>
+                                            <div>
+                                                Acne isn’t the only sign of how negative emotions can be seen in the skin.
+                                                Eczema, hives, and rosacea are just some skin problems that can result from
+                                                negative emotions and stress.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="mt-5">
+                                    <div className="heading_5 mb-3">How Happiness Improves Your Skin</div>
+                                    <div className="">On the other hand, happiness serves as the overarching secret ingredient that
+                                        naturally bestows upon you radiant, healthy, and glowing skin. This is because
+                                        happiness reduces stress levels, which, as discussed earlier, releases stress
+                                        hormones that can lead to various skin problems.
+                                    </div>
+                                    <div className="my-1">The influence of positive emotions on enhancing your skin is
+                                        undeniable. Often referred to as the 'happiness glow,' this theory posits that
+                                        positive emotions can contribute to the repair and healing of your skin, resulting
+                                        in an effortlessly healthy and radiant appearance.
+                                    </div>
+                                    <div className="">It's crucial to emphasize that while happiness plays a vital role
+                                        in enhancing your skin, you still need to adhere to your daily skincare routine.
+                                        This entails removing all your makeup before bedtime, cleansing your face with a
+                                        quality cleanser, moisturizing, and, of course, applying SPF. At BB Aesthetic,
+                                        we provide a range of gentle cleansers and sunscreens, ensuring you have all the
+                                        essential skincare products to maintain your flawless skin.
+                                    </div>
+                                </div>
+                                <div className="grid grid-cols-6 my-5">
+                                    <div className="col-span-1"></div>
+                                    <div className="col-span-4">
+                                        <img className="w-full" src="/img/article/article2.png" alt="smile" loading="lazy"/>
+                                    </div>
+                                    <div className="col-span-1"></div>
+                                </div>
+
                                 <div>
-                                    <div className="">
-                                        Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit
-                                        consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque
-                                        sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
-                                    </div>
-                                    <div>
-                                        Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
-                                        Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
-                                        Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
-                                    </div>
-                                    {/*<div className="my-4">*/}
-                                    {/*    <img className="w-full" src="./img/article/article.jpg" alt="smile" loading="lazy"/>*/}
-                                    {/*</div>*/}
-                                    <div>
-                                        Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
-                                        Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
-                                        Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
-                                    </div>
-                                    <div>
-                                        Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
-                                        Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
-                                        Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
-                                    </div>
-                                    <div>
-                                        Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
-                                        Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
-                                        Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
-                                    </div>
-                                    <div>
-                                        Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
-                                        Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
-                                        Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
-                                    </div>
-                                    <div>
-                                        Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
-                                        Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
-                                        Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
-                                    </div>
-                                    <div className="my-4">
-                                        <img className="w-full" src="./img/article/article.jpg" alt="smile" loading="lazy"/>
-                                    </div>
-                                    <div>
-                                        Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
-                                        Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
-                                        Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
-                                    </div>
-                                    <div>
-                                        Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
-                                        Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
-                                        Blandit consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
-                                    </div>
+
+
                                 </div>
                                 <div className="flex helpful-rate mt-4">
                                     <div className="medium_text mr-4">
@@ -382,19 +388,4 @@ const Article = () => {
         </div>
     )
 }
-
-export async function getInitialProps({ query }) {
-    const { slug } = query;
-    // const res = await getBlogBySlugApi(slug);
-    // const res = await fetch('https://app.radiance-aura.blog/api/blogs')
-    // console.log(res)
-    // const blog = await res.json();
-
-    return {
-        props: {
-            slug: slug
-        }
-    }
-}
-
-export default Article;
+export default IngredientDetail;

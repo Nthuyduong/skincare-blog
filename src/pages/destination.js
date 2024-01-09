@@ -7,8 +7,8 @@ const Destination = () => {
                         <div className="heading">Guides & Tutorials</div>
                     </div>
                     <div className="col-span-5">
-                        Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit
-                        consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed
+                        Embark on a skincare journey to unveil the secrets of radiant skin. From personalized routines
+                        to mastering effective product application, explore the wonders of skincare and reveal your true beauty.
                     </div>
                 </div>
 

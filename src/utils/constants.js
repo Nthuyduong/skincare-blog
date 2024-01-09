@@ -17,5 +17,7 @@ export const ROUTER = {
     SKINTYPE: '/skintype',
     ADSUBCATE: '/admin/sub-category',
     NOTFOUND: '/notfound',
-    TESTREVIEW: '/test_review'
+    TESTREVIEW: '/test_review',
+    INGREDIENT: '/ingredient',
+    INGREDIENTDETAIL: '/ingredient/detail'
 }
