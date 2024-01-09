@@ -1,19 +1,58 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { throttle } from '@utils/common';
 import { getBlogBySlugApi } from "@services/blog";
 
 const ArticleDetail = ({ slug }) => {
 
-    const [blog, setBlog] = React.useState({});
+    const [blog, setBlog] = useState({});
+
+    const refContent = useRef(null);
+    const refTable = useRef(null);
+    const refProcess = useRef(null);
 
     useEffect(() => {
         getBlogBySlugApi(slug).then((res) => {
-            console.log(res.data)
             setBlog(res.data);
         });
+        const windowHeigh = document.body.scrollHeight;
+        const handleScroll = throttle(() => {
+            const scrollY = window.scrollY;
+            const process = scrollY / windowHeigh * 100;
+            console.log(scrollY, windowHeigh)
+            if (process <= 0) {
+                refProcess.current.style.display = 'none';
+            } else {
+                refProcess.current.style.display = 'block';
+                refProcess.current.style.width = `${process}%`;
+            }
+        }, 1);
+        window.addEventListener('scroll', handleScroll)
     }, []);
+
+    useEffect(() => {
+        if (refContent.current) {
+            const headings = refContent.current.querySelectorAll("h2, h3");
+            const list = refTable.current;
+            
+            headings.forEach((heading) => {
+                heading.id = heading.textContent.replace(/\s+/g, '-').toLowerCase();
+
+                const li = document.createElement("li");
+                li.classList.add("cursor-pointer");
+                li.textContent = heading.textContent;
+                list.appendChild(li);
+                li.addEventListener("click", () => {
+                    heading.scrollIntoView({ behavior: "smooth" });
+                });
+            });
+        }
+    }, [blog])
 
     return (
         <div className="article-single-post">
+            <div className="process-bar w-full">
+                <div ref={refProcess} className='process-content'></div>
+            </div>
             <div className="test-review-page">
                 <div className="review-banner">
                     <div className="relative">
@@ -30,7 +69,7 @@ const ArticleDetail = ({ slug }) => {
                                             <li><a href="#">Paula's Choice 2% BHA liquid exfoliant</a></li>
                                         </ul>
                                     </div>
-                                    <div className="heading_3 mb-2">{blog.title}</div>
+                                    <div className="heading_3 mb-2">{blog?.title}</div>
                                     <div className="medium_text mb-3">Sharing my skincare journey from the past to the present, along with my routine. I hope it provides helpful insights for you!</div>
                                     <div className="small_text">Writen by: Nthduong</div>
                                     <div className="small_text">16/01/2024</div>
@@ -45,9 +84,9 @@ const ArticleDetail = ({ slug }) => {
                     </div>
                 </div>
             </div>
-            <div className="container-fluid">
+            <div className="container-fluid" style={{maxWidth: "1350px"}}>
                 <div className="grid grid-cols-12">
-                    <div className="col-span-9 article-out">
+                    <div className="col-span-12 article-out">
                         <div className="article-summary mb-4">
                             <div className="font-medium">
                                 Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit
@@ -66,17 +105,14 @@ const ArticleDetail = ({ slug }) => {
                             <div className="list">
                                 <div className="list-title heading_6 mb-3">In this post</div>
                                 <div className="all-list">
-                                    <ul className="list-here">
-                                        <li><a>1. What is AHA?</a></li>
-                                        <li><a>2. Who should use it?</a></li>
-                                        <li><a>3. How to use</a></li>
-                                        <li><a>4. Side effect</a></li>
-                                    </ul>
+                                    {/* table of content */}
+                                    <ul className="list-here" ref={refTable} />
                                 </div>
                             </div>
                         </div>
-                        <div 
-                            className="main-article" 
+                        <div
+                            className="main-article"
+                            ref={refContent}
                             dangerouslySetInnerHTML={{
                                 __html: blog.content
                             }} 
@@ -225,7 +261,7 @@ const ArticleDetail = ({ slug }) => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-span-3 article-sidebar">
+                    <div className="col-span-3 article-sidebar hidden">
                         <div className="sidebar">
                             <div className="article-recently">
                                 <div className="heading_4 mb-3">Recently update</div>

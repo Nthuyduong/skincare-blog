@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
-import { throttle } from '../utils/common';
+import { throttle } from '@utils/common';
 import React, { createContext, useContext, useEffect } from 'react';
-import { useModal } from '../hooks/modal';
+import { useModal } from '@hooks/modal';
 
 const RouterContext = createContext();
 

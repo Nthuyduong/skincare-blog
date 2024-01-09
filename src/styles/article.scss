@@ -1,8 +1,11 @@
 @use "variables" as v;
 .article-single-post{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   //margin-top: 60px;
   .article-out{
-    padding: 60px 60px 0 0px;
+    padding: 60px 0px 0 0px;
     .catalog{
       margin-bottom: 30px;
       .list{
@@ -122,5 +125,15 @@ textarea{
         }
       }
     }
+  }
+}
+
+.process-bar {
+  position:sticky;
+  top: 0;
+  z-index: 11111;
+  .process-content {
+    height: 0.25rem;
+    background-image: linear-gradient(135deg, yellow,red,violet);
   }
 }
