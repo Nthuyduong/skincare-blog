@@ -130,7 +130,7 @@ const Header = () => {
                 </div>
             </div>
             {/*nav bar*/}
-            <div className={`nav-active ${show ? 'sticky-wrapper' : 'not-sticky'} ${showw ? 'move' : ''}`}>
+            <div className="nav-active">
                 <div className="nav-out">
                     <nav className="nav_blog w-full" id="blog-nav">
                         <div className="nav-blog-inner px-0 sm:px-0 lg:px-0">
