@@ -523,9 +523,9 @@ const Home = () => {
                     {/*    </div>*/}
                     {/*</div>*/}
                 </div>
-                <div className="home-about">
+                <div className="home-about dark:border-t dark:border-b dark:!border-ccc">
                     <div className="grid grid-cols-12 gap-4">
-                        <div className="col-span-8 py-6 about-intro">
+                        <div className="col-span-8 py-6 about-intro dark:border-r dark:!border-ccc">
                             <div className="relative">
                                 <div className="heading_1">
                                     “Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor.”
@@ -540,21 +540,29 @@ const Home = () => {
                                 in tortor. Blandit consequat quisque vitae ornare.</div>
                             <div className="mt-6">
                                 <Link href={ROUTER.ABOUT}>
-                                    <button className="my-out-line-btn" type="submit">MORE ABOUT ME</button>
+                                    <button className="my-out-line-btn dark:border-ccc" type="submit">MORE ABOUT ME</button>
                                 </Link>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="home-contact-me">
-                    <div className="contact-inner">
-                        <div className="">
-                            <div className="heading_3 mb-3">Connect with me</div>
-                            <div className=""><a href="#">Nthduong898@gmail.com</a></div>
-                            <div><a href="#">https://nthuyduong.github.io</a></div>
-                        </div>
+                <div className="contact-me">
+                    <div className="contact-me-inner dark:text-black">
+                        <div className="heading_3 md:mb-4">Work With Me</div>
+                        <div className="mb-3">Are you interested in collaborating? Contact me for more information or hire me for a UI freelance,
+                            please visit my portfolio <a>https://nthuyduong.github.io.</a></div>
+                        <div className="medium_text">Get in touch: Nthduong898@gmail.com</div>
                     </div>
                 </div>
+                {/*<div className="home-contact-me">*/}
+                {/*    <div className="contact-inner">*/}
+                {/*        <div className="dark:text-black">*/}
+                {/*            <div className="heading_4 mb-3">Connect with me</div>*/}
+                {/*            <div className="mb-1"><a href="#">Nthduong898@gmail.com</a></div>*/}
+                {/*            <div><a href="#">https://nthuyduong.github.io</a></div>*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
                 {/*<div className="contact-me ">*/}
                 {/*    <div className="contact-me-inner">*/}
                 {/*        <div className="heading_3 md:mb-4">Work With Me</div>*/}
