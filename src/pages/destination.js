@@ -2,7 +2,7 @@ const Destination = () => {
     return (
         <div>
             <div className="container-fluid">
-                <div className="grid grid-cols-12 pt-5">
+                <div className="grid grid-cols-12 pt-60">
                     <div className="col-span-7">
                         <div className="heading">Guides & Tutorials</div>
                     </div>

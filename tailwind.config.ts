@@ -17,11 +17,14 @@ module.exports = {
     //   }
     // },
     colors: {
-      'primary': '#232D3E',
+      'primary': '#EBE4DC',
       'secondary': '#DFE3EA',
       'tertiary': '#131416',
       'white': '#ffffff',
       'black': '#000000',
+      'ccc': '#cccccc',
+      '999': '#999999',
+      '666': '#666666',
     },
     fontFamily: {
       // sans: ['Graphik', 'sans-serif'],

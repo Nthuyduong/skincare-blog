@@ -17,18 +17,21 @@
 //Variant
 $heading: 64px;
 $heading_1: 42px;
-$heading_2: 38px;
-$heading_3: 32px;
+$heading_2: 32px;
+$heading_3: 28px;
 $heading_4: 24px;
 $heading_5: 20px;
-$medium_text: 16px;
-$body_text: 14px;
-$small_text: 12px;
+$medium_text: 18px;
+$body_text: 16px;
+$small_text: 14px;
 
 body{
-  //background: v.$bg_color;
   background: #fff;
   min-height: 100vh;
+  font-family: 'Karla', sans-serif;
+  color: v.$text_color;
+  font-size: 16px;
+  line-height: 1.5;
 }
 .page{
   min-height: 100vh;
@@ -176,24 +179,23 @@ input:focus-visible{
 textarea:focus-visible{
   outline: v.$primary_color solid 1px;
 }
-body{
-  font-family: 'Karla', sans-serif;
-  color: v.$text_color;
-  font-size: 14px;
-  line-height: 1.5;
-}
+
 //spacing
 .container-fluid{
   padding-left: 20px;
   padding-right: 20px;
 }
-.p-60{
+.pt-60{
   padding-top: 60px;
+}
+.pb-60{
   padding-bottom: 60px;
 }
+.p-60{
+  padding: 60px 0;
+}
 .p-100{
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding: 100px 0;
 }
 //Search bar
 .searchbar{
@@ -399,6 +401,7 @@ body{
 }
 //SIDEBAR STYLE
 #sidebar{
+  width: 250px;
   color: #fff;
   background: #000;
   .sidebar-title{
