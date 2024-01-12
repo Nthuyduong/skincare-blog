@@ -23,13 +23,13 @@ const About = () => {
                         <div className=""></div>
                     </div>
                 </div>
-                <div className="about-me p-60">
+                <div className="about-me p-60 dark:border-t dark:border-ccc">
                     <div className="grid grid-cols-12 gap-5">
                         <div className="col-span-5">
                             <img className="w-full" src="./img/about/abt-me.jpg" alt="smile" loading="lazy"/>
                         </div>
                         <div className="col-span-7 about-right flex">
-                            <div className="about-content m-auto">
+                            <div className="about-content m-auto dark:!text-black">
                                 <div className="heading_3 mb-2">About Me</div>
                                 <div>
                                     Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque
@@ -45,18 +45,18 @@ const About = () => {
                     </div>
                 </div>
                 {/*What we do new*/}
-                <div className="wedo-new">
+                <div className="wedo-new dark:boder-b dark:border-ccc">
                     <div className="grid grid-cols-12 gap-5">
                         <div className="col-span-4">
                             <div className="pr-5">
                                 <div className="heading_3 mb-3">What we do</div>
                                 <div>Are you interested in collaborating? Do you want to be a part of us? Join with us now!</div>
                                 <div className="mt-4">
-                                    <button className="w-full my-out-line-btn" type="submit">Join with us</button>
+                                    <button className="w-full my-out-line-btn dark:border-white" type="submit">Join with us</button>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-span-8 wedo-first">
+                        <div className="col-span-8 wedo-first dark:border-l dark:border-ccc">
                             <div className="grid grid-cols-8">
                                 <div className="col-span-4">
                                     <div className="we-do-card px-4 mb-4 mx-3">
@@ -75,7 +75,7 @@ const About = () => {
                                     </div>
                                 </div>
                                 <div className="col-span-4">
-                                    <div className="we-do-card card-right px-4 ml-3">
+                                    <div className="we-do-card card-right px-4 ml-3 dark:border-x dark:border-ccc">
                                         <div>
                                             <img className="" src="./img/about/do.svg" alt="smile" loading="lazy"/>
                                         </div>
@@ -91,7 +91,7 @@ const About = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="decor-line mx-3 mb-4"></div>
+                            <div className="decor-line mx-3 mb-4 dark:bg-ccc"></div>
                             <div className="grid grid-cols-8">
                                 <div className="col-span-4">
                                     <div className="we-do-card px-4 mb-4 mx-3">
@@ -110,7 +110,7 @@ const About = () => {
                                     </div>
                                 </div>
                                 <div className="col-span-4">
-                                    <div className="we-do-card card-right px-4 ml-3">
+                                    <div className="we-do-card card-right px-4 ml-3 dark:border-x dark:border-ccc">
                                         <div>
                                             <img className="" src="./img/about/do.svg" alt="smile" loading="lazy"/>
                                         </div>
@@ -170,7 +170,7 @@ const About = () => {
                 {/*        </div>*/}
                 {/*    </div>*/}
                 {/*</div>*/}
-                <div className="about-blog">
+                <div className="about-blog dark:border-b dark:border-ccc">
                     <div className="grid grid-cols-12 about-blog-inner flex gap-4">
                         <div className="col-span-12 md:col-span-6 about-content m-auto md:p-5">
                             <div className="heading_3 mb-2">About blog</div>
@@ -203,7 +203,7 @@ const About = () => {
                     </div>
                 </div>
                 <div className="contact-me ">
-                    <div className="contact-me-inner">
+                    <div className="contact-me-inner dark:!text-black">
                         <div className="heading_3 md:mb-4">Work With Me</div>
                         <div className="mb-3">Are you interested in collaborating? Contact me for more information or hire me for a UI freelance,
                             please visit my portfolio <a>https://nthuyduong.github.io.</a></div>

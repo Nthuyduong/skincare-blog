@@ -532,6 +532,7 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
+
                     <div className="contact-me">
                         <div className="contact-me-inner dark:text-black">
                             <div className="heading_3 md:mb-4">Work With Me</div>
