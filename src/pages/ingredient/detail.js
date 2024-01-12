@@ -5,7 +5,7 @@ const IngredientDetail = () => {
     return (
         <div className="article-single-post">
             <div className="process-bar w-full">
-                <div ref={refProcess} className='process-content'></div>
+
             </div>
             <div className="test-review-page">
                 <div className="review-banner">
