@@ -14,19 +14,7 @@ const ArticleDetail = ({ slug }) => {
         getBlogBySlugApi(slug).then((res) => {
             setBlog(res.data);
         });
-        const windowHeigh = document.body.scrollHeight;
-        const handleScroll = throttle(() => {
-            const scrollY = window.scrollY;
-            const process = scrollY / windowHeigh * 100;
-            console.log(scrollY, windowHeigh)
-            if (process <= 0) {
-                refProcess.current.style.display = 'none';
-            } else {
-                refProcess.current.style.display = 'block';
-                refProcess.current.style.width = `${process}%`;
-            }
-        }, 1);
-        window.addEventListener('scroll', handleScroll)
+        
     }, []);
 
     useEffect(() => {
@@ -45,13 +33,29 @@ const ArticleDetail = ({ slug }) => {
                     heading.scrollIntoView({ behavior: "smooth" });
                 });
             });
+            const handleScroll = throttle(() => {
+                let process = ((document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight) * 100);
+                if (process < 0) {
+                    process = 0;
+                } else if (process > 100) {
+                    process = 100;
+                }
+                if (process <= 0) {
+                    refProcess.current.style.display = 'none';
+                } else {
+                    refProcess.current.style.display = 'block';
+                    refProcess.current.style.width = `${process}%`;
+                }
+            }, 1);
+            window.addEventListener('scroll', handleScroll)
         }
+        
     }, [blog])
 
     return (
         <div className="article-single-post">
             <div className="process-bar w-full">
-
+                <div ref={refProcess} className='process-content'></div>
             </div>
             <div className="test-review-page">
                 <div className="review-banner">

@@ -1,14 +1,5 @@
 import React, {Component, useState, useEffect} from 'react';
 
-import dynamic from 'next/dynamic';
-
-import draftToHtml from 'draftjs-to-html';
-import { EditorState, convertToRaw } from 'draft-js';
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-const Editor = dynamic(
-    () => import('react-draft-wysiwyg').then(mod => mod.Editor),
-    { ssr: false }
-)
 import { usePost } from '@hooks/usePost';
 import Link from 'next/link';
 
@@ -16,7 +7,6 @@ const EditPost = ({ id }) => {
 
     const { getBlogById, post } = usePost();
 
-    const [editorState, setEditorState] = useState(EditorState.createEmpty());
     const [title, setTitle] = useState('');
     const [slug, setSlug] = useState('');
     const [summary, setsummary] = useState('');
@@ -31,10 +21,6 @@ const EditPost = ({ id }) => {
         setsummary(post.summary || '');
     }, [post]);
 
-    const onEditorStateChange = (editorState) => {
-        setEditorState(editorState);
-    };
-
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const openNav = () => {
@@ -45,21 +31,14 @@ const EditPost = ({ id }) => {
         setIsMenuOpen(false);
     };
 
-    const convertHtml = () => {
-        return convertImage(draftToHtml(convertToRaw(editorState.getCurrentContent())));
-    }
-
-    const convertImage = (htmlText) => {
-        return htmlText.replace(/<div style="text-align:none;"><img/g, '<div style="text-align:center;"><img')
-    }
 
     const handleClick = () => {
         createBlogPost({
             title: title,
             slug: slug,
             summary: summary,
-            content: convertHtml(convertToRaw(editorState.getCurrentContent())),
-            content_draft: convertHtml(convertToRaw(editorState.getCurrentContent())),
+            content: '',
+            content_draft: '',
         })
     }
 
@@ -137,12 +116,6 @@ const EditPost = ({ id }) => {
                             </div>
                         </div>
                         <div className="text-editor-wrp">
-                            <Editor
-                                editorState={editorState}
-                                wrapperClassName="demo-wrapper"
-                                editorClassName="demo-editor"
-                                onEditorStateChange={onEditorStateChange}
-                            />
                         </div>
                     </div>
                     <div className={`setting-bar ${

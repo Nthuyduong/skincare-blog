@@ -1,28 +1,20 @@
-import React, {Component, useState} from 'react';
-
-import dynamic from 'next/dynamic';
-
-import draftToHtml from 'draftjs-to-html';
-import { EditorState, convertToRaw } from 'draft-js';
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-const Editor = dynamic(
-    () => import('react-draft-wysiwyg').then(mod => mod.Editor),
-    { ssr: false }
-)
+import React, { useEffect, useState } from 'react';
 import { usePost } from '@hooks/usePost';
+import Editor from '@components/common/editor/editor';
 
 const CreatePost = () => {
 
     const { createBlogPost } = usePost();
 
-    const [editorState, setEditorState] = useState(EditorState.createEmpty());
+    const [content, setContent] = useState('<p>This is the initial content of the editor.</p>');
+
     const [title, setTitle] = useState('');
     const [slug, setSlug] = useState('');
     const [summary, setsummary] = useState('');
 
-    const onEditorStateChange = (editorState) => {
-        setEditorState(editorState);
-    };
+    useEffect(() => {
+        console.log(content);
+    }, [content])
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -34,21 +26,13 @@ const CreatePost = () => {
         setIsMenuOpen(false);
     };
 
-    const convertHtml = () => {
-        return convertImage(draftToHtml(convertToRaw(editorState.getCurrentContent())));
-    }
-
-    const convertImage = (htmlText) => {
-        return htmlText.replace(/<div style="text-align:none;"><img/g, '<div style="text-align:center;"><img')
-    }
-
     const handleClick = () => {
         createBlogPost({
             title: title,
             slug: slug,
             summary: summary,
-            content: convertHtml(convertToRaw(editorState.getCurrentContent())),
-            content_draft: convertHtml(convertToRaw(editorState.getCurrentContent())),
+            content: '',
+            content_draft: '',
         })
     }
 
@@ -121,11 +105,9 @@ const CreatePost = () => {
                             </div>
                         </div>
                         <div className="text-editor-wrp">
-                            <Editor
-                                editorState={editorState}
-                                wrapperClassName="demo-wrapper"
-                                editorClassName="demo-editor"
-                                onEditorStateChange={onEditorStateChange}
+                            <Editor 
+                                value={content}
+                                onChange={setContent}
                             />
                         </div>
                     </div>
