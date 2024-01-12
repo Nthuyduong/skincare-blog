@@ -25,7 +25,7 @@ const Sub_destination = () => {
             <div className="sub-des-inner">
                 <div className="container-fluid">
                     <div className="grid grid-cols-12 gap-5">
-                        <div className="col-span-2 left-menu">
+                        <div className="col-span-2 left-menu dark:border-r dark:!border-ccc">
                             <div className="left-menu-inner">
                                 <ul className="menu-fixed">
                                     <li className="pb-2"><a href="#">All articles</a></li>
@@ -40,10 +40,11 @@ const Sub_destination = () => {
                             <div className="relative title-page">
                                 <img className="w-100" src="./img/subdes/sub-banner.png" alt="smile" loading="lazy"/>
                                 <div className="absolute main-title">
-                                    <div className="heading mb-4">Testings & Reviews</div>
+                                    <div className="heading !text-black mb-2">Testings & Reviews</div>
+                                    <div className="!text-black">Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. </div>
                                 </div>
                             </div>
-                            <div className="destination-title my-5">
+                            <div className="destination-title dark:border-y dark:border-ccc my-5">
                                 <div className="flex justify-center">
                                     {/*breadcrumb*/}
                                     <div className="flex self-center">

@@ -20,8 +20,11 @@
       padding-top: 32px;
       .title-page{
         .main-title{
-          top: 35%;
-          left: 5%;
+          //top: 35%;
+          //left: 5%;
+          top: 40%;
+          left: 32%;
+          transform: translate(-40%, -32%);
           .heading{
             color:#fff;
             font-size: 52px;

@@ -64,7 +64,7 @@ const Footer = () => {
                         <div className="mb-2">Enter your email address to receive new posts in your inbox and seasonal newsletters with
                             extra goodies!</div>
                         <div>
-                            <div className="flex sub-input">
+                            <div className="flex sub-input dark:border-b dark:border-ccc">
                                 <div className="w-full">
                                     <input className="w-full py-1 pr-1" placeholder="Email address"/>
                                 </div>
@@ -80,7 +80,7 @@ const Footer = () => {
             <div className="footer-sub">
                 <div className="grid grid-cols-12">
                     <div className="col-span-12">
-                        <div className="text-center copy-right">COPYRIGHT © 2023 · Nthduong Blog. ALL RIGHTS RESERVED</div>
+                        <div className="text-center copy-right dark:!text-999">COPYRIGHT © 2023 · Nthduong Blog. ALL RIGHTS RESERVED</div>
                     </div>
                     {/*<div className="col-span-3">*/}
                     {/*    <div className="my-social flex w-full">*/}
