@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { ROUTER } from "../../utils/constants";
 import Link from 'next/link'
 import { useTranslation } from 'react-i18next';
 
-import { getLanguage, getTheme, setTheme } from "../../utils/local-store";
-import { changeLanguage } from "../../lang/index";
+import { setTheme } from "../../utils/local-store";
 
 const Header = () => {
 
@@ -12,44 +11,36 @@ const Header = () => {
 
     // Test for button search
     const [showw, setShoww] = useState(false);
-    const [prevScrollY, setPrevScrollY] = useState(0);
+
+    const [showMenu, setShowMenu] = useState(false);
+
+    const headerRef = useRef(null);
+    const headerMobileRef = useRef(null);
 
     const toggleVisibility = () => {
         setShoww(!showw);
     };
 
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollThreshold = 0.05;
-            const scrollY = window.scrollY;
-            const isScrollingUp = scrollY < prevScrollY;
+    let prevScrollpos = 0;
 
-            if ((scrollY > scrollThreshold) || (showw && isScrollingUp) || (showw && 's-true')){
-                setShoww(false);
-            } else if (!showw && !isScrollingUp) {
-                setShoww(true);
-            }
-
-            setPrevScrollY(scrollY);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, [prevScrollY, showw]);
-
-    const [show, setShow] = useState(false)
     const controlNavbar = () => {
-        if (window.scrollY > 86 ) {
-            setShow(true)
-        }else{
-            setShow(false)
+        var currentScrollPos = window.pageYOffset;
+        if (headerRef.current) {
+            if (prevScrollpos > currentScrollPos) {
+                headerRef.current.style.top = "0";
+                headerMobileRef.current.style.top = "0";
+            } else {
+                headerRef.current.style.top = "-75px";
+                headerMobileRef.current.style.top = "-105px";
+                setShowMenu(false);
+            }
+            prevScrollpos = currentScrollPos;
         }
     }
 
     useEffect(() => {
+        prevScrollpos = window.pageYOffset;
+
         window.addEventListener('scroll', controlNavbar)
         return () => {
             window.removeEventListener('scroll', controlNavbar)
@@ -61,30 +52,86 @@ const Header = () => {
         window.location.reload();
     }
     return(
-        <div className="">
-            <div className="top-header flex justify-center p-3 container-fluid justify-center w-full items-center m-w mx-auto my-0">
-                <button type="button"
+        <>
+            <div 
+                ref={headerMobileRef} 
+                className="heaed-mobile md:hidden sticky bg-white z-50 top-header justify-center w-full m-w mx-auto my-0"
+                style={{ top: '0' }}
+            >
+                <div className="relative heaeder-mobile-contain flex justify-center items-center w-full dark:bg-black">
+                    <button type="button"
                         className="lg:hidden relative inline-flex items-center justify-center
                         rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white
                         focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-                >
-                    <span className="absolute -inset-0.5"></span>
-                    <span className="sr-only">Open main menu</span>
-                    {/*Icon when menu is closed.*/}
-                    {/*Menu open: "hidden", Menu closed: "block"*/}
-                    <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
-                         stroke="currentColor" aria-hidden="true">
-                        <path strokeLinecap="round" strokeLinejoin="round"
-                              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
-                    </svg>
-                    {/*Icon when menu is open.*/}
-                    {/*Menu open: "block", Menu closed: "hidden"*/}
-                    <svg className="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
-                         stroke="currentColor" aria-hidden="true">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
-                    </svg>
-                </button>
-                {/*darkmode*/}
+                        onClick={() => setShowMenu(!showMenu)}
+                    >
+                        <span className="absolute -inset-0.5"></span>
+                        <span className="sr-only">Open main menu</span>
+                        {/*Icon when menu is closed.*/}
+                        {/*Menu open: "hidden", Menu closed: "block"*/}
+                        <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
+                            stroke="currentColor" aria-hidden="true">
+                            <path strokeLinecap="round" strokeLinejoin="round"
+                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+                        </svg>
+                        {/*Icon when menu is open.*/}
+                        {/*Menu open: "block", Menu closed: "hidden"*/}
+                        <svg className="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
+                            stroke="currentColor" aria-hidden="true">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                    {/*darkmode*/}
+                    <div className="!hidden md:!block color-mode">
+                        <div className="mode-inner">
+                            {/*sun icon*/}
+                            <div className="light-mode">
+                                <span>
+                                    <img className="" src="/img/icon/sun.svg" alt="smile" loading="lazy"/>
+                                </span>
+                            </div>
+                            {/*moon icon*/}
+                            <div className="dark-mode">
+                                <span>
+                                    <img className="" src="/img/icon/moon.svg" alt="smile" loading="lazy"/>
+                                </span>
+                            </div>
+                        </div>
+                        <div className="switch-btn">
+                            {/*button switch*/}
+                            <div className="sw-btn"></div>
+                        </div>
+                    </div>
+                    {/*main logo*/}
+                    <Link href={ROUTER.HOME} className="flex-1">
+                        <div className="items-center justify-center w-full hidden dark:flex">
+                            <img className="h-4" src="/img/logo1.svg" alt="smile" loading="lazy"/>
+                        </div>
+                        <div className="flex items-center justify-center w-full dark:hidden">
+                            <img className="h-4" src="/img/logo2.svg" alt="smile" loading="lazy"/>
+                        </div>
+                    </Link>
+                    <div className="flex mr-4 !hidden md:!flex">
+                        <div className="mr-1 pr-1 dark:border-r dark:border-999 border-r border-333">EN</div>
+                        <div className="mr-l">VN</div>
+                    </div>
+                    <div className="">
+                        <button type="button"
+                                onClick={toggleVisibility}
+                                className="relative rounded-full bg-gray-800 p-1 text-gray-400 focus:outline-none">
+                            <img className="icon-ssm dark:hidden" src="/img/icon/search.svg" alt="smile" loading="lazy"/>
+                            <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy"/>
+                        </button>
+                    </div>
+                </div>
+                <div className={`header-mobile-content dark:bg-black h-full ${showMenu ? 'active': ''}`}>
+                    get abc
+                </div>
+                <div className={`mobile-menu-overlay ${showMenu ? 'block' : 'hidden'}`}>
+
+                </div>
+            </div>
+            <div className="hidden md:flex top-header justify-center p-3 container-fluid justify-center w-full items-center m-w mx-auto my-0">
                 <div className="!hidden md:!block color-mode">
                     <div className="mode-inner">
                         {/*sun icon*/}
@@ -163,7 +210,11 @@ const Header = () => {
                 </div>
             </div>
             {/*nav bar*/}
-            <div className="!hidden lg:!flex nav-active dark:bg-black dark:border-b dark:border-666 border-b border-ccc">
+            <div
+                ref={headerRef}
+                className="!hidden header-desktop sticky lg:!flex dark:bg-black dark:border-b dark:border-666 border-b border-ccc"
+                style={{ top: '0' }}
+            >
                 <div className="nav-out">
                     <nav className="nav_blog w-full" id="blog-nav">
                         <div className="nav-blog-inner px-0 sm:px-0 lg:px-0">
@@ -360,7 +411,7 @@ const Header = () => {
                     </nav>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 export default Header;
