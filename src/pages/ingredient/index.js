@@ -3,7 +3,7 @@ import React from "react";
 const Ingredient = () => {
     return (
         <div>
-            <div className="container-fluid">
+            <div className="container-fluid m-w mx-auto my-0">
                 {/*breadcrumb*/}
                 <div className="flex self-center">
                     <ul className="flex">

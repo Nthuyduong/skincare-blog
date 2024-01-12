@@ -10,12 +10,12 @@ export const fetchBlogPostsApi = async (page = 1) => {
         });
         return response.data.data;
     } catch (error) {
-        if (error.response.data) {
-            return error.response.data;
+        if (error.response?.data) {
+            return error.response?.data;
         } else {
             return {
                 status: 0,
-                msg: error.response.statusText,
+                msg: error.response?.statusText,
             };
         }
     }
@@ -26,12 +26,12 @@ export const getBlogByIdApi = async (id) => {
         const response = await fetchApi.get(`/blogs/${id}`);
         return response.data;
     } catch (error) {
-        if (error.response.data) {
-            return error.response.data;
+        if (error.response?.data) {
+            return error.response?.data;
         } else {
             return {
                 status: 0,
-                msg: error.response.statusText,
+                msg: error.response?.statusText,
             };
         }
     }
@@ -58,12 +58,12 @@ export  const createBlogPostApi = async (data) => {
         const response = await fetchApi.post("/blogs", data);
         return response.data;
     } catch (error) {
-        if (error.response.data) {
-            return error.response.data;
+        if (error.response?.data) {
+            return error.response?.data;
         } else {
             return {
                 status: 0,
-                msg: error.response.statusText,
+                msg: error.response?.statusText,
             };
         }
     }

@@ -62,7 +62,8 @@ const Header = () => {
     }
     return(
         <div className="">
-            <div className="top-header flex justify-center p-3 container-fluid justify-center w-full items-center">
+            <div className="top-header flex justify-center p-3 container-fluid justify-center w-full items-center m-w mx-auto my-0">
+                {/*darkmode*/}
                 <div className="color-mode">
                     <div className="mode-inner">
                         {/*sun icon*/}
@@ -83,20 +84,25 @@ const Header = () => {
                         <div className="sw-btn"></div>
                     </div>
                 </div>
+                {/*main logo*/}
                 <Link href={ROUTER.HOME} className="flex-1">
-                    <div className="items-center justify-center w-full dark:flex">
+                    <div className="items-center justify-center w-full hidden dark:flex">
                         <img className="h-4" src="/img/logo1.svg" alt="smile" loading="lazy"/>
                     </div>
                     <div className="flex items-center justify-center w-full dark:hidden">
                         <img className="h-4" src="/img/logo2.svg" alt="smile" loading="lazy"/>
                     </div>
                 </Link>
+                <div className="flex mr-4">
+                    <div className="mr-1 pr-1 dark:border-r dark:border-999 border-r border-333">EN</div>
+                    <div className="mr-l">VN</div>
+                </div>
                 <div className="">
                     <button type="button"
                             onClick={toggleVisibility}
                             className="relative rounded-full bg-gray-800 p-1 text-gray-400 focus:outline-none">
                         <img className="icon-ssm dark:hidden" src="/img/icon/search.svg" alt="smile" loading="lazy"/>
-                        <img className="icon-ssm dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy"/>
+                        <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy"/>
                     </button>
                 </div>
             </div>
@@ -112,7 +118,7 @@ const Header = () => {
                                     <div className="flex mr-auto w-full">
                                         <div className="flex align-center self-center pr-2">
                                             <img className="icon-ssm dark:hidden" src="/img/icon/search.svg" alt="smile" loading="lazy"/>
-                                            <img className="icon-ssm dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy"/>
+                                            <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy"/>
                                         </div>
                                         <div className="my-search-bar nav-search w-full">
                                             <input className="searchbar-head p-1 w-full" placeholder="Enter article name and hit enter..."/>
@@ -122,7 +128,7 @@ const Header = () => {
                                             onClick={toggleVisibility}
                                             className="relative rounded-full bg-gray-800 p-1 text-gray-400 focus:outline-none">
                                         <img className="icon-ssm dark:hidden" src="/img/icon/x.svg" alt="smile" loading="lazy"/>
-                                        <img className="icon-ssm dark:block" src="/img/icon/x-light.svg" alt="smile" loading="lazy"/>
+                                        <img className="icon-ssm hidden dark:block" src="/img/icon/x-light.svg" alt="smile" loading="lazy"/>
                                     </button>
                                 </div>
 
@@ -136,7 +142,7 @@ const Header = () => {
                 </div>
             </div>
             {/*nav bar*/}
-            <div className="nav-active dark:bg-black dark:border-b dark:border-666">
+            <div className="nav-active dark:bg-black dark:border-b dark:border-666 border-b border-ccc">
                 <div className="nav-out">
                     <nav className="nav_blog w-full" id="blog-nav">
                         <div className="nav-blog-inner px-0 sm:px-0 lg:px-0">
@@ -173,7 +179,7 @@ const Header = () => {
                                                         <span className="ml-1 dark:hidden">
                                                             <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="lazy"/>
                                                         </span>
-                                                        <span className="ml-1 dark:block">
+                                                        <span className="ml-1 hidden dark:block">
                                                             <img className="icon-ssm" src="/img/icon/chevron-down.svg" alt="smile" loading="lazy"/>
                                                         </span>
                                                     </Link>
@@ -199,7 +205,7 @@ const Header = () => {
                                                         <span className="ml-1 dark:hidden">
                                                             <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="lazy"/>
                                                         </span>
-                                                        <span className="ml-1 dark:block">
+                                                        <span className="ml-1 hidden dark:block">
                                                             <img className="icon-ssm" src="/img/icon/chevron-down.svg" alt="smile" loading="lazy"/>
                                                         </span>
                                                     </Link>
@@ -248,7 +254,7 @@ const Header = () => {
                                                         <span className="ml-1 dark:hidden">
                                                             <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="lazy"/>
                                                         </span>
-                                                        <span className="ml-1 dark:block">
+                                                        <span className="ml-1 hidden dark:block">
                                                             <img className="icon-ssm" src="/img/icon/chevron-down.svg" alt="smile" loading="lazy"/>
                                                         </span>
                                                     </Link>

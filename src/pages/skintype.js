@@ -56,13 +56,13 @@ const Skintype = () => {
     };
 
     const faqElements = faqData.map((faq, index) => (
-        <div key={index} className={`my-collapse ${activeIndex === index ? 'expanded' : ''}`}>
+        <div key={index} className={`my-collapse dark:border-b dark:border-ccc ${activeIndex === index ? 'expanded' : ''}`}>
             <div className="mb-1 question-container flex" onClick={() => toggleCollapse(index)}>
                 <div className="question mr-auto medium_text">
                     {faq.question}
                 </div>
                 <div class="btn-question">
-                <svg role="presentation" focusable="false" width="8" height="6" class="icon icon-chevron-bottom-small" viewBox="0 0 8 6">
+                <svg role="presentation" focusable="false" width="12" height="9" class="icon icon-chevron-bottom-small" viewBox="0 0 8 6">
                     <path d="m1 1.5 3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5"></path>
                 </svg>
                 </div>
@@ -86,7 +86,7 @@ const Skintype = () => {
                         <div className="col-span-1"></div>
                     </div>
                 </div>
-                <div className="mt-5 skin-bar pb-3">
+                <div className="mt-5 skin-bar dark:border-ccc pb-3">
                     <div className="flex">
                         <div className="mr-auto">Scroll to explore</div>
                         <div className="">
@@ -98,10 +98,10 @@ const Skintype = () => {
                     <div className="grid grid-cols-12 gap-5">
                         <div className="col-span-4">
                             <div className="pr-5">
-                                <div className="heading_3 mb-3">What we do</div>
+                                <div className="heading_3 mb-3">Connect with me</div>
                                 <div>Are you interested in collaborating? Do you want to be a part of us? Join with us now!</div>
                                 <div className="mt-4">
-                                    <button className="w-full my-out-line-btn" type="submit">Join with us</button>
+                                    <button className="w-full my-out-line-btn dark:border-ccc" type="submit">Join with us</button>
                                 </div>
                             </div>
                         </div>

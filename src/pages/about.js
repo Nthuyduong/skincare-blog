@@ -189,7 +189,7 @@ const About = () => {
                 <div className="blog-mission">
                     <div className="grid grid-cols-12 mission-inner flex gap-5">
                         <div className="col-span-12 md:col-span-6 img-mission">
-                            <img className="w-100" src="./img/about/mission.png" alt="smile" loading="lazy"/>
+                            <img className="w-100" src="./img/about/mission.jpg" alt="smile" loading="lazy"/>
                         </div>
                         <div className="col-span-12 md:col-span-6 mission-content m-auto md:p-5">
                             <div className="heading_3 mb-2">My mission</div>

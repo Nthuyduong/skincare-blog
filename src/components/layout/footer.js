@@ -4,9 +4,9 @@ import React from "react";
 
 const Footer = () => {
     return (
-        <div className="blog-footer" id="blog-footer">
+        <div className="blog-footer m-w mx-auto my-0" id="blog-footer">
             <div className="blog-footer-inner">
-                <div className="grid grid-cols-12 gap-4">
+                <div className="grid grid-cols-12">
                     {/*<div className="sub-menu">*/}
                     {/*    <div className="mb-3">POPULAR</div>*/}
                     {/*    <ul>*/}
@@ -25,53 +25,57 @@ const Footer = () => {
 
                     {/*    </ul>*/}
                     {/*</div>*/}
-                    <div className="col-span-4 flex justify-center footer-logo">
-                        <img className="w-2/5 dark:hidden" src="/img/footer-logo.svg" alt="smile" loading="lazy"/>
-                        <img className="w-2/5 dark:block" src="/img/footer-logo-2.svg" alt="smile" loading="lazy"/>
+                    <div className="col-span-3 flex justify-center footer-logo">
+                        <img className="w-3/5 dark:hidden" src="/img/footer-logo.svg" alt="smile" loading="lazy"/>
+                        <img className="w-3/5 dark:block hidden" src="/img/footer-logo-2.svg" alt="smile" loading="lazy"/>
                     </div>
                     <div className="col-span-4 footer-info flex">
-                        <div className="mr-5">
-                            <div className="sub-menu">
-                                <div className="mb-3">INTEREST</div>
-                                <ul>
-                                    <li>
-                                        <Link href={ROUTER.ABOUT} className="nav-link">About us</Link>
-                                    </li>
-                                    <li>
-                                        <Link href={ROUTER.DESTINATION} className="nav-link">Destinations</Link>
-                                    </li>
-                                    <li>
-                                        <Link href={ROUTER.GALLERY} className="nav-link">Our Gallery</Link>
-                                    </li>
-                                </ul>
+                        <div className="w-full flex pl-5">
+                            <div className="mr-5">
+                                <div className="sub-menu">
+                                    <div className="mb-3">INTEREST</div>
+                                    <ul>
+                                        <li>
+                                            <Link href={ROUTER.ABOUT} className="nav-link">About us</Link>
+                                        </li>
+                                        <li>
+                                            <Link href={ROUTER.DESTINATION} className="nav-link">Destinations</Link>
+                                        </li>
+                                        <li>
+                                            <Link href={ROUTER.GALLERY} className="nav-link">Our Gallery</Link>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                        <div className="footer-contact">
-                            <div className="sub-menu">
-                                <div className="mb-3">INFO</div>
-                                <ul>
-                                    <li>
-                                        <Link href={ROUTER.CONTACT} className="nav-link">Contact me</Link>
-                                    </li>
-                                    <li>
-                                        <Link href={ROUTER.CONTACT} className="nav-link">Work with me</Link>
-                                    </li>
-                                </ul>
+                            <div className="footer-contact">
+                                <div className="sub-menu">
+                                    <div className="mb-3">INFO</div>
+                                    <ul>
+                                        <li>
+                                            <Link href={ROUTER.CONTACT} className="nav-link">Contact me</Link>
+                                        </li>
+                                        <li>
+                                            <Link href={ROUTER.CONTACT} className="nav-link">Work with me</Link>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div className="col-span-4 footer-sub">
-                        <div className="mb-2">Enter your email address to receive new posts in your inbox and seasonal newsletters with
-                            extra goodies!</div>
-                        <div>
-                            <div className="flex sub-input dark:border-b dark:border-ccc">
-                                <div className="w-full">
-                                    <input className="w-full py-1 pr-1" placeholder="Email address"/>
+                    <div className="col-span-5 footer-sub">
+                        <div className="px-5">
+                            <div className="mb-2">Enter your email address to receive new posts in your inbox and seasonal newsletters with
+                                extra goodies!</div>
+                            <div>
+                                <div className="flex sub-input dark:border-b dark:border-ccc">
+                                    <div className="w-full">
+                                        <input className="w-full py-1 pr-1" placeholder="Email address"/>
+                                    </div>
+                                    <button className="" type="submit">
+                                        <img className="w-full dark:hidden" src="../img/icon/arrow-right-circle.svg" alt="smile" loading="lazy"/>
+                                        <img className="w-full hidden dark:block" src="../img/icon/arrow-right-circle-white.svg" alt="smile" loading="lazy"/>
+                                    </button>
                                 </div>
-                                <button className="" type="submit">
-                                    <img className="w-full dark:hidden" src="../img/icon/arrow-right-circle.svg" alt="smile" loading="lazy"/>
-                                    <img className="w-full dark:block" src="../img/icon/arrow-right-circle-white.svg" alt="smile" loading="lazy"/>
-                                </button>
                             </div>
                         </div>
                     </div>

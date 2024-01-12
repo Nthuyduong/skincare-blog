@@ -1,7 +1,7 @@
 const Destination = () => {
     return (
         <div>
-            <div className="container-fluid">
+            <div className="container-fluid m-w mx-auto my-0">
                 <div className="grid grid-cols-12 pt-60">
                     <div className="col-span-7">
                         <div className="heading">Guides & Tutorials</div>
@@ -43,7 +43,7 @@ const Destination = () => {
                     {/*</div>*/}
                 {/*</div>*/}
             </div>
-            <div className="container-fluid p-6">
+            <div className="container-fluid p-6 m-w mx-auto my-0">
                 <div className="destination-title dark:border-y dark:border-ccc">
                     <div className="flex justify-center">
                         {/*breadcrumb*/}
@@ -76,7 +76,7 @@ const Destination = () => {
                 </div>
             </div>
             {/*all destination show here*/}
-            <div className="container-fluid destination all-destination-cate">
+            <div className="container-fluid destination all-destination-cate m-w mx-auto my-0">
                 <div className="grid grid-cols-12 gap-5">
                     <div className="col-span-3 destination-cate mb-4">
                         <img className="w-full" src="./img/destination/des2.jpg" alt="smile" loading="lazy"/>

@@ -63,7 +63,7 @@ const Testreview = () => {
                     </div>
                 </div>
             </div>
-            <div className="container-fluid main-content">
+            <div className="container-fluid main-content m-w mx-auto my-0">
                 <div className="ntd-tabs">
                     <div className="flex tabs-all-here">
                         {renderTabs()}

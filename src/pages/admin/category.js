@@ -18,7 +18,7 @@ const Admincategory = () => {
 
     return(
         <div>
-            <div className="category-page">
+            <div className="category-page pt-5">
                 <div className="heading_1 mb-6">Category page</div>
                 <div className="grid grid-cols-4 gap-4">
                     <div className="col-span-1">

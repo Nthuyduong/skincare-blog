@@ -182,7 +182,7 @@ const Home = () => {
                                             src="./img/icon/arrow-right-black.svg"
                                         />
                                         <img
-                                            className="dark:block icon-ssm"
+                                            className="hidden dark:block icon-ssm"
                                             src="./img/icon/arrow-right.svg"
                                         />
                                     </div>

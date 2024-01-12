@@ -23,7 +23,7 @@ const Sub_destination = () => {
     return (
         <div className="sub-des-page">
             <div className="sub-des-inner">
-                <div className="container-fluid">
+                <div className="container-fluid m-w mx-auto my-0">
                     <div className="grid grid-cols-12 gap-5">
                         <div className="col-span-2 left-menu dark:border-r dark:!border-ccc">
                             <div className="left-menu-inner">

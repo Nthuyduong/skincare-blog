@@ -4,8 +4,8 @@ import {ROUTER} from "../utils/constants";
 const Search = () => {
     return (
         <div>
-            <div className="container-fluid">
-                <div className="heading_2 text-center mb-4 pt-4">Search Results for: Vietnam</div>
+            <div className="container-fluid m-w mx-auto my-0">
+                <div className="heading_2 text-center mb-5 pt-5">Search Results for: Vietnam</div>
                 <div className="grid grid-cols-12">
                     <div className="col-span-3"></div>
                     <div className="col-span-6">
@@ -14,7 +14,7 @@ const Search = () => {
                             {/*    <img className="icon-ssm" src="./img/icon/search.svg" alt="smile" loading="lazy"/>*/}
                             {/*</div>*/}
                             <div className="my-search-bar">
-                                <input className="w-full p-1" placeholder="Where you want to go?"/>
+                                <input className="w-full p-1" placeholder="Enter any word and hit enter"/>
                             </div>
                         </div>
                     </div>

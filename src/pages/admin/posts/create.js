@@ -53,29 +53,29 @@ const CreatePost = () => {
     }
 
     return(
-        <div className="create-new-post">
+        <div className="create-new-post pt-5">
             <div className="create-post-top">
-                <div className="pt-5">
+                <div className="">
                     <div className="heading_1">Create new post</div>
                     <div>Upload new blog article here!</div>
                 </div>
                 <div className="flex justify-end gap-4 create-function pb-4">
                     <div className="col-span-2">
                         <button 
-                            className="my-btn-pr w-full"
+                            className="my-btn-pr w-full px-3"
                             onClick={() => {handleClick()}}
                         >
                             Create post
                         </button>
                     </div>
                     <div className="col-span-2">
-                        <button className="w-full my-btn-pr w-full">Preview post</button>
+                        <button className="w-full my-btn-pr w-full px-3">Preview post</button>
                     </div>
                     <div className="col-span-2">
-                        <button className="w-full my-btn-pr w-full">Publish post</button>
+                        <button className="w-full my-btn-pr w-full px-3">Publish post</button>
                     </div>
                     <div className="col-span-2">
-                        <button className="w-full my-btn-pr w-full">Delete post</button>
+                        <button className="w-full my-btn-pr w-full px-3">Delete post</button>
                     </div>
                     <div className="col-span-1">
                         <button onClick={openNav} className="">Setting</button>

@@ -39,7 +39,7 @@ const Adminpostpage = ({ page }) => {
 
     return(
         <div>
-            <div className="post-page">
+            <div className="post-page pt-5">
                 <div className="heading_1 mb-6">Post Page</div>
                 <div className="grid grid-cols-5 gap-4">
                     <div className="col-span-2"></div>
@@ -108,7 +108,7 @@ const Adminpostpage = ({ page }) => {
                         <div className="cell"></div>
                     </div>
                     <div className="post-list">
-                        {(posts).map((post, index) => {
+                        {(posts)?.map((post, index) => {
                             return (
                                 <div className="flex tbl-row" key={index}>
                                     <div className="select-all">
