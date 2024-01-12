@@ -95,7 +95,8 @@ const Header = () => {
                     <button type="button"
                             onClick={toggleVisibility}
                             className="relative rounded-full bg-gray-800 p-1 text-gray-400 focus:outline-none">
-                        <img className="icon-ssm" src="/img/icon/search.svg" alt="smile" loading="lazy"/>
+                        <img className="icon-ssm dark:hidden" src="/img/icon/search.svg" alt="smile" loading="lazy"/>
+                        <img className="icon-ssm dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy"/>
                     </button>
                 </div>
             </div>
@@ -110,7 +111,8 @@ const Header = () => {
                                 <div className="flex search-box">
                                     <div className="flex mr-auto w-full">
                                         <div className="flex align-center self-center pr-2">
-                                            <img className="icon-ssm" src="/img/icon/Search.svg" alt="smile" loading="lazy"/>
+                                            <img className="icon-ssm dark:hidden" src="/img/icon/search.svg" alt="smile" loading="lazy"/>
+                                            <img className="icon-ssm dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy"/>
                                         </div>
                                         <div className="my-search-bar nav-search w-full">
                                             <input className="searchbar-head p-1 w-full" placeholder="Enter article name and hit enter..."/>
@@ -119,7 +121,8 @@ const Header = () => {
                                     <button type="button"
                                             onClick={toggleVisibility}
                                             className="relative rounded-full bg-gray-800 p-1 text-gray-400 focus:outline-none">
-                                        <img className="icon-ssm" src="/img/icon/x.svg" alt="smile" loading="lazy"/>
+                                        <img className="icon-ssm dark:hidden" src="/img/icon/x.svg" alt="smile" loading="lazy"/>
+                                        <img className="icon-ssm dark:block" src="/img/icon/x-light.svg" alt="smile" loading="lazy"/>
                                     </button>
                                 </div>
 

@@ -40,8 +40,10 @@ body{
   font-family: var(--font-family);
 }
 root {
-  background: v.$bgcolor;
   color: #000;
+}
+.m-w{
+  max-width: 1350px;
 }
 
 //Typo set up
@@ -233,8 +235,6 @@ textarea:focus-visible{
   justify-content:center;
   align-items: center;
   background: #fff;
-  //background-color: v.$bg_color;
-  //border-bottom: 1px solid v.$border_color;
   z-index: 9999;
 }
 .nav-active.move{
@@ -322,8 +322,8 @@ textarea:focus-visible{
 }
 @media only screen and (min-width: 768px) {
   .container-fluid{
-    padding-left: 120px;
-    padding-right: 120px;
+    padding-left: 90px;
+    padding-right: 90px;
   }
   .search-bar-inner{
     padding-left: 120px;

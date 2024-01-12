@@ -344,7 +344,7 @@ const ArticleDetail = ({ slug }) => {
                             <div className="flex">
                                 <div className="heading_2 mb-4">Comments</div>
                                 <div className="ml-auto">
-                                    <select className="cmt-select">
+                                    <select className="cmt-select dark:border dark:border-white">
                                         <option value="">Newest comments</option>
                                         <option value="">Oldest comments</option>
                                     </select>

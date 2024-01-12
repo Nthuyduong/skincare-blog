@@ -26,7 +26,8 @@ const Footer = () => {
                     {/*    </ul>*/}
                     {/*</div>*/}
                     <div className="col-span-4 flex justify-center footer-logo">
-                        <img className="w-2/5" src="../img/footer-logo.svg" alt="smile" loading="lazy"/>
+                        <img className="w-2/5 dark:hidden" src="/img/footer-logo.svg" alt="smile" loading="lazy"/>
+                        <img className="w-2/5 dark:block" src="/img/footer-logo-2.svg" alt="smile" loading="lazy"/>
                     </div>
                     <div className="col-span-4 footer-info flex">
                         <div className="mr-5">
@@ -68,7 +69,8 @@ const Footer = () => {
                                     <input className="w-full py-1 pr-1" placeholder="Email address"/>
                                 </div>
                                 <button className="" type="submit">
-                                    <img className="w-full" src="../img/icon/arrow-right-circle.svg" alt="smile" loading="lazy"/>
+                                    <img className="w-full dark:hidden" src="../img/icon/arrow-right-circle.svg" alt="smile" loading="lazy"/>
+                                    <img className="w-full dark:block" src="../img/icon/arrow-right-circle-white.svg" alt="smile" loading="lazy"/>
                                 </button>
                             </div>
                         </div>
