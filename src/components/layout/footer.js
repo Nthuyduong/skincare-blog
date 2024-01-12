@@ -30,7 +30,7 @@ const Footer = () => {
                         <img className="w-3/5 dark:block hidden" src="/img/footer-logo-2.svg" alt="smile" loading="lazy"/>
                     </div>
                     <div className="col-span-4 footer-info flex">
-                        <div className="w-full flex pl-5">
+                        <div className="w-full flex px-5">
                             <div className="mr-5">
                                 <div className="sub-menu">
                                     <div className="mb-3">INTEREST</div>

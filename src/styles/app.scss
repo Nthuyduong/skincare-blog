@@ -42,9 +42,7 @@ body{
 root {
   color: #000;
 }
-.m-w{
-  max-width: 1350px;
-}
+
 
 //Typo set up
 .heading{
@@ -331,6 +329,9 @@ textarea:focus-visible{
   }
   .blog-footer {
     padding: 0 90px;
+  }
+  .m-w{
+    max-width: 1350px;
   }
 }
 //icon size

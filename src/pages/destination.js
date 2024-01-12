@@ -78,7 +78,7 @@ const Destination = () => {
             {/*all destination show here*/}
             <div className="container-fluid destination all-destination-cate m-w mx-auto my-0">
                 <div className="grid grid-cols-12 gap-5">
-                    <div className="col-span-3 destination-cate mb-4">
+                    <div className="col-span-6 md:col-span-3 destination-cate mb-4">
                         <img className="w-full" src="./img/destination/des2.jpg" alt="smile" loading="lazy"/>
                         <div className="destination-cate-content">
                             <div className="heading_6 my-1">Help for beginner</div>
@@ -87,7 +87,7 @@ const Destination = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-span-3 destination-cate">
+                    <div className="col-span-6 md:col-span-3 destination-cate">
                         <img className="w-full" src="./img/destination/des3.jpg" alt="smile" loading="lazy"/>
                         <div className="destination-cate-content">
                             <div className="heading_5 my-1">How to clean</div>
@@ -96,7 +96,7 @@ const Destination = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-span-3 destination-cate">
+                    <div className="col-span-6 md:col-span-3 destination-cate">
                         <img className="w-full" src="./img/destination/des5.jpg" alt="smile" loading="lazy"/>
                         <div className="destination-cate-content">
                             <div className="heading_5 my-1">Shopping guide</div>
@@ -105,7 +105,7 @@ const Destination = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-span-3 destination-cate">
+                    <div className="col-span-6 md:col-span-3 destination-cate">
                         <img className="w-full" src="./img/destination/des0.jpg" alt="smile" loading="lazy"/>
                         <div className="destination-cate-content">
                             <div className="heading_5 my-1">Layering skincare</div>

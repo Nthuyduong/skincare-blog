@@ -46,9 +46,9 @@ const About = () => {
                 </div>
                 {/*What we do new*/}
                 <div className="wedo-new dark:boder-b dark:border-ccc">
-                    <div className="grid grid-cols-12 gap-5">
-                        <div className="col-span-4">
-                            <div className="pr-5">
+                    <div className="md:grid md:grid-cols-12 gap-5">
+                        <div className="md:col-span-4">
+                            <div className="md:pr-5 p-4 dark:border-333 border mb-4 border-solid border-999">
                                 <div className="heading_3 mb-3">What we do</div>
                                 <div>Are you interested in collaborating? Do you want to be a part of us? Join with us now!</div>
                                 <div className="mt-4">
@@ -56,9 +56,9 @@ const About = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-span-8 wedo-first dark:border-l dark:border-ccc">
-                            <div className="grid grid-cols-8">
-                                <div className="col-span-4">
+                        <div className="md:col-span-8 wedo-first dark:border-l dark:border-ccc">
+                            <div className="md:grid md:grid-cols-8">
+                                <div className="col-span-8 md:col-span-4">
                                     <div className="we-do-card px-4 mb-4 mx-3">
                                         <div>
                                             <img className="" src="./img/about/do.svg" alt="smile" loading="lazy"/>
@@ -74,8 +74,8 @@ const About = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-span-4">
-                                    <div className="we-do-card card-right px-4 ml-3 dark:border-x dark:border-ccc">
+                                <div className="col-span-8 md:col-span-4">
+                                    <div className="we-do-card md:border-x card-right px-4 ml-3 dark:border-x dark:border-ccc">
                                         <div>
                                             <img className="" src="./img/about/do.svg" alt="smile" loading="lazy"/>
                                         </div>
@@ -92,8 +92,8 @@ const About = () => {
                                 </div>
                             </div>
                             <div className="decor-line mx-3 mb-4 dark:bg-ccc"></div>
-                            <div className="grid grid-cols-8">
-                                <div className="col-span-4">
+                            <div className="md:grid md:grid-cols-8">
+                                <div className="col-span-8 md:col-span-4">
                                     <div className="we-do-card px-4 mb-4 mx-3">
                                         <div>
                                             <img className="" src="./img/about/do.svg" alt="smile" loading="lazy"/>
@@ -109,7 +109,7 @@ const About = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-span-4">
+                                <div className="col-span-8 md:col-span-4">
                                     <div className="we-do-card card-right px-4 ml-3 dark:border-x dark:border-ccc">
                                         <div>
                                             <img className="" src="./img/about/do.svg" alt="smile" loading="lazy"/>

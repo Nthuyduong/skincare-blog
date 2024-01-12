@@ -510,16 +510,16 @@ const Home = () => {
                         {/*</div>*/}
                     </div>
                     <div className="home-about dark:border-t dark:border-b dark:!border-ccc">
-                        <div className="grid grid-cols-12 gap-4">
-                            <div className="col-span-8 py-6 about-intro dark:border-r dark:!border-ccc">
+                        <div className="md:grid md:grid-cols-12 gap-4">
+                            <div className="md:col-span-8 py-6 about-intro dark:border-r dark:!border-ccc">
                                 <div className="relative">
                                     <div className="heading_1">
                                         “Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor.”
                                     </div>
-                                    <div className="absolute heading_6 mt-auto">Hello & Welcome!</div>
+                                    <div className="absolute heading_6 md:mt-auto md:block hidden">Hello & Welcome!</div>
                                 </div>
                             </div>
-                            <div className="col-span-4 about-content py-6">
+                            <div className="md:col-span-4 about-content py-6">
                                 <div>Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat
                                     quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut
                                     sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Diam nec ut sed est sit
