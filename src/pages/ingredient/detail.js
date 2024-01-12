@@ -23,7 +23,7 @@ const IngredientDetail = () => {
                                             <li><a href="#">Nuturish</a></li>
                                         </ul>
                                     </div>
-                                    <div className="heading_2 mb-2">{blog?.title}</div>
+                                    <div className="heading_2 mb-2">Title</div>
                                     <div className="medium_text mb-4">Uncover the secret to daily beautiful, radiant skin:
                                         happiness. Explore how joy transforms your beauty routine, embracing your natural glow with each passing day</div>
                                     <div className="small_text">Writen by: Nthduong</div>
@@ -148,10 +148,6 @@ const IngredientDetail = () => {
                 <div className="my-article">
                     <div
                         className="main-article"
-                        ref={refContent}
-                        dangerouslySetInnerHTML={{
-                            __html: blog?.content
-                        }}
                     />
                     <div className="main-article">
                         <div className="grid grid-cols-12">
