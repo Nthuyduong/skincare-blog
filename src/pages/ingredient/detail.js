@@ -67,7 +67,6 @@ const IngredientDetail = () => {
                                 <div className="list-title heading_6 mb-3">In this post</div>
                                 <div className="all-list">
                                     {/* table of content */}
-                                    <ul className="list-here" ref={refTable} />
                                 </div>
                             </div>
                         </div>
