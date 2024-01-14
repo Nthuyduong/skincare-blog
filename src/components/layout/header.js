@@ -58,18 +58,18 @@ const Header = () => {
                 className="heaed-mobile md:hidden sticky bg-white z-50 top-header justify-center w-full m-w mx-auto my-0"
                 style={{ top: '0' }}
             >
-                <div className="relative heaeder-mobile-contain flex justify-center items-center w-full dark:bg-black">
+                <div className="dark:border-b dark:border-ccc py-2 relative heaeder-mobile-contain flex justify-center items-center w-full dark:bg-black">
                     <button type="button"
                         className="lg:hidden relative inline-flex items-center justify-center
                         rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white
-                        focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                        focus:outline-none"
                         onClick={() => setShowMenu(!showMenu)}
                     >
                         <span className="absolute -inset-0.5"></span>
                         <span className="sr-only">Open main menu</span>
                         {/*Icon when menu is closed.*/}
                         {/*Menu open: "hidden", Menu closed: "block"*/}
-                        <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
+                        <svg className="block h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
                             stroke="currentColor" aria-hidden="true">
                             <path strokeLinecap="round" strokeLinejoin="round"
                                 d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
@@ -105,17 +105,17 @@ const Header = () => {
                     {/*main logo*/}
                     <Link href={ROUTER.HOME} className="flex-1">
                         <div className="items-center justify-center w-full hidden dark:flex">
-                            <img className="h-4" src="/img/logo1.svg" alt="smile" loading="lazy"/>
+                            <img className="h-3" src="/img/logo1.svg" alt="smile" loading="lazy"/>
                         </div>
                         <div className="flex items-center justify-center w-full dark:hidden">
-                            <img className="h-4" src="/img/logo2.svg" alt="smile" loading="lazy"/>
+                            <img className="h-3" src="/img/logo2.svg" alt="smile" loading="lazy"/>
                         </div>
                     </Link>
-                    <div className="flex mr-4 !hidden md:!flex">
+                    <div className="flex mr-4">
                         <div className="mr-1 pr-1 dark:border-r dark:border-999 border-r border-333">EN</div>
                         <div className="mr-l">VN</div>
                     </div>
-                    <div className="">
+                    <div className="hidden">
                         <button type="button"
                                 onClick={toggleVisibility}
                                 className="relative rounded-full bg-gray-800 p-1 text-gray-400 focus:outline-none">
@@ -125,7 +125,44 @@ const Header = () => {
                     </div>
                 </div>
                 <div className={`header-mobile-content dark:bg-black h-full ${showMenu ? 'active': ''}`}>
-                    get abc
+                    <div className="p-4">
+                        {/*Search bar mobile*/}
+                        <div className="flex pb-3 dark:border-b dark:border-ccc">
+                            <div className="flex align-center self-center pr-2">
+                                <img className="icon-ssm dark:hidden" src="/img/icon/search.svg" alt="smile" loading="lazy"/>
+                                <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy"/>
+                            </div>
+                            <div className="my-search-bar nav-search w-full">
+                                <input className="searchbar-head p-1 w-full" placeholder="Enter article name and hit enter..."/>
+                            </div>
+                        </div>
+                        <div className="py-3 dark:border-b dark:border-ccc"><Link href="">
+                            <div className="flex">
+                                <span className="mr-auto">Guides & Tutorials</span>
+                                <span>
+                                    <img className="icon-ssm" src="/img/icon/chevron-right.svg" alt="smile" loading="lazy"/>
+                                </span>
+                            </div>
+                        </Link></div>
+                        <div className="py-3 dark:border-b dark:border-ccc"><Link href="">
+                            <div className="flex">
+                                <span className="mr-auto">Skincare nerd</span>
+                                <span>
+                                    <img className="icon-ssm" src="/img/icon/chevron-right.svg" alt="smile" loading="lazy"/>
+                                </span>
+                            </div>
+                        </Link></div>
+                        <div className="py-3 dark:border-b dark:border-ccc"><Link href="">Testings & Reviews</Link></div>
+                        <div className="py-3 dark:border-b dark:border-ccc"><Link href="">
+                            <div className="flex">
+                                <span className="mr-auto">About</span>
+                                <span>
+                                    <img className="icon-ssm" src="/img/icon/chevron-right.svg" alt="smile" loading="lazy"/>
+                                </span>
+                            </div>
+                        </Link></div>
+                        <div className="py-3 dark:border-b dark:border-ccc"><Link href="">Contact us</Link></div>
+                    </div>
                 </div>
                 <div className={`mobile-menu-overlay ${showMenu ? 'block' : 'hidden'}`}>
 
@@ -256,7 +293,7 @@ const Header = () => {
                                                         </span>
                                                     </Link>
                                                 </div>
-                                                <div className="navdrop-inner absolute py-1">
+                                                <div className="navdrop-inner absolute py-1 border-x border-b border-ccc dark:border-666 dark:!bg-black">
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
                                                         <Link href={ROUTER.SUBDES} className="dark:text-white nav-link">How to</Link>
                                                     </div>
@@ -282,17 +319,17 @@ const Header = () => {
                                                         </span>
                                                     </Link>
                                                 </div>
-                                                <div className="navdrop-inner absolute left-30 w-48 py-1">
-                                                    <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
+                                                <div className="navdrop-inner absolute left-30 w-48 py-1 border-x border-b border-ccc dark:border-666 dark:!bg-black">
+                                                    <div className="sub-menu block px-4 py-2 text-sm text-gray-700 dark:!text-white">
                                                         <Link href={ROUTER.SUBDES} className="nav-link">Skin concerns</Link>
                                                     </div>
-                                                    <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
+                                                    <div className="sub-menu block px-4 py-2 text-sm text-gray-700 dark:!text-white">
                                                         <Link href={ROUTER.SUBDES} className="nav-link">Tips & advices</Link>
                                                     </div>
-                                                    <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
+                                                    <div className="sub-menu block px-4 py-2 text-sm text-gray-700 dark:!text-white">
                                                         <Link href={ROUTER.INGREDIENT} className="nav-link">Skincare ingredients</Link>
                                                     </div>
-                                                    <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
+                                                    <div className="sub-menu block px-4 py-2 text-sm text-gray-700 dark:!text-white">
                                                         <Link href={ROUTER.SUBDES} className="nav-link">Nuturish</Link>
                                                     </div>
                                                 </div>
@@ -331,7 +368,7 @@ const Header = () => {
                                                         </span>
                                                     </Link>
                                                 </div>
-                                                <div className="navdrop-inner absolute left-30 w-48 py-1 dark:!bg-black dark:border-x dark:border-ccc">
+                                                <div className="navdrop-inner absolute left-30 w-48 py-1 border-x border-b border-ccc dark:border-666 dark:!bg-black">
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
                                                         <Link href={ROUTER.ABOUT} className="dark:text-white nav-link">About Blog</Link>
                                                     </div>

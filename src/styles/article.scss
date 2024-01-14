@@ -90,8 +90,8 @@ textarea{
 //article single page - test n review page
 .test-review-page{
   .review-banner{
+    background: v.$border_color;
     .banner-left{
-      background: #EBE4DC;
       padding-top: 80px;
       padding-bottom: 80px;
     }

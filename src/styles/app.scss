@@ -200,7 +200,7 @@ textarea:focus-visible{
 //Search bar
 .searchbar{
   position: fixed;
-  z-index: 3000;
+  z-index: 10000;
   //top:84px;
   top:0;
   right:0;
@@ -253,8 +253,8 @@ textarea:focus-visible{
   transition: top 0.3s;
 }
 .header-mobile-content {
-  width: 80%;
-  left: -80%;
+  width: 100%;
+  left: -100%;
   position: absolute;
   transition: left 0.3s linear;
   z-index: 1000;
@@ -306,9 +306,9 @@ textarea:focus-visible{
       width: max-content;
       background: #fff;
       //background: v.$bg_color;
-      border-left: 1px solid #e0e0e0;
-      border-right: 1px solid #e0e0e0;
-      border-bottom: 1px solid #e0e0e0;
+      //border-left: 1px solid #e0e0e0;
+      //border-right: 1px solid #e0e0e0;
+      //border-bottom: 1px solid #e0e0e0;
       .sub-menu{
         color: #666666;
       }
@@ -336,20 +336,7 @@ textarea:focus-visible{
   }
 }
 .blog-footer{
-  padding: 0 20px;
-  .blog-footer-inner{
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    .footer-sub, .footer-info{
-      padding: 60px 0;
-    }
-    .footer-logo, .footer-info{
-      border-right: 1px solid #ccc;
-    }
-  }
   .footer-sub{
-    padding-top: 20px;
-    padding-bottom: 20px;
     .copy-right{
       color: #333;
     }
@@ -371,7 +358,7 @@ textarea:focus-visible{
     padding: 0 90px;
   }
   .m-w{
-    max-width: 1350px;
+    max-width: 1300px;
   }
 }
 //icon size

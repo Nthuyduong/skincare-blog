@@ -79,38 +79,76 @@ const Destination = () => {
             <div className="container-fluid destination all-destination-cate m-w mx-auto my-0">
                 <div className="grid grid-cols-12 gap-5">
                     <div className="col-span-6 md:col-span-3 destination-cate mb-4">
-                        <img className="w-full" src="./img/destination/des2.jpg" alt="smile" loading="lazy"/>
+                        <div className="pb-2 heading_6">01/</div>
+                        <img className="w-full" src="/img/destination/des2.jpg" alt="smile" loading="lazy"/>
                         <div className="destination-cate-content">
-                            <div className="heading_6 my-1">Help for beginner</div>
-                            <div className="flex more-info">
-                                <div className="pl-2 small_text">40 Articles</div>
+                            <div className="flex items-center border-b border-ccc dark:border-ccc">
+                                <div className="heading_6 my-1 mr-auto">How to</div>
+                                <span>
+                                    <img className="icon-ssm w-full hidden dark:block" src="/img/icon/arrow-up-right.svg" alt="smile" loading="lazy"/>
+                                    <img className="icon-ssm w-full dark:hidden" src="/img/icon/arrow-up-right-black.svg" alt="smile" loading="lazy"/>
+                                </span>
+                            </div>
+                            <div className="flex more-info pt-2">
+                                <div className="small_text">Discover expert tips for flawless skin and personalized solutions
+                                    for common skin issues.
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div className="col-span-6 md:col-span-3 destination-cate">
+                        <div className="pb-2 heading_6">01/</div>
                         <img className="w-full" src="./img/destination/des3.jpg" alt="smile" loading="lazy"/>
                         <div className="destination-cate-content">
-                            <div className="heading_5 my-1">How to clean</div>
-                            <div className="flex more-info">
-                                <div className="pl-2 small_text">40 Articles</div>
+                            <div className="flex items-center border-b border-ccc dark:border-ccc">
+                                <div className="heading_6 my-1 mr-auto">Skincare routine</div>
+                                <span>
+                                    <img className="icon-ssm w-full hidden dark:block" src="/img/icon/arrow-up-right.svg" alt="smile" loading="lazy"/>
+                                    <img className="icon-ssm w-full dark:hidden" src="/img/icon/arrow-up-right-black.svg" alt="smile" loading="lazy"/>
+                                </span>
+                            </div>
+                            <div className="flex more-info pt-2">
+                                <div className="small_text">
+                                    Craft your perfect skincare routine with expert guidance for optimal results.
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div className="col-span-6 md:col-span-3 destination-cate">
+                        <div className="pb-2 heading_6">01/</div>
                         <img className="w-full" src="./img/destination/des5.jpg" alt="smile" loading="lazy"/>
                         <div className="destination-cate-content">
-                            <div className="heading_5 my-1">Shopping guide</div>
-                            <div className="flex more-info">
-                                <div className="pl-2 small_text">40 Articles</div>
+                            <div className="flex items-center border-b border-ccc dark:border-ccc">
+                                <div className="heading_6 my-1 mr-auto">Usage Guide</div>
+                                <span>
+                                    <img className="icon-ssm w-full hidden dark:block" src="/img/icon/arrow-up-right.svg" alt="smile" loading="lazy"/>
+                                    <img className="icon-ssm w-full dark:hidden" src="/img/icon/arrow-up-right-black.svg" alt="smile" loading="lazy"/>
+                                </span>
+                            </div>
+                            <div className="flex more-info pt-2">
+                                <div className="small_text">
+                                    Unlock the full potential of your skincare products with comprehensive usage guides
+                                    and expert tips
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div className="col-span-6 md:col-span-3 destination-cate">
+                        <div className="pb-2 heading_6">01/</div>
                         <img className="w-full" src="./img/destination/des0.jpg" alt="smile" loading="lazy"/>
                         <div className="destination-cate-content">
-                            <div className="heading_5 my-1">Layering skincare</div>
-                            <div className="flex more-info">
-                                <div className="pl-2 small_text">40 Articles</div>
+                            <div className="flex items-center border-b border-ccc dark:border-ccc">
+                                <div className="heading_6 my-1 mr-auto">Sun Care</div>
+                                <span>
+                                    <img className="icon-ssm w-full hidden dark:block" src="/img/icon/arrow-up-right.svg" alt="smile" loading="lazy"/>
+                                    <img className="icon-ssm w-full dark:hidden" src="/img/icon/arrow-up-right-black.svg" alt="smile" loading="lazy"/>
+                                </span>
+                            </div>
+                            <div className="flex more-info pt-2">
+                                <div className="small_text">
+                                    Explore essential sun care secrets, from choosing the right sunscreen to addressing
+                                    sun-related skin concerns
+                                </div>
                             </div>
                         </div>
                     </div>

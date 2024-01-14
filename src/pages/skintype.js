@@ -74,7 +74,7 @@ const Skintype = () => {
     ));
     return (
         <div className="skintype-page">
-            <div className="container-fluid">
+            <div className="container-fluid m-w mx-auto my-0">
                 <div className="pt-5 head-content pb-5">
                     <div className="heading text-center">Skin type & History</div>
                     <div className="grid grid-cols-5">

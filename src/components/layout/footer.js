@@ -4,8 +4,8 @@ import React from "react";
 
 const Footer = () => {
     return (
-        <div className="blog-footer m-w mx-auto my-0" id="blog-footer">
-            <div className="blog-footer-inner">
+        <div className="blog-footer px-3 m-w mx-auto my-0" id="blog-footer">
+            <div className="blog-footer-inner border-t md:border-y dark:border-ccc border-999">
                 <div className="grid grid-cols-12">
                     {/*<div className="sub-menu">*/}
                     {/*    <div className="mb-3">POPULAR</div>*/}
@@ -25,13 +25,13 @@ const Footer = () => {
 
                     {/*    </ul>*/}
                     {/*</div>*/}
-                    <div className="col-span-3 flex justify-center footer-logo">
-                        <img className="w-3/5 dark:hidden" src="/img/footer-logo.svg" alt="smile" loading="lazy"/>
-                        <img className="w-3/5 dark:block hidden" src="/img/footer-logo-2.svg" alt="smile" loading="lazy"/>
+                    <div className="md:col-span-3 col-span-12 flex justify-center border-b md:border-b-0 dark:border-ccc md:border-r md:!border-ccc footer-logo items-center p-4">
+                        <img className="h-fit md:w-3/5 w-2/5 dark:hidden" src="/img/footer-logo.svg" alt="smile" loading="lazy"/>
+                        <img className="h-fit md:w-3/5 w-2/5 dark:block hidden" src="/img/footer-logo-2.svg" alt="smile" loading="lazy"/>
                     </div>
-                    <div className="col-span-4 footer-info flex">
-                        <div className="w-full flex px-5">
-                            <div className="mr-5">
+                    <div className="md:col-span-4 md:!px-5 col-span-12 footer-info md:py-7 py-4 flex border-b border-ccc md:!border-b-0 md:border-r md:border-ccc">
+                        <div className="grid grid-cols-4 w-full">
+                            <div className="col-span-2 text-center md:text-left">
                                 <div className="sub-menu">
                                     <div className="mb-3">INTEREST</div>
                                     <ul>
@@ -47,7 +47,7 @@ const Footer = () => {
                                     </ul>
                                 </div>
                             </div>
-                            <div className="footer-contact">
+                            <div className="col-span-2 text-center md:text-left">
                                 <div className="sub-menu">
                                     <div className="mb-3">INFO</div>
                                     <ul>
@@ -62,8 +62,8 @@ const Footer = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-span-5 footer-sub">
-                        <div className="px-5">
+                    <div className="md:col-span-5 col-span-12 footer-sub py-4 md:py-7">
+                        <div className="md:px-5">
                             <div className="mb-2">Enter your email address to receive new posts in your inbox and seasonal newsletters with
                                 extra goodies!</div>
                             <div>
@@ -81,7 +81,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="footer-sub">
+            <div className="footer-copy py-2">
                 <div className="grid grid-cols-12">
                     <div className="col-span-12">
                         <div className="text-center copy-right dark:!text-999">COPYRIGHT © 2023 · Nthduong Blog. ALL RIGHTS RESERVED</div>

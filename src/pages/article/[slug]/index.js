@@ -57,10 +57,10 @@ const ArticleDetail = ({ slug }) => {
             <div className="process-bar w-full">
                 <div ref={refProcess} className='process-content'></div>
             </div>
-            <div className="test-review-page">
-                <div className="review-banner">
+            <div className="test-review-page w-full">
+                <div className="review-banner w-full">
                     <div className="relative">
-                        <div className="container-fluid banner-left dark:text-black">
+                        <div className="container-fluid banner-left dark:text-black m-w mx-auto">
                             <div className="grid grid-cols-12">
                                 <div className="col-span-5">
                                     {/*breadcrumb*/}
@@ -89,10 +89,10 @@ const ArticleDetail = ({ slug }) => {
                     </div>
                 </div>
             </div>
-            <div className="container-fluid">
+            <div className="container-fluid m-w mx-auto my-0">
                 <div className="grid grid-cols-12">
-                    <div className="col-span-2"></div>
-                    <div className="col-span-8 article-out">
+                    <div className="col-span-1"></div>
+                    <div className="col-span-12 article-out">
                         <div className="article-summary mb-4">
                             <div className="font-medium mb-2">
                                 We all know how stress can negatively impact our skin, leading to issues like breakouts,
@@ -117,7 +117,7 @@ const ArticleDetail = ({ slug }) => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-span-2"></div>
+                    <div className="col-span-1"></div>
                     {/*<div className="col-span-3 article-sidebar">*/}
                     {/*    <div className="sidebar">*/}
                     {/*        <div className="article-recently">*/}
@@ -200,8 +200,8 @@ const ArticleDetail = ({ slug }) => {
                     />
                     <div className="main-article">
                         <div className="grid grid-cols-12">
-                            <div className="col-span-2"></div>
-                            <div className="col-span-8">
+                            <div className="col-span-1"></div>
+                            <div className="col-span-12">
                                 <div className="article-content">
                                     <div className="grid grid-cols-6 gap-4">
                                         <div className="col-span-3">
@@ -320,12 +320,12 @@ const ArticleDetail = ({ slug }) => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-span-2"></div>
+                            <div className="col-span-1"></div>
                         </div>
                     </div>
                     <div className="flex helpful-rate mt-5 grid grid-cols-12">
-                        <div className="col-span-2"></div>
-                        <div className="col-span-8">
+                        <div className="col-span-1"></div>
+                        <div className="col-span-12">
                             <div className="medium_text mr-4">
                                 <a href="#">Was this helpful?</a>
                             </div>
@@ -338,12 +338,12 @@ const ArticleDetail = ({ slug }) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-span-2"></div>
+                        <div className="col-span-1"></div>
                     </div>
                 </div>
                 <div className="grid grid-cols-12">
-                    <div className="col-span-2"></div>
-                    <div className="col-span-8">
+                    <div className="col-span-1"></div>
+                    <div className="col-span-12">
                         <div className="comment p-60">
                             <div className="flex">
                                 <div className="heading_2 mb-4">Comments</div>
@@ -468,12 +468,12 @@ const ArticleDetail = ({ slug }) => {
                             </div>
                             <div className="">
                                 <div className="grid grid-cols-12 gap-3">
-                                    <div className="col-span-6">
-                                        <div className="my-input mb-3 dark:border-white">
+                                    <div className="md:col-span-6 col-span-12">
+                                        <div className="my-input md:mb-3 dark:border-white">
                                             <input className="w-full p-1" placeholder="Your name"/>
                                         </div>
                                     </div>
-                                    <div className="col-span-6">
+                                    <div className="md:col-span-6 col-span-12">
                                         <div className="my-input mb-3 dark:border-white">
                                             <input className="w-full p-1" placeholder="Email address *"/>
                                         </div>
@@ -482,13 +482,13 @@ const ArticleDetail = ({ slug }) => {
                                 <div className="my-input mb-3 user-cmt dark:border-white">
                                     <textarea rows="5" className="w-full p-1" placeholder="Message *"></textarea>
                                 </div>
-                                <div className="flex justify-center dark:border-white">
+                                <div className="flex justify-center dark:border dark:border-white">
                                     <button className="w-3/12 my-btn-pr" type="submit">Subscribe</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="col-span-2"></div>
+                    <div className="col-span-1"></div>
                 </div>
             </div>
         </div>
