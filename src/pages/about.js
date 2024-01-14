@@ -6,7 +6,7 @@ const About = () => {
             <div className="about-banner">
                 <img className="w-full" src="./img/about/banner.png" alt="smile" loading="lazy"/>
             </div>
-            <div className="about-blog-page container-fluid">
+            <div className="about-blog-page container-fluid m-w mx-auto my-0">
                 <div className="about-intro">
                     <div className="intro-decor absolute">
                         <img className="w-full" src="./img/about/decor.svg" alt="smile" loading="lazy"/>
@@ -48,7 +48,7 @@ const About = () => {
                 <div className="wedo-new dark:boder-b dark:border-ccc">
                     <div className="md:grid md:grid-cols-12 gap-5">
                         <div className="md:col-span-4">
-                            <div className="md:pr-5 p-4 dark:border-333 border mb-4 border-solid border-999">
+                            <div className="md:pr-5 p-4 dark:border-333 border mb-4 border-solid border-999 md:border-none">
                                 <div className="heading_3 mb-3">What we do</div>
                                 <div>Are you interested in collaborating? Do you want to be a part of us? Join with us now!</div>
                                 <div className="mt-4">
