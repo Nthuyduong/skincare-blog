@@ -1,21 +1,12 @@
 @use 'variables' as v;
-//.destination-banner{
-//  .destination-content{
-//    top: 25%;
-//    right: 30%;
+
     .des-count{
       border-right: 1px solid #000;
     }
     .show-all-btn{
       margin-top: 150px;
     }
-  //}
-//}
-.destination-title{
-  padding: 20px 0;
-  border-bottom: 1px solid v.$border2_color;
-  border-top: 1px solid v.$border2_color;
-}
+
 .all-destination-cate{
   .destination-cate{
     .destination-cate-content{

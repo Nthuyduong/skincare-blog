@@ -44,7 +44,7 @@ const Destination = () => {
                 {/*</div>*/}
             </div>
             <div className="container-fluid p-6 m-w mx-auto my-0">
-                <div className="destination-title dark:border-y dark:border-ccc">
+                <div className="destination-title dark:border-y dark:border-ccc p-3">
                     <div className="flex justify-center">
                         {/*breadcrumb*/}
                         <div className="flex self-center">

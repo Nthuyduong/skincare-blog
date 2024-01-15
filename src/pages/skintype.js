@@ -61,7 +61,7 @@ const Skintype = () => {
                 <div className="question mr-auto medium_text">
                     {faq.question}
                 </div>
-                <div class="btn-question">
+                <div class="btn-question flex justify-center items-center">
                 <svg role="presentation" focusable="false" width="12" height="9" class="icon icon-chevron-bottom-small" viewBox="0 0 8 6">
                     <path d="m1 1.5 3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5"></path>
                 </svg>
