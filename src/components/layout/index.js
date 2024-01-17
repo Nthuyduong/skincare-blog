@@ -75,7 +75,7 @@ const Layout = ({ children }) => {
             <div className="page">
                 {pathname.includes(ROUTER.ADLOGIN) ? null : <Sidebar/>}
                 {/*<div className={`page-body-wrapper ${show && 'admin-wrapper'}`}>*/}
-                <div className={`page-body-wrapper ${pathname.includes(ROUTER.ADLOGIN) ? '' : 'admin-wrapper'}`}>
+                <div className={`page-body-wrapper overflow-hidden ${pathname.includes(ROUTER.ADLOGIN) ? '' : 'admin-wrapper'}`}>
                     {/*<button onClick={handleLoading}>*/}
                     {/*    show loading*/}
                     {/*</button>*/}
@@ -100,7 +100,7 @@ const Layout = ({ children }) => {
             }}
         >
             <Header />
-            <div className={`page-body-wrapper test`}>
+            <div className={`page-body-wrapper overflow-hidden test`}>
                 {children}
             </div>
             <Footer />
