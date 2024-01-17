@@ -12,3 +12,5 @@ const testpost = () => {
         </div>
     )
 }
+
+export default testpost;
