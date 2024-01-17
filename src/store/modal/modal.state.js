@@ -11,7 +11,7 @@ const state = {
         show: false,
         name: null,
         data: null,
-        invisibleBackground: true,
+        invisibleBackground: false,
         enableClickOutside: true,
     },
 

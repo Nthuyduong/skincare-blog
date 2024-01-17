@@ -5,6 +5,7 @@ import categoryReducer from './newcategory';
 import subcateReducer from './newsubcate';
 import deleteReducer from './deletepopup';
 import postReducer from "./post";
+import categoriesReducer from "./categories";
 
 // khai báo các reducer trong store
 // Những cái data chung như modal, alert, , ... thì nên tạo reducer riêng
@@ -14,7 +15,8 @@ const reducer = {
     category: categoryReducer,
     subcate: subcateReducer,
     deletepopup: deleteReducer,
-    post: postReducer
+    post: postReducer,
+    categories: categoriesReducer,
     // user: userReducer,
 };
 

@@ -1,4 +1,4 @@
-import { fetchApi } from "../utils/apiUtils";
+import { fetchApi } from "@utils/apiUtils";
 
 export const fetchBlogPostsApi = async (page = 1) => {
     try {

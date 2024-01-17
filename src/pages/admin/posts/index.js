@@ -4,7 +4,7 @@ import {ROUTER} from "@utils/constants";
 import React from "react";
 import Link from 'next/link'
 import { useEffect } from "react";
-import { usePost } from "@store/post/usePost";
+import { usePost } from "@hooks/usePost";
 import { formatDate } from "@utils/format";
 import Pagination from "@components/common/pagination";
 import { useRouter } from 'next/router';

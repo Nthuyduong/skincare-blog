@@ -12,10 +12,6 @@ const CreatePost = () => {
     const [slug, setSlug] = useState('');
     const [summary, setsummary] = useState('');
 
-    useEffect(() => {
-        console.log(content);
-    }, [content])
-
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const openNav = () => {
@@ -31,8 +27,8 @@ const CreatePost = () => {
             title: title,
             slug: slug,
             summary: summary,
-            content: '',
-            content_draft: '',
+            content: content,
+            content_draft: content,
         })
     }
 

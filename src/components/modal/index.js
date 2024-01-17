@@ -25,7 +25,7 @@ const Modals = () => {
     const getModal = () => {
         switch (name) {
             case "category":
-                return <ModalCategory/>
+                return <ModalCategory id={data?.id}/>
             case "post":
                 return <ModalPost/>
             case "subcate":
