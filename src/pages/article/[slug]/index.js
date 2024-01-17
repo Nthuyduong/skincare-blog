@@ -323,14 +323,14 @@ const ArticleDetail = ({ slug }) => {
                             <div className="col-span-1"></div>
                         </div>
                     </div>
-                    <div className="flex helpful-rate mt-5 grid grid-cols-12">
+                    <div className="pt-3 border-t border-ccc flex helpful-rate mt-5 grid grid-cols-12">
                         <div className="col-span-1"></div>
-                        <div className="col-span-12">
-                            <div className="medium_text mr-4">
+                        <div className="col-span-12 flex">
+                            <div className="medium_text mr-3">
                                 <a href="#">Was this helpful?</a>
                             </div>
-                            <div className="flex">
-                                <div className="thumb mr-2">
+                            <div className="flex items-center">
+                                <div className="thumb mr-3">
                                     <img className="icon-ssm" src="/img/icon/thumbs-up.svg" alt="smile" loading="lazy"/>
                                 </div>
                                 <div className="thumb">
@@ -344,7 +344,13 @@ const ArticleDetail = ({ slug }) => {
                 <div className="grid grid-cols-12">
                     <div className="col-span-1"></div>
                     <div className="col-span-12">
-                        <div className="comment p-60">
+                        {/*Suggest more article*/}
+                        <div className="suggest-article py-7">
+                            <div className="heading_2">Related Articles</div>
+                            <div></div>
+                        </div>
+                        {/*Comment section*/}
+                        <div className="comment py-7">
                             <div className="flex">
                                 <div className="heading_2 mb-4">Comments</div>
                                 <div className="ml-auto">

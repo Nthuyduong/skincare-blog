@@ -23,7 +23,7 @@ const About = () => {
                         <div className=""></div>
                     </div>
                 </div>
-                <div className="about-me p-60 dark:border-t dark:border-ccc">
+                <div className="my-7 border-y border-ccc py-7 about-me p-60 dark:border-t dark:border-ccc">
                     <div className="grid grid-cols-12 gap-5">
                         <div className="col-span-5">
                             <img className="w-full" src="./img/about/abt-me.jpg" alt="smile" loading="lazy"/>
@@ -170,7 +170,7 @@ const About = () => {
                 {/*        </div>*/}
                 {/*    </div>*/}
                 {/*</div>*/}
-                <div className="about-blog dark:border-b dark:border-ccc">
+                <div className="about-blog py-7 dark:border-b dark:border-ccc">
                     <div className="grid grid-cols-12 about-blog-inner flex gap-4">
                         <div className="col-span-12 md:col-span-6 about-content m-auto md:p-5">
                             <div className="heading_3 mb-2">About blog</div>
@@ -186,7 +186,7 @@ const About = () => {
                         </div>
                     </div>
                 </div>
-                <div className="blog-mission">
+                <div className="blog-mission py-7">
                     <div className="grid grid-cols-12 mission-inner flex gap-5">
                         <div className="col-span-12 md:col-span-6 img-mission">
                             <img className="w-100" src="./img/about/mission.jpg" alt="smile" loading="lazy"/>

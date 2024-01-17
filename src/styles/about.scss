@@ -1,9 +1,5 @@
 @use 'variables' as v;
 
-.about-banner{
-  //padding-bottom: 60px;
-  //border-bottom: 1px solid v.$border2_color;
-}
 .about-intro{
   padding-top: 60px;
   .intro-decor{
@@ -16,12 +12,12 @@
   }
 }
 .about-me{
-  margin-top: 60px;
-  margin-bottom: 60px;
-  border-top: 1px solid v.$border2_color;
-  border-bottom: 1px solid v.$border2_color;
-  padding-top: 60px;
-  padding-bottom: 60px;
+  //margin-top: 60px;
+  //margin-bottom: 60px;
+  //border-top: 1px solid v.$border2_color;
+  //border-bottom: 1px solid v.$border2_color;
+  //padding-top: 60px;
+  //padding-bottom: 60px;
   .about-right{
     .about-content{
       background-color: v.$border_color;
@@ -29,35 +25,12 @@
     }
   }
 }
-.what-we-do{
-  padding-bottom: 60px;
-  border-bottom: 1px solid v.$border2_color;
-  .we-do{
-    border: 1px solid v.$border2_color;
-    padding: 24px;
-  }
-}
-.about-blog{
-  padding-top: 60px;
-  padding-bottom: 60px;
-  border-bottom: 1px solid v.$border2_color;
 
-}
-.blog-mission{
-  padding-top: 60px;
-  padding-bottom: 60px;
-
-}
 .contact-me{
   background-image: url("../imgs/contactme.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  padding: 100px;
-  .contact-me-inner{
-    background-color: #fff;
-    padding: 60px;
-  }
 }
 .subscribe-blog{
   padding-top: 60px;

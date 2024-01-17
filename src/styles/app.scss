@@ -12,15 +12,16 @@
 @import "admin_style";
 @import "skintype";
 @import "pagination";
+@import "fonts";
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
 //Variant
-$heading: 60px;
-$heading_1: 42px;
-$heading_2: 32px;
+$heading: 58px;
+$heading_1: 38px;
+$heading_2: 30px;
 $heading_3: 28px;
-$heading_4: 24px;
-$heading_5: 20px;
+$heading_4: 26px;
+$heading_5: 22px;
 $medium_text: 18px;
 $body_text: 16px;
 $small_text: 14px;
@@ -28,7 +29,8 @@ $small_text: 14px;
 body{
   background: #fff;
   min-height: 100vh;
-  font-family: 'Karla', sans-serif;
+  font-family: 'GTlight',serif;
+  //font-family: 'Karla', sans-serif;
   color: v.$text_color;
   font-size: 16px;
   line-height: 1.5;
@@ -46,49 +48,58 @@ root {
 
 //Typo set up
 .heading{
+  font-family: 'GTregular',serif;
   font-size: $heading;
   line-height: $heading*1.1;
-  font-weight: 600;
+  //font-weight: 600;
 }
 .heading_1 {
+  font-family: 'GTmedium',serif;
   font-size: $heading_1;
   line-height: $heading_1*1.25;
-  font-weight: 500;
+  //font-weight: 500;
 }
 .heading_2 {
+  font-family: 'GTmedium',serif;
   font-size: $heading_2;
   line-height: $heading_2*1.25;
-  font-weight: 500;
+  //font-weight: 500;
 }
 .heading_3 {
+  font-family: 'GTregular',serif;
   font-size: $heading_3;
   line-height: $heading_3*1.25;
   font-weight: 500;
 }
 .heading_4 {
+  font-family: 'GTregular',serif;
   font-size: $heading_4;
   line-height: $heading_4*1.25;
-  font-weight: 500;
+  //font-weight: 500;
 }
 .heading_5 {
+  font-family: 'GTregular',serif;
   font-size: $heading_5;
   line-height: $heading_5*1.25;
-  font-weight: 500;
+  //font-weight: 500;
 }
 .heading_6 {
+  font-family: 'GTlight',serif;
   font-size: $medium_text;
   line-height: $medium_text*1.25;
-  font-weight: 500;
 }
 .body_text {
+  font-family: 'GTlight',serif;
   font-size: $body_text;
   line-height: $body_text*1.5;
 }
 .medium_text {
+  font-family: 'GTregular',serif;
   font-size: $medium_text;
   line-height: $medium_text*1.5;
 }
 .small_text {
+  font-family: 'GTlight',serif;
   font-size: $small_text;
   line-height: $small_text*1.5;
 }

@@ -149,7 +149,7 @@ const Testreview = () => {
                                                 <div className="mr-auto small-text">Drink & Coffee</div>
                                                 <div className="small_text">November 8, 2023</div>
                                             </div>
-                                            <div className="heading_5">Top 5 beautiful Coffee Shop in HaNoi</div>
+                                            <div className="medium_text">Top 5 beautiful Coffee Shop in HaNoi</div>
                                         </div>
                                         <div className="flex">
                                             <div className=""><a className="text-link" href="#">Read more</a></div>
@@ -171,7 +171,7 @@ const Testreview = () => {
                                                 <div className="mr-auto small-text">Drink & Coffee</div>
                                                 <div className="small_text">November 8, 2023</div>
                                             </div>
-                                            <div className="heading_5">Top 5 beautiful Coffee Shop in HaNoi</div>
+                                            <div className="medium_text">Top 5 beautiful Coffee Shop in HaNoi</div>
                                         </div>
                                         <div className="flex">
                                             <div className=""><a className="text-link" href="#">Read more</a></div>
@@ -193,7 +193,7 @@ const Testreview = () => {
                                                 <div className="mr-auto small-text">Drink & Coffee</div>
                                                 <div className="small_text">November 8, 2023</div>
                                             </div>
-                                            <div className="heading_5">Top 5 beautiful Coffee Shop in HaNoi</div>
+                                            <div className="medium_text">Top 5 beautiful Coffee Shop in HaNoi</div>
                                         </div>
                                         <div className="flex">
                                             <div className=""><a className="text-link" href="#">Read more</a></div>
@@ -215,7 +215,7 @@ const Testreview = () => {
                                                 <div className="mr-auto small-text">Drink & Coffee</div>
                                                 <div className="small_text">November 8, 2023</div>
                                             </div>
-                                            <div className="heading_5">Top 5 beautiful Coffee Shop in HaNoi</div>
+                                            <div className="medium_text">Top 5 beautiful Coffee Shop in HaNoi</div>
                                         </div>
                                         <div className="flex">
                                             <div className=""><a className="text-link" href="#">Read more</a></div>
@@ -237,7 +237,7 @@ const Testreview = () => {
                                                 <div className="mr-auto small-text">Drink & Coffee</div>
                                                 <div className="small_text">November 8, 2023</div>
                                             </div>
-                                            <div className="heading_5">Top 5 beautiful Coffee Shop in HaNoi</div>
+                                            <div className="medium_text">Top 5 beautiful Coffee Shop in HaNoi</div>
                                         </div>
                                         <div className="flex">
                                             <div className=""><a className="text-link" href="#">Read more</a></div>
@@ -259,7 +259,7 @@ const Testreview = () => {
                                                 <div className="mr-auto small-text">Drink & Coffee</div>
                                                 <div className="small_text">November 8, 2023</div>
                                             </div>
-                                            <div className="heading_5">Top 5 beautiful Coffee Shop in HaNoi</div>
+                                            <div className="medium_text">Top 5 beautiful Coffee Shop in HaNoi</div>
                                         </div>
                                         <div className="flex">
                                             <div className=""><a className="text-link" href="#">Read more</a></div>

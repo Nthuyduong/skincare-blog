@@ -55,7 +55,7 @@ const Header = () => {
         <>
             <div 
                 ref={headerMobileRef} 
-                className="heaed-mobile md:hidden sticky bg-white z-50 top-header justify-center w-full m-w mx-auto my-0"
+                className="heaed-mobile dark:!bg-black !bg-white md:hidden sticky bg-white z-50 top-header justify-center w-full m-w mx-auto my-0 border-b border-ccc"
                 style={{ top: '0' }}
             >
                 <div className="dark:border-b dark:border-ccc py-2 relative heaeder-mobile-contain flex justify-center items-center w-full dark:bg-black">
@@ -124,10 +124,10 @@ const Header = () => {
                         </button>
                     </div>
                 </div>
-                <div className={`header-mobile-content dark:bg-black h-full ${showMenu ? 'active': ''}`}>
+                <div className={`header-mobile-content bg-white dark:bg-black h-full ${showMenu ? 'active': ''}`}>
                     <div className="p-4">
                         {/*Search bar mobile*/}
-                        <div className="flex pb-3 dark:border-b dark:border-ccc">
+                        <div className="flex pb-3 border-b border-ccc">
                             <div className="flex align-center self-center pr-2">
                                 <img className="icon-ssm dark:hidden" src="/img/icon/search.svg" alt="smile" loading="lazy"/>
                                 <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy"/>
@@ -136,32 +136,41 @@ const Header = () => {
                                 <input className="searchbar-head p-1 w-full" placeholder="Enter article name and hit enter..."/>
                             </div>
                         </div>
-                        <div className="py-3 dark:border-b dark:border-ccc"><Link href="">
+                        <div className="py-3 border-b border-ccc"><Link href={ROUTER.DESTINATION}>
                             <div className="flex">
                                 <span className="mr-auto">Guides & Tutorials</span>
                                 <span>
-                                    <img className="icon-ssm" src="/img/icon/chevron-right.svg" alt="smile" loading="lazy"/>
+                                    <img className="icon-ssm hidden dark:block" src="/img/icon/chevron-right.svg" alt="smile" loading="lazy"/>
+                                </span>
+                                <span>
+                                    <img className="icon-ssm dark:hidden " src="/img/icon/chevron-right-black.svg" alt="smile" loading="lazy"/>
                                 </span>
                             </div>
                         </Link></div>
-                        <div className="py-3 dark:border-b dark:border-ccc"><Link href="">
+                        <div className="py-3 border-b border-ccc"><Link href={ROUTER.DESTINATION}>
                             <div className="flex">
                                 <span className="mr-auto">Skincare nerd</span>
                                 <span>
-                                    <img className="icon-ssm" src="/img/icon/chevron-right.svg" alt="smile" loading="lazy"/>
+                                    <img className="icon-ssm hidden dark:block" src="/img/icon/chevron-right.svg" alt="smile" loading="lazy"/>
+                                </span>
+                                <span>
+                                    <img className="icon-ssm dark:hidden " src="/img/icon/chevron-right-black.svg" alt="smile" loading="lazy"/>
                                 </span>
                             </div>
                         </Link></div>
-                        <div className="py-3 dark:border-b dark:border-ccc"><Link href="">Testings & Reviews</Link></div>
-                        <div className="py-3 dark:border-b dark:border-ccc"><Link href="">
+                        <div className="py-3 border-b border-ccc"><Link href={ROUTER.TESTREVIEW}>Testings & Reviews</Link></div>
+                        <div className="py-3 border-b border-ccc"><Link href="">
                             <div className="flex">
                                 <span className="mr-auto">About</span>
                                 <span>
-                                    <img className="icon-ssm" src="/img/icon/chevron-right.svg" alt="smile" loading="lazy"/>
+                                    <img className="icon-ssm hidden dark:block" src="/img/icon/chevron-right.svg" alt="smile" loading="lazy"/>
+                                </span>
+                                <span>
+                                    <img className="icon-ssm dark:hidden " src="/img/icon/chevron-right-black.svg" alt="smile" loading="lazy"/>
                                 </span>
                             </div>
                         </Link></div>
-                        <div className="py-3 dark:border-b dark:border-ccc"><Link href="">Contact us</Link></div>
+                        <div className="py-3 border-b border-ccc"><Link href={ROUTER.CONTACT}>Contact us</Link></div>
                     </div>
                 </div>
                 <div className={`mobile-menu-overlay ${showMenu ? 'block' : 'hidden'}`}>
@@ -285,10 +294,10 @@ const Header = () => {
                                             <div className="relative bg-gray-900 guide-navdrop rounded-md">
                                                 <div className="navdrop-title pr-3 py-4">
                                                     <Link href={ROUTER.DESTINATION} className="dark:text-white flex nav-link">{t('header.guide')}
-                                                        <span className="ml-1 dark:hidden">
+                                                        <span className="ml-1 dark:hidden flex items-center">
                                                             <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="lazy"/>
                                                         </span>
-                                                        <span className="ml-1 hidden dark:block">
+                                                        <span className="ml-1 hidden dark:flex items-center">
                                                             <img className="icon-ssm" src="/img/icon/chevron-down.svg" alt="smile" loading="lazy"/>
                                                         </span>
                                                     </Link>
@@ -311,10 +320,10 @@ const Header = () => {
                                             <div className="relative destination-navdrop">
                                                 <div className="navdrop-title z-50 text-gray-300 hover:text-gray rounded-md pr-3 py-4">
                                                     <Link href={ROUTER.DESTINATION} className="dark:text-white flex nav-link">Skincare nerd
-                                                        <span className="ml-1 dark:hidden">
+                                                        <span className="ml-1 dark:hidden flex items-center">
                                                             <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="lazy"/>
                                                         </span>
-                                                        <span className="ml-1 hidden dark:block">
+                                                        <span className="ml-1 hidden dark:flex items-center">
                                                             <img className="icon-ssm" src="/img/icon/chevron-down.svg" alt="smile" loading="lazy"/>
                                                         </span>
                                                     </Link>
@@ -337,33 +346,13 @@ const Header = () => {
                                             <div className="text-gray-300 hover:text-gray rounded-md pr-3 py-4">
                                                 <Link href={ROUTER.SUBDES} className="dark:text-white nav-link">{t('header.review')}</Link>
                                             </div>
-                                            {/*<div className="relative destination-navdrop">*/}
-                                            {/*    <div className="navdrop-title z-50 text-gray-300 hover:text-gray py-4 pr-0">*/}
-                                            {/*        <Link href="#" className="nav-link flex">Skincare Nerd*/}
-                                            {/*            <span className="ml-1">*/}
-                                            {/*            <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="lazy"/>*/}
-                                            {/*        </span>*/}
-                                            {/*        </Link>*/}
-                                            {/*    </div>*/}
-                                            {/*    <div className="navdrop-inner absolute left-30 w-48 py-1">*/}
-                                            {/*        <div className="sub-menu block px-4 py-2 text-sm text-gray-700">*/}
-                                            {/*            <Link href={ROUTER.SUBDES} className="nav-link">Skin concerns</Link>*/}
-                                            {/*        </div>*/}
-                                            {/*        <div className="sub-menu block px-4 py-2 text-sm text-gray-700">*/}
-                                            {/*            <Link href={ROUTER.SUBDES} className="nav-link">Skincare Ingredients</Link>*/}
-                                            {/*        </div>*/}
-                                            {/*        <div className="sub-menu block px-4 py-2 text-sm text-gray-700">*/}
-                                            {/*            <Link href={ROUTER.SUBDES} className="nav-link">Tips & Advices</Link>*/}
-                                            {/*        </div>*/}
-                                            {/*    </div>*/}
-                                            {/*</div>*/}
                                             <div className="relative destination-navdrop">
                                                 <div className="navdrop-title z-50 text-gray-300 hover:text-gray py-4 pr-0">
                                                     <Link href="#" className="dark:text-white nav-link flex">{t('header.about')}
-                                                        <span className="ml-1 dark:hidden">
+                                                        <span className="ml-1 dark:hidden flex items-center">
                                                             <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="lazy"/>
                                                         </span>
-                                                        <span className="ml-1 hidden dark:block">
+                                                        <span className="ml-1 hidden dark:flex items-center">
                                                             <img className="icon-ssm" src="/img/icon/chevron-down.svg" alt="smile" loading="lazy"/>
                                                         </span>
                                                     </Link>
