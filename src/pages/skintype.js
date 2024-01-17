@@ -74,14 +74,24 @@ const Skintype = () => {
     ));
     return (
         <div className="skintype-page">
+            {/*banner test*/}
+            {/*<div className="skintype-banner">*/}
+            {/*    <div>*/}
+            {/*        <img className="w-full" src="./img/skintype/skintype.jpg" alt="smile" loading="lazy"/>*/}
+            {/*    </div>*/}
+            {/*    <div>*/}
+            {/*        */}
+            {/*    </div>*/}
+            {/*</div>*/}
+
             <div className="container-fluid m-w mx-auto my-0">
                 <div className="pt-5 head-content pb-5">
                     <div className="heading text-center">Skin type & History</div>
                     <div className="grid grid-cols-5">
                         <div className="col-span-1"></div>
                         <div className="col-span-3 heading_6 text-center">
-                            Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit
-                            consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed
+                            Sharing my skincare journey from the past to the present, along with my routine. I hope it
+                            provides helpful insights for you!
                         </div>
                         <div className="col-span-1"></div>
                     </div>

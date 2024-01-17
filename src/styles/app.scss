@@ -345,15 +345,12 @@ textarea:focus-visible{
 }
 @media only screen and (min-width: 768px) {
   .container-fluid{
-    padding-left: 90px;
-    padding-right: 90px;
+    padding-left: 100px;
+    padding-right: 100px;
   }
   .search-bar-inner{
     padding-left: 120px;
     padding-right: 120px;
-  }
-  .blog-footer {
-    padding: 0 90px;
   }
   .m-w{
     max-width: 1300px;

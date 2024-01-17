@@ -68,8 +68,9 @@ const About = () => {
                                                 Making My Passion
                                             </div>
                                             <div>
-                                                Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque
-                                                vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed.
+                                                Dive into the story of starting this skincare blog, fueled by genuine
+                                                passion. Share the personal connection to the beauty world and the
+                                                inspiration creating a space for fellow enthusiasts.
                                             </div>
                                         </div>
                                     </div>
@@ -81,11 +82,12 @@ const About = () => {
                                         </div>
                                         <div className="">
                                             <div className="heading_5 my-2">
-                                                Sharing Destinations
+                                                Share useful info and tips
                                             </div>
                                             <div>
-                                                Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque
-                                                vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed.
+                                                At our skincare blog, we're all about sharing helpful info and tips.
+                                                Discover the best ways to choose and use products for a glowing and healthy
+                                                skin journey. Your go-to source for easy-to-follow advice.
                                             </div>
                                         </div>
                                     </div>
@@ -100,11 +102,12 @@ const About = () => {
                                         </div>
                                         <div className="">
                                             <div className="heading_5 my-2">
-                                                Connect People
+                                                Better together
                                             </div>
                                             <div>
-                                                Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque
-                                                vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed.
+                                                Explore shared growth on my skincare blog. The post uncovers how exchanging
+                                                experiences benefits not just you, but also contributes to my ongoing
+                                                evolution within the skincare community
                                             </div>
                                         </div>
                                     </div>
@@ -116,11 +119,12 @@ const About = () => {
                                         </div>
                                         <div className="">
                                             <div className="heading_5 my-2">
-                                                Making My Passion
+                                                Connecting Skincare-e
                                             </div>
                                             <div>
-                                                Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque
-                                                vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed.
+                                                Join fellow skincare enthusiasts as we share tips and info for healthy,
+                                                radiant skin. Let's journey together towards beauty and confidence,
+                                                enhancing your glow inside and out
                                             </div>
                                         </div>
                                     </div>
@@ -202,9 +206,9 @@ const About = () => {
                         </div>
                     </div>
                 </div>
-                <div className="contact-me ">
-                    <div className="contact-me-inner dark:!text-black">
-                        <div className="heading_3 md:mb-4">Work With Me</div>
+                <div className="contact-me p-5 md:p-8">
+                    <div className="contact-me-inner p-5 md:p-7 bg-white dark:text-black">
+                        <div className="heading_3 mb-3 md:mb-4">Work With Me</div>
                         <div className="mb-3">Are you interested in collaborating? Contact me for more information or hire me for a UI freelance,
                             please visit my portfolio <a>https://nthuyduong.github.io.</a></div>
                         <div className="medium_text">Get in touch: Nthduong898@gmail.com</div>

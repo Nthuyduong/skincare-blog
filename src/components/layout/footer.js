@@ -4,7 +4,7 @@ import React from "react";
 
 const Footer = () => {
     return (
-        <div className="blog-footer px-3 m-w mx-auto my-0" id="blog-footer">
+        <div className="blog-footer" id="blog-footer">
             <div className="blog-footer-inner border-t md:border-y dark:border-ccc border-999">
                 <div className="grid grid-cols-12">
                     {/*<div className="sub-menu">*/}
@@ -25,11 +25,11 @@ const Footer = () => {
 
                     {/*    </ul>*/}
                     {/*</div>*/}
-                    <div className="md:col-span-3 col-span-12 flex justify-center border-b md:border-b-0 dark:border-ccc md:border-r md:!border-ccc footer-logo items-center p-4">
-                        <img className="h-fit md:w-3/5 w-2/5 dark:hidden" src="/img/footer-logo.svg" alt="smile" loading="lazy"/>
-                        <img className="h-fit md:w-3/5 w-2/5 dark:block hidden" src="/img/footer-logo-2.svg" alt="smile" loading="lazy"/>
+                    <div className="md:col-span-4 col-span-12 flex justify-center border-b md:border-b-0 dark:border-ccc md:border-r md:!border-ccc footer-logo items-center p-4 lg:p-5">
+                        <img className="h-fit md:w-2/5 w-2/5 dark:hidden" src="/img/footer-logo.svg" alt="smile" loading="lazy"/>
+                        <img className="h-fit md:w-2/5 w-2/5 dark:block hidden" src="/img/footer-logo-2.svg" alt="smile" loading="lazy"/>
                     </div>
-                    <div className="md:col-span-4 md:!px-5 col-span-12 footer-info md:py-7 py-4 flex border-b border-ccc md:!border-b-0 md:border-r md:border-ccc">
+                    <div className="md:col-span-4 flex items-center md:!px-5 col-span-12 footer-info md:p-4 p-3 lg:p-5 flex border-b border-ccc md:!border-b-0 md:border-r md:border-ccc">
                         <div className="grid grid-cols-4 w-full">
                             <div className="col-span-2 text-center md:text-left">
                                 <div className="sub-menu">
@@ -62,8 +62,8 @@ const Footer = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="md:col-span-5 col-span-12 footer-sub py-4 md:py-7">
-                        <div className="md:px-5">
+                    <div className="md:col-span-4 flex items-center col-span-12 footer-sub p-3 md:p-4 lg:p-5">
+                        <div className="">
                             <div className="mb-2">Enter your email address to receive new posts in your inbox and seasonal newsletters with
                                 extra goodies!</div>
                             <div>
