@@ -19,5 +19,6 @@ export const ROUTER = {
     NOTFOUND: '/notfound',
     TESTREVIEW: '/test_review',
     INGREDIENT: '/ingredient',
-    INGREDIENTDETAIL: '/ingredient/detail'
+    INGREDIENTDETAIL: '/ingredient/detail',
+    TESTPOST: '/test_post'
 }
