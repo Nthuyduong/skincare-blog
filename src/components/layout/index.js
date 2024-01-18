@@ -75,7 +75,7 @@ const Layout = ({ children }) => {
             <div className="page">
                 {pathname.includes(ROUTER.ADLOGIN) ? null : <Sidebar/>}
                 {/*<div className={`page-body-wrapper ${show && 'admin-wrapper'}`}>*/}
-                <div className={`page-body-wrapper overflow-hidden ${pathname.includes(ROUTER.ADLOGIN) ? '' : 'admin-wrapper'}`}>
+                <div className={`page-body-wrapper overflow-x-clip ${pathname.includes(ROUTER.ADLOGIN) ? '' : 'admin-wrapper'}`}>
                     {/*<button onClick={handleLoading}>*/}
                     {/*    show loading*/}
                     {/*</button>*/}
@@ -93,14 +93,9 @@ const Layout = ({ children }) => {
         // theme dark/light color: --primary, --secondary, --tertiary, --white, --black
         <div 
             className="page bg-white dark:bg-black text-black dark:text-white"
-            style={{
-                "--font-family": getLanguage() == 'vn' ? 'serif' : '',
-                "--text-primary": getTheme() == 'light' ? 'black' : 'white',
-                "--background-primary": getTheme() == 'light' ? 'white' : 'black',
-            }}
         >
             <Header />
-            <div className={`page-body-wrapper overflow-hidden test`}>
+            <div className={`page-body-wrapper overflow-x-clip test`}>
                 {children}
             </div>
             <Footer />

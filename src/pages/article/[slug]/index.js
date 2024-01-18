@@ -21,18 +21,20 @@ const ArticleDetail = ({ slug }) => {
         if (refContent.current) {
             const headings = refContent.current.querySelectorAll("h2, h3");
             const list = refTable.current;
-            
-            headings.forEach((heading) => {
-                heading.id = heading.textContent.replace(/\s+/g, '-').toLowerCase();
-
-                const li = document.createElement("li");
-                li.classList.add("cursor-pointer");
-                li.textContent = heading.textContent;
-                list.appendChild(li);
-                li.addEventListener("click", () => {
-                    heading.scrollIntoView({ behavior: "smooth" });
+            if(list) {
+                headings.forEach((heading) => {
+                    heading.id = heading.textContent.replace(/\s+/g, '-').toLowerCase();
+    
+                    const li = document.createElement("li");
+                    li.classList.add("cursor-pointer");
+                    li.textContent = heading.textContent;
+                    list.appendChild(li);
+                    li.addEventListener("click", () => {
+                        heading.scrollIntoView({ behavior: "smooth" });
+                    });
                 });
-            });
+            }
+           
             const handleScroll = throttle(() => {
                 let process = ((document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight) * 100);
                 if (process < 0) {
@@ -47,7 +49,9 @@ const ArticleDetail = ({ slug }) => {
                     refProcess.current.style.width = `${process}%`;
                 }
             }, 1);
-            window.addEventListener('scroll', handleScroll)
+            if(refContent.current) {
+                window.addEventListener('scroll', handleScroll)
+            }
         }
         
     }, [blog])

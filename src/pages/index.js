@@ -11,7 +11,7 @@ const Home = () => {
             <div className="home-banner">
                 <img className="w-full" src="./img/home/banner2.jpg" alt="smile" loading="lazy"/>
             </div>
-            <div className="container-fluid my-0 mx-auto m-w"S>
+            <div className="container-fluid my-0 mx-auto m-w">
 
                     {/*Lastest on this blog*/}
                     <div className="recently-update pt-6 md:pt-8">
