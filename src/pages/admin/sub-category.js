@@ -21,7 +21,7 @@ const SubCategory = () => {
                 <div className="grid grid-cols-4 gap-4">
                     <div className="col-span-1">
                         <div className="search-bar-box flex">
-                            <input name="findOrder" id="findOrder" className="search-input w-100" type="text"
+                            <input name="findOrder" id="findOrder" className="search-input w-full" type="text"
                                    placeholder="Enter name/id post..."/>
                         </div>
                     </div>

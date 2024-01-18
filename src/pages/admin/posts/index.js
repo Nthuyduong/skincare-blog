@@ -76,20 +76,19 @@ const Adminpostpage = ({ page }) => {
                     <div className="col-span-1">
                         <select className="sl-box">
                             <option value="" defaultValue hidden>Category</option>
-                            <option value="">Drink & Coffee</option>
-                            <option value="">Food & Cake</option>
-                            <option value="">Photo Spots</option>
+                            <option value="">Guides & Tutorials</option>
+                            <option value="">Skincare nerd</option>
                         </select>
                     </div>
                     <div className="col-span-1">
                         <div className="flex flex-col">
-                            <label>Start date</label>
+                            <label>Public start</label>
                             <input className="sort-date" type="datetime-local" placeholder="dd/mm/yyyy"/>
                         </div>
                     </div>
                     <div className="col-span-1">
                         <div className="flex flex-col">
-                            <label>End date</label>
+                            <label>Public end</label>
                             <input className="sort-date" type="datetime-local" placeholder="dd/mm/yyyy"/>
                         </div>
                     </div>
@@ -101,11 +100,11 @@ const Adminpostpage = ({ page }) => {
                             <input type="checkbox"/>
                         </div>
                         <div className="cell-ssm">ID</div>
-                        <div className="cell-sm">Date</div>
+                        <div className="cell-sm">Public date</div>
                         <div className="cell">Post title</div>
-                        <div className="cell">Author</div>
-                        <div className="cell">Action</div>
-                        <div className="cell"></div>
+                        <div className="cell-sm">Author</div>
+                        <div className="cell-sm">Action</div>
+                        <div className="cell-sm"></div>
                     </div>
                     <div className="post-list">
                         {(posts)?.map((post, index) => {
@@ -118,16 +117,15 @@ const Adminpostpage = ({ page }) => {
                                     <div className="cell-sm">{ formatDate(post.publish_date)}</div>
                                     <div className="cell">
                                         <Link href={'/admin/posts/' + post.id}>{post.title}</Link></div>
-                                    <div className="cell">{post.summary}</div>
-                                    <div className="cell">{post.author}</div>
-                                    <div className="cell">
+                                    <div className="cell-sm">{post.author}</div>
+                                    <div className="cell-sm">
                                         <select className="sl-box">
                                             <option value="" defaultValue hidden>Choose status</option>
                                             <option value="">Published</option>
                                             <option value="">Draft</option>
                                         </select>
                                     </div>
-                                    <div className="cell">
+                                    <div className="cell-sm">
                                         <div className="flex justify-center">
                                             <img className="icon-sm" src="../img/icon/zoom-in.svg" alt="smile" loading="lazy"/>
                                             <img className="icon-sm mx-2" src="../img/icon/edit.svg" alt="smile" loading="lazy"/>

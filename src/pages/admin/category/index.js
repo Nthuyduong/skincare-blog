@@ -73,9 +73,9 @@ const Admincategory = () => {
                                     </div>
                                     <div className="cell-ssm">{category.id}</div>
                                     <div className="cell">{category.name}</div>
-                                    <div className="cell">{category.description}</div>
-                                    <div className="cell">Author</div>
-                                    <div className="cell"></div>
+                                    <div className="cell txt-overflow">{category.description}</div>
+                                    <div className="cell">4</div>
+                                    <div className="cell">20</div>
                                     <div className="cell">
                                         <select className="sl-box">
                                             <option value="" defaultValue hidden>Choose status</option>

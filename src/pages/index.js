@@ -9,7 +9,7 @@ const Home = () => {
         <div>
             {/*banner*/}
             <div className="home-banner">
-                <img className="w-full" src="./img/home/banner.png" alt="smile" loading="lazy"/>
+                <img className="w-full" src="./img/home/banner2.jpg" alt="smile" loading="lazy"/>
             </div>
             <div className="container-fluid my-0 mx-auto m-w"S>
 

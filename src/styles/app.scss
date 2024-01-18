@@ -118,7 +118,6 @@ root {
   color: #fff;
   padding-top: 8px;
   padding-bottom: 8px;
-  text-transform: uppercase
 }
 .my-btn-pr:hover{
   background: #333;
@@ -527,4 +526,14 @@ textarea:focus-visible{
   .ingre-decor{
     height: 1px;
   }
+}
+
+//text overflow
+.txt-overflow{
+  max-height: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }

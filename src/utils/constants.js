@@ -20,5 +20,7 @@ export const ROUTER = {
     TESTREVIEW: '/test_review',
     INGREDIENT: '/ingredient',
     INGREDIENTDETAIL: '/ingredient/detail',
-    TESTPOST: '/test_post'
+    TESTPOST: '/test_post',
+    ADINGREDIENT: '/admin/skincare-ingredients'
+
 }

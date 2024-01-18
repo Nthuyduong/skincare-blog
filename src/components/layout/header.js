@@ -58,7 +58,7 @@ const Header = () => {
                 className="heaed-mobile dark:!bg-black !bg-white md:hidden sticky bg-white z-50 top-header justify-center w-full m-w mx-auto my-0 border-b border-ccc"
                 style={{ top: '0' }}
             >
-                <div className="dark:border-b dark:border-ccc py-2 relative heaeder-mobile-contain flex justify-center items-center w-full dark:bg-black">
+                <div className="py-2 relative heaeder-mobile-contain flex justify-center items-center w-full dark:bg-black">
                     <button type="button"
                         className="lg:hidden relative inline-flex items-center justify-center
                         rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white
