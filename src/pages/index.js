@@ -9,11 +9,12 @@ const Home = () => {
         <div>
             {/*banner*/}
             <div className="home-banner">
-                <img className="md:block hidden w-full" src="./img/home/banner2.jpg" alt="smile" loading="lazy"/>
-                <img className="md:hidden block w-full" src="./img/home/mobile-banner.png" alt="smile" loading="lazy"/>
+                <picture>
+                    <source media="(min-width:465px)" srcset="./img/home/banner2.jpg"/>
+                    <img className="md:block hidden w-full" src="./img/home/mobile-banner.png" alt="smile" loading="lazy"/>
+                </picture>
             </div>
             <div className="container-fluid my-0 mx-auto m-w">
-
                     {/*Lastest on this blog*/}
                     <div className="recently-update pt-6 md:pt-8">
                         <div className="heading_4 md:heading_3 mb-4">Most useful articles</div>
