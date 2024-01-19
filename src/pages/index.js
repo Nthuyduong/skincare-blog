@@ -11,7 +11,7 @@ const Home = () => {
             <div className="home-banner">
                 <picture>
                     <source media="(min-width:465px)" srcset="./img/home/banner2.jpg"/>
-                    <img className="md:block hidden w-full" src="./img/home/mobile-banner.png" alt="smile" loading="lazy"/>
+                    <img className="w-full" src="./img/home/mobile-banner.png" alt="smile" loading="lazy"/>
                 </picture>
             </div>
             <div className="container-fluid my-0 mx-auto m-w">
