@@ -51,8 +51,29 @@ const Header = () => {
         setTheme(theme);
         window.location.reload();
     }
+
+    // this is for tab
+    const [activeTab, setActiveTab] = useState(false);
+
+    const toggleCollapse = () => {
+        setActiveTab((prevIndex) => (prevIndex === null ? 0 : null));
+    };
+
+    const [activeTab2, setActiveTab2] = useState(false);
+
+    const toggleCollapse2 = () => {
+        setActiveTab2((prevIndex) => (prevIndex === null ? 0 : null));
+    };
+
+    const [activeTab3, setActiveTab3] = useState(false);
+
+    const toggleCollapse3 = () => {
+        setActiveTab3((prevIndex) => (prevIndex === null ? 0 : null));
+    };
+
     return(
         <>
+            {/*MOBILE HEADER*/}
             <div 
                 ref={headerMobileRef} 
                 className="heaed-mobile dark:!bg-black !bg-white md:hidden sticky bg-white z-50 top-header justify-center w-full m-w mx-auto my-0 border-b border-ccc"
@@ -81,7 +102,7 @@ const Header = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
                         </svg>
                     </button>
-                    {/*darkmode*/}
+                    {/*darkmode-lightmode*/}
                     <div className="!hidden md:!block color-mode">
                         <div className="mode-inner">
                             {/*sun icon*/}
@@ -136,40 +157,75 @@ const Header = () => {
                                 <input className="searchbar-head p-1 w-full" placeholder="Enter article name and hit enter..."/>
                             </div>
                         </div>
-                        <div className="py-3 border-b border-ccc"><Link href={ROUTER.DESTINATION}>
-                            <div className="flex">
-                                <span className="mr-auto">Guides & Tutorials</span>
-                                <span>
-                                    <img className="icon-ssm hidden dark:block" src="/img/icon/chevron-right.svg" alt="smile" loading="lazy"/>
-                                </span>
-                                <span>
-                                    <img className="icon-ssm dark:hidden " src="/img/icon/chevron-right-black.svg" alt="smile" loading="lazy"/>
-                                </span>
+                        <div className="">
+                            <div className={`my-collapse dark:border-b dark:border-ccc ${activeTab === 0 ? 'expanded' : ''}`}>
+                                <div className="question-container flex" onClick={toggleCollapse}>
+                                    <div className="question mr-auto medium_text">
+                                        <Link href={ROUTER.DESTINATION}>
+                                            Guides & Tutorials
+                                        </Link>
+                                    </div>
+                                    <div className="btn-question flex justify-center items-center">
+                                        <svg role="presentation" focusable="false" width="12" height="9"
+                                             className="icon icon-chevron-bottom-small" viewBox="0 0 8 6">
+                                            <path d="m1 1.5 3 3 3-3" fill="none" stroke="currentColor"
+                                                  stroke-width="1.5"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div className={`content-container`}>
+                                    <div><Link href={ROUTER.DESTINATION}>How to</Link></div>
+                                    <div><Link href={ROUTER.DESTINATION}>Skincare routine</Link></div>
+                                    <div><Link href={ROUTER.DESTINATION}>Usage guide</Link></div>
+                                    <div><Link href={ROUTER.DESTINATION}>Sun care</Link></div>
+                                </div>
                             </div>
-                        </Link></div>
-                        <div className="py-3 border-b border-ccc"><Link href={ROUTER.DESTINATION}>
-                            <div className="flex">
-                                <span className="mr-auto">Skincare nerd</span>
-                                <span>
-                                    <img className="icon-ssm hidden dark:block" src="/img/icon/chevron-right.svg" alt="smile" loading="lazy"/>
-                                </span>
-                                <span>
-                                    <img className="icon-ssm dark:hidden " src="/img/icon/chevron-right-black.svg" alt="smile" loading="lazy"/>
-                                </span>
+                        </div>
+                        <div className="">
+                            <div className={`my-collapse dark:border-b dark:border-ccc ${activeTab2 === 0 ? 'expanded' : ''}`}>
+                                <div className="question-container flex" onClick={toggleCollapse2}>
+                                    <div className="question mr-auto medium_text">
+                                        <Link href={ROUTER.DESTINATION}>
+                                            Skincare nerd
+                                        </Link>
+                                    </div>
+                                    <div className="btn-question flex justify-center items-center">
+                                        <svg role="presentation" focusable="false" width="12" height="9"
+                                             className="icon icon-chevron-bottom-small" viewBox="0 0 8 6">
+                                            <path d="m1 1.5 3 3 3-3" fill="none" stroke="currentColor"
+                                                  stroke-width="1.5"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div className={`content-container`}>
+                                    <div><Link href={ROUTER.DESTINATION}>Skin concerns</Link></div>
+                                    <div><Link href={ROUTER.DESTINATION}>Tips & Advices</Link></div>
+                                    <div><Link href={ROUTER.DESTINATION}>Skincare ingredients</Link></div>
+                                    <div><Link href={ROUTER.DESTINATION}>Nuturish</Link></div>
+                                </div>
                             </div>
-                        </Link></div>
+                        </div>
                         <div className="py-3 border-b border-ccc"><Link href={ROUTER.TESTREVIEW}>Testings & Reviews</Link></div>
-                        <div className="py-3 border-b border-ccc"><Link href="">
-                            <div className="flex">
-                                <span className="mr-auto">About</span>
-                                <span>
-                                    <img className="icon-ssm hidden dark:block" src="/img/icon/chevron-right.svg" alt="smile" loading="lazy"/>
-                                </span>
-                                <span>
-                                    <img className="icon-ssm dark:hidden " src="/img/icon/chevron-right-black.svg" alt="smile" loading="lazy"/>
-                                </span>
+                        <div className="">
+                            <div className={`my-collapse dark:border-b dark:border-ccc ${activeTab3 === 0 ? 'expanded' : ''}`}>
+                                <div className="question-container flex" onClick={toggleCollapse3}>
+                                    <div className="question mr-auto medium_text">
+                                        About
+                                    </div>
+                                    <div className="btn-question flex justify-center items-center">
+                                        <svg role="presentation" focusable="false" width="12" height="9"
+                                             className="icon icon-chevron-bottom-small" viewBox="0 0 8 6">
+                                            <path d="m1 1.5 3 3 3-3" fill="none" stroke="currentColor"
+                                                  stroke-width="1.5"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div className={`content-container`}>
+                                    <div><Link href={ROUTER.ABOUT}>About blog</Link></div>
+                                    <div><Link href={ROUTER.SKINTYPE}>My skin history</Link></div>
+                                </div>
                             </div>
-                        </Link></div>
+                        </div>
                         <div className="py-3 border-b border-ccc"><Link href={ROUTER.CONTACT}>Contact us</Link></div>
                     </div>
                 </div>
@@ -177,6 +233,8 @@ const Header = () => {
 
                 </div>
             </div>
+
+            {/*WEBSITE HEADER*/}
             <div className="hidden md:flex top-header justify-center p-3 container-fluid justify-center w-full items-center m-w mx-auto my-0">
                 <div className="!hidden md:!block color-mode">
                     <div className="mode-inner">

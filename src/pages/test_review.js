@@ -35,9 +35,10 @@ const Testreview = () => {
 
     return (
         <div className="test-review-page">
-            <div className="review-banner">
+            {/*website banner*/}
+            <div className="md:block hidden review-banner w-full">
                 <div className="relative">
-                    <div className="container-fluid banner-left">
+                    <div className="container-fluid banner-left dark:text-black m-w mx-auto">
                         <div className="grid grid-cols-12">
                             <div className="col-span-5">
                                 {/*breadcrumb*/}
@@ -45,22 +46,51 @@ const Testreview = () => {
                                     <ul className="flex">
                                         <li><a href="#">Home</a></li>
                                         <li className="mx-2">/</li>
-                                        <li><a href="#">Tests and Reviews</a></li>
+                                        <li><a href="#">Skincare Nerd</a></li>
                                         <li className="mx-2">/</li>
-                                        <li><a href="#">Paula's Choice 2% BHA liquid exfoliant</a></li>
+                                        <li><a href="#">Nuturish</a></li>
                                     </ul>
                                 </div>
-                                <div className="heading_3 mb-2">What does Paula's Choice 2% BHA liquid exfoliant do?</div>
-                                <div className="medium_text mb-3">Sharing my skincare journey from the past to the present, along with my routine. I hope it provides helpful insights for you!</div>
+                                <div className="heading_2 mb-2">Drinking Water and Improving Skin</div>
+                                <div className="medium_text mb-4">Uncover the secret to daily beautiful, radiant skin:
+                                    happiness. Explore how joy transforms your beauty routine, embracing your natural glow with each passing day</div>
                                 <div className="small_text">Writen by: Nthduong</div>
-                                <div className="small_text">16/01/2024</div>
+                                <div className="small_text my-1">Publish date: 16/01/2024</div>
                                 <div className="small_text">About 10 minutes to read</div>
+                                <div className="medium_text mt-4">Is this article helpful?</div>
                             </div>
                         </div>
                     </div>
                     <div className="banner-right">
-                        <img className="w-full" src="./img/testnreview/t1.png" alt="smile" loading="lazy"/>
+                        <img className="w-full" src="/img/article/waterbanner.jpg" alt="smile" loading="lazy"/>
                     </div>
+                </div>
+            </div>
+            {/*Mobile banner*/}
+            <div className="md:hidden block">
+                <div className="banner-top py-4 bg-primary text-black">
+                    <div className="container-fluid">
+                        {/*breadcrumb*/}
+                        <div className="mb-3 my-breadcrumb">
+                            <ul className="flex">
+                                <li><a href="#">Home</a></li>
+                                <li className="mx-2">/</li>
+                                <li><a href="#">Skincare Nerd</a></li>
+                                <li className="mx-2">/</li>
+                                <li><a href="#">Nuturish</a></li>
+                            </ul>
+                        </div>
+                        <div className="heading_2 mb-2">Drinking Water and Improving Skin</div>
+                        <div className="medium_text mb-4">Uncover the secret to daily beautiful, radiant skin:
+                            happiness. Explore how joy transforms your beauty routine, embracing your natural glow with each passing day</div>
+                        <div className="small_text">Writen by: Nthduong</div>
+                        <div className="small_text my-1">Publish date: 16/01/2024</div>
+                        <div className="small_text">About 10 minutes to read</div>
+                        <div className="medium_text mt-4">Is this article helpful?</div>
+                    </div>
+                </div>
+                <div className="banner-bottom">
+                    <img className="w-full" src="/img/article/waterbanner.jpg" alt="smile" loading="lazy"/>
                 </div>
             </div>
             <div className="container-fluid main-content m-w mx-auto my-0">

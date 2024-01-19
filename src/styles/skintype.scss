@@ -12,40 +12,38 @@
   .skin-bar{
     border-bottom: 1px solid v.$border2_color;
   }
-  .all-faq{
+}
 
+.my-collapse{
+  padding: 14px 0;
+  border-bottom: 1px solid v.$border2_color;
+  .question-container{
+    cursor: pointer;
   }
-  .my-collapse{
-    padding: 14px 0;
-    border-bottom: 1px solid v.$border2_color;
-    .question-container{
-      cursor: pointer; 
-    }
-    .btn-question {
-      transition: all 0.35s ease;
-    }
-    .content-container {
-      transition: all 0.5s ease;
-      max-height: 0;
-      overflow: hidden;
-      p {
-        transition: all 0.7s ease;
-        transform: translateY(10px);
-        opacity: 0;
-      }
-    }
-    
+  .btn-question {
+    transition: all 0.35s ease;
   }
-  .expanded{
-    .btn-question {
-      transform: rotate(180deg);
+  .content-container {
+    transition: all 0.5s ease;
+    max-height: 0;
+    overflow: hidden;
+    p {
+      transition: all 0.7s ease;
+      transform: translateY(10px);
+      opacity: 0;
     }
-    .content-container {
-      max-height: 100px;
-      p {
-        opacity: 1;
-        transform: translateY(0);
-      }
+  }
+
+}
+.expanded{
+  .btn-question {
+    transform: rotate(180deg);
+  }
+  .content-container {
+    max-height: 100px;
+    p {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 }
