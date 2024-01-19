@@ -70,7 +70,7 @@ const Article = () => {
                             </div>
                             <div className="col-span-6 md:col-span-3 flex items-center">
                                 <div className="">
-                                    <div className="mb-4 heading_2">Stress Negatively Impacts Your Skin</div>
+                                    <h3 className="mb-4 heading_2">Stress Negatively Impacts Your Skin</h3>
                                     <div className="mb-1">According to WebMD, the mind and the skin are closely related. This explains
                                         why chronic stress harms your skin. For instance, when you are more stressed
                                         and tense, your body in turn releases stress hormones that increase your skin’s
@@ -87,7 +87,7 @@ const Article = () => {
                     </div>
                     <div className="md:mt-7 md:p-7 py-6 bg-primary">
                         <div className="m-w mx-auto my-0 container-fluid text-black">
-                            <div className="heading_2 mb-4">How Happiness Improves Your Skin</div>
+                            <h2 className="heading_2 mb-4">How Happiness Improves Your Skin</h2>
                             <div className="">On the other hand, happiness serves as the overarching secret ingredient that
                                 naturally bestows upon you radiant, healthy, and glowing skin. This is because
                                 happiness reduces stress levels, which, as discussed earlier, releases stress
@@ -111,9 +111,9 @@ const Article = () => {
                         <div>
                             <div className="container-fluid m-w mx-auto my-0 gap-4 pb-60">
                                 <div className="p-60">
-                                    <div className="heading_2 mb-4">Tips for Making Your Happiness a Daily Priority</div>
+                                    <h2 className="heading_2 mb-4">Tips for Making Your Happiness a Daily Priority</h2>
                                     <div className="">
-                                        <div className="mb-2 heading_5">1/ Smile often: </div>
+                                        <h3 className="mb-2 heading_5">1/ Smile often: </h3>
                                         <div className="">
                                             Studies have shown that genuine smiles release feel-good hormones in the body,
                                             contributing to healthy and radiant skin. You don't have to wait for a random
@@ -128,7 +128,7 @@ const Article = () => {
                                 <div className="grid grid-cols-6 gap-4">
                                     <div className="col-span-6 md:col-span-3 pb-6 md:pb-0 flex items-center">
                                         <div className="">
-                                            <div className="mb-2 heading_5">2/ Spend more time face-to-face with loved ones</div>
+                                            <h3 className="mb-2 heading_5">2/ Spend more time face-to-face with loved ones</h3>
                                             <div className="">
                                                 Don't let your cell phone create a barrier between you and the people who
                                                 matter most. Set aside time for shared meals, walks, sports events, and
@@ -154,7 +154,7 @@ const Article = () => {
                                     </div>
                                     <div className="col-span-6 md:col-span-3 flex items-center">
                                         <div className="">
-                                            <div className="mb-2 heading_5">3/ Manage your stress</div>
+                                            <h3 className="mb-2 heading_5">3/ Manage your stress</h3>
                                             <div className="">
                                                 However, Cultural Stress—the constant stress of modern living—is a relatively recent
                                                 phenomenon, especially in evolutionary terms. Our bodies simply haven't had enough
@@ -177,7 +177,7 @@ const Article = () => {
                                     </div>
                                 </div>
                                 <div className="mt-5">
-                                    <div className="mb-4 heading_2">Happiness: The Secret Ingredient for Radiant Skin</div>
+                                    <h2 className="mb-4 heading_2">Happiness: The Secret Ingredient for Radiant Skin</h2>
                                     <div className="">
                                         However, Cultural Stress—the constant stress of modern living—is a relatively recent
                                         phenomenon, especially in evolutionary terms. Our bodies simply haven't had enough

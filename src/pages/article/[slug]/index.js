@@ -19,7 +19,7 @@ const ArticleDetail = ({ slug }) => {
 
     useEffect(() => {
         if (refContent.current) {
-            const headings = refContent.current.querySelectorAll("h2, h3");
+            const headings = refContent.current.querySelectorAll("h2");
             const list = refTable.current;
             if(list) {
                 headings.forEach((heading) => {
@@ -62,6 +62,7 @@ const ArticleDetail = ({ slug }) => {
                 <div ref={refProcess} className='process-content'></div>
             </div>
             <div className="test-review-page w-full">
+                {/*website banner*/}
                 <div className="review-banner w-full">
                     <div className="relative">
                         <div className="container-fluid banner-left dark:text-black m-w mx-auto">
@@ -92,6 +93,33 @@ const ArticleDetail = ({ slug }) => {
                         </div>
                     </div>
                 </div>
+                {/*Mobile banner*/}
+                <div className="md:hidden block">
+                    <div className="banner-top py-4 bg-primary text-black">
+                        <div className="container-fluid">
+                            {/*breadcrumb*/}
+                            <div className="mb-3 my-breadcrumb">
+                                <ul className="flex">
+                                    <li><a href="#">Home</a></li>
+                                    <li className="mx-2">/</li>
+                                    <li><a href="#">Skincare Nerd</a></li>
+                                    <li className="mx-2">/</li>
+                                    <li><a href="#">Nuturish</a></li>
+                                </ul>
+                            </div>
+                            <div className="heading_2 mb-2">Drinking Water and Improving Skin</div>
+                            <div className="medium_text mb-4">Uncover the secret to daily beautiful, radiant skin:
+                                happiness. Explore how joy transforms your beauty routine, embracing your natural glow with each passing day</div>
+                            <div className="small_text">Writen by: Nthduong</div>
+                            <div className="small_text my-1">Publish date: 16/01/2024</div>
+                            <div className="small_text">About 10 minutes to read</div>
+                            <div className="medium_text mt-4">Is this article helpful?</div>
+                        </div>
+                    </div>
+                    <div className="banner-bottom">
+                        <img className="w-full" src="/img/article/waterbanner.jpg" alt="smile" loading="lazy"/>
+                    </div>
+                </div>
             </div>
             <div className="container-fluid m-w mx-auto my-0">
                 <div className="grid grid-cols-12">
@@ -111,9 +139,9 @@ const ArticleDetail = ({ slug }) => {
                             </div>
                         </div>
                         {/*menu*/}
-                        <div className="catalog w-5/6">
+                        <div className="catalog w-full my-3">
                             <div className="list dark:!border-999">
-                                <div className="list-title heading_6 mb-3">In this post</div>
+                                <div className="list-title heading_4 mb-3">In this post</div>
                                 <div className="all-list">
                                     {/* table of content */}
                                     <ul className="list-here" ref={refTable} />
@@ -195,9 +223,9 @@ const ArticleDetail = ({ slug }) => {
                     {/*<div className="col-span-1"></div>*/}
                 </div>
             </div>
-            <div className="my-article">
+            <div className="my-article w-full">
                 <div
-                    className="main-article"
+                    className="main-article w-full"
                     ref={refContent}
                     dangerouslySetInnerHTML={{
                         __html: blog?.content
