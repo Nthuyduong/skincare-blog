@@ -203,9 +203,8 @@ const ArticleDetail = ({ slug }) => {
                         __html: blog?.content
                     }}
                 />
-                <div className="pt-3 border-t border-ccc flex helpful-rate mt-5 grid grid-cols-12">
-                    <div className="col-span-1"></div>
-                    <div className="col-span-12 flex">
+                <div className="container-fluid m-w mx-auto my-0 helpful-rate mt-5">
+                    <div className="flex w-full pt-3 border-t border-ccc">
                         <div className="medium_text mr-3">
                             <a href="#">Was this helpful?</a>
                         </div>
@@ -218,12 +217,6 @@ const ArticleDetail = ({ slug }) => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-span-1"></div>
-                </div>
-            </div>
-            <div className="grid grid-cols-12">
-                <div className="col-span-1"></div>
-                <div className="col-span-12">
                     {/*Suggest more article*/}
                     <div className="suggest-article py-7">
                         <div className="heading_2">Related Articles</div>
@@ -374,7 +367,6 @@ const ArticleDetail = ({ slug }) => {
                         </div>
                     </div>
                 </div>
-                <div className="col-span-1"></div>
             </div>
         </div>
     )
