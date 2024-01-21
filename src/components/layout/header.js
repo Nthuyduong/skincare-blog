@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
 import { ROUTER } from "../../utils/constants";
 import Link from 'next/link'
-import { useTrans } from "@hooks/useTrans";
+import { useTrans, changeLanguage } from "@hooks/useTrans";
 import { setTheme } from "../../utils/local-store";
+import { useRouter } from 'next/router'
 
 const Header = () => {
-
+    const router = useRouter()
     const trans = useTrans();
 
     // Test for button search
@@ -37,6 +38,12 @@ const Header = () => {
         }
     }
 
+    const changeLanguage = (nextLocale) => {
+        const { pathname, asPath, query } = router
+    
+        // change just the locale and maintain all other route information including href's query
+        router.push({ pathname, query }, asPath, { locale: nextLocale })
+    }
     useEffect(() => {
         prevScrollpos = window.pageYOffset;
 
@@ -132,8 +139,13 @@ const Header = () => {
                         </div>
                     </Link>
                     <div className="flex mr-4">
-                        <div className="mr-1 pr-1 dark:border-r dark:border-999 border-r border-333">EN</div>
-                        <div className="mr-l">VN</div>
+                        <div 
+                            className="mr-1 pr-1 dark:border-r dark:border-999 border-r border-333 cursor-pointer"
+                            onClick={() => changeLanguage('en')}
+                        >
+                            EN
+                        </div>
+                        <div className="mr-l cursor-pointer" onClick={() => changeLanguage('vi')}>VN</div>
                     </div>
                     <div className="hidden">
                         <button type="button"
@@ -265,8 +277,13 @@ const Header = () => {
                     </div>
                 </Link>
                 <div className="flex mr-4 !hidden md:!flex">
-                    <div className="mr-1 pr-1 dark:border-r dark:border-999 border-r border-333">EN</div>
-                    <div className="mr-l">VN</div>
+                    <div 
+                        className="mr-1 pr-1 dark:border-r dark:border-999 border-r border-333 cursor-pointer"
+                        onClick={() => changeLanguage('en')}
+                    >
+                        EN
+                    </div>
+                    <div className="mr-l cursor-pointer" onClick={() => changeLanguage('vi')}>VN</div>
                 </div>
                 <div className="">
                     <button type="button"

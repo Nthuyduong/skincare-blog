@@ -10,12 +10,10 @@ export const useTrans = () => {
     return trans
 }
 
-export const changeLanguage = (lang) => {
-    const { pathname, query } = useRouter()
+export const changeLanguage = (nextLocale) => {
+    const router = useRouter()
+    const { pathname, asPath, query } = router
 
-    const regex = /\/(vi|en)/
-
-    const path = pathname.replace(regex, `/${lang}`)
-
-    return { path, query }
+    // change just the locale and maintain all other route information including href's query
+    router.push({ pathname, query }, asPath, { locale: nextLocale })
 }

@@ -17,10 +17,10 @@ const Toast = ({ id, index, message, type, removeToast }) => {
       })
     }
    
-    // const interval = setInterval(() => {
-    //   removeToast(id);
-    // }, 3000);
-    // return () => clearInterval(interval);
+    const interval = setInterval(() => {
+      removeToast(id);
+    }, 3000);
+    return () => clearInterval(interval);
   }, [id, removeToast]);
 
   const handleRemoveToast = () => {
