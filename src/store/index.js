@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore  } from '@reduxjs/toolkit';
 
 import modalReducer from './modal';
 import categoryReducer from './newcategory';
@@ -23,6 +23,9 @@ const reducer = {
 // khởi tạo store, để xử dụng cho middleware redux
 const store = configureStore({
     reducer,
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+        serializableCheck: false,
+    }),
 });
 
 export default store;

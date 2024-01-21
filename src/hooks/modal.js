@@ -1,7 +1,10 @@
-import { useDispatch } from "react-redux";
-import { showModal, hideModal } from "../store/modal/modal.action";
+import { useDispatch, useSelector } from "react-redux";
+import { showModal, hideModal, addToastAction, removeToastAction } from "../store/modal/modal.action";
 
 export const useModal = () => {
+
+    const { toasts } = useSelector((state) => state.modal);
+
     const dispatch = useDispatch();
 
     const show = (modalConfig) => {
@@ -20,12 +23,28 @@ export const useModal = () => {
             },
             invisibleBackground: true,
             enableClickOutside: false,
+            showHeader: false,
         }));
     };
 
+    const addToast = (message, type = "success") => {
+        dispatch(addToastAction({
+            id: Date.now(),
+            message,
+            type,
+        }));
+    };
+
+    const removeToast = (id) => {
+        dispatch(removeToastAction(id));
+    };
+
     return {
+        toasts,
         show,
         hide,
         showLoading,
+        addToast,
+        removeToast,
     };
 }

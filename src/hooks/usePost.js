@@ -1,12 +1,12 @@
 import { fetchBlogPostsAction, fetchBlogPostsDetailAction } from "@store/post/post.action";
 import { fetchBlogPostsApi, createBlogPostApi, getBlogByIdApi } from "@services/blog";
 import { useDispatch, useSelector } from "react-redux";
-import { useToastContext } from "@components/common/toast/toastContext";
+import { useModal } from "@hooks/modal";
 import { showModal, hideModal } from "@store/modal/modal.action";
 
 export const usePost = () => {
 
-    const { addToast } = useToastContext();
+    const { addToast } = useModal();
 
     const { posts, paginate, post } = useSelector((state) => state.post);
 

@@ -1,29 +1,21 @@
-import React from 'react';
-import { useToastContext } from './toastContext';
+import React, { useEffect } from 'react';
+import { useModal } from '@hooks/modal';
 import Toast from './toast';
 
 const Toasts = () => {
-  const { toasts, removeToast, position } = useToastContext();
-
-  const getPosition = () => {
-    switch (position) {
-      case 'top-left':
-        return 'top-1 left-1';
-      case 'top-right':
-        return 'top-1 right-1';
-      case 'bottom-left':
-        return 'bottom-1 left-1';
-      case 'bottom-right':
-        return 'bottom-1 right-1';
-      default:
-        return 'top-1 right-1';
-    }
-  };
+  const { toasts, removeToast } = useModal();
 
   return (
-    <div className={`absolute ${getPosition()}`}>
-      {toasts.map(toast => (
-        <Toast key={toast.id} id={toast.id} content={toast.content} removeToast={removeToast} />
+    <div className='toasts bottom-1 right-1'>
+      {toasts.map((toast, index) => (
+        <Toast 
+          key={toast.id} 
+          id={toast.id} 
+          index={index}
+          message={toast.message}
+          type={toast.type}
+          removeToast={removeToast} 
+        />
       ))}
     </div>
   );

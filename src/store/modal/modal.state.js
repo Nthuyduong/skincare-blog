@@ -10,10 +10,17 @@ const state = {
     modal: {
         show: false,
         name: null,
+        title: null,
         data: null,
         invisibleBackground: false,
         enableClickOutside: true,
+        showHeader: true,
+        position: '',
+        mobilePosition: '',
+        confirmCallback: null,
     },
+
+    toasts: [],
 
     modalCategory: {
         show: false,

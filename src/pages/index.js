@@ -10,7 +10,7 @@ const Home = () => {
             {/*banner*/}
             <div className="home-banner">
                 <picture>
-                    <source media="(min-width:465px)" srcset="./img/home/banner2.jpg"/>
+                    <source media="(min-width:465px)" srcSet="./img/home/banner2.jpg"/>
                     <img className="w-full" src="./img/home/mobile-banner.png" alt="smile" loading="lazy"/>
                 </picture>
             </div>

@@ -5,10 +5,10 @@ const ModalLoading = ({ data }) => {
     // ko cần thiết trong trường hợp loading, nhưng viết vào để tham khảo
 
     return (
-        <>
+        <div className="flex justify-center">
             <span className="loader"></span>
             { data?.message ? <div className="text-center">{ data?.message }</div> : null }
-        </>
+        </div>
         
     )
 }

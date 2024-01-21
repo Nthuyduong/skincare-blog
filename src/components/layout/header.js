@@ -1,13 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
 import { ROUTER } from "../../utils/constants";
 import Link from 'next/link'
-import { useTranslation } from 'react-i18next';
-
+import { useTrans } from "@hooks/useTrans";
 import { setTheme } from "../../utils/local-store";
 
 const Header = () => {
 
-    const { t } = useTranslation();
+    const trans = useTrans();
 
     // Test for button search
     const [showw, setShoww] = useState(false);
@@ -162,14 +161,14 @@ const Header = () => {
                                 <div className="question-container flex" onClick={toggleCollapse}>
                                     <div className="question mr-auto medium_text">
                                         <Link href={ROUTER.DESTINATION}>
-                                            Guides & Tutorials
+                                            { trans.header.guide }
                                         </Link>
                                     </div>
                                     <div className="btn-question flex justify-center items-center">
                                         <svg role="presentation" focusable="false" width="12" height="9"
                                              className="icon icon-chevron-bottom-small" viewBox="0 0 8 6">
                                             <path d="m1 1.5 3 3 3-3" fill="none" stroke="currentColor"
-                                                  stroke-width="1.5"></path>
+                                                  strokeWidth="1.5"></path>
                                         </svg>
                                     </div>
                                 </div>
@@ -193,7 +192,7 @@ const Header = () => {
                                         <svg role="presentation" focusable="false" width="12" height="9"
                                              className="icon icon-chevron-bottom-small" viewBox="0 0 8 6">
                                             <path d="m1 1.5 3 3 3-3" fill="none" stroke="currentColor"
-                                                  stroke-width="1.5"></path>
+                                                  strokeWidth="1.5"></path>
                                         </svg>
                                     </div>
                                 </div>
@@ -216,7 +215,7 @@ const Header = () => {
                                         <svg role="presentation" focusable="false" width="12" height="9"
                                              className="icon icon-chevron-bottom-small" viewBox="0 0 8 6">
                                             <path d="m1 1.5 3 3 3-3" fill="none" stroke="currentColor"
-                                                  stroke-width="1.5"></path>
+                                                  strokeWidth="1.5"></path>
                                         </svg>
                                     </div>
                                 </div>
@@ -351,7 +350,7 @@ const Header = () => {
                                             {/*Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white"*/}
                                             <div className="relative bg-gray-900 guide-navdrop rounded-md">
                                                 <div className="navdrop-title pr-3 py-4">
-                                                    <Link href={ROUTER.DESTINATION} className="dark:text-white flex nav-link">{t('header.guide')}
+                                                    <Link href={ROUTER.DESTINATION} className="dark:text-white flex nav-link">{ trans.header.guide }
                                                         <span className="ml-1 dark:hidden flex items-center">
                                                             <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="lazy"/>
                                                         </span>
@@ -402,11 +401,11 @@ const Header = () => {
                                                 </div>
                                             </div>
                                             <div className="text-gray-300 hover:text-gray rounded-md pr-3 py-4">
-                                                <Link href={ROUTER.SUBDES} className="dark:text-white nav-link">{t('header.review')}</Link>
+                                                <Link href={ROUTER.SUBDES} className="dark:text-white nav-link">Testings & Reviews</Link>
                                             </div>
                                             <div className="relative destination-navdrop">
                                                 <div className="navdrop-title z-50 text-gray-300 hover:text-gray py-4 pr-0">
-                                                    <Link href="#" className="dark:text-white nav-link flex">{t('header.about')}
+                                                    <Link href="#" className="dark:text-white nav-link flex">About
                                                         <span className="ml-1 dark:hidden flex items-center">
                                                             <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="lazy"/>
                                                         </span>
