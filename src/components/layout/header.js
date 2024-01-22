@@ -171,7 +171,7 @@ const Header = () => {
                         <div className="">
                             <div className={`my-collapse dark:border-b dark:border-ccc ${activeTab === 0 ? 'expanded' : ''}`}>
                                 <div className="question-container flex" onClick={toggleCollapse}>
-                                    <div className="question mr-auto medium_text">
+                                    <div className="question mr-auto">
                                         <Link href={ROUTER.DESTINATION}>
                                             { trans.header.guide }
                                         </Link>
@@ -195,7 +195,7 @@ const Header = () => {
                         <div className="">
                             <div className={`my-collapse dark:border-b dark:border-ccc ${activeTab2 === 0 ? 'expanded' : ''}`}>
                                 <div className="question-container flex" onClick={toggleCollapse2}>
-                                    <div className="question mr-auto medium_text">
+                                    <div className="question mr-auto">
                                         <Link href={ROUTER.DESTINATION}>
                                             Skincare nerd
                                         </Link>
@@ -220,7 +220,7 @@ const Header = () => {
                         <div className="">
                             <div className={`my-collapse dark:border-b dark:border-ccc ${activeTab3 === 0 ? 'expanded' : ''}`}>
                                 <div className="question-container flex" onClick={toggleCollapse3}>
-                                    <div className="question mr-auto medium_text">
+                                    <div className="question mr-auto">
                                         About
                                     </div>
                                     <div className="btn-question flex justify-center items-center">

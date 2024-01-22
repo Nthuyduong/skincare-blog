@@ -87,13 +87,13 @@ const Skintype = () => {
             <div className="container-fluid m-w mx-auto my-0">
                 <div className="pt-5 head-content pb-5">
                     <div className="heading text-center">Skin type & History</div>
-                    <div className="grid grid-cols-5">
-                        <div className="col-span-1"></div>
-                        <div className="col-span-3 heading_6 text-center">
+                    <div className="md:grid md:grid-cols-5">
+                        <div className="md:col-span-1"></div>
+                        <div className="md:col-span-3 heading_6 text-center">
                             Sharing my skincare journey from the past to the present, along with my routine. I hope it
                             provides helpful insights for you!
                         </div>
-                        <div className="col-span-1"></div>
+                        <div className="md:col-span-1"></div>
                     </div>
                 </div>
                 <div className="mt-5 skin-bar dark:border-ccc pb-3">
@@ -105,9 +105,9 @@ const Skintype = () => {
                     </div>
                 </div>
                 <div className="mt-5 all-faq">
-                    <div className="grid grid-cols-12 gap-5">
-                        <div className="col-span-4">
-                            <div className="pr-5">
+                    <div className="md:grid md:grid-cols-12 gap-5">
+                        <div className="md:col-span-4 md:border-none border border-ccc">
+                            <div className="md:p-0 p-3 md:pr-5 text-center">
                                 <div className="heading_3 mb-3">Connect with me</div>
                                 <div>Are you interested in collaborating? Do you want to be a part of us? Join with us now!</div>
                                 <div className="mt-4">
@@ -115,8 +115,8 @@ const Skintype = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-span-8">
-                            <div className="">
+                        <div className="md:col-span-8">
+                            <div className="pt-4">
                                 {faqElements}
                             </div>
                         </div>

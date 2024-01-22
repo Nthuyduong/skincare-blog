@@ -24,11 +24,11 @@ const About = () => {
                     </div>
                 </div>
                 <div className="my-7 border-y border-ccc py-7 about-me p-60 dark:border-t dark:border-ccc">
-                    <div className="grid grid-cols-12 gap-5">
-                        <div className="col-span-5">
+                    <div className="md:grid md:grid-cols-12 gap-5">
+                        <div className="md:col-span-5 md:mb-0 mb-4">
                             <img className="w-full" src="./img/about/abt-me.jpg" alt="smile" loading="lazy"/>
                         </div>
-                        <div className="col-span-7 about-right flex">
+                        <div className="md:col-span-7 about-right flex">
                             <div className="about-content m-auto dark:!text-black">
                                 <div className="heading_3 mb-2">About Me</div>
                                 <div>
