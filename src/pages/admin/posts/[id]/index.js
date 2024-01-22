@@ -1,15 +1,17 @@
-import React, {Component, useState, useEffect} from 'react';
+import React, { useState, useEffect} from 'react';
 
 import { usePost } from '@hooks/usePost';
 import Link from 'next/link';
+import Editor from '@components/common/editor/editor';
 
 const EditPost = ({ id }) => {
 
-    const { getBlogById, post } = usePost();
+    const { getBlogById, post, updateBlogPost } = usePost();
 
     const [title, setTitle] = useState('');
     const [slug, setSlug] = useState('');
     const [summary, setsummary] = useState('');
+    const [content, setContent] = useState('');
 
     useEffect(() => {
         getBlogById(id);
@@ -19,6 +21,7 @@ const EditPost = ({ id }) => {
         setTitle(post.title || '');
         setSlug(post.slug || '');
         setsummary(post.summary || '');
+        setContent(post.content || '');
     }, [post]);
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -33,12 +36,13 @@ const EditPost = ({ id }) => {
 
 
     const handleClick = () => {
-        createBlogPost({
+        updateBlogPost({
+            id: id,
             title: title,
             slug: slug,
             summary: summary,
-            content: '',
-            content_draft: '',
+            content: content,
+            content_draft: content,
         })
     }
 
@@ -55,7 +59,7 @@ const EditPost = ({ id }) => {
                             className="my-btn-pr w-full"
                             onClick={() => {handleClick()}}
                         >
-                            Create post
+                            Update post
                         </button>
                     </div>
                     <div className="col-span-2">
@@ -116,6 +120,10 @@ const EditPost = ({ id }) => {
                             </div>
                         </div>
                         <div className="text-editor-wrp">
+                            <Editor 
+                                value={content}
+                                onChange={setContent}
+                            />
                         </div>
                     </div>
                     <div className={`setting-bar ${
@@ -178,7 +186,6 @@ const EditPost = ({ id }) => {
 }
 EditPost.getInitialProps = async ({ query }) => {
     const { id } = query
-    console.log(query)
     return { id }
 }
 export default EditPost;

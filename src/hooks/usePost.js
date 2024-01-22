@@ -1,12 +1,12 @@
 import { fetchBlogPostsAction, fetchBlogPostsDetailAction } from "@store/post/post.action";
-import { fetchBlogPostsApi, createBlogPostApi, getBlogByIdApi } from "@services/blog";
+import { fetchBlogPostsApi, createBlogPostApi, getBlogByIdApi, updateBlogPostApi } from "@services/blog";
 import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "@hooks/modal";
 import { showModal, hideModal } from "@store/modal/modal.action";
 
 export const usePost = () => {
 
-    const { addToast } = useModal();
+    const { addToast, showLoading, hide } = useModal();
 
     const { posts, paginate, post } = useSelector((state) => state.post);
 
@@ -34,17 +34,34 @@ export const usePost = () => {
         formData.append('content', data.content);
         formData.append('content_draft', data.content_draft);
         formData.append('status', 0);
-        dispatch(showModal({ name: 'loading', enableClickOutside: false }));
+        showLoading()
         const res = await createBlogPostApi(formData);
-        dispatch(hideModal());
+        hide();
         if (res?.status == 1) {
             addToast('New post created!', 'success');
         } else {
             addToast(res.msg, 'error');
         }
-
     }
 
+    async function updateBlogPost(data) {
+        const formData = new FormData();
+        console.log(data);
+        formData.append('title', data.title);
+        formData.append('slug', data.slug);
+        formData.append('summary', data.summary);
+        formData.append('content', data.content);
+        formData.append('content_draft', data.content_draft);
+        formData.append('status', 0);
+        showLoading();
+        const res = await updateBlogPostApi(data.id, formData);
+        hide();
+        if (res?.status == 1) {
+            addToast('Post updated!', 'success');
+        } else {
+            addToast(res.msg, 'error');
+        }
+    }
 
     return {
         paginate,
@@ -53,5 +70,6 @@ export const usePost = () => {
         fetchBlogPosts,
         createBlogPost,
         getBlogById,
+        updateBlogPost,
     };
 };

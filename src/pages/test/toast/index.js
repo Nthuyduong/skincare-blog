@@ -38,7 +38,12 @@ const AppExample = () => {
       </button>
       <button 
         className="bg-blue-500 p-2 rounded" 
-        onClick={() => showLoading()}
+        onClick={() => {
+          showLoading();
+          setTimeout(() => {
+            hide();
+          }, 2000);
+        }}
       >
         Show Loading
       </button>

@@ -59,7 +59,7 @@ const Modals = () => {
             if (show) {
                 setTimeout(() => {
                     modalRef.current.classList.add("modal-open");
-                }, 100);
+                }, name == 'loading' ? 50 : 100);
             } else {
                 modalRef.current.classList.remove("modal-open");
                 setTimeout(() => {

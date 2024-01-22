@@ -53,9 +53,25 @@ export const getBlogBySlugApi = async (slug) => {
     }
 }
 
-export  const createBlogPostApi = async (data) => {
+export const createBlogPostApi = async (data) => {
     try {
         const response = await fetchApi.post("/blogs", data);
+        return response.data;
+    } catch (error) {
+        if (error.response?.data) {
+            return error.response?.data;
+        } else {
+            return {
+                status: 0,
+                msg: error.response?.statusText,
+            };
+        }
+    }
+}
+
+export const updateBlogPostApi = async (id, data) => {
+    try {
+        const response = await fetchApi.put(`/blogs/${id}`, data);
         return response.data;
     } catch (error) {
         if (error.response?.data) {
