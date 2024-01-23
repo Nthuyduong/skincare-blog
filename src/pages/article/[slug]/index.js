@@ -126,17 +126,18 @@ const ArticleDetail = ({ slug }) => {
                     <div className="col-span-1"></div>
                     <div className="col-span-12 article-out">
                         <div className="article-summary mb-4">
-                            <div className="font-medium mb-2">
-                                We all know how stress can negatively impact our skin, leading to issues like breakouts,
-                                dark circles, and dryness. Chronic stress takes a toll on our skin health. However, the
-                                positive effects of happiness on our skin often go unnoticed. Happiness is a crucial factor
-                                in achieving a naturally radiant complexion that lasts.
-                            </div>
-                            <div className="font-medium">
-                                In this post, we'll delve into how stress affects the skin negatively, explore the ways in
-                                which happiness can enhance your skin, and discuss practical tips for prioritizing joy in
-                                your daily life. Our aim is to empower you with insights that contribute to long-lasting skin wellness
-                            </div>
+                            <div className="">{blog?.summary}</div>
+                            {/*<div className="font-medium mb-2">*/}
+                            {/*    We all know how stress can negatively impact our skin, leading to issues like breakouts,*/}
+                            {/*    dark circles, and dryness. Chronic stress takes a toll on our skin health. However, the*/}
+                            {/*    positive effects of happiness on our skin often go unnoticed. Happiness is a crucial factor*/}
+                            {/*    in achieving a naturally radiant complexion that lasts.*/}
+                            {/*</div>*/}
+                            {/*<div className="font-medium">*/}
+                            {/*    In this post, we'll delve into how stress affects the skin negatively, explore the ways in*/}
+                            {/*    which happiness can enhance your skin, and discuss practical tips for prioritizing joy in*/}
+                            {/*    your daily life. Our aim is to empower you with insights that contribute to long-lasting skin wellness*/}
+                            {/*</div>*/}
                         </div>
                         {/*menu*/}
                         <div className="catalog w-full my-3">

@@ -45,15 +45,8 @@
 .wedo-new{
   padding-bottom: 60px;
   border-bottom: 1px solid v.$border2_color;
-  .wedo-first{
-    border-left: 1px solid v.$border2_color;
-  }
   .decor-line{
     height: 1px;
     background-color: v.$border2_color;
-  }
-  .card-right{
-    border-left: 1px solid v.$border2_color;
-    border-right: 1px solid v.$border2_color;
   }
 }
