@@ -51,35 +51,36 @@ const EditPost = ({ id }) => {
             <div className="create-post-top">
                 <div className="pt-5">
                     <div className="heading_1">Update post</div>
-                    <div>Upload new blog article here!</div>
                 </div>
                 <div className="flex justify-end gap-4 create-function pb-4">
                     <div className="col-span-2">
                         <button 
-                            className="my-btn-pr w-full"
+                            className="px-3 my-btn-pr w-full"
                             onClick={() => {handleClick()}}
                         >
                             Update post
                         </button>
                     </div>
                     <div className="col-span-2">
-                        <button className="w-full my-btn-pr w-full">
+                        <button className="px-3 w-full my-btn-pr w-full">
                             <Link href={`/article/${post.slug}`}>Preview post</Link>
                         </button>
                     </div>
                     <div className="col-span-2">
-                        <button className="w-full my-btn-pr w-full">Publish post</button>
+                        <button className="px-3 w-full my-btn-pr w-full">Publish post</button>
                     </div>
                     <div className="col-span-2">
-                        <button className="w-full my-btn-pr w-full">Delete post</button>
+                        <button className="px-3 w-full my-btn-pr w-full">Delete post</button>
                     </div>
-                    <div className="col-span-1">
-                        <button onClick={openNav} className="">Setting</button>
+                    <div className="col-span-1 flex items-center">
+                        <button onClick={openNav} className="">
+                            <img className="icon-ssm" src="/img/icon/settings.svg" alt="smile" loading="lazy"/>
+                        </button>
                     </div>
                 </div>
             </div>
             <div>
-                <div className="gap-4 flex">
+                <div className="flex">
                     <div className="create-content pt-4">
                         <div className='input-wrp'>
                             <div className="mb-1">Title</div>
@@ -94,7 +95,7 @@ const EditPost = ({ id }) => {
                                 />
                             </div>
                         </div>
-                        <div className='input-wrp'>
+                        <div className='input-wrp my-3'>
                             <div className="mb-1">Slug</div>
                             <div className="search-bar-box">
                                 <input 
@@ -129,25 +130,34 @@ const EditPost = ({ id }) => {
                     <div className={`setting-bar ${
                         isMenuOpen ? 'open' : ''
                     }`}>
-                        <div className="post-side-setting">
+                        <div className="post-side-setting ml-3">
                             <div className="flex">
                                 <div className="heading_4 mr-auto">Blog settings</div>
                                 <button className="close" onClick={closeNav}>
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div className="my-3">
-                                <div className="mb-1">Blog URL blog</div>
-                                <div className="search-bar-box">
-                                    <input name="category-slug" id="cate-slug" className="w-full" type="text"
-                                           placeholder="Enter URL blog"/>
-                                </div>
-                            </div>
-                            <div className="">
+                            {/*<div className="my-3">*/}
+                            {/*    <div className="mb-1">Blog URL blog</div>*/}
+                            {/*    <div className="search-bar-box">*/}
+                            {/*        <input*/}
+                            {/*            name="category-slug"*/}
+                            {/*            className="w-full"*/}
+                            {/*            type="text"*/}
+                            {/*            placeholder="Enter title"*/}
+                            {/*            onChange={(e) => {setSlug(e.target.value)}}*/}
+                            {/*            value={slug}*/}
+                            {/*        />*/}
+                            {/*    </div>*/}
+                            {/*</div>*/}
+                            <div className="mt-3">
                                 <div className="mb-1">Categories</div>
-                                <div className="search-bar-box">
-                                    <input name="category-slug" id="cate-slug" className="w-full" type="text"
-                                           placeholder="Choose category"/>
+                                <div className="">
+                                    <select className="sl-box">
+                                        <option value="" defaultValue hidden>Choose Category</option>
+                                        <option value="">Guides & Tutorials</option>
+                                        <option value="">Skincare nerd</option>
+                                    </select>
                                 </div>
                             </div>
                             <div className="my-3">
