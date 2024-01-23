@@ -1,11 +1,12 @@
 import { fetchApi } from "@utils/apiUtils";
 
-export const fetchCategoriesApi = async (page = 1) => {
+export const fetchCategoriesApi = async (page = 1, has_parent = null) => {
     try {
         const response = await fetchApi.get("/categories", {
             params: {
                 page,
                 limit: 10,
+                has_parent,
             }
         });
 

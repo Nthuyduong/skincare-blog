@@ -16,7 +16,6 @@ export const useCategory = () => {
     
     async function fetchCategoryById(id) {
         const res = await getCategoryByIdApi(id);
-        console.log(res);
         if (res.status) {
             dispatch(fetchCategoryDetailAction(res.data));
         }

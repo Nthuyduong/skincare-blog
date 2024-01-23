@@ -3,10 +3,13 @@ import React, { useState, useEffect} from 'react';
 import { usePost } from '@hooks/usePost';
 import Link from 'next/link';
 import Editor from '@components/common/editor/editor';
+import { fetchCategoriesApi } from "@services/categories";
 
 const EditPost = ({ id }) => {
 
     const { getBlogById, post, updateBlogPost } = usePost();
+    const [categories, setCategories] = useState([]);
+    const [selectedCategories, setSelectedCategories] = useState([]);
 
     const [title, setTitle] = useState('');
     const [slug, setSlug] = useState('');
@@ -15,6 +18,9 @@ const EditPost = ({ id }) => {
 
     useEffect(() => {
         getBlogById(id);
+        fetchCategoriesApi(1, true).then(res => {
+            setCategories(res.results || []);
+        })
     }, []);
 
     useEffect(() => {
@@ -22,6 +28,11 @@ const EditPost = ({ id }) => {
         setSlug(post.slug || '');
         setsummary(post.summary || '');
         setContent(post.content || '');
+        let postCategories = [];
+        (post.categories || []).map((item) => {
+            postCategories.push(item.id);
+        });
+        setSelectedCategories(postCategories);
     }, [post]);
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -43,7 +54,23 @@ const EditPost = ({ id }) => {
             summary: summary,
             content: content,
             content_draft: content,
+            categories: selectedCategories,
         })
+    }
+
+    const handleChangeCategory = (e) => {
+        const { value } = e.target;
+        if (value) {
+            if (!selectedCategories.includes(value)) {
+                setSelectedCategories([...selectedCategories, parseInt(value)]);
+            }
+            
+        }
+    }
+    const handleRemoveSelectCategory = (id) => {
+        setSelectedCategories(selectedCategories.filter((item) => {
+            return item != id;
+        }));
     }
 
     return(
@@ -153,11 +180,26 @@ const EditPost = ({ id }) => {
                             <div className="mt-3">
                                 <div className="mb-1">Categories</div>
                                 <div className="">
-                                    <select className="sl-box">
-                                        <option value="" defaultValue hidden>Choose Category</option>
-                                        <option value="">Guides & Tutorials</option>
-                                        <option value="">Skincare nerd</option>
+                                    <select className="sl-box" onChange={handleChangeCategory}>
+                                        <option defaultValue value=''>Choose category</option>
+                                        {
+                                            categories.map((item, index) => (
+                                                <option key={index} value={item.id}>{item.name}</option>
+                                            ))
+                                        }
                                     </select>
+                                </div>
+                                <div>
+                                    {
+                                        categories.filter((item) => {
+                                            return selectedCategories.includes(item.id);
+                                        }).map((item, index) => (
+                                            <div key={index} className="flex items-center">
+                                                <div className="mr-2">{item.name}</div>
+                                                <span className="close" onClick={() => {handleRemoveSelectCategory(item.id)}}>remove</span>
+                                            </div>
+                                        ))
+                                    }
                                 </div>
                             </div>
                             <div className="my-3">

@@ -53,6 +53,9 @@ export const usePost = () => {
         formData.append('content', data.content);
         formData.append('content_draft', data.content_draft);
         formData.append('status', 0);
+        data.categories.map((item) => {
+            formData.append('categories[]', item);
+        });
         showLoading();
         const res = await updateBlogPostApi(data.id, formData);
         hide();

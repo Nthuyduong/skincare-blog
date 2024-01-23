@@ -86,8 +86,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background: rgba(0, 0, 0, 0.5);
     opacity: 0;
     visibility: hidden;
@@ -399,4 +399,29 @@
 .toast-show {
     transform: translateY(var(--toast-translate-active));
     opacity: 1;
+}
+
+// scrolling text
+.scrolling-text {
+    max-width: 100%;
+    overflow: hidden;
+    grid: auto / auto-flow max-content;
+    display: grid;
+  }
+  
+  .scrolling-text-content {
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    animation: marquee 5s linear infinite;
+  }
+
+  
+@keyframes marquee {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-100%, 0);
+    }
 }

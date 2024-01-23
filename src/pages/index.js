@@ -7,6 +7,38 @@ const Home = () => {
 
     return (
         <div>
+            <div className="scrolling-text">
+                <div className="scrolling-text-content">
+                    <img class="w-full" src="./img/about/abt-me.jpg" alt="smile" loading="lazy" />
+                    Gió đưa cây cải về trời, rau răm ở lại chịu đời đắng cay
+                    <img class="w-full" src="./img/home/category.png" alt="smile" loading="lazy" height="100" width="100" />
+                </div>
+                <div className="scrolling-text-content">
+                    <img class="w-full" src="./img/about/abt-me.jpg" alt="smile" loading="lazy" />
+                    Gió đưa cây cải về trời, rau răm ở lại chịu đời đắng cay
+                    <img class="w-full" src="./img/home/category.png" alt="smile" loading="lazy" height="100" width="100" />
+                </div>
+                <div className="scrolling-text-content">
+                    <img class="w-full" src="./img/about/abt-me.jpg" alt="smile" loading="lazy" />
+                    Gió đưa cây cải về trời, rau răm ở lại chịu đời đắng cay
+                    <img class="w-full" src="./img/home/category.png" alt="smile" loading="lazy" height="100" width="100" />
+                </div>
+                <div className="scrolling-text-content">
+                    <img class="w-full" src="./img/about/abt-me.jpg" alt="smile" loading="lazy" />
+                    Gió đưa cây cải về trời, rau răm ở lại chịu đời đắng cay
+                    <img class="w-full" src="./img/home/category.png" alt="smile" loading="lazy" height="100" width="100" />
+                </div>
+                <div className="scrolling-text-content">
+                    <img class="w-full" src="./img/about/abt-me.jpg" alt="smile" loading="lazy" />
+                    Gió đưa cây cải về trời, rau răm ở lại chịu đời đắng cay
+                    <img class="w-full" src="./img/home/category.png" alt="smile" loading="lazy" height="100" width="100" />
+                </div>
+                <div className="scrolling-text-content">
+                    <img class="w-full" src="./img/about/abt-me.jpg" alt="smile" loading="lazy" />
+                    Gió đưa cây cải về trời, rau răm ở lại chịu đời đắng cay
+                    <img class="w-full" src="./img/home/category.png" alt="smile" loading="lazy" height="100" width="100" />
+                </div>
+            </div>
             {/*banner*/}
             <div className="home-banner">
                 <picture>
