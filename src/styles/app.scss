@@ -58,13 +58,11 @@ root {
   font-family: 'GTmedium',serif;
   font-size: $heading_1;
   line-height: $heading_1*1.25;
-  //font-weight: 500;
 }
 .heading_2 {
   font-family: 'GTmedium',serif;
   font-size: $heading_2;
   line-height: $heading_2*1.25;
-  //font-weight: 500;
 }
 .heading_3 {
   font-family: 'GTregular',serif;
@@ -76,13 +74,11 @@ root {
   font-family: 'GTregular',serif;
   font-size: $heading_4;
   line-height: $heading_4*1.25;
-  //font-weight: 500;
 }
 .heading_5 {
   font-family: 'GTregular',serif;
   font-size: $heading_5;
   line-height: $heading_5*1.25;
-  //font-weight: 500;
 }
 .heading_6 {
   font-family: 'GTlight',serif;
@@ -278,9 +274,6 @@ textarea:focus-visible{
   transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
 }
 
-.nav-active.move{
-  //margin-top: 84px !important;
-}
 .sticky-wrapper{
   position: fixed;
   top: 0px;
@@ -363,17 +356,17 @@ textarea:focus-visible{
 .icon-ssm{
   height: 20px;
 }
-//hover gallery img to see content
-.gallery-s{
-  .gallery-inner{
-    .gallery-content{
-      display: none;
-    }
-  }
-}
-.gallery-s:hover .gallery-content{
-  display: block;
-}
+////hover gallery img to see content
+//.gallery-s{
+//  .gallery-inner{
+//    .gallery-content{
+//      display: none;
+//    }
+//  }
+//}
+//.gallery-s:hover .gallery-content{
+//  display: block;
+//}
 //My carousel
 .slider-wrp{
   .slider-control{
@@ -536,4 +529,15 @@ textarea:focus-visible{
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+}
+
+//HOVER IMG ANIMATION
+.hover-img .img-inner img:hover{
+  transform: scale(1.04);
+}
+.hover-img .img-inner img:hover{
+  transition: all .2s ease-in-out;
+}
+.hover-img .img-inner{
+  overflow: hidden;
 }
