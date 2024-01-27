@@ -53,6 +53,7 @@ export const usePost = () => {
         formData.append('content', data.content);
         formData.append('content_draft', data.content_draft);
         formData.append('status', 0);
+        formData.append('featured_img', data.featured_img);
         data.categories.map((item) => {
             formData.append('categories[]', item);
         });

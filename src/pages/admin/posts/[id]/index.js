@@ -4,6 +4,7 @@ import { usePost } from '@hooks/usePost';
 import Link from 'next/link';
 import Editor from '@components/common/editor/editor';
 import { fetchCategoriesApi } from "@services/categories";
+import { BASE_URL } from "@utils/apiUtils";
 
 const EditPost = ({ id }) => {
 
@@ -15,6 +16,7 @@ const EditPost = ({ id }) => {
     const [slug, setSlug] = useState('');
     const [summary, setsummary] = useState('');
     const [content, setContent] = useState('');
+    const [featuredImage, setFeaturedImage] = useState('');
 
     useEffect(() => {
         getBlogById(id);
@@ -24,6 +26,7 @@ const EditPost = ({ id }) => {
     }, []);
 
     useEffect(() => {
+        console.log(post);
         setTitle(post.title || '');
         setSlug(post.slug || '');
         setsummary(post.summary || '');
@@ -45,6 +48,15 @@ const EditPost = ({ id }) => {
         setIsMenuOpen(false);
     };
 
+    const getImagePreview = () => {
+        if (!featuredImage) {
+            if (post.featured_img) {
+                return BASE_URL + post.featured_img;
+            }
+            return 'https://static.vecteezy.com/system/resources/previews/004/141/669/original/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg';
+        }
+        return URL.createObjectURL(featuredImage);
+    }
 
     const handleClick = () => {
         updateBlogPost({
@@ -55,6 +67,7 @@ const EditPost = ({ id }) => {
             content: content,
             content_draft: content,
             categories: selectedCategories,
+            featured_img: featuredImage,
         })
     }
 
@@ -177,6 +190,27 @@ const EditPost = ({ id }) => {
                             {/*        />*/}
                             {/*    </div>*/}
                             {/*</div>*/}
+                            <div className='my-3'>
+                                <div className='mb-1'>Feature image</div>
+                                <div className=''>
+                                    <div 
+                                        className='feature-image-preview cursor-pointer'
+                                        onClick={() => {
+                                            document.getElementById('feature-image-file').click();
+                                        }}
+                                    >
+                                        <img src={getImagePreview()} alt='feature image' />
+                                    </div>
+                                    <input 
+                                        id="feature-image-file" 
+                                        type='file' 
+                                        style={{display: "none"}}
+                                        onChange={(e) => {
+                                            setFeaturedImage(e.target.files[0]);
+                                        }}
+                                    ></input>
+                                </div>
+                            </div>
                             <div className="mt-3">
                                 <div className="mb-1">Categories</div>
                                 <div className="">

@@ -55,7 +55,15 @@ export const getBlogBySlugApi = async (slug) => {
 
 export const createBlogPostApi = async (data) => {
     try {
-        const response = await fetchApi.post("/blogs", data);
+        const response = await fetchApi.post(
+            "/blogs", 
+            data,
+            {
+                headers: {
+                    "Content-Type": "multipart/form-data"
+                }
+            }
+        );
         return response.data;
     } catch (error) {
         if (error.response?.data) {
@@ -71,7 +79,15 @@ export const createBlogPostApi = async (data) => {
 
 export const updateBlogPostApi = async (id, data) => {
     try {
-        const response = await fetchApi.put(`/blogs/${id}`, data);
+        const response = await fetchApi.post(
+            `/blogs/${id}`, 
+            data,
+            {
+                headers: {
+                    "Content-Type": "multipart/form-data"
+                }
+            }
+        );
         return response.data;
     } catch (error) {
         if (error.response?.data) {

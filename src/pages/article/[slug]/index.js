@@ -2,20 +2,10 @@ import React, { useEffect, useRef, useState } from "react";
 import { throttle } from '@utils/common';
 import { getBlogBySlugApi } from "@services/blog";
 
-const ArticleDetail = ({ slug }) => {
-
-    const [blog, setBlog] = useState({});
-
+const ArticleDetail = ({ blog }) => {
     const refContent = useRef(null);
     const refTable = useRef(null);
     const refProcess = useRef(null);
-
-    useEffect(() => {
-        getBlogBySlugApi(slug).then((res) => {
-            setBlog(res.data);
-        });
-        
-    }, []);
 
     useEffect(() => {
         if (refContent.current) {
@@ -36,22 +26,22 @@ const ArticleDetail = ({ slug }) => {
             }
            
             const handleScroll = throttle(() => {
-                let process = ((document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight) * 100);
-                if (process < 0) {
-                    process = 0;
-                } else if (process > 100) {
-                    process = 100;
-                }
-                if (process <= 0) {
-                    refProcess.current.style.display = 'none';
-                } else {
-                    refProcess.current.style.display = 'block';
-                    refProcess.current.style.width = `${process}%`;
+                if(refContent.current) {
+                    let process = ((document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight) * 100);
+                    if (process < 0) {
+                        process = 0;
+                    } else if (process > 100) {
+                        process = 100;
+                    }
+                    if (process <= 0) {
+                        refProcess.current.style.display = 'none';
+                    } else {
+                        refProcess.current.style.display = 'block';
+                        refProcess.current.style.width = `${process}%`;
+                    }
                 }
             }, 1);
-            if(refContent.current) {
-                window.addEventListener('scroll', handleScroll)
-            }
+            window.addEventListener('scroll', handleScroll)
         }
         
     }, [blog])
@@ -403,14 +393,11 @@ const ArticleDetail = ({ slug }) => {
 
 export async function getServerSideProps({ query }) {
     const { slug } = query;
-    // const res = await getBlogBySlugApi(slug);
-    // const res = await fetch('https://app.radiance-aura.blog/api/blogs')
-    // console.log(res)
-    // const blog = await res.json();
+    const res = await getBlogBySlugApi(slug);
 
     return {
         props: {
-            slug: slug
+            blog: res?.data
         }
     }
 }

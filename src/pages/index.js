@@ -201,31 +201,34 @@ const Home = () => {
                     </div>
                 </div>
                 {/*List subcategorires*/}
-                <div className="flex relative list-categories md:my-8 my-6">
-                    <div className="w-full mr-9 relative">
-                        <img
-                            className="md:w-1/4 absolute bottom-0 right-0 rounded-full"
-                            src="./img/home/list-ct-1.jpg"
-                        />
+                <div className="flex list-categories md:my-8 my-6 justify-center">
+                    <div className="relative w-1/2">
+                        <div className="absolute left-0 bottom-0">
+                            <img
+                                className="rounded-full w-2/4"
+                                src="./img/home/list-ct-1.jpg"
+                            />
+                        </div>
+                        <div className="w-full relative" style={{zIndex: 100}}>
+                            <ul className="w-full text-center">
+                                <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>How to</Link></li>
+                                <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>Skincare routine</Link></li>
+                                <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>Usage guide</Link></li>
+                                <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>Sun care</Link></li>
+                                <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>Skin concerns</Link></li>
+                                <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>Tips & Advices</Link></li>
+                                <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>Skincare ingredients</Link></li>
+                                <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>Nuturish</Link></li>
+                            </ul>
+                        </div>
+                        <div className="absolute right-0 top-0 flex justify-end">
+                            <img
+                                className="rounded-full w-2/3"
+                                src="./img/home/list-ct-2.jpg"
+                            />
+                        </div>
                     </div>
-                    <div className="absolute w-full">
-                        <ul className="w-full text-center">
-                            <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>How to</Link></li>
-                            <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>Skincare routine</Link></li>
-                            <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>Usage guide</Link></li>
-                            <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>Sun care</Link></li>
-                            <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>Skin concerns</Link></li>
-                            <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>Tips & Advices</Link></li>
-                            <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>Skincare ingredients</Link></li>
-                            <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>Nuturish</Link></li>
-                        </ul>
-                    </div>
-                    <div className="w-full ml-9">
-                        <img
-                            className="md:w-2/4 rounded-full"
-                            src="./img/home/list-ct-2.jpg"
-                        />
-                    </div>
+                    
                 </div>
                 <div className="category-destination pt-6 md:pt-8">
                     <div className="destination-title border-y border-ccc dark:border-y dark:border-999 mb-5">

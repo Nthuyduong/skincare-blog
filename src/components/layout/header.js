@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { ROUTER } from "../../utils/constants";
 import Link from 'next/link'
-import { useTrans, changeLanguage } from "@hooks/useTrans";
+import { useTrans } from "@hooks/useTrans";
 import { setTheme } from "../../utils/local-store";
 import { useRouter } from 'next/router'
 
