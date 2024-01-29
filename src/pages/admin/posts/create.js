@@ -1,16 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import { usePost } from '@hooks/usePost';
 import Editor from '@components/common/editor/editor';
+import { fetchCategoriesApi } from "@services/categories";
+import { BASE_URL } from "@utils/apiUtils";
 
-const CreatePost = () => {
+const CreatePost = ({id}) => {
 
-    const { createBlogPost } = usePost();
+    const { getBlogById, createBlogPost , post} = usePost();
+    const [categories, setCategories] = useState([]);
+    const [selectedCategories, setSelectedCategories] = useState([]);
 
     const [content, setContent] = useState('<p>This is the initial content of the editor.</p>');
 
     const [title, setTitle] = useState('');
     const [slug, setSlug] = useState('');
     const [summary, setsummary] = useState('');
+    const [featuredImage, setFeaturedImage] = useState('');
+
+    useEffect(() => {
+        getBlogById(id);
+        fetchCategoriesApi(1, true).then(res => {
+            setCategories(res.results || []);
+        })
+    }, []);
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -22,6 +34,14 @@ const CreatePost = () => {
         setIsMenuOpen(false);
     };
 
+    const getImagePreview = () => {
+        if (!featuredImage) {
+            console.log(post)
+            return 'https://static.vecteezy.com/system/resources/previews/004/141/669/original/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg';
+        }
+        return URL.createObjectURL(featuredImage);
+    }
+
     const handleClick = () => {
         createBlogPost({
             title: title,
@@ -29,7 +49,24 @@ const CreatePost = () => {
             summary: summary,
             content: content,
             content_draft: content,
+            categories: selectedCategories,
+            featured_img: featuredImage,
         })
+    }
+
+    const handleChangeCategory = (e) => {
+        const { value } = e.target;
+        if (value) {
+            if (!selectedCategories.includes(value)) {
+                setSelectedCategories([...selectedCategories, parseInt(value)]);
+            }
+
+        }
+    }
+    const handleRemoveSelectCategory = (id) => {
+        setSelectedCategories(selectedCategories.filter((item) => {
+            return item != id;
+        }));
     }
 
     return(
@@ -125,14 +162,50 @@ const CreatePost = () => {
                             {/*               placeholder="Enter URL blog"/>*/}
                             {/*    </div>*/}
                             {/*</div>*/}
+                            <div className='my-3'>
+                                <div className='mb-1'>Feature image</div>
+                                <div className=''>
+                                    <div
+                                        className='feature-image-preview cursor-pointer'
+                                        onClick={() => {
+                                            document.getElementById('feature-image-file').click();
+                                        }}
+                                    >
+                                        <img src={getImagePreview()} alt='feature image' />
+                                    </div>
+                                    <input
+                                        id="feature-image-file"
+                                        type='file'
+                                        style={{display: "none"}}
+                                        onChange={(e) => {
+                                            setFeaturedImage(e.target.files[0]);
+                                        }}
+                                    ></input>
+                                </div>
+                            </div>
                             <div className="mt-3">
                                 <div className="mb-1">Categories</div>
                                 <div className="">
-                                    <select className="sl-box">
-                                        <option value="" defaultValue hidden>Choose Category</option>
-                                        <option value="">Guides & Tutorials</option>
-                                        <option value="">Skincare nerd</option>
+                                    <select className="sl-box" onChange={handleChangeCategory}>
+                                        <option defaultValue value=''>Choose category</option>
+                                        {
+                                            categories.map((item, index) => (
+                                                <option key={index} value={item.id}>{item.name}</option>
+                                            ))
+                                        }
                                     </select>
+                                </div>
+                                <div>
+                                    {
+                                        categories.filter((item) => {
+                                            return selectedCategories.includes(item.id);
+                                        }).map((item, index) => (
+                                            <div key={index} className="flex items-center">
+                                                <div className="mr-2">{item.name}</div>
+                                                <span className="close" onClick={() => {handleRemoveSelectCategory(item.id)}}>remove</span>
+                                            </div>
+                                        ))
+                                    }
                                 </div>
                             </div>
                             <div className="my-3">

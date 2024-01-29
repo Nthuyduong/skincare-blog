@@ -202,7 +202,7 @@ const Home = () => {
                 </div>
                 {/*List subcategorires*/}
                 <div className="flex list-categories md:my-8 my-6 justify-center">
-                    <div className="relative w-1/2">
+                    <div className="relative w-2/3">
                         <div className="absolute left-0 bottom-0">
                             <img
                                 className="rounded-full w-2/4"
