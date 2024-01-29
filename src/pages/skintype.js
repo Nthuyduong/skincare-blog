@@ -73,29 +73,19 @@ const Skintype = () => {
         </div>
     ));
     return (
-        <div className="skintype-page">
-            {/*banner test*/}
-            {/*<div className="skintype-banner">*/}
-            {/*    <div>*/}
-            {/*        <img className="w-full" src="./img/skintype/skintype.jpg" alt="smile" loading="lazy"/>*/}
-            {/*    </div>*/}
-            {/*    <div>*/}
-            {/*        */}
-            {/*    </div>*/}
-            {/*</div>*/}
-
+        <div className="skintype-page md:pt-7">
             <div>
-                <div className="grid grid-cols-12 gap-5">
-                    <div className="col-span-4"></div>
-                    <div className="col-span-3">
+                <div className="md:grid md:grid-cols-12 gap-5">
+                    <div className="md:col-span-4"></div>
+                    <div className="md:col-span-3">
                         <img className="w-full" src="./img/skintype/banner1.jpg" alt="smile" loading="lazy"/>
                     </div>
-                    <div className="col-span-1 flex items-center">
+                    <div className="md:col-span-1 md:flex hidden items-center">
                         <img className="w-full" src="./img/skintype/banner2.jpg" alt="smile" loading="lazy"/>
                     </div>
-                    <div className="col-span-4"></div>
+                    <div className="md:col-span-4"></div>
                 </div>
-                <div className="pt-5 head-content pb-5 relative -top-8">
+                <div className="pt-5 head-content md:relative -top-8">
                     <div className="text-center mb-6">
                         <div className="heading text-center my-3">Skin type & History</div>
                         <div className="heading_4">It’s All About Me</div>
@@ -138,18 +128,18 @@ const Skintype = () => {
                         </div>
                     </div>
                 </div>
-                <div className="review-products mt60">
+                <div className="review-products md:pt-8 pt-6">
                     <div className="content main">
                         <div className="mb-2 heading_3">All products I’ve used</div>
-                        <div className="flex">
-                            <div className="mr-auto">Are you interested in collaborating? Do you want to be a part of us? Join with us now!</div>
+                        <div className="md:flex">
+                            <div className="mr-auto md:mb-0 mb-3">Are you interested in collaborating? Do you want to be a part of us? Join with us now!</div>
                             <div>
                                 <a className="text-link" href="#">View all</a>
                             </div>
                         </div>
                     </div>
                     <div className="grid grid-cols-12 gap-5 mt-5">
-                        <div className="col-span-3">
+                        <div className="md:col-span-3 col-span-6">
                             <div>
                                 <div>
                                     <img className="w-full" src="./img/skintype/1.png" alt="smile" loading="lazy"/>
@@ -166,7 +156,7 @@ const Skintype = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-span-3">
+                        <div className="md:col-span-3 col-span-6">
                             <div>
                                 <div>
                                     <img className="w-full" src="./img/skintype/2.png" alt="smile" loading="lazy"/>
@@ -181,7 +171,7 @@ const Skintype = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-span-3">
+                        <div className="md:col-span-3 col-span-6">
                             <div>
                                 <div>
                                     <img className="w-full" src="./img/skintype/3.png" alt="smile" loading="lazy"/>
@@ -196,7 +186,7 @@ const Skintype = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-span-3">
+                        <div className="md:col-span-3 col-span-6">
                             <div>
                                 <div>
                                     <img className="w-full" src="./img/skintype/4.png" alt="smile" loading="lazy"/>

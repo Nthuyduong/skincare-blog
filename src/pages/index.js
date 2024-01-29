@@ -71,14 +71,16 @@ const Home = () => {
                                         </Link>
                                     </div>
                                     <div>
-                                        <div className="article-info dark:border-b dark:border-999 py-2 mb-2">
-                                            <div className="flex mb-1">
-                                                <div className="mr-auto small_text">Drink & Coffee</div>
+                                        <div className="article-info md:!border-b md:!border-ccc border-b-0 py-2 mb-2">
+                                            <div className="md:flex mb-1">
+                                                <div className="mr-auto small_text">
+                                                    <Link className="" href={ROUTER.SUBDES}>Drink & Coffee</Link>
+                                                </div>
                                                 <div className="small_text">November 8, 2023</div>
                                             </div>
                                             <div className="medium_text">Top 5 beautiful Coffee Shop in HaNoi</div>
                                         </div>
-                                        <div className="flex">
+                                        <div className="md:flex hidden">
                                             <div className=""><a className="text-link" href="#">Read more</a></div>
                                             <div className="ml-auto">Share</div>
                                         </div>
@@ -93,8 +95,8 @@ const Home = () => {
                                         </Link>
                                     </div>
                                     <div>
-                                        <div className="article-info dark:border-b dark:border-999 py-2 mb-2">
-                                            <div className="flex mb-1">
+                                        <div className="article-info md:!border-b md:!border-ccc border-b-0 py-2 mb-2">
+                                            <div className="md:flex mb-1">
                                                 <div className="mr-auto small_text">
                                                     <Link className="" href={ROUTER.SUBDES}>Drink & Coffee</Link>
                                                 </div>
@@ -102,7 +104,7 @@ const Home = () => {
                                             </div>
                                             <div className="medium_text">Top 5 beautiful Coffee Shop in HaNoi</div>
                                         </div>
-                                        <div className="flex">
+                                        <div className="md:flex hidden">
                                             <div className=""><a className="text-link" href="#">Read more</a></div>
                                             <div className="ml-auto">Share</div>
                                         </div>
@@ -117,14 +119,14 @@ const Home = () => {
                                         </Link>
                                     </div>
                                     <div>
-                                        <div className="article-info dark:border-b dark:border-999 py-2 mb-2">
-                                            <div className="flex mb-1">
+                                        <div className="article-info md:!border-b md:!border-ccc border-b-0 py-2 mb-2">
+                                            <div className="md:flex mb-1">
                                                 <div className="mr-auto small_text">Drink & Coffee</div>
                                                 <div className="small_text">November 8, 2023</div>
                                             </div>
                                             <div className="medium_text">Top 5 beautiful Coffee Shop in HaNoi</div>
                                         </div>
-                                        <div className="flex">
+                                        <div className="md:flex hidden">
                                             <div className=""><a className="text-link" href="#">Read more</a></div>
                                             <div className="ml-auto">Share</div>
                                         </div>
@@ -139,14 +141,14 @@ const Home = () => {
                                         </Link>
                                     </div>
                                     <div>
-                                        <div className="article-info dark:border-b dark:border-999 py-2 mb-2">
-                                            <div className="flex mb-1">
+                                        <div className="article-info md:!border-b md:!border-ccc border-b-0 py-2 mb-2">
+                                            <div className="md:flex mb-1">
                                                 <div className="mr-auto small_text">Drink & Coffee</div>
                                                 <div className="small_text">November 8, 2023</div>
                                             </div>
                                             <div className="medium_text">Top 5 beautiful Coffee Shop in HaNoi</div>
                                         </div>
-                                        <div className="flex">
+                                        <div className="md:flex hidden">
                                             <div className=""><a className="text-link" href="#">Read more</a></div>
                                             <div className="ml-auto">Share</div>
                                         </div>
@@ -161,14 +163,14 @@ const Home = () => {
                                         </Link>
                                     </div>
                                     <div>
-                                        <div className="article-info py-1 mb-1">
-                                            <div className="flex mb-1">
+                                        <div className="article-info md:!border-b md:!border-ccc border-b-0 py-1 mb-1">
+                                            <div className="md:flex mb-1">
                                                 <div className="mr-auto small_text">Drink & Coffee</div>
                                                 <div className="small_text">November 8, 2023</div>
                                             </div>
                                             <div className="medium_text">Top 5 beautiful Coffee Shop in HaNoi</div>
                                         </div>
-                                        <div className="flex">
+                                        <div className="md:flex hidden">
                                             <div className=""><a className="text-link" href="#">Read more</a></div>
                                             <div className="ml-auto">Share</div>
                                         </div>
@@ -183,14 +185,14 @@ const Home = () => {
                                         </Link>
                                     </div>
                                     <div>
-                                        <div className="article-info py-1 mb-1">
-                                            <div className="flex mb-1">
+                                        <div className="article-info md:!border-b md:!border-ccc border-b-0 py-1 mb-1">
+                                            <div className="md:flex mb-1">
                                                 <div className="mr-auto small_text">Drink & Coffee</div>
                                                 <div className="small_text">November 8, 2023</div>
                                             </div>
                                             <div className="medium_text">Top 5 beautiful Coffee Shop in HaNoi</div>
                                         </div>
-                                        <div className="flex">
+                                        <div className="md:flex hidden">
                                             <div className=""><a className="text-link" href="#">Read more</a></div>
                                             <div className="ml-auto">Share</div>
                                         </div>
@@ -211,14 +213,14 @@ const Home = () => {
                         </div>
                         <div className="w-full relative" style={{zIndex: 100}}>
                             <ul className="w-full text-center">
-                                <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>How to</Link></li>
-                                <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>Skincare routine</Link></li>
-                                <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>Usage guide</Link></li>
-                                <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>Sun care</Link></li>
-                                <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>Skin concerns</Link></li>
-                                <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>Tips & Advices</Link></li>
-                                <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>Skincare ingredients</Link></li>
-                                <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>Nuturish</Link></li>
+                                <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl text-999 hover:text-333 dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>How to</Link></li>
+                                <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl text-999 hover:text-333 dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>Skincare routine</Link></li>
+                                <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl text-999 hover:text-333 dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>Usage guide</Link></li>
+                                <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl text-999 hover:text-333 dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>Sun care</Link></li>
+                                <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl text-999 hover:text-333 dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>Skin concerns</Link></li>
+                                <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl text-999 hover:text-333 dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>Tips & Advices</Link></li>
+                                <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl text-999 hover:text-333 dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>Skincare ingredients</Link></li>
+                                <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl text-999 hover:text-333 dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>Nuturish</Link></li>
                             </ul>
                         </div>
                         <div className="absolute right-0 top-0 flex justify-end">
@@ -330,14 +332,14 @@ const Home = () => {
                                             </Link>
                                         </div>
                                         <div>
-                                            <div className="article-info py-2 mb-1 dark:border-b dark:border-999">
-                                                <div className="flex mb-1">
+                                            <div className="article-info py-2 mb-1 md:!border-b md:!border-ccc border-b-0">
+                                                <div className="md:flex mb-1">
                                                     <div className="mr-auto small_text">Drink & Coffee</div>
                                                     <div className="small_text">November 8, 2023</div>
                                                 </div>
                                                 <div className="medium_text">Top 5 beautiful Coffee Shop in HaNoi</div>
                                             </div>
-                                            <div className="flex">
+                                            <div className="md:flex hidden">
                                                 <div className=""><a className="text-link" href="#">Read more</a></div>
                                                 <div className="ml-auto">Share</div>
                                             </div>
@@ -354,14 +356,14 @@ const Home = () => {
                                             </Link>
                                         </div>
                                         <div>
-                                            <div className="article-info dark:border-b dark:border-999 py-2 mb-1">
-                                                <div className="flex mb-1">
+                                            <div className="article-info md:!border-b md:!border-ccc border-b-0 py-2 mb-1">
+                                                <div className="md:flex mb-1">
                                                     <div className="mr-auto small_text">Drink & Coffee</div>
                                                     <div className="small_text">November 8, 2023</div>
                                                 </div>
                                                 <div className="medium_text">Top 5 beautiful Coffee Shop in HaNoi</div>
                                             </div>
-                                            <div className="flex">
+                                            <div className="md:flex hidden">
                                                 <div className=""><a className="text-link" href="#">Read more</a></div>
                                                 <div className="ml-auto">Share</div>
                                             </div>
@@ -377,14 +379,14 @@ const Home = () => {
                                         </Link>
                                     </div>
                                     <div>
-                                        <div className="article-info dark:border-b dark:border-999 py-2 mb-1">
-                                            <div className="flex mb-1">
+                                        <div className="article-info md:!border-b md:!border-ccc border-b-0 py-2 mb-1">
+                                            <div className="md:flex mb-1">
                                                 <div className="mr-auto small_text">Drink & Coffee</div>
                                                 <div className="small_text">November 8, 2023</div>
                                             </div>
                                             <div className="medium_text">Top 5 beautiful Coffee Shop in HaNoi</div>
                                         </div>
-                                        <div className="flex">
+                                        <div className="md:flex hidden">
                                             <div className=""><a className="text-link" href="#">Read more</a></div>
                                             <div className="ml-auto">Share</div>
                                         </div>
@@ -399,14 +401,14 @@ const Home = () => {
                                         </Link>
                                     </div>
                                     <div>
-                                        <div className="article-info dark:border-b dark:border-999 py-2 mb-1">
-                                            <div className="flex mb-1">
+                                        <div className="article-info md:!border-b md:!border-ccc border-b-0 py-2 mb-1">
+                                            <div className="md:flex mb-1">
                                                 <div className="mr-auto small_text">Drink & Coffee</div>
                                                 <div className="small_text">November 8, 2023</div>
                                             </div>
                                             <div className="medium_text">Top 5 beautiful Coffee Shop in HaNoi</div>
                                         </div>
-                                        <div className="flex">
+                                        <div className="md:flex hidden">
                                             <div className=""><a className="text-link" href="#">Read more</a></div>
                                             <div className="ml-auto">Share</div>
                                         </div>
@@ -422,14 +424,14 @@ const Home = () => {
                                             </Link>
                                         </div>
                                         <div>
-                                            <div className="article-info py-1 mb-1">
-                                                <div className="flex mb-1">
+                                            <div className="article-info md:!border-b md:!border-ccc border-b-0 py-1 mb-1">
+                                                <div className="md:flex mb-1">
                                                     <div className="mr-auto small_text">Drink & Coffee</div>
                                                     <div className="small_text">November 8, 2023</div>
                                                 </div>
                                                 <div className="heading_5">Top 5 beautiful Coffee Shop in HaNoi</div>
                                             </div>
-                                            <div className="flex">
+                                            <div className="md:flex hidden">
                                                 <div className=""><a className="text-link" href="#">Read more</a></div>
                                                 <div className="ml-auto">Share</div>
                                             </div>
@@ -445,14 +447,14 @@ const Home = () => {
                                         </Link>
                                     </div>
                                     <div>
-                                        <div className="article-info py-1 mb-1">
-                                            <div className="flex mb-1">
+                                        <div className="article-info md:!border-b md:!border-ccc border-b-0 py-1 mb-1">
+                                            <div className="md:flex mb-1">
                                                 <div className="mr-auto small_text">Drink & Coffee</div>
                                                 <div className="small_text">November 8, 2023</div>
                                             </div>
                                             <div className="heading_5">Top 5 beautiful Coffee Shop in HaNoi</div>
                                         </div>
-                                        <div className="flex">
+                                        <div className="md:flex hidden">
                                             <div className=""><a className="text-link" href="#">Read more</a></div>
                                             <div className="ml-auto">Share</div>
                                         </div>

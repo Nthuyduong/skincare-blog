@@ -19,6 +19,7 @@ module.exports = {
       'ccc': '#cccccc',
       '999': '#999999',
       '666': '#666666',
+      '333': '#333333',
     },
     fontFamily: {
       // sans: ['Graphik', 'sans-serif'],
