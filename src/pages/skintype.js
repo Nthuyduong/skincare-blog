@@ -84,18 +84,34 @@ const Skintype = () => {
             {/*    </div>*/}
             {/*</div>*/}
 
-            <div className="container-fluid m-w mx-auto my-0">
-                <div className="pt-5 head-content pb-5">
-                    <div className="heading text-center">Skin type & History</div>
-                    <div className="md:grid md:grid-cols-5">
-                        <div className="md:col-span-1"></div>
-                        <div className="md:col-span-3 heading_6 text-center">
-                            Sharing my skincare journey from the past to the present, along with my routine. I hope it
-                            provides helpful insights for you!
+            <div>
+                <div className="grid grid-cols-12 gap-5">
+                    <div className="col-span-4"></div>
+                    <div className="col-span-3">
+                        <img className="w-full" src="./img/skintype/banner1.jpg" alt="smile" loading="lazy"/>
+                    </div>
+                    <div className="col-span-1 flex items-center">
+                        <img className="w-full" src="./img/skintype/banner2.jpg" alt="smile" loading="lazy"/>
+                    </div>
+                    <div className="col-span-4"></div>
+                </div>
+                <div className="pt-5 head-content pb-5 relative -top-8">
+                    <div className="text-center mb-6">
+                        <div className="heading text-center my-3">Skin type & History</div>
+                        <div className="heading_4">It’s All About Me</div>
+                    </div>
+                    <div className="w-1/4 h-px bg-ccc"></div>
+                    <div className="md:grid md:grid-cols-12">
+                        <div className="md:col-span-3"></div>
+                        <div className="md:col-span-6 heading_6 text-center">
+                            <div className="">Sharing my skincare journey from the past to the present, along with my routine. I hope it
+                                provides helpful insights for you!</div>
                         </div>
-                        <div className="md:col-span-1"></div>
+                        <div className="md:col-span-3"></div>
                     </div>
                 </div>
+            </div>
+            <div className="container-fluid m-w mx-auto my-0">
                 <div className="mt-5 skin-bar dark:border-ccc pb-3">
                     <div className="flex">
                         <div className="mr-auto">Scroll to explore</div>
