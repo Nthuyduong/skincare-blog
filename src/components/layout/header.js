@@ -378,16 +378,16 @@ const Header = () => {
                                                 </div>
                                                 <div className="navdrop-inner absolute py-1 border-x border-b border-ccc dark:border-666 dark:!bg-black">
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
-                                                        <Link href={ROUTER.SUBDES} className="dark:text-white nav-link">How to</Link>
+                                                        <Link href={ROUTER.SUBDES} className="body_text dark:text-white nav-link">How to</Link>
                                                     </div>
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
-                                                        <Link href={ROUTER.SUBDES} className="dark:text-white nav-link">Skincare routine</Link>
+                                                        <Link href={ROUTER.SUBDES} className="body_text dark:text-white nav-link">Skincare routine</Link>
                                                     </div>
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
-                                                        <Link href={ROUTER.SUBDES} className="dark:text-white nav-link">Usage guide</Link>
+                                                        <Link href={ROUTER.SUBDES} className="body_text dark:text-white nav-link">Usage guide</Link>
                                                     </div>
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
-                                                        <Link href={ROUTER.SUBDES} className="dark:text-white nav-link">Sun care</Link>
+                                                        <Link href={ROUTER.SUBDES} className="body_text dark:text-white nav-link">Sun care</Link>
                                                     </div>
                                                 </div>
                                             </div>
@@ -404,16 +404,16 @@ const Header = () => {
                                                 </div>
                                                 <div className="navdrop-inner absolute left-30 w-48 py-1 border-x border-b border-ccc dark:border-666 dark:!bg-black">
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700 dark:!text-white">
-                                                        <Link href={ROUTER.SUBDES} className="nav-link">Skin concerns</Link>
+                                                        <Link href={ROUTER.SUBDES} className="body_text nav-link">Skin concerns</Link>
                                                     </div>
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700 dark:!text-white">
-                                                        <Link href={ROUTER.SUBDES} className="nav-link">Tips & advices</Link>
+                                                        <Link href={ROUTER.SUBDES} className="body_text nav-link">Tips & advices</Link>
                                                     </div>
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700 dark:!text-white">
-                                                        <Link href={ROUTER.INGREDIENT} className="nav-link">Skincare ingredients</Link>
+                                                        <Link href={ROUTER.INGREDIENT} className="body_text nav-link">Skincare ingredients</Link>
                                                     </div>
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700 dark:!text-white">
-                                                        <Link href={ROUTER.SUBDES} className="nav-link">Nuturish</Link>
+                                                        <Link href={ROUTER.SUBDES} className="body_text nav-link">Nuturish</Link>
                                                     </div>
                                                 </div>
                                             </div>
@@ -433,10 +433,10 @@ const Header = () => {
                                                 </div>
                                                 <div className="navdrop-inner absolute left-30 w-48 py-1 border-x border-b border-ccc dark:border-666 dark:!bg-black">
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
-                                                        <Link href={ROUTER.ABOUT} className="dark:text-white nav-link">About Blog</Link>
+                                                        <Link href={ROUTER.ABOUT} className="body_text dark:text-white nav-link">About Blog</Link>
                                                     </div>
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
-                                                        <Link href={ROUTER.SKINTYPE} className="dark:text-white nav-link">My skin history</Link>
+                                                        <Link href={ROUTER.SKINTYPE} className="body_text dark:text-white nav-link">My skin history</Link>
                                                     </div>
                                                 </div>
                                             </div>

@@ -229,9 +229,9 @@ const EditPost = ({ id }) => {
                                         categories.filter((item) => {
                                             return selectedCategories.includes(item.id);
                                         }).map((item, index) => (
-                                            <div key={index} className="flex items-center">
+                                            <div key={index} className="flex items-center border-ccc border w-fit py-1 px-2 rounded-full mt-2">
                                                 <div className="mr-2">{item.name}</div>
-                                                <span className="close" onClick={() => {handleRemoveSelectCategory(item.id)}}>remove</span>
+                                                <span className="close" onClick={() => {handleRemoveSelectCategory(item.id)}}>x</span>
                                             </div>
                                         ))
                                     }
