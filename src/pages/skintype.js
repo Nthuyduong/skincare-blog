@@ -74,7 +74,7 @@ const Skintype = () => {
     ));
     return (
         <div className="skintype-page md:pt-7">
-            <div>
+            <div className="skintype-inner">
                 <div className="md:grid md:grid-cols-12 gap-5">
                     <div className="md:col-span-4"></div>
                     <div className="md:col-span-3">
@@ -113,7 +113,7 @@ const Skintype = () => {
                 <div className="mt-5 all-faq">
                     <div className="md:grid md:grid-cols-12 gap-5">
                         <div className="md:col-span-4 md:border-none border border-ccc">
-                            <div className="md:p-0 p-3 md:pr-5 text-center">
+                            <div className="md:p-0 p-3 md:pr-5 text-center md:text-left">
                                 <div className="heading_3 mb-3">Connect with me</div>
                                 <div>Are you interested in collaborating? Do you want to be a part of us? Join with us now!</div>
                                 <div className="mt-4">

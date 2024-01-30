@@ -1,5 +1,8 @@
 @use 'variables' as v;
 .skintype-page{
+  .skintype-inner{
+    max-height: 450px;
+  }
   .head-content{
     .heading{
       margin-bottom: 26px;
