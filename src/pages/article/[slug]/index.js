@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { throttle } from '@utils/common';
 import { getBlogBySlugApi } from "@services/blog";
+import { BASE_URL } from "@utils/apiUtils";
 
 const ArticleDetail = ({ blog }) => {
     const refContent = useRef(null);
@@ -53,7 +54,7 @@ const ArticleDetail = ({ blog }) => {
             </div>
             <div className="test-review-page w-full">
                 {/*website banner*/}
-                <div className="review-banner w-full">
+                <div className="md:block hidden review-banner w-full">
                     <div className="relative">
                         <div className="container-fluid banner-left dark:text-black m-w mx-auto">
                             <div className="grid grid-cols-12">
@@ -79,7 +80,7 @@ const ArticleDetail = ({ blog }) => {
                             </div>
                         </div>
                         <div className="banner-right">
-                            <img className="w-full" src="/img/article/happy.jpg" alt="smile" loading="lazy"/>
+                            <img className="w-full" src={BASE_URL + '/storage/desktop/' + blog?.banner_img} alt="smile" loading="lazy" />
                         </div>
                     </div>
                 </div>
@@ -107,7 +108,7 @@ const ArticleDetail = ({ blog }) => {
                         </div>
                     </div>
                     <div className="banner-bottom">
-                        <img className="w-full" src="/img/article/waterbanner.jpg" alt="smile" loading="lazy"/>
+                        <img className="w-full" src={BASE_URL + '/storage/desktop/' + blog?.banner_img} alt="smile" loading="lazy" />
                     </div>
                 </div>
             </div>

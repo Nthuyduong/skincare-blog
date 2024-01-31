@@ -1,4 +1,5 @@
 import React from "react";
+import { BASE_URL } from "@utils/apiUtils";
 
 const Article = () => {
     return (
@@ -30,7 +31,7 @@ const Article = () => {
                             </div>
                         </div>
                         <div className="banner-right">
-                            <img className="w-full" src="/img/article/happy.jpg" alt="smile" loading="lazy"/>
+                            <img className="w-full" src={BASE_URL + '/storage/desktop/' + blog?.banner_img} alt="smile" loading="lazy" />
                         </div>
                     </div>
                 </div>

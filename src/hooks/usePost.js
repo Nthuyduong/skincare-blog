@@ -34,6 +34,8 @@ export const usePost = () => {
         formData.append('content', data.content);
         formData.append('content_draft', data.content_draft);
         formData.append('status', 0);
+        formData.append('featured_img', data.featured_img);
+        formData.append('banner_img', data.banner_img)
         showLoading()
         const res = await createBlogPostApi(formData);
         hide();
@@ -54,6 +56,7 @@ export const usePost = () => {
         formData.append('content_draft', data.content_draft);
         formData.append('status', 0);
         formData.append('featured_img', data.featured_img);
+        formData.append('banner_img', data.banner_img)
         data.categories.map((item) => {
             formData.append('categories[]', item);
         });
