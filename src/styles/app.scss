@@ -338,15 +338,15 @@ textarea:focus-visible{
 }
 @media only screen and (min-width: 768px) {
   .container-fluid{
-    padding-left: 110px !important;
-    padding-right: 110px !important;
+    padding-left: 120px !important;
+    padding-right: 120px !important;
   }
   .search-bar-inner{
     padding-left: 120px;
     padding-right: 120px;
   }
   .m-w{
-    max-width: 1400px;
+    max-width: 1300px;
   }
 }
 //icon size
@@ -545,6 +545,6 @@ textarea:focus-visible{
   overflow: hidden;
 }
 
-.article-single-post img{
+.article-single-post .my-article img{
   width: 100% !important;
 }
