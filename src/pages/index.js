@@ -488,14 +488,19 @@ const Home = () => {
                     </div>
                 </div>
 
-                <div className="contact-me p-5 md:p-8">
-                    <div className="contact-me-inner p-5 md:p-7 bg-white dark:text-black">
-                        <div className="heading_3 mb-3 md:mb-4">Work With Me</div>
-                        <div className="mb-3">Are you interested in collaborating? Contact me for more information or hire me for a UI freelance,
-                            please visit my portfolio <a>https://nthuyduong.github.io.</a></div>
-                        <div className="medium_text">Get in touch: Nthduong898@gmail.com</div>
+                <div>
+                    <div className="bg-primary">
+                        <div></div>
                     </div>
                 </div>
+                {/*<div className="contact-me p-5 md:p-8">*/}
+                {/*    <div className="contact-me-inner p-5 md:p-7 bg-white dark:text-black">*/}
+                {/*        <div className="heading_3 mb-3 md:mb-4">Work With Me</div>*/}
+                {/*        <div className="mb-3">Are you interested in collaborating? Contact me for more information or hire me for a UI freelance,*/}
+                {/*            please visit my portfolio <a>https://nthuyduong.github.io.</a></div>*/}
+                {/*        <div className="medium_text">Get in touch: Nthduong898@gmail.com</div>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
                 {/*<div className="home-contact-me">*/}
                 {/*    <div className="contact-inner">*/}
                 {/*        <div className="dark:text-black">*/}
@@ -543,86 +548,110 @@ const Home = () => {
                 </div>
                 <div className="scrolling-text">
                     <div className="scrolling-text-content">
-                        <div className="grid grid-cols-12">
-                            <div className="col-span-2">
-                                <img className="w-full" src="./img/home/ig1.jpg" alt="smile" loading="lazy" height="100"
-                                     width="100"/>
+                        <div className="grid grid-cols-8">
+                            <div className="col-span-1">
+                                <img className="w-full" src="./img/home/ig1.jpg" alt="smile" loading="lazy" height="60"
+                                     width="60"/>
                             </div>
-                            <div className="col-span-2">
-                                <img className="w-full" src="./img/home/ig2.jpg" alt="smile" loading="lazy" height="100"
-                                     width="100"/>
+                            <div className="col-span-1">
+                                <img className="w-full" src="./img/home/ig2.jpg" alt="smile" loading="lazy" height="60"
+                                     width="60"/>
                             </div>
-                            <div className="col-span-2">
-                                <img className="w-full" src="./img/home/ig3.jpg" alt="smile" loading="lazy" height="100"
-                                     width="100"/>
+                            <div className="col-span-1">
+                                <img className="w-full" src="./img/home/ig3.jpg" alt="smile" loading="lazy" height="60"
+                                     width="60"/>
                             </div>
-                            <div className="col-span-2">
-                                <img className="w-full" src="./img/home/ig4.jpg" alt="smile" loading="lazy" height="100"
-                                     width="100"/>
+                            <div className="col-span-1">
+                                <img className="w-full" src="./img/home/ig4.jpg" alt="smile" loading="lazy" height="60"
+                                     width="60"/>
                             </div>
-                            <div className="col-span-2">
-                                <img className="w-full" src="./img/home/ig5.jpg" alt="smile" loading="lazy" height="100"
-                                     width="100"/>
+                            <div className="col-span-1">
+                                <img className="w-full" src="./img/home/ig5.jpg" alt="smile" loading="lazy" height="60"
+                                     width="60"/>
                             </div>
-                            <div className="col-span-2">
-                                <img className="w-full" src="./img/home/ig6.jpg" alt="smile" loading="lazy" height="100"
-                                     width="100"/>
+                            <div className="col-span-1">
+                                <img className="w-full" src="./img/home/ig6.jpg" alt="smile" loading="lazy" height="60"
+                                     width="60"/>
                             </div>
-                        </div>
-                    </div>
-                    <div className="scrolling-text-content">
-                        <div className="grid grid-cols-12">
-                            <div className="col-span-2">
-                                <img className="w-full" src="./img/home/ig1.jpg" alt="smile" loading="lazy" height="100"
-                                     width="100"/>
+                            <div className="col-span-1">
+                                <img className="w-full" src="./img/home/ig7.jpg" alt="smile" loading="lazy" height="60"
+                                     width="60"/>
                             </div>
-                            <div className="col-span-2">
-                                <img className="w-full" src="./img/home/ig2.jpg" alt="smile" loading="lazy" height="100"
-                                     width="100"/>
-                            </div>
-                            <div className="col-span-2">
-                                <img className="w-full" src="./img/home/ig3.jpg" alt="smile" loading="lazy" height="100"
-                                     width="100"/>
-                            </div>
-                            <div className="col-span-2">
-                                <img className="w-full" src="./img/home/ig4.jpg" alt="smile" loading="lazy" height="100"
-                                     width="100"/>
-                            </div>
-                            <div className="col-span-2">
-                                <img className="w-full" src="./img/home/ig5.jpg" alt="smile" loading="lazy" height="100"
-                                     width="100"/>
-                            </div>
-                            <div className="col-span-2">
-                                <img className="w-full" src="./img/home/ig6.jpg" alt="smile" loading="lazy" height="100"
-                                     width="100"/>
+                            <div className="col-span-1">
+                                <img className="w-full" src="./img/home/ig8.jpg" alt="smile" loading="lazy" height="60"
+                                     width="60"/>
                             </div>
                         </div>
                     </div>
                     <div className="scrolling-text-content">
-                        <div className="grid grid-cols-12">
-                            <div className="col-span-2">
-                                <img className="w-full" src="./img/home/ig1.jpg" alt="smile" loading="lazy" height="100"
+                        <div className="grid grid-cols-8">
+                            <div className="col-span-1">
+                                <img className="w-full" src="./img/home/ig1.jpg" alt="smile" loading="lazy" height="60"
+                                     width="60"/>
+                            </div>
+                            <div className="col-span-1">
+                                <img className="w-full" src="./img/home/ig2.jpg" alt="smile" loading="lazy" height="60"
+                                     width="60"/>
+                            </div>
+                            <div className="col-span-1">
+                                <img className="w-full" src="./img/home/ig3.jpg" alt="smile" loading="lazy" height="60"
+                                     width="60"/>
+                            </div>
+                            <div className="col-span-1">
+                                <img className="w-full" src="./img/home/ig4.jpg" alt="smile" loading="lazy" height="60"
                                      width="100"/>
                             </div>
-                            <div className="col-span-2">
-                                <img className="w-full" src="./img/home/ig2.jpg" alt="smile" loading="lazy" height="100"
-                                     width="100"/>
+                            <div className="col-span-1">
+                                <img className="w-full" src="./img/home/ig5.jpg" alt="smile" loading="lazy" height="60"
+                                     width="60"/>
                             </div>
-                            <div className="col-span-2">
-                                <img className="w-full" src="./img/home/ig3.jpg" alt="smile" loading="lazy" height="100"
-                                     width="100"/>
+                            <div className="col-span-1">
+                                <img className="w-full" src="./img/home/ig6.jpg" alt="smile" loading="lazy" height="60"
+                                     width="60"/>
                             </div>
-                            <div className="col-span-2">
-                                <img className="w-full" src="./img/home/ig4.jpg" alt="smile" loading="lazy" height="100"
-                                     width="100"/>
+                            <div className="col-span-1">
+                                <img className="w-full" src="./img/home/ig7.jpg" alt="smile" loading="lazy" height="60"
+                                     width="60"/>
                             </div>
-                            <div className="col-span-2">
-                                <img className="w-full" src="./img/home/ig5.jpg" alt="smile" loading="lazy" height="100"
-                                     width="100"/>
+                            <div className="col-span-1">
+                                <img className="w-full" src="./img/home/ig8.jpg" alt="smile" loading="lazy" height="60"
+                                     width="60"/>
                             </div>
-                            <div className="col-span-2">
-                                <img className="w-full" src="./img/home/ig6.jpg" alt="smile" loading="lazy" height="100"
-                                     width="100"/>
+                        </div>
+                    </div>
+                    <div className="scrolling-text-content">
+                        <div className="grid grid-cols-8">
+                            <div className="col-span-1">
+                                <img className="w-full" src="./img/home/ig1.jpg" alt="smile" loading="lazy" height="60"
+                                     width="60"/>
+                            </div>
+                            <div className="col-span-1">
+                                <img className="w-full" src="./img/home/ig2.jpg" alt="smile" loading="lazy" height="60"
+                                     width="60"/>
+                            </div>
+                            <div className="col-span-1">
+                                <img className="w-full" src="./img/home/ig3.jpg" alt="smile" loading="lazy" height="60"
+                                     width="60"/>
+                            </div>
+                            <div className="col-span-1">
+                                <img className="w-full" src="./img/home/ig4.jpg" alt="smile" loading="lazy" height="60"
+                                     width="60"/>
+                            </div>
+                            <div className="col-span-1">
+                                <img className="w-full" src="./img/home/ig5.jpg" alt="smile" loading="lazy" height="60"
+                                     width="60"/>
+                            </div>
+                            <div className="col-span-1">
+                                <img className="w-full" src="./img/home/ig6.jpg" alt="smile" loading="lazy" height="60"
+                                     width="60"/>
+                            </div>
+                            <div className="col-span-1">
+                                <img className="w-full" src="./img/home/ig7.jpg" alt="smile" loading="lazy" height="60"
+                                     width="60"/>
+                            </div>
+                            <div className="col-span-1">
+                                <img className="w-full" src="./img/home/ig8.jpg" alt="smile" loading="lazy" height="60"
+                                     width="60"/>
                             </div>
                         </div>
                     </div>

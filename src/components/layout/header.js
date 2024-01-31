@@ -332,7 +332,7 @@ const Header = () => {
             {/*nav bar*/}
             <div
                 ref={headerRef}
-                className="!hidden header-desktop sticky lg:!flex dark:bg-black dark:border-b dark:border-666 border-b border-ccc"
+                className="!hidden header-desktop sticky lg:!flex dark:bg-black border-y dark:border-666 border-ccc"
                 style={{ top: '0' }}
             >
                 <div className="nav-out">

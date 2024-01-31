@@ -208,14 +208,14 @@ const Slider = ({
             <div className="slider-control">
                 <div className={`prev-button ${ disablePrev ? 'btn-disable': '' }`}>
                     <button className="my-prev-btn" onClick={prevSlide}>
-                        <img className="w-full icon-sm dark:hidden" src="./img/icon/chevron-left-black.svg" alt="smile" loading="lazy"/>
-                        <img className="w-full icon-sm hidden dark:block" src="./img/icon/chevron-left.svg" alt="smile" loading="lazy"/>
+                        <img className="w-full icon-sm dark:hidden" src="/img/icon/chevron-left-black.svg" alt="smile" loading="lazy"/>
+                        <img className="w-full icon-sm hidden dark:block" src="/img/icon/chevron-left.svg" alt="smile" loading="lazy"/>
                     </button>
                 </div>
                 <div className={`next-button ${ disableNext ? 'btn-disable': ''}`}>
                     <button className="my-next-btn" onClick={nextSlide}>
-                        <img className="w-full icon-sm dark:hidden" src="./img/icon/chevron-right-black.svg" alt="smile" loading="lazy"/>
-                        <img className="w-full icon-sm hidden dark:block" src="./img/icon/chevron-right.svg" alt="smile" loading="lazy"/>
+                        <img className="w-full icon-sm dark:hidden" src="/img/icon/chevron-right-black.svg" alt="smile" loading="lazy"/>
+                        <img className="w-full icon-sm hidden dark:block" src="/img/icon/chevron-right.svg" alt="smile" loading="lazy"/>
                     </button>
                 </div>
             </div>
