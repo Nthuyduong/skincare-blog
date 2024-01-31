@@ -16,6 +16,7 @@ const CreatePost = ({id}) => {
     const [slug, setSlug] = useState('');
     const [summary, setsummary] = useState('');
     const [featuredImage, setFeaturedImage] = useState('');
+    const [bannerImage, setBannerImage] = useState('');
 
     useEffect(() => {
         getBlogById(id);
@@ -42,6 +43,14 @@ const CreatePost = ({id}) => {
         return URL.createObjectURL(featuredImage);
     }
 
+    const getBannerPreview = () => {
+        if (!bannerImage) {
+            console.log(post)
+            return 'https://static.vecteezy.com/system/resources/previews/004/141/669/original/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg';
+        }
+        return URL.createObjectURL(bannerImage);
+    }
+
     const handleClick = () => {
         createBlogPost({
             title: title,
@@ -51,6 +60,7 @@ const CreatePost = ({id}) => {
             content_draft: content,
             categories: selectedCategories,
             featured_img: featuredImage,
+            banner_img: bannerImage,
         })
     }
 
@@ -179,6 +189,27 @@ const CreatePost = ({id}) => {
                                         style={{display: "none"}}
                                         onChange={(e) => {
                                             setFeaturedImage(e.target.files[0]);
+                                        }}
+                                    ></input>
+                                </div>
+                            </div>
+                            <div className=''>
+                                <div className='mb-1'>Banner image</div>
+                                <div className=''>
+                                    <div
+                                        className='banner-image-preview cursor-pointer'
+                                        onClick={() => {
+                                            document.getElementById('banner-image-file').click();
+                                        }}
+                                    >
+                                        <img src={getBannerPreview()} alt='banner image' />
+                                    </div>
+                                    <input
+                                        id="banner-image-file"
+                                        type='file'
+                                        style={{display: "none"}}
+                                        onChange={(e) => {
+                                            setBannerImage(e.target.files[0]);
                                         }}
                                     ></input>
                                 </div>
