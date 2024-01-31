@@ -346,7 +346,7 @@ textarea:focus-visible{
     padding-right: 120px;
   }
   .m-w{
-    max-width: 1300px;
+    max-width: 1400px;
   }
 }
 //icon size
@@ -543,4 +543,8 @@ textarea:focus-visible{
 }
 .hover-img .img-inner{
   overflow: hidden;
+}
+
+.article-single-post img{
+  width: 100% !important;
 }

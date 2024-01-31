@@ -80,7 +80,7 @@ const ArticleDetail = ({ blog }) => {
                             </div>
                         </div>
                         <div className="banner-right">
-                            <img className="w-full" src={BASE_URL + '/storage/desktop/' + blog?.banner_img} alt="smile" loading="lazy" />
+                            <img className="w-full object-cover" src={BASE_URL + '/storage/' + blog?.banner_img} alt="smile" loading="lazy" />
                         </div>
                     </div>
                 </div>
