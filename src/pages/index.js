@@ -66,19 +66,19 @@ const Home = () => {
                             <div className="justify-center">
                                 <div className="col-span-12 md:col-span-4">
                                     <div>
-                                        <Link href={ROUTER.ARTICLE}>
-                                            <img className="w-full" src="./img/home/article.jpg" alt="smile" loading="lazy"/>
+                                        <Link href="/article/the-best-food-for-skin-that-is-glowy-and-radiant">
+                                            <img className="w-full" src="./img/home/article.png" alt="smile" loading="lazy"/>
                                         </Link>
                                     </div>
                                     <div>
                                         <div className="article-info md:!border-b md:!border-ccc border-b-0 py-2 mb-2">
                                             <div className="md:flex mb-1">
                                                 <div className="mr-auto small_text">
-                                                    <Link className="" href={ROUTER.SUBDES}>Drink & Coffee</Link>
+                                                    <Link className="" href="/article/the-best-food-for-skin-that-is-glowy-and-radiant">Drink & Coffee</Link>
                                                 </div>
                                                 <div className="small_text">November 8, 2023</div>
                                             </div>
-                                            <div className="medium_text">Top 5 beautiful Coffee Shop in HaNoi</div>
+                                            <div className="medium_text">The best food for skin that is glowy and radiant</div>
                                         </div>
                                         <div className="md:flex hidden">
                                             <div className=""><a className="text-link" href="#">Read more</a></div>
@@ -90,7 +90,7 @@ const Home = () => {
                             <div className="justify-center">
                                 <div className="col-span-12 md:col-span-4">
                                     <div>
-                                        <Link href={ROUTER.ARTICLE}>
+                                        <Link href="/artilce/how_can_workout_give_you_better_looking_skin">
                                             <img className="w-full" src="./img/home/article1.jpg" alt="smile" loading="lazy"/>
                                         </Link>
                                     </div>
@@ -98,11 +98,11 @@ const Home = () => {
                                         <div className="article-info md:!border-b md:!border-ccc border-b-0 py-2 mb-2">
                                             <div className="md:flex mb-1">
                                                 <div className="mr-auto small_text">
-                                                    <Link className="" href={ROUTER.SUBDES}>Drink & Coffee</Link>
+                                                    <Link className="" href="/artilce/how_can_workout_give_you_better_looking_skin">Drink & Coffee</Link>
                                                 </div>
                                                 <div className="small_text">November 8, 2023</div>
                                             </div>
-                                            <div className="medium_text">Top 5 beautiful Coffee Shop in HaNoi</div>
+                                            <div className="medium_text">How can workout give you better-looking skin?</div>
                                         </div>
                                         <div className="md:flex hidden">
                                             <div className=""><a className="text-link" href="#">Read more</a></div>
@@ -137,7 +137,7 @@ const Home = () => {
                                 <div className="col-span-12 md:col-span-4">
                                     <div>
                                         <Link href={ROUTER.ARTICLE}>
-                                            <img className="w-full" src="./img/home/article.jpg" alt="smile" loading="lazy"/>
+                                            <img className="w-full" src="./img/home/article3.jpg" alt="smile" loading="lazy"/>
                                         </Link>
                                     </div>
                                     <div>
