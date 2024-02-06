@@ -410,12 +410,13 @@ const Header = () => {
                                                         <Link href={ROUTER.SUBDES} className="body_text nav-link">Tips & advices</Link>
                                                     </div>
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700 dark:!text-white">
-                                                        <Link href={ROUTER.INGREDIENT} className="body_text nav-link">Skincare ingredients</Link>
-                                                    </div>
-                                                    <div className="sub-menu block px-4 py-2 text-sm text-gray-700 dark:!text-white">
                                                         <Link href={ROUTER.SUBDES} className="body_text nav-link">Nuturish</Link>
                                                     </div>
                                                 </div>
+                                            </div>
+
+                                            <div className="text-gray-300 hover:text-gray rounded-md pr-3 py-4">
+                                                <Link href={ROUTER.INGREDIENT} className="dark:text-white nav-link">Skincare ingredients</Link>
                                             </div>
                                             <div className="text-gray-300 hover:text-gray rounded-md pr-3 py-4">
                                                 <Link href={ROUTER.SUBDES} className="dark:text-white nav-link">Testings & Reviews</Link>
@@ -438,10 +439,10 @@ const Header = () => {
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
                                                         <Link href={ROUTER.SKINTYPE} className="body_text dark:text-white nav-link">My skin history</Link>
                                                     </div>
+                                                    <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
+                                                        <Link href={ROUTER.CONTACT} className="body_text dark:text-white nav-link">Contact us</Link>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div className="text-gray-300 hover:text-gray rounded-md pr-3 py-4">
-                                                <Link href={ROUTER.CONTACT} className="dark:text-white nav-link">Contact us</Link>
                                             </div>
                                         </div>
                                     </div>

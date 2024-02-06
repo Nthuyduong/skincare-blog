@@ -489,8 +489,23 @@ const Home = () => {
                 </div>
 
                 <div>
-                    <div className="bg-primary">
-                        <div></div>
+                    <div className="bg-primary p-5">
+                        <div className="flex">
+                            <div className="">
+                                <img className="w-full" src="./img/home/subscribe.png" alt="smile" loading="lazy"/>
+                            </div>
+                            <div className="ml-5 text-black flex items-center pr-8">
+                                <div>
+                                    <div className="mb-3 heading_2">Subscribe for newsletters</div>
+                                    <div>
+                                        Receive the latest updates straight to your inbox. Get stories, exclusive offers, and promotions when you sign up.
+                                    </div>
+                                    <div className="mt-4">
+                                        <button className="w-1/4 my-btn-pr dark:border-white" type="submit">Subscribe</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 {/*<div className="contact-me p-5 md:p-8">*/}
@@ -538,13 +553,13 @@ const Home = () => {
             </div>
             <div className="pt-8">
                 <div className="flex items-center">
-                    <div className="mr-auto h-1 bg-ccc"></div>
-                    <div className="heading_3 pb-4">
-                        <div>
+                    <div className="w-full mr-auto h-1 bg-ccc"></div>
+                    <div className="w-full">
+                        <div className="heading_3">
                             Follow us on Instagram
                         </div>
                     </div>
-                    <div className="ml-auto h-1 bg-ccc"></div>
+                    <div className="w-full ml-auto h-1 bg-ccc"></div>
                 </div>
                 <div className="scrolling-text">
                     <div className="scrolling-text-content">
