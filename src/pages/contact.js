@@ -47,10 +47,10 @@ const Contact = () => {
                     </div>
                     <div className="grid grid-cols-5 gap-2">
                         <div className="col-span-3">
-                            <img className="w-full" src="/img/home/contact1.jpg" alt="smile" loading="lazy"/>
+                            <img className="w-full" src="/img/home/contact1.png" alt="smile" loading="lazy"/>
                         </div>
                         <div className="col-span-2">
-                            <img className="w-full" src="/img/home/contact2.jpg" alt="smile" loading="lazy"/>
+                            <img className="w-full" src="/img/home/contact2.png" alt="smile" loading="lazy"/>
                         </div>
                     </div>
                 </div>
