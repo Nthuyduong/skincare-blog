@@ -39,3 +39,20 @@ export const getCategoryByIdApi = async (id) => {
         }
     }
 }
+
+export const getCategoriesByParentIdApi = async (id) => {
+    try {
+        const response = await fetchApi.get(`/categories/${id}/childrens`);
+        
+        return response.data;
+    } catch (error) {
+        if (error.response?.data) {
+            return error.response?.data;
+        } else {
+            return {
+                status: 0,
+                msg: error.response?.statusText,
+            };
+        }
+    }
+}

@@ -172,7 +172,7 @@ const Header = () => {
                             <div className={`my-collapse dark:border-b dark:border-ccc ${activeTab === 0 ? 'expanded' : ''}`}>
                                 <div className="question-container flex" onClick={toggleCollapse}>
                                     <div className="question mr-auto">
-                                        <Link href={ROUTER.DESTINATION}>
+                                        <Link href={`/categories/1`}>
                                             { trans.header.guide }
                                         </Link>
                                     </div>
@@ -196,7 +196,7 @@ const Header = () => {
                             <div className={`my-collapse dark:border-b dark:border-ccc ${activeTab2 === 0 ? 'expanded' : ''}`}>
                                 <div className="question-container flex" onClick={toggleCollapse2}>
                                     <div className="question mr-auto">
-                                        <Link href={ROUTER.DESTINATION}>
+                                        <Link href={`/categories/2`}>
                                             Skincare nerd
                                         </Link>
                                     </div>
@@ -367,7 +367,7 @@ const Header = () => {
                                             {/*Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white"*/}
                                             <div className="relative bg-gray-900 guide-navdrop rounded-md">
                                                 <div className="navdrop-title pr-3 py-4">
-                                                    <Link href={ROUTER.DESTINATION} className="dark:text-white flex nav-link">{ trans.header.guide }
+                                                    <Link href={`/categories/1`} className="dark:text-white flex nav-link">{ trans.header.guide }
                                                         <span className="ml-1 dark:hidden flex items-center">
                                                             <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="lazy"/>
                                                         </span>
@@ -393,7 +393,7 @@ const Header = () => {
                                             </div>
                                             <div className="relative destination-navdrop">
                                                 <div className="navdrop-title z-50 text-gray-300 hover:text-gray rounded-md pr-3 py-4">
-                                                    <Link href={ROUTER.DESTINATION} className="dark:text-white flex nav-link">Skincare nerd
+                                                    <Link href={`/categories/2`} className="dark:text-white flex nav-link">Skincare nerd
                                                         <span className="ml-1 dark:hidden flex items-center">
                                                             <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="lazy"/>
                                                         </span>
@@ -515,4 +515,5 @@ const Header = () => {
         </>
     )
 }
+
 export default Header;

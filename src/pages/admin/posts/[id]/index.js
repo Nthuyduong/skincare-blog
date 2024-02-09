@@ -51,7 +51,6 @@ const EditPost = ({ id }) => {
 
     const getImagePreview = () => {
         if (!featuredImage) {
-            console.log(post)
             if (post.featured_img) {
                 return BASE_URL + '/storage/desktop/' + post.featured_img;
             }
