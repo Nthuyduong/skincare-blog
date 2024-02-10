@@ -98,11 +98,11 @@ const Modals = () => {
                     <div className="modal-body" ref={enableClickOutside ? ref : null}>
                         {getModal()}
                     </div>
-                    <div className="modal-footer">
-                        <button className="text-black" onClick={handleOk}>
-                            ok
-                        </button>
-                    </div>
+                    {/*<div className="modal-footer">*/}
+                    {/*    <button className="text-black" onClick={handleOk}>*/}
+                    {/*        ok*/}
+                    {/*    </button>*/}
+                    {/*</div>*/}
                 </div>
             </div>
         </div>

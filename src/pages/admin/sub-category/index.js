@@ -1,22 +1,22 @@
-import { useDispatch } from "react-redux";
-import { showModal } from "@store/modal/modal.action";
-import React, { useEffect } from "react";
+import React, {useEffect} from "react";
+import {useDispatch} from "react-redux";
+import {showModal} from "../../../store/modal/modal.action";
 import { useCategory } from "@hooks/useCategory";
 
-const Admincategory = () => {
-    
+const Index = () => {
+
     const { categories, paginate, fetchCategories } = useCategory();
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        fetchCategories(1, false);
+        fetchCategories(1, true);
     }, []);
 
-    const handleAddCategory = (id = null) => {
+    const handleAddSubCate = (id = null) => {
         // gọi action show modal loading
         dispatch(showModal({
-            name: "category",
+            name: "subcate",
             enableClickOutside: true,
             data: {
                 id: id,
@@ -27,11 +27,11 @@ const Admincategory = () => {
     return(
         <div>
             <div className="category-page pt-5">
-                <div className="heading_1 mb-6">Category page</div>
+                <div className="heading_1 mb-6">Sub-Category page</div>
                 <div className="grid grid-cols-4 gap-4">
                     <div className="col-span-1">
                         <div className="search-bar-box flex">
-                            <input name="findOrder" id="findOrder" className="search-input w-100" type="text"
+                            <input name="findOrder" id="findOrder" className="search-input w-full" type="text"
                                    placeholder="Enter name/id post..."/>
                         </div>
                     </div>
@@ -44,7 +44,7 @@ const Admincategory = () => {
                         </select>
                     </div>
                     <div className="col-span-1">
-                        <button onClick={() => {handleAddCategory()}} className="my-btn-pr w-full">New Category</button>
+                        <button onClick={() => {handleAddSubCate()}} className="my-btn-pr w-full">New Subcategory</button>
                     </div>
                     <div className="col-span-1">
                         <button className="my-btn-pr w-full">Delete category</button>
@@ -57,7 +57,7 @@ const Admincategory = () => {
                             <input type="checkbox"/>
                         </div>
                         <div className="cell-ssm">ID</div>
-                        <div className="cell">Category name</div>
+                        <div className="cell">Name</div>
                         <div className="cell">Description</div>
                         <div className="cell">Sub-category</div>
                         <div className="cell">Total post</div>
@@ -66,16 +66,16 @@ const Admincategory = () => {
                     </div>
                     {categories.map((category, index) => {
                         return (
-                            <div className="post-list" key={index}>
+                            <div className="post-list">
                                 <div className="flex tbl-row">
-                                    <div className="">
+                                    <div>
                                         <input type="checkbox"/>
                                     </div>
                                     <div className="cell-ssm">{category.id}</div>
                                     <div className="cell">{category.name}</div>
-                                    <div className="cell txt-overflow">{category.description}</div>
-                                    <div className="cell">4</div>
-                                    <div className="cell">20</div>
+                                    <div className="cell">Post title</div>
+                                    <div className="cell">Author</div>
+                                    <div className="cell"></div>
                                     <div className="cell">
                                         <select className="sl-box">
                                             <option value="" defaultValue hidden>Choose status</option>
@@ -86,18 +86,8 @@ const Admincategory = () => {
                                     </div>
                                     <div className="cell">
                                         <div className="flex justify-center">
-                                            <img 
-                                                onClick={() => {handleAddCategory(category.id)}}
-                                                className="icon-sm" 
-                                                src="../img/icon/zoom-in.svg" 
-                                                alt="smile" loading="lazy"
-                                            />
-                                            <img
-                                                className="icon-sm mx-2" 
-                                                src="../img/icon/edit.svg" 
-                                                alt="smile" 
-                                                loading="lazy"
-                                            />
+                                            <img className="icon-sm" src="../img/icon/zoom-in.svg" alt="smile" loading="lazy"/>
+                                            <img className="icon-sm mx-2" src="../img/icon/edit.svg" alt="smile" loading="lazy"/>
                                             <img className="icon-sm" src="../img/icon/trash.svg" alt="smile" loading="lazy"/>
                                         </div>
                                     </div>
@@ -105,10 +95,10 @@ const Admincategory = () => {
                             </div>
                         )
                     })}
-                    
                 </div>
             </div>
         </div>
     )
 }
-export default Admincategory;
+
+export default Index;

@@ -3,11 +3,15 @@ import { useCategory } from "@hooks/useCategory";
 
 const ModalCategory = ({ id }) => {
 
+    const { createSubcategory, updateSubcategory } = useCategory();
+
     const { fetchCategoryById, category } = useCategory();
 
     const [name, setName] = useState("");
     const [slug, setSlug] = useState("");
     const [description, setDescription] = useState("");
+    const [featuredImage, setFeaturedImage] = useState('');
+    const [bannerImage, setBannerImage] = useState('')
 
     useEffect(() => {
         fetchCategoryById(id);
@@ -26,6 +30,16 @@ const ModalCategory = ({ id }) => {
         }
         
     }, [category]);
+
+    const handleClick = () => {
+        createSubcategory({
+            name: name,
+            slug: slug,
+            description: description,
+            featured_img: featuredImage,
+            banner_img: bannerImage,
+        })
+    }
 
     return (
         <div className="">
