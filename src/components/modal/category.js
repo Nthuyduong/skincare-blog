@@ -1,22 +1,35 @@
 import React, { useState, useEffect } from "react";
 import { useCategory } from "@hooks/useCategory";
+import { fetchCategoriesApi } from "@services/categories";
 
 const ModalCategory = ({ id }) => {
 
     const { createSubcategory, updateSubcategory } = useCategory();
+    const [categories, setCategories] = useState([]);
 
     const { fetchCategoryById, category } = useCategory();
 
     const [name, setName] = useState("");
     const [slug, setSlug] = useState("");
     const [description, setDescription] = useState("");
-    const [featuredImage, setFeaturedImage] = useState('');
     const [bannerImage, setBannerImage] = useState('')
 
     useEffect(() => {
-        fetchCategoryById(id);
-    }, [id]);
+        fetchCategoryById(id)
+        fetchCategoriesApi(1, true).then(res => {
+            setCategories(res.results || []);
+        })
+    }, []);
 
+    const getImagePreview = () => {
+        if (!bannerImage) {
+            if (categories.banner_img) {
+                return BASE_URL + '/storage/desktop/' + categories.banner_img;
+            }
+            return 'https://static.vecteezy.com/system/resources/previews/004/141/669/original/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg';
+        }
+        return URL.createObjectURL(bannerImage);
+    }
 
     useEffect(() => {
         if (id) {
@@ -36,7 +49,16 @@ const ModalCategory = ({ id }) => {
             name: name,
             slug: slug,
             description: description,
-            featured_img: featuredImage,
+            banner_img: bannerImage,
+        })
+    }
+
+    const handleUpdateClick = () => {
+        updateSubcategory({
+            id: id,
+            name: name,
+            slug: slug,
+            description: description,
             banner_img: bannerImage,
         })
     }
@@ -58,7 +80,7 @@ const ModalCategory = ({ id }) => {
                         />
                     </div>
                 </div>
-                <div className="mb-3">
+                <div className="">
                     <div className="mb-1">Category slug</div>
                     <div className="search-bar-box">
                         <input 
@@ -70,6 +92,27 @@ const ModalCategory = ({ id }) => {
                             value={slug || ""}
                             onChange={(e) => {setSlug(e.target.value)}}
                         />
+                    </div>
+                </div>
+                <div className="my-3">
+                    <div className="mb-1">Feature image</div>
+                    <div className=''>
+                        <div
+                            className='h-6 overflow-hidden banner-image-preview cursor-pointer'
+                            onClick={() => {
+                                document.getElementById('banner-image-file').click();
+                            }}
+                        >
+                            <img className="h-full w-auto" src={getImagePreview()} alt='banner image' />
+                        </div>
+                        <input
+                            id="banner-image-file"
+                            type='file'
+                            style={{display: "none"}}
+                            onChange={(e) => {
+                                setBannerImage(e.target.files[0]);
+                            }}
+                        ></input>
                     </div>
                 </div>
                 <div>
@@ -91,10 +134,10 @@ const ModalCategory = ({ id }) => {
                     </div>
                     { id ? (
                         <div className="col-span-1">
-                            <button className="my-btn-pr w-full">Update category</button>
+                            <button onClick={() => {handleUpdateClick()}} className="my-btn-pr w-full">Update category</button>
                         </div>) : (
                         <div className="col-span-1">
-                            <button className="my-btn-pr w-full">Add new category</button>
+                            <button onClick={() => {handleClick()}} className="my-btn-pr w-full">Add new category</button>
                         </div>
                     )}
                     

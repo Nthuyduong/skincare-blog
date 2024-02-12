@@ -30,6 +30,21 @@ const Index = () => {
                 <div className="heading_1 mb-6">Sub-Category page</div>
                 <div className="grid grid-cols-4 gap-4">
                     <div className="col-span-1">
+
+                    </div>
+                    <div className="col-span-1">
+
+                    </div>
+                    <div className="col-span-1">
+                        <button onClick={() => {handleAddSubCate()}} className="my-btn-pr w-full">New Subcategory</button>
+                    </div>
+                    <div className="col-span-1">
+                        <button className="my-btn-pr w-full">Delete category</button>
+                    </div>
+                </div>
+                <div className="my-line my-4"></div>
+                <div className="grid grid-cols-3 gap-4 mb-5">
+                    <div className="col-span-1">
                         <div className="search-bar-box flex">
                             <input name="findOrder" id="findOrder" className="search-input w-full" type="text"
                                    placeholder="Enter name/id post..."/>
@@ -44,13 +59,14 @@ const Index = () => {
                         </select>
                     </div>
                     <div className="col-span-1">
-                        <button onClick={() => {handleAddSubCate()}} className="my-btn-pr w-full">New Subcategory</button>
-                    </div>
-                    <div className="col-span-1">
-                        <button className="my-btn-pr w-full">Delete category</button>
+                        <select className="sl-box">
+                            <option value="" defaultValue hidden>Sort by category</option>
+                            <option value="">Published</option>
+                            <option value="">Draft</option>
+                            <option value="">New</option>
+                        </select>
                     </div>
                 </div>
-                <div className="my-line my-4"></div>
                 <div className="admin-tbl">
                     <div className="flex tbl-row admin-tbl-title">
                         <div className="select-all">
@@ -86,8 +102,13 @@ const Index = () => {
                                     </div>
                                     <div className="cell">
                                         <div className="flex justify-center">
-                                            <img className="icon-sm" src="../img/icon/zoom-in.svg" alt="smile" loading="lazy"/>
-                                            <img className="icon-sm mx-2" src="../img/icon/edit.svg" alt="smile" loading="lazy"/>
+                                            {/*<img className="icon-sm" src="../img/icon/zoom-in.svg" alt="smile" loading="lazy"/>*/}
+                                            <img
+                                                onClick={() => {handleAddSubCate(category.id)}}
+                                                className="icon-sm mx-2"
+                                                src="../img/icon/edit.svg"
+                                                alt="smile" loading="lazy"
+                                            />
                                             <img className="icon-sm" src="../img/icon/trash.svg" alt="smile" loading="lazy"/>
                                         </div>
                                     </div>

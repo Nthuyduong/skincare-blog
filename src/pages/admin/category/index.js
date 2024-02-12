@@ -86,13 +86,14 @@ const Admincategory = () => {
                                     </div>
                                     <div className="cell">
                                         <div className="flex justify-center">
-                                            <img 
-                                                onClick={() => {handleAddCategory(category.id)}}
-                                                className="icon-sm" 
-                                                src="../img/icon/zoom-in.svg" 
-                                                alt="smile" loading="lazy"
-                                            />
+                                            {/*<img */}
+                                            {/*    */}
+                                            {/*    className="icon-sm" */}
+                                            {/*    src="../img/icon/zoom-in.svg" */}
+                                            {/*    alt="smile" loading="lazy"*/}
+                                            {/*/>*/}
                                             <img
+                                                onClick={() => {handleAddCategory(category.id)}}
                                                 className="icon-sm mx-2" 
                                                 src="../img/icon/edit.svg" 
                                                 alt="smile" 

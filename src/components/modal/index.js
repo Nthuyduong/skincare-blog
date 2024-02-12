@@ -42,7 +42,7 @@ const Modals = () => {
             case "post":
                 return <ModalPost/>
             case "subcate":
-                return <ModalSubcate/>
+                return <ModalSubcate id={data?.id}/>
             case "deletepopup":
                 return <ModalDelete/>
             case "loading":

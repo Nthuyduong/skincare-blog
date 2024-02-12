@@ -2,9 +2,9 @@ import React, {useEffect, useState} from "react";
 import { fetchCategoriesApi } from "@services/categories";
 import { useCategory } from '@hooks/useCategory';
 
-const ModalSubcate = () => {
+const ModalSubcate = ({ id }) => {
 
-    const { createSubcategory, updateSubcategory } = useCategory();
+    const { createSubcategory, updateSubcategory, fetchCategoryById, category } = useCategory();
     const [categories, setCategories] = useState([]);
 
     const [selectedCategories, setSelectedCategories] = useState(null);
@@ -13,9 +13,9 @@ const ModalSubcate = () => {
     const [slug, setSlug] = useState('');
     const [description, setDescription] = useState('');
     const [featuredImage, setFeaturedImage] = useState('');
-    const [bannerImage, setBannerImage] = useState('')
 
     useEffect(() => {
+        fetchCategoryById(id)
         fetchCategoriesApi(1, false).then(res => {
             setCategories(res.results || []);
         })
@@ -33,10 +33,17 @@ const ModalSubcate = () => {
 
     useEffect(() => {
         console.log(categories);
-        setName(categories.name || '');
-        setSlug(categories.slug || '');
-        setDescription(categories.description || '');
-    }, [categories]);
+        if (id) {
+            setName(category.name || '');
+            setSlug(category.slug || '');
+            setDescription(category.description || '');
+        }
+        else {
+            setName("");
+            setSlug("");
+            setDescription("");
+        }
+    }, [category]);
 
     const handleClick = () => {
         createSubcategory({
@@ -47,6 +54,17 @@ const ModalSubcate = () => {
             parent_id: selectedCategories,
         })
     }
+
+    const handleUpdate = () => {
+        updateSubcategory({
+            id: id,
+            name: name,
+            slug: slug,
+            description: description,
+            featured_img: featuredImage,
+        })
+    }
+
     const handleChangeCategory = (e) => {
         const { value } = e.target;
         if (value) {
@@ -62,7 +80,7 @@ const ModalSubcate = () => {
                     <div className="search-bar-box">
                         <input
                             onChange={(e) => {setName(e.target.value)}}
-                            value={name}
+                            value={name || ""}
                             name="category-name" id="cate-name" className="w-full" type="text"
                                placeholder="Enter name"/>
                     </div>
@@ -73,7 +91,7 @@ const ModalSubcate = () => {
                         <input
                         className="w-fulll"
                         onChange={(e) => {setSlug(e.target.value)}}
-                        value={slug}
+                        value={slug || ""}
                         placeholder="Enter slug"
                         type="text"
                         />
@@ -121,7 +139,7 @@ const ModalSubcate = () => {
                             rows="5"
                             placeholder="Enter description"
                             onChange={(e) => {setDescription(e.target.value)}}
-                            value={description}
+                            value={description || ""}
                         ></textarea>
                     </div>
                 </div>
@@ -131,9 +149,14 @@ const ModalSubcate = () => {
                     <div className="col-span-1">
                         <button className="my-out-line-btn w-full">Cancel</button>
                     </div>
-                    <div className="col-span-1">
-                        <button onClick={() => {handleClick()}} className="my-btn-pr w-full">Create</button>
-                    </div>
+                    {id ? (
+                        <div className="col-span-1">
+                            <button onClick={() => {handleUpdate()}} className="my-btn-pr w-full">Update</button>
+                        </div>) : (
+                        <div className="col-span-1">
+                            <button onClick={() => {handleClick()}} className="my-btn-pr w-full">Create</button>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
