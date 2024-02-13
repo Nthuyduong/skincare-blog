@@ -23,7 +23,7 @@ const Index = () => {
                 id: id,
             },
             confirmCallback: () => {
-                fetchCategories(1, false);
+                fetchCategories(1, true);
             },
         }))
     }
