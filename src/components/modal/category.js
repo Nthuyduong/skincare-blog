@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useCategory } from "@hooks/useCategory";
 import { fetchCategoriesApi } from "@services/categories";
+import { BASE_URL } from "@utils/apiUtils";
 
-const ModalCategory = ({ id }) => {
+const ModalCategory = ({ id, confirmCallback }) => {
 
     const { createSubcategory, updateSubcategory } = useCategory();
     const [categories, setCategories] = useState([]);
@@ -44,23 +45,25 @@ const ModalCategory = ({ id }) => {
         
     }, [category]);
 
-    const handleClick = () => {
-        createSubcategory({
+    const handleClick = async() => {
+        await createSubcategory({
             name: name,
             slug: slug,
             description: description,
             banner_img: bannerImage,
         })
+        confirmCallback();
     }
 
-    const handleUpdateClick = () => {
-        updateSubcategory({
+    const handleUpdateClick = async() => {
+        await updateSubcategory({
             id: id,
             name: name,
             slug: slug,
             description: description,
             banner_img: bannerImage,
         })
+        confirmCallback();
     }
 
     return (

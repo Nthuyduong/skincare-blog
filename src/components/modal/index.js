@@ -38,11 +38,15 @@ const Modals = () => {
     const getModal = () => {
         switch (name) {
             case "category":
-                return <ModalCategory id={data?.id}/>
+                return <ModalCategory id={data?.id}
+                confirmCallback={confirmCallback}
+                />
             case "post":
                 return <ModalPost/>
             case "subcate":
-                return <ModalSubcate id={data?.id}/>
+                return <ModalSubcate id={data?.id}
+                confirmCallback={confirmCallback}
+                />
             case "deletepopup":
                 return <ModalDelete/>
             case "loading":

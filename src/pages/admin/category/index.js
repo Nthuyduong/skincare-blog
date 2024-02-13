@@ -1,11 +1,14 @@
 import { useDispatch } from "react-redux";
 import { showModal } from "@store/modal/modal.action";
-import React, { useEffect } from "react";
+import React, { useEffect,
+    useState } from "react";
 import { useCategory } from "@hooks/useCategory";
 
 const Admincategory = () => {
     
     const { categories, paginate, fetchCategories } = useCategory();
+
+    const [ selectedCategory, setSelectedCategory ] = useState([]);
 
     const dispatch = useDispatch();
 
@@ -16,12 +19,49 @@ const Admincategory = () => {
     const handleAddCategory = (id = null) => {
         // gọi action show modal loading
         dispatch(showModal({
+            title:id? "Update category" : "Create category",
             name: "category",
             enableClickOutside: true,
             data: {
                 id: id,
             },
+            confirmCallback: () => {
+                fetchCategories(1, false);
+            },
         }))
+    }
+
+    const handleDelete = () => {
+        console.log(selectedCategory);
+        if (selectedCategory.length === 0){
+            dispatch(showModal({
+                name: "notice",
+                title: "Can't delete category",
+                enableClickOutside: true,
+                data: {
+                    message: "Please select at least one category to delete"
+                },
+            }))
+        }
+        else{
+            dispatch(showModal({
+                name: "notice",
+                title: "Are your sure...",
+                enableClickOutside: true,
+                data: {
+                    message: "bb"
+                },
+            }))
+        }
+    }
+
+    const handleSelectedCategory = (e, id) => {
+        if (e.target.checked){
+            setSelectedCategory([...selectedCategory, id])
+        }
+        else{
+            setSelectedCategory(selectedCategory.filter(item => item != id))
+        }
     }
 
     return(
@@ -47,14 +87,16 @@ const Admincategory = () => {
                         <button onClick={() => {handleAddCategory()}} className="my-btn-pr w-full">New Category</button>
                     </div>
                     <div className="col-span-1">
-                        <button className="my-btn-pr w-full">Delete category</button>
+                        <button onClick={() => {handleDelete()}} className="my-btn-pr w-full">Delete category</button>
                     </div>
                 </div>
                 <div className="my-line my-4"></div>
                 <div className="admin-tbl">
                     <div className="flex tbl-row admin-tbl-title">
                         <div className="select-all">
-                            <input type="checkbox"/>
+                            <input
+                                type="checkbox"
+                            />
                         </div>
                         <div className="cell-ssm">ID</div>
                         <div className="cell">Category name</div>
@@ -69,7 +111,10 @@ const Admincategory = () => {
                             <div className="post-list" key={index}>
                                 <div className="flex tbl-row">
                                     <div className="">
-                                        <input type="checkbox"/>
+                                        <input
+                                            type="checkbox"
+                                            onChange={(e) => {handleSelectedCategory(e, category.id)}}
+                                        />
                                     </div>
                                     <div className="cell-ssm">{category.id}</div>
                                     <div className="cell">{category.name}</div>

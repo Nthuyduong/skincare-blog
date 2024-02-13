@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from "react";
 import { fetchCategoriesApi } from "@services/categories";
 import { useCategory } from '@hooks/useCategory';
+import { BASE_URL } from "@utils/apiUtils";
 
-const ModalSubcate = ({ id }) => {
+const ModalSubcate = ({ id, confirmCallback }) => {
 
     const { createSubcategory, updateSubcategory, fetchCategoryById, category } = useCategory();
     const [categories, setCategories] = useState([]);
@@ -23,8 +24,8 @@ const ModalSubcate = ({ id }) => {
 
     const getImagePreview = () => {
         if (!featuredImage) {
-            if (categories.featured_img) {
-                return BASE_URL + '/storage/desktop/' + categories.featured_img;
+            if (category?.featured_img) {
+                return BASE_URL + '/storage/desktop/' + category.featured_img;
             }
             return 'https://static.vecteezy.com/system/resources/previews/004/141/669/original/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg';
         }
@@ -45,24 +46,26 @@ const ModalSubcate = ({ id }) => {
         }
     }, [category]);
 
-    const handleClick = () => {
-        createSubcategory({
+    const handleClick = async() => {
+        await createSubcategory({
             name: name,
             slug: slug,
             description: description,
             featured_img: featuredImage,
             parent_id: selectedCategories,
         })
+        confirmCallback();
     }
 
-    const handleUpdate = () => {
-        updateSubcategory({
+    const handleUpdate = async() => {
+        await updateSubcategory({
             id: id,
             name: name,
             slug: slug,
             description: description,
             featured_img: featuredImage,
         })
+        confirmCallback();
     }
 
     const handleChangeCategory = (e) => {
@@ -100,7 +103,10 @@ const ModalSubcate = ({ id }) => {
                 <div className="">
                     <div className="mb-1">Category</div>
                     <div className="">
-                        <select className="sl-box" onChange={handleChangeCategory}>
+                        <select className="sl-box"
+                                onChange={handleChangeCategory}
+                                value={category?.parent_id}
+                        >
                             <option defaultValue value=''>Choose category</option>
                             {
                                 categories.map((item, index) => (

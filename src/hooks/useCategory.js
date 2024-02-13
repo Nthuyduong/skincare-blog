@@ -25,17 +25,17 @@ export const useCategory = () => {
 
     async function createSubcategory(data) {
         const formData = new FormData();
-        formData.append('name', data?.name);
-        formData.append('slug', data?.slug);
-        formData.append('description', data?.description);
+        formData.append('name', data.name);
+        formData.append('slug', data.slug);
+        formData.append('description', data.description);
         formData.append('status', 0);
-        if (data?.featured_img){
+        if (data.featured_img){
             formData.append('featured_img', data.featured_img);
         }
-        if (data?.banner_img){
+        if (data.banner_img){
             formData.append('banner_img', data.banner_img);
         }
-        if (data?.parent_id){
+        if (data.parent_id){
             formData.append('parent_id', data.parent_id)
         }
         showLoading()
@@ -57,25 +57,26 @@ export const useCategory = () => {
 
     async function updateSubcategory(data) {
         const formData = new FormData();
+        console.log('abc');
         console.log(data);
-        formData.append('name', data?.name);
-        formData.append('slug', data?.slug);
-        formData.append('description', data?.description);
+        formData.append('name', data.name);
+        formData.append('slug', data.slug);
+        formData.append('description', data.description);
         formData.append('status', 0);
-        if (data?.featured_img){
+        if (data.featured_img){
             formData.append('featured_img', data.featured_img);
         }
-        if (data?.banner_img){
+        if (data.banner_img){
             formData.append('banner_img', data.banner_img);
         }
-        if (data?.parent_id){
+        if (data.parent_id){
             formData.append('parent_id', data.parent_id)
         }
-        data?.categories?.map((item) => {
-            formData.append('categories[]', item);
-        });
+        // data?.categories?.map((item) => {
+        //     formData.append('categories[]', item);
+        // });
         showLoading();
-        const res = await updateSubcategory(data?.id, formData);
+        const res = await updateSubcategoryApi(data.id, formData);
         hide();
         if (res?.status == 1) {
             addToast('Category updated!', 'success');

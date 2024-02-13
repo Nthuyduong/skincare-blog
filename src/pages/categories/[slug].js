@@ -1,7 +1,15 @@
 import { getCategoriesByParentIdApi, getCategoryByIdApi } from '@services/categories';
 import Link from 'next/link';
+import { BASE_URL } from "@utils/apiUtils";
 
 const Categories = ({ category, subCategories }) => {
+
+    const getImagePreview = (url) => {
+        if (url) {
+            return BASE_URL + '/storage/desktop/' + url;
+        }
+        return 'https://static.vecteezy.com/system/resources/previews/004/141/669/original/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg';
+    }
 
     return (
         <div>
@@ -21,7 +29,7 @@ const Categories = ({ category, subCategories }) => {
                             <ul className="flex">
                                 <li><a href="#">Home</a></li>
                                 <li className="mx-2">/</li>
-                                <li><a href="#">Guides & Tutorials</a></li>
+                                <li><a href="#">{ category.name }</a></li>
                             </ul>
                         </div>
                         {/*<div className="heading_3 mx-auto">All Destinations</div>*/}
@@ -30,13 +38,13 @@ const Categories = ({ category, subCategories }) => {
                             <div className="flex justify-center">
                                 <div className="flex des-count pr-3 border-r border-ccc ">
                                     <div className="pr-1">
-                                        <img className="icon-sm" src="./img/icon/grid.svg" alt="#" loading="lazy"></img>
+                                        <img className="icon-sm" src="/img/icon/grid.svg" alt="#" loading="lazy"></img>
                                     </div>
                                     <div>4 Categories</div>
                                 </div>
                                 <div className="flex location-count pl-3">
                                     <div className="pr-1">
-                                        <img className="icon-sm" src="./img/icon/book-open.svg" alt="#" loading="lazy"></img>
+                                        <img className="icon-sm" src="/img/icon/book-open.svg" alt="#" loading="lazy"></img>
                                     </div>
                                     <div>40 Articles</div>
                                 </div>
@@ -50,8 +58,9 @@ const Categories = ({ category, subCategories }) => {
                 <div className="grid grid-cols-12 gap-5">
                     {subCategories.map((subCategory, index) => (
                         <div className="col-span-6 md:col-span-3 destination-cate mb-4" key={index}>
-                            <div className="pb-2 heading_6">{index + 1}/</div>
-                            <img className="w-full" src="/img/destination/des2.jpg" alt="smile" loading="lazy"/>
+                            <div className="pb-2 heading_6">0{index + 1}/</div>
+                            {/*<img className="w-full" src="/img/destination/des2.jpg" alt="smile" loading="lazy"/>*/}
+                            <img className="w-full" src={getImagePreview(subCategory.featured_img)} alt="smile" loading="lazy"/>
                             <div className="destination-cate-content">
                                 <div className="flex items-center border-b border-ccc dark:border-ccc">
                                     <div className="heading_6 my-1 mr-auto">

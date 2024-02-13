@@ -16,10 +16,14 @@ const Index = () => {
     const handleAddSubCate = (id = null) => {
         // gọi action show modal loading
         dispatch(showModal({
+            title:id? "Update subcategory" : "Create subcategory",
             name: "subcate",
             enableClickOutside: true,
             data: {
                 id: id,
+            },
+            confirmCallback: () => {
+                fetchCategories(1, false);
             },
         }))
     }
