@@ -53,7 +53,7 @@ const IngredientDetail = () => {
                     </div>
                     <div className="col-span-6">
                         <img className="w-full" src="/img/ingredient/ingredient1.jpg" alt="smile" loading="lazy"/>
-                        {/*<img className="dark:block hidden w-full" src="/img/ingredient/ingredient1.jpg" alt="smile" loading="lazy"/>*/}
+                        {/*<img className="dark:block hidden w-full" src="/img/ingredients/ingredient1.jpg" alt="smile" loading="lazy"/>*/}
                     </div>
                 </div>
                 <div className="mt-5 border-t border-ccc">

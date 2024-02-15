@@ -6,6 +6,7 @@ import ModalCategory from "./category";
 import ModalSubcate from "./subcate";
 import ModalDelete from "./deletepopup";
 import ModalNotice from "./notice";
+import ModalIngredient from "./ingredient";
 
 import { useClickOutside } from "../../hooks/dom";
 
@@ -43,6 +44,8 @@ const Modals = () => {
                 />
             case "post":
                 return <ModalPost/>
+            case "ingredient":
+                return <ModalIngredient/>
             case "subcate":
                 return <ModalSubcate id={data?.id}
                 confirmCallback={confirmCallback}

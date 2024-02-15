@@ -131,12 +131,6 @@ const Admincategory = () => {
                                     </div>
                                     <div className="cell">
                                         <div className="flex justify-center">
-                                            {/*<img */}
-                                            {/*    */}
-                                            {/*    className="icon-sm" */}
-                                            {/*    src="../img/icon/zoom-in.svg" */}
-                                            {/*    alt="smile" loading="lazy"*/}
-                                            {/*/>*/}
                                             <img
                                                 onClick={() => {handleAddCategory(category.id)}}
                                                 className="icon-sm mx-2" 
