@@ -3,15 +3,14 @@ import { useIngredient } from "@hooks/useIngredient";
 import { fetchIngredientsApi } from "@services/ingredients";
 import { BASE_URL } from "@utils/apiUtils";
 
-const ModalIngredient = ({ id, confirmCallback }) => {
+const ModalIngredient = ({ id }) => {
 
-    const { createIngredient, updateIngredient } = useIngredient();
+    const { createIngredient, updateIngredient, fetchIngredientById, ingredient } = useIngredient();
     const [ingredients, setIngredients] = useState([]);
-
-    const { fetchIngredientById, category } = useIngredient();
 
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
+    const [content, setContent] = useState("");
     const [featuredImage, setFeaturedImage] = useState('')
 
     useEffect(() => {
@@ -35,27 +34,30 @@ const ModalIngredient = ({ id, confirmCallback }) => {
         if (id) {
             setName(ingredient?.name);
             setDescription(ingredient?.description);
+            setContent(ingredient?.content);
         } else {
             setName("");
             setDescription("");
+            setContent("");
         }
 
-    }, [category]);
+    }, [ingredient]);
 
     const handleCreate = async() => {
-        await createSubcategory({
+        await createIngredient({
             name: name,
             description: description,
+            content: content,
             featured_img: featuredImage,
         })
-        confirmCallback();
     }
 
     const handleUpdate = async() => {
-        await updateSubcategory({
+        await updateIngredient({
             id: id,
             name: name,
             description: description,
+            content: content,
             featured_img: featuredImage,
         })
         confirmCallback();
@@ -73,9 +75,20 @@ const ModalIngredient = ({ id, confirmCallback }) => {
                             className="w-full"
                             type="text"
                             placeholder="Enter name"
-                            // value={name || ""}
-                            // onChange={(e) => {setName(e.target.value)}}
+                            value={name || ""}
+                            onChange={(e) => {setName(e.target.value)}}
                         />
+                    </div>
+                </div>
+                <div className="">
+                    <div className="mb-1">Ingredient description</div>
+                    <div className="search-bar-box">
+                        <textarea
+                            className="w-full"
+                            rows="5"
+                            value={description || ""}
+                            onChange={(e) => {setDescription(e.target.value)}}
+                        ></textarea>
                     </div>
                 </div>
                 {/*<div className="">*/}
@@ -108,19 +121,19 @@ const ModalIngredient = ({ id, confirmCallback }) => {
                             type='file'
                             style={{display: "none"}}
                             onChange={(e) => {
-                                setBannerImage(e.target.files[0]);
+                                setFeaturedImage(e.target.files[0]);
                             }}
                         ></input>
                     </div>
                 </div>
                 <div>
-                    <div className="mb-1">Desciption</div>
+                    <div className="mb-1">Content</div>
                     <div className="search-bar-box">
                         <textarea
                             className="w-full"
                             rows="5"
-                            value={description || ""}
-                            onChange={(e) => {setDescription(e.target.value)}}
+                            value={content || ""}
+                            onChange={(e) => {setContent(e.target.value)}}
                         ></textarea>
                     </div>
                 </div>

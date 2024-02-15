@@ -1,9 +1,9 @@
 const reducer = {
-    GET_POSTS: (state, { payload }) => {
+    GET_INGREDIENTS: (state, { payload }) => {
         state.ingredients = payload.results;
         state.paginate = payload.paginate;
     },
-    GET_POST_DETAIL: (state, { payload }) => {
+    GET_INGREDIENT_DETAIL: (state, { payload }) => {
         state.ingredients = payload;
     }
 }

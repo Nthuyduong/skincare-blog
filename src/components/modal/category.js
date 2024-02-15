@@ -5,10 +5,8 @@ import { BASE_URL } from "@utils/apiUtils";
 
 const ModalCategory = ({ id, confirmCallback }) => {
 
-    const { createSubcategory, updateSubcategory } = useCategory();
+    const { createSubcategory, updateSubcategory, fetchCategoryById, category } = useCategory();
     const [categories, setCategories] = useState([]);
-
-    const { fetchCategoryById, category } = useCategory();
 
     const [name, setName] = useState("");
     const [slug, setSlug] = useState("");

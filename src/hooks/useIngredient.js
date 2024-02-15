@@ -11,6 +11,7 @@ export const useIngredient = () => {
 
     async function fetchIngredients(page = 1) {
         const res = await fetchIngredientsApi(page);
+        console.log(res)
         if (res) {
             dispatch(fetchIngredientsAction(res));
         }
@@ -26,7 +27,8 @@ export const useIngredient = () => {
     async function createIngredient(data) {
         const formData = new FormData();
         formData.append('name', data.name);
-        formData.append('description', data.description);
+        formData.append('description', data.content);
+        formData.append('content', data.content);
         formData.append('status', 0);
         if (data.featured_img){
             formData.append('featured_img', data.featured_img);
@@ -45,10 +47,10 @@ export const useIngredient = () => {
 
     async function updateIngredient(data) {
         const formData = new FormData();
-        console.log('abc');
         console.log(data);
         formData.append('name', data.name);
         formData.append('description', data.description);
+        formData.append('content', data.content);
         formData.append('status', 0);
         if (data.featured_img){
             formData.append('featured_img', data.featured_img);
@@ -57,7 +59,7 @@ export const useIngredient = () => {
         const res = await updateIngredientApi(data.id, formData);
         hide();
         if (res?.status == 1) {
-            addToast('Category updated!', 'success');
+            addToast('Ingredient updated!', 'success');
         } else {
             addToast(res.msg, 'error');
         }

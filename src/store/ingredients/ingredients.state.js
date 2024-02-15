@@ -13,6 +13,7 @@ const state = {
         id: null,
         name: null,
         description: null,
+        content: null,
     }
 }
 

@@ -118,7 +118,7 @@ const Index = () => {
                     <div className="cell-sm">Status</div>
                     <div className="cell-sm">Action</div>
                 </div>
-                {ingredients.map((ingredient, index) => {
+                {ingredients?.map((ingredient, index) => {
                     return (
                         <div className="post-list" key={index}>
                             <div className="flex tbl-row">
