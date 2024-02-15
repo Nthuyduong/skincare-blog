@@ -18,19 +18,19 @@ const Sub_destination = ({ category, posts }) => {
         <div className="sub-des-page">
             <div className="sub-des-inner">
                 <div className="container-fluid m-w mx-auto my-0">
-                    <div className="grid grid-cols-12 gap-5">
-                        <div className="col-span-2 left-menu dark:border-r dark:!border-ccc">
-                            <div className="left-menu-inner">
-                                <ul className="menu-fixed">
-                                    <li className="pb-2"><a href="#">All articles</a></li>
-                                    <li className="pb-2 my-2"><a href="#">Recently update</a></li>
-                                    <li className="pb-2"><a href="#">Most useful</a></li>
-                                    <li className="pb-2 my-2"><a href="#">Oldest articles</a></li>
-                                    <li className="pb-2"><a href="#">Already read</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div className="col-span-10 right-all-posts">
+                    <div className="">
+                        {/*<div className="col-span-2 left-menu dark:border-r dark:!border-ccc">*/}
+                        {/*    <div className="left-menu-inner">*/}
+                        {/*        <ul className="menu-fixed">*/}
+                        {/*            <li className="pb-2"><a href="#">All articles</a></li>*/}
+                        {/*            <li className="pb-2 my-2"><a href="#">Recently update</a></li>*/}
+                        {/*            <li className="pb-2"><a href="#">Most useful</a></li>*/}
+                        {/*            <li className="pb-2 my-2"><a href="#">Oldest articles</a></li>*/}
+                        {/*            <li className="pb-2"><a href="#">Already read</a></li>*/}
+                        {/*        </ul>*/}
+                        {/*    </div>*/}
+                        {/*</div>*/}
+                        <div className="col-span-12 right-all-posts">
                             <div className="relative title-page">
                                 <img className="w-100" src="../img/subdes/sub-banner.png" alt="smile" loading="lazy"/>
                                 <div className="absolute main-title">
@@ -74,7 +74,7 @@ const Sub_destination = ({ category, posts }) => {
                                 </div>
                             </div>
                             <div className="all-post">
-                                <div className="grid grid-cols-12 gap-5">
+                                <div className="grid grid-cols-12 gap-3">
                                     {posts.map((post, index) => (
                                         <div className="col-span-6 md:col-span-3" key={index}>
                                             <img className="w-full" src={getImagePreview(post.featured_img)} alt="smile" loading="lazy"/>
