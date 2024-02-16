@@ -18,7 +18,7 @@ export const ROUTER = {
     ADSUBCATE: '/admin/sub-category',
     NOTFOUND: '/notfound',
     TESTREVIEW: '/test_review',
-    INGREDIENT: '/ingredients',
+    INGREDIENT: '/ingredient',
     INGREDIENTDETAIL: '/ingredients/detail',
     TESTPOST: '/test_post',
     ADINGREDIENT: '/admin/ingredient'

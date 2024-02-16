@@ -45,7 +45,8 @@ const Modals = () => {
             case "post":
                 return <ModalPost/>
             case "ingredient":
-                return <ModalIngredient/>
+                return <ModalIngredient id={data?.id}
+                />
             case "subcate":
                 return <ModalSubcate id={data?.id}
                 confirmCallback={confirmCallback}

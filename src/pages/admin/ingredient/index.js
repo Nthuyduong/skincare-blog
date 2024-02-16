@@ -3,7 +3,7 @@ import { showModal } from "@store/modal/modal.action";
 import { useIngredient } from "@hooks/useIngredient";
 import {useDispatch} from "react-redux";
 
-const Index = () => {
+const Adminingredient = () => {
 
     const { ingredients, paginate, fetchIngredients } = useIngredient();
 
@@ -23,9 +23,6 @@ const Index = () => {
             enableClickOutside: true,
             data: {
                 id: id,
-            },
-            confirmCallback: () => {
-                fetchIngredients(1);
             },
         }))
     }
@@ -140,8 +137,13 @@ const Index = () => {
                                 </div>
                                 <div className="cell-sm">
                                     <div className="flex justify-center">
-                                        <img className="icon-sm" src="../img/icon/zoom-in.svg" alt="smile" loading="lazy"/>
-                                        <img className="icon-sm mx-2" src="../img/icon/edit.svg" alt="smile" loading="lazy"/>
+                                        <img
+                                            onClick={() => {handleAddIngredient(ingredient.id)}}
+                                            className="icon-sm mx-2" 
+                                            src="../img/icon/edit.svg" 
+                                            alt="smile" 
+                                            loading="lazy"
+                                        />
                                         <img className="icon-sm" src="../img/icon/trash.svg" alt="smile" loading="lazy"/>
                                     </div>
                                 </div>
@@ -154,4 +156,4 @@ const Index = () => {
     )
 }
 
-export default Index;
+export default Adminingredient;

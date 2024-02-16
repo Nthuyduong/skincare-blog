@@ -14,10 +14,10 @@ const ModalIngredient = ({ id }) => {
     const [featuredImage, setFeaturedImage] = useState('')
 
     useEffect(() => {
-        fetchIngredientById(id)
-        fetchIngredientsApi(1, true).then(res => {
-            setIngredients(res.results || []);
-        })
+        fetchIngredientById(id);
+        // fetchIngredientsApi(1).then(res => {
+        //     setIngredients(res.results || []);
+        // })
     }, []);
 
     const getImagePreview = () => {
@@ -42,6 +42,7 @@ const ModalIngredient = ({ id }) => {
         }
 
     }, [ingredient]);
+    console.log(id)
 
     const handleCreate = async() => {
         await createIngredient({
@@ -60,7 +61,6 @@ const ModalIngredient = ({ id }) => {
             content: content,
             featured_img: featuredImage,
         })
-        confirmCallback();
     }
 
     return (

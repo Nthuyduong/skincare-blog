@@ -11,7 +11,6 @@ export const useIngredient = () => {
 
     async function fetchIngredients(page = 1) {
         const res = await fetchIngredientsApi(page);
-        console.log(res)
         if (res) {
             dispatch(fetchIngredientsAction(res));
         }
@@ -19,6 +18,7 @@ export const useIngredient = () => {
 
     async function fetchIngredientById(id) {
         const res = await getIngredientByIdApi(id);
+        console.log(res)
         if (res.status) {
             dispatch(fetchIngredientDetailAction(res.data));
         }

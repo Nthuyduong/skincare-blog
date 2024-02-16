@@ -4,7 +4,8 @@ const reducer = {
         state.paginate = payload.paginate;
     },
     GET_INGREDIENT_DETAIL: (state, { payload }) => {
-        state.ingredients = payload;
+        state.ingredient = payload;
+        console.log('duong');
     }
 }
 
