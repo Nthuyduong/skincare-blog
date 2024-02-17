@@ -7,6 +7,7 @@ import ModalSubcate from "./subcate";
 import ModalDelete from "./deletepopup";
 import ModalNotice from "./notice";
 import ModalIngredient from "./ingredient";
+import ModalPicker from "./picker";
 
 import { useClickOutside } from "../../hooks/dom";
 
@@ -34,6 +35,7 @@ const Modals = () => {
         enableClickOutside, 
         showHeader,
         confirmCallback,
+        width,
     } = useSelector(state => state.modal.modal);
 
     const getModal = () => {
@@ -57,6 +59,12 @@ const Modals = () => {
                 return <ModalLoading data={data} />;
             case "notice":
                 return <ModalNotice data={data}/>;
+            case "picker":
+                return (
+                    <ModalPicker
+                        type={data?.type}
+                    />
+                );
             default:
                 return <></>;
         }
@@ -92,7 +100,10 @@ const Modals = () => {
             data-mobile-position={mobilePosition}
         >
             <div className="modal-backdrop">
-                <div className={`modal-dialog ${invisibleBackground ? 'modal-invisible-background': ''}`}>
+                <div 
+                    className={`modal-dialog ${invisibleBackground ? 'modal-invisible-background': ''}`}
+                    style={{width: width}}
+                >
                     {showHeader ? (
                         <div className="modal-header">
                             {title ? (

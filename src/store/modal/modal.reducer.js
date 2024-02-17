@@ -9,6 +9,7 @@ const reducer = {
         state.modal.title = payload.title;
         state.modal.position = payload.position || '';
         state.modal.mobilePosition = payload.mobilePosition || '';
+        state.modal.width = payload.width || '500px';
         if (payload.invisibleBackground !== undefined) {
             state.modal.invisibleBackground = payload.invisibleBackground;
         }
@@ -45,6 +46,7 @@ const reducer = {
         state.modal.invisibleBackground = false;
         state.modal.enableClickOutside = true;
         state.modal.showHeader = true;
+        state.modal.width = '500px';
     }
 
     // SHOW_MODAL_LOADING: (state, {}) => {
