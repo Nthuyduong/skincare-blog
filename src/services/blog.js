@@ -1,40 +1,15 @@
-import { fetchApi } from "@utils/apiUtils";
+import { fetchApi, getApi } from "@utils/apiUtils";
 
 export const fetchBlogPostsApi = async (page = 1) => {
-    try {
-        const response = await fetchApi.get("/blogs", {
-            params: {
-                page,
-                limit: 10,
-            }
-        });
-        return response.data.data;
-    } catch (error) {
-        if (error.response?.data) {
-            return error.response?.data;
-        } else {
-            return {
-                status: 0,
-                msg: error.response?.statusText,
-            };
-        }
-    }
+    const response = await getApi("/blogs", {
+        page,
+        limit: 10,
+    });
+    return response.data;
 };
 
 export const getBlogByIdApi = async (id) => {
-    try {
-        const response = await fetchApi.get(`/blogs/${id}`);
-        return response.data;
-    } catch (error) {
-        if (error.response?.data) {
-            return error.response?.data;
-        } else {
-            return {
-                status: 0,
-                msg: error.response?.statusText,
-            };
-        }
-    }
+    return await getApi(`/blogs/${id}`);
 }
 
 export const getBlogBySlugApi = async (slug) => {
