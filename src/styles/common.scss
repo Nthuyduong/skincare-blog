@@ -254,12 +254,16 @@
 
 .modal-dialog {
     background: white;
-    width: 500px;
     height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+@media screen and (max-width: 768px) {
+    .modal-dialog {
+        width: 80vw;
+    }
 }
 .modal-header {
     width: 100%;

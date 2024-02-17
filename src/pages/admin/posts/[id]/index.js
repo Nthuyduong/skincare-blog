@@ -5,8 +5,11 @@ import Link from 'next/link';
 import Editor from '@components/common/editor/editor';
 import { fetchCategoriesApi } from "@services/categories";
 import { BASE_URL } from "@utils/apiUtils";
+import { useModal } from '../../../../hooks/modal';
 
 const EditPost = ({ id }) => {
+
+    const { show } = useModal();
 
     const { getBlogById, post, updateBlogPost } = usePost();
     const [categories, setCategories] = useState([]);
@@ -27,7 +30,6 @@ const EditPost = ({ id }) => {
     }, []);
 
     useEffect(() => {
-        console.log(post);
         setTitle(post.title || '');
         setSlug(post.slug || '');
         setsummary(post.summary || '');
@@ -99,6 +101,18 @@ const EditPost = ({ id }) => {
         }));
     }
 
+    const onClickAddMedia = () => {
+        show({
+            title: "Add media",
+            name: "picker",
+            enableClickOutside: true,
+            width: "80%",
+            data: {
+                type: "image",
+            }
+        })
+    }
+
     return(
         <div className="create-new-post">
             <div className="create-post-top">
@@ -162,7 +176,7 @@ const EditPost = ({ id }) => {
                             </div>
                         </div>
                         <div className='input-wrp'>
-                            <div className="mb-1">summary</div>
+                            <div className="mb-1">Summary</div>
                             <div className="search-bar-box">
                                 <textarea 
                                     className="w-full" 
@@ -172,6 +186,12 @@ const EditPost = ({ id }) => {
                                     value={summary}
                                 ></textarea>
                             </div>
+                        </div>
+                        <div className='input-wrp'>
+                            <button 
+                                className="my-btn-pr w-full"
+                                onClick={() => {onClickAddMedia()}}
+                            >Add media</button>
                         </div>
                         <div className="text-editor-wrp">
                             <Editor 

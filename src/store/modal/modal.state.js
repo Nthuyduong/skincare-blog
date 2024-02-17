@@ -18,6 +18,7 @@ const state = {
         position: '',
         mobilePosition: '',
         confirmCallback: null,
+        with: '500px'
     },
 
     toasts: [],
