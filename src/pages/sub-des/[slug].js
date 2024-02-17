@@ -74,9 +74,9 @@ const Sub_destination = ({ category, posts }) => {
                                 </div>
                             </div>
                             <div className="all-post">
-                                <div className="grid grid-cols-12 gap-3">
+                                <div className="columns-4">
                                     {posts.map((post, index) => (
-                                        <div className="col-span-6 md:col-span-3" key={index}>
+                                        <div className="inline-block mb-3 my-4 border-b border-ccc" key={index}>
                                             <img className="w-full" src={getImagePreview(post.featured_img)} alt="smile" loading="lazy"/>
                                             <div>
                                                 <div className="py-1 mb-1">

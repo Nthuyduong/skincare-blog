@@ -81,11 +81,11 @@ const ModalIngredient = ({ id }) => {
                     </div>
                 </div>
                 <div className="">
-                    <div className="mb-1">Ingredient description</div>
+                    <div className="mb-1">Description</div>
                     <div className="search-bar-box">
                         <textarea
                             className="w-full"
-                            rows="5"
+                            rows="2"
                             value={description || ""}
                             onChange={(e) => {setDescription(e.target.value)}}
                         ></textarea>
@@ -126,19 +126,37 @@ const ModalIngredient = ({ id }) => {
                         ></input>
                     </div>
                 </div>
-                <div>
+                <div className="mb-3">
                     <div className="mb-1">Content</div>
-                    <div className="search-bar-box">
-                        <textarea
-                            className="w-full"
-                            rows="5"
-                            value={content || ""}
-                            onChange={(e) => {setContent(e.target.value)}}
-                        ></textarea>
+                    <div className="">
+                        <div className="mb-2">
+                            <div className="mb-2">Title</div>
+                            <textarea
+                                className="w-full border border-ccc"
+                                rows="2"
+                                value={content || ""}
+                                onChange={(e) => {setContent(e.target.value)}}
+                            ></textarea>
+                        </div>
+                        <div className="mb-2">
+                            <div className="">Title</div>
+                            <textarea
+                                className="w-full border border-ccc"
+                                rows="2"
+                                value={content || ""}
+                                onChange={(e) => {setContent(e.target.value)}}
+                            ></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div className="flex">
+                        <div className="mr-2">+</div>
+                        <div className="">Add more content</div>
                     </div>
                 </div>
             </div>
-            <div className="callback-btn">
+            <div className="callback-btn mt-4">
                 <div className="grid grid-cols-2 gap-3">
                     <div className="col-span-1">
                         <button className="my-out-line-btn w-full">Cancel</button>

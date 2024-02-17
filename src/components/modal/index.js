@@ -29,7 +29,7 @@ const Modals = () => {
         title, 
         position, 
         mobilePosition, 
-        data, 
+        data,
         invisibleBackground, 
         enableClickOutside, 
         showHeader,

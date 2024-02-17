@@ -211,7 +211,7 @@ const Header = () => {
                                 <div className={`content-container`}>
                                     <div><Link href={ROUTER.DESTINATION}>Skin concerns</Link></div>
                                     <div><Link href={ROUTER.DESTINATION}>Tips & Advices</Link></div>
-                                    <div><Link href={ROUTER.DESTINATION}>Skincare ingredients</Link></div>
+                                    <div><Link href={ROUTER.INGREDIENT}>Skincare ingredients</Link></div>
                                     <div><Link href={ROUTER.DESTINATION}>Nuturish</Link></div>
                                 </div>
                             </div>
