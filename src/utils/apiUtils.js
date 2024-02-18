@@ -76,7 +76,7 @@ export const deleteApi = async (url, config) => {
 }
 
 export const adminApi = axios.create({
-    baseURL: BASE_URL + "/admin",
+    baseURL: BASE_URL + "/api/admin",
     headers: {
         "Content-Type": "application/json"
     },
@@ -84,7 +84,7 @@ export const adminApi = axios.create({
 
 export const getApiAdmin = async (url, params, config) => {
     try {
-        const response = await fetchApi.get(url, {
+        const response = await adminApi.get(url, {
             params,
             headers: {
                 "Content-Type": "application/json",
@@ -108,16 +108,17 @@ export const getApiAdmin = async (url, params, config) => {
 
 export const postApiAdmin = async (url, data, config) => {
     try {
-        const response = await fetchApi.post(url, data, {
+        const response = await adminApi.post(url, data, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": "Bearer " + localStorage.getItem("token"),
-                ...config.headers,
+                ...config,
             }
         });
 
         return response.data;
     } catch (error) {
+        console.log(error)
         if (error.response?.data) {
             return error.response?.data;
         } else {
@@ -131,7 +132,7 @@ export const postApiAdmin = async (url, data, config) => {
 
 export const deleteApiAdmin = async (url, config) => {
     try {
-        const response = await fetchApi.delete(url, {
+        const response = await adminApi.delete(url, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": "Bearer " + localStorage.getItem("token"),

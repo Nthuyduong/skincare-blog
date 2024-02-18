@@ -1,6 +1,9 @@
 import { useRef, useState } from "react";
+import { useAdmin } from '@hooks/useAdmin';
 
 const Adminlogin = () => {
+
+    const { login } = useAdmin();
 
     const tabsRef = useRef([
         { title: 'Sign in', content: 'Hello, Welcome back!' },
@@ -28,9 +31,10 @@ const Adminlogin = () => {
         ));
     };
 
-    const handleLogin = ()=> {
+    const handleLogin = () => {
         console.log(email);
         console.log(password);
+        login(email, password)
     }
 
     return(

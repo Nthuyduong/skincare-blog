@@ -1,7 +1,7 @@
-import { fetchApi, getApi } from "@utils/apiUtils";
+import { fetchApi, getApi, getApiAdmin } from "@utils/apiUtils";
 
 export const fetchCategoriesApi = async (page = 1, has_parent = null) => {
-    const response = await getApi("/categories", {
+    const response = await getApiAdmin("/categories", {
         page,
         limit: 10,
         has_parent,
