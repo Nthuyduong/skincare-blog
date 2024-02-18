@@ -1,9 +1,17 @@
-import {loginAdminApi} from "../services/admin";
+import {getApiAdminInfo, loginAdminApi} from "../services/admin";
 import { useModal } from "@hooks/modal";
+import { useDispatch, useSelector } from "react-redux";
+import {fetchAdminDetailAction} from "../store/admin/admin.action";
+import { useRouter } from 'next/router';
 
 export const useAdmin = () => {
 
+    const router = useRouter();
+
     const { addToast, showLoading, hide } = useModal();
+    const { admin } = useSelector((state) => state.admin);
+
+    const dispatch = useDispatch();
 
     const login = async (email,password) => {
 
@@ -19,8 +27,24 @@ export const useAdmin = () => {
         }
         console.log(res)
     }
-    return {
-        login,
+
+    const getAdminInfo = async () => {
+        const res = await getApiAdminInfo();
+        console.log(res)
+        if(res) {
+            dispatch(fetchAdminDetailAction(res))
+        }
+        console.log(router)
     }
+
+
+
+    return {
+        admin,
+        login,
+        getAdminInfo,
+    }
+
+
 }
 

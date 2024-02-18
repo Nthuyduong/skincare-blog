@@ -7,6 +7,7 @@ import deleteReducer from './deletepopup';
 import postReducer from "./post";
 import categoriesReducer from "./categories";
 import ingredientReducer from "./ingredients";
+import adminReducer from "./admin";
 
 // khai báo các reducer trong store
 // Những cái data chung như modal, alert, , ... thì nên tạo reducer riêng
@@ -18,7 +19,8 @@ const reducer = {
     deletepopup: deleteReducer,
     post: postReducer,
     categories: categoriesReducer,
-    ingredients: ingredientReducer
+    ingredients: ingredientReducer,
+    admin: adminReducer
     // user: userReducer,
 };
 

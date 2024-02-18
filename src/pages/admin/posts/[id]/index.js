@@ -63,7 +63,6 @@ const EditPost = ({ id }) => {
 
     const getBannerPreview = () => {
         if (!bannerImage) {
-            console.log(post)
             if (post.banner_img) {
                 return BASE_URL + '/storage/desktop/' + post.banner_img;
             }

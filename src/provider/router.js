@@ -2,16 +2,26 @@ import { useRouter } from 'next/router';
 import { throttle } from '@utils/common';
 import React, { createContext, useContext, useEffect } from 'react';
 import { useModal } from '@hooks/modal';
+import { useAdmin } from "@hooks/useAdmin";
 
 const RouterContext = createContext();
 
 export const RouterProvider = ({ children }) => {
+
+    const { getAdminInfo, admin } = useAdmin();
+
     const {
         hide
     } = useModal();
     const router = useRouter();
 
     useEffect(() => {
+        console.log(admin)
+    },[admin])
+
+    useEffect(() => {
+        getAdminInfo();
+
         const pageAccessedByReload = window.performance
             .getEntriesByType('navigation')
             .map((nav) => nav.type)
