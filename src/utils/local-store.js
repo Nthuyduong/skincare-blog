@@ -28,3 +28,4 @@ export const getTheme = () => {
 export const setTheme = (theme) => {
     localStorage.setItem(THEME, JSON.stringify(theme));
 }
+

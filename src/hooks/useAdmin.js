@@ -1,8 +1,9 @@
-import {getApiAdminInfo, loginAdminApi} from "../services/admin";
+import {AdminLogout, getApiAdminInfo, loginAdminApi} from "../services/admin";
 import { useModal } from "@hooks/modal";
 import { useDispatch, useSelector } from "react-redux";
 import {fetchAdminDetailAction} from "../store/admin/admin.action";
 import { useRouter } from 'next/router';
+import { ADMIN_ROUTER, ADMIN_ROUTERS, ADMIN_ROUTER_WITH_AUTH } from "../utils/constants";
 
 export const useAdmin = () => {
 
@@ -29,19 +30,46 @@ export const useAdmin = () => {
     }
 
     const getAdminInfo = async () => {
-        const res = await getApiAdminInfo();
-        console.log(res)
-        if(res) {
-            dispatch(fetchAdminDetailAction(res))
+        if(ADMIN_ROUTERS.includes(router.route)){
+            let res = null;
+            if(!admin.id){
+                res = await getApiAdminInfo();
+            }
+            else{
+                res = admin
+            }
+            console.log(res)
+            if(res) {
+                if(router.route != ADMIN_ROUTER.LOGIN){
+                    if(res?.id){
+                        dispatch(fetchAdminDetailAction(res))
+                    }else{
+                        window.location.href = ADMIN_ROUTER.LOGIN;
+                    }
+                }else{
+                    if(res.id){
+                        window.location.href = ADMIN_ROUTER.DASHBOARD;
+                    }
+                }
+            }
+            console.log(router.route)
+        }else{
+            console.log('abc')
         }
-        console.log(router)
     }
 
-
+    const logout = async () => {
+        showLoading();
+        const res = await AdminLogout();
+        localStorage.removeItem("token");
+        hide();
+        window.location.href = ADMIN_ROUTER.LOGIN
+    }
 
     return {
         admin,
         login,
+        logout,
         getAdminInfo,
     }
 

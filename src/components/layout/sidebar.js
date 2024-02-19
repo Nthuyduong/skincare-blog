@@ -1,8 +1,16 @@
 import React from "react";
 import Link from 'next/link'
 import {ROUTER} from "../../utils/constants";
+import { useAdmin } from '@hooks/useAdmin';
 
 const Sidebar = () => {
+
+    const { logout } = useAdmin();
+
+    const handleLogout = () => {
+        logout();
+    }
+
     return(
         <div id="sidebar" className="h-full fixed p-5">
             <div className="flex sidebar-title pb-4">
@@ -34,7 +42,7 @@ const Sidebar = () => {
                 </div>
             </div>
             <div className="">
-                <button className="absolute w-full my-btn-pr">Log out</button>
+                <button onClick={() => {handleLogout()}} className="absolute w-full my-btn-pr">Log out</button>
             </div>
         </div>
     )

@@ -12,3 +12,7 @@ export const loginAdminApi = async (email, password) => {
 export const getApiAdminInfo = async () => {
     return await getApiAdmin("/info");
 }
+
+export const AdminLogout = async () => {
+    return await postApiAdmin("/logout");
+}
