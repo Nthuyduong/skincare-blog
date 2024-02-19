@@ -7,7 +7,7 @@ const ImagePicker = ({ onPick }) => {
     return (
         <div className='image-picker-container'>
             <div className='tab-content flex gap-4'>
-                <div className='pr-4 border-r-2 w-52'>
+                <div className='pr-4 border-r-2 w-1/5'>
                     <div>
                         <div 
                             className='feature-image-preview cursor-pointer'
