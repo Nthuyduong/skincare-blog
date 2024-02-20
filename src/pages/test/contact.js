@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 const Contact = () => {
     
     return (
-        <div className='grid grid-cols-12' style={{ gap: '1vw', padding: '0 5vw'}}>
-            <div className="col-span-6 pt-4" style={{fontSize: "5vw"}}>
+        <div className='test-contact grid grid-cols-12' style={{ gap: '1vw', padding: '0 5vw'}}>
+            <div className="col-span-12 md:col-span-6 pt-4 test-font-large">
                 <div className='grid grid-cols-6 '>
                     <div className='col-span-4'>
                         WELCOME
@@ -26,16 +26,16 @@ const Contact = () => {
                     </div>
                 </div>
             </div>
-            <div className="col-span-6">
+            <div className="col-span-12 md:col-span-6">
                 <div className='grid grid-cols-6 ' style={{ gap: '1vw'}}>
-                    <div className='col-span-4 pt-4' style={{fontSize: "5vw"}}>
+                    <div className='col-span-4 pt-4 test-font-large'>
                         to <br/>DESIGN<br/>WORLD
                     </div>
                     <div className='col-span-2'>
                         <img className='w-full' src='https://app.radiance-aura.blog/storage/desktop/1707801577_sun.png' alt='camera'/>
                     </div>
                 </div>
-                <div className='grid grid-cols-6 pt-4' style={{ fontSize: "1vw", gap: '1vw'}}>
+                <div className='grid grid-cols-6 pt-4 test-font-small' style={{ gap: '1vw'}}>
                     <div className='col-span-2 flex justify-center items-center'>
                         <img className='w-full' src='https://app.radiance-aura.blog/storage/desktop/1707801577_sun.png' alt='camera'/>
                     </div>
