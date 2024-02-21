@@ -39,10 +39,10 @@ const Adminlogin = () => {
 
 
     return(
-        <div>
-            <div className="admin-login">
-                <div>
-                    <div className="flex justify-center tabs-container">
+        <div className="items-center flex h-screen">
+            <div className="admin-login w-full pb-9">
+                <div className="">
+                    <div className="flex justify-center tabs-container mb-6">
                         {renderTabs()}
                     </div>
                     <div className="grid grid-cols-12">
@@ -63,7 +63,7 @@ const Adminlogin = () => {
                                                 value={email}
                                                 required/>
                                         </div>
-                                        <div className="flex flex-col mt-3 mb-6">
+                                        <div className="flex flex-col mt-4 mb-6">
                                             <label>Password *</label>
                                             <input
                                                 className="admin-inpu"

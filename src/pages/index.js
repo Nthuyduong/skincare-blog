@@ -308,7 +308,8 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-                <div className="p-100">
+                {/*Reader's favorite*/}
+                <div className="pt-100">
                     <div className="heading_3 mb-4">Reader's Favorite</div>
                     <div className="">
                         <Slider
@@ -464,50 +465,7 @@ const Home = () => {
                         </Slider>
                     </div>
                 </div>
-                <div className="home-about dark:border-t dark:border-b dark:!border-ccc">
-                    <div className="md:grid md:grid-cols-12 gap-4">
-                        <div className="md:col-span-8 py-6 about-intro md:border-r !border-ccc">
-                            <div className="relative">
-                                <div className="heading_1">
-                                    “Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor.”
-                                </div>
-                                <div className="absolute heading_6 md:mt-auto md:block hidden">Hello & Welcome!</div>
-                            </div>
-                        </div>
-                        <div className="md:col-span-4 about-content pt-3 pb-6 md:py-6">
-                            <div>Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat
-                                quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut
-                                sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Diam nec ut sed est sit
-                                in tortor. Blandit consequat quisque vitae ornare.</div>
-                            <div className="mt-6">
-                                <Link href={ROUTER.ABOUT}>
-                                    <button className="my-out-line-btn dark:border-ccc" type="submit">MORE ABOUT ME</button>
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div className="bg-primary p-5">
-                        <div className="flex">
-                            <div className="">
-                                <img className="w-full" src="./img/home/subscribe.png" alt="smile" loading="lazy"/>
-                            </div>
-                            <div className="ml-5 text-black flex items-center pr-8">
-                                <div>
-                                    <div className="mb-3 heading_2">Subscribe for newsletters</div>
-                                    <div>
-                                        Receive the latest updates straight to your inbox. Get stories, exclusive offers, and promotions when you sign up.
-                                    </div>
-                                    <div className="mt-4">
-                                        <button className="w-1/4 my-btn-pr dark:border-white" type="submit">Subscribe</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
                 {/*<div className="contact-me p-5 md:p-8">*/}
                 {/*    <div className="contact-me-inner p-5 md:p-7 bg-white dark:text-black">*/}
                 {/*        <div className="heading_3 mb-3 md:mb-4">Work With Me</div>*/}
@@ -550,9 +508,62 @@ const Home = () => {
                 {/*        <div className="col-span-2"></div>*/}
                 {/*    </div>*/}
                 {/*</div>*/}
+            <div className="p-100">
+                <div className="home-decor p-100">
+                    <div className="p-8 text-center">
+                        <div className="heading_1 text-white mx-7">
+                            “Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor.”
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="container-fluid my-0 mx-auto m-w">
+                <div className="home-about dark:border-t dark:border-b dark:!border-ccc">
+                    <div className="md:grid md:grid-cols-12 gap-4">
+                        <div className="md:col-span-8 py-6 about-intro md:border-r !border-ccc">
+                            <div className="relative">
+                                <div className="heading_1">
+                                    “Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor.”
+                                </div>
+                                <div className="absolute heading_6 md:mt-auto md:block hidden">Hello & Welcome!</div>
+                            </div>
+                        </div>
+                        <div className="md:col-span-4 about-content pt-3 pb-6 md:py-6">
+                            <div>Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat
+                                quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut
+                                sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Diam nec ut sed est sit
+                                in tortor. Blandit consequat quisque vitae ornare.</div>
+                            <div className="mt-6">
+                                <Link href={ROUTER.ABOUT}>
+                                    <button className="my-out-line-btn dark:border-ccc" type="submit">MORE ABOUT ME</button>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="subscribe-section">
+                    <div className="bg-primary p-5">
+                        <div className="flex">
+                            <div className="">
+                                <img className="w-full" src="./img/home/subscribe.png" alt="smile" loading="lazy"/>
+                            </div>
+                            <div className="ml-5 text-black flex items-center pr-8">
+                                <div>
+                                    <div className="mb-3 heading_2">Subscribe for newsletters</div>
+                                    <div>
+                                        Receive the latest updates straight to your inbox. Get stories, exclusive offers, and promotions when you sign up.
+                                    </div>
+                                    <div className="mt-4">
+                                        <button className="w-1/4 my-btn-pr dark:border-white" type="submit">Subscribe</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div className="pt-8">
-                <div className="flex items-center">
+                <div className="flex items-center mb-5">
                     <div className="w-full mr-auto h-1 bg-ccc"></div>
                     <div className="w-full">
                         <div className="heading_3">
