@@ -41,6 +41,9 @@ body{
 .page{
   min-height: 100vh;
 }
+.body-hidden {
+  overflow: hidden;
+}
 .test {
   font-family: var(--font-family);
 }

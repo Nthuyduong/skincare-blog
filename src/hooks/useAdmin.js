@@ -22,11 +22,9 @@ export const useAdmin = () => {
         if(res?.access_token){
             localStorage.setItem("token",  res.access_token);
             window.location.href = "/admin/dashboard"
-        }
-        else{
+        } else {
             addToast('login fail!')
         }
-        console.log(res)
     }
 
     const getAdminInfo = async () => {
@@ -34,27 +32,26 @@ export const useAdmin = () => {
             let res = null;
             if(!admin.id){
                 res = await getApiAdminInfo();
-            }
-            else{
+            } else {
                 res = admin
             }
-            console.log(res)
             if(res) {
                 if(router.route != ADMIN_ROUTER.LOGIN){
                     if(res?.id){
                         dispatch(fetchAdminDetailAction(res))
-                    }else{
+                    } else {
                         window.location.href = ADMIN_ROUTER.LOGIN;
                     }
-                }else{
+                } else {
                     if(res.id){
                         window.location.href = ADMIN_ROUTER.DASHBOARD;
                     }
                 }
+            } else {
+                if(router.route != ADMIN_ROUTER.LOGIN){
+                    window.location.href = ADMIN_ROUTER.LOGIN;
+                }
             }
-            console.log(router.route)
-        }else{
-            console.log('abc')
         }
     }
 

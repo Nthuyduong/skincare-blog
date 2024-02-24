@@ -8,6 +8,7 @@ import postReducer from "./post";
 import categoriesReducer from "./categories";
 import ingredientReducer from "./ingredients";
 import adminReducer from "./admin";
+import imagesReducer from './images';
 
 // khai báo các reducer trong store
 // Những cái data chung như modal, alert, , ... thì nên tạo reducer riêng
@@ -20,7 +21,8 @@ const reducer = {
     post: postReducer,
     categories: categoriesReducer,
     ingredients: ingredientReducer,
-    admin: adminReducer
+    admin: adminReducer,
+    images: imagesReducer,
     // user: userReducer,
 };
 

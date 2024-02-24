@@ -57,8 +57,6 @@ export const useCategory = () => {
 
     async function updateSubcategory(data) {
         const formData = new FormData();
-        console.log('abc');
-        console.log(data);
         formData.append('name', data.name);
         formData.append('slug', data.slug);
         formData.append('description', data.description);

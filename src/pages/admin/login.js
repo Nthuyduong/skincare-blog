@@ -32,8 +32,6 @@ const Adminlogin = () => {
     };
 
     const handleLogin = () => {
-        console.log(email);
-        console.log(password);
         login(email, password)
     }
 
@@ -61,7 +59,8 @@ const Adminlogin = () => {
                                                 type="text"
                                                 onChange={(e) => {setEmail(e.target.value)}}
                                                 value={email}
-                                                required/>
+                                                required
+                                            />
                                         </div>
                                         <div className="flex flex-col mt-4 mb-6">
                                             <label>Password *</label>
@@ -70,7 +69,9 @@ const Adminlogin = () => {
                                                 type="password"
                                                 onChange={(e) => {setPassword(e.target.value)}}
                                                 value={password}
-                                                required/>
+                                                required
+                                                onKeyDown={(e) => e.key === 'Enter' && handleLogin()}
+                                            />
                                         </div>
                                         <button onClick={() => {handleLogin()}} className="w-full my-btn-pr" type="subit">Sign in</button>
                                     </div>

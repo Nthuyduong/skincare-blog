@@ -75,9 +75,11 @@ const Modals = () => {
             if (show) {
                 setTimeout(() => {
                     modalRef.current.classList.add("modal-open");
+                    document.body.classList.add("body-hidden");
                 }, name == 'loading' ? 50 : 100);
             } else {
                 modalRef.current.classList.remove("modal-open");
+                document.body.classList.remove("body-hidden");
                 setTimeout(() => {
                     dispatch(clearModal());
                 }, 300);
