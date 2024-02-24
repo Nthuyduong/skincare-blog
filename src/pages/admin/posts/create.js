@@ -125,7 +125,7 @@ const CreatePost = ({id}) => {
                                 />
                             </div>
                         </div>
-                        <div className='input-wrp'>
+                        <div className='input-wrp mt-3'>
                             <div className="mb-1">Slug</div>
                             <div className="search-bar-box">
                                 <input 
@@ -138,7 +138,7 @@ const CreatePost = ({id}) => {
                             </div>
                         </div>
                         <div className='input-wrp my-3'>
-                            <div className="mb-1">summary</div>
+                            <div className="mb-1">Summary</div>
                             <div className="search-bar-box">
                                 <textarea 
                                     className="w-full" 
@@ -181,7 +181,7 @@ const CreatePost = ({id}) => {
                                             document.getElementById('feature-image-file').click();
                                         }}
                                     >
-                                        <img src={getImagePreview()} alt='feature image' />
+                                        <img src={getImagePreview()} alt='feature image' className="w-7"/>
                                     </div>
                                     <input
                                         id="feature-image-file"
@@ -202,7 +202,7 @@ const CreatePost = ({id}) => {
                                             document.getElementById('banner-image-file').click();
                                         }}
                                     >
-                                        <img src={getBannerPreview()} alt='banner image' />
+                                        <img src={getBannerPreview()} alt='banner image' className="w-7"/>
                                     </div>
                                     <input
                                         id="banner-image-file"
@@ -242,26 +242,39 @@ const CreatePost = ({id}) => {
                             <div className="my-3">
                                 <div className="mb-1">Tags</div>
                                 <div className="search-bar-box">
-                                    <input name="category-slug" id="cate-slug" className="w-full" type="text"
+                                    <input name="category-slug" id="" className="w-full" type="text"
                                            placeholder="Choose category"/>
                                 </div>
                             </div>
                             <div className="">
                                 <div className="mb-1">Date create</div>
                                 <div className="search-bar-box">
-                                    <input name="category-slug" id="cate-slug" className="w-full" type="date"
+                                    <input name="category-slug" id="" className="w-full" type="date"
                                            placeholder="Choose category"/>
                                 </div>
                             </div>
                             <div className="my-3">
                                 <div className="mb-1">Author</div>
                                 <div className="search-bar-box">
-                                    <input name="category-slug" id="cate-slug" className="w-full" type="date"
-                                           placeholder="Choose category"/>
+                                    <input name="category-slug" id="" className="w-full" type="text"
+                                           placeholder="Enter author name"/>
                                 </div>
                             </div>
                             <div>
                                 <div className="mb-1">Blog Excerpt</div>
+                                <div className="search-bar-box">
+                                    <textarea className="w-full" rows="5"></textarea>
+                                </div>
+                            </div>
+                            <div className="my-3">
+                                <div className="mb-1">Meta title</div>
+                                <div className="search-bar-box">
+                                    <input name="category-slug" id="" className="w-full" type="text"
+                                           placeholder="Enter meta title"/>
+                                </div>
+                            </div>
+                            <div>
+                                <div className="mb-1">Meta description</div>
                                 <div className="search-bar-box">
                                     <textarea className="w-full" rows="5"></textarea>
                                 </div>

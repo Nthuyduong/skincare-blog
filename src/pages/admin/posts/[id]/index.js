@@ -214,7 +214,7 @@ const EditPost = ({ id }) => {
                                             document.getElementById('feature-image-file').click();
                                         }}
                                     >
-                                        <img src={getImagePreview()} alt='feature image' />
+                                        <img src={getImagePreview()} alt='feature image' className="w-7"/>
                                     </div>
                                     <input 
                                         id="feature-image-file" 
@@ -235,7 +235,7 @@ const EditPost = ({ id }) => {
                                             document.getElementById('banner-image-file').click();
                                         }}
                                     >
-                                        <img src={getBannerPreview()} alt='banner image' />
+                                        <img src={getBannerPreview()} alt='banner image' className="w-7"/>
                                     </div>
                                     <input
                                         id="banner-image-file"
@@ -275,26 +275,39 @@ const EditPost = ({ id }) => {
                             <div className="my-3">
                                 <div className="mb-1">Tags</div>
                                 <div className="search-bar-box">
-                                    <input name="category-slug" id="cate-slug" className="w-full" type="text"
+                                    <input name="category-slug" id="cate-tag" className="w-full" type="text"
                                            placeholder="Choose category"/>
                                 </div>
                             </div>
                             <div className="">
                                 <div className="mb-1">Date create</div>
                                 <div className="search-bar-box">
-                                    <input name="category-slug" id="cate-slug" className="w-full" type="date"
+                                    <input name="category-slug" id="" className="w-full" type="date"
                                            placeholder="Choose category"/>
                                 </div>
                             </div>
                             <div className="my-3">
                                 <div className="mb-1">Author</div>
                                 <div className="search-bar-box">
-                                    <input name="category-slug" id="cate-slug" className="w-full" type="date"
+                                    <input name="category-slug" id="" className="w-full" type="date"
                                            placeholder="Choose category"/>
                                 </div>
                             </div>
                             <div>
                                 <div className="mb-1">Blog Excerpt</div>
+                                <div className="search-bar-box">
+                                    <textarea className="w-full" rows="5"></textarea>
+                                </div>
+                            </div>
+                            <div className="my-3">
+                                <div className="mb-1">Meta title</div>
+                                <div className="search-bar-box">
+                                    <input name="category-slug" id="" className="w-full" type="text"
+                                           placeholder="Enter meta title"/>
+                                </div>
+                            </div>
+                            <div>
+                                <div className="mb-1">Meta description</div>
                                 <div className="search-bar-box">
                                     <textarea className="w-full" rows="5"></textarea>
                                 </div>

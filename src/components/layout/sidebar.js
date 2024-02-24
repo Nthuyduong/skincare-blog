@@ -29,9 +29,10 @@ const Sidebar = () => {
                         <li><Link href={ROUTER.ADDASHBOARD}>Dashboard</Link></li>
                         <li><Link href={ROUTER.ADCATEGORY}>Category</Link></li>
                         <li><Link href={ROUTER.ADSUBCATE}>Sub-Category</Link></li>
+                        <li><Link href={ROUTER.ADPOST}>Blog post</Link></li>
                         <li><Link href={ROUTER.ADINGREDIENT}>Ingredients</Link></li>
                         <li><Link href={ROUTER.ADCATEGORY}>Test and review</Link></li>
-                        <li><Link href={ROUTER.ADPOST}>Post</Link></li>
+                        <li><Link href={ROUTER.ADCONTACT}>Contact</Link></li>
                     </ul>
                 </div>
                 <div className="content-second pt-2">

@@ -21,12 +21,14 @@ export const ROUTER = {
     INGREDIENT: '/ingredient',
     INGREDIENTDETAIL: '/ingredients/detail',
     TESTPOST: '/test_post',
-    ADINGREDIENT: '/admin/ingredient'
+    ADINGREDIENT: '/admin/ingredient',
+    ADCONTACT: '/admin/contact',
 
 }
 
 export const ADMIN_ROUTER = {
     CATEGORY: '/admin/category',
+    CONTACT: '/admin/contact',
     INGREDIENT: '/admin/ingredient',
     POSTS: '/admin/posts',
     CREATE_POST: '/admin/posts/create',
@@ -39,6 +41,7 @@ export const ADMIN_ROUTER = {
 
 export const ADMIN_ROUTER_WITH_AUTH = [
     ADMIN_ROUTER.CATEGORY,
+    ADMIN_ROUTER.CONTACT,
     ADMIN_ROUTER.INGREDIENT,
     ADMIN_ROUTER.POSTS,
     ADMIN_ROUTER.CREATE_POST,
@@ -50,6 +53,7 @@ export const ADMIN_ROUTER_WITH_AUTH = [
 
 export const ADMIN_ROUTERS = [
     ADMIN_ROUTER.CATEGORY,
+    ADMIN_ROUTER.CONTACT,
     ADMIN_ROUTER.INGREDIENT,
     ADMIN_ROUTER.POSTS,
     ADMIN_ROUTER.CREATE_POST,

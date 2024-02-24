@@ -309,7 +309,7 @@ const Home = () => {
                     </div>
                 </div>
                 {/*Reader's favorite*/}
-                <div className="pt-100">
+                <div className="p-100">
                     <div className="heading_3 mb-4">Reader's Favorite</div>
                     <div className="">
                         <Slider
@@ -508,7 +508,7 @@ const Home = () => {
                 {/*        <div className="col-span-2"></div>*/}
                 {/*    </div>*/}
                 {/*</div>*/}
-            <div className="p-100">
+            <div className="">
                 <div className="home-decor p-100">
                     <div className="p-8 text-center">
                         <div className="heading_1 text-white mx-7">
@@ -517,7 +517,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className="container-fluid my-0 mx-auto m-w">
+            <div className="container-fluid my-0 mx-auto m-w p-100">
                 <div className="home-about dark:border-t dark:border-b dark:!border-ccc">
                     <div className="md:grid md:grid-cols-12 gap-4">
                         <div className="md:col-span-8 py-6 about-intro md:border-r !border-ccc">
@@ -562,7 +562,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className="pt-8">
+            <div className="">
                 <div className="flex items-center mb-5">
                     <div className="w-full mr-auto h-1 bg-ccc"></div>
                     <div className="w-full">
