@@ -532,6 +532,7 @@ export async function getServerSideProps({ req, query }) {
                 newestProps: [],
                 popularProps: [],
                 isCsr: true,
+                url: req.url
             }
         }
     }
@@ -549,6 +550,7 @@ export async function getServerSideProps({ req, query }) {
                 newestProps: newest,
                 popularProps: popular,
                 isCsr: false,
+                url: req.url
             }
         }
     } catch (error) {

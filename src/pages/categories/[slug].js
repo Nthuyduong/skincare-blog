@@ -116,6 +116,7 @@ export async function getServerSideProps({ req, query }) {
                 subCategoriesProps: [],
                 isCsr: true,
                 slug,
+                url: req.url
             }
         }
     }
@@ -133,6 +134,7 @@ export async function getServerSideProps({ req, query }) {
                 subCategoriesProps: subCategories,
                 isCsr: false,
                 slug,
+                url: req.url
             }
         }
     } catch (error) {
@@ -141,7 +143,7 @@ export async function getServerSideProps({ req, query }) {
                 categoryProps: {},
                 subCategoriesProps: [],
                 isCsr: true,
-                slug,
+                url: req.url
             }
         }
     }
