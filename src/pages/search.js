@@ -2,8 +2,18 @@ import Link from 'next/link'
 import {ROUTER} from "../utils/constants";
 import { useApp } from "@hooks/useApp";
 import { useEffect, useState } from "react";
+import { useRouter } from 'next/router'
 
 const Search = () => {
+
+    const router = useRouter();
+
+    useEffect(() => {
+        const { keyword } = router.query;
+        if (keyword) {
+            handleSearch(keyword);
+        }
+    }, [router.query]);
 
     const { handleSearch, setKeyword, loadMore, results, keyword } = useApp();
 
@@ -11,7 +21,6 @@ const Search = () => {
 
     const handleSearchPage = () => {
         handleSearch(keywordType);
-        console.log(keywordType)
     };
 
     return (

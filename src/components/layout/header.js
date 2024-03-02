@@ -13,9 +13,19 @@ const Header = () => {
     const [showw, setShoww] = useState(false);
 
     const [showMenu, setShowMenu] = useState(false);
-
     const headerRef = useRef(null);
     const headerMobileRef = useRef(null);
+
+    // Xử lý search
+    const [keywordType, setKeywordType] = useState("");
+    const handleSearch = () => {
+        if (keywordType) {
+            router.push({
+                pathname: ROUTER.SEARCH,
+                query: { keyword: keywordType }
+            })
+        }
+    }
 
     const toggleVisibility = () => {
         setShoww(!showw);
@@ -165,7 +175,12 @@ const Header = () => {
                                 <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy"/>
                             </div>
                             <div className="my-search-bar nav-search w-full">
-                                <input className="searchbar-head p-1 w-full" placeholder="Enter article name and hit enter..."/>
+                                <input 
+                                    className="searchbar-head p-1 w-full" 
+                                    placeholder="Enter article name and hit enter..."
+                                    onChange={(e) => {setKeywordType(e.target.value)}}
+                                    onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+                                />
                             </div>
                         </div>
                         <div className="">
@@ -309,7 +324,12 @@ const Header = () => {
                                             <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy"/>
                                         </div>
                                         <div className="my-search-bar nav-search w-full">
-                                            <input className="searchbar-head p-1 w-full" placeholder="Enter article name and hit enter..."/>
+                                            <input 
+                                                className="searchbar-head p-1 w-full" 
+                                                placeholder="Enter article name and hit enter..."
+                                                onChange={(e) => {setKeywordType(e.target.value)}}
+                                                onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+                                            />
                                         </div>
                                     </div>
                                     <button type="button"
