@@ -90,9 +90,9 @@ const Slider = ({
 
     //hàm run slider
     const runSlider = () => {
-
+        
         let slides = ref.current.children;
-
+        if (slides.length === 0) return;
         // Cập nhật chiều rộng của slider container
         ref.current.style.width = `calc(${(countChildren / sliderPerRow) * 100 + '%'} + ${(gap * maxSlide) / sliderPerRow + 'px'})`;
         

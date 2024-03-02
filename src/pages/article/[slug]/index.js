@@ -545,12 +545,20 @@ const ArticleDetail = ({ blog }) => {
 }
 
 export async function getServerSideProps({ query }) {
-    const { slug } = query;
-    const res = await getBlogBySlugApi(slug);
-
-    return {
-        props: {
-            blog: res?.data
+    try {
+        const { slug } = query;
+        const res = await fetch(`${BASE_URL}/api/blogs/slug/${slug}`);
+        const resData = await res.json();
+        return {
+            props: {
+                blog: resData?.data || {}
+            }
+        }
+    } catch (error) {
+        return {
+            props: {
+                blog: null
+            }
         }
     }
 }

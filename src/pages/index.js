@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Link from 'next/link';
-import { getBlogNewest, getBlogPopular} from "../services/home";
 import { ROUTER } from "../utils/constants";
 import Slider from "../components/common/slider";
 import { BASE_URL } from "@utils/apiUtils";
@@ -294,31 +293,31 @@ const Home = ({ newest, popular }) => {
                                 gapMobile: 10,
                             }}
                         >
-                            {newest.map((newest) => (
-                                <div className="justify-center">
-                                <div className="col-span-12 md:col-span-4">
-                                    <div className="hover-img">
-                                        <div className="img-inner">
-                                            <Link href={ROUTER.ARTICLE}>
-                                                <img className="w-full" src={BASE_URL + '/storage/' + newest?.featured_img} alt="smile" loading="lazy"/>
-                                            </Link>
-                                        </div>
-                                        <div>
-                                            <div className="article-info py-2 mb-1 md:!border-b md:!border-ccc border-b-0">
-                                                <div className="md:flex mb-1">
-                                                    <div className="mr-auto small_text">{ newest.categories.map((category) => {return category.name}).join(' | ') }</div>
-                                                    {/*<div className="small_text">{ formatDate(newest.created_at) }</div>*/}
-                                                </div>
-                                                <div className="medium_text">{ newest.title }</div>
+                            {newest.map((newest, index) => (
+                                <div className="justify-center" key={index}>
+                                    <div className="col-span-12 md:col-span-4">
+                                        <div className="hover-img">
+                                            <div className="img-inner">
+                                                <Link href={ROUTER.ARTICLE}>
+                                                    <img className="w-full" src={BASE_URL + '/storage/' + newest?.featured_img} alt="smile" loading="lazy"/>
+                                                </Link>
                                             </div>
-                                            <div className="md:flex hidden">
-                                                <div className=""><a className="text-link" href="#">Read more</a></div>
-                                                <div className="ml-auto">Share</div>
+                                            <div>
+                                                <div className="article-info py-2 mb-1 md:!border-b md:!border-ccc border-b-0">
+                                                    <div className="md:flex mb-1">
+                                                        <div className="mr-auto small_text">{ newest.categories.map((category) => {return category.name}).join(' | ') }</div>
+                                                        {/*<div className="small_text">{ formatDate(newest.created_at) }</div>*/}
+                                                    </div>
+                                                    <div className="medium_text">{ newest.title }</div>
+                                                </div>
+                                                <div className="md:flex hidden">
+                                                    <div className=""><a className="text-link" href="#">Read more</a></div>
+                                                    <div className="ml-auto">Share</div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             ))}
                         </Slider>
                     </div>
@@ -505,19 +504,27 @@ const Home = ({ newest, popular }) => {
 
 export async function getServerSideProps({ query }) {
     // const { slug } = query;
-
-    const res = await Promise.all([
-        getBlogNewest(),
-        getBlogPopular()
-    ])
-
-    const newest = res[0] || [];
-    const popular = res[1] || [];
-
-    return {
-        props: {
-            newest,
-            popular
+    try {
+        const res = await Promise.all([
+            fetch(`${BASE_URL}/api/blogs/newest?limit=10`, { cache: 'force-cache' }),
+            fetch(`${BASE_URL}/api/blogs/popular?limit=10`, { cache: 'force-cache' })
+        ])
+        let resData = await Promise.all(res.map(r => r.json()));
+        const newest = resData[0].data;
+        const popular = resData[1].data;
+    
+        return {
+            props: {
+                newest,
+                popular
+            }
+        }
+    } catch (error) {
+        return {
+            props: {
+                newest: [],
+                popular: []
+            }
         }
     }
 }

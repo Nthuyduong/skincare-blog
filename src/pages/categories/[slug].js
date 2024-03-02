@@ -1,4 +1,3 @@
-import { getCategoriesByParentIdApi, getCategoryByIdApi } from '@services/categories';
 import Link from 'next/link';
 import { BASE_URL } from "@utils/apiUtils";
 
@@ -85,21 +84,28 @@ const Categories = ({ category, subCategories }) => {
 }
 
 export async function getServerSideProps({ query }) {
-    const { slug } = query;
-
-    const res = await Promise.all([
-        getCategoryByIdApi(slug),
-        getCategoriesByParentIdApi(slug)
-    ])
-    
-    const category = res[0]?.data || {};
-    const subCategories = res[1]?.data?.results || [];
-    const pagination = res[1]?.data?.paginate || {};
-
-    return {
-        props: {
-            category,
-            subCategories
+    try {
+        const { slug } = query;
+        const res = await Promise.all([
+            fetch(`${BASE_URL}/api/categories/${slug}`, { cache: 'force-cache' }),
+            fetch(`${BASE_URL}/api/categories/${slug}/childrens`, { cache: 'force-cache' })
+        ]);
+        let resData = await Promise.all(res.map(r => r.json()));
+        const category = resData[0]?.data || {};
+        const subCategories = resData[1]?.data?.results || [];
+        return {
+            props: {
+                category,
+                subCategories
+            }
+        }
+    } catch (error) {
+        console.log(error)
+        return {
+            props: {
+                category: {},
+                subCategories: []
+            }
         }
     }
 }

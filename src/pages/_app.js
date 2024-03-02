@@ -21,12 +21,3 @@ const MyApp = ({ Component, pageProps }) => {
 }
 
 export default MyApp;
-
-export async function getInitialProps () {
-
-    return {
-        props: {
-
-        }
-    }
-}
