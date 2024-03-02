@@ -1,11 +1,34 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from 'next/link';
 import { ROUTER } from "../utils/constants";
 import Slider from "../components/common/slider";
 import { BASE_URL } from "@utils/apiUtils";
 import { formatDate } from "@utils/format";
+import { isServerRequest } from "../utils/request";
+import { useRouter } from 'next/router';
+import { getBlogNewest, getBlogPopular} from "../services/home";
 
-const Home = ({ newest, popular }) => {
+const Home = ({ newestProps, popularProps, isCsr }) => {
+    
+    const router = useRouter();
+
+    const [newest, setNewest] = useState(newestProps);
+    const [popular, setPopular] = useState(popularProps);
+
+    useEffect(() => {
+        if (isCsr) {
+            fetchDataCsr();
+        }
+    }, [router.asPath]);
+
+    const fetchDataCsr = async () => {
+        const res = await Promise.all([
+            getBlogNewest(10),
+            getBlogPopular(10)
+        ]);
+        setNewest(res[0]);
+        setPopular(res[1]);
+    }
 
     return (
         <div>
@@ -502,8 +525,16 @@ const Home = ({ newest, popular }) => {
     )
 }
 
-export async function getServerSideProps({ query }) {
-    // const { slug } = query;
+export async function getServerSideProps({ req, query }) {
+    if (!isServerRequest(req)) {
+        return {
+            props: {
+                newestProps: [],
+                popularProps: [],
+                isCsr: true,
+            }
+        }
+    }
     try {
         const res = await Promise.all([
             fetch(`${BASE_URL}/api/blogs/newest?limit=10`, { cache: 'force-cache' }),
@@ -515,15 +546,17 @@ export async function getServerSideProps({ query }) {
     
         return {
             props: {
-                newest,
-                popular
+                newestProps: newest,
+                popularProps: popular,
+                isCsr: false,
             }
         }
     } catch (error) {
         return {
             props: {
-                newest: [],
-                popular: []
+                newestProps: [],
+                popularProps: [],
+                isCsr: true,
             }
         }
     }

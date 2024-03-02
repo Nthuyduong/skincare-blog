@@ -1,7 +1,31 @@
 import Link from 'next/link';
 import { BASE_URL } from "@utils/apiUtils";
+import { isServerRequest } from '../../utils/request';
+import { useEffect, useState } from 'react';
+import { getCategoriesByParentIdApi, getCategoryByIdApi } from '@services/categories';
+import { useRouter } from 'next/router';
 
-const Categories = ({ category, subCategories }) => {
+const Categories = ({ categoryProps, subCategoriesProps, isCsr, slug }) => {
+    
+    const router = useRouter();
+
+    const [category, setCategories] = useState(categoryProps);
+    const [subCategories, setSubCategories] = useState(subCategoriesProps);
+
+    useEffect(() => {
+        if (isCsr) {
+            fetchDataCsr();
+        }
+    }, [router.asPath]);
+
+    const fetchDataCsr = async () => {
+        const res = await Promise.all([
+            getCategoriesByParentIdApi(slug),
+            getCategoryByIdApi(slug)
+        ]);
+        setCategories(res[1]?.data || {});
+        setSubCategories(res[0]?.data?.results || []);
+    }
 
     const getImagePreview = (url) => {
         if (url) {
@@ -83,9 +107,19 @@ const Categories = ({ category, subCategories }) => {
     )
 }
 
-export async function getServerSideProps({ query }) {
+export async function getServerSideProps({ req, query }) {
+    const { slug } = query;
+    if (!isServerRequest(req)) {
+        return {
+            props: {
+                categoryProps: {},
+                subCategoriesProps: [],
+                isCsr: true,
+                slug,
+            }
+        }
+    }
     try {
-        const { slug } = query;
         const res = await Promise.all([
             fetch(`${BASE_URL}/api/categories/${slug}`, { cache: 'force-cache' }),
             fetch(`${BASE_URL}/api/categories/${slug}/childrens`, { cache: 'force-cache' })
@@ -95,16 +129,19 @@ export async function getServerSideProps({ query }) {
         const subCategories = resData[1]?.data?.results || [];
         return {
             props: {
-                category,
-                subCategories
+                categoryProps: category,
+                subCategoriesProps: subCategories,
+                isCsr: false,
+                slug,
             }
         }
     } catch (error) {
-        console.log(error)
         return {
             props: {
-                category: {},
-                subCategories: []
+                categoryProps: {},
+                subCategoriesProps: [],
+                isCsr: true,
+                slug,
             }
         }
     }

@@ -4,9 +4,27 @@ import { getBlogBySlugApi } from "@services/blog";
 import { BASE_URL } from "@utils/apiUtils";
 import Slider from "../../../components/common/slider";
 import Link from "next/link";
-import {ROUTER} from "../../../utils/constants";
+import { ROUTER } from "../../../utils/constants";
+import { isServerRequest } from "../../../utils/request";
+import { useRouter } from 'next/router';
 
-const ArticleDetail = ({ blog }) => {
+const ArticleDetail = ({ blogProps, isCrs, slug }) => {
+    
+    const router = useRouter();
+
+    const [blog, setBlog] = useState(blogProps);
+
+    useEffect(() => {
+        if (isCrs) {
+            fetchDataCsr();
+        }
+    }, [router.asPath]);
+
+    const fetchDataCsr = async () => {
+        const res = await getBlogBySlugApi(slug);
+        setBlog(res?.data || {});
+    }
+
     const refContent = useRef(null);
     const refTable = useRef(null);
     const refProcess = useRef(null);
@@ -544,20 +562,33 @@ const ArticleDetail = ({ blog }) => {
     )
 }
 
-export async function getServerSideProps({ query }) {
+export async function getServerSideProps({ req, query }) {
+    const { slug } = query;
+    if (!isServerRequest(req)) {
+        return {
+            props: {
+                blogProps: {},
+                isCrs: true,
+                slug,
+            }
+        }
+    }
     try {
-        const { slug } = query;
         const res = await fetch(`${BASE_URL}/api/blogs/slug/${slug}`);
         const resData = await res.json();
         return {
             props: {
-                blog: resData?.data || {}
+                blogProps: resData?.data || {},
+                isCrs: false,
+                slug,
             }
         }
     } catch (error) {
         return {
             props: {
-                blog: null
+                blogProps: {},
+                isCrs: true,
+                slug,
             }
         }
     }

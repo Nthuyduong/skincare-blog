@@ -30,10 +30,6 @@ export const RouterProvider = ({ children }) => {
       }, [])
 
     useEffect(() => {
-        console.log(admin)
-    },[admin])
-
-    useEffect(() => {
         getAdminInfo();
 
         const pageAccessedByReload = window.performance
