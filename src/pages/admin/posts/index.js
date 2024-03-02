@@ -114,7 +114,7 @@ const Adminpostpage = ({ page }) => {
                                         <input type="checkbox"/>
                                     </div>
                                     <div className="cell-ssm">{post.id}</div>
-                                    <div className="cell-sm">{ formatDate(post.publish_date)}</div>
+                                    <div className="cell-sm">{ formatDate(post.publish_date,)}</div>
                                     <div className="cell">
                                         <Link href={'/admin/posts/' + post.id}>{post.title}</Link></div>
                                     <div className="cell-sm">{post.author}</div>
