@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { getCategoriesByParentIdApi, getCategoryByIdApi } from '@services/categories';
 import { useRouter } from 'next/router';
 
-const Categories = ({ categoryProps, subCategoriesProps, isCsr, slug }) => {
+const Categories = ({ categoryProps = [], subCategoriesProps = [], isCsr = true, slug }) => {
     
     const router = useRouter();
 
@@ -106,16 +106,14 @@ const Categories = ({ categoryProps, subCategoriesProps, isCsr, slug }) => {
     )
 }
 
-export async function getServerSideProps({ req, query }) {
+Categories.getInitialProps = async({ req, query }) => {
     const { slug } = query;
     if (typeof window != 'undefined') {
         return {
-            props: {
-                categoryProps: {},
-                subCategoriesProps: [],
-                isCsr: true,
-                slug,
-            }
+            categoryProps: {},
+            subCategoriesProps: [],
+            isCsr: true,
+            slug,
         }
     }
     try {
@@ -127,20 +125,17 @@ export async function getServerSideProps({ req, query }) {
         const category = resData[0]?.data || {};
         const subCategories = resData[1]?.data?.results || [];
         return {
-            props: {
-                categoryProps: category,
-                subCategoriesProps: subCategories,
-                isCsr: false,
-                slug,
-            }
+            categoryProps: category,
+            subCategoriesProps: subCategories,
+            isCsr: false,
+            slug,
         }
     } catch (error) {
         return {
-            props: {
-                categoryProps: {},
-                subCategoriesProps: [],
-                isCsr: true,
-            }
+            categoryProps: {},
+            subCategoriesProps: [],
+            isCsr: true,
+            slug,
         }
     }
 }

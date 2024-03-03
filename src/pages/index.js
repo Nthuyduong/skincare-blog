@@ -11,8 +11,8 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
     
     const router = useRouter();
 
-    const [newest, setNewest] = useState(newestProps);
-    const [popular, setPopular] = useState(popularProps);
+    const [newest, setNewest] = useState(newestProps || []);
+    const [popular, setPopular] = useState(popularProps || []);
 
     useEffect(() => {
         if (isCsr) {
@@ -524,14 +524,12 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
     )
 }
 
-export async function getServerSideProps({ req, query }) {
+Home.getInitialProps = async ({ req, query }) => {
     if (typeof window != 'undefined') {
         return {
-            props: {
-                newestProps: [],
-                popularProps: [],
-                isCsr: true,
-            }
+            newestProps: [],
+            popularProps: [],
+            isCsr: true,
         }
     }
     try {
@@ -542,21 +540,16 @@ export async function getServerSideProps({ req, query }) {
         let resData = await Promise.all(res.map(r => r.json()));
         const newest = resData[0].data;
         const popular = resData[1].data;
-    
         return {
-            props: {
-                newestProps: newest,
-                popularProps: popular,
-                isCsr: false,
-            }
+            newestProps: newest,
+            popularProps: popular,
+            isCsr: false,
         }
     } catch (error) {
         return {
-            props: {
-                newestProps: [],
-                popularProps: [],
-                isCsr: true,
-            }
+            newestProps: [],
+            popularProps: [],
+            isCsr: true,
         }
     }
 }

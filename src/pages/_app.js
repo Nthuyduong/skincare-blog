@@ -13,7 +13,7 @@ const MyApp = ({ Component, pageProps }) => {
         <Provider store={store}>
             <RouterProvider>
                 <Layout>
-                    <Component {...pageProps} />
+                    <Component {...pageProps}/>
                 </Layout>
             </RouterProvider>
         </Provider>

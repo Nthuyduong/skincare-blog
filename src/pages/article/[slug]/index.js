@@ -561,34 +561,28 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
     )
 }
 
-export async function getServerSideProps({ req, query }) {
+ArticleDetail.getInitialProps = async({ req, query }) => {
     const { slug } = query;
     if (typeof window != 'undefined') {
         return {
-            props: {
-                blogProps: {},
-                isCrs: true,
-                slug,
-            }
+            blogProps: {},
+            isCrs: true,
+            slug,
         }
     }
     try {
         const res = await fetch(`${BASE_URL}/api/blogs/slug/${slug}`);
         const resData = await res.json();
         return {
-            props: {
-                blogProps: resData?.data || {},
-                isCrs: false,
-                slug,
-            }
+            blogProps: resData?.data || {},
+            isCrs: false,
+            slug,
         }
     } catch (error) {
         return {
-            props: {
-                blogProps: {},
-                isCrs: true,
-                slug,
-            }
+            blogProps: {},
+            isCrs: true,
+            slug,
         }
     }
 }
