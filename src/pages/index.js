@@ -525,7 +525,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
 }
 
 export async function getServerSideProps({ req, query }) {
-    if (typeof window != undefined) {
+    if (typeof window != 'undefined') {
         return {
             props: {
                 newestProps: [],

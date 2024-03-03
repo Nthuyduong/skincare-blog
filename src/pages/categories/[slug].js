@@ -108,7 +108,7 @@ const Categories = ({ categoryProps, subCategoriesProps, isCsr, slug }) => {
 
 export async function getServerSideProps({ req, query }) {
     const { slug } = query;
-    if (typeof window != undefined) {
+    if (typeof window != 'undefined') {
         return {
             props: {
                 categoryProps: {},
