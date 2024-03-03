@@ -1,11 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { getCategoryByIdApi } from "@services/categories";
 import { fetchBlogPostsApi } from "@services/blog";
 import { formatDate } from "@utils/format";
 import { BASE_URL } from "@utils/apiUtils";
 import Link from "next/link";
+import { useRouter } from 'next/router';
 
-const Sub_destination = ({ category, posts }) => {
+const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
+
+    const router = useRouter();
+
+    const [category, setCategory] = useState(categoryProps);
+    const [posts, setPosts] = useState(postsProps);
+
+    useEffect(() => {
+        if (isCsr) {
+            fetchDataCsr();
+        }
+    }, [router.asPath]);
+
+    const fetchDataCsr = async () => {
+        const res = await Promise.all([
+            getCategoryByIdApi(slug),
+            fetchBlogPostsApi(page)
+        ]);
+        setCategory(res[0]?.data || {});
+        setPosts(res[1]?.results || []);
+    }
 
     const getImagePreview = (url) => {
         if (url) {
@@ -101,22 +122,48 @@ const Sub_destination = ({ category, posts }) => {
     )
 }
 
-export async function getServerSideProps({ query }) {
+Sub_destination.getInitialProps = async({ query }) => {
     const { slug, page } = query;
 
-    const res = await Promise.all([
-        getCategoryByIdApi(slug),
-        fetchBlogPostsApi(page ?? 1)
-    ])
-    const category = res[0]?.data || {};
-    const posts = res[1]?.results || [];
-    const pagination = res[1]?.paginate || {};
-    return {
-        props: {
-            category,
-            posts,
+    if (typeof window != 'undefined') {
+        return {
+            categoryProps: {},
+            postsProps: [],
+            isCsr: true,
+            slug,
+            page: page ?? 1,
         }
     }
+    try {
+        const res = await Promise.all([
+            fetch(`${BASE_URL}/api/categories/${slug}`),
+            fetch(`${BASE_URL}/api/posts`, {
+                page: page ?? 1
+            })
+        ])
+        const resData = await Promise.all(res.map(r => r.json()));
+    
+        const category = resData[0]?.data || {};
+        const posts = resData[1]?.results || [];
+        return {
+            props: {
+                categoryProps: category,
+                postsProps: posts,
+                isCsr: false,
+                slug,
+                page: page ?? 1,
+            }
+        }
+    } catch (e) {
+        return {
+            categoryProps: {},
+            postsProps: [],
+            isCsr: true,
+            slug,
+            page: page ?? 1,
+        }
+    }
+    
 }
 
 export default Sub_destination;

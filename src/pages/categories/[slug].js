@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { getCategoriesByParentIdApi, getCategoryByIdApi } from '@services/categories';
 import { useRouter } from 'next/router';
 
-const Categories = ({ categoryProps = [], subCategoriesProps = [], isCsr = true, slug }) => {
+const Categories = ({ categoryProps = [], subCategoriesProps = [], isCsr, slug }) => {
     
     const router = useRouter();
 
