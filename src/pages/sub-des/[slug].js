@@ -136,23 +136,18 @@ Sub_destination.getInitialProps = async({ query }) => {
     }
     try {
         const res = await Promise.all([
-            fetch(`${BASE_URL}/api/categories/${slug}`),
-            fetch(`${BASE_URL}/api/posts`, {
-                page: page ?? 1
-            })
+            fetch(`${BASE_URL}/api/categories/${slug}`, { cache: 'force-cache' }),
+            fetch(`${BASE_URL}/api/blogs?page=${page ?? 1}`, { cache: 'force-cache' })
         ])
         const resData = await Promise.all(res.map(r => r.json()));
-    
         const category = resData[0]?.data || {};
-        const posts = resData[1]?.results || [];
+        const posts = resData[1]?.data?.results || [];
         return {
-            props: {
-                categoryProps: category,
-                postsProps: posts,
-                isCsr: false,
-                slug,
-                page: page ?? 1,
-            }
+            categoryProps: category ?? {},
+            postsProps: posts,
+            isCsr: false,
+            slug,
+            page: page ?? 1,
         }
     } catch (e) {
         return {
