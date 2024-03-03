@@ -4,7 +4,6 @@ import { ROUTER } from "../utils/constants";
 import Slider from "../components/common/slider";
 import { BASE_URL } from "@utils/apiUtils";
 import { formatDate } from "@utils/format";
-import { isServerRequest } from "../utils/request";
 import { useRouter } from 'next/router';
 import { getBlogNewest, getBlogPopular} from "../services/home";
 
@@ -526,13 +525,12 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
 }
 
 export async function getServerSideProps({ req, query }) {
-    if (!isServerRequest(req)) {
+    if (typeof window != undefined) {
         return {
             props: {
                 newestProps: [],
                 popularProps: [],
                 isCsr: true,
-                url: req.url
             }
         }
     }
@@ -550,7 +548,6 @@ export async function getServerSideProps({ req, query }) {
                 newestProps: newest,
                 popularProps: popular,
                 isCsr: false,
-                url: req.url
             }
         }
     } catch (error) {

@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { BASE_URL } from "@utils/apiUtils";
-import { isServerRequest } from '../../utils/request';
 import { useEffect, useState } from 'react';
 import { getCategoriesByParentIdApi, getCategoryByIdApi } from '@services/categories';
 import { useRouter } from 'next/router';
@@ -109,14 +108,13 @@ const Categories = ({ categoryProps, subCategoriesProps, isCsr, slug }) => {
 
 export async function getServerSideProps({ req, query }) {
     const { slug } = query;
-    if (!isServerRequest(req)) {
+    if (typeof window != undefined) {
         return {
             props: {
                 categoryProps: {},
                 subCategoriesProps: [],
                 isCsr: true,
                 slug,
-                url: req.url
             }
         }
     }
@@ -134,7 +132,6 @@ export async function getServerSideProps({ req, query }) {
                 subCategoriesProps: subCategories,
                 isCsr: false,
                 slug,
-                url: req.url
             }
         }
     } catch (error) {
@@ -143,7 +140,6 @@ export async function getServerSideProps({ req, query }) {
                 categoryProps: {},
                 subCategoriesProps: [],
                 isCsr: true,
-                url: req.url
             }
         }
     }

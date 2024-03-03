@@ -5,7 +5,6 @@ import { BASE_URL } from "@utils/apiUtils";
 import Slider from "../../../components/common/slider";
 import Link from "next/link";
 import { ROUTER } from "../../../utils/constants";
-import { isServerRequest } from "../../../utils/request";
 import { useRouter } from 'next/router';
 
 const ArticleDetail = ({ blogProps, isCrs, slug }) => {
@@ -564,7 +563,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
 
 export async function getServerSideProps({ req, query }) {
     const { slug } = query;
-    if (!isServerRequest(req)) {
+    if (typeof window != undefined) {
         return {
             props: {
                 blogProps: {},
