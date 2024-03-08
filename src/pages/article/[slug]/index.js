@@ -76,7 +76,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                 {/*website banner*/}
                 <div className="md:block hidden review-banner w-full">
                     <div className="relative">
-                        <div className="banner-left dark:text-black m-w mx-auto px-4">
+                        <div className="banner-left dark:text-black m-w mx-auto px-3">
                             <div className="grid grid-cols-12">
                                 <div className="col-span-5">
                                     {/*breadcrumb*/}
@@ -132,7 +132,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                     </div>
                 </div>
             </div>
-            <div className="px-4 m-w mx-auto w-full my-0">
+            <div className="px-3 m-w mx-auto w-full my-0">
                 <div className="article-out">
                     <div className="article-summary mb-4">
                         <div className="">{blog?.summary}</div>
@@ -241,7 +241,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                     }}
                 />
                 <div className="w-full flex justify-center items-center">
-                    <div className="px-4 w-full mx-4 m-w mx-auto my-0 helpful-rate mt-5">
+                    <div className="px-3 w-full mx-4 m-w mx-auto my-0 helpful-rate mt-5">
                         <div className="flex w-full pt-3 border-t border-ccc">
                             <div className="medium_text mr-3">
                                 <a href="#">Was this helpful?</a>

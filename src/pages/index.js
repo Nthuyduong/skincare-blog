@@ -37,7 +37,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                     <img className="w-full" src="./img/home/mobile-banner.png" alt="smile" loading="lazy"/>
                 </picture>
             </div>
-            <div className="my-0 px-4 mx-auto m-w">
+            <div className="my-0 px-3 mx-auto m-w">
                 {/*Lastest on this blog*/}
                 <div className="recently-update pt-6 md:pt-8">
                     <div className="heading_4 md:heading_3 mb-4">Most useful articles</div>
@@ -45,7 +45,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                         <Slider
                             configs={{
                                 sliderPerRow: 3,
-                                sliderPerRowMobile: 1.5,
+                                sliderPerRowMobile: 1.25,
                                 allowDrag: true,
                                 duration: 400,
                                 auto: false,
@@ -354,7 +354,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                     </div>
                 </div>
             </div>
-            <div className="px-4 my-0 mx-auto m-w pt-8 pb-7">
+            <div className="px-3 my-0 mx-auto m-w pt-8 pb-7">
                 <div className="home-about dark:border-t dark:border-b dark:!border-ccc">
                     <div className="md:grid md:grid-cols-12 gap-4">
                         <div className="md:col-span-8 py-6 about-intro md:border-r !border-ccc">

@@ -133,8 +133,6 @@ const Header = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
                         </svg>
                     </button>
-                    {/*darkmode-lightmode*/}
-                    <ThemeToggle />
                     {/*main logo*/}
                     <Link href={ROUTER.HOME} className="flex-1">
                         <div className="items-center justify-center w-full hidden dark:flex">
@@ -144,15 +142,6 @@ const Header = () => {
                             <img className="h-3" src="/img/logo2.svg" alt="smile" loading="lazy"/>
                         </div>
                     </Link>
-                    <div className="flex mr-4">
-                        <div 
-                            className="mr-1 pr-1 dark:border-r dark:border-999 border-r border-333 cursor-pointer"
-                            onClick={() => changeLanguage('en')}
-                        >
-                            EN
-                        </div>
-                        <div className="mr-l cursor-pointer" onClick={() => changeLanguage('vi')}>VN</div>
-                    </div>
                     <div className="hidden">
                         <button type="button"
                                 onClick={toggleVisibility}

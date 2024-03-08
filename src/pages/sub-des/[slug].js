@@ -38,7 +38,7 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
     return (
         <div className="sub-des-page">
             <div className="sub-des-inner">
-                <div className="container-fluid m-w mx-auto my-0">
+                <div className="m-w mx-auto my-0">
                     <div className="">
                         {/*<div className="col-span-2 left-menu dark:border-r dark:!border-ccc">*/}
                         {/*    <div className="left-menu-inner">*/}
@@ -52,17 +52,22 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                         {/*    </div>*/}
                         {/*</div>*/}
                         <div className="col-span-12 right-all-posts">
-                            <div className="relative title-page">
-                                <img className="w-100" src="../img/subdes/sub-banner.png" alt="smile" loading="lazy"/>
-                                <div className="absolute main-title">
+                            <div className="md:px-3 relative title-page overflow-hidden">
+                                <img 
+                                    className="absolute w-100 w-auto h-full md:h-auto md:w-full" 
+                                    src="../img/subdes/sub-banner.png" 
+                                    alt="smile" 
+                                    loading="lazy"
+                                />
+                                <div className="relative px-3 py-4 md:py-8">
                                     <div className="heading !text-black mb-2">{category.name}</div>
                                     <div className="!text-black">{category.description}</div>
                                 </div>
                             </div>
-                            <div className="destination-title border-y border-ccc my-5 py-3">
-                                <div className="flex justify-center">
+                            <div className="px-3 destination-title border-y border-ccc md:my-5 py-3">
+                                <div className="flex flex-col md:flex-row md:justify-between">
                                     {/*breadcrumb*/}
-                                    <div className="flex self-center">
+                                    <div className="flex">
                                         <ul className="flex">
                                             <li><a href="#">Home</a></li>
                                             
@@ -76,7 +81,7 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                                             <li><a href='#'>{category.name}</a></li>
                                         </ul>
                                     </div>
-                                    <div className="self-center flex ml-auto">
+                                    <div className="flex">
                                         <div className="flex justify-center">
                                             {/*<div className="flex des-count pr-3">*/}
                                             {/*    <div className="pr-1">*/}
@@ -84,7 +89,7 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                                             {/*    </div>*/}
                                             {/*    <div>4 Categories</div>*/}
                                             {/*</div>*/}
-                                            <div className="flex location-count pl-3">
+                                            <div className="flex location-count">
                                                 <div className="pr-1">
                                                     <img className="icon-sm" src="./img/icon/book-open.svg" alt="#" loading="lazy"></img>
                                                 </div>
@@ -94,8 +99,8 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="all-post">
-                                <div className="columns-4">
+                            <div className="px-3 all-post">
+                                <div className="columns-2 md:columns-4">
                                     {posts.map((post, index) => (
                                         <div className="inline-block mb-3 my-4 border-b border-ccc" key={index}>
                                             <img className="w-full" src={getImagePreview(post.featured_img)} alt="smile" loading="lazy"/>

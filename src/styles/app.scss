@@ -402,7 +402,7 @@ textarea:focus-visible{
 .slider-wrp{
   .slider-control{
     .next-button{
-      right:-40px;
+      right:0;
       top: 40%;
       .my-next-btn{
         width: 30px;
@@ -412,7 +412,7 @@ textarea:focus-visible{
       }
     }
     .prev-button{
-      left: -40px;
+      left: 0;
       top: 40%;
       .my-prev-btn{
         width: 30px;

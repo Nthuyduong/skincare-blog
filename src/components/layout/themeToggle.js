@@ -35,30 +35,30 @@ const themeToggle = () => {
     }
     return (
         <label htmlFor="theme" className="theme_container">
-            <span className="theme__toggle-wrap">
-                <input
-                    ref={themeToggleRef}
-                    className="theme__toggle" 
-                    type="checkbox" 
-                    role="switch" 
-                    name="theme"
-                    value="dark"
-                    onChange={handleChangeTheme}
-                />
-                {/* <span className="theme__fill"></span> */}
-                <span className="theme__icon">
-                    <span className="theme__icon-part"></span>
-                    <span className="theme__icon-part"></span>
-                    <span className="theme__icon-part"></span>
-                    <span className="theme__icon-part"></span>
-                    <span className="theme__icon-part"></span>
-                    <span className="theme__icon-part"></span>
-                    <span className="theme__icon-part"></span>
-                    <span className="theme__icon-part"></span>
-                    <span className="theme__icon-part"></span>
-                </span>
+        <span className="theme__toggle-wrap">
+            <input
+                ref={themeToggleRef}
+                className="theme__toggle" 
+                type="checkbox" 
+                role="switch" 
+                name="theme"
+                value="dark"
+                onChange={handleChangeTheme}
+            />
+            {/* <span className="theme__fill"></span> */}
+            <span className="theme__icon">
+                <span className="theme__icon-part"></span>
+                <span className="theme__icon-part"></span>
+                <span className="theme__icon-part"></span>
+                <span className="theme__icon-part"></span>
+                <span className="theme__icon-part"></span>
+                <span className="theme__icon-part"></span>
+                <span className="theme__icon-part"></span>
+                <span className="theme__icon-part"></span>
+                <span className="theme__icon-part"></span>
             </span>
-        </label>
+        </span>
+    </label>
     )
 }
 

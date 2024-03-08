@@ -4,9 +4,9 @@
         overflow-y: hidden;
         overflow-x: auto;
     }
-    .slider-content::-webkit-scrollbar {
-        display: none;
-    }
+    // .slider-content::-webkit-scrollbar {
+    //     display: none;
+    // }
     //overflow: hidden;
     width: 100%;
     position: relative;
@@ -17,6 +17,9 @@
         .slider-items {
             gap: var(--slide-gap-mobile);
         }
+        .slider-control {
+            display: none;
+        }
     }
     .slider-control {
         width: 100%;
@@ -24,7 +27,7 @@
         .prev-button {
             position: absolute;
             //top: 50%;
-            left: -20px;
+            left: 0;
             z-index: 1000;
             transform: translateY(-50%);
             transition: opacity var(--transition-duration) cubic-bezier(0.645, 0.045, 0.355, 1) 0s;  
@@ -34,7 +37,7 @@
             transform: translateY(-50%);
             position: absolute;
             //left: auto;
-            right: -20px;
+            right: 0;
             transition: opacity var(--transition-duration) cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
         }
         .btn-disable {
