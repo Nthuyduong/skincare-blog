@@ -37,7 +37,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                     <img className="w-full" src="./img/home/mobile-banner.png" alt="smile" loading="lazy"/>
                 </picture>
             </div>
-            <div className="container-fluid my-0 mx-auto m-w">
+            <div className="my-0 px-4 mx-auto m-w">
                 {/*Lastest on this blog*/}
                 <div className="recently-update pt-6 md:pt-8">
                     <div className="heading_4 md:heading_3 mb-4">Most useful articles</div>
@@ -45,7 +45,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                         <Slider
                             configs={{
                                 sliderPerRow: 3,
-                                sliderPerRowMobile: 2.5,
+                                sliderPerRowMobile: 1.5,
                                 allowDrag: true,
                                 duration: 400,
                                 auto: false,
@@ -195,7 +195,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                 </div>
                 {/*List subcategorires*/}
                 <div className="flex list-categories md:my-8 my-6 justify-center">
-                    <div className="relative w-2/3">
+                    <div className="relative w-full md:w-2/3">
                         <div className="absolute left-0 bottom-0">
                             <img
                                 className="rounded-full w-2/4"
@@ -216,7 +216,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                         </div>
                         <div className="absolute right-0 top-0 flex justify-end">
                             <img
-                                className="rounded-full w-2/3"
+                                className="rounded-full w-1/3 md:w-2/3"
                                 src="./img/home/list-ct-2.jpg"
                             />
                         </div>
@@ -306,7 +306,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                         <Slider
                             configs={{
                                 sliderPerRow: 4,
-                                sliderPerRowMobile: 2.5,
+                                sliderPerRowMobile: 1.5,
                                 allowDrag: true,
                                 duration: 400,
                                 auto: false,
@@ -346,15 +346,15 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                 </div>
             </div>
             <div className="">
-                <div className="home-decor p-100">
-                    <div className="p-8 text-center">
+                <div className="home-decor py-9 md:py-11">
+                    <div className="text-center">
                         <div className="heading_1 text-white mx-7">
                             “Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor.”
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="container-fluid my-0 mx-auto m-w p-100">
+            <div className="px-4 my-0 mx-auto m-w pt-8 pb-7">
                 <div className="home-about dark:border-t dark:border-b dark:!border-ccc">
                     <div className="md:grid md:grid-cols-12 gap-4">
                         <div className="md:col-span-8 py-6 about-intro md:border-r !border-ccc">
@@ -384,14 +384,14 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                             <div className="">
                                 <img className="w-full" src="./img/home/subscribe.png" alt="smile" loading="lazy"/>
                             </div>
-                            <div className="ml-5 text-black flex items-center pr-8">
+                            <div className="ml-5 text-black flex items-center md:pr-8">
                                 <div>
                                     <div className="mb-3 heading_2">Subscribe for newsletters</div>
                                     <div>
                                         Receive the latest updates straight to your inbox. Get stories, exclusive offers, and promotions when you sign up.
                                     </div>
                                     <div className="mt-4">
-                                        <button className="w-1/4 my-btn-pr dark:border-white" type="submit">Subscribe</button>
+                                        <button className="px-4 my-btn-pr dark:border-white" type="submit">Subscribe</button>
                                     </div>
                                 </div>
                             </div>
@@ -400,14 +400,10 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                 </div>
             </div>
             <div className="">
-                <div className="flex items-center mb-5">
-                    <div className="w-full mr-auto h-1 bg-ccc"></div>
-                    <div className="w-full">
-                        <div className="heading_3">
-                            Follow us on Instagram
-                        </div>
-                    </div>
-                    <div className="w-full ml-auto h-1 bg-ccc"></div>
+                <div className="relative flex py-5 items-center gap-1">
+                    <div className="flex-grow bg-black dark:bg-white" style={{height: '1px'}}></div>
+                    <span className="text-xs md:text-xs">Follow us on Instagram</span>
+                    <div className="flex-grow bg-black dark:bg-white" style={{height: '1px'}}></div>
                 </div>
                 <div className="scrolling-text">
                     <div className="scrolling-text-content">

@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import store from '../store/index';
 import { RouterProvider } from '../provider/router';
 
-const MyApp = ({ Component, pageProps }) => {
+const MyApp = ({ Component, pageProps, categories }) => {
 
     return(
         <Provider store={store}>

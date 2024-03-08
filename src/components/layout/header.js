@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useTrans } from "@hooks/useTrans";
 import { setTheme } from "../../utils/local-store";
 import { useRouter } from 'next/router'
+import ThemeToggle from "./themeToggle";
 
 const Header = () => {
     const router = useRouter()
@@ -15,6 +16,20 @@ const Header = () => {
     const [showMenu, setShowMenu] = useState(false);
     const headerRef = useRef(null);
     const headerMobileRef = useRef(null);
+
+    useEffect(() => {
+        router.events.on('routeChangeStart', () => {
+            setShoww(false);
+            setShowMenu(false);
+        });
+        return () => {
+            router.events.off('routeChangeStart', () => {
+                setShoww(false);
+                setShowMenu(false);
+            });
+        }
+    }, [])
+
 
     // Xử lý search
     const [keywordType, setKeywordType] = useState("");
@@ -119,26 +134,7 @@ const Header = () => {
                         </svg>
                     </button>
                     {/*darkmode-lightmode*/}
-                    <div className="!hidden md:!block color-mode">
-                        <div className="mode-inner">
-                            {/*sun icon*/}
-                            <div className="light-mode">
-                                <span>
-                                    <img className="" src="/img/icon/sun.svg" alt="smile" loading="lazy"/>
-                                </span>
-                            </div>
-                            {/*moon icon*/}
-                            <div className="dark-mode">
-                                <span>
-                                    <img className="" src="/img/icon/moon.svg" alt="smile" loading="lazy"/>
-                                </span>
-                            </div>
-                        </div>
-                        <div className="switch-btn">
-                            {/*button switch*/}
-                            <div className="sw-btn"></div>
-                        </div>
-                    </div>
+                    <ThemeToggle />
                     {/*main logo*/}
                     <Link href={ROUTER.HOME} className="flex-1">
                         <div className="items-center justify-center w-full hidden dark:flex">
@@ -200,10 +196,10 @@ const Header = () => {
                                     </div>
                                 </div>
                                 <div className={`content-container`}>
-                                    <div><Link href={ROUTER.DESTINATION}>How to</Link></div>
-                                    <div><Link href={ROUTER.DESTINATION}>Skincare routine</Link></div>
-                                    <div><Link href={ROUTER.DESTINATION}>Usage guide</Link></div>
-                                    <div><Link href={ROUTER.DESTINATION}>Sun care</Link></div>
+                                    <div><Link href={'/sub-des/9'}>How to</Link></div>
+                                    <div><Link href={'/sub-des/10'}>Skincare routine</Link></div>
+                                    <div><Link href={'/sub-des/3'}>Usage guide</Link></div>
+                                    <div><Link href={'/sub-des/4'}>Sun care</Link></div>
                                 </div>
                             </div>
                         </div>
@@ -224,14 +220,14 @@ const Header = () => {
                                     </div>
                                 </div>
                                 <div className={`content-container`}>
-                                    <div><Link href={ROUTER.SUBDES}>Skin concerns</Link></div>
-                                    <div><Link href={ROUTER.DESTINATION}>Tips & Advices</Link></div>
-                                    <div><Link href={ROUTER.INGREDIENT}>Skincare ingredients</Link></div>
-                                    <div><Link href={ROUTER.DESTINATION}>Nuturish</Link></div>
+                                    <div><Link href={'/sub-des/5'}>Skin concerns</Link></div>
+                                    <div><Link href={'/sub-des/6'}>Tips & Advices</Link></div>
+                                    <div><Link href={'/sub-des/7'}>Nuturish</Link></div>
                                 </div>
                             </div>
                         </div>
-                        <div className="py-3 border-b border-ccc"><Link href={ROUTER.TESTREVIEW}>Testings & Reviews</Link></div>
+                        <div className="py-3 border-b border-ccc"><Link href={ROUTER.TESTREVIEW}>Skincare ingredients</Link></div>
+                        <div className="py-3 border-b border-ccc"><Link href={ROUTER.INGREDIENT}>Testings & Reviews</Link></div>
                         <div className="">
                             <div className={`my-collapse dark:border-b dark:border-ccc ${activeTab3 === 0 ? 'expanded' : ''}`}>
                                 <div className="question-container flex" onClick={toggleCollapse3}>
@@ -262,27 +258,7 @@ const Header = () => {
 
             {/*WEBSITE HEADER*/}
             <div className="hidden md:flex top-header justify-center p-3 container-fluid justify-center w-full items-center m-w mx-auto my-0">
-                <div className="!hidden md:!block color-mode">
-                    <div className="mode-inner">
-                        {/*sun icon*/}
-                        <div className="light-mode">
-                            <span>
-                                <img className="" src="/img/icon/sun.svg" alt="smile" loading="lazy"/>
-                            </span>
-                        </div>
-                        {/*moon icon*/}
-                        <div className="dark-mode">
-                            <span>
-                                <img className="" src="/img/icon/moon.svg" alt="smile" loading="lazy"/>
-                            </span>
-                        </div>
-                    </div>
-                    <div className="switch-btn">
-                        {/*button switch*/}
-                        <div className="sw-btn"></div>
-                    </div>
-                </div>
-                {/*main logo*/}
+                <ThemeToggle />
                 <Link href={ROUTER.HOME} className="flex-1">
                     <div className="items-center justify-center w-full hidden dark:flex">
                         <img className="h-4" src="/img/logo1.svg" alt="smile" loading="lazy"/>
@@ -311,7 +287,7 @@ const Header = () => {
             </div>
             {/*${show ? 'search-hide' : 'search-unhide'}*/}
             {/*search popdown*/}
-            <div id="search-popdown" className={`searchbar ${showw ? 's-true' : 's-false'} `}>
+            <div id="search-popdown" className={`searchbar ${showw ? 'search-true' : 'search-false'} `}>
                 <div className="search-bar-inner dark:bg-black">
                     <div className="search-here py-5">
                         <div className="grid grid-cols-12">
@@ -398,16 +374,16 @@ const Header = () => {
                                                 </div>
                                                 <div className="navdrop-inner absolute py-1 border-x border-b border-ccc dark:border-666 dark:!bg-black">
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
-                                                        <Link href={ROUTER.SUBDES} className="body_text dark:text-white nav-link">How to</Link>
+                                                        <Link href={'/sub-des/9'} className="body_text dark:text-white nav-link">How to</Link>
                                                     </div>
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
-                                                        <Link href={ROUTER.SUBDES} className="body_text dark:text-white nav-link">Skincare routine</Link>
+                                                        <Link href={'/sub-des/10'} className="body_text dark:text-white nav-link">Skincare routine</Link>
                                                     </div>
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
-                                                        <Link href={ROUTER.SUBDES} className="body_text dark:text-white nav-link">Usage guide</Link>
+                                                        <Link href={'/sub-des/3'} className="body_text dark:text-white nav-link">Usage guide</Link>
                                                     </div>
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
-                                                        <Link href={ROUTER.SUBDES} className="body_text dark:text-white nav-link">Sun care</Link>
+                                                        <Link href={'/sub-des/4'} className="body_text dark:text-white nav-link">Sun care</Link>
                                                     </div>
                                                 </div>
                                             </div>
@@ -424,13 +400,13 @@ const Header = () => {
                                                 </div>
                                                 <div className="navdrop-inner absolute left-30 w-48 py-1 border-x border-b border-ccc dark:border-666 dark:!bg-black">
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700 dark:!text-white">
-                                                        <Link href={ROUTER.SUBDES} className="body_text nav-link">Skin concerns</Link>
+                                                        <Link href={'/sub-des/5'} className="body_text nav-link">Skin concerns</Link>
                                                     </div>
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700 dark:!text-white">
-                                                        <Link href={ROUTER.SUBDES} className="body_text nav-link">Tips & advices</Link>
+                                                        <Link href={'/sub-des/6'} className="body_text nav-link">Tips & advices</Link>
                                                     </div>
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700 dark:!text-white">
-                                                        <Link href={ROUTER.SUBDES} className="body_text nav-link">Nuturish</Link>
+                                                        <Link href={'/sub-des/7'} className="body_text nav-link">Nuturish</Link>
                                                     </div>
                                                 </div>
                                             </div>
