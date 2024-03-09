@@ -445,7 +445,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                             </div>
                         </div>
                     </div>
-                    <div className="scrolling-text-content">
+                    <div className="hidden md:inline-block scrolling-text-content">
                         <div className="grid grid-cols-8">
                             <div className="col-span-1">
                                 <img className="w-full" src="./img/home/ig1.jpg" alt="smile" height="60"
@@ -481,7 +481,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                             </div>
                         </div>
                     </div>
-                    <div className="scrolling-text-content">
+                    <div className="hidden md:inline-block scrolling-text-content">
                         <div className="grid grid-cols-8">
                             <div className="col-span-1">
                                 <img className="w-full" src="./img/home/ig1.jpg" alt="smile"  height="60"
