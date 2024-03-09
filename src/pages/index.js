@@ -412,108 +412,85 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                     <div className="scrolling-text-content">
                         <div className="grid grid-cols-8">
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig1.jpg" alt="smile" height="60"
-                                     width="60"/>
+                                <img className="w-full" src="./img/home/ig1.jpg" alt="smile" />
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig2.jpg" alt="smile" height="60"
-                                     width="60"/>
+                                <img className="w-full" src="./img/home/ig2.jpg" alt="smile" />
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig3.jpg" alt="smile" height="60"
-                                     width="60"/>
+                                <img className="w-full" src="./img/home/ig3.jpg" alt="smile" />
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig4.jpg" alt="smile" height="60"
-                                     width="60"/>
+                                <img className="w-full" src="./img/home/ig4.jpg" alt="smile" />
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig5.jpg" alt="smile" height="60"
-                                     width="60"/>
+                                <img className="w-full" src="./img/home/ig5.jpg" alt="smile" />
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig6.jpg" alt="smile" height="60"
-                                     width="60"/>
+                                <img className="w-full" src="./img/home/ig6.jpg" alt="smile" />
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig7.jpg" alt="smile" height="60"
-                                     width="60"/>
+                                <img className="w-full" src="./img/home/ig7.jpg" alt="smile" />
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig8.jpg" alt="smile" height="60"
-                                     width="60"/>
+                                <img className="w-full" src="./img/home/ig8.jpg" alt="smile" />
                             </div>
                         </div>
                     </div>
                     <div className="hidden md:inline-block scrolling-text-content">
                         <div className="grid grid-cols-8">
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig1.jpg" alt="smile" height="60"
-                                     width="60"/>
+                                <img className="w-full" src="./img/home/ig1.jpg" alt="smile" />
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig2.jpg" alt="smile" height="60"
-                                     width="60"/>
+                                <img className="w-full" src="./img/home/ig2.jpg" alt="smile" />
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig3.jpg" alt="smile" height="60"
-                                     width="60"/>
+                                <img className="w-full" src="./img/home/ig3.jpg" alt="smile" />
                             </div>
                             <div className="col-span-1">
                                 <img className="w-full" src="./img/home/ig4.jpg" alt="smile" height="60"
                                      width="100"/>
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig5.jpg" alt="smile" height="60"
-                                     width="60"/>
+                                <img className="w-full" src="./img/home/ig5.jpg" alt="smile" />
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig6.jpg" alt="smile" height="60"
-                                     width="60"/>
+                                <img className="w-full" src="./img/home/ig6.jpg" alt="smile" />
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig7.jpg" alt="smile"  height="60"
-                                     width="60"/>
+                                <img className="w-full" src="./img/home/ig7.jpg" alt="smile"  />
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig8.jpg" alt="smile"  height="60"
-                                     width="60"/>
+                                <img className="w-full" src="./img/home/ig8.jpg" alt="smile"  />
                             </div>
                         </div>
                     </div>
                     <div className="hidden md:inline-block scrolling-text-content">
                         <div className="grid grid-cols-8">
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig1.jpg" alt="smile"  height="60"
-                                     width="60"/>
+                                <img className="w-full" src="./img/home/ig1.jpg" alt="smile"  />
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig2.jpg" alt="smile"  height="60"
-                                     width="60"/>
+                                <img className="w-full" src="./img/home/ig2.jpg" alt="smile"  />
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig3.jpg" alt="smile"  height="60"
-                                     width="60"/>
+                                <img className="w-full" src="./img/home/ig3.jpg" alt="smile"  />
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig4.jpg" alt="smile"  height="60"
-                                     width="60"/>
+                                <img className="w-full" src="./img/home/ig4.jpg" alt="smile"  />
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig5.jpg" alt="smile"  height="60"
-                                     width="60"/>
+                                <img className="w-full" src="./img/home/ig5.jpg" alt="smile"  />
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig6.jpg" alt="smile"  height="60"
-                                     width="60"/>
+                                <img className="w-full" src="./img/home/ig6.jpg" alt="smile"  />
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig7.jpg" alt="smile"  height="60"
-                                     width="60"/>
+                                <img className="w-full" src="./img/home/ig7.jpg" alt="smile"  />
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig8.jpg" alt="smile"  height="60"
-                                     width="60"/>
+                                <img className="w-full" src="./img/home/ig8.jpg" alt="smile"  />
                             </div>
                         </div>
                     </div>
