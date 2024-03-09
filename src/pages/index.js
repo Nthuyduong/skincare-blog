@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Link from 'next/link';
 import { ROUTER } from "../utils/constants";
-import Slider from "../components/common/slider";
 import { BASE_URL } from "@utils/apiUtils";
 import { formatDate } from "@utils/format";
 import { useRouter } from 'next/router';
 import { getBlogNewest, getBlogPopular} from "../services/home";
+import dynamic from "next/dynamic";
+const Slider = dynamic(() => import("../components/common/slider"), { ssr: false });
 
 const Home = ({ newestProps, popularProps, isCsr }) => {
     
@@ -40,7 +41,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
             <div className="my-0 px-3 mx-auto m-w">
                 {/*Lastest on this blog*/}
                 <div className="recently-update pt-6 md:pt-8">
-                    <div className="heading_4 md:heading_3 mb-4">Most useful articles</div>
+                    <div className="heading_4 md:heading_3 mb-1 md:mb-4">Most useful articles</div>
                     <div className="">
                         <Slider
                             configs={{
@@ -52,6 +53,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                                 autoDuration: 1000,
                                 gap: 40,
                                 gapMobile: 10,
+                                process: true,
                             }}
                         >
                             <div className="justify-center">
@@ -225,7 +227,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                 </div>
                 <div className="category-destination pt-6 md:pt-8">
                     <div className="destination-title border-y border-ccc dark:border-y dark:border-999 mb-5">
-                        <div className="py-3 md:flex justify-center">
+                        <div className="md:py-3 md:flex justify-center">
                             {/*breadcrumb*/}
                             <div className="self-center mb-2 md:mb-0">
                                 <div className="heading_3">Skincare Guides & Tutorials</div>
@@ -301,18 +303,19 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                 </div>
                 {/*Reader's favorite*/}
                 <div className="p-100">
-                    <div className="heading_3 mb-4">Reader's Favorite</div>
+                    <div className="heading_3 mb-1 md:mb-4">Reader's Favorite</div>
                     <div className="">
                         <Slider
                             configs={{
                                 sliderPerRow: 4,
-                                sliderPerRowMobile: 1.5,
+                                sliderPerRowMobile: 1.25,
                                 allowDrag: true,
                                 duration: 400,
                                 auto: false,
                                 autoDuration: 1000,
                                 gap: 40,
                                 gapMobile: 10,
+                                process: true,
                             }}
                         >
                             {newest.map((newest, index) => (
@@ -409,35 +412,35 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                     <div className="scrolling-text-content">
                         <div className="grid grid-cols-8">
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig1.jpg" alt="smile" loading="lazy" height="60"
+                                <img className="w-full" src="./img/home/ig1.jpg" alt="smile" height="60"
                                      width="60"/>
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig2.jpg" alt="smile" loading="lazy" height="60"
+                                <img className="w-full" src="./img/home/ig2.jpg" alt="smile" height="60"
                                      width="60"/>
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig3.jpg" alt="smile" loading="lazy" height="60"
+                                <img className="w-full" src="./img/home/ig3.jpg" alt="smile" height="60"
                                      width="60"/>
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig4.jpg" alt="smile" loading="lazy" height="60"
+                                <img className="w-full" src="./img/home/ig4.jpg" alt="smile" height="60"
                                      width="60"/>
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig5.jpg" alt="smile" loading="lazy" height="60"
+                                <img className="w-full" src="./img/home/ig5.jpg" alt="smile" height="60"
                                      width="60"/>
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig6.jpg" alt="smile" loading="lazy" height="60"
+                                <img className="w-full" src="./img/home/ig6.jpg" alt="smile" height="60"
                                      width="60"/>
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig7.jpg" alt="smile" loading="lazy" height="60"
+                                <img className="w-full" src="./img/home/ig7.jpg" alt="smile" height="60"
                                      width="60"/>
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig8.jpg" alt="smile" loading="lazy" height="60"
+                                <img className="w-full" src="./img/home/ig8.jpg" alt="smile" height="60"
                                      width="60"/>
                             </div>
                         </div>
@@ -445,35 +448,35 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                     <div className="scrolling-text-content">
                         <div className="grid grid-cols-8">
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig1.jpg" alt="smile" loading="lazy" height="60"
+                                <img className="w-full" src="./img/home/ig1.jpg" alt="smile" height="60"
                                      width="60"/>
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig2.jpg" alt="smile" loading="lazy" height="60"
+                                <img className="w-full" src="./img/home/ig2.jpg" alt="smile" height="60"
                                      width="60"/>
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig3.jpg" alt="smile" loading="lazy" height="60"
+                                <img className="w-full" src="./img/home/ig3.jpg" alt="smile" height="60"
                                      width="60"/>
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig4.jpg" alt="smile" loading="lazy" height="60"
+                                <img className="w-full" src="./img/home/ig4.jpg" alt="smile" height="60"
                                      width="100"/>
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig5.jpg" alt="smile" loading="lazy" height="60"
+                                <img className="w-full" src="./img/home/ig5.jpg" alt="smile" height="60"
                                      width="60"/>
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig6.jpg" alt="smile" loading="lazy" height="60"
+                                <img className="w-full" src="./img/home/ig6.jpg" alt="smile" height="60"
                                      width="60"/>
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig7.jpg" alt="smile" loading="lazy" height="60"
+                                <img className="w-full" src="./img/home/ig7.jpg" alt="smile"  height="60"
                                      width="60"/>
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig8.jpg" alt="smile" loading="lazy" height="60"
+                                <img className="w-full" src="./img/home/ig8.jpg" alt="smile"  height="60"
                                      width="60"/>
                             </div>
                         </div>
@@ -481,35 +484,35 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                     <div className="scrolling-text-content">
                         <div className="grid grid-cols-8">
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig1.jpg" alt="smile" loading="lazy" height="60"
+                                <img className="w-full" src="./img/home/ig1.jpg" alt="smile"  height="60"
                                      width="60"/>
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig2.jpg" alt="smile" loading="lazy" height="60"
+                                <img className="w-full" src="./img/home/ig2.jpg" alt="smile"  height="60"
                                      width="60"/>
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig3.jpg" alt="smile" loading="lazy" height="60"
+                                <img className="w-full" src="./img/home/ig3.jpg" alt="smile"  height="60"
                                      width="60"/>
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig4.jpg" alt="smile" loading="lazy" height="60"
+                                <img className="w-full" src="./img/home/ig4.jpg" alt="smile"  height="60"
                                      width="60"/>
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig5.jpg" alt="smile" loading="lazy" height="60"
+                                <img className="w-full" src="./img/home/ig5.jpg" alt="smile"  height="60"
                                      width="60"/>
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig6.jpg" alt="smile" loading="lazy" height="60"
+                                <img className="w-full" src="./img/home/ig6.jpg" alt="smile"  height="60"
                                      width="60"/>
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig7.jpg" alt="smile" loading="lazy" height="60"
+                                <img className="w-full" src="./img/home/ig7.jpg" alt="smile"  height="60"
                                      width="60"/>
                             </div>
                             <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig8.jpg" alt="smile" loading="lazy" height="60"
+                                <img className="w-full" src="./img/home/ig8.jpg" alt="smile"  height="60"
                                      width="60"/>
                             </div>
                         </div>

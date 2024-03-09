@@ -25,7 +25,7 @@ const Footer = () => {
 
                     {/*    </ul>*/}
                     {/*</div>*/}
-                    <div className="md:col-span-4 col-span-12 flex justify-center border-b md:border-b-0 dark:border-ccc md:border-r md:!border-ccc footer-logo items-center p-4 lg:p-5 border-solid">
+                    <div className="md:col-span-4 col-span-12 flex justify-center border-b md:border-b-0 border-ccc dark:border-ccc md:border-r md:!border-ccc footer-logo items-center p-4 lg:p-5 border-solid">
                         <img className="h-fit md:w-2/5 w-2/5 dark:hidden" src="/img/footer-logo.svg" alt="smile" loading="lazy"/>
                         <img className="h-fit md:w-2/5 w-2/5 dark:block hidden" src="/img/footer-logo-2.svg" alt="smile" loading="lazy"/>
                     </div>

@@ -1,7 +1,8 @@
 import {ROUTER} from "../utils/constants";
 import Link from "next/link";
 import React, {useRef, useState} from "react";
-import Slider from "../components/common/slider";
+import dynamic from "next/dynamic";
+const Slider = dynamic(() => import('@components/common/slider'), { ssr: false });
 
 const Testreview = () => {
 

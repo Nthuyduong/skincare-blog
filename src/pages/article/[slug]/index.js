@@ -2,10 +2,11 @@ import React, { useEffect, useRef, useState } from "react";
 import { throttle } from '@utils/common';
 import { getBlogBySlugApi } from "@services/blog";
 import { BASE_URL } from "@utils/apiUtils";
-import Slider from "../../../components/common/slider";
 import Link from "next/link";
 import { ROUTER } from "../../../utils/constants";
 import { useRouter } from 'next/router';
+import dynamic from "next/dynamic";
+const Slider = dynamic(() => import("../../../components/common/slider"), { ssr: false });
 
 const ArticleDetail = ({ blogProps, isCrs, slug }) => {
     

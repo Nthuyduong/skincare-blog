@@ -12,12 +12,13 @@ import { showModal } from "../../store/modal/modal.action";
 import Toasts from "../common/toast/toasts";
 
 const Layout = ({ children }) => {
-    // khai báo dispatch để sử dụng action cho store modal
-    const dispatch = useDispatch();
 
     //Back-to-top function
     const scrollToTop = () => {
-        window.scrollTo(0, 0);
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
     }
 
     //display and hide scroll to top button

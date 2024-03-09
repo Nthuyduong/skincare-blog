@@ -6,11 +6,10 @@ const Slider = ({
     children
 }) => {
 
-    const windowSize = useWindowSize();
-
     const ref = useRef(null);
     const refWrp = useRef(null);
     const refContent = useRef(null);
+    const refProcess = useRef(null);
 
     const defaultConfigs = {
         sliderPerRow: 3,
@@ -21,6 +20,7 @@ const Slider = ({
         autoDuration: 1000,
         gap: 10,
         gapMobile: 10,
+        process: false,
     }
 
     // toán tử spread (...) để tạo một bản sao của tất cả các thuộc tính trong đối tượng defaultConfigs
@@ -41,17 +41,17 @@ const Slider = ({
 
     //Nếu độ rộng của trình duyệt > 768 => sliderPerRow = sliderPerRow (3) còn không thì sẽ là sliderPerMobile (2.5)
     //dùng configs để ghi đè giá trị tương ứng của defaultConfigs
-    let sliderPerRow = windowSize.width > 768 ? configs.sliderPerRow : configs.sliderPerRowMobile;
+    let sliderPerRow = window?.outerWidth > 768 ? configs.sliderPerRow : configs.sliderPerRowMobile;
     let scrollLeft = refContent.current?.scrollLeft;
 
     //Tính toán số lượng slide tối đa có thể di  (tổng số slide - số slide hiển thị/ row)
     let maxSlide = countChildren - sliderPerRow;
     //Tính toán kích thước của một slide (100% / số slide hiển thị trên một hàng)
-    let gap = windowSize.width > 768 ? configs.gap : configs.gapMobile;
+    let gap = window?.outerWidth > 768 ? configs.gap : configs.gapMobile;
 
     useEffect(() => {
         handleResize();
-    }, [windowSize])
+    }, [window.outerWidth]);
     
 
     //giá trị trong hàm callback (active) thay đổi thì hàm callback sẽ được gọi tới để kích hoạt hàm runSlider
@@ -61,9 +61,13 @@ const Slider = ({
 
     useEffect(() => {
         //sự kiến lắng nghe để biết nếu cửa sổ trình duyệt resize thì hàm handleResize sẽ được gọi tới
-        window.addEventListener('resize', handleResize);
+        // window.addEventListener('resize', handleResize);
         window.addEventListener('orientationchange', handleResize);
-        refContent.current.addEventListener('scroll', handleScroll)
+        if (refProcess.current) {
+            console.log();
+            refProcess.current.style.width = `${(100 / countChildren) * sliderPerRow}%`;
+        }
+        refContent.current.addEventListener('scroll', handleScroll);
 
         //loại bỏ sử kiện, lý do thì chưa biết
         return () => {
@@ -75,6 +79,10 @@ const Slider = ({
 
     const handleScroll = () => {
         scrollLeft = refContent.current?.scrollLeft;
+        if (refProcess.current) {
+            const scrollPercent = (scrollLeft + refContent.current.clientWidth) / refContent.current.scrollWidth * 100;
+            refProcess.current.style.width = `${scrollPercent}%`;
+        }
         resolveButton();
     }
 
@@ -207,19 +215,23 @@ const Slider = ({
 
             <div className="slider-control">
                 <div className={`prev-button ${ disablePrev ? 'btn-disable': '' }`}>
-                    <button className="my-prev-btn" onClick={prevSlide}>
+                    <button className="my-prev-btn bg-black dark:bg-black" onClick={prevSlide}>
                         <img className="w-full icon-sm dark:hidden" src="/img/icon/chevron-left-black.svg" alt="smile" loading="lazy"/>
                         <img className="w-full icon-sm hidden dark:block" src="/img/icon/chevron-left.svg" alt="smile" loading="lazy"/>
                     </button>
                 </div>
                 <div className={`next-button ${ disableNext ? 'btn-disable': ''}`}>
-                    <button className="my-next-btn" onClick={nextSlide}>
+                    <button className="my-next-btn bg-white dark:bg-black" onClick={nextSlide}>
                         <img className="w-full icon-sm dark:hidden" src="/img/icon/chevron-right-black.svg" alt="smile" loading="lazy"/>
                         <img className="w-full icon-sm hidden dark:block" src="/img/icon/chevron-right.svg" alt="smile" loading="lazy"/>
                     </button>
                 </div>
             </div>
-
+            {configs.process && (
+                <div className="slider-process" >
+                    <div ref={refProcess} className="process-wrp bg-black dark:bg-white" ></div>
+                </div>
+            )}
         </div>
     )
 }
