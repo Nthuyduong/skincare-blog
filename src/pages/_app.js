@@ -6,15 +6,19 @@ import '../styles/app.scss';
 import { Provider } from 'react-redux';
 import store from '../store/index';
 import { RouterProvider } from '../provider/router';
+import { AnimationProvider } from '../provider/animation';
 
 const MyApp = ({ Component, pageProps, categories }) => {
 
     return(
         <Provider store={store}>
             <RouterProvider>
-                <Layout>
-                    <Component {...pageProps}/>
-                </Layout>
+                <AnimationProvider>
+                    <Layout>
+                        <Component {...pageProps}/>
+                    </Layout>
+                </AnimationProvider>
+                
             </RouterProvider>
         </Provider>
     )

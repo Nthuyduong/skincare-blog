@@ -39,7 +39,7 @@ const Scroller = ({configs, children}) => {
     return (
         <>
             <div ref={ref} className='scroller' data-direction={configs.direction} data-speed={configs.speed}>
-                <div class="scroller__inner">
+                <div className="scroller__inner">
                     {children}
                 </div>
             </div>

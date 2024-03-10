@@ -27,8 +27,8 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
             getBlogNewest(10),
             getBlogPopular(10)
         ]);
-        setNewest(res[0]);
-        setPopular(res[1]);
+        setNewest(res[0] || []);
+        setPopular(res[1] || []);
     }
 
     return (
@@ -36,13 +36,13 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
             <div className="home-banner">
                 <picture>
                     <source media="(min-width:465px)" srcSet="./img/home/banner2.jpg"/>
-                    <img className="w-full" src="./img/home/mobile-banner.png" alt="smile" loading="lazy"/>
+                    <img className="bg-scale-img w-full" src="./img/home/mobile-banner.png" alt="smile" loading="lazy"/>
                 </picture>
             </div>
             <div className="my-0 px-3 mx-auto m-w">
                 {/*Lastest on this blog*/}
                 <div className="recently-update pt-6 md:pt-8">
-                    <div className="heading_4 md:heading_3 mb-1 md:mb-4">Most useful articles</div>
+                    <div className="animate slideInUp heading_4 md:heading_3 mb-1 md:mb-4">Most useful articles</div>
                     <div className="">
                         <Slider
                             configs={{
@@ -57,155 +57,43 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                                 process: true,
                             }}
                         >
-                            <div className="justify-center">
-                                <div className="col-span-12 md:col-span-4">
-                                    <div>
-                                        <Link href="/article/the-best-food-for-skin-that-is-glowy-and-radiant">
-                                            <img className="w-full" src="./img/home/article.png" alt="smile" loading="lazy"/>
-                                        </Link>
-                                    </div>
-                                    <div>
-                                        <div className="article-info md:!border-b md:!border-ccc border-b-0 py-2 mb-2">
-                                            <div className="md:flex mb-1">
-                                                <div className="mr-auto small_text">
-                                                    <Link className="" href="/article/the-best-food-for-skin-that-is-glowy-and-radiant">Drink & Coffee</Link>
+                            {popular.map((blog, index) => (
+                                <div className="justify-center" key={index}>
+                                    <div className="col-span-12 md:col-span-4">
+                                        <div className="">
+                                            <Link href={"/article/" + blog.slug}>
+                                                <img className="w-full" src={BASE_URL + '/storage/' + blog?.featured_img} alt="smile" loading="lazy"/>
+                                            </Link>
+                                        </div>
+                                        <div className="">
+                                            <div className="article-info md:!border-b md:!border-ccc border-b-0 py-2 mb-2">
+                                                <div className="md:flex mb-1">
+                                                <div className="mr-auto small_text">{ blog.categories.map((category) => {return category.name}).join(' | ') }</div>
+                                                    <div className="small_text">{ formatDate(blog.created_at) }</div>
                                                 </div>
-                                                <div className="small_text">November 8, 2023</div>
+                                                <div className="medium_text">{ blog.title }</div>
                                             </div>
-                                            <div className="medium_text">The best food for skin that is glowy and radiant</div>
-                                        </div>
-                                        <div className="md:flex hidden">
-                                            <div className=""><a className="text-link" href="#">Read more</a></div>
-                                            <div className="ml-auto">Share</div>
+                                            <div className="md:flex hidden">
+                                                <div className=""><a className="text-link" href="#">Read more</a></div>
+                                                <div className="ml-auto">Share</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="justify-center">
-                                <div className="col-span-12 md:col-span-4">
-                                    <div>
-                                        <Link href="/artilce/how_can_workout_give_you_better_looking_skin">
-                                            <img className="w-full" src="./img/home/article1.jpg" alt="smile" loading="lazy"/>
-                                        </Link>
-                                    </div>
-                                    <div>
-                                        <div className="article-info md:!border-b md:!border-ccc border-b-0 py-2 mb-2">
-                                            <div className="md:flex mb-1">
-                                                <div className="mr-auto small_text">
-                                                    <Link className="" href="/artilce/how_can_workout_give_you_better_looking_skin">Drink & Coffee</Link>
-                                                </div>
-                                                <div className="small_text">November 8, 2023</div>
-                                            </div>
-                                            <div className="medium_text">How can workout give you better-looking skin?</div>
-                                        </div>
-                                        <div className="md:flex hidden">
-                                            <div className=""><a className="text-link" href="#">Read more</a></div>
-                                            <div className="ml-auto">Share</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="justify-center">
-                                <div className="col-span-12 md:col-span-4">
-                                    <div>
-                                        <Link href={ROUTER.ARTICLE}>
-                                            <img className="w-full" src="./img/home/article2.jpg" alt="smile" loading="lazy"/>
-                                        </Link>
-                                    </div>
-                                    <div>
-                                        <div className="article-info md:!border-b md:!border-ccc border-b-0 py-2 mb-2">
-                                            <div className="md:flex mb-1">
-                                                <div className="mr-auto small_text">Drink & Coffee</div>
-                                                <div className="small_text">November 8, 2023</div>
-                                            </div>
-                                            <div className="medium_text">Top 5 beautiful Coffee Shop in HaNoi</div>
-                                        </div>
-                                        <div className="md:flex hidden">
-                                            <div className=""><a className="text-link" href="#">Read more</a></div>
-                                            <div className="ml-auto">Share</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="justify-center">
-                                <div className="col-span-12 md:col-span-4">
-                                    <div>
-                                        <Link href={ROUTER.ARTICLE}>
-                                            <img className="w-full" src="./img/home/article3.jpg" alt="smile" loading="lazy"/>
-                                        </Link>
-                                    </div>
-                                    <div>
-                                        <div className="article-info md:!border-b md:!border-ccc border-b-0 py-2 mb-2">
-                                            <div className="md:flex mb-1">
-                                                <div className="mr-auto small_text">Drink & Coffee</div>
-                                                <div className="small_text">November 8, 2023</div>
-                                            </div>
-                                            <div className="medium_text">Top 5 beautiful Coffee Shop in HaNoi</div>
-                                        </div>
-                                        <div className="md:flex hidden">
-                                            <div className=""><a className="text-link" href="#">Read more</a></div>
-                                            <div className="ml-auto">Share</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="justify-center">
-                                <div className="col-span-12 md:col-span-4">
-                                    <div>
-                                        <Link href={ROUTER.ARTICLE}>
-                                            <img className="w-full" src="./img/home/article.jpg" alt="smile" loading="lazy"/>
-                                        </Link>
-                                    </div>
-                                    <div>
-                                        <div className="article-info md:!border-b md:!border-ccc border-b-0 py-1 mb-1">
-                                            <div className="md:flex mb-1">
-                                                <div className="mr-auto small_text">Drink & Coffee</div>
-                                                <div className="small_text">November 8, 2023</div>
-                                            </div>
-                                            <div className="medium_text">Top 5 beautiful Coffee Shop in HaNoi</div>
-                                        </div>
-                                        <div className="md:flex hidden">
-                                            <div className=""><a className="text-link" href="#">Read more</a></div>
-                                            <div className="ml-auto">Share</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="justify-center">
-                                <div className="col-span-12 md:col-span-4">
-                                    <div>
-                                        <Link href={ROUTER.ARTICLE}>
-                                            <img className="w-full" src="./img/home/article.jpg" alt="smile" loading="lazy" />
-                                        </Link>
-                                    </div>
-                                    <div>
-                                        <div className="article-info md:!border-b md:!border-ccc border-b-0 py-1 mb-1">
-                                            <div className="md:flex mb-1">
-                                                <div className="mr-auto small_text">Drink & Coffee</div>
-                                                <div className="small_text">November 8, 2023</div>
-                                            </div>
-                                            <div className="medium_text">Top 5 beautiful Coffee Shop in HaNoi</div>
-                                        </div>
-                                        <div className="md:flex hidden">
-                                            <div className=""><a className="text-link" href="#">Read more</a></div>
-                                            <div className="ml-auto">Share</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            ))}
                         </Slider>
                     </div>
                 </div>
                 {/*List subcategorires*/}
                 <div className="flex list-categories md:my-8 my-6 justify-center">
                     <div className="relative w-full md:w-2/3">
-                        <div className="absolute left-0 bottom-0">
+                        <div className="absolute left-0 bottom-0 animate-scroll-left">
                             <img
                                 className="rounded-full w-2/4"
                                 src="./img/home/list-ct-1.jpg"
                             />
                         </div>
-                        <div className="w-full relative" style={{zIndex: 100}}>
+                        <div className="w-full relative animate-scroll-up" style={{zIndex: 100}}>
                             <ul className="w-full text-center">
                                 <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl text-999 hover:text-333 dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>How to</Link></li>
                                 <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl text-999 hover:text-333 dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>Skincare routine</Link></li>
@@ -217,7 +105,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                                 <li><Link className="text-xs hover:text-sm md:text-lg md:hover:text-xl text-999 hover:text-333 dark:text-666 dark:hover:text-white transition duration-300 ease-in-out" href={ROUTER.SUBDES}>Nuturish</Link></li>
                             </ul>
                         </div>
-                        <div className="absolute right-0 top-0 flex justify-end">
+                        <div className="absolute right-0 top-0 flex justify-end animate-scroll-right">
                             <img
                                 className="rounded-full w-1/3 md:w-2/3"
                                 src="./img/home/list-ct-2.jpg"
@@ -227,11 +115,11 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                     
                 </div>
                 <div className="category-destination pt-6 md:pt-8">
-                    <div className="destination-title border-y border-ccc dark:border-y dark:border-999 mb-5">
+                    <div className="destination-title border-y border-ccc dark:border-y dark:border-999">
                         <div className="md:py-3 md:flex justify-center">
                             {/*breadcrumb*/}
                             <div className="self-center mb-2 md:mb-0">
-                                <div className="heading_3">Skincare Guides & Tutorials</div>
+                                <div className="animate animation-header heading_3">Skincare Guides & Tutorials</div>
                             </div>
                             {/*Change layout*/}
                             <div className="self-center flex ml-auto">
@@ -324,7 +212,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                                     <div className="col-span-12 md:col-span-4">
                                         <div className="hover-img">
                                             <div className="img-inner">
-                                                <Link href={ROUTER.ARTICLE}>
+                                                <Link href={"/article/" + newest.slug}>
                                                     <img className="w-full" src={BASE_URL + '/storage/' + newest?.featured_img} alt="smile" loading="lazy"/>
                                                 </Link>
                                             </div>
@@ -382,27 +270,31 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                         </div>
                     </div>
                 </div>
-                <div className="subscribe-section">
-                    <div className="bg-primary p-5">
-                        <div className="flex">
-                            <div className="">
-                                <img className="w-full" src="./img/home/subscribe.png" alt="smile" loading="lazy"/>
+            </div>
+            <section className="sectionPin">
+                <div className="pin-wrap-sticky">
+                    <div className="pin-wrap">
+                        <div className="pin-wrap-first-item pin-wrap-item ml-5 text-black items-center md:pr-8">
+                            <div className="mb-3 heading_2">Subscribe for newsletters</div>
+                            <div>
+                                Receive the latest updates straight to your inbox. Get stories, exclusive offers, and promotions when you sign up.
                             </div>
-                            <div className="ml-5 text-black flex items-center md:pr-8">
-                                <div>
-                                    <div className="mb-3 heading_2">Subscribe for newsletters</div>
-                                    <div>
-                                        Receive the latest updates straight to your inbox. Get stories, exclusive offers, and promotions when you sign up.
-                                    </div>
-                                    <div className="mt-4">
-                                        <button className="px-4 my-btn-pr dark:border-white" type="submit">Subscribe</button>
-                                    </div>
-                                </div>
+                            <div className="mt-4">
+                                <button className="px-4 my-btn-pr dark:border-white" type="submit">Subscribe</button>
                             </div>
+                        </div>
+                        <div className="pin-wrap-item">
+                            <img className="w-full" src="./img/home/subscribe.png" alt="smile" loading="lazy"/>
+                        </div>
+                        <div className="pin-wrap-item">
+                            <img className="w-full" src="./img/about/abt-me.jpg" alt="smile" loading="lazy"/>
+                        </div>
+                        <div className="pin-wrap-item">
+                            <img className="w-full" src="./img/about/mission.jpg" alt="smile" loading="lazy"/>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
             <div className="">
                 <div className="relative flex py-5 items-center gap-1">
                     <div className="flex-grow bg-black dark:bg-white" style={{height: '1px'}}></div>
@@ -419,93 +311,6 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                     <img className="w-full" src="./img/home/ig7.jpg" alt="smile" />
                     <img className="w-full" src="./img/home/ig8.jpg" alt="smile" />
                 </Scroller>
-                <div className="scrolling-text">
-                    <div className="scrolling-text-content">
-                        <div className="grid grid-cols-8">
-                            <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig1.jpg" alt="smile" />
-                            </div>
-                            <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig2.jpg" alt="smile" />
-                            </div>
-                            <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig3.jpg" alt="smile" />
-                            </div>
-                            <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig4.jpg" alt="smile" />
-                            </div>
-                            <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig5.jpg" alt="smile" />
-                            </div>
-                            <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig6.jpg" alt="smile" />
-                            </div>
-                            <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig7.jpg" alt="smile" />
-                            </div>
-                            <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig8.jpg" alt="smile" />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="hidden md:inline-block scrolling-text-content">
-                        <div className="grid grid-cols-8">
-                            <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig1.jpg" alt="smile" />
-                            </div>
-                            <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig2.jpg" alt="smile" />
-                            </div>
-                            <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig3.jpg" alt="smile" />
-                            </div>
-                            <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig4.jpg" alt="smile" height="60"
-                                     width="100"/>
-                            </div>
-                            <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig5.jpg" alt="smile" />
-                            </div>
-                            <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig6.jpg" alt="smile" />
-                            </div>
-                            <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig7.jpg" alt="smile"  />
-                            </div>
-                            <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig8.jpg" alt="smile"  />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="hidden md:inline-block scrolling-text-content">
-                        <div className="grid grid-cols-8">
-                            <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig1.jpg" alt="smile"  />
-                            </div>
-                            <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig2.jpg" alt="smile"  />
-                            </div>
-                            <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig3.jpg" alt="smile"  />
-                            </div>
-                            <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig4.jpg" alt="smile"  />
-                            </div>
-                            <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig5.jpg" alt="smile"  />
-                            </div>
-                            <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig6.jpg" alt="smile"  />
-                            </div>
-                            <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig7.jpg" alt="smile"  />
-                            </div>
-                            <div className="col-span-1">
-                                <img className="w-full" src="./img/home/ig8.jpg" alt="smile"  />
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     )

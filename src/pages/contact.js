@@ -52,6 +52,7 @@ const Contact = () => {
                         <div className="col-span-2 hidden md:block">
                             <img className="w-full" src="/img/home/contact2.png" alt="smile" loading="lazy"/>
                         </div>
+                        
                     </div>
                 </div>
             </div>

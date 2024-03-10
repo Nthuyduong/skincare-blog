@@ -5,7 +5,9 @@ export default function Document() {
 
     return (
         <Html lang="en">
-        <Head />
+        <Head >
+            <script src="https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js"></script>
+        </Head>
         <body>
             <Main />
             <NextScript />

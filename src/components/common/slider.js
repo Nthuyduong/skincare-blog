@@ -45,7 +45,7 @@ const Slider = ({
     let scrollLeft = refContent.current?.scrollLeft;
 
     //Tính toán số lượng slide tối đa có thể di  (tổng số slide - số slide hiển thị/ row)
-    let maxSlide = countChildren - sliderPerRow;
+    let maxSlide = countChildren > sliderPerRow ? countChildren - sliderPerRow : sliderPerRow;
     //Tính toán kích thước của một slide (100% / số slide hiển thị trên một hàng)
     let gap = window?.outerWidth > 768 ? configs.gap : configs.gapMobile;
 
@@ -77,6 +77,10 @@ const Slider = ({
         };
     }, [])
 
+    useEffect(() => {
+        runSlider();
+    }, [countChildren])
+
     const handleScroll = () => {
         scrollLeft = refContent.current?.scrollLeft;
         if (refProcess.current) {
@@ -91,25 +95,26 @@ const Slider = ({
         //tính số lượng slide sẽ hiển thị trên một hàng, cách tính như ở trên
         //configs ghi đè thuộc tính của defaultConfigs width trình duyệt > 768
         sliderPerRow = window.innerWidth > 768 ? configs.sliderPerRow : configs.sliderPerRowMobile;
-        maxSlide = countChildren - sliderPerRow;
+        maxSlide = countChildren > sliderPerRow ? countChildren - sliderPerRow : sliderPerRow;
         gap = window.innerWidth > 768 ? configs.gap : configs.gapMobile;
         runSlider();
     }
 
     //hàm run slider
     const runSlider = () => {
-        
         let slides = ref.current.children;
         if (slides.length === 0) return;
         // Cập nhật chiều rộng của slider container
         ref.current.style.width = `calc(${(countChildren / sliderPerRow) * 100 + '%'} + ${(gap * maxSlide) / sliderPerRow + 'px'})`;
+        if (slides[active]) {
+            refContent.current.scrollTo({
+                left:
+                    slides[active].offsetLeft -
+                    parseInt(getComputedStyle(refContent.current).paddingLeft),
+                behavior: "smooth",
+            });
+        }
         
-        refContent.current.scrollTo({
-        left:
-            slides[active].offsetLeft -
-            parseInt(getComputedStyle(refContent.current).paddingLeft),
-        behavior: "smooth",
-        });
 
         //nếu có auto slide thì thiết lập timeout
         if (configs.auto) {
@@ -187,7 +192,6 @@ const Slider = ({
             setActive(children.length - 1);
         }
     }
-
     return (
         <div
             className="slider-wrp"
