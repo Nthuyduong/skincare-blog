@@ -193,6 +193,18 @@
 	animation-timeline: --section-pin-tl;
 	animation-range: contain 0% contain 100%;
 }
+@media (prefers-reduced-motion) {
+    .pin-wrap {
+        height: 60vh;
+        animation: none;
+    }
+    .sectionPin {
+        height: 60vh;
+    }
+    .pin-wrap-sticky {
+        height: 60vh;
+    }
+}
 @media screen and (max-width: 768px){
     .pin-wrap {
         padding: 15px;
