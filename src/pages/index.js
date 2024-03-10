@@ -270,8 +270,28 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                         </div>
                     </div>
                 </div>
+                <div className="subscribe-section">
+                    <div className="bg-primary p-5">
+                        <div className="flex">
+                            <div className="">
+                                <img className="w-full" src="./img/home/subscribe.png" alt="smile" loading="lazy"/>
+                            </div>
+                            <div className="ml-5 text-black flex items-center md:pr-8">
+                                <div>
+                                    <div className="mb-3 heading_2">Subscribe for newsletters</div>
+                                    <div>
+                                        Receive the latest updates straight to your inbox. Get stories, exclusive offers, and promotions when you sign up.
+                                    </div>
+                                    <div className="mt-4">
+                                        <button className="px-4 my-btn-pr dark:border-white" type="submit">Subscribe</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <section className="sectionPin">
+            {/* <section className="sectionPin">
                 <div className="pin-wrap-sticky">
                     <div className="pin-wrap">
                         <div className="pin-wrap-first-item pin-wrap-item dark:text-white text-black items-center md:pr-8">
@@ -294,7 +314,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
             <div className="">
                 <div className="relative flex py-5 items-center gap-1">
                     <div className="flex-grow bg-black dark:bg-white" style={{height: '1px'}}></div>
