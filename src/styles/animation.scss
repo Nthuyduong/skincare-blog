@@ -193,12 +193,18 @@
 	animation-timeline: --section-pin-tl;
 	animation-range: contain 0% contain 100%;
 }
+@media screen and (max-width: 768px){
+    .pin-wrap {
+        padding: 15px;
+    }
+}
 .pin-wrap-first-item {
     min-width: 60vw;
+    max-width: 60vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: start;
+    align-items: self-start;
 }
 .pin-wrap-item {
     height: 100%;

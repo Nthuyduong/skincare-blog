@@ -274,13 +274,13 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
             <section className="sectionPin">
                 <div className="pin-wrap-sticky">
                     <div className="pin-wrap">
-                        <div className="pin-wrap-first-item pin-wrap-item ml-5 text-black items-center md:pr-8">
+                        <div className="pin-wrap-first-item pin-wrap-item dark:text-white text-black items-center md:pr-8">
                             <div className="mb-3 heading_2">Subscribe for newsletters</div>
                             <div>
                                 Receive the latest updates straight to your inbox. Get stories, exclusive offers, and promotions when you sign up.
                             </div>
                             <div className="mt-4">
-                                <button className="px-4 my-btn-pr dark:border-white" type="submit">Subscribe</button>
+                                <button className="border border-solid px-4 my-btn-pr dark:border-white" type="submit">Subscribe</button>
                             </div>
                         </div>
                         <div className="pin-wrap-item">
