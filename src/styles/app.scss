@@ -17,6 +17,7 @@
 @import "picker";
 @import "test";
 @import "theme";
+@import "animation";
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
 //Variant
@@ -563,11 +564,11 @@ textarea:focus-visible{
 }
 
 //HOVER IMG ANIMATION
-.hover-img .img-inner img:hover{
-  transform: scale(1.04);
+.hover-img .img-inner img{
+  transition: all .4s ease-in-out;
 }
 .hover-img .img-inner img:hover{
-  transition: all .2s ease-in-out;
+  transform: scale(1.2);
 }
 .hover-img .img-inner{
   overflow: hidden;

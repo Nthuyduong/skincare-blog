@@ -6,7 +6,8 @@ import { formatDate } from "@utils/format";
 import { useRouter } from 'next/router';
 import { getBlogNewest, getBlogPopular} from "../services/home";
 import dynamic from "next/dynamic";
-const Slider = dynamic(() => import("../components/common/slider"), { ssr: false });
+const Slider = dynamic(() => import("@components/common/slider"), { ssr: false });
+const Scroller = dynamic(() => import("@components/common/scroller"), { ssr: false });
 
 const Home = ({ newestProps, popularProps, isCsr }) => {
     
@@ -408,6 +409,16 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                     <span className="text-xs md:text-xs">Follow us on Instagram</span>
                     <div className="flex-grow bg-black dark:bg-white" style={{height: '1px'}}></div>
                 </div>
+                <Scroller>
+                    <img className="w-full" src="./img/home/ig1.jpg" alt="smile" />
+                    <img className="w-full" src="./img/home/ig2.jpg" alt="smile" />
+                    <img className="w-full" src="./img/home/ig3.jpg" alt="smile" />
+                    <img className="w-full" src="./img/home/ig4.jpg" alt="smile" />
+                    <img className="w-full" src="./img/home/ig5.jpg" alt="smile" />
+                    <img className="w-full" src="./img/home/ig6.jpg" alt="smile" />
+                    <img className="w-full" src="./img/home/ig7.jpg" alt="smile" />
+                    <img className="w-full" src="./img/home/ig8.jpg" alt="smile" />
+                </Scroller>
                 <div className="scrolling-text">
                     <div className="scrolling-text-content">
                         <div className="grid grid-cols-8">

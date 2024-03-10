@@ -215,7 +215,7 @@ const Slider = ({
 
             <div className="slider-control">
                 <div className={`prev-button ${ disablePrev ? 'btn-disable': '' }`}>
-                    <button className="my-prev-btn bg-black dark:bg-black" onClick={prevSlide}>
+                    <button className="my-prev-btn bg-white dark:bg-black" onClick={prevSlide}>
                         <img className="w-full icon-sm dark:hidden" src="/img/icon/chevron-left-black.svg" alt="smile" loading="lazy"/>
                         <img className="w-full icon-sm hidden dark:block" src="/img/icon/chevron-left.svg" alt="smile" loading="lazy"/>
                     </button>
