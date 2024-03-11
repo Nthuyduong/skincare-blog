@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { showModal } from "@store/modal/modal.action";
 import { useIngredient } from "@hooks/useIngredient";
 import {useDispatch} from "react-redux";
+import Link from 'next/link'
 
 const Adminingredient = () => {
 
@@ -21,6 +22,7 @@ const Adminingredient = () => {
             title:id? "Update ingredient" : "Create ingredient",
             name: "ingredient",
             enableClickOutside: true,
+            width: "80%",
             data: {
                 id: id,
             },
@@ -67,7 +69,9 @@ const Adminingredient = () => {
                 <div className="col-span-1"></div>
                 <div className="col-span-1"></div>
                 <div className="col-span-1">
-                    <button onClick={() => {handleAddIngredient()}} className="my-btn-pr w-full">New Ingredient</button>
+                    <Link className="block my-btn-pr w-full p-4" href={'/admin/ingredient/create'}>
+                        New Ingredient
+                    </Link>
                 </div>
                 <div className="col-span-1">
                     <button onClick={() => {handleDelete()}} className="my-btn-pr w-full">Delete Ingredient</button>
@@ -125,7 +129,7 @@ const Adminingredient = () => {
                                 <div className="cell-ssm">ID</div>
                                 <div className="cell-sm"></div>
                                 <div className="cell-ssm">A</div>
-                                <div className="cell">{ingredient.name}</div>
+                                <div className="cell"><Link href={'/admin/ingredient/' + ingredient.id}>{ingredient.name}</Link></div>
                                 <div className="cell">{ingredient.description}</div>
                                 <div className="cell-sm">
                                     <select className="sl-box">
@@ -137,13 +141,14 @@ const Adminingredient = () => {
                                 </div>
                                 <div className="cell-sm">
                                     <div className="flex justify-center">
-                                        <img
-                                            onClick={() => {handleAddIngredient(ingredient.id)}}
-                                            className="icon-sm mx-2" 
-                                            src="../img/icon/edit.svg" 
-                                            alt="smile" 
-                                            loading="lazy"
-                                        />
+                                        <Link href={'/admin/ingredient/' + ingredient.id}>
+                                            <img
+                                                className="icon-sm mx-2" 
+                                                src="../img/icon/edit.svg" 
+                                                alt="smile" 
+                                                loading="lazy"
+                                            />
+                                        </Link>
                                         <img className="icon-sm" src="../img/icon/trash.svg" alt="smile" loading="lazy"/>
                                     </div>
                                 </div>

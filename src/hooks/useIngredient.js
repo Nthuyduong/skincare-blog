@@ -18,7 +18,6 @@ export const useIngredient = () => {
 
     async function fetchIngredientById(id) {
         const res = await getIngredientByIdApi(id);
-        console.log(res)
         if (res.status) {
             dispatch(fetchIngredientDetailAction(res.data));
         }
@@ -27,12 +26,13 @@ export const useIngredient = () => {
     async function createIngredient(data) {
         const formData = new FormData();
         formData.append('name', data.name);
-        formData.append('description', data.content);
+        formData.append('description', data.description);
         formData.append('content', data.content);
         formData.append('status', 0);
         if (data.featured_img){
             formData.append('featured_img', data.featured_img);
         }
+        formData.append('details', JSON.stringify(data.details));
 
         showLoading()
         const res = await createIngredientApi(formData);
@@ -55,6 +55,7 @@ export const useIngredient = () => {
         if (data.featured_img){
             formData.append('featured_img', data.featured_img);
         }
+        formData.append('details', JSON.stringify(data.details));
         showLoading();
         const res = await updateIngredientApi(data.id, formData);
         hide();

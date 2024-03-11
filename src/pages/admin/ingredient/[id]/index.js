@@ -3,11 +3,10 @@ import { useIngredient } from "@hooks/useIngredient";
 import { fetchIngredientsApi } from "@services/ingredients";
 import Dragable from "@components/common/dragable/dragable";
 import { BASE_URL } from "@utils/apiUtils";
+import { set } from "nprogress";
 
-const ModalIngredient = ({ id }) => {
-
-    const { createIngredient, updateIngredient, fetchIngredientById, ingredient } = useIngredient();
-    const [ingredients, setIngredients] = useState([]);
+const editIngredient = ({ id }) => {
+    const { updateIngredient, fetchIngredientById, ingredient } = useIngredient();
 
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
@@ -17,26 +16,14 @@ const ModalIngredient = ({ id }) => {
 
     useEffect(() => {
         fetchIngredientById(id);
-        // fetchIngredientsApi(1).then(res => {
-        //     setIngredients(res.results || []);
-        // })
     }, []);
-
-    const getImagePreview = () => {
-        if (!featuredImage) {
-            if (ingredients.featured_img) {
-                return BASE_URL + '/storage/desktop/' + ingredients.featured_img;
-            }
-            return 'https://static.vecteezy.com/system/resources/previews/004/141/669/original/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg';
-        }
-        return URL.createObjectURL(featuredImage);
-    }
 
     useEffect(() => {
         if (id) {
             setName(ingredient?.name);
             setDescription(ingredient?.description);
             setContent(ingredient?.content);
+            setDetails(ingredient?.details ?? []);
         } else {
             setName("");
             setDescription("");
@@ -45,13 +32,14 @@ const ModalIngredient = ({ id }) => {
 
     }, [ingredient]);
 
-    const handleCreate = async() => {
-        await createIngredient({
-            name: name,
-            description: description,
-            content: content,
-            featured_img: featuredImage,
-        })
+    const getImagePreview = () => {
+        if (!featuredImage) {
+            if (ingredient.featured_img) {
+                return BASE_URL + '/storage/desktop/' + ingredient.featured_img;
+            }
+            return 'https://static.vecteezy.com/system/resources/previews/004/141/669/original/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg';
+        }
+        return URL.createObjectURL(featuredImage);
     }
 
     const handleUpdate = async() => {
@@ -61,11 +49,15 @@ const ModalIngredient = ({ id }) => {
             description: description,
             content: content,
             featured_img: featuredImage,
+            details: details,
         })
     }
 
     return (
         <div className="">
+            <div className="mb-3">
+                <div className="heading_1">Update ingredient</div>
+            </div>
             <div>
                 <div className="mb-3">
                     <div className="mb-1">Ingredient name</div>
@@ -118,24 +110,23 @@ const ModalIngredient = ({ id }) => {
                     setDetails={setDetails}
                 />
             </div>
-            <div className="callback-btn mt-4">
+            <div className="callback-btn mt-4 bg-white sticky py-3 border-t border-ccc border-solid" style={{bottom: 0}}>
                 <div className="grid grid-cols-2 gap-3">
                     <div className="col-span-1">
                         <button className="my-out-line-btn w-full">Cancel</button>
                     </div>
-                    { id ? (
-                        <div className="col-span-1">
-                            <button onClick={() => {handleUpdate()}} className="my-btn-pr w-full">Update ingredient</button>
-                        </div>) : (
-                        <div className="col-span-1">
-                            <button onClick={() => {handleCreate()}} className="my-btn-pr w-full">Add new ingredient</button>
-                        </div>
-                    )}
+                    <div className="col-span-1">
+                        <button onClick={() => {handleUpdate()}} className="my-btn-pr w-full">Update</button>
+                    </div>
 
                 </div>
             </div>
         </div>
     )
 }
+editIngredient.getInitialProps = async ({ query }) => {
+    const { id } = query
+    return { id }
+}
 
-export default ModalIngredient;
+export default editIngredient;

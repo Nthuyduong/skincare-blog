@@ -4,10 +4,8 @@ import { fetchIngredientsApi } from "@services/ingredients";
 import Dragable from "@components/common/dragable/dragable";
 import { BASE_URL } from "@utils/apiUtils";
 
-const ModalIngredient = ({ id }) => {
-
-    const { createIngredient, updateIngredient, fetchIngredientById, ingredient } = useIngredient();
-    const [ingredients, setIngredients] = useState([]);
+const createIngredient = () => {
+    const { createIngredient, } = useIngredient();
 
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
@@ -16,7 +14,6 @@ const ModalIngredient = ({ id }) => {
     const [details, setDetails] = useState([]);
 
     useEffect(() => {
-        fetchIngredientById(id);
         // fetchIngredientsApi(1).then(res => {
         //     setIngredients(res.results || []);
         // })
@@ -24,48 +21,25 @@ const ModalIngredient = ({ id }) => {
 
     const getImagePreview = () => {
         if (!featuredImage) {
-            if (ingredients.featured_img) {
-                return BASE_URL + '/storage/desktop/' + ingredients.featured_img;
-            }
             return 'https://static.vecteezy.com/system/resources/previews/004/141/669/original/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg';
         }
         return URL.createObjectURL(featuredImage);
     }
 
-    useEffect(() => {
-        if (id) {
-            setName(ingredient?.name);
-            setDescription(ingredient?.description);
-            setContent(ingredient?.content);
-        } else {
-            setName("");
-            setDescription("");
-            setContent("");
-        }
-
-    }, [ingredient]);
-
     const handleCreate = async() => {
         await createIngredient({
             name: name,
             description: description,
-            content: content,
             featured_img: featuredImage,
-        })
-    }
-
-    const handleUpdate = async() => {
-        await updateIngredient({
-            id: id,
-            name: name,
-            description: description,
-            content: content,
-            featured_img: featuredImage,
+            details: details,
         })
     }
 
     return (
         <div className="">
+            <div className="mb-3">
+                <div className="heading_1">Create new ingredient</div>
+            </div>
             <div>
                 <div className="mb-3">
                     <div className="mb-1">Ingredient name</div>
@@ -118,19 +92,14 @@ const ModalIngredient = ({ id }) => {
                     setDetails={setDetails}
                 />
             </div>
-            <div className="callback-btn mt-4">
+            <div className="callback-btn mt-4 bg-white sticky py-3 border-t border-ccc border-solid" style={{bottom: 0}}>
                 <div className="grid grid-cols-2 gap-3">
                     <div className="col-span-1">
                         <button className="my-out-line-btn w-full">Cancel</button>
                     </div>
-                    { id ? (
-                        <div className="col-span-1">
-                            <button onClick={() => {handleUpdate()}} className="my-btn-pr w-full">Update ingredient</button>
-                        </div>) : (
-                        <div className="col-span-1">
-                            <button onClick={() => {handleCreate()}} className="my-btn-pr w-full">Add new ingredient</button>
-                        </div>
-                    )}
+                    <div className="col-span-1">
+                        <button onClick={() => {handleCreate()}} className="my-btn-pr w-full">Add new ingredient</button>
+                    </div>
 
                 </div>
             </div>
@@ -138,4 +107,4 @@ const ModalIngredient = ({ id }) => {
     )
 }
 
-export default ModalIngredient;
+export default createIngredient;
