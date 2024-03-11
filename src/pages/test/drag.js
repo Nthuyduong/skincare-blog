@@ -27,17 +27,6 @@ const TestDrag = () => {
 
     return (
         <div className="p-8">
-            <div className="mb-8">
-                {details.map((detail, index) => {
-                    return (
-                        <div>
-                            <div>{detail.name}</div>
-                            <div>{detail.content}</div>
-                        </div>
-                    )
-                })}
-            </div>
-
             <Dragable 
                 details={details} 
                 setDetails={setDetails} 
