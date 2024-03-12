@@ -36,7 +36,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
             <div className="home-banner">
                 <picture>
                     <source media="(min-width:465px)" srcSet="./img/home/banner2.jpg"/>
-                    <img className="bg-scale-img w-full" src="./img/home/mobile-banner.png" alt="smile" loading="lazy"/>
+                    <img className="w-full" src="./img/home/mobile-banner.png" alt="smile" loading="lazy"/>
                 </picture>
             </div>
             <div className="my-0 px-3 mx-auto m-w">
