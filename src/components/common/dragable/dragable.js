@@ -8,30 +8,57 @@ const Dragable = ({ details, setDetails }) => {
     const handleStartDrag = (e, index) => {
         setIsDragging(true);
         setEditIndex(null);
+        let dragList = document.querySelector('.dragable-list');
         let dragItemWrps = document.querySelectorAll('.dragable-item');
         let dragItemWrp = e.target.closest('.dragable-item');
+        let oldIndex = parseInt(dragItemWrp.getAttribute('order'));
+        
         dragItemWrp.style.height = dragItemWrp.offsetHeight > 50 ? 50 : dragItemWrp.offsetHeight + 'px';
+
         let holderItem = e.target.closest('.drag-item');
 
         holderItem.style.width = dragItemWrp.offsetWidth + 'px';
-        holderItem.style.height = dragItemWrp.offsetHeight + 10 + 'px';
+        holderItem.style.height = dragItemWrp.offsetHeight > 50 ? 60 : dragItemWrp.offsetHeight + 10 + 'px';
+        holderItem.style.top = e.clientY - holderItem.offsetHeight / 2 + 'px';
         holderItem.classList.add('dragging');
         dragItemWrp.classList.add('wrp-dragging');
 
         let targetItem = null;
+        dragItemWrps.forEach((item) => {
+            item.classList.add('drag-over');
+            item.setAttribute('old-order', item.getAttribute('order'));
+        })
+
         document.onmousemove = (e) => {
+            let posY = e.clientY - (dragList.offsetTop - window.scrollY);
             holderItem.style.pointerEvents = 'none';
             let target = document.elementFromPoint(e.clientX, e.clientY);
-            targetItem = target.closest('.dragable-item');
-            if (targetItem) {
-                dragItemWrps.forEach((item) => {
-                    item.classList.remove('drag-over');
-                })
-                targetItem.classList.add('drag-over');
+            let targetCheck = target.closest('.dragable-item');
+            if (targetCheck) {
+                targetItem = targetCheck;
             }
             holderItem.style.pointerEvents = '';
-            
+
             holderItem.style.top = e.clientY - holderItem.offsetHeight / 2 + 'px';
+            let orderHolder = parseInt(dragItemWrp.getAttribute('order'));
+            if (orderHolder != 0) {
+                let beforeItem = dragItemWrps[orderHolder - 1];
+                let beforeMiddle = posY < (beforeItem.offsetTop - dragList.offsetTop) + (beforeItem.offsetHeight / 2);
+                if (beforeMiddle) {
+                    positionItems(orderHolder - 1);
+                    dragItemWrp.setAttribute('order', orderHolder - 1);
+                }
+            }
+            if (orderHolder != dragItemWrps.length) {
+                let afterItem = dragItemWrps[orderHolder + 1] ? dragItemWrps[orderHolder + 1] : dragItemWrps[orderHolder];
+                let afterMiddle = posY > (afterItem.offsetTop - dragList.offsetTop) + (afterItem.offsetHeight / 2);
+                if (afterMiddle) {
+                    if (orderHolder + 1 < dragItemWrps.length) {
+                        positionItems(orderHolder + 1);
+                        dragItemWrp.setAttribute('order', orderHolder + 1);
+                    }
+                }
+            }
         }
         document.onmouseup = (e) => {
             holderItem.classList.remove('dragging');
@@ -40,23 +67,58 @@ const Dragable = ({ details, setDetails }) => {
             holderItem.style.top = '';
             dragItemWrp.style.height = '';
             dragItemWrp.classList.remove('wrp-dragging');
+            dragItemWrps.forEach((item) => {
+                item.classList.remove('drag-over');
+                item.style.transform = '';
+            })
+            
+            
+            let newDetails = JSON.parse(JSON.stringify(details));
+            let tempDetails = JSON.parse(JSON.stringify(details));
+            dragItemWrps.forEach((item, index) => {
+                let oldOrder = parseInt(item.getAttribute('old-order'));
+                let newOrder = parseInt(item.getAttribute('order'));
+                if (oldOrder != newOrder) {
+                    newDetails[newOrder] = tempDetails[oldOrder];
+                }
+                item.setAttribute('order', index);
+            })
 
-            if (targetItem) {
-                dragItemWrps.forEach((item) => {
-                    item.classList.remove('drag-over');
-                })
-                let newIndex = parseInt(targetItem.getAttribute('data-index'));
-                let newDetails = JSON.parse(JSON.stringify(details));
-                let temp = newDetails[index];
-                newDetails[index] = newDetails[newIndex];
-                newDetails[newIndex] = temp;
-                setDetails([...newDetails]);
-            }
+            setDetails([...newDetails]);
             setIsDragging(false);
             document.onmousemove = null;
             document.onmouseup = null;
         }
+        function positionItems(insertIndex) {
+            let indexCounter = 0;
+            dragItemWrps.forEach((item, index) => {
+                if (!item.classList.contains('wrp-dragging')) {
+                    if (indexCounter == insertIndex) {
+                        indexCounter++;
+                    }
+                    if (oldIndex <= insertIndex) {
+                        if (index <= insertIndex && index >= oldIndex) {
+                            item.style.transform = `translateY(-60px)`;
+                        } else {
+                            item.style.transform = `translateY(0)`;
+                        }
+                    } else {
+                        if (index >= insertIndex && index < oldIndex) {
+                            item.style.transform = `translateY(60px)`;
+                        } else {
+                            item.style.transform = `translateY(0)`;
+                        }
+                    }
+                   
+                    if (indexCounter < dragItemWrps.length) {
+                        item.setAttribute('order', indexCounter);
+                    }
+                    indexCounter++;
+                }
+            })
+        }
     }
+    
 
     return (
         <div className="dragable-list">
@@ -65,7 +127,7 @@ const Dragable = ({ details, setDetails }) => {
                     <div
                         className="dragable-item border border-ccc border-solid p-2 mb-2" 
                         key={index}
-                        data-index={index}
+                        order={index}
                     >
                         <div className="drag-item">
                             <div className="drag-item-content flex gap-4">

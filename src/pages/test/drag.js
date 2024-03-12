@@ -27,6 +27,9 @@ const TestDrag = () => {
 
     return (
         <div className="p-8">
+            {details.map((item, index) => (
+                item.name
+            )).join(", ")}
             <Dragable 
                 details={details} 
                 setDetails={setDetails} 

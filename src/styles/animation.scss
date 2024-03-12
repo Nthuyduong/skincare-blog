@@ -273,7 +273,7 @@
 
 // draggable
 .drag-item {
-    transition: transform 0.3s ease;
+    transition: none;
 }
 .dragging {
     cursor: pointer;
@@ -283,16 +283,21 @@
     border: 1px solid #000;
     // padding: 20px;
     transform: scale(1.03);
+    transition: transform 0.3s ease;
     .drag-item-content {
         height: 100%;
         align-items: center;
         padding: 12px;
     }
+    opacity: 1;
+}
+.dragable-item {
+    transition: none;
+}
+.drag-over {
+    transition: transform 0.3s ease;
 }
 .wrp-dragging {
     padding: 0;
-}
-.drag-over {
-    border: 2px dashed #000;
-    box-sizing: border-box;
+    border: none;
 }
