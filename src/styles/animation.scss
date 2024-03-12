@@ -275,6 +275,12 @@
 .drag-item {
     transition: none;
 }
+.dark {
+    .dragging {
+        background-color: #000;
+        border: 1px solid #fff;
+    }
+}
 .dragging {
     cursor: pointer;
     position: fixed;
