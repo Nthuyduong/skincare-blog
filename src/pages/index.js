@@ -46,13 +46,13 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                     <div className="">
                         <Slider
                             configs={{
-                                sliderPerRow: 3,
+                                sliderPerRow: 4,
                                 sliderPerRowMobile: 1.25,
                                 allowDrag: true,
                                 duration: 400,
                                 auto: false,
                                 autoDuration: 1000,
-                                gap: 40,
+                                gap: 30,
                                 gapMobile: 10,
                                 process: true,
                             }}
@@ -115,7 +115,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                     
                 </div>
                 <div className="category-destination pt-6 md:pt-8">
-                    <div className="destination-title border-y border-ccc dark:border-y dark:border-999">
+                    <div className="destination-title border-solid border-y border-ccc">
                         <div className="md:py-3 md:flex justify-center">
                             {/*breadcrumb*/}
                             <div className="self-center mb-2 md:mb-0">
@@ -202,7 +202,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                                 duration: 400,
                                 auto: false,
                                 autoDuration: 1000,
-                                gap: 40,
+                                gap: 30,
                                 gapMobile: 10,
                                 process: true,
                             }}
@@ -247,9 +247,9 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                 </div>
             </div>
             <div className="px-3 my-0 mx-auto m-w pt-8 pb-7">
-                <div className="home-about dark:border-t dark:border-b dark:!border-ccc">
+                <div className="home-about mb-8 dark:border-t dark:border-b dark:!border-ccc">
                     <div className="md:grid md:grid-cols-12 gap-4">
-                        <div className="md:col-span-8 py-6 about-intro md:border-r !border-ccc">
+                        <div className="md:col-span-8 py-6 about-intro md:border-r md:border-solid !border-ccc">
                             <div className="relative">
                                 <div className="heading_1">
                                     “Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor.”
@@ -264,7 +264,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                                 in tortor. Blandit consequat quisque vitae ornare.</div>
                             <div className="mt-6">
                                 <Link href={ROUTER.ABOUT}>
-                                    <button className="my-out-line-btn dark:border-ccc" type="submit">MORE ABOUT ME</button>
+                                    <button className="my-out-line-btn dark:border-ccc" type="submit">MORE ABOUT US</button>
                                 </Link>
                             </div>
                         </div>
@@ -318,7 +318,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
             <div className="">
                 <div className="relative flex py-5 items-center gap-1">
                     <div className="flex-grow bg-black dark:bg-white" style={{height: '1px'}}></div>
-                    <span className="text-xs md:text-xs">Follow us on Instagram</span>
+                    <span className="heading_2">Follow us on Instagram</span>
                     <div className="flex-grow bg-black dark:bg-white" style={{height: '1px'}}></div>
                 </div>
                 <Scroller>
