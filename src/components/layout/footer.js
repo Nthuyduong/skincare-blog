@@ -5,7 +5,7 @@ import React from "react";
 const Footer = () => {
     return (
         <div className="blog-footer" id="blog-footer">
-            <div className="blog-footer-inner border-solid border-t md:border-y dark:border-ccc border-999">
+            <div className="blog-footer-inner border-solid border-t md:border-y dark:border-999 border-ccc">
                 <div className="grid grid-cols-12">
                     {/*<div className="sub-menu">*/}
                     {/*    <div className="mb-3">POPULAR</div>*/}
@@ -25,7 +25,7 @@ const Footer = () => {
 
                     {/*    </ul>*/}
                     {/*</div>*/}
-                    <div className="md:col-span-4 col-span-12 flex justify-center border-b md:border-b-0 border-ccc dark:border-ccc md:border-r md:!border-ccc footer-logo items-center p-4 lg:p-5 border-solid">
+                    <div className="md:col-span-4 col-span-12 flex justify-center border-b md:border-b-0 border-ccc dark:border-999 md:border-r md:!border-ccc footer-logo items-center p-4 lg:p-5 border-solid">
                         <img className="h-fit md:w-2/5 w-2/5 dark:hidden" src="/img/footer-logo.svg" alt="smile" loading="lazy"/>
                         <img className="h-fit md:w-2/5 w-2/5 dark:block hidden" src="/img/footer-logo-2.svg" alt="smile" loading="lazy"/>
                     </div>

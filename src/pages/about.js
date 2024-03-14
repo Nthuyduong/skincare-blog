@@ -6,7 +6,7 @@ const About = () => {
             <div className="about-banner">
                 <img className="w-full" src="./img/about/banner.png" alt="smile" loading="lazy"/>
             </div>
-            <div className="about-blog-page container-fluid m-w mx-auto my-0">
+            <div className="about-blog-page m-w mx-auto my-0">
                 <div className="about-intro">
                     <div className="intro-decor absolute">
                         <img className="w-full" src="./img/about/decor.svg" alt="smile" loading="lazy"/>
@@ -23,7 +23,7 @@ const About = () => {
                         <div className=""></div>
                     </div>
                 </div>
-                <div className="my-7 border-y border-ccc py-7 about-me p-60 dark:border-t dark:border-ccc">
+                <div className="my-7 border-solid border-y border-ccc py-7 about-me p-60 dark:border-t dark:border-ccc">
                     <div className="md:grid md:grid-cols-12 gap-5">
                         <div className="md:col-span-5 md:mb-0 mb-4">
                             <img className="w-full" src="./img/about/abt-me.jpg" alt="smile" loading="lazy"/>
@@ -45,7 +45,7 @@ const About = () => {
                     </div>
                 </div>
                 {/*What we do new*/}
-                <div className="wedo-new dark:boder-b dark:border-ccc">
+                <div className="wedo-new dark:border-solid dark:boder-b dark:border-ccc">
                     <div className="md:grid md:grid-cols-12 gap-5">
                         <div className="md:col-span-4">
                             <div className="md:pr-5 p-4 dark:border-333 border mb-4 border-solid border-999 md:border-none">
@@ -56,7 +56,7 @@ const About = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="md:col-span-8 wedo-first md:border-l md:border-ccc">
+                        <div className="md:col-span-8 wedo-first md:border-solid md:border-l md:border-ccc">
                             <div className="md:grid md:grid-cols-8">
                                 <div className="col-span-8 md:col-span-4">
                                     <div className="we-do-card px-4 mb-4 mx-3">
@@ -76,7 +76,7 @@ const About = () => {
                                     </div>
                                 </div>
                                 <div className="col-span-8 md:col-span-4">
-                                    <div className="we-do-card card-right px-4 ml-3 md:border-x md:border-ccc">
+                                    <div className="we-do-card card-right px-4 ml-3 md:border-solid md:border-x md:border-ccc">
                                         <div>
                                             <img className="" src="./img/about/do.svg" alt="smile" loading="lazy"/>
                                         </div>
@@ -93,7 +93,7 @@ const About = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="md:block hidden decor-line mx-3 mb-4 dark:bg-ccc"></div>
+                            <div className="md:block hidden decor-line mx-3 mb-4 dark:border-solid dark:bg-ccc"></div>
                             <div className="md:grid md:grid-cols-8">
                                 <div className="col-span-8 md:col-span-4">
                                     <div className="we-do-card px-4 mb-4 mx-3">
@@ -113,7 +113,7 @@ const About = () => {
                                     </div>
                                 </div>
                                 <div className="col-span-8 md:col-span-4">
-                                    <div className="we-do-card card-right px-4 ml-3 md:border-x md:border-ccc">
+                                    <div className="we-do-card card-right px-4 ml-3 md:border-solid md:border-x md:border-ccc">
                                         <div>
                                             <img className="" src="./img/about/do.svg" alt="smile" loading="lazy"/>
                                         </div>
@@ -174,7 +174,7 @@ const About = () => {
                 {/*        </div>*/}
                 {/*    </div>*/}
                 {/*</div>*/}
-                <div className="about-blog py-7 border-b border-ccc">
+                <div className="about-blog py-7 border-solid border-b border-ccc">
                     <div className="grid grid-cols-12 about-blog-inner flex gap-4">
                         <div className="col-span-12 md:col-span-6 about-content m-auto md:p-5">
                             <div className="heading_3 mb-2">About blog</div>

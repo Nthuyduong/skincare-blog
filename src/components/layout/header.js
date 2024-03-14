@@ -216,7 +216,7 @@ const Header = () => {
                             </div>
                         </div>
                         <div className="py-3 border-b border-ccc"><Link href={ROUTER.TESTREVIEW}>Skincare ingredients</Link></div>
-                        <div className="py-3 border-b border-ccc"><Link href={ROUTER.INGREDIENT}>Testings & Reviews</Link></div>
+                        {/*<div className="py-3 border-b border-ccc"><Link href={ROUTER.INGREDIENT}>Testings & Reviews</Link></div>*/}
                         <div className="">
                             <div className={`my-collapse dark:border-b dark:border-ccc ${activeTab3 === 0 ? 'expanded' : ''}`}>
                                 <div className="question-container flex" onClick={toggleCollapse3}>
@@ -245,7 +245,7 @@ const Header = () => {
             </div>
 
             {/*WEBSITE HEADER*/}
-            <div className="hidden md:flex top-header justify-center p-3 container-fluid justify-center w-full items-center m-w mx-auto my-0">
+            <div className="hidden md:flex top-header justify-center p-3 justify-center w-full items-center m-w mx-auto my-0">
                 <ThemeToggle />
                 <Link href={ROUTER.HOME} className="flex-1">
                     <div className="items-center justify-center w-full hidden dark:flex">
@@ -316,7 +316,7 @@ const Header = () => {
             {/*nav bar*/}
             <div
                 ref={headerRef}
-                className="!hidden header-desktop sticky lg:!flex dark:bg-black border-y dark:border-666 border-ccc"
+                className="!hidden header-desktop sticky lg:!flex border-solid dark:bg-black border-b dark:border-999 border-ccc"
                 style={{ top: '0' }}
             >
                 <div className="nav-out">
@@ -360,7 +360,7 @@ const Header = () => {
                                                         </span>
                                                     </Link>
                                                 </div>
-                                                <div className="navdrop-inner absolute py-1 border-x border-b border-ccc dark:border-666 dark:!bg-black">
+                                                <div className="navdrop-inner absolute py-1 border-x border-b border-ccc dark:border-999 dark:!bg-black">
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
                                                         <Link href={'/sub-des/9'} className="body_text dark:text-white nav-link">How to</Link>
                                                     </div>
@@ -402,9 +402,9 @@ const Header = () => {
                                             <div className="text-gray-300 hover:text-gray rounded-md pr-3 py-4">
                                                 <Link href={ROUTER.INGREDIENT} className="dark:text-white nav-link">Skincare ingredients</Link>
                                             </div>
-                                            <div className="text-gray-300 hover:text-gray rounded-md pr-3 py-4">
-                                                <Link href={ROUTER.SUBDES} className="dark:text-white nav-link">Testings & Reviews</Link>
-                                            </div>
+                                            {/*<div className="text-gray-300 hover:text-gray rounded-md pr-3 py-4">*/}
+                                            {/*    <Link href={ROUTER.SUBDES} className="dark:text-white nav-link">Testings & Reviews</Link>*/}
+                                            {/*</div>*/}
                                             <div className="relative destination-navdrop">
                                                 <div className="navdrop-title z-50 text-gray-300 hover:text-gray py-4 pr-0">
                                                     <Link href="#" className="dark:text-white nav-link flex">About
@@ -423,10 +423,13 @@ const Header = () => {
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
                                                         <Link href={ROUTER.SKINTYPE} className="body_text dark:text-white nav-link">My skin history</Link>
                                                     </div>
-                                                    <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
-                                                        <Link href={ROUTER.CONTACT} className="body_text dark:text-white nav-link">Contact us</Link>
-                                                    </div>
+                                                    {/*<div className="sub-menu block px-4 py-2 text-sm text-gray-700">*/}
+                                                    {/*    <Link href={ROUTER.CONTACT} className="body_text dark:text-white nav-link">Contact us</Link>*/}
+                                                    {/*</div>*/}
                                                 </div>
+                                            </div>
+                                            <div className="text-gray-300 hover:text-gray rounded-md py-4">
+                                                <Link href={ROUTER.CONTACT} className="dark:text-white nav-link">Contact us</Link>
                                             </div>
                                         </div>
                                     </div>

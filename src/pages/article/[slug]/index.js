@@ -133,7 +133,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                     </div>
                 </div>
             </div>
-            <div className="px-3 m-w mx-auto w-full my-0">
+            <div className="container-fluid px-3 m-w mx-auto w-full my-0">
                 <div className="article-out">
                     <div className="article-summary mb-4">
                         <div className="">{blog?.summary}</div>
