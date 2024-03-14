@@ -360,7 +360,7 @@ const Header = () => {
                                                         </span>
                                                     </Link>
                                                 </div>
-                                                <div className="navdrop-inner absolute py-1 border-x border-b border-ccc dark:border-999 dark:!bg-black">
+                                                <div className="navdrop-inner absolute py-1 border-x border-solid border-b border-ccc dark:border-999 dark:!bg-black">
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
                                                         <Link href={'/sub-des/9'} className="body_text dark:text-white nav-link">How to</Link>
                                                     </div>
@@ -386,7 +386,7 @@ const Header = () => {
                                                         </span>
                                                     </Link>
                                                 </div>
-                                                <div className="navdrop-inner absolute left-30 w-48 py-1 border-x border-b border-ccc dark:border-666 dark:!bg-black">
+                                                <div className="navdrop-inner absolute left-30 w-48 py-1 border-solid border-x border-b border-ccc dark:border-999 dark:!bg-black">
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700 dark:!text-white">
                                                         <Link href={'/sub-des/5'} className="body_text nav-link">Skin concerns</Link>
                                                     </div>
@@ -416,7 +416,7 @@ const Header = () => {
                                                         </span>
                                                     </Link>
                                                 </div>
-                                                <div className="navdrop-inner absolute left-30 w-48 py-1 border-x border-b border-ccc dark:border-666 dark:!bg-black">
+                                                <div className="navdrop-inner absolute left-30 w-48 py-1 border-solid border-x border-b border-ccc dark:border-999 dark:!bg-black">
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
                                                         <Link href={ROUTER.ABOUT} className="body_text dark:text-white nav-link">About Blog</Link>
                                                     </div>
