@@ -44,7 +44,7 @@ const Categories = ({ categoryProps = [], subCategoriesProps = [], isCsr, slug }
                 </div>
             </div>
             <div className="container-fluid p-6 m-w mx-auto my-0">
-                <div className="destination-title border-y border-ccc dark:border-y dark:border-ccc py-3">
+                <div className="destination-title border-solid border-y border-ccc dark:border-y dark:border-999 py-3">
                     <div className="md:flex md:justify-center">
                         {/*breadcrumb*/}
                         <div className="flex self-center">
@@ -58,7 +58,7 @@ const Categories = ({ categoryProps = [], subCategoriesProps = [], isCsr, slug }
                         {/*Change layout*/}
                         <div className="self-center hidden ml-auto md:flex">
                             <div className="flex justify-center">
-                                <div className="flex des-count pr-3 border-r border-ccc ">
+                                <div className="flex des-count pr-3 border-solid border-r border-ccc dark:border-999">
                                     <div className="pr-1">
                                         <img className="icon-sm" src="/img/icon/grid.svg" alt="#" loading="lazy"></img>
                                     </div>
@@ -84,7 +84,7 @@ const Categories = ({ categoryProps = [], subCategoriesProps = [], isCsr, slug }
                             {/*<img className="w-full" src="/img/destination/des2.jpg" alt="smile" loading="lazy"/>*/}
                             <img className="w-full" src={getImagePreview(subCategory.featured_img)} alt="smile" loading="lazy"/>
                             <div className="destination-cate-content">
-                                <div className="flex items-center border-b border-ccc dark:border-ccc">
+                                <div className="flex items-center border-solid border-b border-ccc dark:border-999">
                                     <div className="heading_6 my-1 mr-auto">
                                         <Link href={'/sub-des/' + subCategory.id}>{subCategory.name}</Link>
                                     </div>

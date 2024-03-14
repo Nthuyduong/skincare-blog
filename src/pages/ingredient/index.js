@@ -20,7 +20,7 @@ const Ingredient = () => {
                 </div>
                 {/*breadcrumb*/}
                 <div className="py-6">
-                    <div className="flex self-center border-y border-ccc py-3 w-full">
+                    <div className="flex self-center border-solid border-y border-ccc dark:border-999 py-3 w-full">
                         <div className="mr-auto">
                             <ul className="flex">
                                 <li><a href="src/pages/ingredient/ingredients#index.js">Home</a></li>
