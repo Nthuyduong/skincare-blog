@@ -1,9 +1,9 @@
-import React, { useState, useRef, useMemo } from 'react';
+import React, { useState, useRef, memo } from 'react';
 
 import dynamic from 'next/dynamic';
 const JoditEditor = dynamic(() => import('jodit-react'), { ssr: false });
 
-const Editor = ({
+const Editor = memo(({
     value,
     onChange,
     placeholder
@@ -30,6 +30,6 @@ const Editor = ({
             </div>
         </>
     )
-}
+})
 
 export default Editor;

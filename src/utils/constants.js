@@ -63,3 +63,8 @@ export const ADMIN_ROUTERS = [
     ADMIN_ROUTER.LOGIN,
     ADMIN_ROUTER.HOME
 ]
+
+export const BLOG_STATUS = {
+    HIDDEN: 0,
+    VISIBLE: 1,
+}

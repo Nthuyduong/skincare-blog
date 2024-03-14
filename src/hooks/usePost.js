@@ -36,6 +36,17 @@ export const usePost = () => {
         formData.append('status', 0);
         formData.append('featured_img', data.featured_img);
         formData.append('banner_img', data.banner_img)
+        formData.append('status', data.status);
+        if (data.tag && data.tag.length > 0) {
+            formData.append('tag', data.tag.join(',') || '');
+        }
+        formData.append('meta_title', data.meta_title);
+        formData.append('meta_description', data.meta_description);
+        formData.append('author', data.author);
+        formData.append('excerpt', data.excerpt);
+        data.categories.map((item) => {
+            formData.append('categories[]', item);
+        });
         showLoading()
         const res = await createBlogPostApi(formData);
         hide();
@@ -56,7 +67,15 @@ export const usePost = () => {
         formData.append('content_draft', data.content_draft);
         formData.append('status', 0);
         formData.append('featured_img', data.featured_img);
-        formData.append('banner_img', data.banner_img)
+        formData.append('banner_img', data.banner_img);
+        formData.append('status', data.status);
+        if (data.tag && data.tag.length > 0) {
+            formData.append('tag', data.tag.join(',') || '');
+        }
+        formData.append('meta_title', data.meta_title);
+        formData.append('meta_description', data.meta_description);
+        formData.append('author', data.author);
+        formData.append('excerpt', data.excerpt);
         data.categories.map((item) => {
             formData.append('categories[]', item);
         });

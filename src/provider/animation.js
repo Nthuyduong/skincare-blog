@@ -1,8 +1,11 @@
 import React, { createContext, useContext, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 const AnimationContext = createContext();
 
 export const AnimationProvider = ({ children }) => {
+    
+    const router = useRouter();
 
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
@@ -23,7 +26,7 @@ export const AnimationProvider = ({ children }) => {
         animates.forEach((animate) => {
             observer.observe(animate);
         })
-    }, []);
+    }, [router.asPath]);
 
     return (
         <AnimationContext.Provider value={null}>

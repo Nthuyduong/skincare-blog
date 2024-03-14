@@ -238,7 +238,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                     className="main-article w-full"
                     ref={refContent}
                     dangerouslySetInnerHTML={{
-                        __html: blog?.content
+                        __html: blog?.detail?.content
                     }}
                 />
                 <div className="w-full flex justify-center items-center">

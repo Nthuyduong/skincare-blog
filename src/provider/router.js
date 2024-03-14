@@ -6,6 +6,7 @@ import { useAdmin } from "@hooks/useAdmin";
 
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
+import { ADMIN_ROUTER, ADMIN_ROUTERS } from '../utils/constants';
 
 const RouterContext = createContext();
 
@@ -54,6 +55,20 @@ export const RouterProvider = ({ children }) => {
         //     hide();
         // };
     }, [router.asPath]);
+
+    if(ADMIN_ROUTERS.includes(router.route) && router.route != ADMIN_ROUTER.LOGIN){
+        if(!admin.id){
+            return null;
+        } else {
+            return (
+                <RouterContext.Provider value={router}>
+                    {children}
+                </RouterContext.Provider>
+            );
+        
+        }
+    }
+
     return (
         <RouterContext.Provider value={router}>
             {children}

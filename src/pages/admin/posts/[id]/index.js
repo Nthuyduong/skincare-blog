@@ -5,12 +5,10 @@ import Link from 'next/link';
 import Editor from '@components/common/editor/editor';
 import { fetchCategoriesApi } from "@services/categories";
 import { BASE_URL } from "@utils/apiUtils";
-import { useModal } from '../../../../hooks/modal';
-import LibraryIcon from '../../../../components/common/libraryIcon';
+import LibraryIcon from '@components/common/libraryIcon';
+import { BLOG_STATUS } from '@utils/constants';
 
 const EditPost = ({ id }) => {
-
-    const { show } = useModal();
 
     const { getBlogById, post, updateBlogPost } = usePost();
     const [categories, setCategories] = useState([]);
@@ -22,6 +20,12 @@ const EditPost = ({ id }) => {
     const [content, setContent] = useState('');
     const [featuredImage, setFeaturedImage] = useState('');
     const [bannerImage, setBannerImage] = useState('')
+    const [status, setStatus] = useState(BLOG_STATUS.HIDDEN);
+    const [tag, setTag] = useState([]);
+    const [metaTitle, setMetaTitle] = useState('');
+    const [metaDescription, setMetaDescription] = useState('');
+    const [author, setAuthor] = useState('');
+    const [excerpt, setExcerpt] = useState('');
 
     useEffect(() => {
         getBlogById(id);
@@ -34,7 +38,15 @@ const EditPost = ({ id }) => {
         setTitle(post.title || '');
         setSlug(post.slug || '');
         setsummary(post.summary || '');
-        setContent(post.content || '');
+        setContent(post?.detail?.content_draft || '');
+        setStatus(post.status || '');
+        if (post.tag) {
+            setTag(post.tag.split(','));
+        }
+        setMetaTitle(post.meta_title || '');
+        setMetaDescription(post.meta_description || '');
+        setAuthor(post.author || '');
+        setExcerpt(post.excerpt || '');
         let postCategories = [];
         (post.categories || []).map((item) => {
             postCategories.push(item.id);
@@ -83,6 +95,12 @@ const EditPost = ({ id }) => {
             categories: selectedCategories,
             featured_img: featuredImage,
             banner_img: bannerImage,
+            status: status,
+            tag: tag,
+            meta_title: metaTitle,
+            meta_description: metaDescription,
+            author: author,
+            excerpt: excerpt,
         })
     }
 
@@ -101,37 +119,46 @@ const EditPost = ({ id }) => {
         }));
     }
 
+    const handleChangeTags = (e) => {
+        const { value } = e.target;
+        if (value) {
+            if (!tag.includes(value)) {
+                setTag([...tag, value]);
+            }
+        }
+    }
+
     return(
         <div className="create-new-post">
             <div className="create-post-top">
                 <div className="pt-5">
                     <div className="heading_1">Update post</div>
                 </div>
-                <div className="flex justify-end gap-4 create-function pb-4">
-                    <div className="col-span-2">
-                        <button 
-                            className="px-3 my-btn-pr w-full"
-                            onClick={() => {handleClick()}}
-                        >
-                            Update post
-                        </button>
-                    </div>
-                    <div className="col-span-2">
-                        <button className="px-3 w-full my-btn-pr w-full">
-                            <Link href={`/article/${post.slug}`}>Preview post</Link>
-                        </button>
-                    </div>
-                    <div className="col-span-2">
-                        <button className="px-3 w-full my-btn-pr w-full">Publish post</button>
-                    </div>
-                    <div className="col-span-2">
-                        <button className="px-3 w-full my-btn-pr w-full">Delete post</button>
-                    </div>
-                    <div className="col-span-1 flex items-center">
-                        <button onClick={openNav} className="">
-                            <img className="icon-ssm" src="/img/icon/settings.svg" alt="smile" loading="lazy"/>
-                        </button>
-                    </div>
+            </div>
+            <div className="flex-wrap bg-white sticky-top flex justify-end gap-4 create-function p-4">
+                <div className="col-span-2">
+                    <button 
+                        className="px-3 my-btn-pr w-full"
+                        onClick={() => {handleClick()}}
+                    >
+                        Update post
+                    </button>
+                </div>
+                <div className="col-span-2">
+                    <button className="px-3 w-full my-btn-pr w-full">
+                        <Link href={`/article/${post.slug}`}>Preview post</Link>
+                    </button>
+                </div>
+                <div className="col-span-2">
+                    <button className="px-3 w-full my-btn-pr w-full">Publish post</button>
+                </div>
+                <div className="col-span-2">
+                    <button className="px-3 w-full my-btn-pr w-full">Delete post</button>
+                </div>
+                <div className="col-span-1 flex items-center">
+                    <button onClick={openNav} className="">
+                        <img className="icon-ssm" src="/img/icon/settings.svg" alt="smile" loading="lazy"/>
+                    </button>
                 </div>
             </div>
             <div>
@@ -192,19 +219,19 @@ const EditPost = ({ id }) => {
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            {/*<div className="my-3">*/}
-                            {/*    <div className="mb-1">Blog URL blog</div>*/}
-                            {/*    <div className="search-bar-box">*/}
-                            {/*        <input*/}
-                            {/*            name="category-slug"*/}
-                            {/*            className="w-full"*/}
-                            {/*            type="text"*/}
-                            {/*            placeholder="Enter title"*/}
-                            {/*            onChange={(e) => {setSlug(e.target.value)}}*/}
-                            {/*            value={slug}*/}
-                            {/*        />*/}
-                            {/*    </div>*/}
-                            {/*</div>*/}
+                            <div className="my-3">
+                                <div className="mb-1">Status</div>
+                                <div className="">
+                                    <select 
+                                        className="sl-box" 
+                                        onChange={(e) => { setStatus(e.target.value)}}
+                                        value={status}
+                                    >
+                                        <option defaultValue value={BLOG_STATUS.HIDDEN}>Hidden</option>
+                                        <option value={BLOG_STATUS.VISIBLE}>Visible</option>
+                                    </select>
+                                </div>
+                            </div>
                             <div className='my-3'>
                                 <div className='mb-1'>Feature image</div>
                                 <div className=''>
@@ -275,41 +302,73 @@ const EditPost = ({ id }) => {
                             <div className="my-3">
                                 <div className="mb-1">Tags</div>
                                 <div className="search-bar-box">
-                                    <input name="category-slug" id="cate-tag" className="w-full" type="text"
-                                           placeholder="Choose category"/>
+                                    <input 
+                                        name="category-slug"
+                                        id="cate-tag" 
+                                        className="w-full" 
+                                        type="text"
+                                        placeholder="Choose category"
+                                        onKeyDown={(e) => { if (e.key === 'Enter') {handleChangeTags(e); e.target.value = ''} }}
+                                    />
                                 </div>
-                            </div>
-                            <div className="">
-                                <div className="mb-1">Date create</div>
-                                <div className="search-bar-box">
-                                    <input name="category-slug" id="" className="w-full" type="date"
-                                           placeholder="Choose category"/>
+                                <div>
+                                    {
+                                        tag.map((item, index) => (
+                                            <div key={index} className="flex items-center border-ccc border w-fit py-1 px-2 rounded-full">
+                                                <div className="mr-2">{item}</div>
+                                                <span className="close" onClick={() => {setTag(tag.filter((i) => {return i != item}))}}>x</span>
+                                            </div>
+                                        ))
+                                    }
                                 </div>
                             </div>
                             <div className="my-3">
                                 <div className="mb-1">Author</div>
                                 <div className="search-bar-box">
-                                    <input name="category-slug" id="" className="w-full" type="date"
-                                           placeholder="Choose category"/>
+                                    <input 
+                                        name="category-slug" 
+                                        className="w-full" 
+                                        type="text"
+                                        placeholder="Enter author"
+                                        value={author}
+                                        onChange={(e) => {setAuthor(e.target.value)}}
+                                    />
                                 </div>
                             </div>
                             <div>
                                 <div className="mb-1">Blog Excerpt</div>
                                 <div className="search-bar-box">
-                                    <textarea className="w-full" rows="5"></textarea>
+                                    <textarea 
+                                        className="w-full" 
+                                        rows="5"
+                                        value={excerpt}
+                                        onChange={(e) => {setExcerpt(e.target.value)}}
+                                    ></textarea>
                                 </div>
                             </div>
                             <div className="my-3">
                                 <div className="mb-1">Meta title</div>
                                 <div className="search-bar-box">
-                                    <input name="category-slug" id="" className="w-full" type="text"
-                                           placeholder="Enter meta title"/>
+                                    <input
+                                        name="category-slug" 
+                                        className="w-full" 
+                                        type="text"
+                                        placeholder="Enter meta title"
+                                        value={metaTitle}
+                                        onChange={(e) => {setMetaTitle(e.target.value)}}
+                                    />
                                 </div>
                             </div>
                             <div>
                                 <div className="mb-1">Meta description</div>
                                 <div className="search-bar-box">
-                                    <textarea className="w-full" rows="5"></textarea>
+                                    <textarea 
+                                        className="w-full" 
+                                        rows="5"
+                                        placeholder="Enter meta description"
+                                        value={metaDescription}
+                                        onChange={(e) => {setMetaDescription(e.target.value)}}
+                                    ></textarea>
                                 </div>
                             </div>
                         </div>

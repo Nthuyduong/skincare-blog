@@ -13,7 +13,9 @@ const Toast = ({ id, index, message, type, removeToast }) => {
       toastRef.current.style.setProperty('--toast-translate', `${toastTranslate}px`); // Set toast translate y start
       toastRef.current.style.setProperty('--toast-translate-active', `${toastTranslateActive}px`);
       setTimeout(() => {
-        toastRef.current.classList.add('toast-show');
+        if (toastRef.current) {
+          toastRef.current.classList.add('toast-show');
+        }
       })
     }
    

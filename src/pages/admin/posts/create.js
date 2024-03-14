@@ -3,23 +3,30 @@ import { usePost } from '@hooks/usePost';
 import Editor from '@components/common/editor/editor';
 import { fetchCategoriesApi } from "@services/categories";
 import { BASE_URL } from "@utils/apiUtils";
+import { BLOG_STATUS } from '@utils/constants';
 
-const CreatePost = ({id}) => {
+const CreatePost = () => {
 
-    const { getBlogById, createBlogPost , post} = usePost();
+    const { createBlogPost } = usePost();
     const [categories, setCategories] = useState([]);
     const [selectedCategories, setSelectedCategories] = useState([]);
 
     const [content, setContent] = useState('<p>This is the initial content of the editor.</p>');
-
     const [title, setTitle] = useState('');
     const [slug, setSlug] = useState('');
-    const [summary, setsummary] = useState('');
+    const [summary, setSummary] = useState('');
     const [featuredImage, setFeaturedImage] = useState('');
     const [bannerImage, setBannerImage] = useState('');
+    const [status, setStatus] = useState(BLOG_STATUS.HIDDEN);
+    const [tags, setTags] = useState([]);
+    const [metaTitle, setMetaTitle] = useState('');
+    const [metaDescription, setMetaDescription] = useState('');
+    const [author, setAuthor] = useState('');
+    const [excerpt, setExcerpt] = useState('');
+    const [tag, setTag] = useState([]);
+
 
     useEffect(() => {
-        getBlogById(id);
         fetchCategoriesApi(1, true).then(res => {
             setCategories(res.results || []);
         })
@@ -37,7 +44,6 @@ const CreatePost = ({id}) => {
 
     const getImagePreview = () => {
         if (!featuredImage) {
-            console.log(post)
             return 'https://static.vecteezy.com/system/resources/previews/004/141/669/original/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg';
         }
         return URL.createObjectURL(featuredImage);
@@ -45,7 +51,6 @@ const CreatePost = ({id}) => {
 
     const getBannerPreview = () => {
         if (!bannerImage) {
-            console.log(post)
             return 'https://static.vecteezy.com/system/resources/previews/004/141/669/original/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg';
         }
         return URL.createObjectURL(bannerImage);
@@ -61,6 +66,12 @@ const CreatePost = ({id}) => {
             categories: selectedCategories,
             featured_img: featuredImage,
             banner_img: bannerImage,
+            status: status,
+            tag: tag,
+            meta_title: metaTitle,
+            meta_description: metaDescription,
+            author: author,
+            excerpt: excerpt
         })
     }
 
@@ -79,35 +90,44 @@ const CreatePost = ({id}) => {
         }));
     }
 
+    const handleChangeTags = (e) => {
+        const { value } = e.target;
+        if (value) {
+            if (!tag.includes(value)) {
+                setTag([...tag, value]);
+            }
+        }
+    }
+
     return(
         <div className="create-new-post pt-5">
             <div className="create-post-top">
                 <div className="">
                     <div className="heading_1">Create new post</div>
                 </div>
-                <div className="flex justify-end gap-4 create-function pb-4">
-                    <div className="col-span-2">
-                        <button 
-                            className="px-3 my-btn-pr w-full px-3"
-                            onClick={() => {handleClick()}}
-                        >
-                            Create post
-                        </button>
-                    </div>
-                    <div className="col-span-2">
-                        <button className="px-3 w-full my-btn-pr w-full px-3">Preview post</button>
-                    </div>
-                    <div className="col-span-2">
-                        <button className="px-3 w-full my-btn-pr w-full px-3">Publish post</button>
-                    </div>
-                    <div className="col-span-2">
-                        <button className="px-3 w-full my-btn-pr w-full px-3">Delete post</button>
-                    </div>
-                    <div className="col-span-1 flex items-center">
-                        <button onClick={openNav} className="">
-                            <img className="icon-ssm" src="/img/icon/settings.svg" alt="smile" loading="lazy"/>
-                        </button>
-                    </div>
+            </div>
+            <div className="flex-wrap bg-white sticky-top flex justify-end gap-4 create-function pb-4">
+                <div className="col-span-2">
+                    <button 
+                        className="px-3 my-btn-pr w-full px-3"
+                        onClick={() => {handleClick()}}
+                    >
+                        Create post
+                    </button>
+                </div>
+                <div className="col-span-2">
+                    <button className="px-3 w-full my-btn-pr w-full px-3">Preview post</button>
+                </div>
+                <div className="col-span-2">
+                    <button className="px-3 w-full my-btn-pr w-full px-3">Publish post</button>
+                </div>
+                <div className="col-span-2">
+                    <button className="px-3 w-full my-btn-pr w-full px-3">Delete post</button>
+                </div>
+                <div className="col-span-1 flex items-center">
+                    <button onClick={openNav} className="">
+                        <img className="icon-ssm" src="/img/icon/settings.svg" alt="smile" loading="lazy"/>
+                    </button>
                 </div>
             </div>
             <div>
@@ -144,7 +164,7 @@ const CreatePost = ({id}) => {
                                     className="w-full" 
                                     rows="5"
                                     placeholder="Enter summary"
-                                    onChange={(e) => {setsummary(e.target.value)}}
+                                    onChange={(e) => {setSummary(e.target.value)}}
                                 ></textarea>
                             </div>
                         </div>
@@ -165,13 +185,19 @@ const CreatePost = ({id}) => {
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            {/*<div className="my-3">*/}
-                            {/*    <div className="mb-1">Blog URL blog</div>*/}
-                            {/*    <div className="search-bar-box">*/}
-                            {/*        <input name="category-slug" id="cate-slug" className="w-full" type="text"*/}
-                            {/*               placeholder="Enter URL blog"/>*/}
-                            {/*    </div>*/}
-                            {/*</div>*/}
+                            <div className="my-3">
+                                <div className="mb-1">Status</div>
+                                <div className="">
+                                    <select 
+                                        className="sl-box" 
+                                        onChange={(e) => { setStatus(e.target.value)}}
+                                        value={status}
+                                    >
+                                        <option defaultValue value={BLOG_STATUS.HIDDEN}>Hidden</option>
+                                        <option value={BLOG_STATUS.VISIBLE}>Visible</option>
+                                    </select>
+                                </div>
+                            </div>
                             <div className='my-3'>
                                 <div className='mb-1'>Feature image</div>
                                 <div className=''>
@@ -242,41 +268,70 @@ const CreatePost = ({id}) => {
                             <div className="my-3">
                                 <div className="mb-1">Tags</div>
                                 <div className="search-bar-box">
-                                    <input name="category-slug" id="" className="w-full" type="text"
-                                           placeholder="Choose category"/>
+                                    <input 
+                                        name="category-slug"
+                                        id="cate-tag" 
+                                        className="w-full" 
+                                        type="text"
+                                        placeholder="Choose category"
+                                        onKeyDown={(e) => { if (e.key === 'Enter') {handleChangeTags(e); e.target.value = ''} }}
+                                    />
                                 </div>
-                            </div>
-                            <div className="">
-                                <div className="mb-1">Date create</div>
-                                <div className="search-bar-box">
-                                    <input name="category-slug" id="" className="w-full" type="date"
-                                           placeholder="Choose category"/>
+                                <div>
+                                    {
+                                        tag.map((item, index) => (
+                                            <div key={index} className="flex items-center border-ccc border w-fit py-1 px-2 rounded-full">
+                                                <div className="mr-2">{item}</div>
+                                                <span className="close" onClick={() => {setTag(tag.filter((i) => {return i != item}))}}>x</span>
+                                            </div>
+                                        ))
+                                    }
                                 </div>
                             </div>
                             <div className="my-3">
                                 <div className="mb-1">Author</div>
                                 <div className="search-bar-box">
-                                    <input name="category-slug" id="" className="w-full" type="text"
-                                           placeholder="Enter author name"/>
+                                    <input 
+                                        name="category-slug" 
+                                        className="w-full" 
+                                        type="text"
+                                        placeholder="Enter author"
+                                        onChange={(e) => {setAuthor(e.target.value)}}
+                                    />
                                 </div>
                             </div>
                             <div>
                                 <div className="mb-1">Blog Excerpt</div>
                                 <div className="search-bar-box">
-                                    <textarea className="w-full" rows="5"></textarea>
+                                    <textarea 
+                                        className="w-full" 
+                                        rows="5"
+                                        onChange={(e) => {setExcerpt(e.target.value)}}
+                                    ></textarea>
                                 </div>
                             </div>
                             <div className="my-3">
                                 <div className="mb-1">Meta title</div>
                                 <div className="search-bar-box">
-                                    <input name="category-slug" id="" className="w-full" type="text"
-                                           placeholder="Enter meta title"/>
+                                    <input
+                                        name="category-slug" 
+                                        className="w-full" 
+                                        type="text"
+                                        placeholder="Enter meta title"
+                                        onChange={(e) => {setMetaTitle(e.target.value)}}
+                                    />
                                 </div>
                             </div>
                             <div>
                                 <div className="mb-1">Meta description</div>
                                 <div className="search-bar-box">
-                                    <textarea className="w-full" rows="5"></textarea>
+                                    <textarea 
+                                        className="w-full" 
+                                        rows="5"
+                                        placeholder="Enter meta description"
+                                        value={metaDescription}
+                                        onChange={(e) => {setMetaDescription(e.target.value)}}
+                                    ></textarea>
                                 </div>
                             </div>
                         </div>
