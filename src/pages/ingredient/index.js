@@ -5,7 +5,7 @@ import { ROUTER } from "../../utils/constants";
 const Ingredient = () => {
     return (
         <div>
-            <div className="container-fluid m-w mx-auto my-0 pt-60">
+            <div className="m-w mx-auto my-0 pt-60">
                 <div className="grid grid-cols-12">
                     <div className="col-span-9">
                         <div className="heading pb-4">Skincare Ingredients</div>

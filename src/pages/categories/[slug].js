@@ -35,7 +35,7 @@ const Categories = ({ categoryProps = [], subCategoriesProps = [], isCsr, slug }
 
     return (
         <div>
-            <div className="container-fluid m-w mx-auto my-0">
+            <div className="m-w mx-auto my-0">
                 <div className="grid grid-cols-12 pt-60">
                     <div className="col-span-12 md:col-span-7 md:mb-0 mb-3">
                         <div className="heading">{ category.name }</div>
@@ -43,7 +43,7 @@ const Categories = ({ categoryProps = [], subCategoriesProps = [], isCsr, slug }
                     <div className="col-span-12 md:col-span-5">{ category.description }</div>
                 </div>
             </div>
-            <div className="container-fluid p-6 m-w mx-auto my-0">
+            <div className="py-6 m-w mx-auto my-0">
                 <div className="destination-title border-solid border-y border-ccc dark:border-y dark:border-999 py-3">
                     <div className="md:flex md:justify-center">
                         {/*breadcrumb*/}
@@ -76,7 +76,7 @@ const Categories = ({ categoryProps = [], subCategoriesProps = [], isCsr, slug }
                 </div>
             </div>
             {/*all destination show here*/}
-            <div className="container-fluid destination all-destination-cate m-w mx-auto my-0">
+            <div className="destination all-destination-cate m-w mx-auto my-0">
                 <div className="grid grid-cols-12 gap-5">
                     {subCategories.map((subCategory, index) => (
                         <div className="col-span-6 md:col-span-3 destination-cate mb-4" key={index}>

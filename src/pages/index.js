@@ -114,8 +114,8 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                     </div>
                     
                 </div>
-                <div className="category-destination pt-6 md:pt-8">
-                    <div className="destination-title border-solid border-y border-ccc">
+                <div className="category-destination pt-6 md:pt-7">
+                    <div className="destination-title border-solid border-y border-ccc mb-5">
                         <div className="md:py-3 md:flex justify-center">
                             {/*breadcrumb*/}
                             <div className="self-center mb-2 md:mb-0">
