@@ -1,16 +1,12 @@
-import React, { useState, useRef, memo, useEffect, useCallback, useMemo, use } from 'react';
+import React, { useRef, memo, useMemo, forwardRef, useImperativeHandle } from 'react';
 
 import dynamic from 'next/dynamic';
 const JoditEditor = dynamic(() => import('jodit-react'), { ssr: false });
-import { useModal } from "@hooks/modal";
 
-const Editor = memo(({
+const Editor = memo(forwardRef(({
     value,
-    onChange,
     placeholder
-}) => {
-
-    const { addToast } = useModal();
+}, ref) => {
 
     const editor = useRef(null);
     let content = value;
@@ -21,10 +17,11 @@ const Editor = memo(({
         maxHeight: 800,
         useSplitMode: true,
     };
-
-    const handleSave = () => {
-        onChange(content);
-        addToast('Content saved!', 'success');
+    useImperativeHandle(ref, () => ({
+        getContent
+    }));
+    const getContent = () => {
+        return content;
     }
 
     const handleSetContent = (newContent) => {
@@ -40,14 +37,10 @@ const Editor = memo(({
                     config={config}
                     tabIndex={1} // tabIndex of textarea
                     onBlur={handleSetContent} // preferred to use only this option to update the content for performance reasons
-                    onChange={newContent => {}}
                 />
-            </div>
-            <div className='editer-action' onClick={handleSave}>
-                save
             </div>
         </>
     ), [value])
-})
+}));
 
 export default Editor;

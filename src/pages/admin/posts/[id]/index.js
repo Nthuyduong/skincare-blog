@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import { usePost } from '@hooks/usePost';
 import Link from 'next/link';
@@ -9,6 +9,8 @@ import LibraryIcon from '@components/common/libraryIcon';
 import { BLOG_STATUS } from '@utils/constants';
 
 const EditPost = ({ id }) => {
+
+    const editerRef = useRef(null);
 
     const { getBlogById, post, updateBlogPost, publishedBlogPost } = usePost();
     const [categories, setCategories] = useState([]);
@@ -85,23 +87,28 @@ const EditPost = ({ id }) => {
     }
 
     const handleClick = () => {
-        updateBlogPost({
-            id: id,
-            title: title,
-            slug: slug,
-            summary: summary,
-            content: content,
-            content_draft: content,
-            categories: selectedCategories,
-            featured_img: featuredImage,
-            banner_img: bannerImage,
-            status: status,
-            tag: tag,
-            meta_title: metaTitle,
-            meta_description: metaDescription,
-            author: author,
-            excerpt: excerpt,
-        })
+        if (editerRef.current) {
+            const updateContent = editerRef.current.getContent();
+            setContent(updateContent);
+            updateBlogPost({
+                id: id,
+                title: title,
+                slug: slug,
+                summary: summary,
+                content: updateContent,
+                content_draft: updateContent,
+                categories: selectedCategories,
+                featured_img: featuredImage,
+                banner_img: bannerImage,
+                status: status,
+                tag: tag,
+                meta_title: metaTitle,
+                meta_description: metaDescription,
+                author: author,
+                excerpt: excerpt,
+            })
+        }
+        
     }
 
     const handleChangeCategory = (e) => {
@@ -215,8 +222,8 @@ const EditPost = ({ id }) => {
                         </div>
                         <div className="text-editor-wrp">
                             <Editor 
+                                ref={editerRef}
                                 value={content}
-                                onChange={setContent}
                             />
                         </div>
                     </div>

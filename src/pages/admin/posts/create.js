@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { usePost } from '@hooks/usePost';
 import Editor from '@components/common/editor/editor';
 import { fetchCategoriesApi } from "@services/categories";
@@ -6,6 +6,8 @@ import { BASE_URL } from "@utils/apiUtils";
 import { BLOG_STATUS } from '@utils/constants';
 
 const CreatePost = () => {
+
+    const editerRef = useRef(null);
 
     const { createBlogPost } = usePost();
     const [categories, setCategories] = useState([]);
@@ -57,22 +59,26 @@ const CreatePost = () => {
     }
 
     const handleClick = () => {
-        createBlogPost({
-            title: title,
-            slug: slug,
-            summary: summary,
-            content: content,
-            content_draft: content,
-            categories: selectedCategories,
-            featured_img: featuredImage,
-            banner_img: bannerImage,
-            status: status,
-            tag: tag,
-            meta_title: metaTitle,
-            meta_description: metaDescription,
-            author: author,
-            excerpt: excerpt
-        })
+        if (editerRef.current) {
+            const newContent = editerRef.current.getContent();
+            setContent(newContent);
+            createBlogPost({
+                title: title,
+                slug: slug,
+                summary: summary,
+                content: newContent,
+                content_draft: newContent,
+                categories: selectedCategories,
+                featured_img: featuredImage,
+                banner_img: bannerImage,
+                status: status,
+                tag: tag,
+                meta_title: metaTitle,
+                meta_description: metaDescription,
+                author: author,
+                excerpt: excerpt
+            })
+        }
     }
 
     const handleChangeCategory = (e) => {
@@ -169,9 +175,9 @@ const CreatePost = () => {
                             </div>
                         </div>
                         <div className="text-editor-wrp">
-                            <Editor 
+                            <Editor
+                                ref={editerRef}
                                 value={content}
-                                onChange={setContent}
                             />
                         </div>
                     </div>
