@@ -26,6 +26,7 @@
       "@providers/*": ["./src/providers/*"],
       "@utils/*": ["./src/utils/*"],
       "@services/*": ["./src/services/*"],
+      "@app/*": ["./src/app/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

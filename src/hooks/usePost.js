@@ -65,7 +65,7 @@ export const usePost = () => {
 
     async function updateBlogPost(data) {
         const formData = new FormData();
-        console.log(data);
+        
         formData.append('title', data.title);
         formData.append('slug', data.slug);
         formData.append('summary', data.summary);

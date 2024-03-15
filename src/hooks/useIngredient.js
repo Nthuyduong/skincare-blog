@@ -47,7 +47,6 @@ export const useIngredient = () => {
 
     async function updateIngredient(data) {
         const formData = new FormData();
-        console.log(data);
         formData.append('name', data.name);
         formData.append('description', data.description);
         formData.append('content', data.content);

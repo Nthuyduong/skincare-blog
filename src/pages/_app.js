@@ -1,6 +1,8 @@
 
 import Layout from '../components/layout';
+import '@app/globals.css';
 import '../styles/app.scss';
+
 
 // middleware cho chức năng redux
 import { Provider } from 'react-redux';
