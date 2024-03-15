@@ -273,7 +273,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                 <div className="subscribe-section">
                     <div className="bg-primary p-5">
                         <div className="flex">
-                            <div className="">
+                            <div className="hidden md:block">
                                 <img className="w-full" src="./img/home/subscribe.png" alt="smile" loading="lazy"/>
                             </div>
                             <div className="ml-5 text-black flex items-center md:pr-8">
@@ -291,30 +291,6 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                     </div>
                 </div>
             </div>
-            {/* <section className="sectionPin">
-                <div className="pin-wrap-sticky">
-                    <div className="pin-wrap">
-                        <div className="pin-wrap-first-item pin-wrap-item dark:text-white text-black items-center md:pr-8">
-                            <div className="mb-3 heading_2">Subscribe for newsletters</div>
-                            <div>
-                                Receive the latest updates straight to your inbox. Get stories, exclusive offers, and promotions when you sign up.
-                            </div>
-                            <div className="mt-4">
-                                <button className="border border-solid px-4 my-btn-pr dark:border-white" type="submit">Subscribe</button>
-                            </div>
-                        </div>
-                        <div className="pin-wrap-item">
-                            <img className="w-full" src="./img/home/subscribe.png" alt="smile" loading="lazy"/>
-                        </div>
-                        <div className="pin-wrap-item">
-                            <img className="w-full" src="./img/about/abt-me.jpg" alt="smile" loading="lazy"/>
-                        </div>
-                        <div className="pin-wrap-item">
-                            <img className="w-full" src="./img/about/mission.jpg" alt="smile" loading="lazy"/>
-                        </div>
-                    </div>
-                </div>
-            </section> */}
             <div className="">
                 <div className="relative flex py-5 items-center gap-1">
                     <div className="flex-grow bg-black dark:bg-white" style={{height: '1px'}}></div>

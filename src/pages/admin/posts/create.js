@@ -135,10 +135,10 @@ const CreatePost = () => {
                     <div className="create-content pt-4">
                         <div className='input-wrp'>
                             <div className="mb-1">Title</div>
-                            <div className="search-bar-box">
+                            <div className="">
                                 <input 
                                     name="category-slug"
-                                    className="w-full" 
+                                    className="border-solid border border-ccc dark:border-999 py-1 px-2 w-full"
                                     type="text"
                                     placeholder="Enter title"
                                     onChange={(e) => {setTitle(e.target.value)}}
@@ -147,10 +147,10 @@ const CreatePost = () => {
                         </div>
                         <div className='input-wrp mt-3'>
                             <div className="mb-1">Slug</div>
-                            <div className="search-bar-box">
+                            <div className="">
                                 <input 
                                     name="category-slug"
-                                    className="w-full" 
+                                    className="border-solid border border-ccc dark:border-999 py-1 px-2 w-full"
                                     type="text"
                                     placeholder="Enter title"
                                     onChange={(e) => {setSlug(e.target.value)}}
@@ -159,9 +159,9 @@ const CreatePost = () => {
                         </div>
                         <div className='input-wrp my-3'>
                             <div className="mb-1">Summary</div>
-                            <div className="search-bar-box">
+                            <div className="">
                                 <textarea 
-                                    className="w-full" 
+                                    className="border-solid border border-ccc dark:border-999 py-1 px-2 w-full"
                                     rows="5"
                                     placeholder="Enter summary"
                                     onChange={(e) => {setSummary(e.target.value)}}
@@ -267,11 +267,11 @@ const CreatePost = () => {
                             </div>
                             <div className="my-3">
                                 <div className="mb-1">Tags</div>
-                                <div className="search-bar-box">
+                                <div className="">
                                     <input 
                                         name="category-slug"
                                         id="cate-tag" 
-                                        className="w-full" 
+                                        className="border-solid border border-ccc dark:border-999 py-1 px-2 w-full"
                                         type="text"
                                         placeholder="Choose category"
                                         onKeyDown={(e) => { if (e.key === 'Enter') {handleChangeTags(e); e.target.value = ''} }}
@@ -290,10 +290,10 @@ const CreatePost = () => {
                             </div>
                             <div className="my-3">
                                 <div className="mb-1">Author</div>
-                                <div className="search-bar-box">
+                                <div className="">
                                     <input 
                                         name="category-slug" 
-                                        className="w-full" 
+                                        className="border-solid border border-ccc dark:border-999 py-1 px-2 w-full"
                                         type="text"
                                         placeholder="Enter author"
                                         onChange={(e) => {setAuthor(e.target.value)}}
@@ -302,9 +302,9 @@ const CreatePost = () => {
                             </div>
                             <div>
                                 <div className="mb-1">Blog Excerpt</div>
-                                <div className="search-bar-box">
+                                <div className="">
                                     <textarea 
-                                        className="w-full" 
+                                        className="border-solid border border-ccc dark:border-999 py-1 px-2 w-full"
                                         rows="5"
                                         onChange={(e) => {setExcerpt(e.target.value)}}
                                     ></textarea>
@@ -312,10 +312,10 @@ const CreatePost = () => {
                             </div>
                             <div className="my-3">
                                 <div className="mb-1">Meta title (250)</div>
-                                <div className="search-bar-box">
+                                <div className="">
                                     <input
-                                        name="category-slug" 
-                                        className="w-full" 
+                                        name="category-slug"
+                                        className="border-solid border border-ccc dark:border-999 py-1 px-2 w-full"
                                         type="text"
                                         placeholder="Enter meta title"
                                         onChange={(e) => {setMetaTitle(e.target.value)}}
@@ -323,10 +323,10 @@ const CreatePost = () => {
                                 </div>
                             </div>
                             <div>
-                                <div className="mb-1">Meta description (255)</div>
-                                <div className="search-bar-box">
+                                <div className="mb-1">Meta description (505)</div>
+                                <div className="">
                                     <textarea 
-                                        className="w-full" 
+                                        className="border-solid border border-ccc dark:border-999 py-1 px-2 w-full"
                                         rows="5"
                                         placeholder="Enter meta description"
                                         value={metaDescription}

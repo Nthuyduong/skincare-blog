@@ -59,12 +59,12 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                                     alt="smile" 
                                     loading="lazy"
                                 />
-                                <div className="relative px-3 py-4 md:py-8">
+                                <div className="relative pl-7 py-4 md:py-8">
                                     <div className="heading !text-black mb-2">{category.name}</div>
                                     <div className="!text-black">{category.description}</div>
                                 </div>
                             </div>
-                            <div className="px-3 destination-title border-y border-ccc md:my-5 py-3">
+                            <div className="px-3 destination-title border-solid border-y border-ccc md:my-5 py-3">
                                 <div className="flex flex-col md:flex-row md:justify-between">
                                     {/*breadcrumb*/}
                                     <div className="flex">
@@ -99,7 +99,7 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="px-3 all-post">
+                            <div className="all-post">
                                 <div className="columns-2 md:columns-4">
                                     {posts.map((post, index) => (
                                         <div className="inline-block mb-3 my-4 border-b border-ccc" key={index}>

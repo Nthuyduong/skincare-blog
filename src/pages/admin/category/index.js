@@ -70,13 +70,13 @@ const Admincategory = () => {
                 <div className="heading_1 mb-6">Category page</div>
                 <div className="grid grid-cols-4 gap-4">
                     <div className="col-span-1">
-                        <div className="search-bar-box flex">
-                            <input name="findOrder" id="findOrder" className="search-input w-100" type="text"
+                        <div className="flex">
+                            <input name="findOrder" id="findOrder" className="border-solid border border-ccc dark:border-999 py-1 px-2 w-full search-input w-100" type="text"
                                    placeholder="Enter name/id post..."/>
                         </div>
                     </div>
                     <div className="col-span-1">
-                        <select className="sl-box">
+                        <select className="border-solid border border-ccc dark:border-999 py-1 px-2 w-full">
                             <option value="" defaultValue hidden>Status</option>
                             <option value="">Published</option>
                             <option value="">Draft</option>

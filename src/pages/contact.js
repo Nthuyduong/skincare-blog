@@ -2,28 +2,28 @@ import React from "react";
 
 const Contact = () => {
     return (
-        <div className="px-3 pt-6 contact_page m-w mx-auto my-0">
+        <div className="px-3 md:px-0 pt-6 contact_page m-w mx-auto my-0">
             <div className="grid grid-cols-12 gap-3">
                 <div className="col-span-12 md:col-span-6 border-b border-ccc border-solid md:border-none">
                     <div className="mb-5">
-                        <div className="heading mb-2">Connect Us</div>
+                        <div className="heading mb-3 md:mb-4">Connect Us</div>
                         <div>Questions or comments about something you read here? I’d love to hear from you!</div>
                     </div>
                     <div>
                         <div className="grid grid-cols-2 gap-5 mb-3">
                             <div className="md:col-span-1 col-span-2">
-                                <div className="border-b border-ccc md:mb-3 dark:border-white py-1 pr-1 border-solid">
-                                    <input className="w-full focus-visible:outline-none" placeholder="Your name (20)"/>
+                                <div className="md:mb-3">
+                                    <input className="dark:border-999 py-1 px-2 dark:focus:border-white focus:border-333 pointer-events-auto border-solid border border-ccc w-full focus-visible:outline-none" placeholder="Your name (20)"/>
                                 </div>
                             </div>
                             <div className="md:col-span-1 col-span-2">
-                                <div className="border-b border-ccc mb-3 dark:border-white py-1 pr-1 border-solid">
-                                    <input className="w-full focus-visible:outline-none" placeholder="Email address *"/>
+                                <div className="mb-3">
+                                    <input className="py-1 px-2 border-solid border border-ccc dark:border-999 py-1 dark:focus:border-white focus:border-333 w-full focus-visible:outline-none" placeholder="Email address *"/>
                                 </div>
                             </div>
                         </div>
-                        <div className="border-b border-ccc mb-3 user-cmt dark:border-white py-1 pr-1 border-solid">
-                            <textarea rows="5" className="w-full focus-visible:outline-none" placeholder="Type your message here (233)"></textarea>
+                        <div className="mb-3 user-cmt">
+                            <textarea rows="5" className="dark:border-999 dark:focus:border-white focus:border-333 border-solid border border-ccc py-1 px-2 w-full focus-visible:outline-none" placeholder="Type your message here (233)"></textarea>
                         </div>
                         <div className="mb-6 md:mb-0 md:mt-6">
                             <div className="flex w-full cursor-pointer">

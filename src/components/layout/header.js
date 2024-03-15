@@ -107,7 +107,7 @@ const Header = () => {
             {/*MOBILE HEADER*/}
             <div 
                 ref={headerMobileRef} 
-                className="heaed-mobile dark:!bg-black !bg-white md:hidden sticky bg-white z-50 top-header justify-center w-full m-w mx-auto my-0 border-b border-ccc"
+                className="heaed-mobile border-solid border-ccc dark:border-999 border-b dark:!bg-black !bg-white md:hidden sticky bg-white z-50 top-header justify-center w-full m-w mx-auto my-0"
                 style={{ top: '0' }}
             >
                 <div className="py-2 relative heaeder-mobile-contain flex justify-center items-center w-full bg-white dark:bg-black">
@@ -276,39 +276,41 @@ const Header = () => {
             {/*${show ? 'search-hide' : 'search-unhide'}*/}
             {/*search popdown*/}
             <div id="search-popdown" className={`searchbar ${showw ? 'search-true' : 'search-false'} `}>
-                <div className="search-bar-inner dark:bg-black">
-                    <div className="search-here py-5">
-                        <div className="grid grid-cols-12">
-                            <div className="col-span-2"></div>
-                            <div className="col-span-8 self-center">
-                                <div className="flex search-box">
-                                    <div className="flex mr-auto w-full">
-                                        <div className="flex align-center self-center pr-2">
-                                            <img className="icon-ssm dark:hidden" src="/img/icon/search.svg" alt="smile" loading="lazy"/>
-                                            <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy"/>
+                <div className="border-solid border-ccc dark:border-999 border-b">
+                    <div className="search-bar-inner dark:bg-black">
+                        <div className="search-here py-5">
+                            <div className="grid grid-cols-12">
+                                <div className="col-span-2"></div>
+                                <div className="col-span-8 self-center">
+                                    <div className="flex search-box">
+                                        <div className="flex mr-auto w-full">
+                                            <div className="flex align-center self-center pr-2">
+                                                <img className="icon-ssm dark:hidden" src="/img/icon/search.svg" alt="smile" loading="lazy"/>
+                                                <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy"/>
+                                            </div>
+                                            <div className="my-search-bar nav-search w-full">
+                                                <input
+                                                    className="searchbar-head p-1 w-full"
+                                                    placeholder="Enter article name and hit enter..."
+                                                    onChange={(e) => {setKeywordType(e.target.value)}}
+                                                    onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+                                                />
+                                            </div>
                                         </div>
-                                        <div className="my-search-bar nav-search w-full">
-                                            <input 
-                                                className="searchbar-head p-1 w-full" 
-                                                placeholder="Enter article name and hit enter..."
-                                                onChange={(e) => {setKeywordType(e.target.value)}}
-                                                onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-                                            />
-                                        </div>
+                                        <button type="button"
+                                                onClick={toggleVisibility}
+                                                className="relative rounded-full bg-gray-800 p-1 text-gray-400 focus:outline-none">
+                                            <img className="icon-ssm dark:hidden" src="/img/icon/x.svg" alt="smile" loading="lazy"/>
+                                            <img className="icon-ssm hidden dark:block" src="/img/icon/x-light.svg" alt="smile" loading="lazy"/>
+                                        </button>
                                     </div>
-                                    <button type="button"
-                                            onClick={toggleVisibility}
-                                            className="relative rounded-full bg-gray-800 p-1 text-gray-400 focus:outline-none">
-                                        <img className="icon-ssm dark:hidden" src="/img/icon/x.svg" alt="smile" loading="lazy"/>
-                                        <img className="icon-ssm hidden dark:block" src="/img/icon/x-light.svg" alt="smile" loading="lazy"/>
-                                    </button>
+
                                 </div>
+                                <div className="col-span-1 close-search">
 
+                                </div>
+                                <div className="col-span-2"></div>
                             </div>
-                            <div className="col-span-1 close-search">
-
-                            </div>
-                            <div className="col-span-2"></div>
                         </div>
                     </div>
                 </div>

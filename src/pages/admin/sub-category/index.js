@@ -49,13 +49,13 @@ const Index = () => {
                 <div className="my-line my-4"></div>
                 <div className="grid grid-cols-3 gap-4 mb-5">
                     <div className="col-span-1">
-                        <div className="search-bar-box flex">
-                            <input name="findOrder" id="findOrder" className="search-input w-full" type="text"
+                        <div className="flex">
+                            <input name="findOrder" id="findOrder" className="border-solid border border-ccc dark:border-999 py-1 px-2 search-input w-full" type="text"
                                    placeholder="Enter name/id post..."/>
                         </div>
                     </div>
                     <div className="col-span-1">
-                        <select className="sl-box">
+                        <select className="border-solid border border-ccc dark:border-999 py-1 px-2 w-full">
                             <option value="" defaultValue hidden>Status</option>
                             <option value="">Published</option>
                             <option value="">Draft</option>
@@ -63,7 +63,7 @@ const Index = () => {
                         </select>
                     </div>
                     <div className="col-span-1">
-                        <select className="sl-box">
+                        <select className="border-solid border border-ccc dark:border-999 py-1 px-2 w-full">
                             <option value="" defaultValue hidden>Sort by category</option>
                             <option value="">Published</option>
                             <option value="">Draft</option>
