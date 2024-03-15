@@ -311,7 +311,7 @@ const CreatePost = () => {
                                 </div>
                             </div>
                             <div className="my-3">
-                                <div className="mb-1">Meta title</div>
+                                <div className="mb-1">Meta title (250)</div>
                                 <div className="search-bar-box">
                                     <input
                                         name="category-slug" 
@@ -323,7 +323,7 @@ const CreatePost = () => {
                                 </div>
                             </div>
                             <div>
-                                <div className="mb-1">Meta description</div>
+                                <div className="mb-1">Meta description (255)</div>
                                 <div className="search-bar-box">
                                     <textarea 
                                         className="w-full" 
