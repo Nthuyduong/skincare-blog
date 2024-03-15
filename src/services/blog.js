@@ -27,3 +27,7 @@ export const updateBlogPostApi = async (id, data) => {
         "Content-Type": "multipart/form-data"
     });
 }
+
+export const publishedBlogPostApi = async (id) => {
+    return await postApiAdmin(`/blogs/publish/${id}`);
+}

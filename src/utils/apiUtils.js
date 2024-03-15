@@ -108,7 +108,7 @@ adminApi.interceptors.response.use(
             }
         } else {
             if (error.response?.data) {
-                return error.response?.data;
+                return error.response;
             } else {
                 return {
                     status: 0,

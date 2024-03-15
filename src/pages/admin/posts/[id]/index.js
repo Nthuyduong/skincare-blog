@@ -10,7 +10,7 @@ import { BLOG_STATUS } from '@utils/constants';
 
 const EditPost = ({ id }) => {
 
-    const { getBlogById, post, updateBlogPost } = usePost();
+    const { getBlogById, post, updateBlogPost, publishedBlogPost } = usePost();
     const [categories, setCategories] = useState([]);
     const [selectedCategories, setSelectedCategories] = useState([]);
 
@@ -150,7 +150,12 @@ const EditPost = ({ id }) => {
                     </button>
                 </div>
                 <div className="col-span-2">
-                    <button className="px-3 w-full my-btn-pr w-full">Publish post</button>
+                    <button 
+                        className="px-3 w-full my-btn-pr w-full"
+                        onClick={() => {publishedBlogPost(id)}}
+                    >
+                        Publish post
+                    </button>
                 </div>
                 <div className="col-span-2">
                     <button className="px-3 w-full my-btn-pr w-full">Delete post</button>
@@ -162,6 +167,12 @@ const EditPost = ({ id }) => {
                 </div>
             </div>
             <div>
+                { content && content !== post?.detail?.content ? (
+                    <div className="bg-red-200 text-center">
+                        <span className="text-red-500">This post has been updated</span>
+                    </div>
+                ) : ''    
+                }
                 <div className="flex">
                     <div className="create-content pt-4">
                         <div className='input-wrp'>

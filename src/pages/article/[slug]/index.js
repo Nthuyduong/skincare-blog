@@ -6,7 +6,10 @@ import Link from "next/link";
 import { ROUTER } from "../../../utils/constants";
 import { useRouter } from 'next/router';
 import dynamic from "next/dynamic";
+import { BLOG_STATUS } from "../../../utils/constants";
 const Slider = dynamic(() => import("../../../components/common/slider"), { ssr: false });
+import { formatDate } from "@utils/format";
+import Head from "next/head";
 
 const ArticleDetail = ({ blogProps, isCrs, slug }) => {
     
@@ -30,9 +33,17 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
     const refProcess = useRef(null);
 
     useEffect(() => {
+        if (blog?.status == BLOG_STATUS.HIDDEN) {
+            router.push('/404');
+        }
         if (refContent.current) {
             const headings = refContent.current.querySelectorAll("h2");
             const list = refTable.current;
+            if (headings.length === 0) {
+                if (list.closest('.catalog')) {
+                    list.closest('.catalog').style.display = 'none';
+                }
+            }
             if(list) {
                 headings.forEach((heading) => {
                     heading.id = heading.textContent.replace(/\s+/g, '-').toLowerCase();
@@ -69,237 +80,279 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
     }, [blog])
 
     return (
-        <div className="article-single-post">
-            <div className="process-bar w-full">
-                <div ref={refProcess} className='process-content'></div>
-            </div>
-            <div className="test-review-page w-full">
-                {/*website banner*/}
-                <div className="md:block hidden review-banner w-full">
-                    <div className="relative">
-                        <div className="banner-left dark:text-black m-w mx-auto px-3">
-                            <div className="grid grid-cols-12">
-                                <div className="col-span-5">
-                                    {/*breadcrumb*/}
-                                    <div className="mb-3 my-breadcrumb">
-                                        <ul className="flex">
-                                            <li><a href="#">Home</a></li>
-                                            <li className="mx-2">/</li>
-                                            <li><a href="#">Skincare Nerd</a></li>
-                                            <li className="mx-2">/</li>
-                                            <li><a href="#">Nuturish</a></li>
-                                        </ul>
+        <>
+            <Head>
+                <title>{blog?.meta_title ?? 'Article'}</title>
+                <meta name="description" content={blog?.meta_description} />
+            </Head>
+            <div className="article-single-post">
+                <div className="process-bar w-full">
+                    <div ref={refProcess} className='process-content'></div>
+                </div>
+                <div className="test-review-page w-full">
+                    {/*website banner*/}
+                    <div className="md:block hidden review-banner w-full">
+                        <div className="relative">
+                            <div className="banner-left dark:text-black m-w mx-auto px-3">
+                                <div className="grid grid-cols-12">
+                                    <div className="col-span-5">
+                                        {/*breadcrumb*/}
+                                        <div className="mb-3 my-breadcrumb">
+                                            <ul className="flex">
+                                                <li><a href="#">Home</a></li>
+                                                {blog?.categories?.[0]?.parent && (
+                                                    <>
+                                                        <li className="mx-2">/</li>
+                                                        <li><a href={`/categories/${blog?.categories?.[0]?.parent?.slug}`}>{blog?.categories?.[0]?.parent?.name}</a></li>
+                                                    </>
+                                                )}
+                                                <li className="mx-2">/</li>
+                                                {blog?.categories?.[0] && (
+                                                    <>
+                                                        <li><a href={`/categories/${blog?.categories?.[0]?.slug}`}>{blog?.categories?.[0]?.name}</a></li>
+                                                    </>
+                                                )}
+                                            </ul>
+                                        </div>
+                                        <div className="heading_2 mb-2">{blog?.title}</div>
+                                        <div className="medium_text mb-4">{blog?.excerpt}</div>
+                                        <div className="small_text">Writen by: {blog?.author}</div>
+                                        <div className="small_text my-1">Publish date: {blog ? formatDate(blog.publish_date) : ''}</div>
+                                        <div className="small_text">About 10 minutes to read</div>
+                                        <div className="medium_text mt-4">Is this article helpful?</div>
                                     </div>
-                                    <div className="heading_2 mb-2">{blog?.title}</div>
-                                    <div className="medium_text mb-4">Uncover the secret to daily beautiful, radiant skin:
-                                        happiness. Explore how joy transforms your beauty routine, embracing your natural glow with each passing day</div>
-                                    <div className="small_text">Writen by: Nthduong</div>
-                                    <div className="small_text my-1">Publish date: 16/01/2024</div>
-                                    <div className="small_text">About 10 minutes to read</div>
-                                    <div className="medium_text mt-4">Is this article helpful?</div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="banner-right">
-                            <img className="w-full object-cover" src={BASE_URL + '/storage/' + blog?.banner_img} alt="smile" loading="lazy" />
-                        </div>
-                    </div>
-                </div>
-                {/*Mobile banner*/}
-                <div className="md:hidden block">
-                    <div className="banner-top p-4 bg-primary text-black">
-                        <div className="">
-                            {/*breadcrumb*/}
-                            <div className="mb-3 my-breadcrumb">
-                                <ul className="flex">
-                                    <li><a href="#">Home</a></li>
-                                    <li className="mx-2">/</li>
-                                    <li><a href="#">Skincare Nerd</a></li>
-                                    <li className="mx-2">/</li>
-                                    <li><a href="#">Nuturish</a></li>
-                                </ul>
-                            </div>
-                            <div className="heading_2 mb-2">Drinking Water and Improving Skin</div>
-                            <div className="medium_text mb-4">Uncover the secret to daily beautiful, radiant skin:
-                                happiness. Explore how joy transforms your beauty routine, embracing your natural glow with each passing day</div>
-                            <div className="small_text">Writen by: Nthduong</div>
-                            <div className="small_text my-1">Publish date: 16/01/2024</div>
-                            <div className="small_text">About 10 minutes to read</div>
-                            <div className="medium_text mt-4">Is this article helpful?</div>
-                        </div>
-                    </div>
-                    <div className="banner-bottom">
-                        <img className="w-full" src={BASE_URL + '/storage/desktop/' + blog?.banner_img} alt="smile" loading="lazy" />
-                    </div>
-                </div>
-            </div>
-            <div className="container-fluid px-3 m-w mx-auto w-full my-0">
-                <div className="article-out">
-                    <div className="article-summary mb-4">
-                        <div className="">{blog?.summary}</div>
-                        {/*<div className="font-medium mb-2">*/}
-                        {/*    We all know how stress can negatively impact our skin, leading to issues like breakouts,*/}
-                        {/*    dark circles, and dryness. Chronic stress takes a toll on our skin health. However, the*/}
-                        {/*    positive effects of happiness on our skin often go unnoticed. Happiness is a crucial factor*/}
-                        {/*    in achieving a naturally radiant complexion that lasts.*/}
-                        {/*</div>*/}
-                        {/*<div className="font-medium">*/}
-                        {/*    In this post, we'll delve into how stress affects the skin negatively, explore the ways in*/}
-                        {/*    which happiness can enhance your skin, and discuss practical tips for prioritizing joy in*/}
-                        {/*    your daily life. Our aim is to empower you with insights that contribute to long-lasting skin wellness*/}
-                        {/*</div>*/}
-                    </div>
-                    {/*menu*/}
-                    <div className="catalog w-full my-3">
-                        <div className="list dark:!border-999">
-                            <div className="list-title heading_4 mb-3">In this post</div>
-                            <div className="all-list">
-                                {/* table of content */}
-                                <ul className="list-here" ref={refTable} />
+                            <div className="banner-right">
+                                <img className="w-full object-cover" src={BASE_URL + '/storage/' + blog?.banner_img} alt="smile" loading="lazy" />
                             </div>
                         </div>
                     </div>
-                </div>
-
-                {/*<div className="col-span-3 article-sidebar">*/}
-                {/*    <div className="sidebar">*/}
-                {/*        <div className="article-recently">*/}
-                {/*            <div className="heading_4 mb-3">Recently update</div>*/}
-                {/*            <div>*/}
-                {/*                <ul>*/}
-                {/*                    <li><a href="#">Vietnam With Kids: 6 Best Vietnam Family Holiday Destinations + Travel Tips</a></li>*/}
-                {/*                    <li className="my-1"><a href="#">Vietnam With Kids: 6 Best Vietnam Family Holiday Destinations + Travel Tips</a></li>*/}
-                {/*                    <li><a href="#">Vietnam With Kids: 6 Best Vietnam Family Holiday Destinations + Travel Tips</a></li>*/}
-                {/*                    <li className="mt-1"><a href="#">Vietnam With Kids: 6 Best Vietnam Family Holiday Destinations + Travel Tips</a></li>*/}
-                {/*                </ul>*/}
-                {/*            </div>*/}
-                {/*        </div>*/}
-                {/*        /!*<div>*!/*/}
-                {/*        /!*    <div className="mt-4">*!/*/}
-                {/*        /!*        <img className="w-100" src="./img/article/myimg.jpg" alt="smile" loading="lazy"/>*!/*/}
-                {/*        /!*    </div>*!/*/}
-                {/*        /!*    <div className="text-center welcome-content">*!/*/}
-                {/*        /!*        <div className="heading_4 mb-2">Welcome to blog!</div>*!/*/}
-                {/*        /!*        <div>Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit*!/*/}
-                {/*        /!*            consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque*!/*/}
-                {/*        /!*            sed. Diam nec ut sed est sit in tortor.</div>*!/*/}
-                {/*        /!*    </div>*!/*/}
-                {/*        /!*</div>*!/*/}
-                {/*        <div className="my-4">*/}
-                {/*            <div className="heading_4 mb-3">Sign up for email</div>*/}
-                {/*            <div>*/}
-                {/*                <div className="email-signup my-input mb-3 ">*/}
-                {/*                    <input className="w-full p-2" placeholder="Email address"/>*/}
-                {/*                </div>*/}
-                {/*                <button className="w-full my-btn-pr" type="submit">Subscribe</button>*/}
-                {/*            </div>*/}
-                {/*        </div>*/}
-                {/*        <div className="pb-4">*/}
-                {/*            <div className="heading_4 mb-2">Recommended</div>*/}
-                {/*            <div className="re-article">*/}
-                {/*                <div className="mt-2">*/}
-                {/*                    <img className="w-100" src="./img/article/recommend.jpg" alt="smile" loading="lazy"/>*/}
-                {/*                </div>*/}
-                {/*                <div className="my-1">*/}
-                {/*                    <div className="flex mb-1">*/}
-                {/*                        <div className="mr-auto">Music & Art</div>*/}
-                {/*                        <div>November 6, 2023</div>*/}
-                {/*                    </div>*/}
-                {/*                    <div className="heading_6">Top 4 Ceramic Shop in Hanoi</div>*/}
-                {/*                </div>*/}
-                {/*            </div>*/}
-                {/*            <div className="re-article">*/}
-                {/*                <div className="mt-4">*/}
-                {/*                    <img className="w-100" src="./img/article/recommend.jpg" alt="smile" loading="lazy"/>*/}
-                {/*                </div>*/}
-                {/*                <div className="my-1">*/}
-                {/*                    <div className="flex mb-1">*/}
-                {/*                        <div className="mr-auto">Music & Art</div>*/}
-                {/*                        <div>November 6, 2023</div>*/}
-                {/*                    </div>*/}
-                {/*                    <div className="heading_6">Top 4 Ceramic Shop in Hanoi</div>*/}
-                {/*                </div>*/}
-                {/*            </div>*/}
-                {/*        </div>*/}
-                {/*        <div className="share-on-social">*/}
-                {/*            <div className="text-center heading_5 mb-2">Share it on</div>*/}
-                {/*            <div className="flex justify-center">*/}
-                {/*                <div className="">f</div>*/}
-                {/*                <div className="mx-2">i</div>*/}
-                {/*                <div className="">b</div>*/}
-                {/*            </div>*/}
-                {/*        </div>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-                {/*<div className="col-span-1"></div>*/}
-            </div>
-            <div className="my-article w-full">
-                <div
-                    className="main-article w-full"
-                    ref={refContent}
-                    dangerouslySetInnerHTML={{
-                        __html: blog?.detail?.content
-                    }}
-                />
-                <div className="w-full flex justify-center items-center">
-                    <div className="px-3 w-full mx-4 m-w mx-auto my-0 helpful-rate mt-5">
-                        <div className="flex w-full pt-3 border-t border-ccc">
-                            <div className="medium_text mr-3">
-                                <a href="#">Was this helpful?</a>
-                            </div>
-                            <div className="flex items-center">
-                                <div className="thumb mr-3">
-                                    <img className="icon-ssm" src="/img/icon/thumbs-up.svg" alt="smile" loading="lazy"/>
-                                </div>
-                                <div className="thumb">
-                                    <img className="icon-ssm" src="/img/icon/thumbs-down.svg" alt="smile" loading="lazy"/>
-                                </div>
-                            </div>
-                        </div>
-                        {/*Suggest more article*/}
-                        <div className="suggest-article py-7">
-                            <div className="heading_2 mb-4">Related Articles</div>
+                    {/*Mobile banner*/}
+                    <div className="md:hidden block">
+                        <div className="banner-top p-4 bg-primary text-black">
                             <div className="">
-                                <Slider
-                                    configs={{
-                                        sliderPerRow: 4,
-                                        sliderPerRowMobile: 2.5,
-                                        allowDrag: true,
-                                        duration: 400,
-                                        auto: false,
-                                        autoDuration: 1000,
-                                        gap: 40,
-                                        gapMobile: 10,
-                                    }}
-                                >
-                                    <div className="justify-center">
-                                        <div className="col-span-12 md:col-span-4">
-                                            <div className="hover-img">
-                                                <div className="img-inner">
-                                                    <Link href={ROUTER.ARTICLE}>
-                                                        <img className="w-full" src="/img/home/article.jpg" alt="smile" loading="lazy"/>
-                                                    </Link>
-                                                </div>
-                                                <div>
-                                                    <div className="article-info py-2 mb-1 md:!border-b md:!border-ccc border-b-0">
-                                                        <div className="md:flex mb-1">
-                                                            <div className="mr-auto small_text">Drink & Coffee</div>
-                                                            <div className="small_text">November 8, 2023</div>
-                                                        </div>
-                                                        <div className="medium_text">Top 5 beautiful Coffee Shop in HaNoi</div>
+                                {/*breadcrumb*/}
+                                <div className="mb-3 my-breadcrumb">
+                                    <ul className="flex">
+                                        <li><a href="#">Home</a></li>
+                                        {blog?.categories?.[0]?.parent && (
+                                            <>
+                                                <li className="mx-2">/</li>
+                                                <li><a href={`/categories/${blog?.categories?.[0]?.parent?.slug}`}>{blog?.categories?.[0]?.parent?.name}</a></li>
+                                            </>
+                                        )}
+                                        <li className="mx-2">/</li>
+                                        {blog?.categories?.[0] && (
+                                            <>
+                                                <li><a href={`/categories/${blog?.categories?.[0]?.slug}`}>{blog?.categories?.[0]?.name}</a></li>
+                                            </>
+                                        )}
+                                    </ul>
+                                </div>
+                                <div className="heading_2 mb-2">{blog?.title}</div>
+                                <div className="medium_text mb-4">{blog?.excerpt}</div>
+                                <div className="small_text">Writen by: {blog?.author}</div>
+                                <div className="small_text my-1">Publish date: {blog ? formatDate(blog.publish_date) : ''}</div>
+                                <div className="small_text">About 10 minutes to read</div>
+                                <div className="medium_text mt-4">Is this article helpful?</div>
+                            </div>
+                        </div>
+                        <div className="banner-bottom">
+                            <img className="w-full" src={BASE_URL + '/storage/desktop/' + blog?.banner_img} alt="smile" loading="lazy" />
+                        </div>
+                    </div>
+                </div>
+                <div className="container-fluid px-3 m-w mx-auto w-full my-0">
+                    <div className="article-out">
+                        <div className="article-summary mb-4">
+                            <div className="">{blog?.summary}</div>
+                            {/*<div className="font-medium mb-2">*/}
+                            {/*    We all know how stress can negatively impact our skin, leading to issues like breakouts,*/}
+                            {/*    dark circles, and dryness. Chronic stress takes a toll on our skin health. However, the*/}
+                            {/*    positive effects of happiness on our skin often go unnoticed. Happiness is a crucial factor*/}
+                            {/*    in achieving a naturally radiant complexion that lasts.*/}
+                            {/*</div>*/}
+                            {/*<div className="font-medium">*/}
+                            {/*    In this post, we'll delve into how stress affects the skin negatively, explore the ways in*/}
+                            {/*    which happiness can enhance your skin, and discuss practical tips for prioritizing joy in*/}
+                            {/*    your daily life. Our aim is to empower you with insights that contribute to long-lasting skin wellness*/}
+                            {/*</div>*/}
+                        </div>
+                        {/*menu*/}
+                        <div className="catalog w-full my-3">
+                            <div className="list dark:!border-999">
+                                <div className="list-title heading_4 mb-3">In this post</div>
+                                <div className="all-list">
+                                    {/* table of content */}
+                                    <ul className="list-here" ref={refTable} />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/*<div className="col-span-3 article-sidebar">*/}
+                    {/*    <div className="sidebar">*/}
+                    {/*        <div className="article-recently">*/}
+                    {/*            <div className="heading_4 mb-3">Recently update</div>*/}
+                    {/*            <div>*/}
+                    {/*                <ul>*/}
+                    {/*                    <li><a href="#">Vietnam With Kids: 6 Best Vietnam Family Holiday Destinations + Travel Tips</a></li>*/}
+                    {/*                    <li className="my-1"><a href="#">Vietnam With Kids: 6 Best Vietnam Family Holiday Destinations + Travel Tips</a></li>*/}
+                    {/*                    <li><a href="#">Vietnam With Kids: 6 Best Vietnam Family Holiday Destinations + Travel Tips</a></li>*/}
+                    {/*                    <li className="mt-1"><a href="#">Vietnam With Kids: 6 Best Vietnam Family Holiday Destinations + Travel Tips</a></li>*/}
+                    {/*                </ul>*/}
+                    {/*            </div>*/}
+                    {/*        </div>*/}
+                    {/*        /!*<div>*!/*/}
+                    {/*        /!*    <div className="mt-4">*!/*/}
+                    {/*        /!*        <img className="w-100" src="./img/article/myimg.jpg" alt="smile" loading="lazy"/>*!/*/}
+                    {/*        /!*    </div>*!/*/}
+                    {/*        /!*    <div className="text-center welcome-content">*!/*/}
+                    {/*        /!*        <div className="heading_4 mb-2">Welcome to blog!</div>*!/*/}
+                    {/*        /!*        <div>Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit*!/*/}
+                    {/*        /!*            consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque*!/*/}
+                    {/*        /!*            sed. Diam nec ut sed est sit in tortor.</div>*!/*/}
+                    {/*        /!*    </div>*!/*/}
+                    {/*        /!*</div>*!/*/}
+                    {/*        <div className="my-4">*/}
+                    {/*            <div className="heading_4 mb-3">Sign up for email</div>*/}
+                    {/*            <div>*/}
+                    {/*                <div className="email-signup my-input mb-3 ">*/}
+                    {/*                    <input className="w-full p-2" placeholder="Email address"/>*/}
+                    {/*                </div>*/}
+                    {/*                <button className="w-full my-btn-pr" type="submit">Subscribe</button>*/}
+                    {/*            </div>*/}
+                    {/*        </div>*/}
+                    {/*        <div className="pb-4">*/}
+                    {/*            <div className="heading_4 mb-2">Recommended</div>*/}
+                    {/*            <div className="re-article">*/}
+                    {/*                <div className="mt-2">*/}
+                    {/*                    <img className="w-100" src="./img/article/recommend.jpg" alt="smile" loading="lazy"/>*/}
+                    {/*                </div>*/}
+                    {/*                <div className="my-1">*/}
+                    {/*                    <div className="flex mb-1">*/}
+                    {/*                        <div className="mr-auto">Music & Art</div>*/}
+                    {/*                        <div>November 6, 2023</div>*/}
+                    {/*                    </div>*/}
+                    {/*                    <div className="heading_6">Top 4 Ceramic Shop in Hanoi</div>*/}
+                    {/*                </div>*/}
+                    {/*            </div>*/}
+                    {/*            <div className="re-article">*/}
+                    {/*                <div className="mt-4">*/}
+                    {/*                    <img className="w-100" src="./img/article/recommend.jpg" alt="smile" loading="lazy"/>*/}
+                    {/*                </div>*/}
+                    {/*                <div className="my-1">*/}
+                    {/*                    <div className="flex mb-1">*/}
+                    {/*                        <div className="mr-auto">Music & Art</div>*/}
+                    {/*                        <div>November 6, 2023</div>*/}
+                    {/*                    </div>*/}
+                    {/*                    <div className="heading_6">Top 4 Ceramic Shop in Hanoi</div>*/}
+                    {/*                </div>*/}
+                    {/*            </div>*/}
+                    {/*        </div>*/}
+                    {/*        <div className="share-on-social">*/}
+                    {/*            <div className="text-center heading_5 mb-2">Share it on</div>*/}
+                    {/*            <div className="flex justify-center">*/}
+                    {/*                <div className="">f</div>*/}
+                    {/*                <div className="mx-2">i</div>*/}
+                    {/*                <div className="">b</div>*/}
+                    {/*            </div>*/}
+                    {/*        </div>*/}
+                    {/*    </div>*/}
+                    {/*</div>*/}
+                    {/*<div className="col-span-1"></div>*/}
+                </div>
+                <div className="my-article w-full">
+                    <div
+                        className="main-article w-full"
+                        ref={refContent}
+                        dangerouslySetInnerHTML={{
+                            __html: blog?.detail?.content
+                        }}
+                    />
+                    <div className="w-full flex justify-center items-center">
+                        <div className="px-3 w-full mx-4 m-w mx-auto my-0 helpful-rate mt-5">
+                            <div className="flex w-full pt-3 border-t border-ccc">
+                                <div className="medium_text mr-3">
+                                    <a href="#">Was this helpful?</a>
+                                </div>
+                                <div className="flex items-center">
+                                    <div className="thumb mr-3">
+                                        <img className="icon-ssm" src="/img/icon/thumbs-up.svg" alt="smile" loading="lazy"/>
+                                    </div>
+                                    <div className="thumb">
+                                        <img className="icon-ssm" src="/img/icon/thumbs-down.svg" alt="smile" loading="lazy"/>
+                                    </div>
+                                </div>
+                            </div>
+                            {/*Suggest more article*/}
+                            <div className="suggest-article py-7">
+                                <div className="heading_2 mb-4">Related Articles</div>
+                                <div className="">
+                                    <Slider
+                                        configs={{
+                                            sliderPerRow: 4,
+                                            sliderPerRowMobile: 2.5,
+                                            allowDrag: true,
+                                            duration: 400,
+                                            auto: false,
+                                            autoDuration: 1000,
+                                            gap: 40,
+                                            gapMobile: 10,
+                                        }}
+                                    >
+                                        <div className="justify-center">
+                                            <div className="col-span-12 md:col-span-4">
+                                                <div className="hover-img">
+                                                    <div className="img-inner">
+                                                        <Link href={ROUTER.ARTICLE}>
+                                                            <img className="w-full" src="/img/home/article.jpg" alt="smile" loading="lazy"/>
+                                                        </Link>
                                                     </div>
-                                                    <div className="md:flex hidden">
-                                                        <div className=""><a className="text-link" href="#">Read more</a></div>
-                                                        <div className="ml-auto">Share</div>
+                                                    <div>
+                                                        <div className="article-info py-2 mb-1 md:!border-b md:!border-ccc border-b-0">
+                                                            <div className="md:flex mb-1">
+                                                                <div className="mr-auto small_text">Drink & Coffee</div>
+                                                                <div className="small_text">November 8, 2023</div>
+                                                            </div>
+                                                            <div className="medium_text">Top 5 beautiful Coffee Shop in HaNoi</div>
+                                                        </div>
+                                                        <div className="md:flex hidden">
+                                                            <div className=""><a className="text-link" href="#">Read more</a></div>
+                                                            <div className="ml-auto">Share</div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className="justify-center">
-                                        <div className="col-span-12 md:col-span-4">
-                                            <div className="hover-img">
-                                                <div className="img-inner">
+                                        <div className="justify-center">
+                                            <div className="col-span-12 md:col-span-4">
+                                                <div className="hover-img">
+                                                    <div className="img-inner">
+                                                        <Link href={ROUTER.ARTICLE}>
+                                                            <img className="w-full" src="/img/home/article.jpg" alt="smile" loading="lazy"/>
+                                                        </Link>
+                                                    </div>
+                                                    <div>
+                                                        <div className="article-info md:!border-b md:!border-ccc border-b-0 py-2 mb-1">
+                                                            <div className="md:flex mb-1">
+                                                                <div className="mr-auto small_text">Drink & Coffee</div>
+                                                                <div className="small_text">November 8, 2023</div>
+                                                            </div>
+                                                            <div className="medium_text">Top 5 beautiful Coffee Shop in HaNoi</div>
+                                                        </div>
+                                                        <div className="md:flex hidden">
+                                                            <div className=""><a className="text-link" href="#">Read more</a></div>
+                                                            <div className="ml-auto">Share</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="justify-center">
+                                            <div className="col-span-12 md:col-span-4">
+                                                <div>
                                                     <Link href={ROUTER.ARTICLE}>
                                                         <img className="w-full" src="/img/home/article.jpg" alt="smile" loading="lazy"/>
                                                     </Link>
@@ -319,55 +372,55 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className="justify-center">
-                                        <div className="col-span-12 md:col-span-4">
-                                            <div>
-                                                <Link href={ROUTER.ARTICLE}>
-                                                    <img className="w-full" src="/img/home/article.jpg" alt="smile" loading="lazy"/>
-                                                </Link>
-                                            </div>
-                                            <div>
-                                                <div className="article-info md:!border-b md:!border-ccc border-b-0 py-2 mb-1">
-                                                    <div className="md:flex mb-1">
-                                                        <div className="mr-auto small_text">Drink & Coffee</div>
-                                                        <div className="small_text">November 8, 2023</div>
-                                                    </div>
-                                                    <div className="medium_text">Top 5 beautiful Coffee Shop in HaNoi</div>
+                                        <div className="justify-center">
+                                            <div className="col-span-12 md:col-span-4">
+                                                <div>
+                                                    <Link href={ROUTER.ARTICLE}>
+                                                        <img className="w-full" src="/img/home/article.jpg" alt="smile" loading="lazy"/>
+                                                    </Link>
                                                 </div>
-                                                <div className="md:flex hidden">
-                                                    <div className=""><a className="text-link" href="#">Read more</a></div>
-                                                    <div className="ml-auto">Share</div>
+                                                <div>
+                                                    <div className="article-info md:!border-b md:!border-ccc border-b-0 py-2 mb-1">
+                                                        <div className="md:flex mb-1">
+                                                            <div className="mr-auto small_text">Drink & Coffee</div>
+                                                            <div className="small_text">November 8, 2023</div>
+                                                        </div>
+                                                        <div className="medium_text">Top 5 beautiful Coffee Shop in HaNoi</div>
+                                                    </div>
+                                                    <div className="md:flex hidden">
+                                                        <div className=""><a className="text-link" href="#">Read more</a></div>
+                                                        <div className="ml-auto">Share</div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className="justify-center">
-                                        <div className="col-span-12 md:col-span-4">
-                                            <div>
-                                                <Link href={ROUTER.ARTICLE}>
-                                                    <img className="w-full" src="/img/home/article.jpg" alt="smile" loading="lazy"/>
-                                                </Link>
-                                            </div>
-                                            <div>
-                                                <div className="article-info md:!border-b md:!border-ccc border-b-0 py-2 mb-1">
-                                                    <div className="md:flex mb-1">
-                                                        <div className="mr-auto small_text">Drink & Coffee</div>
-                                                        <div className="small_text">November 8, 2023</div>
+                                        <div className="justify-center">
+                                            <div className="col-span-12 md:col-span-4">
+                                                <div className="hover-img">
+                                                    <div className="img-inner">
+                                                        <Link href={ROUTER.ARTICLE}>
+                                                            <img className="w-full" src="/img/home/article.jpg" alt="smile" loading="lazy"/>
+                                                        </Link>
                                                     </div>
-                                                    <div className="medium_text">Top 5 beautiful Coffee Shop in HaNoi</div>
-                                                </div>
-                                                <div className="md:flex hidden">
-                                                    <div className=""><a className="text-link" href="#">Read more</a></div>
-                                                    <div className="ml-auto">Share</div>
+                                                    <div>
+                                                        <div className="article-info md:!border-b md:!border-ccc border-b-0 py-1 mb-1">
+                                                            <div className="md:flex mb-1">
+                                                                <div className="mr-auto small_text">Drink & Coffee</div>
+                                                                <div className="small_text">November 8, 2023</div>
+                                                            </div>
+                                                            <div className="heading_5">Top 5 beautiful Coffee Shop in HaNoi</div>
+                                                        </div>
+                                                        <div className="md:flex hidden">
+                                                            <div className=""><a className="text-link" href="#">Read more</a></div>
+                                                            <div className="ml-auto">Share</div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className="justify-center">
-                                        <div className="col-span-12 md:col-span-4">
-                                            <div className="hover-img">
-                                                <div className="img-inner">
+                                        <div className="justify-center">
+                                            <div className="col-span-12 md:col-span-4">
+                                                <div>
                                                     <Link href={ROUTER.ARTICLE}>
                                                         <img className="w-full" src="/img/home/article.jpg" alt="smile" loading="lazy"/>
                                                     </Link>
@@ -387,184 +440,163 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                                 </div>
                                             </div>
                                         </div>
+                                    </Slider>
+                                </div>
+                            </div>
+                            {/*Comment section*/}
+                            <div className="comment py-7">
+                                <div className="flex">
+                                    <div className="heading_2 mb-4">Comments</div>
+                                    <div className="ml-auto">
+                                        <select className="cmt-select dark:border dark:border-white">
+                                            <option value="">Newest comments</option>
+                                            <option value="">Oldest comments</option>
+                                        </select>
                                     </div>
-                                    <div className="justify-center">
-                                        <div className="col-span-12 md:col-span-4">
-                                            <div>
-                                                <Link href={ROUTER.ARTICLE}>
-                                                    <img className="w-full" src="/img/home/article.jpg" alt="smile" loading="lazy"/>
-                                                </Link>
+                                </div>
+                                <div className="comment-main">
+                                    <div className="flex">
+                                        <div className="flex">
+                                            <div className="mr-2">
+                                                <img className="w-full rounded-3xl" src="./img/article/avata.jpg" alt="smile" loading="lazy"/>
                                             </div>
                                             <div>
-                                                <div className="article-info md:!border-b md:!border-ccc border-b-0 py-1 mb-1">
-                                                    <div className="md:flex mb-1">
-                                                        <div className="mr-auto small_text">Drink & Coffee</div>
-                                                        <div className="small_text">November 8, 2023</div>
-                                                    </div>
-                                                    <div className="heading_5">Top 5 beautiful Coffee Shop in HaNoi</div>
-                                                </div>
-                                                <div className="md:flex hidden">
-                                                    <div className=""><a className="text-link" href="#">Read more</a></div>
-                                                    <div className="ml-auto">Share</div>
-                                                </div>
+                                                <div className="medium_text">Nthuyduong</div>
+                                                <div>3 days ago</div>
+                                            </div>
+                                        </div>
+                                        <div className="flex ml-auto">
+                                            <div className="mr-2">10</div>
+                                            <div>heart</div>
+                                        </div>
+                                    </div>
+                                    <div className="mt-2">
+                                        Baking time will vary if you change the pan size. Every oven is different so I can’t say
+                                        for certain what you’ll need to adjust it to. Be  sure to check on the cakes while they are baking.
+                                    </div>
+                                    <div className="mt-3"><a className="text-link" href="#">Reply</a></div>
+                                </div>
+                                <div className="comment-border"></div>
+                                <div className="comment-main">
+                                    <div className="flex">
+                                        <div className="flex">
+                                            <div className="mr-2">
+                                                <img className="w-full rounded-3xl" src="./img/article/avata.jpg" alt="smile" loading="lazy"/>
+                                            </div>
+                                            <div>
+                                                <div className="medium_text">Nthuyduong</div>
+                                                <div>3 days ago</div>
+                                            </div>
+                                        </div>
+                                        <div className="flex ml-auto">
+                                            <div className="mr-2">10</div>
+                                            <div>heart</div>
+                                        </div>
+                                    </div>
+                                    <div className="mt-2">
+                                        Baking time will vary if you change the pan size. Every oven is different so I can’t say
+                                        for certain what you’ll need to adjust it to. Be  sure to check on the cakes while they are baking.
+                                    </div>
+                                    <div className="mt-3"><a className="text-link" href="#">Reply</a></div>
+                                </div>
+                                <div className="comment-border"></div>
+                                <div className="comment-main">
+                                    <div className="flex">
+                                        <div className="flex">
+                                            <div className="mr-2">
+                                                <img className="w-full rounded-3xl" src="./img/article/avata.jpg" alt="smile" loading="lazy"/>
+                                            </div>
+                                            <div>
+                                                <div className="medium_text">Nthuyduong</div>
+                                                <div>3 days ago</div>
+                                            </div>
+                                        </div>
+                                        <div className="flex ml-auto">
+                                            <div className="mr-2">10</div>
+                                            <div>heart</div>
+                                        </div>
+                                    </div>
+                                    <div className="mt-2">
+                                        Baking time will vary if you change the pan size. Every oven is different so I can’t say
+                                        for certain what you’ll need to adjust it to. Be  sure to check on the cakes while they are baking.
+                                    </div>
+                                    <div className="mt-3"><a className="text-link" href="#">Reply</a></div>
+                                </div>
+                                <div className="comment-border"></div>
+                                <div className="comment-main">
+                                    <div className="flex">
+                                        <div className="flex">
+                                            <div className="mr-2">
+                                                <img className="w-full rounded-3xl" src="./img/article/avata.jpg" alt="smile" loading="lazy"/>
+                                            </div>
+                                            <div>
+                                                <div className="medium_text">Nthuyduong</div>
+                                                <div className="">3 days ago</div>
+                                            </div>
+                                        </div>
+                                        <div className="flex ml-auto">
+                                            <div className="mr-2">10</div>
+                                            <div>heart</div>
+                                        </div>
+                                    </div>
+                                    <div className="mt-2">
+                                        Baking time will vary if you change the pan size. Every oven is different so I can’t say
+                                        for certain what you’ll need to adjust it to. Be  sure to check on the cakes while they are baking.
+                                    </div>
+                                    <div className="mt-3"><a className="text-link" href="#">Reply</a></div>
+                                </div>
+                                {/*paginate*/}
+                                <div className="mt-5 paginate flex w-full justify-center">
+                                    <a>
+                                        Previous
+                                        <span></span>
+                                    </a>
+                                    <div className="mx-2 pagi-item p-3 rounded-full flex">1</div>
+                                    <div className="pagi-item p-3 rounded-full flex">2</div>
+                                    <div className="mx-2 pagi-item p-3 rounded-full flex">3</div>
+                                    <a>
+                                        Next
+                                        <span></span>
+                                    </a>
+                                </div>
+                            </div>
+                            {/*Leave a comment*/}
+                            <div className="leavecmt">
+                                <div className="mb-5 text-center">
+                                    <div className="heading_2 mb-2">Leave a comment</div>
+                                    <div>Your email address will not be published. Required fields are marked *</div>
+                                </div>
+                                <div className="">
+                                    <div className="grid grid-cols-12 gap-3">
+                                        <div className="md:col-span-6 col-span-12">
+                                            <div className="my-input md:mb-3 dark:border-white">
+                                                <input className="w-full p-1" placeholder="Your name"/>
+                                            </div>
+                                        </div>
+                                        <div className="md:col-span-6 col-span-12">
+                                            <div className="my-input mb-3 dark:border-white">
+                                                <input className="w-full p-1" placeholder="Email address *"/>
                                             </div>
                                         </div>
                                     </div>
-                                </Slider>
-                            </div>
-                        </div>
-                        {/*Comment section*/}
-                        <div className="comment py-7">
-                            <div className="flex">
-                                <div className="heading_2 mb-4">Comments</div>
-                                <div className="ml-auto">
-                                    <select className="cmt-select dark:border dark:border-white">
-                                        <option value="">Newest comments</option>
-                                        <option value="">Oldest comments</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div className="comment-main">
-                                <div className="flex">
-                                    <div className="flex">
-                                        <div className="mr-2">
-                                            <img className="w-full rounded-3xl" src="./img/article/avata.jpg" alt="smile" loading="lazy"/>
-                                        </div>
-                                        <div>
-                                            <div className="medium_text">Nthuyduong</div>
-                                            <div>3 days ago</div>
-                                        </div>
+                                    <div className="my-input mb-3 user-cmt dark:border-white">
+                                        <textarea rows="5" className="w-full p-1" placeholder="Message *"></textarea>
                                     </div>
-                                    <div className="flex ml-auto">
-                                        <div className="mr-2">10</div>
-                                        <div>heart</div>
+                                    <div className="flex justify-center dark:border dark:border-white">
+                                        <button className="w-3/12 my-btn-pr" type="submit">Subscribe</button>
                                     </div>
-                                </div>
-                                <div className="mt-2">
-                                    Baking time will vary if you change the pan size. Every oven is different so I can’t say
-                                    for certain what you’ll need to adjust it to. Be  sure to check on the cakes while they are baking.
-                                </div>
-                                <div className="mt-3"><a className="text-link" href="#">Reply</a></div>
-                            </div>
-                            <div className="comment-border"></div>
-                            <div className="comment-main">
-                                <div className="flex">
-                                    <div className="flex">
-                                        <div className="mr-2">
-                                            <img className="w-full rounded-3xl" src="./img/article/avata.jpg" alt="smile" loading="lazy"/>
-                                        </div>
-                                        <div>
-                                            <div className="medium_text">Nthuyduong</div>
-                                            <div>3 days ago</div>
-                                        </div>
-                                    </div>
-                                    <div className="flex ml-auto">
-                                        <div className="mr-2">10</div>
-                                        <div>heart</div>
-                                    </div>
-                                </div>
-                                <div className="mt-2">
-                                    Baking time will vary if you change the pan size. Every oven is different so I can’t say
-                                    for certain what you’ll need to adjust it to. Be  sure to check on the cakes while they are baking.
-                                </div>
-                                <div className="mt-3"><a className="text-link" href="#">Reply</a></div>
-                            </div>
-                            <div className="comment-border"></div>
-                            <div className="comment-main">
-                                <div className="flex">
-                                    <div className="flex">
-                                        <div className="mr-2">
-                                            <img className="w-full rounded-3xl" src="./img/article/avata.jpg" alt="smile" loading="lazy"/>
-                                        </div>
-                                        <div>
-                                            <div className="medium_text">Nthuyduong</div>
-                                            <div>3 days ago</div>
-                                        </div>
-                                    </div>
-                                    <div className="flex ml-auto">
-                                        <div className="mr-2">10</div>
-                                        <div>heart</div>
-                                    </div>
-                                </div>
-                                <div className="mt-2">
-                                    Baking time will vary if you change the pan size. Every oven is different so I can’t say
-                                    for certain what you’ll need to adjust it to. Be  sure to check on the cakes while they are baking.
-                                </div>
-                                <div className="mt-3"><a className="text-link" href="#">Reply</a></div>
-                            </div>
-                            <div className="comment-border"></div>
-                            <div className="comment-main">
-                                <div className="flex">
-                                    <div className="flex">
-                                        <div className="mr-2">
-                                            <img className="w-full rounded-3xl" src="./img/article/avata.jpg" alt="smile" loading="lazy"/>
-                                        </div>
-                                        <div>
-                                            <div className="medium_text">Nthuyduong</div>
-                                            <div className="">3 days ago</div>
-                                        </div>
-                                    </div>
-                                    <div className="flex ml-auto">
-                                        <div className="mr-2">10</div>
-                                        <div>heart</div>
-                                    </div>
-                                </div>
-                                <div className="mt-2">
-                                    Baking time will vary if you change the pan size. Every oven is different so I can’t say
-                                    for certain what you’ll need to adjust it to. Be  sure to check on the cakes while they are baking.
-                                </div>
-                                <div className="mt-3"><a className="text-link" href="#">Reply</a></div>
-                            </div>
-                            {/*paginate*/}
-                            <div className="mt-5 paginate flex w-full justify-center">
-                                <a>
-                                    Previous
-                                    <span></span>
-                                </a>
-                                <div className="mx-2 pagi-item p-3 rounded-full flex">1</div>
-                                <div className="pagi-item p-3 rounded-full flex">2</div>
-                                <div className="mx-2 pagi-item p-3 rounded-full flex">3</div>
-                                <a>
-                                    Next
-                                    <span></span>
-                                </a>
-                            </div>
-                        </div>
-                        {/*Leave a comment*/}
-                        <div className="leavecmt">
-                            <div className="mb-5 text-center">
-                                <div className="heading_2 mb-2">Leave a comment</div>
-                                <div>Your email address will not be published. Required fields are marked *</div>
-                            </div>
-                            <div className="">
-                                <div className="grid grid-cols-12 gap-3">
-                                    <div className="md:col-span-6 col-span-12">
-                                        <div className="my-input md:mb-3 dark:border-white">
-                                            <input className="w-full p-1" placeholder="Your name"/>
-                                        </div>
-                                    </div>
-                                    <div className="md:col-span-6 col-span-12">
-                                        <div className="my-input mb-3 dark:border-white">
-                                            <input className="w-full p-1" placeholder="Email address *"/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="my-input mb-3 user-cmt dark:border-white">
-                                    <textarea rows="5" className="w-full p-1" placeholder="Message *"></textarea>
-                                </div>
-                                <div className="flex justify-center dark:border dark:border-white">
-                                    <button className="w-3/12 my-btn-pr" type="submit">Subscribe</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
+        
     )
 }
 
-ArticleDetail.getInitialProps = async({ req, query }) => {
+ArticleDetail.getInitialProps = async({ req, res, query }) => {
     const { slug } = query;
     if (typeof window != 'undefined') {
         return {
@@ -574,8 +606,9 @@ ArticleDetail.getInitialProps = async({ req, query }) => {
         }
     }
     try {
-        const res = await fetch(`${BASE_URL}/api/blogs/slug/${slug}`);
-        const resData = await res.json();
+        const response = await fetch(`${BASE_URL}/api/blogs/slug/${slug}`);
+        const resData = await response.json();
+
         return {
             blogProps: resData?.data || {},
             isCrs: false,

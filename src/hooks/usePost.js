@@ -1,5 +1,11 @@
 import { fetchBlogPostsAction, fetchBlogPostsDetailAction } from "@store/post/post.action";
-import { fetchBlogPostsApi, createBlogPostApi, getBlogByIdApi, updateBlogPostApi } from "@services/blog";
+import { 
+    fetchBlogPostsApi, 
+    createBlogPostApi, 
+    getBlogByIdApi,
+    updateBlogPostApi,
+    publishedBlogPostApi 
+} from "@services/blog";
 import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "@hooks/modal";
 import { showModal, hideModal } from "@store/modal/modal.action";
@@ -82,8 +88,21 @@ export const usePost = () => {
         showLoading();
         const res = await updateBlogPostApi(data.id, formData);
         hide();
+        console.log(res);
         if (res?.status == 1) {
+            dispatch(fetchBlogPostsDetailAction(res.data));
             addToast('Post updated!', 'success');
+        } else {
+            addToast(res?.msg, 'error');
+        }
+    }
+
+    async function publishedBlogPost(id) {
+        showLoading();
+        const res = await publishedBlogPostApi(id);
+        hide();
+        if (res?.status == 1) {
+            addToast('Post published!', 'success');
         } else {
             addToast(res.msg, 'error');
         }
@@ -97,5 +116,6 @@ export const usePost = () => {
         createBlogPost,
         getBlogById,
         updateBlogPost,
+        publishedBlogPost,
     };
 };
