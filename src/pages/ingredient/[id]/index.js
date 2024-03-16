@@ -1,13 +1,16 @@
 import React, {useState} from "react";
-import Ingredient from "./index";
+import Ingredient from "../index";
+import {getIngredientByIdApi} from "@services/ingredients"
+import { BASE_URL } from "@utils/apiUtils";
 
-const IngredientDetail = () => {
+const IngredientDetail = ({ ingredientProps , id , isCrs }) => {
 
     const [activeIndex, setActiveIndex] = useState(null);
     const [activeIndex1, setActiveIndex1] = useState(null);
     const [activeIndex2, setActiveIndex2] = useState(null);
     const [activeIndex3, setActiveIndex3] = useState(null);
     const [activeIndex4, setActiveIndex4] = useState(null);
+
 
 
     const toggleCollapse = () => {
@@ -25,6 +28,13 @@ const IngredientDetail = () => {
     const toggleCollapse4 = () => {
         setActiveIndex4((prevIndex) => (prevIndex === null ? 0 : null));
     };
+
+    const [ingredient, setIngredient] = useState(ingredientProps);
+
+    const fetchData = async () => {
+        const res = await getIngredientByIdApi(id);
+        setIngredient(res?.data || {})
+    }
 
     return (
         <div className="detail-ingredient pt-7">
@@ -44,7 +54,7 @@ const IngredientDetail = () => {
                     <div className="col-span-6 flex items-center">
                         <div className="">
 
-                            <div className="heading_2 mb-3">Alpha Hydroxy Acid</div>
+                            <div className="heading_2 mb-3">{ingredient?.name}</div>
                             <div>
                                 Iou want to dig a bit deeper and really understand retinol, you have to start with tretinoin.
                                 We have written a nice geeky descriptio
@@ -139,4 +149,35 @@ const IngredientDetail = () => {
         </div>
     )
 }
+
+IngredientDetail.getInitialProps = async({ req, res, query }) => {
+    const { id } = query;
+    if (typeof window != 'undefined') {
+        return {
+            ingredientProps: {},
+            isCrs: true,
+            id,
+        }
+    }
+    try {
+        const response = await fetch(`${BASE_URL}/api/ingredients/${id}`);
+
+        const resData = await response.json();
+
+        return {
+            ingredientProps: resData?.data || {},
+            isCrs: false,
+            id,
+        }
+        console.log(resData.data);
+    } catch (error) {
+        console.log(error)
+        return {
+            ingredientProps: {},
+            isCrs: true,
+            id,
+        }
+    }
+}
+
 export default IngredientDetail;
