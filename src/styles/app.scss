@@ -107,6 +107,12 @@ root {
   font-size: $small_text;
   line-height: $small_text*1.5;
 }
+@media screen and (max-width: 768px){
+  .heading{
+    font-size: 42px;
+    line-height: $heading_5 * 1.1;
+  }
+}
 //Button
 .my-out-line-btn{
   border: 1px solid #000;

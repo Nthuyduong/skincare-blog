@@ -24,3 +24,7 @@ export const createIngredientApi = async (data) => {
         "Content-Type": "multipart/form-data"
     });
 }
+
+export const getAllWithoutPagination = async () => {
+    return await getApi("/ingredients/getAll");
+}
