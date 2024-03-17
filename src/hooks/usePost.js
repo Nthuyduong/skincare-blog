@@ -4,7 +4,8 @@ import {
     createBlogPostApi, 
     getBlogByIdApi,
     updateBlogPostApi,
-    publishedBlogPostApi 
+    publishedBlogPostApi,
+    updateBlogViewCountApi
 } from "@services/blog";
 import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "@hooks/modal";
@@ -108,6 +109,14 @@ export const usePost = () => {
         }
     }
 
+    async function updateBlogViewCount(id) {
+        if (document.cookie.includes(`blog_view_${id}`)) {
+            return;
+        }
+        document.cookie = `blog_view_${id}=true; max-age=3600; path=/`;
+        await updateBlogViewCountApi(id);
+    }
+
     return {
         paginate,
         posts,
@@ -117,5 +126,6 @@ export const usePost = () => {
         getBlogById,
         updateBlogPost,
         publishedBlogPost,
+        updateBlogViewCount
     };
 };

@@ -1,4 +1,4 @@
-import { getApi, postApiAdmin } from "@utils/apiUtils";
+import { getApi, postApiAdmin, postApi } from "@utils/apiUtils";
 
 export const fetchBlogPostsApi = async (page = 1) => {
     const response = await getApi("/blogs", {
@@ -30,4 +30,8 @@ export const updateBlogPostApi = async (id, data) => {
 
 export const publishedBlogPostApi = async (id) => {
     return await postApiAdmin(`/blogs/publish/${id}`);
+}
+
+export const updateBlogViewCountApi = async (id) => {
+    return await postApi(`/blogs/update/view-count/${id}`);
 }

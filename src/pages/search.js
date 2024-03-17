@@ -36,7 +36,7 @@ const Search = () => {
                             {/*</div>*/}
                             <div className="my-search-bar">
                                 <input
-                                    className="w-full pr-1 py-1 focus-visible:outline-none focus:border-b dark:focus:border-white focus:border-333 border-b border-ccc"
+                                    className="w-full pr-1 py-1 focus-visible:outline-none focus:border-b dark:focus:border-white focus:border-333 border-b border-ccc border-solid"
                                     placeholder="Enter any word and hit enter"
                                     onChange={(e) => {setKeywordType(e.target.value)}}
                                     onKeyDown={(e) => e.key === 'Enter' && handleSearchPage()}

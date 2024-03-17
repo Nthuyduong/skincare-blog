@@ -103,7 +103,14 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                                 <div className="columns-2 md:columns-4">
                                     {posts.map((post, index) => (
                                         <div className="inline-block mb-3 my-4 border-b border-ccc" key={index}>
-                                            <img className="w-full" src={getImagePreview(post.featured_img)} alt="smile" loading="lazy"/>
+                                            <img 
+                                                className="w-full" 
+                                                src={getImagePreview(post.featured_img)} 
+                                                alt="smile" 
+                                                loading="lazy"
+                                                height={200}
+                                                width={200}
+                                            />
                                             <div>
                                                 <div className="py-1 mb-1">
                                                     <div className="mb-1">

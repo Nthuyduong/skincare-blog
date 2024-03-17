@@ -128,7 +128,7 @@ const Skintype = () => {
                         </div>
                     </div>
                 </div>
-                <div className="review-products md:pt-8 pt-6">
+                {/* <div className="review-products md:pt-8 pt-6">
                     <div className="content main">
                         <div className="mb-2 heading_3">All products I’ve used</div>
                         <div className="md:flex">
@@ -202,7 +202,7 @@ const Skintype = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
                 {/*<div className="must-read mt60">*/}
                 {/*    <div className="flex mb-5 items-center">*/}
                 {/*        <div className="mr-auto">*/}

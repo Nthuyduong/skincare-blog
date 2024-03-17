@@ -10,8 +10,11 @@ import { BLOG_STATUS } from "../../../utils/constants";
 const Slider = dynamic(() => import("../../../components/common/slider"), { ssr: false });
 import { formatDate } from "@utils/format";
 import Head from "next/head";
+import { usePost } from "@hooks/usePost";
 
 const ArticleDetail = ({ blogProps, isCrs, slug }) => {
+
+    const { updateBlogViewCount } = usePost();
     
     const router = useRouter();
 
@@ -37,14 +40,19 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
             router.push('/404');
         }
         if (refContent.current) {
+            console.log('ref');
             const headings = refContent.current.querySelectorAll("h2");
             const list = refTable.current;
-            if (headings.length === 0) {
-                if (list.closest('.catalog')) {
-                    list.closest('.catalog').style.display = 'none';
-                }
-            }
             if(list) {
+                if (headings.length === 0) {
+                    if (list.closest('.catalog')) {
+                        list.closest('.catalog').style.display = 'none';
+                    }
+                } else {
+                    if (list.closest('.catalog')) {
+                        list.closest('.catalog').style.display = 'block';
+                    }
+                }
                 headings.forEach((heading) => {
                     heading.id = heading.textContent.replace(/\s+/g, '-').toLowerCase();
     
@@ -76,8 +84,14 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
             }, 1);
             window.addEventListener('scroll', handleScroll)
         }
-        
-    }, [blog])
+        if (blog?.id) {
+            handleUpdateViewCount();
+        }
+    }, [blog]);
+
+    const handleUpdateViewCount = async () => {
+        await updateBlogViewCount(blog.id);
+    }
 
     return (
         <>
@@ -118,7 +132,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                         <div className="medium_text mb-4">{blog?.excerpt}</div>
                                         <div className="small_text">Writen by: {blog?.author}</div>
                                         <div className="small_text my-1">Publish date: {blog ? formatDate(blog.publish_date) : ''}</div>
-                                        <div className="small_text">About 10 minutes to read</div>
+                                        <div className="small_text">About {blog?.estimate_time} minutes to read</div>
                                         <div className="medium_text mt-4">Is this article helpful?</div>
                                     </div>
                                 </div>
