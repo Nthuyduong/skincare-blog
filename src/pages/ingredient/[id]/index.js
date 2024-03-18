@@ -33,7 +33,7 @@ const IngredientDetail = ({ ingredientProps , id , isCrs }) => {
 
     return (
         <div className="detail-ingredient pt-7">
-            <div className="container-fluid mx-auto m-w my-0">
+            <div className="mx-auto m-w my-0">
                 <div className="mb-5 border-b border-ccc">
                     {/*breadscrumb*/}
                     <div className="flex pb-3">
