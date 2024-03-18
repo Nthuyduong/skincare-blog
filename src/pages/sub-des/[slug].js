@@ -52,7 +52,7 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                         {/*    </div>*/}
                         {/*</div>*/}
                         <div className="col-span-12 right-all-posts">
-                            <div className="md:px-3 relative title-page overflow-hidden">
+                            <div className="relative title-page overflow-hidden">
                                 <img 
                                     className="absolute w-100 w-auto h-full md:h-auto md:w-full" 
                                     src="../img/subdes/sub-banner.png" 
@@ -64,7 +64,7 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                                     <div className="!text-black">{category.description}</div>
                                 </div>
                             </div>
-                            <div className="px-3 destination-title border-solid border-y border-ccc md:my-5 py-3">
+                            <div className="destination-title border-solid border-y border-ccc md:my-5 py-3">
                                 <div className="flex flex-col md:flex-row md:justify-between">
                                     {/*breadcrumb*/}
                                     <div className="flex">
