@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { getCategoryByIdApi } from "@services/categories";
-import { fetchBlogPostsApi } from "@services/blog";
-import { formatDate } from "@utils/format";
-import { BASE_URL } from "@utils/apiUtils";
+import React, {useState, useEffect} from "react";
+import {getCategoryByIdApi} from "@services/categories";
+import {fetchBlogPostsApi} from "@services/blog";
+import {formatDate} from "@utils/format";
+import {BASE_URL} from "@utils/apiUtils";
 import Link from "next/link";
-import { useRouter } from 'next/router';
+import {useRouter} from 'next/router';
 
-const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
+const Sub_destination = ({categoryProps, postsProps, isCsr, slug, page}) => {
 
     const router = useRouter();
 
@@ -53,10 +53,10 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                         {/*</div>*/}
                         <div className="col-span-12 right-all-posts">
                             <div className="relative title-page overflow-hidden">
-                                <img 
-                                    className="absolute w-100 w-auto h-full md:h-auto md:w-full" 
-                                    src="../img/subdes/sub-banner.png" 
-                                    alt="smile" 
+                                <img
+                                    className="absolute w-100 w-auto h-full md:h-auto md:w-full"
+                                    src="../img/subdes/sub-banner.png"
+                                    alt="smile"
                                     loading="lazy"
                                 />
                                 <div className="relative pl-7 py-4 md:py-8">
@@ -70,11 +70,13 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                                     <div className="flex">
                                         <ul className="flex">
                                             <li><a href="#">Home</a></li>
-                                            
+
                                             {category.parent && (
                                                 <>
                                                     <li className="mx-2">/</li>
-                                                    <li><a href={`/categories/${category.parent.id}`}>{category.parent.name}</a></li>
+                                                    <li><a
+                                                        href={`/categories/${category.parent.id}`}>{category.parent.name}</a>
+                                                    </li>
                                                 </>
                                             )}
                                             <li className="mx-2">/</li>
@@ -91,7 +93,8 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                                             {/*</div>*/}
                                             <div className="flex location-count">
                                                 <div className="pr-1">
-                                                    <img className="icon-sm" src="./img/icon/book-open.svg" alt="#" loading="lazy"></img>
+                                                    <img className="icon-sm" src="./img/icon/book-open.svg" alt="#"
+                                                         loading="lazy"></img>
                                                 </div>
                                                 <div>50 Articles</div>
                                             </div>
@@ -103,10 +106,10 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                                 <div className="columns-2 md:columns-4">
                                     {posts.map((post, index) => (
                                         <div className="inline-block mb-3 my-4 border-b border-ccc" key={index}>
-                                            <img 
-                                                className="w-full" 
-                                                src={getImagePreview(post.featured_img)} 
-                                                alt="smile" 
+                                            <img
+                                                className="w-full"
+                                                src={getImagePreview(post.featured_img)}
+                                                alt="smile"
                                                 loading="lazy"
                                                 height={200}
                                                 width={200}
@@ -114,7 +117,8 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                                             <div>
                                                 <div className="py-1 mb-1">
                                                     <div className="mb-1">
-                                                        <div className="small_text">{formatDate(post.publish_date)}</div>
+                                                        <div
+                                                            className="small_text">{formatDate(post.publish_date)}</div>
                                                     </div>
                                                     <div className="medium_text">
                                                         <Link href={`/article/${post.slug}`}>{post.title}</Link>
@@ -122,7 +126,7 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                                                 </div>
                                             </div>
                                         </div>
-                                        ))
+                                    ))
                                     }
                                 </div>
                             </div>
@@ -134,8 +138,8 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
     )
 }
 
-Sub_destination.getInitialProps = async({ query }) => {
-    const { slug, page } = query;
+Sub_destination.getInitialProps = async ({query}) => {
+    const {slug, page} = query;
 
     if (typeof window != 'undefined') {
         return {
@@ -148,8 +152,8 @@ Sub_destination.getInitialProps = async({ query }) => {
     }
     try {
         const res = await Promise.all([
-            fetch(`${BASE_URL}/api/categories/${slug}`, { cache: 'force-cache' }),
-            fetch(`${BASE_URL}/api/blogs?page=${page ?? 1}`, { cache: 'force-cache' })
+            fetch(`${BASE_URL}/api/categories/${slug}`, {cache: 'force-cache'}),
+            fetch(`${BASE_URL}/api/blogs?page=${page ?? 1}`, {cache: 'force-cache'})
         ])
         const resData = await Promise.all(res.map(r => r.json()));
         const category = resData[0]?.data || {};
@@ -170,7 +174,7 @@ Sub_destination.getInitialProps = async({ query }) => {
             page: page ?? 1,
         }
     }
-    
+
 }
 
 export default Sub_destination;

@@ -181,17 +181,6 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                     <div className="article-out">
                         <div className="article-summary mb-4">
                             <div className="">{blog?.summary}</div>
-                            {/*<div className="font-medium mb-2">*/}
-                            {/*    We all know how stress can negatively impact our skin, leading to issues like breakouts,*/}
-                            {/*    dark circles, and dryness. Chronic stress takes a toll on our skin health. However, the*/}
-                            {/*    positive effects of happiness on our skin often go unnoticed. Happiness is a crucial factor*/}
-                            {/*    in achieving a naturally radiant complexion that lasts.*/}
-                            {/*</div>*/}
-                            {/*<div className="font-medium">*/}
-                            {/*    In this post, we'll delve into how stress affects the skin negatively, explore the ways in*/}
-                            {/*    which happiness can enhance your skin, and discuss practical tips for prioritizing joy in*/}
-                            {/*    your daily life. Our aim is to empower you with insights that contribute to long-lasting skin wellness*/}
-                            {/*</div>*/}
                         </div>
                         {/*menu*/}
                         <div className="catalog w-full my-3">
@@ -204,78 +193,6 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                             </div>
                         </div>
                     </div>
-
-                    {/*<div className="col-span-3 article-sidebar">*/}
-                    {/*    <div className="sidebar">*/}
-                    {/*        <div className="article-recently">*/}
-                    {/*            <div className="heading_4 mb-3">Recently update</div>*/}
-                    {/*            <div>*/}
-                    {/*                <ul>*/}
-                    {/*                    <li><a href="#">Vietnam With Kids: 6 Best Vietnam Family Holiday Destinations + Travel Tips</a></li>*/}
-                    {/*                    <li className="my-1"><a href="#">Vietnam With Kids: 6 Best Vietnam Family Holiday Destinations + Travel Tips</a></li>*/}
-                    {/*                    <li><a href="#">Vietnam With Kids: 6 Best Vietnam Family Holiday Destinations + Travel Tips</a></li>*/}
-                    {/*                    <li className="mt-1"><a href="#">Vietnam With Kids: 6 Best Vietnam Family Holiday Destinations + Travel Tips</a></li>*/}
-                    {/*                </ul>*/}
-                    {/*            </div>*/}
-                    {/*        </div>*/}
-                    {/*        /!*<div>*!/*/}
-                    {/*        /!*    <div className="mt-4">*!/*/}
-                    {/*        /!*        <img className="w-100" src="./img/article/myimg.jpg" alt="smile" loading="lazy"/>*!/*/}
-                    {/*        /!*    </div>*!/*/}
-                    {/*        /!*    <div className="text-center welcome-content">*!/*/}
-                    {/*        /!*        <div className="heading_4 mb-2">Welcome to blog!</div>*!/*/}
-                    {/*        /!*        <div>Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit*!/*/}
-                    {/*        /!*            consequat quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque*!/*/}
-                    {/*        /!*            sed. Diam nec ut sed est sit in tortor.</div>*!/*/}
-                    {/*        /!*    </div>*!/*/}
-                    {/*        /!*</div>*!/*/}
-                    {/*        <div className="my-4">*/}
-                    {/*            <div className="heading_4 mb-3">Sign up for email</div>*/}
-                    {/*            <div>*/}
-                    {/*                <div className="email-signup my-input mb-3 ">*/}
-                    {/*                    <input className="w-full p-2" placeholder="Email address"/>*/}
-                    {/*                </div>*/}
-                    {/*                <button className="w-full my-btn-pr" type="submit">Subscribe</button>*/}
-                    {/*            </div>*/}
-                    {/*        </div>*/}
-                    {/*        <div className="pb-4">*/}
-                    {/*            <div className="heading_4 mb-2">Recommended</div>*/}
-                    {/*            <div className="re-article">*/}
-                    {/*                <div className="mt-2">*/}
-                    {/*                    <img className="w-100" src="./img/article/recommend.jpg" alt="smile" loading="lazy"/>*/}
-                    {/*                </div>*/}
-                    {/*                <div className="my-1">*/}
-                    {/*                    <div className="flex mb-1">*/}
-                    {/*                        <div className="mr-auto">Music & Art</div>*/}
-                    {/*                        <div>November 6, 2023</div>*/}
-                    {/*                    </div>*/}
-                    {/*                    <div className="heading_6">Top 4 Ceramic Shop in Hanoi</div>*/}
-                    {/*                </div>*/}
-                    {/*            </div>*/}
-                    {/*            <div className="re-article">*/}
-                    {/*                <div className="mt-4">*/}
-                    {/*                    <img className="w-100" src="./img/article/recommend.jpg" alt="smile" loading="lazy"/>*/}
-                    {/*                </div>*/}
-                    {/*                <div className="my-1">*/}
-                    {/*                    <div className="flex mb-1">*/}
-                    {/*                        <div className="mr-auto">Music & Art</div>*/}
-                    {/*                        <div>November 6, 2023</div>*/}
-                    {/*                    </div>*/}
-                    {/*                    <div className="heading_6">Top 4 Ceramic Shop in Hanoi</div>*/}
-                    {/*                </div>*/}
-                    {/*            </div>*/}
-                    {/*        </div>*/}
-                    {/*        <div className="share-on-social">*/}
-                    {/*            <div className="text-center heading_5 mb-2">Share it on</div>*/}
-                    {/*            <div className="flex justify-center">*/}
-                    {/*                <div className="">f</div>*/}
-                    {/*                <div className="mx-2">i</div>*/}
-                    {/*                <div className="">b</div>*/}
-                    {/*            </div>*/}
-                    {/*        </div>*/}
-                    {/*    </div>*/}
-                    {/*</div>*/}
-                    {/*<div className="col-span-1"></div>*/}
                 </div>
                 <div className="my-article w-full">
                     <div
@@ -287,7 +204,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                     />
                     <div className="w-full flex justify-center items-center">
                         <div className="px-3 w-full mx-4 m-w mx-auto my-0 helpful-rate mt-5">
-                            <div className="flex w-full pt-3 border-t border-ccc">
+                            <div className="flex w-full pt-3 border-solid border-t border-ccc">
                                 <div className="medium_text mr-3">
                                     <a href="#">Was this helpful?</a>
                                 </div>

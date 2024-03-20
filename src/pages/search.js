@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import {ROUTER} from "../utils/constants";
 import { useApp } from "@hooks/useApp";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from 'next/router'
 
 const Search = () => {
@@ -25,8 +25,8 @@ const Search = () => {
 
     return (
         <div>
-            <div className="container-fluid m-w mx-auto my-0">
-                <div className="heading_2 text-center mb-5 pt-7">Search Results for: {keywordType}</div>
+            <div className="m-w mx-auto my-0">
+                <div className="heading_1 text-center mb-5 pt-7">Search Results for: {keywordType}</div>
                 <div className="grid grid-cols-12">
                     <div className="col-span-3"></div>
                     <div className="col-span-6">
@@ -51,58 +51,51 @@ const Search = () => {
                     <div className="grid grid-cols-12">
                         <div className="col-span-2"></div>
                         <div className="col-span-8">
+                            {/*Ingredient result*/}
+                            <div className="border-solid border-b border-ccc !border-999 pb-6">
+                                <div className="border-solid border-ccc !border-999 border p-4">
+                                    <div className="mb-1">Ingredient</div>
+                                    <div className="heading_2 mb-3">Niacinamide</div>
+                                    <div className="flex">
+                                        <div className="mr-1 border-solid border-r border-ccc !border-999 pr-1">By Nthduong</div>
+                                        <div>Publish date: 10/02/2024</div>
+                                    </div>
+                                </div>
+                            </div>
                             {(results)?.map((result, index) => {
                                 return (
-                                    <div className="search-result border-b border-ccc p-4" key={index}>
-                                        <div className="">Drink & Coffee</div>
-                                        <div className="heading_5 my-1">{ result.title }</div>
-                                        <div className="flex mb-1">
-                                            <div>By Nthduong</div>
-                                            <div className="flex ml-3">
-                                                <div className="mr-1">
-                                                    <img className="icon-sm" src="./img/icon/clock.svg" alt="smile" loading="lazy"/>
-                                                </div>
-                                                <div>{ result.publish_date }</div>
+                                    <div className="search-result border-solid border-b border-ccc !border-999 py-6" key={index}>
+                                        <div className="grid grid-cols-8 gap-4">
+                                            <div className="col-span-2">
+                                                <img className="w-full" src="/img/home/article.jpg" alt="smile" loading="lazy"/>
                                             </div>
-                                        </div>
-                                        <div className="search-result-content mb-2">
-                                            { result.summary }
-                                        </div>
-                                        <div>
-                                            <div className="ml-auto w-fit">
-                                                <Link href={ROUTER.ARTICLE}>
-                                                    Read more
-                                                </Link>
+                                            <div className="col-span-6">
+                                                <div className="">Drink & Coffee</div>
+                                                <div className="heading_5 my-1">{ result.title }</div>
+                                                <div className="flex mb-1">
+                                                    <div>By Nthduong</div>
+                                                    <div className="flex ml-3">
+                                                        <div className="mr-1">
+                                                            <img className="icon-sm" src="./img/icon/clock.svg" alt="smile" loading="lazy"/>
+                                                        </div>
+                                                        <div>{ result.estimate_time }</div>
+                                                    </div>
+                                                </div>
+                                                <div className="search-result-content mb-2 truncate">
+                                                    { result.summary }
+                                                </div>
+                                                <div>
+                                                    <div className="ml-auto w-fit">
+                                                        <Link href={ROUTER.ARTICLE}>
+                                                            Read more
+                                                        </Link>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 )
                             })}
-                            {/*<div className="search-result">*/}
-                            {/*    <div className="">Drink & Coffee</div>*/}
-                            {/*    <div className="heading_5 my-1">Vietnam With Kids: 6 Best Vietnam Family Holiday Destinations + Travel Tips</div>*/}
-                            {/*    <div className="flex mb-1">*/}
-                            {/*        <div>By Nthduong</div>*/}
-                            {/*        <div className="flex ml-3">*/}
-                            {/*            <div className="mr-1">*/}
-                            {/*                <img className="icon-sm" src="./img/icon/clock.svg" alt="smile" loading="lazy"/>*/}
-                            {/*            </div>*/}
-                            {/*            <div>November 6, 2023</div>*/}
-                            {/*        </div>*/}
-                            {/*    </div>*/}
-                            {/*    <div className="search-result-content mb-2">*/}
-                            {/*        Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat*/}
-                            {/*        quisque vitae, Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor.*/}
-                            {/*        Blandit consequat quisque vitae*/}
-                            {/*    </div>*/}
-                            {/*    <div>*/}
-                            {/*        <div className="ml-auto w-fit">*/}
-                            {/*            <Link href={ROUTER.ARTICLE}>*/}
-                            {/*                Read more*/}
-                            {/*            </Link>*/}
-                            {/*        </div>*/}
-                            {/*    </div>*/}
-                            {/*</div>*/}
                         </div>
                         <div className="col-span-2"></div>
                     </div>

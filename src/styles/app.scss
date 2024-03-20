@@ -21,7 +21,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
 //Variant
-$heading: 52px;
+$heading: 64px;
 $heading_1: 38px;
 $heading_2: 30px;
 $heading_3: 28px;
@@ -62,12 +62,12 @@ root {
   //font-weight: 600;
 }
 .heading_1 {
-  font-family: 'GTmedium',serif;
+  font-family: 'GTregular',serif;
   font-size: $heading_1;
   line-height: $heading_1*1.25;
 }
 .heading_2 {
-  font-family: 'GTmedium',serif;
+  font-family: 'GTregular',serif;
   font-size: $heading_2;
   line-height: $heading_2*1.25;
 }
