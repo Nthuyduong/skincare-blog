@@ -59,7 +59,7 @@ const About = () => {
                         <div className="md:col-span-8 wedo-first md:border-solid md:border-l md:border-ccc">
                             <div className="md:grid md:grid-cols-8">
                                 <div className="col-span-8 md:col-span-4">
-                                    <div className="we-do-card px-4 mb-4 mx-3">
+                                    <div className="we-do-card pl-4 mb-4 mx-3">
                                         <div>
                                             <img className="" src="./img/about/do.svg" alt="smile" loading="lazy"/>
                                         </div>
@@ -96,7 +96,7 @@ const About = () => {
                             <div className="md:block hidden decor-line mx-3 mb-4 dark:border-solid dark:bg-ccc"></div>
                             <div className="md:grid md:grid-cols-8">
                                 <div className="col-span-8 md:col-span-4">
-                                    <div className="we-do-card px-4 mb-4 mx-3">
+                                    <div className="we-do-card pl-4 mb-4 mx-3">
                                         <div>
                                             <img className="" src="./img/about/do.svg" alt="smile" loading="lazy"/>
                                         </div>
@@ -113,7 +113,7 @@ const About = () => {
                                     </div>
                                 </div>
                                 <div className="col-span-8 md:col-span-4">
-                                    <div className="we-do-card card-right px-4 ml-3 md:border-solid md:border-x md:border-ccc">
+                                    <div className="we-do-card h-full card-right px-4 ml-3 md:border-solid md:border-x md:border-ccc">
                                         <div>
                                             <img className="" src="./img/about/do.svg" alt="smile" loading="lazy"/>
                                         </div>
