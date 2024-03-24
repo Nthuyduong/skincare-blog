@@ -1,6 +1,7 @@
 const state = {
     keyword: '',
     results: [],
+    loadingSearch: false,
     paginate: {
         limit: 10,
         last: 0,

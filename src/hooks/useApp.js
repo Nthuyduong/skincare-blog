@@ -1,12 +1,17 @@
 import { getSearchResults } from "@services/app";
-import { fetchKeywordAction , fetchResultsAction , fetchLoadMoreAction } from "@store/app/app.action";
+import { 
+    fetchKeywordAction,
+    fetchResultsAction,
+    fetchLoadMoreAction,
+    setLoadingAction,
+} from "@store/app/app.action";
 import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "@hooks/modal";
 import { showModal, hideModal } from "@store/modal/modal.action";
 
 export const useApp = () => {
     const { addToast, showLoading, hide } = useModal();
-    const { keyword, results, paginate } = useSelector((state) => state.app);
+    const { keyword, results, paginate, loadingSearch } = useSelector((state) => state.app);
 
     const dispatch = useDispatch();
 
@@ -14,9 +19,11 @@ export const useApp = () => {
         dispatch((fetchKeywordAction(keywordinput)));
     }
 
-    async function handleSearch(search = '') {
+    async function handleSearch(search = '', limit = 10) {
         showLoading()
-        const res = await getSearchResults(search);
+        dispatch(setLoadingAction(true));
+        const res = await getSearchResults(search, limit);
+        dispatch(setLoadingAction(false));
         hide();
         if (res) {
             dispatch(fetchResultsAction(res));
@@ -36,6 +43,7 @@ export const useApp = () => {
         paginate,
         keyword,
         results,
+        loadingSearch,
         handleSearch,
         setKeyword,
         loadMore,
