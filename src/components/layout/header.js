@@ -280,7 +280,7 @@ const Header = () => {
                 </Link>
                 <div className="flex mr-4 !hidden md:!flex">
                     <div
-                        className="mr-1 pr-1 dark:border-r dark:border-999 border-r border-333 cursor-pointer"
+                        className="mr-1 pr-1 border-solid dark:border-r !border-999 border-r border-333 cursor-pointer"
                         onClick={() => changeLanguage('en')}
                     >
                         EN
@@ -319,7 +319,7 @@ const Header = () => {
                                             </div>
                                             <div className="my-search-bar nav-search w-full">
                                                 <input
-                                                    className="searchbar-head p-1 w-full"
+                                                    className="border-solid border-b border-ccc !border-999 focus-visible:outline-none pointer-events-auto dark:focus:border-white focus:border-333 searchbar-head p-1 w-full"
                                                     placeholder="Enter article name and hit enter..."
                                                     onChange={(e) => { setKeywordType(e.target.value) }}
                                                     onKeyDown={(e) => e.key === 'Enter' && handleModalSearch()}

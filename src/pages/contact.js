@@ -13,17 +13,17 @@ const Contact = () => {
                         <div className="grid grid-cols-2 gap-5 mb-3">
                             <div className="md:col-span-1 col-span-2">
                                 <div className="md:mb-3">
-                                    <input className="dark:border-999 py-1 px-2 dark:focus:border-white focus:border-333 pointer-events-auto border-solid border border-ccc w-full focus-visible:outline-none" placeholder="Your name (20)"/>
+                                    <input className="dark:border-999 py-1 pr-2 dark:focus:border-white focus:border-333 pointer-events-auto border-solid border-b border-ccc w-full focus-visible:outline-none" placeholder="Your name (20)"/>
                                 </div>
                             </div>
                             <div className="md:col-span-1 col-span-2">
                                 <div className="mb-3">
-                                    <input className="py-1 px-2 border-solid border border-ccc dark:border-999 py-1 dark:focus:border-white focus:border-333 w-full focus-visible:outline-none" placeholder="Email address *"/>
+                                    <input className="py-1 pr-2 border-solid border-b border-ccc dark:border-999 py-1 dark:focus:border-white focus:border-333 w-full focus-visible:outline-none" placeholder="Email address *"/>
                                 </div>
                             </div>
                         </div>
                         <div className="mb-3 user-cmt">
-                            <textarea rows="5" className="dark:border-999 dark:focus:border-white focus:border-333 border-solid border border-ccc py-1 px-2 w-full focus-visible:outline-none" placeholder="Type your message here (233)"></textarea>
+                            <textarea rows="5" className="dark:border-999 dark:focus:border-white focus:border-333 border-solid border-b border-ccc py-1 pr-2 w-full focus-visible:outline-none" placeholder="Type your message here (233)"></textarea>
                         </div>
                         <div className="mb-6 md:mb-0 md:mt-6">
                             <div className="flex w-full cursor-pointer">

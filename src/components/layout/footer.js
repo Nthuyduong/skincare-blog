@@ -25,11 +25,11 @@ const Footer = () => {
 
                     {/*    </ul>*/}
                     {/*</div>*/}
-                    <div className="md:col-span-4 col-span-12 flex justify-center border-b md:border-b-0 border-ccc dark:border-999 md:border-r md:!border-ccc footer-logo items-center p-4 lg:p-5 border-solid">
+                    <div className="md:col-span-4 col-span-12 flex justify-center border-b md:border-b-0 border-ccc md:border-r md:!border-999 footer-logo items-center p-4 lg:p-5 border-solid">
                         <img className="h-fit md:w-2/5 w-2/5 dark:hidden" src="/img/footer-logo.svg" alt="smile" loading="lazy"/>
                         <img className="h-fit md:w-2/5 w-2/5 dark:block hidden" src="/img/footer-logo-2.svg" alt="smile" loading="lazy"/>
                     </div>
-                    <div className="md:col-span-4 flex items-center md:!px-5 col-span-12 footer-info md:p-4 p-3 lg:p-5 flex border-b border-ccc md:!border-b-0 md:border-r md:border-ccc border-solid">
+                    <div className="md:col-span-4 flex items-center md:!px-5 col-span-12 footer-info md:p-4 p-3 lg:p-5 flex border-b border-ccc md:!border-b-0 md:border-r md:border-ccc md:!border-999 border-solid">
                         <div className="grid grid-cols-4 w-full">
                             <div className="col-span-2 text-center md:text-left">
                                 <div className="sub-menu">
@@ -70,9 +70,9 @@ const Footer = () => {
                             <div className="mb-2">Enter your email address to receive new posts in your inbox and seasonal newsletters with
                                 extra goodies!</div>
                             <div>
-                                <div className="flex sub-input dark:border-b dark:border-ccc">
+                                <div className="flex">
                                     <div className="w-full">
-                                        <input className="w-full py-1 pr-1" placeholder="Email address"/>
+                                        <input className="w-full dark:border-999 py-1 pr-2 dark:focus:border-white focus:border-333 pointer-events-auto border-solid border-b border-ccc w-full focus-visible:outline-none" placeholder="Email address"/>
                                     </div>
                                     <button className="" type="submit">
                                         <img className="w-full dark:hidden" src="../img/icon/arrow-right-circle.svg" alt="smile" loading="lazy"/>
