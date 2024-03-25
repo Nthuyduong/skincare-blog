@@ -1,18 +1,24 @@
-import React, { useEffect, useState, useRef } from "react";
-import { ROUTER } from "../../utils/constants";
+import React, { useEffect, useState, useRef, use } from "react";
+import { ROUTER } from "@utils/constants";
 import Link from 'next/link'
 import { useTrans } from "@hooks/useTrans";
-import { setTheme } from "../../utils/local-store";
+import { setTheme } from "@utils/local-store";
 import { useRouter } from 'next/router'
 import ThemeToggle from "./themeToggle";
+import { useClickOutside } from "@hooks/dom";
+import { useApp } from "@hooks/useApp";
+import { BASE_URL } from "@utils/apiUtils";
+import Loading from "@components/common/loading/loading";
 
 const Header = () => {
-    const router = useRouter()
+    const router = useRouter();
     const trans = useTrans();
+
+    const { handleSearch, setKeyword, loadMore, results, keyword, loadingSearch, paginate } = useApp();
 
     // Test for button search
     const [showw, setShoww] = useState(false);
-
+    const [isSearch, setIsSearch] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
     const headerRef = useRef(null);
     const headerMobileRef = useRef(null);
@@ -30,10 +36,21 @@ const Header = () => {
         }
     }, [])
 
+    useEffect(() => {
+        const { keyword } = router.query;
+        if (keyword) {
+            setKeywordType(keyword);
+        }
+    }, [router.query]);
 
     // Xử lý search
     const [keywordType, setKeywordType] = useState("");
-    const handleSearch = () => {
+    const handleModalSearch = () => {
+        setIsSearch(true);
+        handleSearch(keywordType, 4);
+    }
+
+    const handleLoadMore = () => {
         if (keywordType) {
             router.push({
                 pathname: ROUTER.SEARCH,
@@ -45,6 +62,12 @@ const Header = () => {
     const toggleVisibility = () => {
         setShoww(!showw);
     };
+
+    const handleVisibility = () => {
+        setShoww(false);
+    }
+
+    const ref = useClickOutside(handleVisibility);
 
     let prevScrollpos = 0;
 
@@ -65,7 +88,7 @@ const Header = () => {
 
     const changeLanguage = (nextLocale) => {
         const { pathname, asPath, query } = router
-    
+
         // change just the locale and maintain all other route information including href's query
         router.push({ pathname, query }, asPath, { locale: nextLocale })
     }
@@ -102,11 +125,11 @@ const Header = () => {
         setActiveTab3((prevIndex) => (prevIndex === null ? 0 : null));
     };
 
-    return(
+    return (
         <>
             {/*MOBILE HEADER*/}
-            <div 
-                ref={headerMobileRef} 
+            <div
+                ref={headerMobileRef}
                 className="heaed-mobile border-solid border-ccc dark:border-999 border-b dark:!bg-black !bg-white md:hidden sticky bg-white z-50 top-header justify-center w-full m-w mx-auto my-0"
                 style={{ top: '0' }}
             >
@@ -124,46 +147,46 @@ const Header = () => {
                         <svg className="block h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
                             stroke="currentColor" aria-hidden="true">
                             <path strokeLinecap="round" strokeLinejoin="round"
-                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                         </svg>
                         {/*Icon when menu is open.*/}
                         {/*Menu open: "block", Menu closed: "hidden"*/}
                         <svg className="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
                             stroke="currentColor" aria-hidden="true">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
                     {/*main logo*/}
                     <Link href={ROUTER.HOME} className="flex-1">
                         <div className="items-center justify-center w-full hidden dark:flex">
-                            <img className="h-3" src="/img/logo1.svg" alt="smile" loading="lazy"/>
+                            <img className="h-3" src="/img/logo1.svg" alt="smile" loading="lazy" />
                         </div>
                         <div className="flex items-center justify-center w-full dark:hidden">
-                            <img className="h-3" src="/img/logo2.svg" alt="smile" loading="lazy"/>
+                            <img className="h-3" src="/img/logo2.svg" alt="smile" loading="lazy" />
                         </div>
                     </Link>
                     <div className="hidden">
                         <button type="button"
-                                onClick={toggleVisibility}
-                                className="relative rounded-full bg-gray-800 p-1 text-gray-400 focus:outline-none">
-                            <img className="icon-ssm dark:hidden" src="/img/icon/search.svg" alt="smile" loading="lazy"/>
-                            <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy"/>
+                            onClick={toggleVisibility}
+                            className="relative rounded-full bg-gray-800 p-1 text-gray-400 focus:outline-none">
+                            <img className="icon-ssm dark:hidden" src="/img/icon/search.svg" alt="smile" loading="lazy" />
+                            <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy" />
                         </button>
                     </div>
                 </div>
-                <div className={`header-mobile-content bg-white dark:bg-black h-full ${showMenu ? 'active': ''}`}>
+                <div className={`header-mobile-content bg-white dark:bg-black h-full ${showMenu ? 'active' : ''}`}>
                     <div className="p-4">
                         {/*Search bar mobile*/}
                         <div className="flex pb-3 border-b border-ccc">
                             <div className="flex align-center self-center pr-2">
-                                <img className="icon-ssm dark:hidden" src="/img/icon/search.svg" alt="smile" loading="lazy"/>
-                                <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy"/>
+                                <img className="icon-ssm dark:hidden" src="/img/icon/search.svg" alt="smile" loading="lazy" />
+                                <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy" />
                             </div>
                             <div className="my-search-bar nav-search w-full">
-                                <input 
-                                    className="searchbar-head p-1 w-full" 
+                                <input
+                                    className="searchbar-head p-1 w-full"
                                     placeholder="Enter article name and hit enter..."
-                                    onChange={(e) => {setKeywordType(e.target.value)}}
+                                    onChange={(e) => { setKeywordType(e.target.value) }}
                                     onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
                                 />
                             </div>
@@ -173,14 +196,14 @@ const Header = () => {
                                 <div className="question-container flex" onClick={toggleCollapse}>
                                     <div className="question mr-auto">
                                         <Link href={`/categories/1`}>
-                                            { trans.header.guide }
+                                            {trans.header.guide}
                                         </Link>
                                     </div>
                                     <div className="btn-question flex justify-center items-center">
                                         <svg role="presentation" focusable="false" width="12" height="9"
-                                             className="icon icon-chevron-bottom-small" viewBox="0 0 8 6">
+                                            className="icon icon-chevron-bottom-small" viewBox="0 0 8 6">
                                             <path d="m1 1.5 3 3 3-3" fill="none" stroke="currentColor"
-                                                  strokeWidth="1.5"></path>
+                                                strokeWidth="1.5"></path>
                                         </svg>
                                     </div>
                                 </div>
@@ -202,9 +225,9 @@ const Header = () => {
                                     </div>
                                     <div className="btn-question flex justify-center items-center">
                                         <svg role="presentation" focusable="false" width="12" height="9"
-                                             className="icon icon-chevron-bottom-small" viewBox="0 0 8 6">
+                                            className="icon icon-chevron-bottom-small" viewBox="0 0 8 6">
                                             <path d="m1 1.5 3 3 3-3" fill="none" stroke="currentColor"
-                                                  strokeWidth="1.5"></path>
+                                                strokeWidth="1.5"></path>
                                         </svg>
                                     </div>
                                 </div>
@@ -225,9 +248,9 @@ const Header = () => {
                                     </div>
                                     <div className="btn-question flex justify-center items-center">
                                         <svg role="presentation" focusable="false" width="12" height="9"
-                                             className="icon icon-chevron-bottom-small" viewBox="0 0 8 6">
+                                            className="icon icon-chevron-bottom-small" viewBox="0 0 8 6">
                                             <path d="m1 1.5 3 3 3-3" fill="none" stroke="currentColor"
-                                                  strokeWidth="1.5"></path>
+                                                strokeWidth="1.5"></path>
                                         </svg>
                                     </div>
                                 </div>
@@ -249,14 +272,14 @@ const Header = () => {
                 <ThemeToggle />
                 <Link href={ROUTER.HOME} className="flex-1">
                     <div className="items-center justify-center w-full hidden dark:flex">
-                        <img className="h-4" src="/img/logo1.svg" alt="smile" loading="lazy"/>
+                        <img className="h-4" src="/img/logo1.svg" alt="smile" loading="lazy" />
                     </div>
                     <div className="flex items-center justify-center w-full dark:hidden">
-                        <img className="h-4" src="/img/logo2.svg" alt="smile" loading="lazy"/>
+                        <img className="h-4" src="/img/logo2.svg" alt="smile" loading="lazy" />
                     </div>
                 </Link>
                 <div className="flex mr-4 !hidden md:!flex">
-                    <div 
+                    <div
                         className="mr-1 pr-1 dark:border-r dark:border-999 border-r border-333 cursor-pointer"
                         onClick={() => changeLanguage('en')}
                     >
@@ -266,17 +289,23 @@ const Header = () => {
                 </div>
                 <div className="">
                     <button type="button"
-                            onClick={toggleVisibility}
-                            className="relative rounded-full bg-gray-800 p-1 text-gray-400 focus:outline-none">
-                        <img className="icon-ssm dark:hidden" src="/img/icon/search.svg" alt="smile" loading="lazy"/>
-                        <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy"/>
+                        onClick={toggleVisibility}
+                        className="relative rounded-full bg-gray-800 p-1 text-gray-400 focus:outline-none">
+                        <img className="icon-ssm dark:hidden" src="/img/icon/search.svg" alt="smile" loading="lazy" />
+                        <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy" />
                     </button>
                 </div>
             </div>
             {/*${show ? 'search-hide' : 'search-unhide'}*/}
             {/*search popdown*/}
-            <div id="search-popdown" className={`searchbar ${showw ? 'search-true' : 'search-false'} `}>
-                <div className="border-solid border-ccc dark:border-999 border-b">
+            <div 
+                id="search-popdown" 
+                className={`searchbar ${showw ? 'search-true' : 'search-false'} `}
+            >
+                <div 
+                    className="border-solid border-ccc dark:border-999 border-b"
+                    ref={ref}
+                >
                     <div className="search-bar-inner dark:bg-black">
                         <div className="search-here py-5">
                             <div className="grid grid-cols-12">
@@ -285,32 +314,104 @@ const Header = () => {
                                     <div className="flex search-box">
                                         <div className="flex mr-auto w-full">
                                             <div className="flex align-center self-center pr-2">
-                                                <img className="icon-ssm dark:hidden" src="/img/icon/search.svg" alt="smile" loading="lazy"/>
-                                                <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy"/>
+                                                <img className="icon-ssm dark:hidden" src="/img/icon/search.svg" alt="smile" loading="lazy" />
+                                                <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy" />
                                             </div>
                                             <div className="my-search-bar nav-search w-full">
                                                 <input
                                                     className="searchbar-head p-1 w-full"
                                                     placeholder="Enter article name and hit enter..."
-                                                    onChange={(e) => {setKeywordType(e.target.value)}}
-                                                    onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+                                                    onChange={(e) => { setKeywordType(e.target.value) }}
+                                                    onKeyDown={(e) => e.key === 'Enter' && handleModalSearch()}
+                                                    value={keywordType}
                                                 />
                                             </div>
                                         </div>
                                         <button type="button"
-                                                onClick={toggleVisibility}
-                                                className="relative rounded-full bg-gray-800 p-1 text-gray-400 focus:outline-none">
-                                            <img className="icon-ssm dark:hidden" src="/img/icon/x.svg" alt="smile" loading="lazy"/>
-                                            <img className="icon-ssm hidden dark:block" src="/img/icon/x-light.svg" alt="smile" loading="lazy"/>
+                                            onClick={toggleVisibility}
+                                            className="relative rounded-full bg-gray-800 p-1 text-gray-400 focus:outline-none">
+                                            <img className="icon-ssm dark:hidden" src="/img/icon/x.svg" alt="smile" loading="lazy" />
+                                            <img className="icon-ssm hidden dark:block" src="/img/icon/x-light.svg" alt="smile" loading="lazy" />
                                         </button>
                                     </div>
-
                                 </div>
-                                <div className="col-span-1 close-search">
-
+                                <div className="col-span-2 close-search">
                                 </div>
-                                <div className="col-span-2"></div>
+
                             </div>
+                            {loadingSearch ? (
+                                <>
+                                    <div className="w-full pd-8">
+                                        <Loading />
+                                    </div>
+                                </>
+                                ) : (
+                                <>
+                                    { results?.length == 0 && (
+                                        <div className="grid grid-cols-12 mt-4">
+                                            <div className="col-span-2"></div>
+                                            <div className="col-span-8">
+                                                {isSearch && (
+                                                    <div>
+                                                        Sorry, but nothing matched your search terms. Please try again with some different keywords.
+                                                    </div>
+                                                )}
+                                                <div>Popular search</div>
+                                                <div className="flex gap-2 mt-2">
+                                                    <div className="border-solid border-ccc border px-2 rounded-lg">New post</div>
+                                                    <div className="border-solid border-ccc border px-2 rounded-lg">Popular post</div>
+                                                    <div className="border-solid border-ccc border px-2 rounded-lg">Clean skin</div>
+                                                    <div className="border-solid border-ccc border px-2 rounded-lg">Beauty</div>
+                                                    <div className="border-solid border-ccc border px-2 rounded-lg">Food and skin</div>
+                                                </div>
+                                            </div>
+                                            <div className="col-span-2"></div>
+                                        </div>
+                                    )}
+                                    { results?.length > 0 && (
+                                        <div className="grid grid-cols-12">
+                                            <div className="col-span-2"></div>
+                                            <div className="pt-4 col-span-8">
+                                                <div>Article</div>
+                                                <div className="grid grid-cols-4 gap-4">
+                                                    {(results || []).filter((x, i) => i < 4).map((result, index) => {
+                                                        return (
+                                                            <div className="h-popular-des-ct" key={index}>
+                                                                <div className="des-ct-img overflow-hidden">
+                                                                    <img 
+                                                                        className="w-full" 
+                                                                        src={BASE_URL + '/storage/' + result?.featured_img}
+                                                                        alt="smile"
+                                                                        loading="lazy"
+                                                                        height="100" 
+                                                                        width="100"
+                                                                    />
+                                                                </div>
+                                                                <div className="category-des-content">
+                                                                    <div className="heading_6 top-destination-title py-2 dark:border-b dark:!border-ccc">
+                                                                        {result?.title}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        )
+                                                    })}
+                                                </div>
+                                                {parseInt(paginate.current) < parseInt(paginate.last) && (
+                                                    <div 
+                                                        className="w-full flex justify-center cursor-pointer"
+                                                        onClick={handleLoadMore}
+                                                    >
+                                                        Load more
+                                                    </div>
+                                                )}
+                                            </div>
+                                            <div className="col-span-2"></div>
+                                        </div>
+                                        
+                                    )}
+                                </>
+                            )}
+                            
                         </div>
                     </div>
                 </div>
@@ -353,12 +454,12 @@ const Header = () => {
                                             {/*Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white"*/}
                                             <div className="relative bg-gray-900 guide-navdrop rounded-md">
                                                 <div className="navdrop-title pr-3 py-4">
-                                                    <Link href={`/categories/1`} className="dark:text-white flex nav-link">{ trans.header.guide }
+                                                    <Link href={`/categories/1`} className="dark:text-white flex nav-link">{trans.header.guide}
                                                         <span className="ml-1 dark:hidden flex items-center">
-                                                            <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="lazy"/>
+                                                            <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="lazy" />
                                                         </span>
                                                         <span className="ml-1 hidden dark:flex items-center">
-                                                            <img className="icon-ssm" src="/img/icon/chevron-down.svg" alt="smile" loading="lazy"/>
+                                                            <img className="icon-ssm" src="/img/icon/chevron-down.svg" alt="smile" loading="lazy" />
                                                         </span>
                                                     </Link>
                                                 </div>
@@ -381,10 +482,10 @@ const Header = () => {
                                                 <div className="navdrop-title z-50 text-gray-300 hover:text-gray rounded-md pr-3 py-4">
                                                     <Link href={`/categories/2`} className="dark:text-white flex nav-link">Skincare nerd
                                                         <span className="ml-1 dark:hidden flex items-center">
-                                                            <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="lazy"/>
+                                                            <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="lazy" />
                                                         </span>
                                                         <span className="ml-1 hidden dark:flex items-center">
-                                                            <img className="icon-ssm" src="/img/icon/chevron-down.svg" alt="smile" loading="lazy"/>
+                                                            <img className="icon-ssm" src="/img/icon/chevron-down.svg" alt="smile" loading="lazy" />
                                                         </span>
                                                     </Link>
                                                 </div>
@@ -411,10 +512,10 @@ const Header = () => {
                                                 <div className="navdrop-title z-50 text-gray-300 hover:text-gray py-4 pr-0">
                                                     <Link href="#" className="dark:text-white nav-link flex">About
                                                         <span className="ml-1 dark:hidden flex items-center">
-                                                            <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="lazy"/>
+                                                            <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="lazy" />
                                                         </span>
                                                         <span className="ml-1 hidden dark:flex items-center">
-                                                            <img className="icon-ssm" src="/img/icon/chevron-down.svg" alt="smile" loading="lazy"/>
+                                                            <img className="icon-ssm" src="/img/icon/chevron-down.svg" alt="smile" loading="lazy" />
                                                         </span>
                                                     </Link>
                                                 </div>
@@ -487,15 +588,15 @@ const Header = () => {
                             <div className="space-y-1 px-2 pb-3 pt-2">
                                 {/*Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white"*/}
                                 <Link href="#" className="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
-                                      aria-current="page">Home</Link>
+                                    aria-current="page">Home</Link>
                                 <Link href="#"
-                                      className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">About</Link>
+                                    className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">About</Link>
                                 <Link href="#"
-                                      className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Destinations</Link>
+                                    className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Destinations</Link>
                                 <Link href="#"
-                                      className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Gallery</Link>
+                                    className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Gallery</Link>
                                 <Link href="#"
-                                      className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Contact</Link>
+                                    className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Contact</Link>
                             </div>
                         </div>
                     </nav>

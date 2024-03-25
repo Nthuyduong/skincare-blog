@@ -3,6 +3,7 @@ import {ROUTER} from "../utils/constants";
 import { useApp } from "@hooks/useApp";
 import React, { useEffect, useState } from "react";
 import { useRouter } from 'next/router'
+import { BASE_URL } from "@utils/apiUtils";
 
 const Search = () => {
 
@@ -11,13 +12,14 @@ const Search = () => {
     useEffect(() => {
         const { keyword } = router.query;
         if (keyword) {
+            setKeywordType(keyword);
             handleSearch(keyword);
         }
     }, [router.query]);
 
     const { handleSearch, setKeyword, loadMore, results, keyword } = useApp();
 
-    const [keywordType, setKeywordType] = useState("");
+    const [keywordType, setKeywordType] = useState();
 
     const handleSearchPage = () => {
         handleSearch(keywordType);
@@ -40,6 +42,7 @@ const Search = () => {
                                     placeholder="Enter any word and hit enter"
                                     onChange={(e) => {setKeywordType(e.target.value)}}
                                     onKeyDown={(e) => e.key === 'Enter' && handleSearchPage()}
+                                    value={keywordType}
                                 />
                             </div>
                         </div>
@@ -62,12 +65,12 @@ const Search = () => {
                                     </div>
                                 </div>
                             </div>
-                            {(results)?.map((result, index) => {
+                            {(results || []).map((result, index) => {
                                 return (
                                     <div className="search-result border-solid border-b border-ccc !border-999 py-6" key={index}>
                                         <div className="grid grid-cols-8 gap-4">
                                             <div className="col-span-2">
-                                                <img className="w-full" src="/img/home/article.jpg" alt="smile" loading="lazy"/>
+                                                <img className="w-full" src={BASE_URL + '/storage/' + result?.featured_img} alt="smile" loading="lazy"/>
                                             </div>
                                             <div className="col-span-6">
                                                 <div className="">Drink & Coffee</div>
@@ -75,9 +78,6 @@ const Search = () => {
                                                 <div className="flex mb-1">
                                                     <div>By Nthduong</div>
                                                     <div className="flex ml-3">
-                                                        <div className="mr-1">
-                                                            <img className="icon-sm" src="./img/icon/clock.svg" alt="smile" loading="lazy"/>
-                                                        </div>
                                                         <div>{ result.estimate_time }</div>
                                                     </div>
                                                 </div>
