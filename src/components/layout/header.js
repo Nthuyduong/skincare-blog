@@ -379,12 +379,11 @@ const Header = () => {
                                                             <div className="h-popular-des-ct" key={index}>
                                                                 <div className="des-ct-img overflow-hidden">
                                                                     <img 
-                                                                        className="w-full" 
+                                                                        className="set-img"
                                                                         src={BASE_URL + '/storage/' + result?.featured_img}
                                                                         alt="smile"
                                                                         loading="lazy"
-                                                                        height="100" 
-                                                                        width="100"
+
                                                                     />
                                                                 </div>
                                                                 <div className="category-des-content">
