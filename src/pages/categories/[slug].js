@@ -34,8 +34,8 @@ const Categories = ({ categoryProps = [], subCategoriesProps = [], isCsr, slug }
     }
 
     return (
-        <div>
-            <div className="m-w mx-auto my-0">
+        <div className="px-3 md:px-0 m-w mx-auto my-0">
+            <div className="">
                 <div className="grid grid-cols-12 pt-60">
                     <div className="col-span-12 md:col-span-7 md:mb-0 mb-3">
                         <div className="heading">{ category.name }</div>
@@ -77,7 +77,7 @@ const Categories = ({ categoryProps = [], subCategoriesProps = [], isCsr, slug }
             </div>
             {/*all destination show here*/}
             <div className="destination all-destination-cate m-w mx-auto my-0">
-                <div className="grid grid-cols-12 gap-5">
+                <div className="grid grid-cols-12 gap-4 md:gap-5">
                     {subCategories.map((subCategory, index) => (
                         <div className="col-span-6 md:col-span-3 destination-cate mb-4" key={index}>
                             <div className="pb-2 heading_6">0{index + 1}/</div>

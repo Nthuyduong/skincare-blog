@@ -85,7 +85,7 @@ const Skintype = () => {
                     </div>
                     <div className="md:col-span-4"></div>
                 </div>
-                <div className="pt-5 head-content md:relative -top-8">
+                <div className="pt-5 head-content md:relative -top-0 md:-top-8">
                     <div className="text-center mb-6">
                         <div className="heading text-center my-3">Skin type & History</div>
                         <div className="heading_4">It’s All About Me</div>
@@ -117,7 +117,7 @@ const Skintype = () => {
                                 <div className="heading_3 mb-3">Connect with me</div>
                                 <div>Are you interested in collaborating? Do you want to be a part of us? Join with us now!</div>
                                 <div className="mt-4">
-                                    <button className="w-full my-out-line-btn dark:border-ccc" type="submit">Join with us</button>
+                                    <button className="w-full my-out-line-btn dark:border-ccc" type="submit">Connect with us</button>
                                 </div>
                             </div>
                         </div>

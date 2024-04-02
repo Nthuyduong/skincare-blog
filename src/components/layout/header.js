@@ -238,7 +238,7 @@ const Header = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="py-3 border-b border-ccc"><Link href={ROUTER.TESTREVIEW}>Skincare ingredients</Link></div>
+                        <div className="py-3 border-b border-ccc"><Link href={ROUTER.INGREDIENT}>Skincare ingredients</Link></div>
                         {/*<div className="py-3 border-b border-ccc"><Link href={ROUTER.INGREDIENT}>Testings & Reviews</Link></div>*/}
                         <div className="">
                             <div className={`my-collapse dark:border-b dark:border-ccc ${activeTab3 === 0 ? 'expanded' : ''}`}>
@@ -352,17 +352,17 @@ const Header = () => {
                                             <div className="col-span-2"></div>
                                             <div className="col-span-8">
                                                 {isSearch && (
-                                                    <div>
-                                                        Sorry, but nothing matched your search terms. Please try again with some different keywords.
+                                                    <div className="text-center p-4 dark:color-black dark:bg-333 bg-primary my-4">
+                                                        "Sorry, but nothing matched your search terms. Please try again with some different keywords."
                                                     </div>
                                                 )}
-                                                <div>Popular search</div>
+                                                <div className="medium_text mb-3">Popular search</div>
                                                 <div className="flex gap-2 mt-2">
-                                                    <div className="border-solid border-ccc border px-2 rounded-lg">New post</div>
-                                                    <div className="border-solid border-ccc border px-2 rounded-lg">Popular post</div>
-                                                    <div className="border-solid border-ccc border px-2 rounded-lg">Clean skin</div>
-                                                    <div className="border-solid border-ccc border px-2 rounded-lg">Beauty</div>
-                                                    <div className="border-solid border-ccc border px-2 rounded-lg">Food and skin</div>
+                                                    <div className="border-solid !border-999 border-ccc border py-1 px-3 rounded-xl">New post</div>
+                                                    <div className="border-solid !border-999 border-ccc border py-1 px-3 rounded-xl">Popular post</div>
+                                                    <div className="border-solid !border-999 border-ccc border py-1 px-3 rounded-xl">Clean skin</div>
+                                                    <div className="border-solid !border-999 border-ccc border py-1 px-3 rounded-xl">Beauty</div>
+                                                    <div className="border-solid !border-999 border-ccc border py-1 px-3 rounded-xl">Food and skin</div>
                                                 </div>
                                             </div>
                                             <div className="col-span-2"></div>
@@ -372,7 +372,7 @@ const Header = () => {
                                         <div className="grid grid-cols-12">
                                             <div className="col-span-2"></div>
                                             <div className="pt-4 col-span-8">
-                                                <div>Article</div>
+                                                <div className="medium_text mb-3">Article</div>
                                                 <div className="grid grid-cols-4 gap-4">
                                                     {(results || []).filter((x, i) => i < 4).map((result, index) => {
                                                         return (
@@ -388,7 +388,7 @@ const Header = () => {
                                                                     />
                                                                 </div>
                                                                 <div className="category-des-content">
-                                                                    <div className="heading_6 top-destination-title py-2 dark:border-b dark:!border-ccc">
+                                                                    <div className="medium_text top-destination-title py-2 dark:border-b dark:!border-ccc">
                                                                         {result?.title}
                                                                     </div>
                                                                 </div>
@@ -397,11 +397,13 @@ const Header = () => {
                                                     })}
                                                 </div>
                                                 {parseInt(paginate.current) < parseInt(paginate.last) && (
-                                                    <div 
-                                                        className="w-full flex justify-center cursor-pointer"
-                                                        onClick={handleLoadMore}
-                                                    >
-                                                        Load more
+                                                    <div className="">
+                                                        <div
+                                                            className="mt-4 border border-solid !border-999 border-ccc py-1 px-3 flex justify-center cursor-pointer"
+                                                            onClick={handleLoadMore}
+                                                        >
+                                                            Load more
+                                                        </div>
                                                     </div>
                                                 )}
                                             </div>

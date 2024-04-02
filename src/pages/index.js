@@ -62,14 +62,14 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                                     <div className="col-span-12 md:col-span-4">
                                         <div className="">
                                             <Link href={"/article/" + blog.slug}>
-                                                <img className="w-full" src={BASE_URL + '/storage/' + blog?.featured_img} alt="smile" loading="lazy"/>
+                                                <img className="set-img" src={BASE_URL + '/storage/' + blog?.featured_img} alt="smile" loading="lazy"/>
                                             </Link>
                                         </div>
                                         <div className="">
                                             <div className="article-info md:!border-b md:!border-ccc border-b-0 py-2 mb-2">
                                                 <div className="md:flex mb-1">
                                                 <div className="mr-auto small_text">{ blog.categories.map((category) => {return category.name}).join(' | ') }</div>
-                                                    <div className="small_text">{ formatDate(blog.created_at) }</div>
+                                                    {/*<div className="small_text">{ formatDate(blog.created_at) }</div>*/}
                                                 </div>
                                                 <div className="medium_text">{ blog.title }</div>
                                             </div>
@@ -268,7 +268,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                                         <div className="hover-img">
                                             <div className="img-inner">
                                                 <Link href={"/article/" + newest.slug}>
-                                                    <img className="w-full" src={BASE_URL + '/storage/' + newest?.featured_img} alt="smile" loading="lazy"/>
+                                                    <img className="set-img" src={BASE_URL + '/storage/' + newest?.featured_img} alt="smile" loading="lazy"/>
                                                 </Link>
                                             </div>
                                             <div>
