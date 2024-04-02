@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export const BASE_URL = "https://app.radiance-aura.blog";
-// export const BASE_URL = "http://localhost:8000";
+// export const BASE_URL = "https://app.radiance-aura.blog";
+export const BASE_URL = "http://localhost:8000";
 
 export const fetchApi = axios.create({
     baseURL: BASE_URL + "/api",
@@ -98,7 +98,8 @@ adminApi.interceptors.response.use(
     },
     async (error) => {
         const originalRequest = error.config;
-        if (error.response?.status === 468 && !originalRequest._retry) {
+        originalRequest._limit = originalRequest._limit ? originalRequest._limit + 1 : 1;
+        if (error.response?.status === 468 && !originalRequest._retry && originalRequest._limit < 3 && originalRequest.url !== "/refresh" && originalRequest.url !== "/login") {
             originalRequest._retry = true;
             const res = await getApiAdmin("/refresh");
             if (res?.access_token) {
