@@ -116,10 +116,11 @@ const Sub_destination = ({categoryProps, postsProps, isCsr, slug, page}) => {
                                             />
                                             <div>
                                                 <div className="py-1 mb-1">
-                                                    <div className="mb-1">
-                                                        <div
-                                                            className="small_text">{formatDate(post.publish_date)}</div>
-                                                    </div>
+                                                    {/*<div className="mb-1">*/}
+                                                    {/*    /!*<div*!/*/}
+                                                    {/*    /!*    className="small_text">{formatDate(post.publish_date)}*!/*/}
+                                                    {/*    /!*</div>*!/*/}
+                                                    {/*</div>*/}
                                                     <div className="medium_text">
                                                         <Link href={`/article/${post.slug}`}>{post.title}</Link>
                                                     </div>

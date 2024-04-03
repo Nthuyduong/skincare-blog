@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { throttle } from '@utils/common';
 import { getBlogBySlugApi } from "@services/blog";
-import { BASE_URL } from "@utils/apiUtils";
+feature
 import Link from "next/link";
 import { ROUTER } from "../../../utils/constants";
 import { useRouter } from 'next/router';

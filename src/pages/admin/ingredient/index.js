@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { showModal } from "@store/modal/modal.action";
 import { useIngredient } from "@hooks/useIngredient";
+import {ROUTER} from "@utils/constants";
 import {useDispatch} from "react-redux";
+import Pagination from "@components/common/pagination";
 import Link from 'next/link'
+import { useRouter } from 'next/router';
 
 const Adminingredient = () => {
+
+    const router = useRouter();
 
     const { ingredients, paginate, fetchIngredients } = useIngredient();
 
@@ -27,6 +32,14 @@ const Adminingredient = () => {
                 id: id,
             },
         }))
+    }
+
+    const handlePageClick = (go) => {
+        router.push({
+            pathname: ROUTER.ADINGREDIENT,
+            query: {page: go},
+        });
+        fetchIngredients(go);
     }
 
     const handleDelete = () => {
@@ -157,6 +170,14 @@ const Adminingredient = () => {
                     )
                 })}
             </div>
+            <Pagination
+                className="pagination-bar"
+                currentPage={paginate?.current}
+                totalCount={paginate?.count}
+                pageSize={paginate?.limit}
+                finalPage={paginate?.last}
+                onPageChange={page => handlePageClick(page)}
+            />
         </div>
     )
 }
