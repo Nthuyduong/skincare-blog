@@ -57,7 +57,7 @@ const IngredientDetail = ({ ingredientProps , id , isCrs }) => {
                         </div>
                     </div>
                     <div className="col-span-6">
-                        <img className="w-full" src={BASE_URL + '/storage/' + ingredient?.details?.featured_img} alt="smile" loading="lazy"/>
+                        <img className="w-full" src={BASE_URL + '/storage/' + ingredient?.featured_img} alt="smile" loading="lazy"/>
                     </div>
                 </div>
                 <div className="mt-5 border-t border-ccc">
