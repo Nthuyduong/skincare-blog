@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 
-
 module.exports = {
   darkMode: 'class',
   content: ["./src/**/*.{html,js}"],
@@ -8,7 +7,12 @@ module.exports = {
     extend: {
       height: {
         '1': '1px',
-      }
+      },
+      
+    },
+    fontFamily: {
+      // sans: ['Graphik', 'sans-serif'],
+      // serif: ['Merriweather', 'serif'],
     },
     colors: {
       'primary': '#EBE4DC',
@@ -16,14 +20,11 @@ module.exports = {
       'tertiary': '#131416',
       'white': '#ffffff',
       'black': '#000000',
+      'red': 'rgb(239, 68, 68)',
       'ccc': '#cccccc',
       '999': '#999999',
       '666': '#666666',
       '333': '#333333',
-    },
-    fontFamily: {
-      // sans: ['Graphik', 'sans-serif'],
-      // serif: ['Merriweather', 'serif'],
     },
     fontSize: {
       'xs':['18px', '20px'],

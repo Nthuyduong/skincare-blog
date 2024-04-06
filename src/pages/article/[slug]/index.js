@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { throttle } from '@utils/common';
 import { getBlogBySlugApi } from "@services/blog";
-feature
 import Link from "next/link";
 import { ROUTER } from "../../../utils/constants";
 import { useRouter } from 'next/router';
@@ -11,6 +10,7 @@ const Slider = dynamic(() => import("../../../components/common/slider"), { ssr:
 import { formatDate } from "@utils/format";
 import Head from "next/head";
 import { usePost } from "@hooks/usePost";
+import { BASE_URL } from "../../../utils/apiUtils";
 
 const ArticleDetail = ({ blogProps, isCrs, slug }) => {
 
@@ -40,7 +40,6 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
             router.push('/404');
         }
         if (refContent.current) {
-            console.log('ref');
             const headings = refContent.current.querySelectorAll("h2");
             const list = refTable.current;
             if(list) {

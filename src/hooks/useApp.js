@@ -1,4 +1,8 @@
-import { getSearchResults } from "@services/app";
+import { 
+    getSearchResults, 
+    sendContactForm, 
+    subscribeApi 
+} from "@services/app";
 import { 
     fetchKeywordAction,
     fetchResultsAction,
@@ -39,6 +43,26 @@ export const useApp = () => {
         }
     }
 
+    async function sendContact(data) {
+        showLoading();
+        const res = await sendContactForm(data);
+        hide();
+        if (res) {
+            addToast('Message sent successfully!', 'success');
+        }
+    }
+
+    async function subscribe(email) {
+        showLoading();
+        const res = await subscribeApi(email);
+        hide();
+        if (res.status) {
+            addToast('Subscribed successfully!', 'success');
+        } else {
+            addToast(res.msg, 'error');
+        }
+    }
+
     return {
         paginate,
         keyword,
@@ -47,5 +71,7 @@ export const useApp = () => {
         handleSearch,
         setKeyword,
         loadMore,
+        sendContact,
+        subscribe,
     }
 }

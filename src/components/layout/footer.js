@@ -1,8 +1,41 @@
 import { ROUTER } from "../../utils/constants";
 import Link from 'next/link'
-import React from "react";
+import React, { useState } from "react";
+import { useApp } from "@hooks/useApp";
 
 const Footer = () => {
+
+    const { subscribe } = useApp();
+
+    const [email, setEmail] = useState('');
+    const [error, setError] = useState(null);
+
+    const checkEmail = (email) => {
+        const re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    }
+
+    const handleSubscribe = () => {
+        setError(null);
+        let errorTmp = {
+            email: ''
+        };
+        let isError = false;
+        if (!email) {
+            errorTmp.email = 'Email is required';
+            isError = true;
+        }
+        if (!checkEmail(email)) {
+            errorTmp.email = 'Email is invalid';
+            isError = true;
+        }
+        if (isError) {
+            setError(errorTmp);
+            return;
+        };
+        subscribe(email);
+    }
+
     return (
         <div className="blog-footer" id="blog-footer">
             <div className="blog-footer-inner border-solid border-t md:border-y dark:border-999 border-ccc">
@@ -72,9 +105,19 @@ const Footer = () => {
                             <div>
                                 <div className="flex">
                                     <div className="w-full">
-                                        <input className="w-full dark:border-999 py-1 pr-2 dark:focus:border-white focus:border-333 pointer-events-auto border-solid border-b border-ccc w-full focus-visible:outline-none" placeholder="Email address"/>
+                                        <input 
+                                            className="w-full dark:border-999 py-1 pr-2 dark:focus:border-white focus:border-333 pointer-events-auto border-solid border-b border-ccc w-full focus-visible:outline-none" 
+                                            placeholder="Email address"
+                                            onChange={(e) => setEmail(e.target.value)}
+                                            onKeyDown={(e) => e.key === 'Enter' && handleSubscribe()}
+                                        />
+                                        {error?.email && <div className="text-red mb-3">{error?.email}</div>}
                                     </div>
-                                    <button className="" type="submit">
+                                    <button 
+                                        className="" 
+                                        type="submit"
+                                        onClick={handleSubscribe}
+                                    >
                                         <img className="w-full dark:hidden" src="../img/icon/arrow-right-circle.svg" alt="smile" loading="lazy"/>
                                         <img className="w-full hidden dark:block" src="../img/icon/arrow-right-circle-white.svg" alt="smile" loading="lazy"/>
                                     </button>

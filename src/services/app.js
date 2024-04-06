@@ -1,4 +1,4 @@
-import { fetchApi, getApi, getApiAdmin, postApiAdmin } from "@utils/apiUtils";
+import { getApi, postApi } from "@utils/apiUtils";
 
 export const getSearchResults = async (search = '' ,limit = 10, page = 1) => {
     const response = await getApi("/search", {
@@ -8,3 +8,13 @@ export const getSearchResults = async (search = '' ,limit = 10, page = 1) => {
     });
     return response.data;
 };
+
+export const sendContactForm = async (data) => {
+    return await postApi("/contact", data);
+}
+
+export const subscribeApi = async (email) => {
+    return await postApi("/subscribes", {
+        email
+    });
+}
