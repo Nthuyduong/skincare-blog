@@ -10,6 +10,7 @@ import ingredientReducer from "./ingredients";
 import adminReducer from "./admin";
 import imagesReducer from './images';
 import appReducer from "./app";
+import settingReducer from "./setting";
 
 
 // khai báo các reducer trong store
@@ -26,6 +27,7 @@ const reducer = {
     admin: adminReducer,
     images: imagesReducer,
     app: appReducer,
+    setting: settingReducer,
     // user: userReducer,
 };
 

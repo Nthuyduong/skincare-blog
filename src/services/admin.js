@@ -1,8 +1,6 @@
-import { postApiAdmin } from "@utils/apiUtils";
-import {getApiAdmin} from "../utils/apiUtils";
+import { postApiAdmin, getApiAdmin } from "@utils/apiUtils";
 
 export const loginAdminApi = async (email, password) => {
-
     return await postApiAdmin("/login", {
         email,
         password

@@ -72,3 +72,9 @@ export const BLOG_STATUS = {
 export const ALPHABET = [
     'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
 ]
+
+export const MAIL_TYPE = {
+    SUBSCRIBER: 1,
+    CONTACT: 2,
+    NOTIFICATION: 3,
+}
