@@ -38,7 +38,7 @@ const Sidebar = () => {
                 <div className="content-second pt-2">
                     <ul>
                         <li><Link href="#">Users</Link></li>
-                        <li><Link href="#">Settings</Link></li>
+                        <li><Link href="/admin/settings">Settings</Link></li>
                     </ul>
                 </div>
             </div>

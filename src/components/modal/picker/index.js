@@ -1,12 +1,12 @@
 import React from "react";
 import ImagePicker from "./image";
 
-const Picker = ({ type }) => {
+const Picker = ({ type, mode }) => {
 
     const content = () => {
         switch (type) {
             case "image":
-                return <ImagePicker/>
+                return <ImagePicker mode={mode}/>
             default:
                 return <></>;
         }

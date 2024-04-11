@@ -63,6 +63,7 @@ const Modals = () => {
                 return (
                     <ModalPicker
                         type={data?.type}
+                        mode={data?.mode}
                     />
                 );
             default:

@@ -1,6 +1,8 @@
 import React from "react";
 import { useModal } from '@hooks/modal';
-const LibraryIcon = () => {
+const LibraryIcon = ({
+    mode
+}) => {
     
     const { show } = useModal();
 
@@ -12,6 +14,7 @@ const LibraryIcon = () => {
             width: "80%",
             data: {
                 type: "image",
+                mode: mode,
             }
         })
     }

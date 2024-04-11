@@ -500,3 +500,21 @@
     z-index: 10000;
     background: rgba(0, 0, 0, 0.5);
 }
+
+// tabs
+
+.tabs {
+    display: flex;
+
+    .tab-item {
+        border: 1px solid black;
+        cursor: pointer;
+        padding: 10px;
+        background: white;
+        color: black;
+    }
+    .tab-item-active {
+        background: black;
+        color: white;
+    }
+}

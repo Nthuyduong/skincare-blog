@@ -4,7 +4,7 @@ import { BASE_URL } from "@utils/apiUtils";
 import LoadingBlur from '../../common/loading/loadingBlur';
 import { useModal } from '@hooks/modal';
 
-const ImagePicker = ({ onPick }) => {
+const ImagePicker = ({ onPick, mode }) => {
 
     const { addToast } = useModal();
 
@@ -133,13 +133,20 @@ const ImagePicker = ({ onPick }) => {
     const handleCopy = () => {
         let result = ``;
 
-        selectedImages.forEach((image) => {
-            result += `<picture>
-                    <source srcset="${BASE_URL + '/storage/mobile/' + image.url}" media="(max-width: 767px)">
-                    <source srcset="${BASE_URL + '/storage/tablet/' + image.url}" media="(max-width: 1024px)">
-                    <img src="${BASE_URL + '/storage/desktop/' + image.url}" alt="${image.alt}" loading="lazy">
-                </picture>`;
-        });
+        if (mode === 'simple') {
+            selectedImages.forEach((image) => {
+                result += `<img src="${BASE_URL + '/storage/desktop/' + image.url}" alt="${image.alt}" loading="lazy">`;
+            });
+        } else {
+            selectedImages.forEach((image) => {
+                result += `<picture>
+                        <source srcset="${BASE_URL + '/storage/mobile/' + image.url}" media="(max-width: 767px)">
+                        <source srcset="${BASE_URL + '/storage/tablet/' + image.url}" media="(max-width: 1024px)">
+                        <img src="${BASE_URL + '/storage/desktop/' + image.url}" alt="${image.alt}" loading="lazy">
+                    </picture>`;
+            });
+        }
+        
 
         navigator.clipboard.writeText(result);
         addToast('Link copied to clipboard', 'success');
