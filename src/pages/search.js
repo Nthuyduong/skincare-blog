@@ -55,7 +55,7 @@ const Search = () => {
                         <div className="col-span-2"></div>
                         <div className="col-span-8">
                             {/*Ingredient result*/}
-                            <div className="border-solid border-b border-ccc !border-999 pb-6">
+                            <div className="border-solid border-b border-ccc !border-999 pb-4">
                                 <div className="border-solid border-ccc !border-999 border p-4">
                                     <div className="mb-1">Ingredient</div>
                                     <div className="heading_2 mb-3">Niacinamide</div>
@@ -67,7 +67,7 @@ const Search = () => {
                             </div>
                             {(results || []).map((result, index) => {
                                 return (
-                                    <div className="search-result border-solid border-b border-ccc !border-999 py-6" key={index}>
+                                    <div className="search-result border-solid border-b border-ccc !border-999 py-4" key={index}>
                                         <div className="grid grid-cols-8 gap-4">
                                             <div className="col-span-2">
                                                 <img className="w-full" src={BASE_URL + '/storage/' + result?.featured_img} alt="smile" loading="lazy"/>

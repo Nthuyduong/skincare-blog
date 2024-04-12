@@ -356,14 +356,14 @@ const Header = () => {
                                                         "Sorry, but nothing matched your search terms. Please try again with some different keywords."
                                                     </div>
                                                 )}
-                                                <div className="medium_text mb-3">Popular search</div>
-                                                <div className="flex gap-2 mt-2">
-                                                    <div className="border-solid !border-999 border-ccc border py-1 px-3 rounded-xl">New post</div>
-                                                    <div className="border-solid !border-999 border-ccc border py-1 px-3 rounded-xl">Popular post</div>
-                                                    <div className="border-solid !border-999 border-ccc border py-1 px-3 rounded-xl">Clean skin</div>
-                                                    <div className="border-solid !border-999 border-ccc border py-1 px-3 rounded-xl">Beauty</div>
-                                                    <div className="border-solid !border-999 border-ccc border py-1 px-3 rounded-xl">Food and skin</div>
-                                                </div>
+                                                {/*<div className="medium_text mb-3">Popular search</div>*/}
+                                                {/*<div className="flex gap-2 mt-2">*/}
+                                                {/*    <div className="border-solid !border-999 border-ccc border py-1 px-3 rounded-xl">New post</div>*/}
+                                                {/*    <div className="border-solid !border-999 border-ccc border py-1 px-3 rounded-xl">Popular post</div>*/}
+                                                {/*    <div className="border-solid !border-999 border-ccc border py-1 px-3 rounded-xl">Clean skin</div>*/}
+                                                {/*    <div className="border-solid !border-999 border-ccc border py-1 px-3 rounded-xl">Beauty</div>*/}
+                                                {/*    <div className="border-solid !border-999 border-ccc border py-1 px-3 rounded-xl">Food and skin</div>*/}
+                                                {/*</div>*/}
                                             </div>
                                             <div className="col-span-2"></div>
                                         </div>

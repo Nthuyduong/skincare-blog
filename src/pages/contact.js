@@ -72,7 +72,7 @@ const Contact = () => {
                                         placeholder="Your name (20)"
                                         onChange={(e) => setName(e.target.value)}
                                     />
-                                    {error?.name && <div className="text-red mb-3">{error?.name}</div>}
+                                    {error?.name && <div className="small_text text-red mb-3 pt-1">{error?.name}</div>}
                                 </div>
                             </div>
                             <div className="md:col-span-1 col-span-2">
@@ -82,7 +82,7 @@ const Contact = () => {
                                         placeholder="Email address *"
                                         onChange={(e) => setEmail(e.target.value)}
                                     />
-                                    {error?.email && <div className="text-red mb-3">{error?.email}</div>}
+                                    {error?.email && <div className="small_text text-red mb-3 pt-1">{error?.email}</div>}
                                 </div>
                             </div>
                         </div>
@@ -93,7 +93,7 @@ const Contact = () => {
                                 placeholder="Type your message here (233)"
                                 onChange={(e) => setMessage(e.target.value)}
                             ></textarea>
-                            {error?.message && <div className="text-red mb-3">{error?.message}</div>}
+                            {error?.message && <div className="small_text text-red mb-3 pt-1">{error?.message}</div>}
                         </div>
                         <div className="mb-6 md:mb-0 md:mt-6">
                             <div className="flex w-full cursor-pointer">
