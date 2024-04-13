@@ -25,13 +25,26 @@ export const useApp = () => {
 
     async function handleSearch(search = '', limit = 10) {
         showLoading()
-        dispatch(setLoadingAction(true));
-        const res = await getSearchResults(search, limit);
-        dispatch(setLoadingAction(false));
-        hide();
-        if (res) {
-            dispatch(fetchResultsAction(res));
+        if (search) {
+            dispatch(setLoadingAction(true));
+            const res = await getSearchResults(search, limit);
+            dispatch(setLoadingAction(false));
+            
+            if (res) {
+                dispatch(fetchResultsAction(res));
+            }
+        } else {
+            dispatch(fetchResultsAction({
+                results: [],
+                paginate: {
+                    limit: 10,
+                    last: 0,
+                    current: 1,
+                    count: 0
+                }
+            }));
         }
+        hide();
     }
 
     async function loadMore() {

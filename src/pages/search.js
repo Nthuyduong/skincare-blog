@@ -55,19 +55,31 @@ const Search = () => {
                         <div className="col-span-2"></div>
                         <div className="col-span-8">
                             {/*Ingredient result*/}
-                            <div className="border-solid border-b border-ccc !border-999 pb-4">
-                                <div className="border-solid border-ccc !border-999 border p-4">
-                                    <div className="mb-1">Ingredient</div>
-                                    <div className="heading_2 mb-3">Niacinamide</div>
-                                    <div className="flex">
-                                        <div className="mr-1 border-solid border-r border-ccc !border-999 pr-1">By Nthduong</div>
-                                        <div>Publish date: 10/02/2024</div>
-                                    </div>
-                                </div>
-                            </div>
+                            
                             {(results || []).map((result, index) => {
+                                if (result.table_name === 'ingredient') {
+                                    return (
+                                        <Link 
+                                            href={ROUTER.INGREDIENT + '/' + result.id}
+                                            className="border-solid border-b border-ccc !border-999 pb-4"
+                                        >
+                                            <div className="border-solid border-ccc !border-999 border p-4">
+                                                <div className="mb-1">Ingredient</div>
+                                                <div className="heading_2 mb-3">{ result.title }</div>
+                                                <div className="flex">
+                                                    <div className="mr-1 border-solid border-r border-ccc !border-999 pr-1">By Nthduong</div>
+                                                    <div>Publish date: 10/02/2024</div>
+                                                </div>
+                                            </div>
+                                        </Link>
+                                    )
+                                }
                                 return (
-                                    <div className="search-result border-solid border-b border-ccc !border-999 py-4" key={index}>
+                                    <Link
+                                        href={ROUTER.ARTICLE + '/' + result.slug}
+                                        className="block search-result border-solid border-b border-ccc !border-999 py-4" 
+                                        key={index}
+                                    >
                                         <div className="grid grid-cols-8 gap-4">
                                             <div className="col-span-2">
                                                 <img className="w-full" src={BASE_URL + '/storage/' + result?.featured_img} alt="smile" loading="lazy"/>
@@ -93,7 +105,7 @@ const Search = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </Link>
                                 )
                             })}
                         </div>

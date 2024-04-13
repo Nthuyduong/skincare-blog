@@ -15,7 +15,6 @@ const MailSubscriber = () => {
     }, []);
 
     useEffect(() => {
-        console.log(setting)
         if(setting) {
             setTitle(setting.title);
             setContent(setting.content);

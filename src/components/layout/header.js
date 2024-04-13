@@ -22,6 +22,7 @@ const Header = () => {
     const [showMenu, setShowMenu] = useState(false);
     const headerRef = useRef(null);
     const headerMobileRef = useRef(null);
+    const searchRef = useRef(null);
 
     useEffect(() => {
         router.events.on('routeChangeStart', () => {
@@ -61,6 +62,11 @@ const Header = () => {
 
     const toggleVisibility = () => {
         setShoww(!showw);
+        if (!showw) {
+            searchRef.current.focus();
+        } else {
+            searchRef.current.blur();
+        }
     };
 
     const handleVisibility = () => {
@@ -319,6 +325,7 @@ const Header = () => {
                                             </div>
                                             <div className="my-search-bar nav-search w-full">
                                                 <input
+                                                    ref={searchRef}
                                                     className="border-solid border-b border-ccc !border-999 focus-visible:outline-none pointer-events-auto dark:focus:border-white focus:border-333 searchbar-head p-1 w-full"
                                                     placeholder="Enter article name and hit enter..."
                                                     onChange={(e) => { setKeywordType(e.target.value) }}
@@ -328,7 +335,7 @@ const Header = () => {
                                             </div>
                                         </div>
                                         <button type="button"
-                                            onClick={toggleVisibility}
+                                            onClick={(e) => {setKeywordType("")}}
                                             className="relative rounded-full bg-gray-800 p-1 text-gray-400 focus:outline-none">
                                             <img className="icon-ssm dark:hidden" src="/img/icon/x.svg" alt="smile" loading="lazy" />
                                             <img className="icon-ssm hidden dark:block" src="/img/icon/x-light.svg" alt="smile" loading="lazy" />
