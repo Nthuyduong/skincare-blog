@@ -92,10 +92,10 @@ const Sub_destination = ({categoryProps, postsProps, isCsr, slug, page}) => {
                                             {/*    <div>4 Categories</div>*/}
                                             {/*</div>*/}
                                             <div className="flex location-count">
-                                                <div className="pr-1">
+                                                {/* <div className="pr-1">
                                                     <img className="icon-sm" src="./img/icon/book-open.svg" alt="#"
                                                          loading="lazy"></img>
-                                                </div>
+                                                </div> */}
                                                 <div>50 Articles</div>
                                             </div>
                                         </div>
@@ -154,7 +154,7 @@ Sub_destination.getInitialProps = async ({query}) => {
     try {
         const res = await Promise.all([
             fetch(`${BASE_URL}/api/categories/${slug}`, {cache: 'force-cache'}),
-            fetch(`${BASE_URL}/api/blogs/category/${slug}?page=${page ?? 1}`, {cache: 'force-cache'})
+            fetch(`${BASE_URL}/api/blogs/category/${slug}?page=${page ?? 1}`)
         ])
         const resData = await Promise.all(res.map(r => r.json()));
         const category = resData[0]?.data || {};

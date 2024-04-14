@@ -22,6 +22,7 @@ const Search = () => {
     const [keywordType, setKeywordType] = useState();
 
     const handleSearchPage = () => {
+        router.push(ROUTER.SEARCH + '?keyword=' + keywordType);
         handleSearch(keywordType);
     };
 
@@ -108,6 +109,11 @@ const Search = () => {
                                     </Link>
                                 )
                             })}
+                            { results?.length == 0 && (
+                                <div className="text-center p-4 dark:color-black dark:bg-333 bg-primary my-4">
+                                    "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+                                </div>
+                            )}
                         </div>
                         <div className="col-span-2"></div>
                     </div>

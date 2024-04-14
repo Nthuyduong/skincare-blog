@@ -35,3 +35,7 @@ export const publishedBlogPostApi = async (id) => {
 export const updateBlogViewCountApi = async (id) => {
     return await postApi(`/blogs/update/view-count/${id}`);
 }
+
+export const fetchRelatedBlogPostsApi = async (id) => {
+    return await getApi(`/blogs/related/${id}`);
+}

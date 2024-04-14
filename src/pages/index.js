@@ -74,7 +74,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                                                 <div className="medium_text">{ blog.title }</div>
                                             </div>
                                             <div className="md:flex hidden">
-                                                <div className=""><a className="text-link" href="#">Read more</a></div>
+                                                <div className=""><Link className="text-link" href={"/article/" + blog.slug}>Read more</Link></div>
                                             </div>
                                         </div>
                                     </div>

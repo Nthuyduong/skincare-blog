@@ -379,9 +379,34 @@ const Header = () => {
                                         <div className="grid grid-cols-12">
                                             <div className="col-span-2"></div>
                                             <div className="pt-4 col-span-8">
-                                                <div className="medium_text mb-3">Article</div>
+                                                {/* <div className="medium_text mb-3">Article</div> */}
                                                 <div className="grid grid-cols-4 gap-4">
                                                     {(results || []).filter((x, i) => i < 4).map((result, index) => {
+                                                        if (result.table_name == 'ingredient') {
+                                                            return (
+                                                                <div className="h-popular-des-ct" key={index}>
+                                                                    <div className="medium_text">Ingredient</div>
+                                                                    {result.featured_img && (
+                                                                        <div className="des-ct-img overflow-hidden">
+                                                                            <img 
+                                                                                className="set-img"
+                                                                                src={BASE_URL + '/storage/' + result?.featured_img}
+                                                                                alt="smile"
+                                                                                loading="lazy"
+
+                                                                            />
+                                                                        </div>
+                                                                    )}
+                                                                    
+                                                                    <div className="category-des-content">
+                                                                        <div className="medium_text top-destination-title py-2 dark:border-b dark:!border-ccc">
+                                                                            {result?.title}
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            )
+                                                            
+                                                        }
                                                         return (
                                                             <div className="h-popular-des-ct" key={index}>
                                                                 <div className="des-ct-img overflow-hidden">
@@ -402,7 +427,7 @@ const Header = () => {
                                                         )
                                                     })}
                                                 </div>
-                                                {parseInt(paginate.current) < parseInt(paginate.last) && (
+                                                {results.length > 0 && (
                                                     <div className="">
                                                         <div
                                                             className="mt-4 border border-solid !border-999 border-ccc py-1 px-3 flex justify-center cursor-pointer"

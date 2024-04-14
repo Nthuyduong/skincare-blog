@@ -11,6 +11,7 @@ import { formatDate } from "@utils/format";
 import Head from "next/head";
 import { usePost } from "@hooks/usePost";
 import { BASE_URL } from "../../../utils/apiUtils";
+import { fetchRelatedBlogPostsApi } from "@services/blog";
 
 const ArticleDetail = ({ blogProps, isCrs, slug }) => {
 
@@ -18,7 +19,11 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
     
     const router = useRouter();
 
+    const refContent = useRef(null);
+    const refTable = useRef(null);
+    const refProcess = useRef(null);
     const [blog, setBlog] = useState(blogProps);
+    const [relatedBlogs, setRelatedBlogs] = useState([]);
 
     useEffect(() => {
         if (isCrs) {
@@ -31,9 +36,10 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
         setBlog(res?.data || {});
     }
 
-    const refContent = useRef(null);
-    const refTable = useRef(null);
-    const refProcess = useRef(null);
+    const fetchRelatedBlogs = async () => {
+        const res = await fetchRelatedBlogPostsApi(blog.id);
+        setRelatedBlogs(res?.data || []);
+    }
 
     useEffect(() => {
         if (blog?.status == BLOG_STATUS.HIDDEN) {
@@ -85,6 +91,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
         }
         if (blog?.id) {
             handleUpdateViewCount();
+            fetchRelatedBlogs();
         }
     }, [blog]);
 
@@ -232,144 +239,33 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                             gapMobile: 10,
                                         }}
                                     >
-                                        <div className="justify-center">
-                                            <div className="col-span-12 md:col-span-4">
-                                                <div className="hover-img">
-                                                    <div className="img-inner">
-                                                        <Link href={ROUTER.ARTICLE}>
-                                                            <img className="w-full" src="/img/home/article.jpg" alt="smile" loading="lazy"/>
-                                                        </Link>
-                                                    </div>
-                                                    <div>
-                                                        <div className="article-info py-2 mb-1 md:!border-b md:!border-ccc border-b-0">
-                                                            <div className="md:flex mb-1">
-                                                                <div className="mr-auto small_text">Drink & Coffee</div>
-                                                                <div className="small_text">November 8, 2023</div>
+                                        
+                                        {relatedBlogs.map((blog, index) => (
+                                            <div className="justify-center" key={index}>
+                                                <div className="col-span-12 md:col-span-4">
+                                                    <div className="hover-img">
+                                                        <div className="img-inner">
+                                                            <Link href={"/article/" + blog.slug}>
+                                                                <img className="set-img" src={BASE_URL + '/storage/' + blog?.featured_img} alt="smile" loading="lazy"/>
+                                                            </Link>
+                                                        </div>
+                                                        <div>
+                                                            <div className="article-info py-2 mb-1 md:!border-b md:!border-ccc border-b-0">
+                                                                <div className="md:flex mb-1">
+                                                                    <div className="mr-auto small_text">{ blog.categories.map((category) => {return category.name}).join(' | ') }</div>
+                                                                    {/* <div className="small_text">{formatDate(blog.publish_date)}</div> */}
+                                                                </div>
+                                                                <div className="medium_text">{ blog.title }</div>
                                                             </div>
-                                                            <div className="medium_text">Top 5 beautiful Coffee Shop in HaNoi</div>
-                                                        </div>
-                                                        <div className="md:flex hidden">
-                                                            <div className=""><a className="text-link" href="#">Read more</a></div>
-                                                            <div className="ml-auto">Share</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="justify-center">
-                                            <div className="col-span-12 md:col-span-4">
-                                                <div className="hover-img">
-                                                    <div className="img-inner">
-                                                        <Link href={ROUTER.ARTICLE}>
-                                                            <img className="w-full" src="/img/home/article.jpg" alt="smile" loading="lazy"/>
-                                                        </Link>
-                                                    </div>
-                                                    <div>
-                                                        <div className="article-info md:!border-b md:!border-ccc border-b-0 py-2 mb-1">
-                                                            <div className="md:flex mb-1">
-                                                                <div className="mr-auto small_text">Drink & Coffee</div>
-                                                                <div className="small_text">November 8, 2023</div>
+                                                            <div className="md:flex hidden">
+                                                                <div className=""><Link className="text-link" href={"/article/" + blog.slug}>Read more</Link></div>
+                                                                <div className="ml-auto">Share</div>
                                                             </div>
-                                                            <div className="medium_text">Top 5 beautiful Coffee Shop in HaNoi</div>
-                                                        </div>
-                                                        <div className="md:flex hidden">
-                                                            <div className=""><a className="text-link" href="#">Read more</a></div>
-                                                            <div className="ml-auto">Share</div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div className="justify-center">
-                                            <div className="col-span-12 md:col-span-4">
-                                                <div>
-                                                    <Link href={ROUTER.ARTICLE}>
-                                                        <img className="w-full" src="/img/home/article.jpg" alt="smile" loading="lazy"/>
-                                                    </Link>
-                                                </div>
-                                                <div>
-                                                    <div className="article-info md:!border-b md:!border-ccc border-b-0 py-2 mb-1">
-                                                        <div className="md:flex mb-1">
-                                                            <div className="mr-auto small_text">Drink & Coffee</div>
-                                                            <div className="small_text">November 8, 2023</div>
-                                                        </div>
-                                                        <div className="medium_text">Top 5 beautiful Coffee Shop in HaNoi</div>
-                                                    </div>
-                                                    <div className="md:flex hidden">
-                                                        <div className=""><a className="text-link" href="#">Read more</a></div>
-                                                        <div className="ml-auto">Share</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="justify-center">
-                                            <div className="col-span-12 md:col-span-4">
-                                                <div>
-                                                    <Link href={ROUTER.ARTICLE}>
-                                                        <img className="w-full" src="/img/home/article.jpg" alt="smile" loading="lazy"/>
-                                                    </Link>
-                                                </div>
-                                                <div>
-                                                    <div className="article-info md:!border-b md:!border-ccc border-b-0 py-2 mb-1">
-                                                        <div className="md:flex mb-1">
-                                                            <div className="mr-auto small_text">Drink & Coffee</div>
-                                                            <div className="small_text">November 8, 2023</div>
-                                                        </div>
-                                                        <div className="medium_text">Top 5 beautiful Coffee Shop in HaNoi</div>
-                                                    </div>
-                                                    <div className="md:flex hidden">
-                                                        <div className=""><a className="text-link" href="#">Read more</a></div>
-                                                        <div className="ml-auto">Share</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="justify-center">
-                                            <div className="col-span-12 md:col-span-4">
-                                                <div className="hover-img">
-                                                    <div className="img-inner">
-                                                        <Link href={ROUTER.ARTICLE}>
-                                                            <img className="w-full" src="/img/home/article.jpg" alt="smile" loading="lazy"/>
-                                                        </Link>
-                                                    </div>
-                                                    <div>
-                                                        <div className="article-info md:!border-b md:!border-ccc border-b-0 py-1 mb-1">
-                                                            <div className="md:flex mb-1">
-                                                                <div className="mr-auto small_text">Drink & Coffee</div>
-                                                                <div className="small_text">November 8, 2023</div>
-                                                            </div>
-                                                            <div className="heading_5">Top 5 beautiful Coffee Shop in HaNoi</div>
-                                                        </div>
-                                                        <div className="md:flex hidden">
-                                                            <div className=""><a className="text-link" href="#">Read more</a></div>
-                                                            <div className="ml-auto">Share</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="justify-center">
-                                            <div className="col-span-12 md:col-span-4">
-                                                <div>
-                                                    <Link href={ROUTER.ARTICLE}>
-                                                        <img className="w-full" src="/img/home/article.jpg" alt="smile" loading="lazy"/>
-                                                    </Link>
-                                                </div>
-                                                <div>
-                                                    <div className="article-info md:!border-b md:!border-ccc border-b-0 py-1 mb-1">
-                                                        <div className="md:flex mb-1">
-                                                            <div className="mr-auto small_text">Drink & Coffee</div>
-                                                            <div className="small_text">November 8, 2023</div>
-                                                        </div>
-                                                        <div className="heading_5">Top 5 beautiful Coffee Shop in HaNoi</div>
-                                                    </div>
-                                                    <div className="md:flex hidden">
-                                                        <div className=""><a className="text-link" href="#">Read more</a></div>
-                                                        <div className="ml-auto">Share</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        ))}
                                     </Slider>
                                 </div>
                             </div>
