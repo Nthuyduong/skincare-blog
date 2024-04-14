@@ -39,3 +39,11 @@ export const updateBlogViewCountApi = async (id) => {
 export const fetchRelatedBlogPostsApi = async (id) => {
     return await getApi(`/blogs/related/${id}`);
 }
+
+export const fetchBlogPostsByCategoryApi = async (id, page = 1) => {
+    const res = await getApi(`/blogs/category/${id}`, {
+        page,
+        limit: 10
+    });
+    return res.data;
+}

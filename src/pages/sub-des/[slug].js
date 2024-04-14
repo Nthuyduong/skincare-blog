@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {getCategoryByIdApi} from "@services/categories";
-import {fetchBlogPostsApi} from "@services/blog";
+import {fetchBlogPostsByCategoryApi, fetchBlogPostsApi} from "@services/blog";
 import {formatDate} from "@utils/format";
 import {BASE_URL} from "@utils/apiUtils";
 import Link from "next/link";
@@ -12,6 +12,7 @@ const Sub_destination = ({categoryProps, postsProps, isCsr, slug, page}) => {
 
     const [category, setCategory] = useState(categoryProps);
     const [posts, setPosts] = useState(postsProps);
+    const [postsCol, setPostsCol] = useState([]);
 
     useEffect(() => {
         if (isCsr) {
@@ -19,9 +20,23 @@ const Sub_destination = ({categoryProps, postsProps, isCsr, slug, page}) => {
         }
     }, [router.asPath]);
 
+    useEffect(() => {
+        const col = [[], [], [], []];
+        let check = 0;
+        for (let i = 0; i < posts.length; i ++) {
+            col[check].push(posts[i]);
+            check ++;
+            if (check == 4) {
+                check = 0;
+            }
+        }
+        setPostsCol(col);
+    }, [posts]);
+
     const fetchDataCsr = async () => {
         const res = await Promise.all([
             getCategoryByIdApi(slug),
+            // fetchBlogPostsByCategoryApi(slug)
             fetchBlogPostsApi(page)
         ]);
         setCategory(res[0]?.data || {});
@@ -103,32 +118,34 @@ const Sub_destination = ({categoryProps, postsProps, isCsr, slug, page}) => {
                                 </div>
                             </div>
                             <div className="all-post">
-                                <div className="columns-2 md:columns-4">
-                                    {posts.map((post, index) => (
-                                        <div className="inline-block mb-3 my-4 border-b border-ccc" key={index}>
-                                            <img
-                                                className="w-full"
-                                                src={getImagePreview(post.featured_img)}
-                                                alt="smile"
-                                                loading="lazy"
-                                                height={200}
-                                                width={200}
-                                            />
-                                            <div>
-                                                <div className="py-1 mb-1">
-                                                    {/*<div className="mb-1">*/}
-                                                    {/*    /!*<div*!/*/}
-                                                    {/*    /!*    className="small_text">{formatDate(post.publish_date)}*!/*/}
-                                                    {/*    /!*</div>*!/*/}
-                                                    {/*</div>*/}
-                                                    <div className="medium_text">
-                                                        <Link href={`/article/${post.slug}`}>{post.title}</Link>
+                                <div className="grid grid-cols-4 gap-4">
+                                    {postsCol.map((col, index) => (
+                                        <div className="grid-col" key={index}>
+                                            {col.map((post, index) => (
+                                                <div className="grid-item border-b border-ccc" key={index}>
+                                                    <img
+                                                        className={`w-full object-cover`}
+                                                        src={getImagePreview(post.featured_img)}
+                                                        alt="smile"
+                                                        loading="lazy"
+                                                        height={200}
+                                                        width={200}
+                                                    />
+                                                    
+                                                    <div className="py-1 mb-1">
+                                                        {/*<div className="mb-1">*/}
+                                                        {/*    /!*<div*!/*/}
+                                                        {/*    /!*    className="small_text">{formatDate(post.publish_date)}*!/*/}
+                                                        {/*    /!*</div>*!/*/}
+                                                        {/*</div>*/}
+                                                        <div className="medium_text">
+                                                            <Link href={`/article/${post.slug}`}>{post.title}</Link>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            ))}
                                         </div>
-                                    ))
-                                    }
+                                    ))}
                                 </div>
                             </div>
                         </div>
@@ -154,7 +171,8 @@ Sub_destination.getInitialProps = async ({query}) => {
     try {
         const res = await Promise.all([
             fetch(`${BASE_URL}/api/categories/${slug}`, {cache: 'force-cache'}),
-            fetch(`${BASE_URL}/api/blogs/category/${slug}?page=${page ?? 1}`)
+            // fetch(`${BASE_URL}/api/blogs/category/${slug}?page=${page ?? 1}`)
+            fetch(`${BASE_URL}/api/blogs?page=${page ?? 1}`)
         ])
         const resData = await Promise.all(res.map(r => r.json()));
         const category = resData[0]?.data || {};
