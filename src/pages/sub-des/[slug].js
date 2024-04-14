@@ -36,8 +36,8 @@ const Sub_destination = ({categoryProps, postsProps, isCsr, slug, page}) => {
     const fetchDataCsr = async () => {
         const res = await Promise.all([
             getCategoryByIdApi(slug),
-            // fetchBlogPostsByCategoryApi(slug)
-            fetchBlogPostsApi(page)
+            fetchBlogPostsByCategoryApi(slug)
+            // fetchBlogPostsApi(page)
         ]);
         setCategory(res[0]?.data || {});
         setPosts(res[1]?.results || []);
@@ -171,8 +171,8 @@ Sub_destination.getInitialProps = async ({query}) => {
     try {
         const res = await Promise.all([
             fetch(`${BASE_URL}/api/categories/${slug}`, {cache: 'force-cache'}),
-            // fetch(`${BASE_URL}/api/blogs/category/${slug}?page=${page ?? 1}`)
-            fetch(`${BASE_URL}/api/blogs?page=${page ?? 1}`)
+            fetch(`${BASE_URL}/api/blogs/category/${slug}?page=${page ?? 1}`)
+            // fetch(`${BASE_URL}/api/blogs?page=${page ?? 1}`)
         ])
         const resData = await Promise.all(res.map(r => r.json()));
         const category = resData[0]?.data || {};
