@@ -100,27 +100,26 @@ const Footer = () => {
                     </div>
                     <div className="md:col-span-4 flex items-center col-span-12 footer-sub p-3 md:p-4 lg:p-5">
                         <div className="">
-                            <div className="mb-2">Enter your email address to receive new posts in your inbox and seasonal newsletters with
-                                extra goodies!</div>
+                            <div className="mb-2">Enter your email address to receive new posts in your inbox and seasonal newsletters!</div>
                             <div>
-                                <div className="flex">
-                                    <div className="w-full">
+                                <div className="">
+                                    <div className="w-full flex dark:border-999 dark:focus:border-white focus:border-333 pointer-events-auto border-solid border-b border-ccc focus-visible:outline-none">
                                         <input 
-                                            className="w-full dark:border-999 py-1 pr-2 dark:focus:border-white focus:border-333 pointer-events-auto border-solid border-b border-ccc w-full focus-visible:outline-none" 
+                                            className="w-full py-1 pr-2 w-full"
                                             placeholder="Email address"
                                             onChange={(e) => setEmail(e.target.value)}
                                             onKeyDown={(e) => e.key === 'Enter' && handleSubscribe()}
                                         />
-                                        {error?.email && <div className="text-red mb-3">{error?.email}</div>}
+                                        <button
+                                            className=""
+                                            type="submit"
+                                            onClick={handleSubscribe}
+                                        >
+                                            <img className="w-full dark:hidden" src="../img/icon/arrow-right-circle.svg" alt="smile" loading="lazy"/>
+                                            <img className="w-full hidden dark:block" src="../img/icon/arrow-right-circle-white.svg" alt="smile" loading="lazy"/>
+                                        </button>
                                     </div>
-                                    <button 
-                                        className="" 
-                                        type="submit"
-                                        onClick={handleSubscribe}
-                                    >
-                                        <img className="w-full dark:hidden" src="../img/icon/arrow-right-circle.svg" alt="smile" loading="lazy"/>
-                                        <img className="w-full hidden dark:block" src="../img/icon/arrow-right-circle-white.svg" alt="smile" loading="lazy"/>
-                                    </button>
+                                    {error?.email && <div className="mt-1 small_text text-red mb-3">{error?.email}</div>}
                                 </div>
                             </div>
                         </div>
@@ -130,7 +129,7 @@ const Footer = () => {
             <div className="footer-copy py-2">
                 <div className="grid grid-cols-12">
                     <div className="col-span-12">
-                        <div className="text-center copy-right dark:!text-999">COPYRIGHT © 2023 · Nthduong Blog. ALL RIGHTS RESERVED</div>
+                        <div className="text-center small_text copy-right dark:!text-999 text-333">COPYRIGHT © 2023 · Nthduong Blog. ALL RIGHTS RESERVED</div>
                     </div>
                     {/*<div className="col-span-3">*/}
                     {/*    <div className="my-social flex w-full">*/}

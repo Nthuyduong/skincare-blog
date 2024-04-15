@@ -13,6 +13,12 @@ const Sub_destination = ({categoryProps, postsProps, isCsr, slug, page}) => {
     const [category, setCategory] = useState(categoryProps);
     const [posts, setPosts] = useState(postsProps);
     const [postsCol, setPostsCol] = useState([]);
+    // button sort
+    const [show, setShow] = useState(false);
+    const toggleSort = () => {
+        setShow(!show);
+    };
+
 
     useEffect(() => {
         if (isCsr) {
@@ -79,7 +85,14 @@ const Sub_destination = ({categoryProps, postsProps, isCsr, slug, page}) => {
                                     <div className="!text-black">{category.description}</div>
                                 </div>
                             </div>
-                            <div className="destination-title border-solid border-y border-ccc md:my-5 py-3">
+                            <div className="max-w-screen-sm mx-auto text-center py-4">
+                                <div className="heading_1 !text-white text-black mb-2">{category.name}</div>
+                                <div className="!text-white text-black">
+                                    Browse our dictionary for all the skincare ingredients in your favorite products,
+                                    with trusted insights from dermatologists, cosmetic chemists, and more.
+                                </div>
+                            </div>
+                            <div className="destination-title border-solid border-y !border-999 border-ccc md:my-5 py-3">
                                 <div className="flex flex-col md:flex-row md:justify-between">
                                     {/*breadcrumb*/}
                                     <div className="flex">
@@ -106,22 +119,27 @@ const Sub_destination = ({categoryProps, postsProps, isCsr, slug, page}) => {
                                             {/*    </div>*/}
                                             {/*    <div>4 Categories</div>*/}
                                             {/*</div>*/}
-                                            <div className="flex location-count">
-                                                {/* <div className="pr-1">
-                                                    <img className="icon-sm" src="./img/icon/book-open.svg" alt="#"
-                                                         loading="lazy"></img>
-                                                </div> */}
-                                                {/*<div>50 Articles</div>*/}
-                                                <button></button>
-                                                <div className="sort-menu dark:border-r dark:!border-ccc">
-                                                    <div className="sort-menu-inner">
-                                                        <ul className="">
-                                                            <li className="pb-2"><a href="#">All articles</a></li>
-                                                            <li className="pb-2 my-2"><a href="#">Recently update</a></li>
-                                                            <li className="pb-2 my-2"><a href="#">Oldest articles</a></li>
-                                                        </ul>
+                                            <div className="flex location-count relative">
+                                                <button
+                                                    className="flex"
+                                                    type="button"
+                                                    onClick={toggleSort}
+                                                >
+                                                    <span className="mr-3">All articles</span>
+                                                    <img className="icon-ssm dark:hidden" src="/img/icon/sort-bl.svg" alt="smile" loading="lazy" />
+                                                    <img className="icon-ssm hidden dark:block" src="/img/icon/sort-wh.svg" alt="smile" loading="lazy" />
+                                                </button>
+                                                {show && (
+                                                    <div className="absolute mt-3 w-max right-0 p-3 top-full border border-solid border-x border-b !border-999 border-ccc !bg-black bg-white">
+                                                        <div className="sort-menu-inner">
+                                                            <ul className="">
+                                                                <li className="pb-2"><a href="#">All articles</a></li>
+                                                                <li className="pb-2 my-2"><a href="#">Recently update</a></li>
+                                                                <li className=""><a href="#">Oldest articles</a></li>
+                                                            </ul>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                )}
                                             </div>
                                         </div>
                                     </div>

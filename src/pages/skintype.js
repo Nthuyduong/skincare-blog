@@ -86,15 +86,15 @@ const Skintype = () => {
                     <div className="md:col-span-4"></div>
                 </div>
                 <div className="pt-5 head-content md:relative -top-0 md:-top-8">
-                    <div className="text-center mb-6">
+                    <div className="text-center mb-4">
                         <div className="heading text-center my-3">Skin type & History</div>
                         <div className="heading_4">It’s All About Me</div>
                     </div>
-                    <div className="w-1/4 h-px bg-ccc"></div>
+                    <div className="w-1/6 h-px bg-ccc !bg-333 mx-auto mb-3"></div>
                     <div className="md:grid md:grid-cols-12">
                         <div className="md:col-span-3"></div>
-                        <div className="md:col-span-6 heading_6 text-center">
-                            <div className="">Sharing my skincare journey from the past to the present, along with my routine. I hope it
+                        <div className="md:col-span-6 heading_6 flex justify-center">
+                            <div className="max-w-screen-sm text-center">Sharing my skincare journey from the past to the present, along with my routine. I hope it
                                 provides helpful insights for you!</div>
                         </div>
                         <div className="md:col-span-3"></div>

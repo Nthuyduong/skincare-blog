@@ -33,6 +33,7 @@ module.exports = {
       'xl': ['50px','54px']
     },
     spacing: {
+      'px': '1px',
       '0': '0px',
       '1': '8px',
       '2': '12px',

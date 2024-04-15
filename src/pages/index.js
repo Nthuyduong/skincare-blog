@@ -60,10 +60,12 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                             {popular.map((blog, index) => (
                                 <div className="justify-center" key={index}>
                                     <div className="col-span-12 md:col-span-4">
-                                        <div className="">
-                                            <Link href={"/article/" + blog.slug}>
-                                                <img className="set-img" src={BASE_URL + '/storage/' + blog?.featured_img} alt="smile" loading="lazy"/>
-                                            </Link>
+                                        <div className="hover-img">
+                                            <div className="img-inner">
+                                                <Link href={"/article/" + blog.slug}>
+                                                    <img className="set-img" src={BASE_URL + '/storage/' + blog?.featured_img} alt="smile" loading="lazy"/>
+                                                </Link>
+                                            </div>
                                         </div>
                                         <div className="">
                                             <div className="article-info md:!border-b md:!border-ccc border-b-0 py-2 mb-2">
@@ -345,7 +347,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                 </div>
             </div>
             <div className="">
-                <div className="relative flex py-5 items-center gap-1">
+                <div className="relative flex py-4 items-center gap-1">
                     <div className="flex-grow bg-black dark:bg-white" style={{height: '1px'}}></div>
                     <span className="heading_2">Follow us on Instagram</span>
                     <div className="flex-grow bg-black dark:bg-white" style={{height: '1px'}}></div>

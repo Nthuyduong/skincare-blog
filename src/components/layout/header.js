@@ -318,7 +318,7 @@ const Header = () => {
                                 <div className="col-span-2"></div>
                                 <div className="col-span-8 self-center">
                                     <div className="flex search-box">
-                                        <div className="flex mr-auto w-full">
+                                        <div className="flex mr-auto w-full border-solid border-b border-ccc !border-999 focus-visible:outline-none pointer-events-auto dark:focus:border-white focus:border-333 searchbar-head">
                                             <div className="flex align-center self-center pr-2">
                                                 <img className="icon-ssm dark:hidden" src="/img/icon/search.svg" alt="smile" loading="lazy" />
                                                 <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy" />
@@ -326,20 +326,20 @@ const Header = () => {
                                             <div className="my-search-bar nav-search w-full">
                                                 <input
                                                     ref={searchRef}
-                                                    className="border-solid border-b border-ccc !border-999 focus-visible:outline-none pointer-events-auto dark:focus:border-white focus:border-333 searchbar-head p-1 w-full"
+                                                    className="p-1 w-full"
                                                     placeholder="Enter article name and hit enter..."
                                                     onChange={(e) => { setKeywordType(e.target.value) }}
                                                     onKeyDown={(e) => e.key === 'Enter' && handleModalSearch()}
                                                     value={keywordType}
                                                 />
                                             </div>
+                                            <button type="button"
+                                                    onClick={(e) => {setKeywordType("")}}
+                                                    className="relative rounded-full bg-gray-800 pl-1 py-1 text-gray-400 focus:outline-none">
+                                                <img className="icon-ssm dark:hidden" src="/img/icon/x.svg" alt="smile" loading="lazy" />
+                                                <img className="icon-ssm hidden dark:block" src="/img/icon/x-light.svg" alt="smile" loading="lazy" />
+                                            </button>
                                         </div>
-                                        <button type="button"
-                                            onClick={(e) => {setKeywordType("")}}
-                                            className="relative rounded-full bg-gray-800 p-1 text-gray-400 focus:outline-none">
-                                            <img className="icon-ssm dark:hidden" src="/img/icon/x.svg" alt="smile" loading="lazy" />
-                                            <img className="icon-ssm hidden dark:block" src="/img/icon/x-light.svg" alt="smile" loading="lazy" />
-                                        </button>
                                     </div>
                                 </div>
                                 <div className="col-span-2 close-search">
@@ -430,7 +430,7 @@ const Header = () => {
                                                 {results.length > 0 && (
                                                     <div className="">
                                                         <div
-                                                            className="mt-4 border border-solid !border-999 border-ccc py-1 px-3 flex justify-center cursor-pointer"
+                                                            className="mt-3 py-1 px-3 flex justify-center cursor-pointer"
                                                             onClick={handleLoadMore}
                                                         >
                                                             Load more

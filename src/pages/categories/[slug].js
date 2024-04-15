@@ -82,14 +82,18 @@ const Categories = ({ categoryProps = [], subCategoriesProps = [], isCsr, slug }
                         <div className="col-span-6 md:col-span-3 destination-cate mb-4" key={index}>
                             <div className="pb-2 heading_6">0{index + 1}/</div>
                             {/*<img className="w-full" src="/img/destination/des2.jpg" alt="smile" loading="lazy"/>*/}
-                            <img 
-                                className="w-full" 
-                                src={getImagePreview(subCategory.featured_img)} 
-                                alt="smile" 
-                                loading="lazy"
-                                height={200}
-                                width={200}
-                            />
+                              <div className="hover-img">
+                                  <div className="img-inner">
+                                      <img
+                                          className="w-full"
+                                          src={getImagePreview(subCategory.featured_img)}
+                                          alt="smile"
+                                          loading="lazy"
+                                          height={200}
+                                          width={200}
+                                      />
+                                  </div>
+                              </div>
                             <div className="destination-cate-content">
                                 <div className="flex items-center border-solid border-b border-ccc dark:border-999">
                                     <div className="heading_6 my-1 mr-auto">
