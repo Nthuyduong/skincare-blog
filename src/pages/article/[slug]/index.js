@@ -235,7 +235,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                             duration: 400,
                                             auto: false,
                                             autoDuration: 1000,
-                                            gap: 40,
+                                            gap: 30,
                                             gapMobile: 10,
                                         }}
                                     >

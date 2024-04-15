@@ -9,8 +9,12 @@ const Skintype = () => {
     const faqData = [
         {
             question: 'What is your skin type?',
-            answer: 'Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque' +
-                'vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor',
+            answer:
+                'Five years ago, my skin was a combination of oily, prone to acne with hidden and slight inflammatory acne,' +
+                'and had enlarged pores. Presently, due to skincare product use, my skin is combination dry, especially during winter,' +
+                'with occasional very dry spells. In warmer weather, the T-zone and cheeks can get oily. Thanks to a consistent' +
+                'and suitable skincare routine, acne occurrences are rare, typically limited to my menstrual period or' +
+                'periods of disrupted sleep and nutrition.',
         },
         {
             question: 'Recommend products to treat you dry skin',
@@ -23,18 +27,24 @@ const Skintype = () => {
                 'vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor',
         },
         {
-            question: 'How did you do to treat your acne?',
-            answer: 'Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque' +
-                'vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor',
+            question: 'How did you go about treating your acne?',
+            answer:
+                'To address my acne, I ensured my skin stayed clean by washing it gently twice a day with a mild cleanser.' +
+                'Prioritizing sufficient sleep and including ample fruits and vegetables in my diet while reducing sugar and' +
+                'dairy intake were crucial steps. Hydration played a significant role, so I made a point to drink plenty of' +
+                'water daily. Additionally, I incorporated targeted acne treatment products and managed stress levels.' +
+                'Staying active with regular workouts, like biking and morning runs, was also part of my routine. And dont' +
+                'forget, staying happy is essential—it not only contributes to inner beauty but also reflects on your skin' +
+                'health positively.',
         },
         {
-            question: 'The must-have skincare products you need?',
-            answer: 'Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque' +
-                'vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor',
+            question: 'What skincare product is a must-have for you?',
+            answer:
+                'Sunscreen is my go-to skincare essential that I never skip. It is crucial for protecting my skin from harmful UV rays, preventing sunburn, premature aging, and reducing the risk of skin cancer. I apply it every day, rain or shine, to keep my skin healthy and protected.',
         },
         {
             question: 'What is your current skincare routine?',
-            answer: 'Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque' +
+            answer:
                 'vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor',
         },
         {
@@ -43,9 +53,14 @@ const Skintype = () => {
                 'vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor',
         },
         {
-            question: 'A different method to achieve healthy and beautiful skin',
-            answer: 'Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat quisque' +
-                'vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor',
+            question: 'An alternative approach to attaining radiant and healthy skin',
+            answer:
+                'Achieving healthy and beautiful skin involves adopting some essential habits. Firstly, ensure you get enough sleep,' +
+                'ideally around 7-9 hours each night, as it allows your skin to regenerate and repair. Make sure to include plenty of' +
+                'vegetables and fruits in your diet while cutting down on sugar and fast food, as these provide vital nutrients for ' +
+                'skin health. Keep yourself hydrated by drinking plenty of water—aim for around 15.5 cups' +
+                'for males and 11.5 cups for females daily—to maintain skin hydration and elasticity. Lastly, prioritize happiness ' +
+                'and relaxation, as stress can negatively affect skin health, leading to breakouts and dullness.',
         }
     ];
 

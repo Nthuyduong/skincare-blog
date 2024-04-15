@@ -347,7 +347,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                 </div>
             </div>
             <div className="">
-                <div className="relative flex py-4 items-center gap-1">
+                <div className="relative flex py-3 items-center gap-1">
                     <div className="flex-grow bg-black dark:bg-white" style={{height: '1px'}}></div>
                     <span className="heading_2">Follow us on Instagram</span>
                     <div className="flex-grow bg-black dark:bg-white" style={{height: '1px'}}></div>

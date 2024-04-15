@@ -80,14 +80,15 @@ const Sub_destination = ({categoryProps, postsProps, isCsr, slug, page}) => {
                                     alt="smile"
                                     loading="lazy"
                                 />
-                                <div className="relative pl-7 py-4 md:py-8">
-                                    <div className="heading !text-black mb-2">{category.name}</div>
+                                <div className="relative pl-5 pb-5 py-10">
+                                    <div className="heading_1 !text-black mb-2">{category.name}</div>
                                     <div className="!text-black">{category.description}</div>
                                 </div>
                             </div>
                             <div className="max-w-screen-sm mx-auto text-center py-4">
-                                <div className="heading_1 !text-white text-black mb-2">{category.name}</div>
-                                <div className="!text-white text-black">
+                                <div className="heading_1 text-black dark:text-white mb-2">{category.name}</div>
+                                <div className="h-px w-1/6 bg-333 dark:bg-white mx-auto mb-3"></div>
+                                <div className="text-black dark:text-white">
                                     Browse our dictionary for all the skincare ingredients in your favorite products,
                                     with trusted insights from dermatologists, cosmetic chemists, and more.
                                 </div>
