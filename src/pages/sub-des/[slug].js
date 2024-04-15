@@ -111,7 +111,17 @@ const Sub_destination = ({categoryProps, postsProps, isCsr, slug, page}) => {
                                                     <img className="icon-sm" src="./img/icon/book-open.svg" alt="#"
                                                          loading="lazy"></img>
                                                 </div> */}
-                                                <div>50 Articles</div>
+                                                {/*<div>50 Articles</div>*/}
+                                                <button></button>
+                                                <div className="sort-menu dark:border-r dark:!border-ccc">
+                                                    <div className="sort-menu-inner">
+                                                        <ul className="">
+                                                            <li className="pb-2"><a href="#">All articles</a></li>
+                                                            <li className="pb-2 my-2"><a href="#">Recently update</a></li>
+                                                            <li className="pb-2 my-2"><a href="#">Oldest articles</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
