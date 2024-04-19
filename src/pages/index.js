@@ -346,23 +346,23 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                     </div>
                 </div>
             </div>
-            <div className="">
-                <div className="relative flex py-3 items-center gap-1">
-                    <div className="flex-grow bg-black dark:bg-white" style={{height: '1px'}}></div>
-                    <span className="heading_2">Follow us on Instagram</span>
-                    <div className="flex-grow bg-black dark:bg-white" style={{height: '1px'}}></div>
-                </div>
-                <Scroller>
-                    <img className="w-full" src="./img/home/ig1.jpg" alt="smile" />
-                    <img className="w-full" src="./img/home/ig2.jpg" alt="smile" />
-                    <img className="w-full" src="./img/home/ig3.jpg" alt="smile" />
-                    <img className="w-full" src="./img/home/ig4.jpg" alt="smile" />
-                    <img className="w-full" src="./img/home/ig5.jpg" alt="smile" />
-                    <img className="w-full" src="./img/home/ig6.jpg" alt="smile" />
-                    <img className="w-full" src="./img/home/ig7.jpg" alt="smile" />
-                    <img className="w-full" src="./img/home/ig8.jpg" alt="smile" />
-                </Scroller>
-            </div>
+            {/*<div className="">*/}
+            {/*    <div className="relative flex py-3 items-center gap-1">*/}
+            {/*        <div className="flex-grow bg-black dark:bg-white" style={{height: '1px'}}></div>*/}
+            {/*        <span className="heading_2">Follow us on Instagram</span>*/}
+            {/*        <div className="flex-grow bg-black dark:bg-white" style={{height: '1px'}}></div>*/}
+            {/*    </div>*/}
+            {/*    <Scroller>*/}
+            {/*        <img className="w-full" src="./img/home/ig1.jpg" alt="smile" />*/}
+            {/*        <img className="w-full" src="./img/home/ig2.jpg" alt="smile" />*/}
+            {/*        <img className="w-full" src="./img/home/ig3.jpg" alt="smile" />*/}
+            {/*        <img className="w-full" src="./img/home/ig4.jpg" alt="smile" />*/}
+            {/*        <img className="w-full" src="./img/home/ig5.jpg" alt="smile" />*/}
+            {/*        <img className="w-full" src="./img/home/ig6.jpg" alt="smile" />*/}
+            {/*        <img className="w-full" src="./img/home/ig7.jpg" alt="smile" />*/}
+            {/*        <img className="w-full" src="./img/home/ig8.jpg" alt="smile" />*/}
+            {/*    </Scroller>*/}
+            {/*</div>*/}
         </div>
     )
 }
