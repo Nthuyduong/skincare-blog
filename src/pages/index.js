@@ -176,7 +176,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                         <div className="md:py-3 md:flex justify-center">
                             {/*breadcrumb*/}
                             <div className="self-center mb-2 md:mb-0">
-                                <div className="animate animation-header heading_3">Skincare Guides & Tutorials</div>
+                                <div className="animate slideInUp heading_3">Skincare Guides & Tutorials</div>
                             </div>
                             {/*Change layout*/}
                             <div className="self-center flex ml-auto">
@@ -333,11 +333,11 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                             </div>
                             <div className="ml-5 text-black flex items-center md:pr-8">
                                 <div>
-                                    <div className="mb-3 heading_2">Subscribe for newsletters</div>
-                                    <div>
+                                    <div className="animate slideInUp animate--delay-fast mb-3 heading_2">Subscribe for newsletters</div>
+                                    <div className="animate slideInUp animate--delay-medium">
                                         Receive the latest updates straight to your inbox. Get stories, exclusive offers, and promotions when you sign up.
                                     </div>
-                                    <div className="mt-4">
+                                    <div className="mt-4 animate animate--delay-slow slideInUp">
                                         <button className="px-4 my-btn-pr dark:border-white" type="submit">Subscribe</button>
                                     </div>
                                 </div>

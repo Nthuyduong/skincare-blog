@@ -1,24 +1,65 @@
-import React, {useState, useEffect} from "react";
-import {getCategoryByIdApi} from "@services/categories";
-import {fetchBlogPostsByCategoryApi, fetchBlogPostsApi} from "@services/blog";
-import {formatDate} from "@utils/format";
-import {BASE_URL} from "@utils/apiUtils";
+import React, { useState, useEffect } from "react";
+import { getCategoryByIdApi } from "@services/categories";
+import { fetchBlogPostsByCategoryApi, fetchPopularBlogPostsApi } from "@services/blog";
+import { BASE_URL } from "@utils/apiUtils";
 import Link from "next/link";
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
+import dynamic from "next/dynamic";
+const Slider = dynamic(() => import("@components/common/slider"), { ssr: false });
+import SkeletonImage from "@components/common/loading/skeletonImage";
 
-const Sub_destination = ({categoryProps, postsProps, isCsr, slug, page}) => {
+const SORT = [
+    {
+        key: 'publish_date:desc',
+        label: 'Date: Newest to Oldest'
+    },
+    {
+        key: 'publish_date:asc',
+        label: 'Date: Oldest to Newest'
+    },
+    {
+        key: 'title:asc',
+        label: 'Title: A to Z'
+    },
+    {
+        key: 'title:desc',
+        label: 'Title: Z to A'
+    }
+]
+
+const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
 
     const router = useRouter();
 
     const [category, setCategory] = useState(categoryProps);
     const [posts, setPosts] = useState(postsProps);
     const [postsCol, setPostsCol] = useState([]);
+    const [populars, setPopulars] = useState([]);
+    const [sort, setSort] = useState('');
+    const [loading, setLoading] = useState(false);
+
     // button sort
     const [show, setShow] = useState(false);
     const toggleSort = () => {
         setShow(!show);
     };
 
+    useEffect(() => {
+        fetchPopular();
+        window.addEventListener('scroll', () => {
+            setShow(false);
+        });
+        return () => {
+            window.removeEventListener('scroll', () => {
+                setShow(false);
+            });
+        }
+    }, []);
+
+    const fetchPopular = async () => {
+        const res = await fetchPopularBlogPostsApi();
+        setPopulars(res);
+    }
 
     useEffect(() => {
         if (isCsr) {
@@ -38,6 +79,24 @@ const Sub_destination = ({categoryProps, postsProps, isCsr, slug, page}) => {
         }
         setPostsCol(col);
     }, [posts]);
+
+    useEffect(() => {
+        if (sort) {
+            fetchPost(page);
+        }
+    }, [sort]);
+
+    const fetchPost = async (page) => {
+        setLoading(true);
+        const res = await fetchBlogPostsByCategoryApi(slug, page, 10, sort.key);
+        setPosts(res?.results || []);
+        setLoading(false);
+    }
+
+    const handleSort = (key) => {
+        setSort(key);
+        setShow(false);
+    }
 
     const fetchDataCsr = async () => {
         const res = await Promise.all([
@@ -72,19 +131,50 @@ const Sub_destination = ({categoryProps, postsProps, isCsr, slug, page}) => {
                         {/*        </ul>*/}
                         {/*    </div>*/}
                         {/*</div>*/}
-                        <div className="col-span-12 right-all-posts">
-                            <div className="relative title-page overflow-hidden">
-                                <img
-                                    className="absolute w-100 w-auto h-full md:h-auto md:w-full"
-                                    src="../img/subdes/sub-banner.png"
-                                    alt="smile"
-                                    loading="lazy"
-                                />
-                                <div className="relative pl-5 pb-5 py-10">
-                                    <div className="heading_1 !text-black mb-2">{category.name}</div>
-                                    <div className="!text-black">{category.description}</div>
-                                </div>
-                            </div>
+                        { populars.length > 0 && (
+                            <Slider
+                                configs={{
+                                    sliderPerRow: 1,
+                                    sliderPerRowMobile: 1,
+                                    allowDrag: true,
+                                    duration: 400,
+                                    auto: true,
+                                    autoDuration: 3000,
+                                    gap: 0,
+                                    gapMobile: 10,
+                                    navigator: false,
+                                    paginate: true,
+                                    process: false,
+                                }}
+                            >
+                                {populars.map((post, index) => (
+                                    <div className="relative title-page overflow-hidden" key={index}>
+                                        { post.banner_img ? (
+                                            <img
+                                                className="absolute w-full h-full md:h-full md:w-full object-cover"
+                                                src={BASE_URL + '/storage/' + post?.banner_img}
+                                                alt="smile"
+                                                loading="lazy"
+                                            />
+                                        ) : (
+                                            <img
+                                                className="absolute w-full h-full md:h-full md:w-full object-cover"
+                                                src={BASE_URL + '/storage/' + category?.featured_img}
+                                                alt="smile"
+                                                loading="lazy"
+                                            />
+                                        )}
+                                        <div className="relative pl-5 h-[400px]">
+                                            <div className="heading_1 !text-white mb-2">{post.title}</div>
+                                            <div className="!text-white">{ post.author }</div>
+                                            <div className="!text-white">{ post.categories.map((category) => {return category.name}).join(' | ') }</div>
+                                            <div className="small_text">About {post?.estimate_time} minutes to read</div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </Slider>
+                        )}
+                        <div className="col-span-12 right-all-posts">                            
                             <div className="max-w-screen-sm mx-auto text-center py-4">
                                 <div className="heading_1 text-black dark:text-white mb-2">{category.name}</div>
                                 <div className="h-px w-1/6 bg-333 dark:bg-white mx-auto mb-3"></div>
@@ -126,7 +216,7 @@ const Sub_destination = ({categoryProps, postsProps, isCsr, slug, page}) => {
                                                     type="button"
                                                     onClick={toggleSort}
                                                 >
-                                                    <span className="mr-3">All articles</span>
+                                                    <span className="mr-3">{sort ? sort.label : 'All articles'}</span>
                                                     <img className="icon-ssm dark:hidden" src="/img/icon/sort-bl.svg" alt="smile" loading="lazy" />
                                                     <img className="icon-ssm hidden dark:block" src="/img/icon/sort-wh.svg" alt="smile" loading="lazy" />
                                                 </button>
@@ -134,9 +224,9 @@ const Sub_destination = ({categoryProps, postsProps, isCsr, slug, page}) => {
                                                     <div className="absolute mt-3 w-max right-0 p-3 top-full border border-solid border-x border-b !border-999 border-ccc !bg-black bg-white">
                                                         <div className="sort-menu-inner">
                                                             <ul className="">
-                                                                <li className="pb-2"><a href="#">All articles</a></li>
-                                                                <li className="pb-2 my-2"><a href="#">Recently update</a></li>
-                                                                <li className=""><a href="#">Oldest articles</a></li>
+                                                                {SORT.map((item, index) => (
+                                                                    <li key={index} className="pb-2 cursor-pointer" onClick={() => {handleSort(item)}}>{item.label}</li>
+                                                                ))}
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -148,33 +238,50 @@ const Sub_destination = ({categoryProps, postsProps, isCsr, slug, page}) => {
                             </div>
                             <div className="all-post">
                                 <div className="grid grid-cols-4 gap-4">
-                                    {postsCol.map((col, index) => (
-                                        <div className="grid-col" key={index}>
-                                            {col.map((post, index) => (
-                                                <div className="grid-item border-b border-ccc" key={index}>
-                                                    <img
-                                                        className={`w-full object-cover`}
-                                                        src={getImagePreview(post.featured_img)}
-                                                        alt="smile"
-                                                        loading="lazy"
-                                                        height={200}
-                                                        width={200}
-                                                    />
-                                                    
-                                                    <div className="py-1 mb-1">
-                                                        {/*<div className="mb-1">*/}
-                                                        {/*    /!*<div*!/*/}
-                                                        {/*    /!*    className="small_text">{formatDate(post.publish_date)}*!/*/}
-                                                        {/*    /!*</div>*!/*/}
-                                                        {/*</div>*/}
-                                                        <div className="medium_text">
-                                                            <Link href={`/article/${post.slug}`}>{post.title}</Link>
+                                    {loading ? (
+                                        <>
+                                            {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => (
+                                                <SkeletonImage key={index} />
+                                            ))}
+                                        </>
+                                    ) : (
+                                        <>
+                                            {postsCol.map((col, index) => (
+                                                <div className="grid-col" key={index}>
+                                                    {col.map((post, index) => (
+                                                        <div className="grid-item border-b border-ccc" key={index}>
+                                                            <Link className="" href={`/article/${post.slug}`}>
+                                                                <div className="hover-img">
+                                                                    <div className="img-inner">
+                                                                        <img
+                                                                            className={`w-full object-cover`}
+                                                                            src={getImagePreview(post.featured_img)}
+                                                                            alt="smile"
+                                                                            loading="lazy"
+                                                                            height={200}
+                                                                            width={200}
+                                                                        />
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </Link>
+                                                            
+                                                            <div className="py-1 mb-1">
+                                                                {/*<div className="mb-1">*/}
+                                                                {/*    /!*<div*!/*/}
+                                                                {/*    /!*    className="small_text">{formatDate(post.publish_date)}*!/*/}
+                                                                {/*    /!*</div>*!/*/}
+                                                                {/*</div>*/}
+                                                                <div className="medium_text">
+                                                                    <Link href={`/article/${post.slug}`}>{post.title}</Link>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
+                                                    ))}
                                                 </div>
                                             ))}
-                                        </div>
-                                    ))}
+                                        </>
+                                    )}
                                 </div>
                             </div>
                         </div>

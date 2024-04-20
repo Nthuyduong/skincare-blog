@@ -89,7 +89,6 @@ export const usePost = () => {
         showLoading();
         const res = await updateBlogPostApi(data.id, formData);
         hide();
-        console.log(res);
         if (res?.status == 1) {
             dispatch(fetchBlogPostsDetailAction(res.data));
             addToast('Post updated!', 'success');

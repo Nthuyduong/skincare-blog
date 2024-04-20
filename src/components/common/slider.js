@@ -20,7 +20,9 @@ const Slider = ({
         autoDuration: 1000,
         gap: 10,
         gapMobile: 10,
+        navigator: true,
         process: false,
+        paginate: false,
     }
 
     // toán tử spread (...) để tạo một bản sao của tất cả các thuộc tính trong đối tượng defaultConfigs
@@ -131,7 +133,6 @@ const Slider = ({
     }
 
     const resolveButton = () => {
-        console.log(isDisablePrev())
         if (isDisablePrev()) {
             setDisablePrev(true);
         } else {
@@ -216,21 +217,33 @@ const Slider = ({
                     </div>
                 </div>
             </div>
-
-            <div className="slider-control">
-                <div className={`prev-button ${ disablePrev ? 'btn-disable': '' }`}>
-                    <button className="my-prev-btn bg-white dark:bg-black" onClick={prevSlide}>
-                        <img className="w-full icon-sm dark:hidden" src="/img/icon/chevron-left-black.svg" alt="smile" loading="lazy"/>
-                        <img className="w-full icon-sm hidden dark:block" src="/img/icon/chevron-left.svg" alt="smile" loading="lazy"/>
-                    </button>
+            {configs.navigator && (
+                <div className="slider-control">
+                    <div className={`prev-button ${ disablePrev ? 'btn-disable': '' }`}>
+                        <button className="my-prev-btn bg-white dark:bg-black" onClick={prevSlide}>
+                            <img className="w-full icon-sm dark:hidden" src="/img/icon/chevron-left-black.svg" alt="smile" loading="lazy"/>
+                            <img className="w-full icon-sm hidden dark:block" src="/img/icon/chevron-left.svg" alt="smile" loading="lazy"/>
+                        </button>
+                    </div>
+                    <div className={`next-button ${ disableNext ? 'btn-disable': ''}`}>
+                        <button className="my-next-btn bg-white dark:bg-black" onClick={nextSlide}>
+                            <img className="w-full icon-sm dark:hidden" src="/img/icon/chevron-right-black.svg" alt="smile" loading="lazy"/>
+                            <img className="w-full icon-sm hidden dark:block" src="/img/icon/chevron-right.svg" alt="smile" loading="lazy"/>
+                        </button>
+                    </div>
                 </div>
-                <div className={`next-button ${ disableNext ? 'btn-disable': ''}`}>
-                    <button className="my-next-btn bg-white dark:bg-black" onClick={nextSlide}>
-                        <img className="w-full icon-sm dark:hidden" src="/img/icon/chevron-right-black.svg" alt="smile" loading="lazy"/>
-                        <img className="w-full icon-sm hidden dark:block" src="/img/icon/chevron-right.svg" alt="smile" loading="lazy"/>
-                    </button>
+            )}
+            {configs.paginate && (
+                <div className="slider-paginate">
+                    {Array.from({ length: countChildren }, (_, i) => (
+                        <div
+                            key={i}
+                            className={`paginate-item ${active === i ? 'active' : ''}`}
+                            onClick={() => changeSlide(i)}
+                        ></div>
+                    ))}
                 </div>
-            </div>
+            )}
             {configs.process && (
                 <div className="slider-process" >
                     <div ref={refProcess} className="process-wrp bg-black dark:bg-white" ></div>

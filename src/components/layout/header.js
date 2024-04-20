@@ -29,6 +29,7 @@ const Header = () => {
             setShoww(false);
             setShowMenu(false);
         });
+
         return () => {
             router.events.off('routeChangeStart', () => {
                 setShoww(false);
@@ -36,6 +37,43 @@ const Header = () => {
             });
         }
     }, [])
+
+    // copy
+    useEffect(() => {
+        function handleNavHover() {
+            const navItems = document.querySelectorAll('.header-nav-item');
+            const hoverBar = document.querySelector('.header-hover-bar');
+            const headerNav = document.querySelector('.header-nav');
+            function activeNav(item) {
+                if (hoverBar) {
+                    const navText = item.querySelector('.nav-text');
+                    hoverBar.style.width = `${navText.offsetWidth}px`;
+                    hoverBar.style.transform = `translateX(${item.offsetLeft}px)`;
+                    hoverBar.style.opacity = '1';
+                }
+            }
+            navItems.forEach((item) => {
+                const dataNav = item.getAttribute('data-nav');
+                if (dataNav === router.asPath) {
+                    activeNav(item);
+                }
+                item.addEventListener('mouseenter', () => {
+                    activeNav(item);
+                })
+            })
+            headerNav.addEventListener('mouseleave', () => {
+                const checkActive = document.querySelector('.header-nav-item[data-nav="' + router.asPath + '"]');
+                if (!checkActive) {
+                    if (hoverBar) {
+                        hoverBar.style.width = '0';
+                    }
+                } else {
+                    activeNav(checkActive);
+                }
+            })
+        }
+        handleNavHover();
+    }, [router.asPath]);
 
     useEffect(() => {
         const { keyword } = router.query;
@@ -483,11 +521,14 @@ const Header = () => {
                                 </div>
                                 <div className="hidden lg:!block dark:text-black flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                                     <div className="w-full hidden sm:ml-0 md:ml-0 sm:block">
-                                        <div className="flex space-x-4 justify-center">
+                                        <div className="header-nav relative flex space-x-4 justify-center">
                                             {/*Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white"*/}
-                                            <div className="relative bg-gray-900 guide-navdrop rounded-md">
+                                            <div 
+                                                className="header-nav-item relative bg-gray-900 guide-navdrop rounded-md"
+                                                data-nav="/categories/1"
+                                            >
                                                 <div className="navdrop-title pr-3 py-4">
-                                                    <Link href={`/categories/1`} className="dark:text-white flex nav-link">{trans.header.guide}
+                                                    <Link href={`/categories/1`} className="dark:text-white flex nav-link"><span className="nav-text">{trans.header.guide}</span>
                                                         <span className="ml-1 dark:hidden flex items-center">
                                                             <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="lazy" />
                                                         </span>
@@ -511,9 +552,12 @@ const Header = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="relative destination-navdrop">
+                                            <div 
+                                                className="header-nav-item relative destination-navdrop"
+                                                data-nav="/categories/2"
+                                            >
                                                 <div className="navdrop-title z-50 text-gray-300 hover:text-gray rounded-md pr-3 py-4">
-                                                    <Link href={`/categories/2`} className="dark:text-white flex nav-link">Skincare nerd
+                                                    <Link href={`/categories/2`} className="dark:text-white flex nav-link"><span className="nav-text">Skincare nerd</span>
                                                         <span className="ml-1 dark:hidden flex items-center">
                                                             <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="lazy" />
                                                         </span>
@@ -535,15 +579,21 @@ const Header = () => {
                                                 </div>
                                             </div>
 
-                                            <div className="text-gray-300 hover:text-gray rounded-md pr-3 py-4">
-                                                <Link href={ROUTER.INGREDIENT} className="dark:text-white nav-link">Skincare ingredients</Link>
+                                            <div 
+                                                className="header-nav-item text-gray-300 hover:text-gray rounded-md pr-3 py-4"
+                                                data-nav={ROUTER.INGREDIENT}
+                                            >
+                                                <Link href={ROUTER.INGREDIENT} className="dark:text-white nav-link"><span className="nav-text">Skincare ingredients</span></Link>
                                             </div>
                                             {/*<div className="text-gray-300 hover:text-gray rounded-md pr-3 py-4">*/}
                                             {/*    <Link href={ROUTER.SUBDES} className="dark:text-white nav-link">Testings & Reviews</Link>*/}
                                             {/*</div>*/}
-                                            <div className="relative destination-navdrop">
+                                            <div 
+                                                className="header-nav-item relative destination-navdrop"
+                                                data-nav="/about"
+                                            >
                                                 <div className="navdrop-title z-50 text-gray-300 hover:text-gray py-4 pr-0">
-                                                    <Link href="#" className="dark:text-white nav-link flex">About
+                                                    <Link href="#" className="dark:text-white nav-link flex"><span className="nav-text">About</span>
                                                         <span className="ml-1 dark:hidden flex items-center">
                                                             <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="lazy" />
                                                         </span>
@@ -564,9 +614,14 @@ const Header = () => {
                                                     {/*</div>*/}
                                                 </div>
                                             </div>
-                                            <div className="text-gray-300 hover:text-gray rounded-md py-4">
-                                                <Link href={ROUTER.CONTACT} className="dark:text-white nav-link">Contact us</Link>
+                                            <div 
+                                                className="header-nav-item text-gray-300 hover:text-gray rounded-md py-4"
+                                                data-nav={ROUTER.CONTACT}
+                                            >
+                                                <Link href={ROUTER.CONTACT} className="dark:text-white nav-link"><span className="nav-text">Contact us</span></Link>
                                             </div>
+                                            {/*Nên copy Animation border button hover xinh xinh */}
+                                            <div className="header-hover-bar"></div>
                                         </div>
                                     </div>
                                     {/*<div className="flex flex-shrink-0 items-center">*/}

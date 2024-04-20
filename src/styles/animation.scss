@@ -11,9 +11,14 @@
 .animate.animate--infinite {
     animation-iteration-count: infinite;
 }
-  
-.animate.animate--delay-1s {
+.animate.animate--delay-slow {
     animation-delay: 1s;
+}
+.animate.animate--delay-medium {
+    animation-delay: 0.5s;
+}
+.animate.animate--delay-fast {
+    animation-delay: 0.25s;
 }
   
 .animate.animate--fast {
@@ -306,4 +311,16 @@
 .wrp-dragging {
     padding: 0;
     border: none;
+}
+// copy (Dương xinh gái)
+.header-hover-bar {
+    position: absolute;
+    opacity: 0;
+    height: 2px;
+    width: 100px;
+    background-color: #ccc;
+    left: 0;
+    bottom: 20px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    margin: 0 !important;
 }

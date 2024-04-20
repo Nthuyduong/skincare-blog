@@ -76,6 +76,27 @@
     width: 0%;
     height: 2px;
 }
+.slider-paginate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.paginate-item {
+    cursor: pointer;
+    height: 8px;
+    width: 8px;
+    border-radius: 5px;
+    background: #ccc;
+}
+.paginate-item.active {
+    background: #fff;
+}
 
 // css for modal
 

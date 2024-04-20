@@ -40,10 +40,16 @@ export const fetchRelatedBlogPostsApi = async (id) => {
     return await getApi(`/blogs/related/${id}`);
 }
 
-export const fetchBlogPostsByCategoryApi = async (id, page = 1) => {
+export const fetchBlogPostsByCategoryApi = async (id, page = 1, limit = 10, sort = '') => {
     const res = await getApi(`/blogs/category/${id}`, {
         page,
-        limit: 10
+        limit,
+        sort
     });
+    return res.data;
+}
+
+export const fetchPopularBlogPostsApi = async () => {
+    const res = await getApi("/blogs/popular?limit=5");
     return res.data;
 }
