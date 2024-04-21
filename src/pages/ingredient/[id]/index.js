@@ -49,7 +49,9 @@ const IngredientDetail = ({ ingredientProps , id , isCrs }) => {
                                         <ul className="flex">
                                             <li><a href="src/pages/ingredient/ingredients#index.js">Home</a></li>
                                             <li className="mx-2">/</li>
-                                            <li><a href="src/pages/ingredient/ingredients#index.js">Guides & Tutorials</a></li>
+                                            <li><a href="src/pages/ingredient/ingredients#index.js">Skincare ingredients</a></li>
+                                            <li className="mx-2">/</li>
+                                            <li><a href="src/pages/ingredient/ingredients#index.js">{ingredient?.name}</a></li>
                                         </ul>
                                     </div>
                                     <div className="heading_2 mb-2">{ingredient?.name}</div>

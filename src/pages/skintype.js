@@ -90,7 +90,7 @@ const Skintype = () => {
     return (
         <div className="skintype-page md:pt-7">
             <div className="skintype-inner">
-                <div className="md:grid md:grid-cols-12 gap-5">
+                <div className="animate slideInUp fast md:grid md:grid-cols-12 gap-5">
                     <div className="md:col-span-4"></div>
                     <div className="md:col-span-3">
                         <img className="w-full" src="./img/skintype/banner1.jpg" alt="smile" loading="lazy"/>
@@ -102,14 +102,14 @@ const Skintype = () => {
                 </div>
                 <div className="pt-5 head-content md:relative -top-0 md:-top-8">
                     <div className="text-center mb-4">
-                        <div className="heading text-center my-3">Skin type & History</div>
-                        <div className="heading_4">It’s All About Me</div>
+                        <div className="heading text-center my-3 animate slideInUp fast">Skin type & History</div>
+                        <div className="heading_4 animate slideInUp medium">It’s All About Me</div>
                     </div>
                     <div className="w-1/6 h-px bg-ccc !bg-333 mx-auto mb-3"></div>
                     <div className="md:grid md:grid-cols-12">
                         <div className="md:col-span-3"></div>
                         <div className="md:col-span-6 heading_6 flex justify-center">
-                            <div className="max-w-screen-sm text-center">Sharing my skincare journey from the past to the present, along with my routine. I hope it
+                            <div className="max-w-screen-sm text-center animate slideInUp slow">Sharing my skincare journey from the past to the present, along with my routine. I hope it
                                 provides helpful insights for you!</div>
                         </div>
                         <div className="md:col-span-3"></div>
