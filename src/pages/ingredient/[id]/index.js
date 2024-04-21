@@ -3,12 +3,13 @@ import Ingredient from "../index";
 import {getIngredientByIdApi} from "@services/ingredients"
 import { BASE_URL } from "@utils/apiUtils";
 import { useRouter } from 'next/router';
+import { useAnimation } from "@hooks/useAnimation";
 
 const IngredientDetail = ({ ingredientProps , id , isCrs }) => {
 
-    const router = useRouter();
+    const { handleAccordion } = useAnimation();
 
-    const [active, setActive] = useState(null);
+    const router = useRouter();
 
     const [ingredient, setIngredient] = useState(ingredientProps);
 
@@ -23,13 +24,11 @@ const IngredientDetail = ({ ingredientProps , id , isCrs }) => {
         setIngredient(res?.data || {})
     }
 
-    const handleActive = (index) => {
-        if (active == index) {
-            setActive(null);
-        } else {
-            setActive(index);
+    useEffect(() => {
+        if (isCrs) {
+            handleAccordion();
         }
-    }
+    }, [ingredient]);
 
     return (
         <div className="detail-ingredient pt-7">
@@ -75,8 +74,11 @@ const IngredientDetail = ({ ingredientProps , id , isCrs }) => {
                                     ingredient?.details ? (
                                         ingredient.details.map((item, index) => {
                                             return (
-                                                <div className={`my-collapse dark:border-b dark:border-ccc ${active === index ? 'expanded' : ''}`}>
-                                                    <div className="mb-1 question-container flex" onClick={() => {handleActive(index)}}>
+                                                <div 
+                                                    className={`my-collapse dark:border-b dark:border-ccc`}
+                                                    key={index}
+                                                >
+                                                    <div className="mb-1 question-container flex">
                                                         <div className="question mr-auto medium_text">
                                                             <div className="flex">
                                                                 <div className="heading_6 mr-2">{index +1}/</div>

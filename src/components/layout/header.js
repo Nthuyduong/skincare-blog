@@ -15,7 +15,6 @@ const Header = () => {
     const trans = useTrans();
 
     const { handleSearch, setKeyword, loadMore, results, keyword, loadingSearch, paginate } = useApp();
-
     // Test for button search
     const [showw, setShoww] = useState(false);
     const [isSearch, setIsSearch] = useState(false);
@@ -29,7 +28,6 @@ const Header = () => {
             setShoww(false);
             setShowMenu(false);
         });
-
         return () => {
             router.events.off('routeChangeStart', () => {
                 setShoww(false);
@@ -236,8 +234,8 @@ const Header = () => {
                             </div>
                         </div>
                         <div className="">
-                            <div className={`my-collapse dark:border-b dark:border-ccc ${activeTab === 0 ? 'expanded' : ''}`}>
-                                <div className="question-container flex" onClick={toggleCollapse}>
+                            <div className={`my-collapse dark:border-b dark:border-ccc`}>
+                                <div className="question-container flex">
                                     <div className="question mr-auto">
                                         <Link href={`/categories/1`}>
                                             {trans.header.guide}
@@ -260,8 +258,8 @@ const Header = () => {
                             </div>
                         </div>
                         <div className="">
-                            <div className={`my-collapse dark:border-b dark:border-ccc ${activeTab2 === 0 ? 'expanded' : ''}`}>
-                                <div className="question-container flex" onClick={toggleCollapse2}>
+                            <div className={`my-collapse dark:border-b dark:border-ccc`}>
+                                <div className="question-container flex">
                                     <div className="question mr-auto">
                                         <Link href={`/categories/2`}>
                                             Skincare nerd
@@ -285,8 +283,8 @@ const Header = () => {
                         <div className="py-3 border-b border-ccc"><Link href={ROUTER.INGREDIENT}>Skincare ingredients</Link></div>
                         {/*<div className="py-3 border-b border-ccc"><Link href={ROUTER.INGREDIENT}>Testings & Reviews</Link></div>*/}
                         <div className="">
-                            <div className={`my-collapse dark:border-b dark:border-ccc ${activeTab3 === 0 ? 'expanded' : ''}`}>
-                                <div className="question-container flex" onClick={toggleCollapse3}>
+                            <div className={`my-collapse dark:border-b dark:border-ccc`}>
+                                <div className="question-container flex">
                                     <div className="question mr-auto">
                                         About
                                     </div>

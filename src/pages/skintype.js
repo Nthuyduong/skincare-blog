@@ -1,9 +1,8 @@
-import React, {useRef} from "react";
-import {useState} from "react";
-import {ROUTER} from "../utils/constants";
-import Link from "next/link";
+import React, { useEffect } from "react";
 
 const Skintype = () => {
+
+    const { handleAccordion } = useAnimation();
 
     // FAQs
     const faqData = [
@@ -64,15 +63,9 @@ const Skintype = () => {
         }
     ];
 
-    const [activeIndex, setActiveIndex] = useState(null);
-
-    const toggleCollapse = (index) => {
-        setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
-    };
-
     const faqElements = faqData.map((faq, index) => (
-        <div key={index} className={`my-collapse dark:border-b dark:border-ccc ${activeIndex === index ? 'expanded' : ''}`}>
-            <div className="mb-1 question-container flex" onClick={() => toggleCollapse(index)}>
+        <div key={index} className={`my-collapse dark:border-b dark:border-ccc`}>
+            <div className="mb-1 question-container flex">
                 <div className="question mr-auto medium_text">
                     {faq.question}
                 </div>

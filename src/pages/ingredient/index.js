@@ -36,7 +36,6 @@ const Ingredient = ({ ingredientsProps = [], isCrs }) => {
     }, [router.asPath]);
 
     useEffect(() => {
-        console.log((ingredients || []).filter(ingredient => !active || (active && ingredient.key == active)))
         
     }, [ingredients]);
 
@@ -96,36 +95,6 @@ const Ingredient = ({ ingredientsProps = [], isCrs }) => {
                                 >{item}</div>
                             ))}
                         </div>
-                        
-                        {/* <div className="flex mb-4">
-                            <div className="ingredient pr-4 pr-4 heading_5">A</div>
-                            <div className="ingredient px-4 heading_5 pb-1 border-b border-transparent active:border-b active:border-solid active:border-333 dark:active-border-fff dark:hover:text-ccc hover:text-999 dark:active:text-333 active:text-white">B</div>
-                            <div className="ingredient px-4 heading_5 pb-1 border-b border-transparent active:border-b active:border-solid active:border-333 dark:active-border-fff dark:hover:text-ccc hover:text-999 dark:active:text-333 active:text-whit">C</div>
-                            <div className="ingredient px-4 heading_5 pb-1 border-b border-transparent active:border-b active:border-solid active:border-333 dark:active-border-fff dark:hover:text-ccc hover:text-999 dark:active:text-333 active:text-whit">D</div>
-                            <div className="ingredient px-4 heading_5 pb-1 border-b border-transparent active:border-b active:border-solid active:border-333 dark:active-border-fff dark:hover:text-ccc hover:text-999 dark:active:text-333 active:text-whit">E</div>
-                            <div className="ingredient px-4 heading_5 pb-1 border-b border-transparent active:border-b active:border-solid active:border-333 dark:active-border-fff dark:hover:text-ccc hover:text-999 dark:active:text-333 active:text-whit">F</div>
-                            <div className="ingredient px-4 heading_5 pb-1 border-b border-transparent active:border-b active:border-solid active:border-333 dark:active-border-fff dark:hover:text-ccc hover:text-999 dark:active:text-333 active:text-whit">G</div>
-                            <div className="ingredient px-4 heading_5 pb-1 border-b border-transparent active:border-b active:border-solid active:border-333 dark:active-border-fff dark:hover:text-ccc hover:text-999 dark:active:text-333 active:text-whit">H</div>
-                            <div className="ingredient px-4 heading_5 pb-1 border-b border-transparent active:border-b active:border-solid active:border-333 dark:active-border-fff dark:hover:text-ccc hover:text-999 dark:active:text-333 active:text-whit">I</div>
-                            <div className="ingredient px-4 heading_5 pb-1 border-b border-transparent active:border-b active:border-solid active:border-333 dark:active-border-fff dark:hover:text-ccc hover:text-999 dark:active:text-333 active:text-whit">J</div>
-                            <div className="ingredient px-4 heading_5 pb-1 border-b border-transparent active:border-b active:border-solid active:border-333 dark:active-border-fff dark:hover:text-ccc hover:text-999 dark:active:text-333 active:text-whit">K</div>
-                            <div className="ingredient px-4 heading_5 pb-1 border-b border-transparent active:border-b active:border-solid active:border-333 dark:active-border-fff dark:hover:text-ccc hover:text-999 dark:active:text-333 active:text-whit">L</div>
-                        </div>
-                        <div className="flex">
-                            <div className="ingredient pr-4 pr-4 heading_5 pb-1 border-b border-transparent active:border-b active:border-solid active:border-333 dark:active-border-fff dark:hover:text-ccc hover:text-999 dark:active:text-333 active:text-whit">M</div>
-                            <div className="ingredient px-4 heading_5 pb-1 border-b border-transparent active:border-b active:border-solid active:border-333 dark:active-border-fff dark:hover:text-ccc hover:text-999 dark:active:text-333 active:text-whit">N</div>
-                            <div className="ingredient px-4 heading_5 pb-1 border-b border-transparent active:border-b active:border-solid active:border-333 dark:active-border-fff dark:hover:text-ccc hover:text-999 dark:active:text-333 active:text-whit">O</div>
-                            <div className="ingredient px-4 heading_5 pb-1 border-b border-transparent active:border-b active:border-solid active:border-333 dark:active-border-fff dark:hover:text-ccc hover:text-999 dark:active:text-333 active:text-whit">P</div>
-                            <div className="ingredient px-4 heading_5 pb-1 border-b border-transparent active:border-b active:border-solid active:border-333 dark:active-border-fff dark:hover:text-ccc hover:text-999 dark:active:text-333 active:text-whit">Q</div>
-                            <div className="ingredient px-4 heading_5 pb-1 border-b border-transparent active:border-b active:border-solid active:border-333 dark:active-border-fff dark:hover:text-ccc hover:text-999 dark:active:text-333 active:text-whit">R</div>
-                            <div className="ingredient px-4 heading_5 pb-1 border-b border-transparent active:border-b active:border-solid active:border-333 dark:active-border-fff dark:hover:text-ccc hover:text-999 dark:active:text-333 active:text-whit">S</div>
-                            <div className="ingredient px-4 heading_5 pb-1 border-b border-transparent active:border-b active:border-solid active:border-333 dark:active-border-fff dark:hover:text-ccc hover:text-999 dark:active:text-333 active:text-whit">T</div>
-                            <div className="ingredient px-4 heading_5 pb-1 border-b border-transparent active:border-b active:border-solid active:border-333 dark:active-border-fff dark:hover:text-ccc hover:text-999 dark:active:text-333 active:text-whit">U</div>
-                            <div className="ingredient px-4 heading_5 pb-1 border-b border-transparent active:border-b active:border-solid active:border-333 dark:active-border-fff dark:hover:text-ccc hover:text-999 dark:active:text-333 active:text-whit">V</div>
-                            <div className="ingredient px-4 heading_5 pb-1 border-b border-transparent active:border-b active:border-solid active:border-333 dark:active-border-fff dark:hover:text-ccc hover:text-999 dark:active:text-333 active:text-whit">W</div>
-                            <div className="ingredient px-4 heading_5 pb-1 border-b border-transparent active:border-b active:border-solid active:border-333 dark:active-border-fff dark:hover:text-ccc hover:text-999 dark:active:text-333 active:text-whit">X</div>
-                            <div className="ingredient px-4 heading_5 pb-1 border-b border-transparent active:border-b active:border-solid active:border-333 dark:active-border-fff dark:hover:text-ccc hover:text-999 dark:active:text-333 active:text-whit">Z</div>
-                        </div> */}
                     </div>
                 </div>
                 <div className="mt-5">
