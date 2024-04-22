@@ -249,7 +249,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                 </div>
                 {/*Reader's favorite*/}
                 <div className="p-100">
-                    <div className="heading_3 mb-1 md:mb-4">Reader's Favorite</div>
+                    <div className="animate slideInUp heading_3 mb-1 md:mb-4">Reader's Favorite</div>
                     <div className="">
                         <Slider
                             configs={{
@@ -305,21 +305,21 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
             <div className="px-3 my-0 mx-auto m-w pt-8 pb-7">
                 <div className="home-about mb-8 dark:border-t dark:border-b dark:!border-ccc">
                     <div className="md:grid md:grid-cols-12 gap-4">
-                        <div className="md:col-span-8 py-6 pr-4 about-intro md:border-r md:border-solid !border-999">
+                        <div className="md:col-span-8 py-6 pr-4 about-intro md:border-r md:border-solid border-999 !border-ccc">
                             <div className="relative">
-                                <div className="heading_1">
+                                <div className="heading_1 animate slideInUp">
                                     “Start with clear, healthy skin. Nurture your radiance—embrace pure beauty, inside and out”
                                 </div>
-                                <div className="absolute heading_6 md:mt-auto md:block hidden">Hello & Welcome!</div>
+                                <div className="absolute heading_6 md:mt-auto md:block hidden animate slideInUp">Hello & Welcome!</div>
                             </div>
                         </div>
                         <div className="md:col-span-4 about-content pt-3 pb-6 md:py-6">
-                            <div>Welcome to our skincare sanctuary! Here, we celebrate the journey to radiant skin. Join
+                            <div className="animate slideInUp">Welcome to our skincare sanctuary! Here, we celebrate the journey to radiant skin. Join
                                 us for expert tips, shared experiences, and a community-driven pursuit of beauty and confidence.
                                 Let's embark on a skincare adventure together, where your glow is our priority.</div>
                             <div className="mt-6">
                                 <Link href={ROUTER.ABOUT}>
-                                    <button className="my-out-line-btn dark:border-ccc" type="submit">MORE ABOUT US</button>
+                                    <button className="animate slideInUp my-out-line-btn dark:border-ccc" type="submit">MORE ABOUT US</button>
                                 </Link>
                             </div>
                         </div>

@@ -2,8 +2,6 @@ import React, { useEffect } from "react";
 
 const Skintype = () => {
 
-    const { handleAccordion } = useAnimation();
-
     // FAQs
     const faqData = [
         {
@@ -83,7 +81,7 @@ const Skintype = () => {
     return (
         <div className="skintype-page md:pt-7">
             <div className="skintype-inner">
-                <div className="animate slideInUp fast md:grid md:grid-cols-12 gap-5">
+                <div className="animate slideInUp animate--delay-fast md:grid md:grid-cols-12 gap-5">
                     <div className="md:col-span-4"></div>
                     <div className="md:col-span-3">
                         <img className="w-full" src="./img/skintype/banner1.jpg" alt="smile" loading="lazy"/>
@@ -95,14 +93,14 @@ const Skintype = () => {
                 </div>
                 <div className="pt-5 head-content md:relative -top-0 md:-top-8">
                     <div className="text-center mb-4">
-                        <div className="heading text-center my-3 animate slideInUp fast">Skin type & History</div>
-                        <div className="heading_4 animate slideInUp medium">It’s All About Me</div>
+                        <div className="heading text-center my-3 animate slideInUp animate--delay-fast">Skin type & History</div>
+                        <div className="heading_4 animate slideInUp animate--delay-medium">It’s All About Me</div>
                     </div>
-                    <div className="w-1/6 h-px bg-ccc !bg-333 mx-auto mb-3"></div>
+                    <div className="w-1/6 h-px bg-ccc !bg-ccc mx-auto mb-4 animate slideInUp animate--delay-slow"></div>
                     <div className="md:grid md:grid-cols-12">
                         <div className="md:col-span-3"></div>
                         <div className="md:col-span-6 heading_6 flex justify-center">
-                            <div className="max-w-screen-sm text-center animate slideInUp slow">Sharing my skincare journey from the past to the present, along with my routine. I hope it
+                            <div className="max-w-screen-sm text-center animate slideInUp animate--delay-slow">Sharing my skincare journey from the past to the present, along with my routine. I hope it
                                 provides helpful insights for you!</div>
                         </div>
                         <div className="md:col-span-3"></div>
@@ -125,7 +123,7 @@ const Skintype = () => {
                                 <div className="heading_3 mb-3">Connect with me</div>
                                 <div>Are you interested in collaborating? Do you want to be a part of us? Join with us now!</div>
                                 <div className="mt-4">
-                                    <button className="w-full my-out-line-btn dark:border-ccc" type="submit">Connect with us</button>
+                                    <button className="w-full my-out-line-btn dark:border-ccc" type="submit">Contact us</button>
                                 </div>
                             </div>
                         </div>
@@ -136,142 +134,6 @@ const Skintype = () => {
                         </div>
                     </div>
                 </div>
-                {/* <div className="review-products md:pt-8 pt-6">
-                    <div className="content main">
-                        <div className="mb-2 heading_3">All products I’ve used</div>
-                        <div className="md:flex">
-                            <div className="mr-auto md:mb-0 mb-3">Are you interested in collaborating? Do you want to be a part of us? Join with us now!</div>
-                            <div>
-                                <a className="text-link" href="#">View all</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="grid grid-cols-12 gap-5 mt-5">
-                        <div className="md:col-span-3 col-span-6">
-                            <div>
-                                <div>
-                                    <img className="w-full" src="./img/skintype/1.png" alt="smile" loading="lazy"/>
-                                </div>
-                                <div className="mt-3">
-                                    <div className="small_text mb-1">
-                                        Testings & Reviews
-                                    </div>
-                                    <div className="medium_text">
-                                        <Link href={ROUTER.TESTREVIEW}>
-                                            BHA Paula's Choice
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="md:col-span-3 col-span-6">
-                            <div>
-                                <div>
-                                    <img className="w-full" src="./img/skintype/2.png" alt="smile" loading="lazy"/>
-                                </div>
-                                <div className="mt-3">
-                                    <div className="small_text mb-1">Testings & Reviews</div>
-                                    <div className="medium_text">
-                                        <Link href={ROUTER.TESTREVIEW}>
-                                            BHA Paula's Choice
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="md:col-span-3 col-span-6">
-                            <div>
-                                <div>
-                                    <img className="w-full" src="./img/skintype/3.png" alt="smile" loading="lazy"/>
-                                </div>
-                                <div className="mt-3">
-                                    <div className="small_text mb-1">Testings & Reviews</div>
-                                    <div className="medium_text">
-                                        <Link href={ROUTER.TESTREVIEW}>
-                                            BHA Paula's Choice
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="md:col-span-3 col-span-6">
-                            <div>
-                                <div>
-                                    <img className="w-full" src="./img/skintype/4.png" alt="smile" loading="lazy"/>
-                                </div>
-                                <div className="mt-3">
-                                    <div className="small_text mb-1">Testings & Reviews</div>
-                                    <div className="medium_text">
-                                        <Link href={ROUTER.TESTREVIEW}>
-                                            BHA Paula's Choice
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
-                {/*<div className="must-read mt60">*/}
-                {/*    <div className="flex mb-5 items-center">*/}
-                {/*        <div className="mr-auto">*/}
-                {/*            <div className="heading_3">Must-read topic to shine your skin</div>*/}
-                {/*        </div>*/}
-                {/*        <div className="">*/}
-                {/*            <a className="text-link" href="#">View all</a>*/}
-                {/*        </div>*/}
-                {/*    </div>*/}
-                {/*    <div className="grid grid-cols-4 gap-4">*/}
-                {/*        <div className="col-span-4 md:col-span-2 h-popular-des-ct">*/}
-                {/*            <div className="des-ct-img overflow-hidden">*/}
-                {/*                <img*/}
-                {/*                    className="w-full"*/}
-                {/*                    src="./img/home/category1.jpg"*/}
-                {/*                    alt="smile"*/}
-                {/*                    loading="lazy"*/}
-                {/*                    height={100}*/}
-                {/*                    width={100}/>*/}
-                {/*            </div>*/}
-                {/*            <div className="category-des-content">*/}
-                {/*                <div className="heading_4 top-destination-title py-2">How to clean</div>*/}
-                {/*                <div className="flex py-2 sub-title">*/}
-                {/*                    <div className="flex">*/}
-                {/*                        <div className="flex pr-1">*/}
-                {/*                            <div>10 Blogs Article</div>*/}
-                {/*                        </div>*/}
-                {/*                    </div>*/}
-                {/*                    <div className="ml-auto">*/}
-                {/*                        <a className="text-link" href="#">View all</a>*/}
-                {/*                    </div>*/}
-                {/*                </div>*/}
-                {/*            </div>*/}
-                {/*        </div>*/}
-                {/*        <div className="col-span-4 md:col-span-2 h-popular-des-ct">*/}
-                {/*            <div className="des-ct-img overflow-hidden">*/}
-                {/*                <img*/}
-                {/*                    className="w-full"*/}
-                {/*                    src="./img/home/category.jpg"*/}
-                {/*                    alt="smile"*/}
-                {/*                    loading="lazy"*/}
-                {/*                    height={100}*/}
-                {/*                    width={100}*/}
-                {/*                />*/}
-                {/*            </div>*/}
-                {/*            <div className="category-des-content">*/}
-                {/*                <div className="heading_4 top-destination-title py-2">Shopping guide</div>*/}
-                {/*                <div className="flex py-2 sub-title">*/}
-                {/*                    <div className="flex">*/}
-                {/*                        <div className="flex pr-1">*/}
-                {/*                            <div>10 Blogs Article</div>*/}
-                {/*                        </div>*/}
-                {/*                    </div>*/}
-                {/*                    <div className="ml-auto">*/}
-                {/*                        <a className="text-link" href="#">View all</a>*/}
-                {/*                    </div>*/}
-                {/*                </div>*/}
-                {/*            </div>*/}
-                {/*        </div>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
             </div>
         </div>
     )

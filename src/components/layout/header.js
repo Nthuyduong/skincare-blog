@@ -591,7 +591,7 @@ const Header = () => {
                                                 data-nav="/about"
                                             >
                                                 <div className="navdrop-title z-50 text-gray-300 hover:text-gray py-4 pr-0">
-                                                    <Link href="#" className="dark:text-white nav-link flex"><span className="nav-text">About</span>
+                                                    <Link href={ROUTER.ABOUT} className="dark:text-white nav-link flex"><span className="nav-text">About</span>
                                                         <span className="ml-1 dark:hidden flex items-center">
                                                             <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="lazy" />
                                                         </span>
@@ -602,10 +602,10 @@ const Header = () => {
                                                 </div>
                                                 <div className="navdrop-inner absolute left-30 w-48 py-1 border-solid border-x border-b border-ccc dark:border-999 dark:!bg-black">
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
-                                                        <Link href={ROUTER.ABOUT} className="body_text dark:text-white nav-link">About Blog</Link>
+                                                        <Link href={ROUTER.SKINTYPE} className="body_text dark:text-white nav-link">My skin history</Link>
                                                     </div>
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
-                                                        <Link href={ROUTER.SKINTYPE} className="body_text dark:text-white nav-link">My skin history</Link>
+                                                        <Link href={ROUTER.ABOUT} className="body_text dark:text-white nav-link">About Blog</Link>
                                                     </div>
                                                     {/*<div className="sub-menu block px-4 py-2 text-sm text-gray-700">*/}
                                                     {/*    <Link href={ROUTER.CONTACT} className="body_text dark:text-white nav-link">Contact us</Link>*/}

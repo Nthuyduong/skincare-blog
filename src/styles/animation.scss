@@ -312,13 +312,13 @@
     padding: 0;
     border: none;
 }
-// copy (Dương xinh gái)
+// copy
 .header-hover-bar {
     position: absolute;
     opacity: 0;
-    height: 2px;
+    height: 1px;
     width: 100px;
-    background-color: #ccc;
+    background-color: #999;
     left: 0;
     bottom: 20px;
     transition: transform 0.3s ease, opacity 0.3s ease;

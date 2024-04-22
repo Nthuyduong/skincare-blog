@@ -118,6 +118,51 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
     return (
         <div className="sub-des-page">
             <div className="sub-des-inner">
+                <div>
+                    { populars.length > 0 && (
+                        <Slider
+                            configs={{
+                                sliderPerRow: 1,
+                                sliderPerRowMobile: 1,
+                                allowDrag: true,
+                                duration: 500,
+                                auto: true,
+                                autoDuration: 3000,
+                                gap: 0,
+                                gapMobile: 10,
+                                navigator: false,
+                                paginate: true,
+                                process: false,
+                            }}
+                        >
+                            {populars.map((post, index) => (
+                                <div className="relative title-page overflow-hidden" key={index}>
+                                    { post.banner_img ? (
+                                        <img
+                                            className="absolute w-full h-full md:h-full md:w-full object-cover"
+                                            src={BASE_URL + '/storage/' + post?.banner_img}
+                                            alt="smile"
+                                            loading="lazy"
+                                        />
+                                    ) : (
+                                        <img
+                                            className="absolute w-full h-full md:h-full md:w-full object-cover"
+                                            src={BASE_URL + '/storage/' + category?.featured_img}
+                                            alt="smile"
+                                            loading="lazy"
+                                        />
+                                    )}
+                                    <div className="relative pl-5 h-[400px]">
+                                        <div className="heading_1 !text-white mb-2">{post.title}</div>
+                                        <div className="!text-white">{ post.author }</div>
+                                        <div className="!text-white">{ post.categories.map((category) => {return category.name}).join(' | ') }</div>
+                                        <div className="small_text">About {post?.estimate_time} minutes to read</div>
+                                    </div>
+                                </div>
+                            ))}
+                        </Slider>
+                    )}
+                </div>
                 <div className="m-w mx-auto my-0">
                     <div className="">
                         {/*<div className="col-span-2 left-menu dark:border-r dark:!border-ccc">*/}
@@ -131,49 +176,6 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                         {/*        </ul>*/}
                         {/*    </div>*/}
                         {/*</div>*/}
-                        { populars.length > 0 && (
-                            <Slider
-                                configs={{
-                                    sliderPerRow: 1,
-                                    sliderPerRowMobile: 1,
-                                    allowDrag: true,
-                                    duration: 400,
-                                    auto: true,
-                                    autoDuration: 3000,
-                                    gap: 0,
-                                    gapMobile: 10,
-                                    navigator: false,
-                                    paginate: true,
-                                    process: false,
-                                }}
-                            >
-                                {populars.map((post, index) => (
-                                    <div className="relative title-page overflow-hidden" key={index}>
-                                        { post.banner_img ? (
-                                            <img
-                                                className="absolute w-full h-full md:h-full md:w-full object-cover"
-                                                src={BASE_URL + '/storage/' + post?.banner_img}
-                                                alt="smile"
-                                                loading="lazy"
-                                            />
-                                        ) : (
-                                            <img
-                                                className="absolute w-full h-full md:h-full md:w-full object-cover"
-                                                src={BASE_URL + '/storage/' + category?.featured_img}
-                                                alt="smile"
-                                                loading="lazy"
-                                            />
-                                        )}
-                                        <div className="relative pl-5 h-[400px]">
-                                            <div className="heading_1 !text-white mb-2">{post.title}</div>
-                                            <div className="!text-white">{ post.author }</div>
-                                            <div className="!text-white">{ post.categories.map((category) => {return category.name}).join(' | ') }</div>
-                                            <div className="small_text">About {post?.estimate_time} minutes to read</div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </Slider>
-                        )}
                         <div className="col-span-12 right-all-posts">                            
                             <div className="max-w-screen-sm mx-auto text-center py-4">
                                 <div className="heading_1 text-black dark:text-white mb-2">{category.name}</div>
@@ -266,14 +268,20 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                                                                 </div>
                                                             </Link>
                                                             
-                                                            <div className="py-1 mb-1">
+                                                            <div className="py-1 mb-5">
                                                                 {/*<div className="mb-1">*/}
                                                                 {/*    /!*<div*!/*/}
                                                                 {/*    /!*    className="small_text">{formatDate(post.publish_date)}*!/*/}
                                                                 {/*    /!*</div>*!/*/}
                                                                 {/*</div>*/}
-                                                                <div className="medium_text">
+                                                                <div>
+                                                                    <div className="small_text">Subcategory name</div>
+                                                                </div>
+                                                                <div className="medium_text my-1">
                                                                     <Link href={`/article/${post.slug}`}>{post.title}</Link>
+                                                                </div>
+                                                                <div>
+                                                                    <div className="small_text">About {post?.estimate_time} minutes to read</div>
                                                                 </div>
                                                             </div>
                                                         </div>
