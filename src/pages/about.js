@@ -155,18 +155,21 @@ const About = () => {
                 {/*    </div>*/}
                 {/*</div>*/}
                 <div className="blog-mission pt-7 pb-9">
-                    <div className="grid grid-cols-12 mission-inner flex gap-4">
+                    <div className="grid grid-cols-12 mission-inner flex">
+
+                        <div className="col-span-12 md:col-span-6 mission-content m-auto md:p-5 bg-primary h-full flex items-center">
+                            <div className="text-center text-black">
+                                <div className="heading_3 mb-2 animate slideInUp animate--delay-medium">Our mission</div>
+                                <div className="animate slideInUp animate--delay-slow">
+                                    Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat
+                                    quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut
+                                    sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Diam nec ut
+                                    sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
+                                </div>
+                            </div>
+                        </div>
                         <div className="col-span-12 md:col-span-6 img-mission">
                             <img className="w-100" src="./img/about/abt-blog.png" alt="smile" loading="lazy"/>
-                        </div>
-                        <div className="col-span-12 md:col-span-6 mission-content m-auto md:p-5">
-                            <div className="heading_3 mb-2 animate slideInUp animate--delay-medium">Our mission</div>
-                            <div className="animate slideInUp animate--delay-slow">
-                                Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat
-                                quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut
-                                sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Diam nec ut
-                                sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
-                            </div>
                         </div>
                     </div>
                 </div>
