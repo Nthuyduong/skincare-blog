@@ -57,8 +57,8 @@ const Ingredient = ({ ingredientsProps = [], isCrs }) => {
             <div className="px-3 md:px-0 m-w mx-auto my-0 pt-60 pt-6">
                 <div className="md:grid md:grid-cols-12">
                     <div className="col-span-12 md:col-span-9">
-                        <div className="heading mb-3 md:mb-4">Skincare Ingredients</div>
-                        <div>Browse our dictionary for all the skincare ingredients in your favorite products, with trusted
+                        <div className="heading mb-3 md:mb-4 animate slideInUp">Skincare Ingredients</div>
+                        <div className="animate slideInUp">Browse our dictionary for all the skincare ingredients in your favorite products, with trusted
                             insights from dermatologists, cosmetic chemists, and more.</div>
                     </div>
                     <div className="col-span-1"></div>

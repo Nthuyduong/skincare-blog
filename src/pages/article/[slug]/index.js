@@ -270,149 +270,149 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                 </div>
                             </div>
                             {/*Comment section*/}
-                            <div className="comment py-7">
-                                <div className="flex">
-                                    <div className="heading_2 mb-4">Comments</div>
-                                    <div className="ml-auto">
-                                        <select className="cmt-select dark:border dark:border-white">
-                                            <option value="">Newest comments</option>
-                                            <option value="">Oldest comments</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div className="comment-main">
-                                    <div className="flex">
-                                        <div className="flex">
-                                            <div className="mr-2">
-                                                <img className="w-full rounded-3xl" src="./img/article/avata.jpg" alt="smile" loading="lazy"/>
-                                            </div>
-                                            <div>
-                                                <div className="medium_text">Nthuyduong</div>
-                                                <div>3 days ago</div>
-                                            </div>
-                                        </div>
-                                        <div className="flex ml-auto">
-                                            <div className="mr-2">10</div>
-                                            <div>heart</div>
-                                        </div>
-                                    </div>
-                                    <div className="mt-2">
-                                        Baking time will vary if you change the pan size. Every oven is different so I can’t say
-                                        for certain what you’ll need to adjust it to. Be  sure to check on the cakes while they are baking.
-                                    </div>
-                                    <div className="mt-3"><a className="text-link" href="#">Reply</a></div>
-                                </div>
-                                <div className="comment-border"></div>
-                                <div className="comment-main">
-                                    <div className="flex">
-                                        <div className="flex">
-                                            <div className="mr-2">
-                                                <img className="w-full rounded-3xl" src="./img/article/avata.jpg" alt="smile" loading="lazy"/>
-                                            </div>
-                                            <div>
-                                                <div className="medium_text">Nthuyduong</div>
-                                                <div>3 days ago</div>
-                                            </div>
-                                        </div>
-                                        <div className="flex ml-auto">
-                                            <div className="mr-2">10</div>
-                                            <div>heart</div>
-                                        </div>
-                                    </div>
-                                    <div className="mt-2">
-                                        Baking time will vary if you change the pan size. Every oven is different so I can’t say
-                                        for certain what you’ll need to adjust it to. Be  sure to check on the cakes while they are baking.
-                                    </div>
-                                    <div className="mt-3"><a className="text-link" href="#">Reply</a></div>
-                                </div>
-                                <div className="comment-border"></div>
-                                <div className="comment-main">
-                                    <div className="flex">
-                                        <div className="flex">
-                                            <div className="mr-2">
-                                                <img className="w-full rounded-3xl" src="./img/article/avata.jpg" alt="smile" loading="lazy"/>
-                                            </div>
-                                            <div>
-                                                <div className="medium_text">Nthuyduong</div>
-                                                <div>3 days ago</div>
-                                            </div>
-                                        </div>
-                                        <div className="flex ml-auto">
-                                            <div className="mr-2">10</div>
-                                            <div>heart</div>
-                                        </div>
-                                    </div>
-                                    <div className="mt-2">
-                                        Baking time will vary if you change the pan size. Every oven is different so I can’t say
-                                        for certain what you’ll need to adjust it to. Be  sure to check on the cakes while they are baking.
-                                    </div>
-                                    <div className="mt-3"><a className="text-link" href="#">Reply</a></div>
-                                </div>
-                                <div className="comment-border"></div>
-                                <div className="comment-main">
-                                    <div className="flex">
-                                        <div className="flex">
-                                            <div className="mr-2">
-                                                <img className="w-full rounded-3xl" src="./img/article/avata.jpg" alt="smile" loading="lazy"/>
-                                            </div>
-                                            <div>
-                                                <div className="medium_text">Nthuyduong</div>
-                                                <div className="">3 days ago</div>
-                                            </div>
-                                        </div>
-                                        <div className="flex ml-auto">
-                                            <div className="mr-2">10</div>
-                                            <div>heart</div>
-                                        </div>
-                                    </div>
-                                    <div className="mt-2">
-                                        Baking time will vary if you change the pan size. Every oven is different so I can’t say
-                                        for certain what you’ll need to adjust it to. Be  sure to check on the cakes while they are baking.
-                                    </div>
-                                    <div className="mt-3"><a className="text-link" href="#">Reply</a></div>
-                                </div>
-                                {/*paginate*/}
-                                <div className="mt-5 paginate flex w-full justify-center">
-                                    <a>
-                                        Previous
-                                        <span></span>
-                                    </a>
-                                    <div className="mx-2 pagi-item p-3 rounded-full flex">1</div>
-                                    <div className="pagi-item p-3 rounded-full flex">2</div>
-                                    <div className="mx-2 pagi-item p-3 rounded-full flex">3</div>
-                                    <a>
-                                        Next
-                                        <span></span>
-                                    </a>
-                                </div>
-                            </div>
+                            {/*<div className="comment py-7">*/}
+                            {/*    <div className="flex">*/}
+                            {/*        <div className="heading_2 mb-4">Comments</div>*/}
+                            {/*        <div className="ml-auto">*/}
+                            {/*            <select className="cmt-select dark:border dark:border-white">*/}
+                            {/*                <option value="">Newest comments</option>*/}
+                            {/*                <option value="">Oldest comments</option>*/}
+                            {/*            </select>*/}
+                            {/*        </div>*/}
+                            {/*    </div>*/}
+                            {/*    <div className="comment-main">*/}
+                            {/*        <div className="flex">*/}
+                            {/*            <div className="flex">*/}
+                            {/*                <div className="mr-2">*/}
+                            {/*                    <img className="w-full rounded-3xl" src="./img/article/avata.jpg" alt="smile" loading="lazy"/>*/}
+                            {/*                </div>*/}
+                            {/*                <div>*/}
+                            {/*                    <div className="medium_text">Nthuyduong</div>*/}
+                            {/*                    <div>3 days ago</div>*/}
+                            {/*                </div>*/}
+                            {/*            </div>*/}
+                            {/*            <div className="flex ml-auto">*/}
+                            {/*                <div className="mr-2">10</div>*/}
+                            {/*                <div>heart</div>*/}
+                            {/*            </div>*/}
+                            {/*        </div>*/}
+                            {/*        <div className="mt-2">*/}
+                            {/*            Baking time will vary if you change the pan size. Every oven is different so I can’t say*/}
+                            {/*            for certain what you’ll need to adjust it to. Be  sure to check on the cakes while they are baking.*/}
+                            {/*        </div>*/}
+                            {/*        <div className="mt-3"><a className="text-link" href="#">Reply</a></div>*/}
+                            {/*    </div>*/}
+                            {/*    <div className="comment-border"></div>*/}
+                            {/*    <div className="comment-main">*/}
+                            {/*        <div className="flex">*/}
+                            {/*            <div className="flex">*/}
+                            {/*                <div className="mr-2">*/}
+                            {/*                    <img className="w-full rounded-3xl" src="./img/article/avata.jpg" alt="smile" loading="lazy"/>*/}
+                            {/*                </div>*/}
+                            {/*                <div>*/}
+                            {/*                    <div className="medium_text">Nthuyduong</div>*/}
+                            {/*                    <div>3 days ago</div>*/}
+                            {/*                </div>*/}
+                            {/*            </div>*/}
+                            {/*            <div className="flex ml-auto">*/}
+                            {/*                <div className="mr-2">10</div>*/}
+                            {/*                <div>heart</div>*/}
+                            {/*            </div>*/}
+                            {/*        </div>*/}
+                            {/*        <div className="mt-2">*/}
+                            {/*            Baking time will vary if you change the pan size. Every oven is different so I can’t say*/}
+                            {/*            for certain what you’ll need to adjust it to. Be  sure to check on the cakes while they are baking.*/}
+                            {/*        </div>*/}
+                            {/*        <div className="mt-3"><a className="text-link" href="#">Reply</a></div>*/}
+                            {/*    </div>*/}
+                            {/*    <div className="comment-border"></div>*/}
+                            {/*    <div className="comment-main">*/}
+                            {/*        <div className="flex">*/}
+                            {/*            <div className="flex">*/}
+                            {/*                <div className="mr-2">*/}
+                            {/*                    <img className="w-full rounded-3xl" src="./img/article/avata.jpg" alt="smile" loading="lazy"/>*/}
+                            {/*                </div>*/}
+                            {/*                <div>*/}
+                            {/*                    <div className="medium_text">Nthuyduong</div>*/}
+                            {/*                    <div>3 days ago</div>*/}
+                            {/*                </div>*/}
+                            {/*            </div>*/}
+                            {/*            <div className="flex ml-auto">*/}
+                            {/*                <div className="mr-2">10</div>*/}
+                            {/*                <div>heart</div>*/}
+                            {/*            </div>*/}
+                            {/*        </div>*/}
+                            {/*        <div className="mt-2">*/}
+                            {/*            Baking time will vary if you change the pan size. Every oven is different so I can’t say*/}
+                            {/*            for certain what you’ll need to adjust it to. Be  sure to check on the cakes while they are baking.*/}
+                            {/*        </div>*/}
+                            {/*        <div className="mt-3"><a className="text-link" href="#">Reply</a></div>*/}
+                            {/*    </div>*/}
+                            {/*    <div className="comment-border"></div>*/}
+                            {/*    <div className="comment-main">*/}
+                            {/*        <div className="flex">*/}
+                            {/*            <div className="flex">*/}
+                            {/*                <div className="mr-2">*/}
+                            {/*                    <img className="w-full rounded-3xl" src="./img/article/avata.jpg" alt="smile" loading="lazy"/>*/}
+                            {/*                </div>*/}
+                            {/*                <div>*/}
+                            {/*                    <div className="medium_text">Nthuyduong</div>*/}
+                            {/*                    <div className="">3 days ago</div>*/}
+                            {/*                </div>*/}
+                            {/*            </div>*/}
+                            {/*            <div className="flex ml-auto">*/}
+                            {/*                <div className="mr-2">10</div>*/}
+                            {/*                <div>heart</div>*/}
+                            {/*            </div>*/}
+                            {/*        </div>*/}
+                            {/*        <div className="mt-2">*/}
+                            {/*            Baking time will vary if you change the pan size. Every oven is different so I can’t say*/}
+                            {/*            for certain what you’ll need to adjust it to. Be  sure to check on the cakes while they are baking.*/}
+                            {/*        </div>*/}
+                            {/*        <div className="mt-3"><a className="text-link" href="#">Reply</a></div>*/}
+                            {/*    </div>*/}
+                            {/*    /!*paginate*!/*/}
+                            {/*    <div className="mt-5 paginate flex w-full justify-center">*/}
+                            {/*        <a>*/}
+                            {/*            Previous*/}
+                            {/*            <span></span>*/}
+                            {/*        </a>*/}
+                            {/*        <div className="mx-2 pagi-item p-3 rounded-full flex">1</div>*/}
+                            {/*        <div className="pagi-item p-3 rounded-full flex">2</div>*/}
+                            {/*        <div className="mx-2 pagi-item p-3 rounded-full flex">3</div>*/}
+                            {/*        <a>*/}
+                            {/*            Next*/}
+                            {/*            <span></span>*/}
+                            {/*        </a>*/}
+                            {/*    </div>*/}
+                            {/*</div>*/}
                             {/*Leave a comment*/}
-                            <div className="leavecmt">
-                                <div className="mb-5 text-center">
-                                    <div className="heading_2 mb-2">Leave a comment</div>
-                                    <div>Your email address will not be published. Required fields are marked *</div>
-                                </div>
-                                <div className="">
-                                    <div className="grid grid-cols-12 gap-3">
-                                        <div className="md:col-span-6 col-span-12">
-                                            <div className="my-input md:mb-3 dark:border-white">
-                                                <input className="w-full p-1" placeholder="Your name"/>
-                                            </div>
-                                        </div>
-                                        <div className="md:col-span-6 col-span-12">
-                                            <div className="my-input mb-3 dark:border-white">
-                                                <input className="w-full p-1" placeholder="Email address *"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="my-input mb-3 user-cmt dark:border-white">
-                                        <textarea rows="5" className="w-full p-1" placeholder="Message *"></textarea>
-                                    </div>
-                                    <div className="flex justify-center dark:border dark:border-white">
-                                        <button className="w-3/12 my-btn-pr" type="submit">Subscribe</button>
-                                    </div>
-                                </div>
-                            </div>
+                            {/*<div className="leavecmt">*/}
+                            {/*    <div className="mb-5 text-center">*/}
+                            {/*        <div className="heading_2 mb-2">Leave a comment</div>*/}
+                            {/*        <div>Your email address will not be published. Required fields are marked *</div>*/}
+                            {/*    </div>*/}
+                            {/*    <div className="">*/}
+                            {/*        <div className="grid grid-cols-12 gap-3">*/}
+                            {/*            <div className="md:col-span-6 col-span-12">*/}
+                            {/*                <div className="my-input md:mb-3 dark:border-white">*/}
+                            {/*                    <input className="w-full p-1" placeholder="Your name"/>*/}
+                            {/*                </div>*/}
+                            {/*            </div>*/}
+                            {/*            <div className="md:col-span-6 col-span-12">*/}
+                            {/*                <div className="my-input mb-3 dark:border-white">*/}
+                            {/*                    <input className="w-full p-1" placeholder="Email address *"/>*/}
+                            {/*                </div>*/}
+                            {/*            </div>*/}
+                            {/*        </div>*/}
+                            {/*        <div className="my-input mb-3 user-cmt dark:border-white">*/}
+                            {/*            <textarea rows="5" className="w-full p-1" placeholder="Message *"></textarea>*/}
+                            {/*        </div>*/}
+                            {/*        <div className="flex justify-center dark:border dark:border-white">*/}
+                            {/*            <button className="w-3/12 my-btn-pr" type="submit">Subscribe</button>*/}
+                            {/*        </div>*/}
+                            {/*    </div>*/}
+                            {/*</div>*/}
                         </div>
                     </div>
                 </div>
