@@ -4,9 +4,10 @@ import { useSetting } from "@hooks/useSetting";
 import { MAIL_TYPE } from "../../../utils/constants";
 
 const MailSubscriber = () => {
-    const { setting, fetchSetting, updateSetting } = useSetting();
+    const { setting, fetchSetting, updateSetting, testSetting } = useSetting();
 
     const editerRef = useRef(null);
+    const [email, setEmail] = useState('');
     const [title, setTitle] = useState(setting?.title || '');
     const [content, setContent] = useState(setting?.content || '');
 
@@ -33,6 +34,12 @@ const MailSubscriber = () => {
                 }
             );
         }
+    }
+    const handleTestMail = () => {
+        if (!email) {
+            return;
+        }
+        testSetting(MAIL_TYPE.SUBSCRIBER, email);
     }
 
     return (
@@ -62,6 +69,26 @@ const MailSubscriber = () => {
                     onClick={handleUpdate}
                 >
                     Update
+                </button>
+            </div>
+            <div className='input-wrp pt-4'>
+                <div className="mb-1">Mail test</div>
+                <div className="">
+                    <input 
+                        name="category-slug"
+                        className="border-solid border border-ccc dark:border-999 py-1 px-2 w-full"
+                        type="text"
+                        placeholder="Enter title"
+                        onChange={(e) => {setEmail(e.target.value)}}
+                        value={email || ''}
+                    />
+                </div>
+            </div>
+            <div className="col-span-2">
+                <button className="px-3 w-full my-btn-pr w-full px-3"
+                        onClick={handleTestMail}
+                >
+                    Test mail
                 </button>
             </div>
         </div>

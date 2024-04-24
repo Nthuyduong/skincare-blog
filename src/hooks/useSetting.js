@@ -1,5 +1,5 @@
 import { fetchSettingAction, updateSettingAction } from "@store/setting/setting.action";
-import { getSettingMail, updateSettingMail } from "@services/setting";
+import { getSettingMail, updateSettingMail, testSettingMail } from "@services/setting";
 import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "@hooks/modal";
 
@@ -29,9 +29,23 @@ export const useSetting = () => {
         }
     }
 
+    async function testSetting(type, email) {
+        showLoading();
+        const res = await testSettingMail(type, email);
+        hide();
+        if (res?.status == 'success') {
+            addToast("Test email success", "success");
+            return true;
+        } else {
+            addToast("Test email failed", "error");
+            return false;
+        }
+    }
+
     return {
         setting,
         fetchSetting,
         updateSetting,
+        testSetting,
     };
 }

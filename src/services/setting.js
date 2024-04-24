@@ -7,3 +7,7 @@ export const getSettingMail = async (type) => {
 export const updateSettingMail = async (type, data) => {
     return await postApiAdmin(`/settings/mail/${type}`, data);
 }
+
+export const testSettingMail = async (type, email) => {
+    return await postApiAdmin(`/settings/mail/test/${type}`, { email });
+}
