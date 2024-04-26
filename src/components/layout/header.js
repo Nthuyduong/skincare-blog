@@ -215,6 +215,9 @@ const Header = () => {
                             <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy" />
                         </button>
                     </div>
+                    <div>
+                        <ThemeToggle />
+                    </div>
                 </div>
                 <div className={`header-mobile-content bg-white dark:bg-black h-full ${showMenu ? 'active' : ''}`}>
                     <div className="p-4">
@@ -424,20 +427,34 @@ const Header = () => {
                                                                     <div className="medium_text">Ingredient</div>
                                                                     {result.featured_img && (
                                                                         <div className="des-ct-img overflow-hidden">
-                                                                            <img 
-                                                                                className="set-img"
-                                                                                src={BASE_URL + '/storage/' + result?.featured_img}
-                                                                                alt="smile"
-                                                                                loading="lazy"
+                                                                            <div className="hover-img">
+                                                                                <div className="img-inner">
+                                                                                    <Link
+                                                                                        href={ROUTER.INGREDIENT + '/' + result.id}
+                                                                                        className="border-solid border-b border-ccc !border-999 pb-4"
+                                                                                    >
+                                                                                        <img
+                                                                                            className="set-img"
+                                                                                            src={BASE_URL + '/storage/' + result?.featured_img}
+                                                                                            alt="smile"
+                                                                                            loading="lazy"
 
-                                                                            />
+                                                                                        />
+                                                                                    </Link>
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
                                                                     )}
                                                                     
                                                                     <div className="category-des-content">
-                                                                        <div className="medium_text top-destination-title py-2 dark:border-b dark:!border-ccc">
-                                                                            {result?.title}
-                                                                        </div>
+                                                                        <Link
+                                                                            href={ROUTER.INGREDIENT + '/' + result.id}
+                                                                            className="border-solid border-b border-ccc !border-999 pb-4"
+                                                                        >
+                                                                            <div className="medium_text top-destination-title py-2 dark:border-b dark:!border-ccc">
+                                                                                {result?.title}
+                                                                            </div>
+                                                                        </Link>
                                                                     </div>
                                                                 </div>
                                                             )
@@ -446,13 +463,22 @@ const Header = () => {
                                                         return (
                                                             <div className="h-popular-des-ct" key={index}>
                                                                 <div className="des-ct-img overflow-hidden">
-                                                                    <img 
-                                                                        className="set-img"
-                                                                        src={BASE_URL + '/storage/' + result?.featured_img}
-                                                                        alt="smile"
-                                                                        loading="lazy"
+                                                                    <div className="hover-img">
+                                                                        <div className="img-inner">
+                                                                            <Link
+                                                                                href={ROUTER.INGREDIENT + '/' + result.id}
+                                                                                className="border-solid border-b border-ccc !border-999 pb-4"
+                                                                            >
+                                                                                <img
+                                                                                    className="set-img"
+                                                                                    src={BASE_URL + '/storage/' + result?.featured_img}
+                                                                                    alt="smile"
+                                                                                    loading="lazy"
 
-                                                                    />
+                                                                                />
+                                                                            </Link>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                                 <div className="category-des-content">
                                                                     <div className="medium_text top-destination-title py-2 dark:border-b dark:!border-ccc">

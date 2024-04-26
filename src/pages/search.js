@@ -52,7 +52,7 @@ const Search = () => {
                 </div>
                 {/*RESULTS HERE*/}
                 <div className="search-result mt-6">
-                    <div className="grid grid-cols-12">
+                    <div className="md:grid md:grid-cols-12">
                         <div className="col-span-2"></div>
                         <div className="col-span-8">
                             {/*Ingredient result*/}
@@ -82,10 +82,10 @@ const Search = () => {
                                         key={index}
                                     >
                                         <div className="grid grid-cols-8 gap-4">
-                                            <div className="col-span-2">
+                                            <div className="md:col-span-2 col-span-3">
                                                 <img className="w-full" src={BASE_URL + '/storage/' + result?.featured_img} alt="smile" loading="lazy"/>
                                             </div>
-                                            <div className="col-span-6">
+                                            <div className="md:col-span-6 col-span-5">
                                                 <div className="">Drink & Coffee</div>
                                                 <div className="heading_5 my-1">{ result.title }</div>
                                                 <div className="flex mb-1">
