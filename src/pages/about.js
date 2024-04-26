@@ -1,4 +1,6 @@
 import React from "react";
+import { ROUTER } from "../utils/constants";
+import Link from 'next/link'
 
 const About = () => {
     return (
@@ -23,13 +25,13 @@ const About = () => {
                         <div className=""></div>
                     </div>
                 </div>
-                <div className="my-7 border-solid border-y border-ccc py-7 about-me p-60 dark:border-t dark:border-ccc">
+                <div className="my-7 border-solid border-y border-ccc py-8 about-me p-60 dark:border-t dark:border-ccc">
                     <div className="md:grid md:grid-cols-12 gap-5">
-                        <div className="md:col-span-5 md:mb-0 mb-4">
-                            <img className="w-full" src="./img/about/abt-me.jpg" alt="smile" loading="lazy"/>
+                        <div className="md:col-span-4 md:mb-0 mb-4 animate slideInUp animate--delay-fast">
+                            <img className="w-full" src="./img/about/abt-me1.png" alt="smile" loading="lazy"/>
                         </div>
-                        <div className="md:col-span-7 about-right flex">
-                            <div className="about-content m-auto dark:!text-black">
+                        <div className="md:col-span-6 about-right flex">
+                            <div className="about-content mt-auto dark:!text-white">
                                 <div className="heading_3 mb-3 animate slideInUp animate--delay-medium">About Us</div>
                                 <div className="animate slideInUp animate--delay-slow">
                                     Welcome to our skincare blog, where we're here to help, connect, and share useful tips
@@ -38,6 +40,9 @@ const About = () => {
                                     Together, let's embrace beauty and confidence, always with love and authenticity.
                                 </div>
                             </div>
+                        </div>
+                        <div className="md:col-span-2 animate slideInUp animate--delay-fast">
+                            <img className="w-full" src="./img/about/abt-me2.jpg" alt="smile" loading="lazy"/>
                         </div>
                     </div>
                 </div>
@@ -49,7 +54,7 @@ const About = () => {
                                 <div className="heading_3 mb-3 animate slideInUp">What we do</div>
                                 <div className="animate slideInUp animate--delay-fast">Are you interested in collaborating? Do you want to be a part of us? Join with us now!</div>
                                 <div className="mt-4 animate slideInUp animate--delay-medium">
-                                    <button className="w-full my-out-line-btn dark:border-white" type="submit">Join with us</button>
+                                    <Link href={ROUTER.CONTACT} className="dark:text-white nav-link flex"><div className="w-full my-out-line-btn dark:border-white text-center">Join with us</div></Link>
                                 </div>
                             </div>
                         </div>
@@ -157,14 +162,15 @@ const About = () => {
                 <div className="blog-mission pt-7 pb-9">
                     <div className="grid grid-cols-12 mission-inner flex">
 
-                        <div className="col-span-12 md:col-span-6 mission-content m-auto md:p-5 bg-primary h-full flex items-center">
-                            <div className="text-center text-black">
+                        <div className="col-span-12 md:col-span-6 mission-content m-auto md:p-5 h-full flex items-center">
+                            <div className="text-black dark:!text-white">
                                 <div className="heading_3 mb-2 animate slideInUp animate--delay-medium">Our mission</div>
                                 <div className="animate slideInUp animate--delay-slow">
-                                    Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat
-                                    quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut
-                                    sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Diam nec ut
-                                    sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.
+                                    At Radiance Aura, our mission is straightforward: to support you on your skincare journey with
+                                    practical advice, genuine connection, and a treasure trove of helpful information. We're dedicated
+                                    to helping you uncover the secrets to radiant, resilient skin that's uniquely yours. With a focus on
+                                    authenticity and care, we aim to inspire confidence and celebrate your natural beauty. Together,
+                                    let's embark on this transformative journey, embracing your radiance with warmth and sincerity every step of the way.
                                 </div>
                             </div>
                         </div>

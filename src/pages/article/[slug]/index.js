@@ -122,11 +122,11 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                                 <li><a href="#">Home</a></li>
                                                 {blog?.categories?.[0]?.parent && (
                                                     <>
-                                                        <li className="mx-2">/</li>
+                                                        <li className="mx-1">/</li>
                                                         <li><a href={`/categories/${blog?.categories?.[0]?.parent?.slug}`}>{blog?.categories?.[0]?.parent?.name}</a></li>
                                                     </>
                                                 )}
-                                                <li className="mx-2">/</li>
+                                                <li className="mx-1">/</li>
                                                 {blog?.categories?.[0] && (
                                                     <>
                                                         <li><a href={`/categories/${blog?.categories?.[0]?.slug}`}>{blog?.categories?.[0]?.name}</a></li>
@@ -134,11 +134,11 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                                 )}
                                             </ul>
                                         </div>
-                                        <div className="heading_2 mb-2">{blog?.title}</div>
-                                        <div className="medium_text mb-4">{blog?.excerpt}</div>
-                                        <div className="small_text">Writen by: {blog?.author}</div>
-                                        <div className="small_text my-1">Publish date: {blog ? formatDate(blog.publish_date) : ''}</div>
+                                        <div className="heading_3 mb-3">{blog?.title}</div>
+                                        <div className="mb-4">{blog?.excerpt}</div>
+                                        <div className="small_text mb-1">Writen by: {blog?.author}</div>
                                         <div className="small_text">About {blog?.estimate_time} minutes to read</div>
+
                                         <div className="medium_text mt-4">Is this article helpful?</div>
                                     </div>
                                 </div>
@@ -259,7 +259,6 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                                             </div>
                                                             <div className="md:flex hidden">
                                                                 <div className=""><Link className="text-link" href={"/article/" + blog.slug}>Read more</Link></div>
-                                                                <div className="ml-auto">Share</div>
                                                             </div>
                                                         </div>
                                                     </div>

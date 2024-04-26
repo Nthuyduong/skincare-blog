@@ -84,14 +84,16 @@ const Categories = ({ categoryProps = [], subCategoriesProps = [], isCsr, slug }
                             {/*<img className="w-full" src="/img/destination/des2.jpg" alt="smile" loading="lazy"/>*/}
                               <div className="hover-img">
                                   <div className="img-inner">
-                                      <img
-                                          className="w-full"
-                                          src={getImagePreview(subCategory.featured_img)}
-                                          alt="smile"
-                                          loading="lazy"
-                                          height={200}
-                                          width={200}
-                                      />
+                                      <Link href={'/sub-des/' + subCategory.id}>
+                                          <img
+                                              className="w-full"
+                                              src={getImagePreview(subCategory.featured_img)}
+                                              alt="smile"
+                                              loading="lazy"
+                                              height={200}
+                                              width={200}
+                                          />
+                                      </Link>
                                   </div>
                               </div>
                             <div className="destination-cate-content">

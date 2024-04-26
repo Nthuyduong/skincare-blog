@@ -1,7 +1,7 @@
 @use 'variables' as v;
 
 .about-intro{
-  padding-top: 60px;
+  //padding-top: 60px;
   .intro-decor{
     right: 45%;
   }
@@ -14,8 +14,8 @@
 .about-me{
   .about-right{
     .about-content{
-      background-color: v.$border_color;
-      padding: 50px 50px;
+      //background-color: v.$border_color;
+      //padding: 50px 50px;
     }
   }
 }
