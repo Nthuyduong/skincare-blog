@@ -5,9 +5,27 @@ import Link from 'next/link'
 const About = () => {
     return (
         <div>
-            <div className="about-banner">
-                <img className="w-full" src="./img/about/banner.png" alt="smile" loading="lazy"/>
+            <div className="px-4 py-8 relative">
+                <div className="m-w flex justify-center mx-auto gap-6">
+                    <div className="hidden sm:block pt-8">
+                        <img className="w-full" src="./img/about1.png" alt="smile" loading="lazy"/>
+                    </div>
+                    <div className="">
+                        <img className="w-full" src="./img/about2.png" alt="smile" loading="lazy"/>
+                    </div>
+                    <div className="pt-8">
+                        <img className="w-full" src="./img/about3.png" alt="smile" loading="lazy"/>
+                    </div>
+                </div>
+                <div className="absolute t-0 pt-8">
+                    <div className="text-center animate slideInUp animate--delay-medium">
+                        <img src="./img/Purity.png" alt="smile" loading="lazy" />
+                    </div>
+                </div>
             </div>
+            {/* <div className="about-banner">
+                <img className="w-full" src="./img/about/banner.png" alt="smile" loading="lazy"/>
+            </div> */}
             <div className="about-blog-page m-w mx-auto my-0">
                 <div className="about-intro">
                     {/*<div className="intro-decor absolute">*/}
@@ -22,7 +40,16 @@ const About = () => {
                             Cleanse, nourish, and care for your skin, observing the transformation as beauty becomes pure – both outwardly
                             and within”
                         </div>
-                        <div className=""></div>
+                    </div>
+                </div>
+                <div className="relative mt-8 px-4">
+                    <div className="flex gap-4 max-w-[468px] mx-auto relative z-10">
+                        <div><img className="w-full pt-4" src="./img/about4.jpg" alt="smile" loading="lazy"/></div>
+                        <div><img className="w-full" src="./img/about5.jpg" alt="smile" loading="lazy"/></div>
+                        <div><img className="w-full pt-4" src="./img/about6.jpg" alt="smile" loading="lazy"/></div>
+                    </div>
+                    <div className="absolute top-0 l-0 w-full h-full flex justify-center items-center">
+                        <div className="max-w-[840px] h-fit"><img className="w-full" src="./img/Skincare Blog.png" alt="smile" loading="lazy"/></div>
                     </div>
                 </div>
                 <div className="my-7 border-solid border-y border-ccc py-8 about-me p-60 dark:border-t dark:border-ccc">

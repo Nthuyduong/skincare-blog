@@ -6,6 +6,7 @@ import { formatDate } from "@utils/format";
 import { useRouter } from 'next/router';
 import { getBlogNewest, getBlogPopular} from "../services/home";
 import dynamic from "next/dynamic";
+import CardSlider from "../components/common/CardSlider";
 const Slider = dynamic(() => import("@components/common/slider"), { ssr: false });
 const Scroller = dynamic(() => import("@components/common/scroller"), { ssr: false });
 
@@ -33,12 +34,46 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
 
     return (
         <div>
-            <div className="home-banner">
+            <div className="relative">
+                <CardSlider
+                    configs={{
+                        background: '/img/slide-card-bg.png',
+                        pagination: true,
+                    }}
+                >
+                    {popular.map((blog, index) => (
+                        <div className="slide-card-item justify-center" key={index}>
+                            <div className="col-span-12 md:col-span-4">
+                                <div className="hover-img">
+                                    <div className="img-inner">
+                                        <img className="set-img" src={BASE_URL + '/storage/' + blog?.featured_img} alt="smile" loading="lazy"/>
+                                    </div>
+                                </div>
+                                <div className="slide-des">
+                                    <div className="py-2 mb-2">
+                                        <div className="mr-auto small_text">{ blog.categories.map((category) => {return category.name}).join(' | ') }</div>
+                                        <div className="medium_text">{ blog.title }</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </CardSlider>
+                <div className="absolute t-0 l-0 w-full h-full flex justify-center items-center">
+                    <div className="max-w-[293px] absolute z-10 top-8 left-[30%]">
+                        <img className="w-full" src="./img/Topmost.png" alt="smile" loading="lazy"/>
+                    </div>
+                    <div>
+                        <img className="w-full" src="./img/Signature.png" alt="smile" loading="lazy"/>
+                    </div>
+                </div>
+            </div>
+            {/* <div className="home-banner">
                 <picture>
                     <source media="(min-width:465px)" srcSet="./img/home/banner2.jpg"/>
                     <img className="w-full" src="./img/home/mobile-banner.png" alt="smile" loading="lazy"/>
                 </picture>
-            </div>
+            </div> */}
             <div className="my-0 px-3 mx-auto m-w">
                 {/*Lastest on this blog*/}
                 <div className="recently-update pt-6 md:pt-8">
@@ -293,15 +328,36 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                     </div>
                 </div>
             </div>
-            <div className="">
-                <div className="home-decor py-9 md:py-11">
-                    <div className="text-center">
-                        <div className="heading_1 text-white mx-8">
-                            “Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor.”
-                        </div>
-                    </div>
+            <CardSlider
+                configs={{
+                    vertical: true,
+                    width: 1000,
+                    isText: true,
+                    background: '/img/homedecor.png',
+                }}
+            >
+                <div className="slide-card-item heading_1 text-white mx-8">
+                    “Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor.”
                 </div>
-            </div>
+                <div className="slide-card-item heading_1 text-white mx-8">
+                    “QWempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor.”
+                </div>
+                <div className="slide-card-item heading_1 text-white mx-8">
+                    “Uempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor.”
+                </div>
+                <div className="slide-card-item heading_1 text-white mx-8">
+                    “WKempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor.”
+                </div>
+                <div className="slide-card-item heading_1 text-white mx-8">
+                    “LLempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor.”
+                </div>
+                <div className="slide-card-item heading_1 text-white mx-8">
+                    “AAempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor.”
+                </div>
+                <div className="slide-card-item heading_1 text-white mx-8">
+                    “ALempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor.”
+                </div>
+            </CardSlider>
             <div className="px-3 my-0 mx-auto m-w pt-8 pb-7">
                 <div className="home-about mb-8 dark:border-t dark:border-b dark:!border-ccc">
                     <div className="md:grid md:grid-cols-12 gap-4">
