@@ -39,7 +39,8 @@ const IngredientDetail = ({ ingredientProps , id , isCrs }) => {
                     <div className="col-span-8">
                         <div className="grid grid-cols-9 gap-5">
                             <div className="col-span-3 border border-solid border-ccc !border-999">
-                                <img className="w-full" src={BASE_URL + '/storage/' + ingredient?.featured_img} alt="smile" loading="lazy"/>
+                                <img className="w-full dark:hidden" src={BASE_URL + '/storage/' + ingredient?.featured_img} alt="smile" loading="lazy"/>
+                                <img className="w-full dark:block hidden" src={BASE_URL + '/storage/' + ingredient?.featured_img2} alt="smile" loading="lazy"/>
                             </div>
                             <div className="col-span-6 flex items-center">
                                 <div className="">

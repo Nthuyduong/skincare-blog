@@ -32,6 +32,9 @@ export const useIngredient = () => {
         if (data.featured_img){
             formData.append('featured_img', data.featured_img);
         }
+        if (data.featured_img2){
+            formData.append('featured_img2', data.featured_img2);
+        }
         formData.append('details', JSON.stringify(data.details));
 
         showLoading()
@@ -53,6 +56,9 @@ export const useIngredient = () => {
         formData.append('status', 0);
         if (data.featured_img){
             formData.append('featured_img', data.featured_img);
+        }
+        if (data.featured_img2){
+            formData.append('featured_img2', data.featured_img2);
         }
         formData.append('details', JSON.stringify(data.details));
         showLoading();

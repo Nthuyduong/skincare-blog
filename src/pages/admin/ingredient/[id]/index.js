@@ -11,7 +11,8 @@ const editIngredient = ({ id }) => {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [content, setContent] = useState("");
-    const [featuredImage, setFeaturedImage] = useState('')
+    const [featuredImage, setFeaturedImage] = useState('');
+    const [featuredImage2, setFeaturedImage2] = useState('')
     const [details, setDetails] = useState([]);
 
     useEffect(() => {
@@ -42,6 +43,16 @@ const editIngredient = ({ id }) => {
         return URL.createObjectURL(featuredImage);
     }
 
+    const getImagePreview2 = () => {
+        if (!featuredImage2) {
+            if (ingredient.featured_img2) {
+                return BASE_URL + '/storage/desktop/' + ingredient.featured_img2;
+            }
+            return 'https://static.vecteezy.com/system/resources/previews/004/141/669/original/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg';
+        }
+        return URL.createObjectURL(featuredImage2);
+    }
+
     const handleUpdate = async() => {
         await updateIngredient({
             id: id,
@@ -49,6 +60,7 @@ const editIngredient = ({ id }) => {
             description: description,
             content: content,
             featured_img: featuredImage,
+            featured_img2: featuredImage2,
             details: details,
         })
     }
@@ -84,25 +96,45 @@ const editIngredient = ({ id }) => {
                         ></textarea>
                     </div>
                 </div>
-                <div className="my-3">
+                <div className="mt-3 mb-5">
                     <div className="mb-1">Feature image</div>
-                    <div className=''>
-                        <div
-                            className='h-6 overflow-hidden featured-image-preview cursor-pointer'
-                            onClick={() => {
-                                document.getElementById('featured-image-file').click();
-                            }}
-                        >
-                            <img className="h-full w-auto" src={getImagePreview()} alt='featured image' />
+                    <div className="flex gap-2">
+                        <div className='feature-img-light'>
+                            <div
+                                className='h-6 overflow-hidden featured-image-preview cursor-pointer'
+                                onClick={() => {
+                                    document.getElementById('featured-image-file').click();
+                                }}
+                            >
+                                <img className="h-full w-auto" src={getImagePreview()} alt='featured image' />
+                            </div>
+                            <input
+                                id="featured-image-file"
+                                type='file'
+                                style={{display: "none"}}
+                                onChange={(e) => {
+                                    setFeaturedImage(e.target.files[0]);
+                                }}
+                            ></input>
                         </div>
-                        <input
-                            id="featured-image-file"
-                            type='file'
-                            style={{display: "none"}}
-                            onChange={(e) => {
-                                setFeaturedImage(e.target.files[0]);
-                            }}
-                        ></input>
+                        <div className='feature-img-dark'>
+                            <div
+                                className='h-6 overflow-hidden featured-image-preview cursor-pointer'
+                                onClick={() => {
+                                    document.getElementById('featured-image-file2').click();
+                                }}
+                            >
+                                <img className="h-full w-auto" src={getImagePreview2()} alt='featured image' />
+                            </div>
+                            <input
+                                id="featured-image-file2"
+                                type='file'
+                                style={{display: "none"}}
+                                onChange={(e) => {
+                                    setFeaturedImage2(e.target.files[0]);
+                                }}
+                            ></input>
+                        </div>
                     </div>
                 </div>
                 <Dragable

@@ -3,60 +3,13 @@ import { showModal } from "@store/modal/modal.action";
 import React, { useEffect,
     useState } from "react";
 
-const Admincontact = () => {
+const Admincomment = () => {
 
-    // const handleAddCategory = (id = null) => {
-    //     // gọi action show modal loading
-    //     dispatch(showModal({
-    //         title:id? "Update category" : "Create category",
-    //         name: "category",
-    //         enableClickOutside: true,
-    //         data: {
-    //             id: id,
-    //         },
-    //         confirmCallback: () => {
-    //             fetchCategories(1, false);
-    //         },
-    //     }))
-    // }
-
-    // const handleDelete = () => {
-    //     console.log(selectedCategory);
-    //     if (selectedCategory.length === 0){
-    //         dispatch(showModal({
-    //             name: "notice",
-    //             title: "Can't delete category",
-    //             enableClickOutside: true,
-    //             data: {
-    //                 message: "Please select at least one category to delete"
-    //             },
-    //         }))
-    //     }
-    //     else{
-    //         dispatch(showModal({
-    //             name: "notice",
-    //             title: "Are your sure...",
-    //             enableClickOutside: true,
-    //             data: {
-    //                 message: "bb"
-    //             },
-    //         }))
-    //     }
-    // }
-
-    // const handleSelectedCategory = (e, id) => {
-    //     if (e.target.checked){
-    //         setSelectedCategory([...selectedCategory, id])
-    //     }
-    //     else{
-    //         setSelectedCategory(selectedCategory.filter(item => item != id))
-    //     }
-    // }
 
     return(
         <div>
             <div className="category-page pt-5">
-                <div className="heading_1 mb-6">Contact page</div>
+                <div className="heading_1 mb-6">Comment page</div>
                 <div className="grid grid-cols-4 gap-4">
                     <div className="col-span-1">
                         <div className="flex">
@@ -68,15 +21,14 @@ const Admincontact = () => {
                         <select className="border-solid border border-ccc dark:border-999 py-1 px-2 w-full">
                             <option value="" defaultValue hidden>Status</option>
                             <option value="">Published</option>
-                            <option value="">Draft</option>
-                            <option value="">New</option>
+                            <option value="">Hidden</option>
                         </select>
                     </div>
                     <div className="col-span-1">
-                        <button className="my-btn-pr w-full">New Category</button>
+                        <button className="my-btn-pr w-full">Hidden comment</button>
                     </div>
                     <div className="col-span-1">
-                        <button className="my-btn-pr w-full">Delete category</button>
+                        <button className="my-btn-pr w-full">Delete comment</button>
                     </div>
                 </div>
                 <div className="my-line my-4"></div>
@@ -88,9 +40,9 @@ const Admincontact = () => {
                             />
                         </div>
                         <div className="cell-ssm">ID</div>
-                        <div className="cell-sm">Customer name</div>
+                        <div className="cell-sm">User name</div>
                         <div className="cell">Email address</div>
-                        <div className="cell">Message</div>
+                        <div className="cell">Comment</div>
                         <div className="cell-sm"></div>
                         <div className="cell-sm">Action</div>
                     </div>
@@ -105,28 +57,20 @@ const Admincontact = () => {
                                         />
                                     </div>
                                     <div className="cell-ssm">id</div>
-                                    <div className="cell-sm">Name</div>
+                                    <div className="cell-sm">User name</div>
                                     <div className="cell txt-overflow">Email</div>
                                     <div className="cell">
-                                        Customer's message goes here
+                                        Comments go here
                                     </div>
                                     <div className="cell-sm">
                                         <select className="sl-box">
                                             <option value="" defaultValue hidden>Choose status</option>
                                             <option value="">Published</option>
-                                            <option value="">Draft</option>
-                                            <option value="">New</option>
+                                            <option value="">Hidden</option>
                                         </select>
                                     </div>
                                     <div className="cell-sm">
                                         <div className="flex justify-center">
-                                            <img
-                                                onClick={() => {handleAddCategory(category.id)}}
-                                                className="icon-sm mx-2"
-                                                src="../img/icon/edit.svg"
-                                                alt="smile"
-                                                loading="lazy"
-                                            />
                                             <img className="icon-sm" src="../img/icon/trash.svg" alt="smile" loading="lazy"/>
                                         </div>
                                     </div>
@@ -140,4 +84,4 @@ const Admincontact = () => {
         </div>
     )
 }
-export default Admincontact;
+export default Admincomment;

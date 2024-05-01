@@ -32,6 +32,7 @@ const Sidebar = () => {
                         <li><Link href={ROUTER.ADPOST}>Blog post</Link></li>
                         <li><Link href={ROUTER.ADINGREDIENT}>Ingredients</Link></li>
                         <li><Link href={ROUTER.ADCATEGORY}>Test and review</Link></li>
+                        <li><Link href={ROUTER.ADCOMMENT}>Comment</Link></li>
                         <li><Link href={ROUTER.ADCONTACT}>Contact</Link></li>
                     </ul>
                 </div>
