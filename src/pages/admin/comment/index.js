@@ -5,7 +5,6 @@ import React, { useEffect,
 
 const Admincomment = () => {
 
-
     return(
         <div>
             <div className="category-page pt-5">

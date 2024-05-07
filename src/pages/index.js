@@ -39,6 +39,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                     configs={{
                         background: '/img/slide-card-bg.png',
                         pagination: true,
+                        height: 600,
                     }}
                 >
                     {popular.map((blog, index) => (
@@ -50,9 +51,9 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                                     </div>
                                 </div>
                                 <div className="slide-des">
-                                    <div className="py-2 mb-2">
-                                        <div className="mr-auto small_text">{ blog.categories.map((category) => {return category.name}).join(' | ') }</div>
-                                        <div className="medium_text">{ blog.title }</div>
+                                    <div className="py-2 mb-3">
+                                        <div className="mr-auto mb-2 small_text text-black">{ blog.categories.map((category) => {return category.name}).join(' | ') }</div>
+                                        <div className="medium_text text-black">{ blog.title }</div>
                                     </div>
                                 </div>
                             </div>
@@ -61,7 +62,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                 </CardSlider>
                 <div className="absolute t-0 l-0 w-full h-full flex justify-center items-center">
                     <div className="max-w-[293px] absolute z-10 top-8 left-[30%]">
-                        <img className="w-full" src="./img/Topmost.png" alt="smile" loading="lazy"/>
+                        <img className="w-full" src="./img/Topmost.svg" alt="smile" loading="lazy"/>
                     </div>
                     <div>
                         <img className="w-full" src="./img/Signature.png" alt="smile" loading="lazy"/>
@@ -332,29 +333,31 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                 configs={{
                     vertical: true,
                     width: 1000,
+                    height: 500,
                     isText: true,
+                    duration: 3000,
                     background: '/img/homedecor.png',
                 }}
             >
-                <div className="slide-card-item heading_1 text-white mx-8">
+                <div className="slide-card-item heading_1 text-white">
                     “Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor.”
                 </div>
-                <div className="slide-card-item heading_1 text-white mx-8">
+                <div className="slide-card-item heading_1 text-white">
                     “QWempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor.”
                 </div>
-                <div className="slide-card-item heading_1 text-white mx-8">
+                <div className="slide-card-item heading_1 text-white">
                     “Uempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor.”
                 </div>
-                <div className="slide-card-item heading_1 text-white mx-8">
+                <div className="slide-card-item heading_1 text-white">
                     “WKempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor.”
                 </div>
-                <div className="slide-card-item heading_1 text-white mx-8">
+                <div className="slide-card-item heading_1 text-white">
                     “LLempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor.”
                 </div>
-                <div className="slide-card-item heading_1 text-white mx-8">
+                <div className="slide-card-item heading_1 text-white">
                     “AAempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor.”
                 </div>
-                <div className="slide-card-item heading_1 text-white mx-8">
+                <div className="slide-card-item heading_1 text-white">
                     “ALempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor.”
                 </div>
             </CardSlider>

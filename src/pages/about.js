@@ -5,7 +5,7 @@ import Link from 'next/link'
 const About = () => {
     return (
         <div>
-            <div className="px-4 py-8 relative">
+            <div className="pb-8 pt-6 relative">
                 <div className="m-w flex justify-center mx-auto gap-6">
                     <div className="hidden sm:block pt-8">
                         <img className="w-full" src="./img/about1.png" alt="smile" loading="lazy"/>
@@ -19,7 +19,8 @@ const About = () => {
                 </div>
                 <div className="absolute t-0 pt-8">
                     <div className="text-center animate slideInUp animate--delay-medium">
-                        <img src="./img/Purity.png" alt="smile" loading="lazy" />
+                        <img className="dark:hidden" src="./img/Purity.png" alt="smile" loading="lazy" />
+                        <img className="dark:block hidden" src="./img/Purity2.png" alt="smile" loading="lazy" />
                     </div>
                 </div>
             </div>
@@ -49,7 +50,10 @@ const About = () => {
                         <div><img className="w-full pt-4" src="./img/about6.jpg" alt="smile" loading="lazy"/></div>
                     </div>
                     <div className="absolute top-0 l-0 w-full h-full flex justify-center items-center">
-                        <div className="max-w-[840px] h-fit"><img className="w-full" src="./img/Skincare Blog.png" alt="smile" loading="lazy"/></div>
+                        <div className="max-w-[840px] h-fit">
+                            <img className="w-full dark:hidden" src="./img/Skincare Blog.png" alt="smile" loading="lazy"/>
+                            <img className="w-full hidden dark:block" src="./img/Skincare Blog2.png" alt="smile" loading="lazy"/>
+                        </div>
                     </div>
                 </div>
                 <div className="my-7 border-solid border-y border-ccc py-8 about-me p-60 dark:border-t dark:border-ccc">
@@ -129,7 +133,7 @@ const About = () => {
                             <div className="md:block hidden decor-line mx-3 mb-4 dark:border-solid dark:bg-ccc"></div>
                             <div className="md:grid md:grid-cols-8">
                                 <div className="col-span-8 md:col-span-4">
-                                    <div className="we-do-card pl-4 mb-4 mx-3">
+                                    <div className="we-do-card pl-4 mx-3">
                                         <div className="animate slideInUp animate--delay-slow">
                                             <div>
                                                 <img className="" src="./img/about/do.svg" alt="smile" loading="lazy"/>

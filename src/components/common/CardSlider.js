@@ -8,6 +8,7 @@ const CardSlider = ({
     const defaultConfigs = {
         vertical: false,
         width: 300,
+        height: 700,
         isText: false,
         duration: 5000,
         pagination: false,
@@ -96,8 +97,8 @@ const CardSlider = ({
     return (
         <div 
             ref={ref} 
-            className={`card-slider relative flex h-[700px] justify-center items-center ${configs.vertical ? 'card-slider-vertical': ''} ${configs.isText ? 'card-slider-text': ''}`}
-            style={{ backgroundImage: `url(${configs.background})` }}
+            className={`card-slider relative flex justify-center items-center ${configs.vertical ? 'card-slider-vertical': ''} ${configs.isText ? 'card-slider-text': ''}`}
+            style={{ backgroundImage: `url(${configs.background})`, height: `${configs.height}px` }}
         >
             <div 
                 className="flex absolute h-full items-center"

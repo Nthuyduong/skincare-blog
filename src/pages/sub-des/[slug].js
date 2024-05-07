@@ -152,11 +152,12 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                                             loading="lazy"
                                         />
                                     )}
-                                    <div className="relative pl-5 h-[400px]">
-                                        <div className="heading_1 !text-white mb-2">{post.title}</div>
-                                        <div className="!text-white">{ post.author }</div>
-                                        <div className="!text-white">{ post.categories.map((category) => {return category.name}).join(' | ') }</div>
-                                        <div className="small_text">About {post?.estimate_time} minutes to read</div>
+                                    <div className="m-w mx-auto relative h-[400px] mt-auto flex">
+                                        <div className="">
+                                            <div className="!text-white mb-3">{ post.categories.map((category) => {return category.name}).join(' | ') }</div>
+                                            <div className="heading_1 !text-white mb-2">{post.title}</div>
+                                            <div className="small_text">About {post?.estimate_time} minutes to read</div>
+                                        </div>
                                     </div>
                                 </div>
                             ))}
@@ -185,15 +186,7 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                                     with trusted insights from dermatologists, cosmetic chemists, and more.
                                 </div>
                             </div>
-                            <div className="tabs flex justify-center">
-                                <div className="flex">
-
-                                        <div className="rounded-full py-1 px-4 bg-black !bg-white text-white !text-black">subcate</div>
-                                        <div className="mx-3 rounded-full py-1 px-4 bg-black !bg-white text-white !text-black">subcate</div>
-                                        <div className="rounded-full py-1 px-4 bg-black !bg-white text-white !text-black">subcate</div>
-
-                                </div>
-                            </div>
+                        
                             <div className="destination-title border-solid border-y !border-999 border-ccc md:my-5 py-3">
                                 <div className="flex flex-col md:flex-row md:justify-between">
                                     {/*breadcrumb*/}
