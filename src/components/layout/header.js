@@ -10,7 +10,7 @@ import { useApp } from "@hooks/useApp";
 import { BASE_URL } from "@utils/apiUtils";
 import Loading from "@components/common/loading/loading";
 
-const Header = () => {
+const Header = React.memo(() => {
     const router = useRouter();
     const trans = useTrans();
 
@@ -80,6 +80,15 @@ const Header = () => {
         }
     }, [router.query]);
 
+    useEffect(() => {
+        prevScrollpos = window.pageYOffset;
+
+        window.addEventListener('scroll', controlNavbar)
+        return () => {
+            window.removeEventListener('scroll', controlNavbar)
+        }
+    }, [])
+
     // Xử lý search
     const [keywordType, setKeywordType] = useState("");
     const handleModalSearch = () => {
@@ -134,14 +143,7 @@ const Header = () => {
         // change just the locale and maintain all other route information including href's query
         router.push({ pathname, query }, asPath, { locale: nextLocale })
     }
-    useEffect(() => {
-        prevScrollpos = window.pageYOffset;
-
-        window.addEventListener('scroll', controlNavbar)
-        return () => {
-            window.removeEventListener('scroll', controlNavbar)
-        }
-    }, [])
+   
 
     const handleSetTheme = (theme) => {
         setTheme(theme);
@@ -716,6 +718,6 @@ const Header = () => {
             </div>
         </>
     )
-}
+})
 
 export default Header;

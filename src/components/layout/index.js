@@ -96,9 +96,9 @@ const Layout = ({ children }) => {
             className="page bg-white dark:bg-black text-black dark:text-white"
         >
             <Header />
-            <div className={`page-body-wrapper overflow-x-clip test`}>
-                {children}
-            </div>
+                <div className={`page-body-wrapper overflow-x-clip test`}>
+                    {children}
+                </div>
             <Footer />
             <div className={`back-to-top ${appear && 'back-show'}`} onClick={() => { scrollToTop() }}>
                 <img className="icon-sm" src="/img/icon/chevron-up-black.svg" alt="smile" loading="lazy"/>

@@ -11,7 +11,6 @@ const Slider = dynamic(() => import("@components/common/slider"), { ssr: false }
 const Scroller = dynamic(() => import("@components/common/scroller"), { ssr: false });
 
 const Home = ({ newestProps, popularProps, isCsr }) => {
-    
     const router = useRouter();
 
     const [newest, setNewest] = useState(newestProps || []);

@@ -1,9 +1,12 @@
-import { useEffect, useRef } from "react";
+import { useRouter } from "next/router";
+import React, { Children, useEffect, useRef, useState } from "react";
 
-const CardSlider = ({
+const CardSlider = React.memo(({
     configs,
     children
 }) => {
+    const countChildren = Children.count(children);
+
     const ref = useRef(null);
     const defaultConfigs = {
         vertical: false,
@@ -15,84 +18,54 @@ const CardSlider = ({
     }
     configs = { ...defaultConfigs, ...configs }
 
+    const [active, setActive] = useState(0);
+
     useEffect(() => {
         if (ref.current) {
             let items = ref.current.querySelectorAll('.slide-card-item');
-            let count = items.length;
-            let left = ref.current.querySelector('.control-left');
-            let right = ref.current.querySelector('.control-right');
 
-            let active = 0;
-
-            items.forEach((item, index) => {
-                if (index === 0) {
-                    item.classList.add('active');
-                    let before = items[count - 1];
-                    let after = items[index + 1];
-                    let before2 = items[count - 2];
-                    let after2 = items[index + 2];
-                    before.classList.add('before');
-                    after.classList.add('after');
-                    before2.classList.add('before2');
-                    after2.classList.add('after2');
-                }
-                item.addEventListener('click', () => {
-                    if (item.classList.contains('before2') || item.classList.contains('after2') || item.classList.contains('active')) {
-                        return;
-                    }
-                    items.forEach(item => {
-                        item.classList.remove('active');
-                        item.classList.remove('before');
-                        item.classList.remove('after');
-                        item.classList.remove('before2');
-                        item.classList.remove('after2');
-                    });
-                    item.classList.add('active');
-                    let before = index === 0 ? items[count - 1] : items[index - 1];
-                    let before2 = index === 1 ? items[count - 1] : index === 0 ? items[count - 2] : items[index - 2];
-                    let after = index === count - 1 ? items[0] : items[index + 1];
-                    let after2 = index === count - 2 ? items[0] : index === count - 1 ? items[1] : items[index + 2];
-                    before.classList.add('before');
-                    after.classList.add('after');
-                    before2.classList.add('before2');
-                    after2.classList.add('after2');
-                });
+            const activeItem = items[active];
+            items.forEach(item => {
+                item.classList.remove('active', 'before', 'after', 'before2', 'after2');
             });
-            if (left === null || right === null) return;
-            left.addEventListener('click', () => {
-                let active = ref.current.querySelector('.active');
-                let index = Array.from(items).indexOf(active);
-                let newIndex = index === 0 ? count - 1 : index - 1;
-                items[newIndex].click();
-            });
-            right.addEventListener('click', () => {
-                let active = ref.current.querySelector('.active');
-                let index = Array.from(items).indexOf(active);
-                let newIndex = index === count - 1 ? 0 : index + 1;
-                items[newIndex].click();
-            });
-            setInterval(() => {
-                if (ref.current === null) return;
-                let active = ref.current.querySelector('.active');
-                let index = Array.from(items).indexOf(active);
-                let newIndex = index === count - 1 ? 0 : index + 1;
-                items[newIndex].click();
-            }, configs.duration);
-        }
-        return () => {
-            if (ref.current) {
-                let items = ref.current.querySelectorAll('.slide-card-item');
-                let left = ref.current.querySelector('.control-left');
-                let right = ref.current.querySelector('.control-right');
-                items.forEach(item => {
-                    item.removeEventListener('click', () => {});
-                });
-                left.removeEventListener('click', () => {});
-                right.removeEventListener('click', () => {});
-                setInterval(() => {}, configs.duration);
+            if (activeItem) {
+                activeItem.classList.add('active');
+                const indexBefore = active - 1 < 0 ? countChildren - 1 : active - 1;
+                const indexAfter = active + 1 > countChildren - 1 ? 0 : active + 1;
+                let before = items[indexBefore];
+                let after = items[indexAfter];
+                let before2 = items[indexBefore - 1 < 0 ? countChildren - 1 : indexBefore - 1];
+                let after2 = items[indexAfter + 1 > countChildren - 1 ? 0 : indexAfter + 1];
+                before.classList.add('before');
+                after.classList.add('after');
+                before2.classList.add('before2');
+                after2.classList.add('after2');
             }
+            
         }
-    }, [])
+    }, [ref.current, active, countChildren, configs.duration]);
+
+    useEffect(() => {
+        setInterval(() => {
+            setActive(prevActive => (prevActive + 1) % countChildren);
+        }, configs.duration);
+        return () => clearInterval();
+    }, [countChildren, configs.duration]);
+
+    const handleNext = () => {
+        if (active === countChildren - 1) {
+            setActive(0);
+        } else {
+            setActive(active + 1);
+        }
+    }
+    const handlePrev = () => {
+        if (active === 0) {
+            setActive(countChildren - 1);
+        } else {
+            setActive(active - 1);
+        }
+    }
 
     return (
         <div 
@@ -109,10 +82,11 @@ const CardSlider = ({
             </div>
             {configs.pagination && (
                 <div className="relative m-w w-full">
-                    <button className="control-left">
+                    <button className="control-left"
+                        onClick={handlePrev}>
                         <img src='./img/btn-left.png'/>
                     </button>
-                    <button className="control-right">
+                    <button className="control-right" onClick={handleNext}>
                         <img src='./img/btn-right.png'/>
                     </button>
                 </div>
@@ -120,6 +94,6 @@ const CardSlider = ({
             
         </div>
     )
-}
+});
 
 export default CardSlider;

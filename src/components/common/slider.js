@@ -66,7 +66,6 @@ const Slider = ({
         // window.addEventListener('resize', handleResize);
         window.addEventListener('orientationchange', handleResize);
         if (refProcess.current) {
-            console.log();
             refProcess.current.style.width = `${(100 / countChildren) * sliderPerRow}%`;
         }
         refContent.current.addEventListener('scroll', handleScroll);

@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { useApp } from "@hooks/useApp";
 
 const Footer = () => {
-
     const { subscribe } = useApp();
 
     const [email, setEmail] = useState('');
