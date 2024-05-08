@@ -565,13 +565,13 @@ const Header = React.memo(() => {
                                                 </div>
                                                 <div className="navdrop-inner absolute py-1 border-x border-solid border-b border-ccc dark:border-999 dark:!bg-black">
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
-                                                        <Link href={'/sub-des/9'} className="body_text dark:text-white nav-link">How to</Link>
-                                                    </div>
-                                                    <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
                                                         <Link href={'/sub-des/10'} className="body_text dark:text-white nav-link">Skincare routine</Link>
                                                     </div>
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
                                                         <Link href={'/sub-des/3'} className="body_text dark:text-white nav-link">Usage guide</Link>
+                                                    </div>
+                                                    <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
+                                                        <Link href={'/sub-des/9'} className="body_text dark:text-white nav-link">Nuturish</Link>
                                                     </div>
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
                                                         <Link href={'/sub-des/4'} className="body_text dark:text-white nav-link">Sun care</Link>
@@ -583,7 +583,7 @@ const Header = React.memo(() => {
                                                 data-nav="/categories/2"
                                             >
                                                 <div className="navdrop-title z-50 text-gray-300 hover:text-gray rounded-md pr-3 py-4">
-                                                    <Link href={`/categories/2`} className="dark:text-white flex nav-link"><span className="nav-text">Skincare nerd</span>
+                                                    <Link href={`/categories/2`} className="dark:text-white flex nav-link"><span className="nav-text">Self-care nerd</span>
                                                         <span className="ml-1 dark:hidden flex items-center">
                                                             <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="lazy" />
                                                         </span>
@@ -600,7 +600,10 @@ const Header = React.memo(() => {
                                                         <Link href={'/sub-des/6'} className="body_text nav-link">Tips & advices</Link>
                                                     </div>
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700 dark:!text-white">
-                                                        <Link href={'/sub-des/7'} className="body_text nav-link">Nuturish</Link>
+                                                        <Link href={'/sub-des/7'} className="body_text nav-link">Hair care</Link>
+                                                    </div>
+                                                    <div className="sub-menu block px-4 py-2 text-sm text-gray-700 dark:!text-white">
+                                                        <Link href={'/sub-des/8'} className="body_text nav-link">Mental health</Link>
                                                     </div>
                                                 </div>
                                             </div>
