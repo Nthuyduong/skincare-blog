@@ -255,9 +255,9 @@ const Header = React.memo(() => {
                                     </div>
                                 </div>
                                 <div className={`content-container`}>
-                                    <div><Link href={'/sub-des/9'}>How to</Link></div>
                                     <div><Link href={'/sub-des/10'}>Skincare routine</Link></div>
                                     <div><Link href={'/sub-des/3'}>Usage guide</Link></div>
+                                    <div><Link href={'/sub-des/9'}>Nuturish</Link></div>
                                     <div><Link href={'/sub-des/4'}>Sun care</Link></div>
                                 </div>
                             </div>
@@ -267,7 +267,7 @@ const Header = React.memo(() => {
                                 <div className="question-container flex">
                                     <div className="question mr-auto">
                                         <Link href={`/categories/2`}>
-                                            Skincare nerd
+                                            Self-care nerd
                                         </Link>
                                     </div>
                                     <div className="btn-question flex justify-center items-center">
@@ -281,7 +281,8 @@ const Header = React.memo(() => {
                                 <div className={`content-container`}>
                                     <div><Link href={'/sub-des/5'}>Skin concerns</Link></div>
                                     <div><Link href={'/sub-des/6'}>Tips & Advices</Link></div>
-                                    <div><Link href={'/sub-des/7'}>Nuturish</Link></div>
+                                    <div><Link href={'/sub-des/7'}>Hair care</Link></div>
+                                    <div><Link href={'/sub-des/8'}>Mental health</Link></div>
                                 </div>
                             </div>
                         </div>
