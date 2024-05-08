@@ -57,7 +57,7 @@ const About = () => {
                     </div>
                 </div>
                 <div className="my-7 border-solid border-y border-ccc py-8 about-me p-60 dark:border-t dark:border-ccc">
-                    <div className="md:grid md:grid-cols-12 gap-5">
+                    <div className="md:grid md:grid-cols-12 gap-4">
                         <div className="md:col-span-4 md:mb-0 mb-4 animate slideInUp animate--delay-fast">
                             <img className="w-full" src="./img/about/abt-me1.png" alt="smile" loading="lazy"/>
                         </div>
@@ -81,7 +81,7 @@ const About = () => {
                 <div className="wedo-new dark:border-solid dark:boder-b dark:border-ccc">
                     <div className="md:grid md:grid-cols-12 gap-5">
                         <div className="md:col-span-4">
-                            <div className="md:pr-5 p-4 dark:border-333 border mb-4 border-solid border-999 md:border-none">
+                            <div className="md:pr-5 py-4 pr-4 dark:border-333 border mb-4 border-solid border-999 md:border-none">
                                 <div className="heading_3 mb-3 animate slideInUp">What we do</div>
                                 <div className="animate slideInUp animate--delay-fast">Are you interested in collaborating? Do you want to be a part of us? Join with us now!</div>
                                 <div className="mt-4 animate slideInUp animate--delay-medium">
@@ -191,9 +191,9 @@ const About = () => {
                 {/*    </div>*/}
                 {/*</div>*/}
                 <div className="blog-mission pt-7 pb-9">
-                    <div className="grid grid-cols-12 mission-inner flex">
+                    <div className="grid grid-cols-12 gap-4 mission-inner flex">
 
-                        <div className="col-span-12 md:col-span-6 mission-content m-auto md:p-5 h-full flex items-center">
+                        <div className="col-span-12 md:col-span-6 mission-content m-auto md:py-5 md:mr-5 h-full flex items-center">
                             <div className="text-black dark:!text-white">
                                 <div className="heading_3 mb-2 animate slideInUp animate--delay-medium">Our mission</div>
                                 <div className="animate slideInUp animate--delay-slow">
@@ -205,8 +205,12 @@ const About = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-span-12 md:col-span-6 img-mission">
-                            <img className="w-100" src="./img/about/abt-blog.png" alt="smile" loading="lazy"/>
+                        
+                        <div className="col-span-12 md:col-span-3 img-mission">
+                            <img className="w-100" src="./img/about/mission.jpg" alt="smile" loading="lazy"/>
+                        </div>
+                        <div className="col-span-12 md:col-span-3 img-mission">
+                            <img className="w-100" src="./img/about/mission2.jpg" alt="smile" loading="lazy"/>
                         </div>
                     </div>
                 </div>

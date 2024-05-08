@@ -211,11 +211,11 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                         <div className="md:py-3 md:flex justify-center">
                             {/*breadcrumb*/}
                             <div className="self-center mb-2 md:mb-0">
-                                <div className="animate slideInUp heading_3">Skincare Guides & Tutorials</div>
+                                <div className="animate slideInUp heading_3">Must To Know</div>
                             </div>
                             {/*Change layout*/}
                             <div className="self-center flex ml-auto">
-                                <a href="">View all</a>
+                                <a href="">View all topic</a>
                                 <div className="ml-1">
                                     <img
                                         className="icon-ssm dark:hidden"
@@ -232,17 +232,19 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
 
                     <div className="grid grid-cols-4 gap-4">
                         <div className="col-span-4 md:col-span-2 h-popular-des-ct">
-                            <div className="des-ct-img overflow-hidden">
-                                <img
-                                    className="w-full"
-                                    src="./img/home/category1.png"
-                                    alt="smile"
-                                    loading="lazy"
-                                    height={100}
-                                    width={100}/>
+                            <div className="des-ct-img hover-img overflow-hidden">
+                                <div className="img-inner">
+                                    <img
+                                        className="w-full"
+                                        src="./img/home/category1.png"
+                                        alt="smile"
+                                        loading="lazy"
+                                        height={100}
+                                        width={100}/>
+                                </div>
                             </div>
                             <div className="category-des-content">
-                                <div className="heading_4 top-destination-title py-3 dark:border-b dark:!border-ccc">How to clean</div>
+                                <div className="heading_4 top-destination-title py-3 dark:border-b dark:!border-ccc">Skincare Routine</div>
                                 <div className="flex py-2 sub-title dark:border-b dark:!border-ccc">
                                     <div className="flex">
                                         <div className="flex pr-1">
@@ -256,18 +258,20 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                             </div>
                         </div>
                         <div className="col-span-4 md:col-span-2 h-popular-des-ct">
-                            <div className="des-ct-img overflow-hidden">
-                                <img
-                                    className="w-full"
-                                    src="./img/home/category.png"
-                                    alt="smile"
-                                    loading="lazy"
-                                    height={100}
-                                    width={100}
-                                />
+                            <div className="des-ct-img hover-img overflow-hidden">
+                                <div className="img-inner">
+                                    <img
+                                        className="w-full"
+                                        src="./img/home/category.png"
+                                        alt="smile"
+                                        loading="lazy"
+                                        height={100}
+                                        width={100}
+                                    />
+                                </div>
                             </div>
                             <div className="category-des-content">
-                                <div className="heading_4 top-destination-title py-3 dark:border-b dark:!border-ccc">Shopping guide</div>
+                                <div className="heading_4 top-destination-title py-3 dark:border-b dark:!border-ccc">Usage Guide</div>
                                 <div className="flex py-2 sub-title dark:border-b dark:!border-ccc">
                                     <div className="flex">
                                         <div className="flex pr-1">
