@@ -342,26 +342,25 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                     background: '/img/homedecor.png',
                 }}
             >
-                <div className="slide-card-item heading_1 text-white">
-                    “Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor.”
+                <div className="slide-card-item">
+                    <div className="heading_1 text-center text-black">“You are imperfect, permanently and inevitably flawed. And you are beautiful”</div>
+                    <div className="text-center text-black mt-4 heading_6">Amy Bloom</div>
                 </div>
-                <div className="slide-card-item heading_1 text-white">
-                    “QWempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor.”
+                <div className="slide-card-item heading_1 text-center text-black">
+                    <div className="heading_1 text-center text-black">"You yourself, as much as anybody in the entire universe, deserve your love and affection."</div>
+                    <div className="text-center text-black mt-4 heading_6">Buddha</div>
                 </div>
-                <div className="slide-card-item heading_1 text-white">
-                    “Uempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor.”
+                <div className="slide-card-item heading_1 text-center text-black">
+                    <div className="heading_1 text-center text-black">"I think happiness is what makes you pretty. Period. Happy people are beautiful. They become like a mirror and they reflect that happiness."</div>
+                    <div className="text-center text-black mt-4 heading_6">Drew Barrymore</div>
                 </div>
-                <div className="slide-card-item heading_1 text-white">
-                    “WKempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor.”
+                <div className="slide-card-item heading_1 text-center text-black">
+                    <div className="heading_1 text-center text-black">“Natural beauty is the best beauty. It radiates from within and doesn't need any alterations.”</div>
+                    <div className="text-center text-black mt-4 heading_6">Radiance Aura Blog</div>
                 </div>
-                <div className="slide-card-item heading_1 text-white">
-                    “LLempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor.”
-                </div>
-                <div className="slide-card-item heading_1 text-white">
-                    “AAempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor.”
-                </div>
-                <div className="slide-card-item heading_1 text-white">
-                    “ALempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor.”
+                <div className="slide-card-item heading_1 text-center text-black">
+                    <div className="heading_1 text-center text-black">"The more you praise and celebrate your life, the more there is in life to celebrate."</div>
+                    <div className="text-center text-black mt-4 heading_6">Oprah Winfrey</div>
                 </div>
             </CardSlider>
             <div className="px-3 my-0 mx-auto m-w pt-8 pb-7">
