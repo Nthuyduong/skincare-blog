@@ -87,7 +87,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                 </picture>
             </div> */}
             {/*Lastest on this blog*/}
-            <div className="bg-primary">
+            <div className="">
                 <div className="my-0 md:py-8 py-7 mx-auto m-w">
                     <div className="recently-update">
                         <div>
@@ -137,16 +137,16 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                     </div>
                 </div>
             </div>
-            <div className="my-0 px-3 mx-auto m-w">
+            <div className="my-0 mx-auto m-w">
                 {/*List subcategorires*/}
-                <div className="flex list-categories md:my-8 my-7 justify-center">
+                <div className="flex list-categories md:mb-9 mb-7 justify-center">
                     <div>
                         <div className="flex justify-center">
                             <div className="list-category title animate slideInUp heading_3 mb-1 md:mb-6 text-center mw-5">See what we can help you progress</div>
                         </div>
                         <div className="grid grid-cols-12 gap-4">
                             <div className="col-span-3">
-                                <div class="pl-3 pt-3">
+                                <div class="px-3 pt-3">
                                     <div className="heading_6">01/</div>
                                     <div className="heading_5 mt-1 mb-4">Usage Guide</div>
                                 </div>
@@ -155,18 +155,19 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                                     src="./img/home/usage guide.png"
                                 />
                             </div>
-                            <div className="col-span-3">
-                                <div class="pl-3 pt-3">
+                            <div className="col-span-3 bg-primary border border-solid border-ccc">
+                                <div class="px-3 pt-3">
                                     <div className="heading_6">01/</div>
                                     <div className="heading_5 mt-1 mb-4">Nourish Beauty</div>
-                                </div>
-                                <img
-                                    className=""
+                                    <div className="body_text mt-1 mb-5">Explore a wealth of knowledge for enhancing your skin's radiance and well-being from the inside out</div>
+                                    <img
+                                    className="w-1/2"
                                     src="./img/home/nourish.png"
                                 />
+                                </div>
                             </div>
                             <div className="col-span-3">
-                                <div class="pl-3 pt-3">
+                                <div class="px-3 pt-3">
                                     <div className="heading_6">01/</div>
                                     <div className="heading_5 mt-1 mb-4">Mental Health</div>
                                 </div>
@@ -176,7 +177,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                                 />
                             </div>
                             <div className="col-span-3">
-                                <div class="pl-3 pt-3">
+                                <div class="px-3 pt-3">
                                     <div className="heading_6">01/</div>
                                     <div className="heading_5 mt-1 mb-4">Hair Care</div>
                                 </div>
@@ -271,7 +272,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                     {/* </div> */}
 
                 </div>
-                <div className="px-3 my-0 mx-auto m-w md:pb-8 pb-7">
+                <div className="px-3 my-0 mx-auto m-w md:pb-9 pb-7">
                     <div className="home-about dark:border-t dark:border-b dark:!border-ccc">
                         <div className="md:grid md:grid-cols-12 gap-4">
                             <div className="md:col-span-8 py-6 pr-4 about-intro md:border-r md:border-solid border-999 !border-ccc">
@@ -452,7 +453,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                     <div className="text-center text-black mt-4 heading_6">Oprah Winfrey</div>
                 </div>
             </CardSlider>
-            <div className="px-3 my-0 mx-auto m-w pt-8">
+            <div className="px-3 my-0 mx-auto m-w pt-9">
                 <div className="subscribe-section">
                     <div className="bg-primary p-5">
                         <div className="flex">

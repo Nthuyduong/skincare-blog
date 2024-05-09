@@ -209,7 +209,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                         }}
                     />
                     <div className="w-full flex justify-center items-center">
-                        <div className="px-3 w-full mx-4 m-w mx-auto my-0 helpful-rate mt-8">
+                        <div className="px-3 w-full mx-4 m-w mx-auto my-0 helpful-rate mt-6">
                             <div className="flex w-full pt-3 border-solid border-t border-ccc">
                                 <div className="medium_text mr-3">
                                     <a href="#">Was this helpful?</a>

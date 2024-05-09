@@ -153,9 +153,9 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                                         />
                                     )}
                                     <div className="m-w mx-auto relative h-[400px] mt-auto flex">
-                                        <div className="">
-                                            <div className="!text-white mb-3">{ post.categories.map((category) => {return category.name}).join(' | ') }</div>
-                                            <div className="heading_1 !text-white mb-2">{post.title}</div>
+                                        <div className="height-fit absolute bottom-[60px]">
+                                            <div className="mb-3">{ post.categories.map((category) => {return category.name}).join(' | ') }</div>
+                                            <div className="heading_3 mb-2">{post.title}</div>
                                             <div className="small_text">About {post?.estimate_time} minutes to read</div>
                                         </div>
                                     </div>
@@ -182,8 +182,7 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                                 <div className="heading_1 text-black dark:text-white mb-2">{category.name}</div>
                                 <div className="h-px w-1/6 bg-333 dark:bg-white mx-auto mb-3"></div>
                                 <div className="text-black dark:text-white">
-                                    Browse our dictionary for all the skincare ingredients in your favorite products,
-                                    with trusted insights from dermatologists, cosmetic chemists, and more.
+                                   {category.description}
                                 </div>
                             </div>
                         
