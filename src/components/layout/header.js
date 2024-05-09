@@ -257,7 +257,7 @@ const Header = React.memo(() => {
                                 <div className={`content-container`}>
                                     <div><Link href={'/sub-des/10'}>Skincare routine</Link></div>
                                     <div><Link href={'/sub-des/3'}>Usage guide</Link></div>
-                                    <div><Link href={'/sub-des/9'}>Nuturish</Link></div>
+                                    <div><Link href={'/sub-des/9'}>Nourish beauty</Link></div>
                                     <div><Link href={'/sub-des/4'}>Sun care</Link></div>
                                 </div>
                             </div>
@@ -572,7 +572,7 @@ const Header = React.memo(() => {
                                                         <Link href={'/sub-des/3'} className="body_text dark:text-white nav-link">Usage guide</Link>
                                                     </div>
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
-                                                        <Link href={'/sub-des/9'} className="body_text dark:text-white nav-link">Nuturish</Link>
+                                                        <Link href={'/sub-des/9'} className="body_text dark:text-white nav-link">Nourish beauty</Link>
                                                     </div>
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
                                                         <Link href={'/sub-des/4'} className="body_text dark:text-white nav-link">Sun care</Link>

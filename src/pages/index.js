@@ -4,7 +4,7 @@ import { ROUTER } from "../utils/constants";
 import { BASE_URL } from "@utils/apiUtils";
 import { formatDate } from "@utils/format";
 import { useRouter } from 'next/router';
-import { getBlogNewest, getBlogPopular} from "../services/home";
+import { getBlogNewest, getBlogPopular } from "../services/home";
 import dynamic from "next/dynamic";
 import CardSlider from "../components/common/CardSlider";
 const Slider = dynamic(() => import("@components/common/slider"), { ssr: false });
@@ -33,6 +33,18 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
 
     return (
         <div>
+            {/* new banner */}
+            <div className="">
+                <div className="banner-text"></div>
+                <div className="grid grid-cols-12 gap-4">
+                    <div className="col-span-3"></div>
+
+                    <div className="col-span-1"></div>
+                    <div className="col-span-4"></div>
+                    <div className="col-span-1"></div>
+                    <div className="col-span-3"></div>
+                </div>
+            </div>
             <div className="relative">
                 <CardSlider
                     configs={{
@@ -46,13 +58,13 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                             <div className="col-span-12 md:col-span-4">
                                 <div className="hover-img">
                                     <div className="img-inner">
-                                        <img className="set-img" src={BASE_URL + '/storage/' + blog?.featured_img} alt="smile" loading="lazy"/>
+                                        <img className="set-img" src={BASE_URL + '/storage/' + blog?.featured_img} alt="smile" loading="lazy" />
                                     </div>
                                 </div>
                                 <div className="slide-des">
                                     <div className="py-2 mb-3">
-                                        <div className="mr-auto mb-2 small_text text-black">{ blog.categories.map((category) => {return category.name}).join(' | ') }</div>
-                                        <div className="medium_text text-black">{ blog.title }</div>
+                                        <div className="mr-auto mb-2 small_text text-black">{blog.categories.map((category) => { return category.name }).join(' | ')}</div>
+                                        <div className="medium_text text-black">{blog.title}</div>
                                     </div>
                                 </div>
                             </div>
@@ -61,10 +73,10 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                 </CardSlider>
                 <div className="absolute t-0 l-0 w-full h-full flex justify-center items-center">
                     <div className="max-w-[293px] absolute z-10 top-8 left-[30%]">
-                        <img className="w-full" src="./img/Topmost.svg" alt="smile" loading="lazy"/>
+                        <img className="w-full" src="./img/Topmost.svg" alt="smile" loading="lazy" />
                     </div>
                     <div>
-                        <img className="w-full" src="./img/Signature.png" alt="smile" loading="lazy"/>
+                        <img className="w-full" src="./img/Signature.png" alt="smile" loading="lazy" />
                     </div>
                 </div>
             </div>
@@ -74,62 +86,115 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                     <img className="w-full" src="./img/home/mobile-banner.png" alt="smile" loading="lazy"/>
                 </picture>
             </div> */}
-            <div className="my-0 px-3 mx-auto m-w">
-                {/*Lastest on this blog*/}
-                <div className="recently-update pt-6 md:pt-8">
-                    <div className="animate slideInUp heading_4 md:heading_3 mb-1 md:mb-4">Most useful articles</div>
-                    <div className="">
-                        <Slider
-                            configs={{
-                                sliderPerRow: 4,
-                                sliderPerRowMobile: 1.25,
-                                allowDrag: true,
-                                duration: 400,
-                                auto: false,
-                                autoDuration: 1000,
-                                gap: 30,
-                                gapMobile: 10,
-                                process: true,
-                            }}
-                        >
-                            {popular.map((blog, index) => (
-                                <div className="justify-center" key={index}>
-                                    <div className="col-span-12 md:col-span-4">
-                                        <div className="hover-img">
-                                            <div className="img-inner">
-                                                <Link href={"/article/" + blog.slug}>
-                                                    <img className="set-img" src={BASE_URL + '/storage/' + blog?.featured_img} alt="smile" loading="lazy"/>
-                                                </Link>
-                                            </div>
-                                        </div>
-                                        <div className="">
-                                            <div className="article-info md:!border-b md:!border-ccc border-b-0 py-2 mb-2">
-                                                <div className="md:flex mb-1">
-                                                <div className="mr-auto small_text">{ blog.categories.map((category) => {return category.name}).join(' | ') }</div>
-                                                    {/*<div className="small_text">{ formatDate(blog.created_at) }</div>*/}
+            {/*Lastest on this blog*/}
+            <div className="bg-primary">
+                <div className="my-0 md:py-8 py-7 mx-auto m-w">
+                    <div className="recently-update">
+                        <div>
+                            <div className="title-section-home animate slideInUp heading_2 mb-2 md:mb-6">We inspire people to love themselves because that love shapes beauty.</div>
+                        </div>
+                        <div className="">
+                            <Slider
+                                configs={{
+                                    sliderPerRow: 4,
+                                    sliderPerRowMobile: 1.25,
+                                    allowDrag: true,
+                                    duration: 400,
+                                    auto: false,
+                                    autoDuration: 1000,
+                                    gap: 30,
+                                    gapMobile: 10,
+                                    process: true,
+                                }}
+                            >
+                                {popular.map((blog, index) => (
+                                    <div className="justify-center" key={index}>
+                                        <div className="col-span-12 md:col-span-4">
+                                            <div className="hover-img">
+                                                <div className="img-inner">
+                                                    <Link href={"/article/" + blog.slug}>
+                                                        <img className="set-img" src={BASE_URL + '/storage/' + blog?.featured_img} alt="smile" loading="lazy" />
+                                                    </Link>
                                                 </div>
-                                                <div className="medium_text">{ blog.title }</div>
                                             </div>
-                                            <div className="md:flex hidden">
-                                                <div className=""><Link className="text-link" href={"/article/" + blog.slug}>Read more</Link></div>
+                                            <div className="">
+                                                <div className="article-info md:!border-b md:!border-ccc border-b-0 py-2 mb-2">
+                                                    <div className="md:flex mb-1">
+                                                        <div className="mr-auto small_text">{blog.categories.map((category) => { return category.name }).join(' | ')}</div>
+                                                        {/*<div className="small_text">{ formatDate(blog.created_at) }</div>*/}
+                                                    </div>
+                                                    <div className="medium_text">{blog.title}</div>
+                                                </div>
+                                                <div className="md:flex hidden">
+                                                    <div className=""><Link className="text-link" href={"/article/" + blog.slug}>Read more</Link></div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
-                        </Slider>
+                                ))}
+                            </Slider>
+                        </div>
                     </div>
                 </div>
+            </div>
+            <div className="my-0 px-3 mx-auto m-w">
                 {/*List subcategorires*/}
-                <div className="flex list-categories md:my-8 my-6 justify-center">
-                    <div className="relative w-full md:w-2/3">
-                        <div className="absolute left-0 bottom-0">
+                <div className="flex list-categories md:my-8 my-7 justify-center">
+                    <div>
+                        <div className="flex justify-center">
+                            <div className="list-category title animate slideInUp heading_3 mb-1 md:mb-6 text-center mw-5">See what we can help you progress</div>
+                        </div>
+                        <div className="grid grid-cols-12 gap-4">
+                            <div className="col-span-3">
+                                <div class="pl-3 pt-3">
+                                    <div className="heading_6">01/</div>
+                                    <div className="heading_5 mt-1 mb-4">Usage Guide</div>
+                                </div>
+                                <img
+                                    className=""
+                                    src="./img/home/usage guide.png"
+                                />
+                            </div>
+                            <div className="col-span-3">
+                                <div class="pl-3 pt-3">
+                                    <div className="heading_6">01/</div>
+                                    <div className="heading_5 mt-1 mb-4">Nourish Beauty</div>
+                                </div>
+                                <img
+                                    className=""
+                                    src="./img/home/nourish.png"
+                                />
+                            </div>
+                            <div className="col-span-3">
+                                <div class="pl-3 pt-3">
+                                    <div className="heading_6">01/</div>
+                                    <div className="heading_5 mt-1 mb-4">Mental Health</div>
+                                </div>
+                                <img
+                                    className=""
+                                    src="./img/home/mental health.png"
+                                />
+                            </div>
+                            <div className="col-span-3">
+                                <div class="pl-3 pt-3">
+                                    <div className="heading_6">01/</div>
+                                    <div className="heading_5 mt-1 mb-4">Hair Care</div>
+                                </div>
+                                <img
+                                    className=""
+                                    src="./img/home/hair.png"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    {/* <div className="relative w-full md:w-2/3"> */}
+                    {/* <div className="absolute left-0 bottom-0">
                             <img
                                 className="rounded-full w-2/4"
                                 src="./img/home/list-ct-1.jpg"
                             />
-                        </div>
-                        <div className="w-full relative animate-scroll-up" style={{zIndex: 100}}>
+                        </div> */}
+                    {/* <div className="w-full relative animate-scroll-up" style={{zIndex: 100}}>
                             <ul className="w-full text-center">
                                 <li>
                                     <Link 
@@ -196,25 +261,49 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                                     </Link>
                                 </li>
                             </ul>
-                        </div>
-                        <div className="absolute right-0 top-0 flex justify-end">
+                        </div> */}
+                    {/* <div className="absolute right-0 top-0 flex justify-end">
                             <img
                                 className="rounded-full w-1/3 md:w-2/3"
                                 src="./img/home/list-ct-2.jpg"
                             />
+                        </div> */}
+                    {/* </div> */}
+
+                </div>
+                <div className="px-3 my-0 mx-auto m-w md:pb-8 pb-7">
+                    <div className="home-about dark:border-t dark:border-b dark:!border-ccc">
+                        <div className="md:grid md:grid-cols-12 gap-4">
+                            <div className="md:col-span-8 py-6 pr-4 about-intro md:border-r md:border-solid border-999 !border-ccc">
+                                <div className="relative">
+                                    <div className="heading_2 animate slideInUp">
+                                        “Start with clear, healthy skin. Nurture your radiance—embrace pure beauty, inside and out”
+                                    </div>
+                                    <div className="absolute heading_6 md:mt-auto md:block hidden animate slideInUp">Hello & Welcome!</div>
+                                </div>
+                            </div>
+                            <div className="md:col-span-4 about-content pt-3 pb-6 md:py-6">
+                                <div className="animate slideInUp">Welcome to our skincare sanctuary! Here, we celebrate the journey to radiant skin. Join
+                                    us for expert tips, shared experiences, and a community-driven pursuit of beauty and confidence.
+                                    Let's embark on a skincare adventure together, where your glow is our priority.</div>
+                                <div className="mt-6">
+                                    <Link href={ROUTER.ABOUT}>
+                                        <button className="animate slideInUp my-out-line-btn dark:border-ccc" type="submit">MORE ABOUT US</button>
+                                    </Link>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    
                 </div>
-                <div className="category-destination pt-6 md:pt-7">
-                    <div className="destination-title border-solid border-y border-ccc mb-5">
+                {/* <div className="category-destination"> */}
+                {/* <div className="destination-title border-solid border-y border-ccc mb-5">
                         <div className="md:py-3 md:flex justify-center">
                             {/*breadcrumb*/}
-                            <div className="self-center mb-2 md:mb-0">
+                {/* <div className="self-center mb-2 md:mb-0">
                                 <div className="animate slideInUp heading_3">Must To Know</div>
-                            </div>
-                            {/*Change layout*/}
-                            <div className="self-center flex ml-auto">
+                            </div> */}
+                {/*Change layout*/}
+                {/* <div className="self-center flex ml-auto">
                                 <a href="">View all topic</a>
                                 <div className="ml-1">
                                     <img
@@ -226,11 +315,11 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                                         src="./img/icon/arrow-right.svg"
                                     />
                                 </div>
-                            </div>
-                        </div>
-                    </div>
+                            </div> */}
+                {/* </div>
+                    </div> */}
 
-                    <div className="grid grid-cols-4 gap-4">
+                {/* <div className="grid grid-cols-4 gap-4">
                         <div className="col-span-4 md:col-span-2 h-popular-des-ct">
                             <div className="des-ct-img hover-img overflow-hidden">
                                 <div className="img-inner">
@@ -240,7 +329,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                                         alt="smile"
                                         loading="lazy"
                                         height={100}
-                                        width={100}/>
+                                        width={100} />
                                 </div>
                             </div>
                             <div className="category-des-content">
@@ -284,10 +373,10 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </div> */}
+                {/* </div> */}
                 {/*Reader's favorite*/}
-                <div className="p-100">
+                <div className="md:mb-9 md-7">
                     <div className="animate slideInUp heading_3 mb-1 md:mb-4">Reader's Favorite</div>
                     <div className="">
                         <Slider
@@ -309,16 +398,16 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                                         <div className="hover-img">
                                             <div className="img-inner">
                                                 <Link href={"/article/" + newest.slug}>
-                                                    <img className="set-img" src={BASE_URL + '/storage/' + newest?.featured_img} alt="smile" loading="lazy"/>
+                                                    <img className="set-img" src={BASE_URL + '/storage/' + newest?.featured_img} alt="smile" loading="lazy" />
                                                 </Link>
                                             </div>
                                             <div>
                                                 <div className="article-info py-2 mb-1 md:!border-b md:!border-ccc border-b-0">
                                                     <div className="md:flex mb-1">
-                                                        <div className="mr-auto small_text">{ newest.categories.map((category) => {return category.name}).join(' | ') }</div>
+                                                        <div className="mr-auto small_text">{newest.categories.map((category) => { return category.name }).join(' | ')}</div>
                                                         {/*<div className="small_text">{ formatDate(newest.created_at) }</div>*/}
                                                     </div>
-                                                    <div className="medium_text">{ newest.title }</div>
+                                                    <div className="medium_text">{newest.title}</div>
                                                 </div>
                                                 <div className="md:flex hidden">
                                                     <div className=""><a className="text-link" href="#">Read more</a></div>
@@ -343,54 +432,32 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                 }}
             >
                 <div className="slide-card-item">
-                    <div className="heading_1 text-center text-black">“You are imperfect, permanently and inevitably flawed. And you are beautiful”</div>
+                    <div className="heading_2 text-center text-black">“You are imperfect, permanently and inevitably flawed. And you are beautiful”</div>
                     <div className="text-center text-black mt-4 heading_6">Amy Bloom</div>
                 </div>
                 <div className="slide-card-item heading_1 text-center text-black">
-                    <div className="heading_1 text-center text-black">"You yourself, as much as anybody in the entire universe, deserve your love and affection."</div>
+                    <div className="heading_2 text-center text-black">"You yourself, as much as anybody in the entire universe, deserve your love and affection."</div>
                     <div className="text-center text-black mt-4 heading_6">Buddha</div>
                 </div>
                 <div className="slide-card-item heading_1 text-center text-black">
-                    <div className="heading_1 text-center text-black">"I think happiness is what makes you pretty. Period. Happy people are beautiful. They become like a mirror and they reflect that happiness."</div>
+                    <div className="heading_2 text-center text-black">"I think happiness is what makes you pretty. Period. Happy people are beautiful. They become like a mirror and they reflect that happiness."</div>
                     <div className="text-center text-black mt-4 heading_6">Drew Barrymore</div>
                 </div>
                 <div className="slide-card-item heading_1 text-center text-black">
-                    <div className="heading_1 text-center text-black">“Natural beauty is the best beauty. It radiates from within and doesn't need any alterations.”</div>
+                    <div className="heading_2 text-center text-black">“Natural beauty is the best beauty. It radiates from within and doesn't need any alterations.”</div>
                     <div className="text-center text-black mt-4 heading_6">Radiance Aura Blog</div>
                 </div>
                 <div className="slide-card-item heading_1 text-center text-black">
-                    <div className="heading_1 text-center text-black">"The more you praise and celebrate your life, the more there is in life to celebrate."</div>
+                    <div className="heading_2 text-center text-black">"The more you praise and celebrate your life, the more there is in life to celebrate."</div>
                     <div className="text-center text-black mt-4 heading_6">Oprah Winfrey</div>
                 </div>
             </CardSlider>
-            <div className="px-3 my-0 mx-auto m-w pt-8 pb-7">
-                <div className="home-about mb-8 dark:border-t dark:border-b dark:!border-ccc">
-                    <div className="md:grid md:grid-cols-12 gap-4">
-                        <div className="md:col-span-8 py-6 pr-4 about-intro md:border-r md:border-solid border-999 !border-ccc">
-                            <div className="relative">
-                                <div className="heading_1 animate slideInUp">
-                                    “Start with clear, healthy skin. Nurture your radiance—embrace pure beauty, inside and out”
-                                </div>
-                                <div className="absolute heading_6 md:mt-auto md:block hidden animate slideInUp">Hello & Welcome!</div>
-                            </div>
-                        </div>
-                        <div className="md:col-span-4 about-content pt-3 pb-6 md:py-6">
-                            <div className="animate slideInUp">Welcome to our skincare sanctuary! Here, we celebrate the journey to radiant skin. Join
-                                us for expert tips, shared experiences, and a community-driven pursuit of beauty and confidence.
-                                Let's embark on a skincare adventure together, where your glow is our priority.</div>
-                            <div className="mt-6">
-                                <Link href={ROUTER.ABOUT}>
-                                    <button className="animate slideInUp my-out-line-btn dark:border-ccc" type="submit">MORE ABOUT US</button>
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div className="px-3 my-0 mx-auto m-w pt-8">
                 <div className="subscribe-section">
                     <div className="bg-primary p-5">
                         <div className="flex">
                             <div className="hidden md:block">
-                                <img className="w-full" src="./img/home/subscribe.png" alt="smile" loading="lazy"/>
+                                <img className="w-full" src="./img/home/subscribe.png" alt="smile" loading="lazy" />
                             </div>
                             <div className="ml-5 text-black flex items-center md:pr-8">
                                 <div>
@@ -407,6 +474,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                     </div>
                 </div>
             </div>
+
             {/*<div className="">*/}
             {/*    <div className="relative flex py-3 items-center gap-1">*/}
             {/*        <div className="flex-grow bg-black dark:bg-white" style={{height: '1px'}}></div>*/}
