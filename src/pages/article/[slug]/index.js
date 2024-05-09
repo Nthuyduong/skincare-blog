@@ -170,7 +170,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                         )}
                                     </ul>
                                 </div>
-                                <div className="heading_2 mb-2">{blog?.title}</div>
+                                <div className="heading_3 mb-2">{blog?.title}</div>
                                 <div className="medium_text mb-4">{blog?.excerpt}</div>
                                 <div className="small_text">Writen by: {blog?.author}</div>
                                 <div className="small_text my-1">Publish date: {blog ? formatDate(blog.publish_date) : ''}</div>
@@ -209,7 +209,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                         }}
                     />
                     <div className="w-full flex justify-center items-center">
-                        <div className="px-3 w-full mx-4 m-w mx-auto my-0 helpful-rate mt-5">
+                        <div className="px-3 w-full mx-4 m-w mx-auto my-0 helpful-rate mt-8">
                             <div className="flex w-full pt-3 border-solid border-t border-ccc">
                                 <div className="medium_text mr-3">
                                     <a href="#">Was this helpful?</a>
@@ -225,7 +225,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                             </div>
                             {/*Suggest more article*/}
                             <div className="suggest-article py-7">
-                                <div className="heading_2 mb-4">Related Articles</div>
+                                <div className="heading_3 mb-4">Related Articles</div>
                                 <div className="">
                                     <Slider
                                         configs={{
