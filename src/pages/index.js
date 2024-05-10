@@ -157,9 +157,9 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                             </div>
                             <div className="col-span-3 bg-primary border border-solid border-ccc">
                                 <div class="px-3 pt-3">
-                                    <div className="heading_6">01/</div>
-                                    <div className="heading_5 mt-1 mb-4">Nourish Beauty</div>
-                                    <div className="body_text mt-1 mb-5">Explore a wealth of knowledge for enhancing your skin's radiance and well-being from the inside out</div>
+                                    <div className="heading_6 !text-black">01/</div>
+                                    <div className="heading_5 !text-black mt-1 mb-4">Nourish Beauty</div>
+                                    <div className="body_text !text-black mt-1 mb-5">Explore a wealth of knowledge for enhancing your skin's radiance and well-being from the inside out</div>
                                     <img
                                     className="w-1/2"
                                     src="./img/home/nourish.png"

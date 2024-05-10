@@ -63,7 +63,7 @@ const About = () => {
                         </div>
                         <div className="md:col-span-6 about-right flex">
                             <div className="about-content mt-auto dark:!text-white">
-                                <div className="heading_3 mb-3 animate slideInUp animate--delay-medium">About Us</div>
+                                <div className="heading_3 mb-4 animate slideInUp animate--delay-medium">About Us</div>
                                 <div className="animate slideInUp animate--delay-slow">
                                     Welcome to our skincare blog, where we're here to help, connect, and share useful tips
                                     and information for everyone seeking beautiful and resilient skin. We genuinely care
@@ -195,13 +195,9 @@ const About = () => {
 
                         <div className="col-span-12 md:col-span-6 mission-content m-auto md:py-5 md:mr-5 h-full flex items-center">
                             <div className="text-black dark:!text-white">
-                                <div className="heading_3 mb-2 animate slideInUp animate--delay-medium">Our mission</div>
+                                <div className="heading_3 mb-4 animate slideInUp animate--delay-medium">Our mission</div>
                                 <div className="animate slideInUp animate--delay-slow">
-                                    At Radiance Aura, our mission is straightforward: to support you on your skincare journey with
-                                    practical advice, genuine connection, and a treasure trove of helpful information. We're dedicated
-                                    to helping you uncover the secrets to radiant, resilient skin that's uniquely yours. With a focus on
-                                    authenticity and care, we aim to inspire confidence and celebrate your natural beauty. Together,
-                                    let's embark on this transformative journey, embracing your radiance with warmth and sincerity every step of the way.
+                                At Radiance Aura, we're here to guide you through your skincare journey with genuine support and valuable insights. Our goal is to help you achieve radiant, resilient skin that's uniquely yours. With authenticity and care, we celebrate your natural beauty and inspire confidence every step of the way. Join us on this transformative journey toward embracing your radiance.
                                 </div>
                             </div>
                         </div>

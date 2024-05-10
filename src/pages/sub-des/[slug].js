@@ -70,9 +70,9 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
     useEffect(() => {
         const col = [[], [], [], []];
         let check = 0;
-        for (let i = 0; i < posts.length; i ++) {
+        for (let i = 0; i < posts.length; i++) {
             col[check].push(posts[i]);
-            check ++;
+            check++;
             if (check == 4) {
                 check = 0;
             }
@@ -119,7 +119,7 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
         <div className="sub-des-page">
             <div className="sub-des-inner">
                 <div>
-                    { populars.length > 0 && (
+                    {populars.length > 0 && (
                         <Slider
                             configs={{
                                 sliderPerRow: 1,
@@ -137,7 +137,7 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                         >
                             {populars.map((post, index) => (
                                 <div className="relative title-page overflow-hidden" key={index}>
-                                    { post.banner_img ? (
+                                    {post.banner_img ? (
                                         <img
                                             className="absolute w-full h-full md:h-full md:w-full object-cover"
                                             src={BASE_URL + '/storage/' + post?.banner_img}
@@ -154,7 +154,7 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                                     )}
                                     <div className="m-w mx-auto relative h-[400px] mt-auto flex">
                                         <div className="height-fit absolute bottom-[60px]">
-                                            <div className="mb-3">{ post.categories.map((category) => {return category.name}).join(' | ') }</div>
+                                            <div className="mb-3">{post.categories.map((category) => { return category.name }).join(' | ')}</div>
                                             <div className="heading_3 mb-2">{post.title}</div>
                                             <div className="small_text">About {post?.estimate_time} minutes to read</div>
                                         </div>
@@ -177,15 +177,16 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                         {/*        </ul>*/}
                         {/*    </div>*/}
                         {/*</div>*/}
-                        <div className="col-span-12 right-all-posts">                            
+                        <div className="col-span-12 right-all-posts">
                             <div className="max-w-screen-sm mx-auto text-center py-4">
-                                <div className="heading_1 text-black dark:text-white mb-2">{category.name}</div>
-                                <div className="h-px w-1/6 bg-333 dark:bg-white mx-auto mb-3"></div>
-                                <div className="text-black dark:text-white">
-                                   {category.description}
+                                <div className="heading_1 text-black dark:text-white mb-3">{category.name}</div>
+                                <div class="flex justify-center">
+                                    <div className="text-black dark:text-white subcate-des">
+                                    {category.description}
+                                    </div>
                                 </div>
                             </div>
-                        
+
                             <div className="destination-title border-solid border-y !border-999 border-ccc md:my-5 py-3">
                                 <div className="flex flex-col md:flex-row md:justify-between">
                                     {/*breadcrumb*/}
@@ -228,7 +229,7 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                                                         <div className="sort-menu-inner">
                                                             <ul className="">
                                                                 {SORT.map((item, index) => (
-                                                                    <li key={index} className="pb-2 cursor-pointer" onClick={() => {handleSort(item)}}>{item.label}</li>
+                                                                    <li key={index} className="pb-2 cursor-pointer" onClick={() => { handleSort(item) }}>{item.label}</li>
                                                                 ))}
                                                             </ul>
                                                         </div>
@@ -265,10 +266,10 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                                                                             width={200}
                                                                         />
                                                                     </div>
-                                                                    
+
                                                                 </div>
                                                             </Link>
-                                                            
+
                                                             <div className="py-1 mb-5">
                                                                 {/*<div className="mb-1">*/}
                                                                 {/*    /!*<div*!/*/}
@@ -301,8 +302,8 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
     )
 }
 
-Sub_destination.getInitialProps = async ({query}) => {
-    const {slug, page} = query;
+Sub_destination.getInitialProps = async ({ query }) => {
+    const { slug, page } = query;
 
     if (typeof window != 'undefined') {
         return {
@@ -315,7 +316,7 @@ Sub_destination.getInitialProps = async ({query}) => {
     }
     try {
         const res = await Promise.all([
-            fetch(`${BASE_URL}/api/categories/${slug}`, {cache: 'force-cache'}),
+            fetch(`${BASE_URL}/api/categories/${slug}`, { cache: 'force-cache' }),
             fetch(`${BASE_URL}/api/blogs/category/${slug}?page=${page ?? 1}`)
             // fetch(`${BASE_URL}/api/blogs?page=${page ?? 1}`)
         ])
