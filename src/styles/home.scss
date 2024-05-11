@@ -82,3 +82,33 @@
   line-height: 52*1.1;
   font-family: 'GTregular',serif;
 }
+.home-category-card {
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: background 0.2s ease;
+  border: 1px solid transparent;
+  .home-category-card-des {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+  }
+  .home-category-card-img {
+    bottom: 0;
+    position: absolute;
+    transition: all 0.8s ease;
+  }
+}
+.home-category-card-active {
+  background: #FCF8F2;
+  border: 1px solid #CCCCCC;
+  .home-category-card-des {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .home-category-card-img {
+    padding: 0 16px;
+    width: 50%;
+    bottom: 16px;
+    position: absolute;
+  }
+}

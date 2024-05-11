@@ -84,10 +84,10 @@ const CardSlider = React.memo(({
                 <div className="relative m-w w-full">
                     <button className="control-left"
                         onClick={handlePrev}>
-                        <img src='./img/btn-left.png'/>
+                        <img src='./img/btn-left.png' alt="control left"/>
                     </button>
                     <button className="control-right" onClick={handleNext}>
-                        <img src='./img/btn-right.png'/>
+                        <img src='./img/btn-right.png' alt="control right"/>
                     </button>
                 </div>
             )}
