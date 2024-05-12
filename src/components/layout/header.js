@@ -203,10 +203,10 @@ const Header = React.memo(() => {
                     {/*main logo*/}
                     <Link href={ROUTER.HOME} className="flex-1">
                         <div className="items-center justify-center w-full hidden dark:flex">
-                            <img className="h-3" src="/img/logo1.svg" alt="smile" loading="lazy" />
+                            <img className="h-3" src="/img/logo1.svg" alt="radiance aura skincare blog" loading="lazy" />
                         </div>
                         <div className="flex items-center justify-center w-full dark:hidden">
-                            <img className="h-3" src="/img/logo2.svg" alt="smile" loading="lazy" />
+                            <img className="h-3" src="/img/logo2.svg" alt="radiance aura skincare blog" loading="lazy" />
                         </div>
                     </Link>
                     <div className="hidden">
@@ -320,10 +320,10 @@ const Header = React.memo(() => {
                 <ThemeToggle />
                 <Link href={ROUTER.HOME} className="flex-1">
                     <div className="items-center justify-center w-full hidden dark:flex">
-                        <img className="h-4" src="/img/logo1.svg" alt="smile" loading="lazy" />
+                        <img className="h-4" src="/img/logo1.svg" alt="radiance aura skincare blog" loading="lazy" />
                     </div>
                     <div className="flex items-center justify-center w-full dark:hidden">
-                        <img className="h-4" src="/img/logo2.svg" alt="smile" loading="lazy" />
+                        <img className="h-4" src="/img/logo2.svg" alt="radiance aura skincare blog" loading="lazy" />
                     </div>
                 </Link>
                 <div className="flex mr-4 !hidden md:!flex">

@@ -38,9 +38,9 @@ const Categories = ({ categoryProps = [], subCategoriesProps = [], isCsr, slug }
             <div className="">
                 <div className="grid grid-cols-12 pt-60">
                     <div className="col-span-12 md:col-span-7 md:mb-0 mb-3">
-                        <div className="heading animate slideInUp">{ category.name }</div>
+                        <h1 className="heading animate slideInUp">{ category.name }</h1>
                     </div>
-                    <div className="col-span-12 md:col-span-5 animate slideInUp">{ category.description }</div>
+                    <h3 className="col-span-12 md:col-span-5 animate slideInUp">{ category.description }</h3>
                 </div>
             </div>
             <div className="py-6 m-w mx-auto my-0">

@@ -54,11 +54,11 @@ const IngredientDetail = ({ ingredientProps , id , isCrs }) => {
                                             <li><a href="src/pages/ingredient/ingredients#index.js">{ingredient?.name}</a></li>
                                         </ul>
                                     </div>
-                                    <div className="heading_2 mb-2">{ingredient?.name}</div>
-                                    <div>
+                                    <h1 className="heading_2 mb-2">{ingredient?.name}</h1>
+                                    <h3>
                                         Iou want to dig a bit deeper and really understand retinol, you have to start with tretinoin.
                                         We have written a nice geeky descriptio
-                                    </div>
+                                    </h3>
                                 </div>
                             </div>
                         </div>
