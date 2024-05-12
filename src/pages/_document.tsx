@@ -6,7 +6,6 @@ export default function Document() {
     return (
         <Html lang="en">
             <link rel="icon" href="/favicon.png" />
-            <meta name="google-site-verification" content="CwnPTh1KwncElwQ7VSbR25TG23jdVqkh4vGhKgB2N2I" />
             <script
                 dangerouslySetInnerHTML={{
                 __html: `

@@ -48,6 +48,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
     return (
         <>
             <Head>
+            <meta name="google-site-verification" content="CwnPTh1KwncElwQ7VSbR25TG23jdVqkh4vGhKgB2N2I" />
                 <title>Radiance Aura: Nurturing Your Skin, Nourishing Your Soul</title>
                 <meta name="description" content=
                     "Discover radiant beauty with Radiance Aura, your ultimate skincare sanctuary. Explore expert tips, effective techniques, and nourishing rituals for healthy, glowing skin" 
