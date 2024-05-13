@@ -35,11 +35,7 @@ const About = () => {
                     <div className="intro-inner grid grid-cols-6 gap-4 ">
                         <div className=""></div>
                         <div className="animate slideInUp col-span-4 intro-content heading_5 text-center z-30">
-                            “Beauty's essence lies in purity – a pledge to clear, healthy skin. For women who understand that
-                            the radiance of their skin reflects the purity of their beauty, the journey starts with maintaining
-                            a clean canvas. True beauty springs from skin health, illuminating both external radiance and inner beauty.
-                            Cleanse, nourish, and care for your skin, observing the transformation as beauty becomes pure – both outwardly
-                            and within”
+                           "True beauty originates from a foundation of healthy skin, echoing the purity within. By tending to your skin with care—cleansing, nourishing, and protecting it—you unveil its innate radiance, enriching both inner and outer beauty."
                         </div>
                     </div>
                 </div>
