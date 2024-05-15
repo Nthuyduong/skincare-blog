@@ -86,7 +86,7 @@ const Search = () => {
                                                 <img className="w-full" src={BASE_URL + '/storage/' + result?.featured_img} alt="smile" loading="lazy"/>
                                             </div>
                                             <div className="md:col-span-6 col-span-5">
-                                                <div className="">Drink & Coffee</div>
+                                                <div className="small_text mb-1">Drink & Coffee</div>
                                                 <div className="heading_5 my-1">{ result.title }</div>
                                                 <div className="flex mb-1">
                                                     <div>By Nthduong</div>

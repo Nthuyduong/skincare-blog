@@ -48,11 +48,8 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
     return (
         <>
             <Head>
-            <meta name="google-site-verification" content="CwnPTh1KwncElwQ7VSbR25TG23jdVqkh4vGhKgB2N2I" />
-                <title>Radiance Aura: Nurturing Your Skin, Nourishing Your Soul</title>
-                <meta name="description" content=
-                    "Discover radiant beauty with Radiance Aura, your ultimate skincare sanctuary. Explore expert tips, effective techniques, and nourishing rituals for healthy, glowing skin" 
-                />
+                <title>Radiance aura, skincare blog</title>
+                <meta name="description" content="Welcome to our skincare sanctuary! Here, we celebrate the journey to radiant skin. Join us for expert tips, shared experiences, and a community-driven pursuit of beauty and confidence. Let's embark on a skincare adventure together, where your glow is our priority" />
             </Head>
             <div>
                 {/* new banner */}
@@ -84,8 +81,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                                                 className="set-img" 
                                                 src={BASE_URL + '/storage/' + blog?.featured_img} 
                                                 alt={blog.title} 
-                                                loading="lazy"
-                                                height={500} width={500}
+                                                loading="lazy" 
                                             />
                                         </div>
                                     </div>
@@ -101,10 +97,10 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                     </CardSlider>
                     <div className="absolute t-0 l-0 w-full h-full flex justify-center items-center">
                         <div className="max-w-[293px] absolute z-10 top-8 left-[30%]">
-                            <img className="w-full" src="./img/Topmost.svg" alt="Topmost Skincare Tips: Radiance Aura's Expert Advice for Glowing Skin" loading="lazy" height={500} width={500}/>
+                            <img className="w-full" src="./img/Topmost.svg" alt="Topmost" loading="lazy" />
                         </div>
                         <div>
-                            <img className="w-full" src="./img/Signature.png" alt="Signature Skincare Collection: Elevate Your Beauty Routine with Radiance Aura" loading="lazy" height={500} width={500}/>
+                            <img className="w-full" src="./img/Signature.png" alt="Signature" loading="lazy" />
                         </div>
                     </div>
                 </div>
@@ -135,7 +131,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                                             <div className="col-span-12 md:col-span-4">
                                                 <div className="hover-img">
                                                     <div className="img-inner cursor-pointer" onClick={() => {router.push("/article/" + blog.slug)}}>
-                                                        <img className="set-img" src={BASE_URL + '/storage/' + blog?.featured_img} alt={blog.title} loading="lazy" height={500} width={500}/>
+                                                        <img className="set-img" src={BASE_URL + '/storage/' + blog?.featured_img} alt={blog.title} loading="lazy" />
                                                     </div>
                                                 </div>
                                                 <div className="">
@@ -168,8 +164,8 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                             <div className="grid grid-cols-12 gap-4">
                                 <div className="col-span-3 home-category-card">
                                     <div className="px-3 pt-3">
-                                        <div className="heading_6">01/</div>
-                                        <h3 className="heading_5 mt-1 mb-4">Usage Guide</h3>
+                                        <div className="heading_6 !text-black">01/</div>
+                                        <div className="heading_5 !text-black mt-1 mb-4">Usage Guide</div>
                                     </div>
                                     <div className="relative aspect-square">
                                         <div className="home-category-card-des body_text !text-black mt-1 mb-5 px-3">
@@ -178,15 +174,14 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                                         <img
                                             className="home-category-card-img"
                                             src="./img/home/usage guide.png"
-                                            alt="Radiance Aura Usage Guide: Step-by-Step Instructions for Beautiful Skin"
-                                            height={500} width={500}
+                                            alt="Usage Guide"
                                         />
                                     </div>
                                 </div>
                                 <div className="col-span-3 home-category-card home-category-card-active">
                                     <div className="pt-3 px-3">
                                         <div className="heading_6 !text-black">01/</div>
-                                        <h3 className="heading_5 !text-black mt-1 mb-4">Nourish Beauty</h3>
+                                        <div className="heading_5 !text-black mt-1 mb-4">Nourish Beauty</div>
                                     </div>
                                     <div className="relative aspect-square">
                                         <div className="home-category-card-des body_text !text-black mt-1 mb-5 px-3">
@@ -195,15 +190,14 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                                         <img
                                             className="home-category-card-img"
                                             src="./img/home/nourish.png"
-                                            alt="Nourish Beauty: Radiance Aura's Natural Skincare Elixir"
-                                            height={500} width={500}
+                                            alt="Nourish Beauty"
                                         />
                                     </div>
                                 </div>
                                 <div className="col-span-3 home-category-card">
                                     <div className="px-3 pt-3">
-                                        <div className="heading_6">01/</div>
-                                        <h3 className="heading_5 mt-1 mb-4">Mental Health</h3>
+                                        <div className="heading_6 !text-black">01/</div>
+                                        <div className="heading_5 !text-black mt-1 mb-4">Mental Health</div>
                                     </div>
                                     <div className="relative aspect-square">
                                         <div className="home-category-card-des body_text !text-black mt-1 mb-5 px-3">
@@ -212,15 +206,14 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                                         <img
                                             className="absolute home-category-card-img"
                                             src="./img/home/mental health.png"
-                                            alt="Nurture Your Mind: Radiance Aura's Mental Health Support"
-                                            height={500} width={500}
+                                            alt="Mental Health"
                                         />
                                     </div>
                                 </div>
                                 <div className="col-span-3 home-category-card">
                                     <div className="px-3 pt-3">
-                                        <div className="heading_6">01/</div>
-                                        <h3 className="heading_5 mt-1 mb-4">Hair Care</h3>
+                                        <div className="heading_6 !text-black">01/</div>
+                                        <div className="heading_5 !text-black mt-1 mb-4">Hair Care</div>
                                     </div>
                                     <div className="relative aspect-square">
                                         <div className="absolute home-category-card-des body_text !text-black mt-1 mb-5 px-3">
@@ -229,8 +222,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                                         <img
                                             className="home-category-card-img"
                                             src="./img/home/hair.png"
-                                            alt="Nourish Your Mane: Radiance Aura's Essential Hair Care Tips"
-                                            height={500} width={500}
+                                            alt="Hair Care"
                                         />
                                     </div>
                                 </div>
@@ -242,9 +234,9 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                             <div className="md:grid md:grid-cols-12 gap-4">
                                 <div className="md:col-span-8 py-6 pr-4 about-intro md:border-r md:border-solid border-999 !border-ccc">
                                     <div className="relative">
-                                        <h2 className="heading_2 animate slideInUp">
+                                        <div className="heading_2 animate slideInUp">
                                             “Start with clear, healthy skin. Nurture your radiance—embrace pure beauty, inside and out”
-                                        </h2>
+                                        </div>
                                         <div className="absolute heading_6 md:mt-auto md:block hidden animate slideInUp">Hello & Welcome!</div>
                                     </div>
                                 </div>
@@ -262,7 +254,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                         </div>
                     </div>
                     <div className="md:mb-9 md-7">
-                        <h2 className="animate slideInUp heading_3 mb-1 md:mb-4">Reader's Favorite</h2>
+                        <div className="animate slideInUp heading_3 mb-1 md:mb-4">Reader's Favorite</div>
                         <div className="">
                             <Slider
                                 configs={{
@@ -282,7 +274,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                                         <div className="col-span-12 md:col-span-4">
                                             <div className="hover-img">
                                                 <div className="img-inner cursor-pointer" onClick={() => { router.push("/article/" + newest.slug) }}>
-                                                    <img className="set-img" src={BASE_URL + '/storage/' + newest?.featured_img} alt={newest.title} loading="lazy" height={500} width={500}/>
+                                                    <img className="set-img" src={BASE_URL + '/storage/' + newest?.featured_img} alt="smile" loading="lazy" />
                                                 </div>
                                                 <div>
                                                     <div className="article-info py-2 mb-1 md:!border-b md:!border-ccc border-b-0">
@@ -316,23 +308,23 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                 >
                     <div className="slide-card-item">
                         <div className="heading_2 text-center text-black">“You are imperfect, permanently and inevitably flawed. And you are beautiful”</div>
-                        <div className="text-center text-black mt-4 heading_6">Amy Bloom</div>
+                        <div className="text-center text-black mt-5 heading_6">Amy Bloom</div>
                     </div>
                     <div className="slide-card-item heading_1 text-center text-black">
                         <div className="heading_2 text-center text-black">"You yourself, as much as anybody in the entire universe, deserve your love and affection."</div>
-                        <div className="text-center text-black mt-4 heading_6">Buddha</div>
+                        <div className="text-center text-black mt-5 heading_6">Buddha</div>
                     </div>
                     <div className="slide-card-item heading_1 text-center text-black">
                         <div className="heading_2 text-center text-black">"I think happiness is what makes you pretty. Period. Happy people are beautiful. They become like a mirror and they reflect that happiness."</div>
-                        <div className="text-center text-black mt-4 heading_6">Drew Barrymore</div>
+                        <div className="text-center text-black mt-5 heading_6">Drew Barrymore</div>
                     </div>
                     <div className="slide-card-item heading_1 text-center text-black">
                         <div className="heading_2 text-center text-black">“Natural beauty is the best beauty. It radiates from within and doesn't need any alterations.”</div>
-                        <div className="text-center text-black mt-4 heading_6">Radiance Aura Blog</div>
+                        <div className="text-center text-black mt-5 heading_6">Radiance Aura Blog</div>
                     </div>
                     <div className="slide-card-item heading_1 text-center text-black">
                         <div className="heading_2 text-center text-black">"The more you praise and celebrate your life, the more there is in life to celebrate."</div>
-                        <div className="text-center text-black mt-4 heading_6">Oprah Winfrey</div>
+                        <div className="text-center text-black mt-5 heading_6">Oprah Winfrey</div>
                     </div>
                 </CardSlider>
                 <div className="px-3 my-0 mx-auto m-w pt-9">
@@ -340,7 +332,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                         <div className="bg-primary p-5">
                             <div className="flex">
                                 <div className="hidden md:block">
-                                    <img className="w-full" src="./img/home/subscribe.png" alt="Never Miss Out: Subscribe to Radiance Aura for Beauty Tips and Offers" loading="lazy" height={500} width={500}/>
+                                    <img className="w-full" src="./img/home/subscribe.png" alt="smile" loading="lazy" />
                                 </div>
                                 <div className="ml-5 text-black flex items-center md:pr-8">
                                     <div>
