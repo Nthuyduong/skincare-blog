@@ -324,3 +324,42 @@
     transition: transform 0.3s ease, opacity 0.3s ease;
     margin: 0 !important;
 }
+
+// MOUSE CSS
+.custom-cursor {
+    position: fixed;
+    width: 13px; 
+    height: 13px;
+    border-radius: 50%;
+    background-color: #000;
+    // background-image: url('../img/cursor.png');
+    background-size: cover;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s, background 0.3s;
+    pointer-events: none;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+    background-color: black;
+    border: none;
+    z-index: 999999999999;
+  }
+  
+  .cursor-text {
+    width: 18px;
+    height: 18px;
+    transition: width 0.5s height 0.5s;
+    background-image: none;
+    background-color: transparent;
+  }
+  
+  .cursor-img {
+    width: 18px;
+    height: 18px;
+    background-color: transparent;
+    // backdrop-filter: blur(1px);
+    border: solid 1px black;
+    background-image: none;
+  }
+  .cursor-input{
+    background-color: transparent;
+    opacity: 0 !important;
+  }

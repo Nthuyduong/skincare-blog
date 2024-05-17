@@ -107,7 +107,7 @@ const Categories = ({ categoryProps = [], subCategoriesProps = [], isCsr, slug }
                                     </span>
                                 </div>
                                 <div className="flex more-info pt-2">
-                                    <div className="small_text">{ subCategory.description }</div>
+                                    <div className="small_text cursor-text-wrp">{ subCategory.description }</div>
                                 </div>
                             </div>
                         </div>

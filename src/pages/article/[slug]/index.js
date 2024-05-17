@@ -134,10 +134,10 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                                 )}
                                             </ul>
                                         </div>
-                                        <div className="heading_3 mb-3">{blog?.title}</div>
-                                        <div className="mb-4">{blog?.excerpt}</div>
-                                        <div className="small_text mb-1">Writen by: {blog?.author}</div>
-                                        <div className="small_text">About {blog?.estimate_time} minutes to read</div>
+                                        <div className="heading_3 mb-3 cursor-text-wrp">{blog?.title}</div>
+                                        <div className="mb-4 cursor-text-wrp">{blog?.excerpt}</div>
+                                        <div className="small_text mb-1 cursor-text-wrp">Writen by: {blog?.author}</div>
+                                        <div className="small_text cursor-text-wrp">About {blog?.estimate_time} minutes to read</div>
 
                                         <div className="medium_text mt-4">Is this article helpful?</div>
                                     </div>
@@ -172,9 +172,9 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                 </div>
                                 <div className="heading_3 mb-2">{blog?.title}</div>
                                 <div className="medium_text mb-4">{blog?.excerpt}</div>
-                                <div className="small_text">Writen by: {blog?.author}</div>
-                                <div className="small_text my-1">Publish date: {blog ? formatDate(blog.publish_date) : ''}</div>
-                                <div className="small_text">About 10 minutes to read</div>
+                                <div className="small_text cursor-text-wrp">Writen by: {blog?.author}</div>
+                                <div className="small_text my-1 cursor-text-wrp">Publish date: {blog ? formatDate(blog.publish_date) : ''}</div>
+                                <div className="small_text cursor-text-wrp">About 10 minutes to read</div>
                                 <div className="medium_text mt-4">Is this article helpful?</div>
                             </div>
                         </div>
@@ -191,7 +191,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                         {/*menu*/}
                         <div className="catalog w-full my-3">
                             <div className="list dark:!border-999">
-                                <div className="list-title heading_4 mb-3">In this post</div>
+                                <div className="list-title heading_4 mb-3 cursor-text-wrp">In this post</div>
                                 <div className="all-list">
                                     {/* table of content */}
                                     <ul className="list-here" ref={refTable} />
@@ -202,7 +202,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                 </div>
                 <div className="my-article w-full">
                     <div
-                        className="main-article w-full"
+                        className="main-article w-full cursor-text-wrp"
                         ref={refContent}
                         dangerouslySetInnerHTML={{
                             __html: blog?.detail?.content

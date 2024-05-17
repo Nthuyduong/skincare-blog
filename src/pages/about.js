@@ -34,7 +34,7 @@ const About = () => {
                     {/*</div>*/}
                     <div className="intro-inner grid grid-cols-6 gap-4 ">
                         <div className=""></div>
-                        <div className="animate slideInUp col-span-4 intro-content heading_5 text-center z-30">
+                        <div className="animate slideInUp col-span-4 intro-content heading_5 text-center z-30 cursor-text-wrp">
                            "True beauty originates from a foundation of healthy skin, echoing the purity within. By tending to your skin with care—cleansing, nourishing, and protecting it—you unveil its innate radiance, enriching both inner and outer beauty."
                         </div>
                     </div>
@@ -59,8 +59,8 @@ const About = () => {
                         </div>
                         <div className="md:col-span-6 about-right flex">
                             <div className="about-content mt-auto dark:!text-white">
-                                <div className="heading_3 mb-4 animate slideInUp animate--delay-medium">About Us</div>
-                                <div className="animate slideInUp animate--delay-slow">
+                                <div className="heading_3 mb-4 animate slideInUp animate--delay-medium cursor-text-wrp">About Us</div>
+                                <div className="animate slideInUp animate--delay-slow cursor-text-wrp">
                                     Welcome to our skincare blog, where we're here to help, connect, and share useful tips
                                     and information for everyone seeking beautiful and resilient skin. We genuinely care
                                     about your skincare journey and are committed to assisting you in achieving your goals.
@@ -78,8 +78,8 @@ const About = () => {
                     <div className="md:grid md:grid-cols-12 gap-5">
                         <div className="md:col-span-4">
                             <div className="md:pr-5 py-4 pr-4 dark:border-333 border mb-4 border-solid border-999 md:border-none">
-                                <div className="heading_3 mb-3 animate slideInUp">What we do</div>
-                                <div className="animate slideInUp animate--delay-fast">Are you interested in collaborating? Do you want to be a part of us? Join with us now!</div>
+                                <div className="heading_3 mb-3 animate slideInUp cursor-text-wrp">What we do</div>
+                                <div className="animate slideInUp animate--delay-fast cursor-text-wrp">Are you interested in collaborating? Do you want to be a part of us? Join with us now!</div>
                                 <div className="mt-4 animate slideInUp animate--delay-medium">
                                     <Link href={ROUTER.CONTACT} className="dark:text-white nav-link flex"><div className="w-full my-out-line-btn dark:border-white text-center">Join with us</div></Link>
                                 </div>
@@ -94,10 +94,10 @@ const About = () => {
                                                 <img className="" src="./img/about/do.svg" alt="smile" loading="lazy"/>
                                             </div>
                                             <div className="">
-                                                <div className="heading_5 my-2">
+                                                <div className="heading_5 my-2 cursor-text-wrp">
                                                     Making My Passion
                                                 </div>
-                                                <div>
+                                                <div className="cursor-text-wrp">
                                                     Dive into the story of starting this skincare blog, fueled by genuine
                                                     passion. Share the personal connection to the beauty world and the
                                                     inspiration creating a space for fellow enthusiasts.
@@ -113,10 +113,10 @@ const About = () => {
                                                 <img className="" src="./img/about/do.svg" alt="smile" loading="lazy"/>
                                             </div>
                                             <div className="">
-                                                <div className="heading_5 my-2">
+                                                <div className="heading_5 my-2 cursor-text-wrp">
                                                     Share useful info and tips
                                                 </div>
-                                                <div>
+                                                <div className="cursor-text-wrp">
                                                     At our skincare blog, we're all about sharing helpful info and tips.
                                                     Discover the best ways to choose and use products for a glowing and healthy
                                                     skin journey. Your go-to source for easy-to-follow advice.
@@ -135,10 +135,10 @@ const About = () => {
                                                 <img className="" src="./img/about/do.svg" alt="smile" loading="lazy"/>
                                             </div>
                                             <div className="">
-                                                <div className="heading_5 my-2">
+                                                <div className="heading_5 my-2 cursor-text-wrp">
                                                     Better together
                                                 </div>
-                                                <div>
+                                                <div className="cursor-text-wrp">
                                                     Explore shared growth on my skincare blog. The post uncovers how exchanging
                                                     experiences benefits not just you, but also contributes to my ongoing
                                                     evolution within the skincare community
@@ -154,10 +154,10 @@ const About = () => {
                                                 <img className="" src="./img/about/do.svg" alt="smile" loading="lazy"/>
                                             </div>
                                             <div className="">
-                                                <div className="heading_5 my-2">
+                                                <div className="heading_5 my-2 cursor-text-wrp">
                                                     Connecting Skincare-e
                                                 </div>
-                                                <div>
+                                                <div className="cursor-text-wrp">
                                                     Join fellow skincare enthusiasts as we share tips and info for healthy,
                                                     radiant skin. Let's journey together towards beauty and confidence,
                                                     enhancing your glow inside and out
@@ -191,8 +191,8 @@ const About = () => {
 
                         <div className="col-span-12 md:col-span-6 mission-content m-auto md:py-5 md:mr-5 h-full flex items-center">
                             <div className="text-black dark:!text-white">
-                                <div className="heading_3 mb-4 animate slideInUp animate--delay-medium">Our mission</div>
-                                <div className="animate slideInUp animate--delay-slow">
+                                <div className="heading_3 mb-4 animate slideInUp animate--delay-medium cursor-text-wrp">Our mission</div>
+                                <div className="animate slideInUp animate--delay-slow cursor-text-wrp">
                                 At Radiance Aura, we're here to guide you through your skincare journey with genuine support and valuable insights. Our goal is to help you achieve radiant, resilient skin that's uniquely yours. With authenticity and care, we celebrate your natural beauty and inspire confidence every step of the way. Join us on this transformative journey toward embracing your radiance.
                                 </div>
                             </div>
