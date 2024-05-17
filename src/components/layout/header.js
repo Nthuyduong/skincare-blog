@@ -203,10 +203,10 @@ const Header = React.memo(() => {
                     {/*main logo*/}
                     <Link href={ROUTER.HOME} className="flex-1">
                         <div className="items-center justify-center w-full hidden dark:flex">
-                            <img className="h-3" src="/img/logo1.svg" alt="radiance aura skincare blog" loading="lazy" />
+                            <img className="h-3" src="/img/logo1.svg" alt="smile" loading="lazy" />
                         </div>
                         <div className="flex items-center justify-center w-full dark:hidden">
-                            <img className="h-3" src="/img/logo2.svg" alt="radiance aura skincare blog" loading="lazy" />
+                            <img className="h-3" src="/img/logo2.svg" alt="smile" loading="lazy" />
                         </div>
                     </Link>
                     <div className="hidden">
@@ -320,10 +320,10 @@ const Header = React.memo(() => {
                 <ThemeToggle />
                 <Link href={ROUTER.HOME} className="flex-1">
                     <div className="items-center justify-center w-full hidden dark:flex">
-                        <img className="h-4" src="/img/logo1.svg" alt="radiance aura skincare blog" loading="lazy" />
+                        <img className="h-4" src="/img/logo1.svg" alt="smile" loading="lazy" />
                     </div>
                     <div className="flex items-center justify-center w-full dark:hidden">
-                        <img className="h-4" src="/img/logo2.svg" alt="radiance aura skincare blog" loading="lazy" />
+                        <img className="h-4" src="/img/logo2.svg" alt="smile" loading="lazy" />
                     </div>
                 </Link>
                 <div className="flex mr-4 !hidden md:!flex">
@@ -525,26 +525,7 @@ const Header = React.memo(() => {
                         <div className="nav-blog-inner px-0 sm:px-0 lg:px-0">
                             <div className="relative flex h-16 items-center justify-between">
                                 <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                                    {/*mobile menu button*/}
-                                    {/*<button type="button"*/}
-                                    {/*        className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"*/}
-                                    {/*        aria-controls="mobile-menu" aria-expanded="false">*/}
-                                    {/*    <span className="absolute -inset-0.5"></span>*/}
-                                    {/*    <span className="sr-only">Open main menu</span>*/}
-                                    {/*    /!*Icon when menu is closed.*!/*/}
-                                    {/*    /!*Menu open: "hidden", Menu closed: "block"*!/*/}
-                                    {/*    <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"*/}
-                                    {/*         stroke="currentColor" aria-hidden="true">*/}
-                                    {/*        <path strokeLinecap="round" strokeLinejoin="round"*/}
-                                    {/*              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>*/}
-                                    {/*    </svg>*/}
-                                    {/*    /!*Icon when menu is open.*!/*/}
-                                    {/*    /!*Menu open: "block", Menu closed: "hidden"*!/*/}
-                                    {/*    <svg className="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"*/}
-                                    {/*         stroke="currentColor" aria-hidden="true">*/}
-                                    {/*        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>*/}
-                                    {/*    </svg>*/}
-                                    {/*</button>*/}
+                                    
                                 </div>
                                 <div className="hidden lg:!block dark:text-black flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                                     <div className="w-full hidden sm:ml-0 md:ml-0 sm:block">
@@ -654,51 +635,9 @@ const Header = React.memo(() => {
                                             <div className="header-hover-bar"></div>
                                         </div>
                                     </div>
-                                    {/*<div className="flex flex-shrink-0 items-center">*/}
-                                    {/*    <img className="h-8 w-auto"*/}
-                                    {/*         src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"*/}
-                                    {/*         alt="Your Company"/>*/}
-                                    {/*</div>*/}
+                                    
                                 </div>
-                                {/*<div className="absolute inset-y-0 right-0 flex items-center sm:static sm:inset-auto sm:ml-6 sm:pr-0">*/}
-                                {/*    <div className="flex">*/}
-                                {/*        /!*<div className="flex px-2 gap-2 items-center">*!/*/}
-                                {/*        /!*    <div *!/*/}
-                                {/*        /!*        className={`cursor-pointer${getLanguage() == 'en' ? ' font-bold' : ''}`}*!/*/}
-                                {/*        /!*        onClick={() => changeLanguage('en')}*!/*/}
-                                {/*        /!*    >*!/*/}
-                                {/*        /!*        en*!/*/}
-                                {/*        /!*    </div>*!/*/}
-                                {/*        /!*    <div *!/*/}
-                                {/*        /!*        className={`cursor-pointer${getLanguage() == 'vn' ? ' font-bold' : ''}`}*!/*/}
-                                {/*        /!*        onClick={() => changeLanguage('vn')}*!/*/}
-                                {/*        /!*    >*!/*/}
-                                {/*        /!*        vn*!/*/}
-                                {/*        /!*    </div>*!/*/}
-                                {/*        /!*</div>*!/*/}
-                                {/*        /!*<div className="flex px-2 gap-2 items-center">*!/*/}
-                                {/*        /!*    <div *!/*/}
-                                {/*        /!*        className={`cursor-pointer${getTheme() == 'light' ? ' font-bold' : ''}`}*!/*/}
-                                {/*        /!*        onClick={() => handleSetTheme('light')}*!/*/}
-                                {/*        /!*    >*!/*/}
-                                {/*        /!*        light*!/*/}
-                                {/*        /!*    </div>*!/*/}
-                                {/*        /!*    <div *!/*/}
-                                {/*        /!*        className={`cursor-pointer${getTheme() == 'dark' ? ' font-bold': ''}`}*!/*/}
-                                {/*        /!*        onClick={() => handleSetTheme('dark')}*!/*/}
-                                {/*        /!*    >*!/*/}
-                                {/*        /!*        dark*!/*/}
-                                {/*        /!*    </div>*!/*/}
-                                {/*        /!*</div>*!/*/}
-
-                                {/*        /!*<div>*!/*/}
-                                {/*        /!*    <button type="button"*!/*/}
-                                {/*        /!*            className="relative rounded-full bg-gray-800 p-1 text-gray-400 focus:outline-none">*!/*/}
-                                {/*        /!*        <img className="icon-ssm" src="./img/icon/heart.svg" alt="smile" loading="lazy"/>*!/*/}
-                                {/*        /!*    </button>*!/*/}
-                                {/*        /!*</div>*!/*/}
-                                {/*    </div>*/}
-                                {/*</div>*/}
+                                
                             </div>
                         </div>
                         {/*Mobile menu, show/hide based on menu state.*/}
