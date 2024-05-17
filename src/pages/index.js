@@ -10,9 +10,17 @@ import CardSlider from "../components/common/CardSlider";
 import Head from "next/head";
 const Slider = dynamic(() => import("@components/common/slider"), { ssr: false });
 const Scroller = dynamic(() => import("@components/common/scroller"), { ssr: false });
+import { useModal } from '@hooks/modal';
 
 const Home = ({ newestProps, popularProps, isCsr }) => {
     const router = useRouter();
+
+    const {
+        hide,
+        show,
+        showLoading,
+        addToast
+    } = useModal();
 
     const [newest, setNewest] = useState(newestProps || []);
     const [popular, setPopular] = useState(popularProps || []);
@@ -345,32 +353,41 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                         </div>
                     </div>
                 </div>
-
-            
-
-            <div className="px-3 my-0 mx-auto m-w pt-9">
-                <div className="subscribe-section">
-                    <div className="bg-primary p-5">
-                        <div className="flex">
-                            <div className="hidden md:block">
-                                <img className="w-full" src="./img/home/subscribe.png" alt="smile" loading="lazy" />
-                            </div>
-                            <div className="ml-5 text-textcolor flex items-center md:pr-8">
-                                <div>
-                                    <div className="animate slideInUp animate--delay-fast mb-3 heading_3 cursor-text-wrp">Subscribe for newsletters</div>
-                                    <div className="animate slideInUp animate--delay-medium cursor-text-wrp">
-                                        Receive the latest updates straight to your inbox. Get stories, exclusive offers, and promotions when you sign up.
-                                    </div>
-                                    <div className="mt-4 animate animate--delay-slow slideInUp">
-                                        <button className="px-4 my-btn-pr dark:border-white" type="submit">Subscribe</button>
+                <div className="px-3 my-0 mx-auto m-w pt-9">
+                    <div className="subscribe-section">
+                        <div className="bg-primary p-5">
+                            <div className="flex">
+                                <div className="hidden md:block">
+                                    <img className="w-full" src="./img/home/subscribe.png" alt="smile" loading="lazy" />
+                                </div>
+                                <div className="ml-5 text-textcolor flex items-center md:pr-8">
+                                    <div>
+                                        <div className="animate slideInUp animate--delay-fast mb-3 heading_3 cursor-text-wrp">Subscribe for newsletters</div>
+                                        <div className="animate slideInUp animate--delay-medium cursor-text-wrp">
+                                            Receive the latest updates straight to your inbox. Get stories, exclusive offers, and promotions when you sign up.
+                                        </div>
+                                        <div className="mt-4 animate animate--delay-slow slideInUp">
+                                            <button
+                                                onClick={() => show({
+                                                    name: 'newsletters',
+                                                    data: {
+                                                        message: 'This is a notice modal',
+                                                    },
+                                                    position: 'right',
+                                                    mobilePosition: 'right',
+                                                })}
+                                                className="px-4 my-btn-pr dark:border-white"
+                                                type="submit">
+                                                Subscribe
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div >
+            </div >
         </>
     )
 }

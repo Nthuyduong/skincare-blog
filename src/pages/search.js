@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import {ROUTER} from "../utils/constants";
+import { ROUTER } from "../utils/constants";
 import { useApp } from "@hooks/useApp";
 import React, { useEffect, useState } from "react";
 import { useRouter } from 'next/router'
@@ -41,7 +41,7 @@ const Search = () => {
                                 <input
                                     className="w-full pr-1 py-1 focus-visible:outline-none focus:border-b dark:focus:border-white focus:border-333 border-b border-ccc border-solid"
                                     placeholder="Enter any word and hit enter"
-                                    onChange={(e) => {setKeywordType(e.target.value)}}
+                                    onChange={(e) => { setKeywordType(e.target.value) }}
                                     onKeyDown={(e) => e.key === 'Enter' && handleSearchPage()}
                                     value={keywordType}
                                 />
@@ -56,19 +56,19 @@ const Search = () => {
                         <div className="col-span-2"></div>
                         <div className="col-span-8">
                             {/*Ingredient result*/}
-                            
+
                             {(results || []).map((result, index) => {
                                 if (result.table_name === 'ingredient') {
                                     return (
-                                        <Link 
+                                        <Link
                                             href={ROUTER.INGREDIENT + '/' + result.id}
                                             className="border-solid border-b border-ccc !border-999"
                                         >
                                             <div className="border-solid border-ccc !border-999 border p-4 mb-6">
                                                 <div className="mb-1 small_text">Skincare Ingredient</div>
-                                                <div className="heading_5 mb-3">{ result.title }</div>
+                                                <div className="heading_5 mb-3">{result.title}</div>
                                                 <div className="">
-                                                    
+
                                                     <div className="body_text">Publish date: 10/02/2024</div>
                                                 </div>
                                             </div>
@@ -78,24 +78,26 @@ const Search = () => {
                                 return (
                                     <Link
                                         href={ROUTER.ARTICLE + '/' + result.slug}
-                                        className="block search-result border-solid border-b border-ccc !border-999 py-4" 
+                                        className="block search-result border-solid border-b border-ccc !border-999 py-4"
                                         key={index}
                                     >
                                         <div className="grid grid-cols-8 gap-4">
                                             <div className="md:col-span-2 col-span-3">
-                                                <img className="w-full" src={BASE_URL + '/storage/' + result?.featured_img} alt="smile" loading="lazy"/>
+                                                <img className="w-full" src={BASE_URL + '/storage/' + result?.featured_img} alt="smile" loading="lazy" />
                                             </div>
-                                            <div className="md:col-span-6 col-span-5">
-                                                <div className="small_text mb-1">Drink & Coffee</div>
-                                                <div className="heading_5 my-1">{ result.title }</div>
-                                                <div className="flex mb-1">
-                                                   
-                                                    <div className="flex ml-3">
-                                                        <div>{ result.estimate_time }</div>
+                                            <div className="md:col-span-6 col-span-5 flex justify-between flex-col">
+                                                <div>
+                                                    <div className="small_text mb-1">Drink & Coffee</div>
+                                                    <div className="heading_5 my-1">{result.title}</div>
+                                                    <div className="flex mb-1">
+
+                                                        <div className="flex ml-3">
+                                                            <div>{result.estimate_time}</div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div className="search-result-content mb-2 truncate">
-                                                    { result.summary }
+                                                    <div className="search-result-content mb-2 truncate">
+                                                        {result.summary}
+                                                    </div>
                                                 </div>
                                                 <div>
                                                     <div className="ml-auto w-fit">
@@ -109,7 +111,7 @@ const Search = () => {
                                     </Link>
                                 )
                             })}
-                            { results?.length == 0 && (
+                            {results?.length == 0 && (
                                 <div className="text-center p-4 dark:color-black dark:bg-333 bg-primary my-4">
                                     "Sorry, but nothing matched your search terms. Please try again with some different keywords."
                                 </div>

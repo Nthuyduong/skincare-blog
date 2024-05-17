@@ -363,3 +363,12 @@
     background-color: transparent;
     opacity: 0 !important;
   }
+  .animation-wrp {
+    cursor: none!important;
+    a {
+      cursor: none!important;
+    }
+    .back-to-top {
+      cursor: none!important;
+    }
+  }

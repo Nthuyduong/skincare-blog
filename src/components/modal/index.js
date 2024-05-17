@@ -8,6 +8,7 @@ import ModalDelete from "./deletepopup";
 import ModalNotice from "./notice";
 import ModalIngredient from "./ingredient";
 import ModalPicker from "./picker";
+import NewslettersModal from "./newletters";
 
 import { useClickOutside } from "../../hooks/dom";
 
@@ -23,16 +24,16 @@ const Modals = () => {
     }
 
     const ref = useClickOutside(handleHide);
-    
-    const { 
-        show, 
-        name, 
-        title, 
-        position, 
-        mobilePosition, 
+
+    const {
+        show,
+        name,
+        title,
+        position,
+        mobilePosition,
         data,
-        invisibleBackground, 
-        enableClickOutside, 
+        invisibleBackground,
+        enableClickOutside,
         showHeader,
         confirmCallback,
         width,
@@ -42,23 +43,25 @@ const Modals = () => {
         switch (name) {
             case "category":
                 return <ModalCategory id={data?.id}
-                confirmCallback={confirmCallback}
+                    confirmCallback={confirmCallback}
                 />
             case "post":
-                return <ModalPost/>
+                return <ModalPost />
             case "ingredient":
                 return <ModalIngredient id={data?.id}
                 />
             case "subcate":
                 return <ModalSubcate id={data?.id}
-                confirmCallback={confirmCallback}
+                    confirmCallback={confirmCallback}
                 />
             case "deletepopup":
-                return <ModalDelete/>
+                return <ModalDelete />
             case "loading":
                 return <ModalLoading data={data} />;
             case "notice":
-                return <ModalNotice data={data}/>;
+                return <ModalNotice data={data} />;
+            case "newsletters":
+                return <NewslettersModal data={data} />;
             case "picker":
                 return (
                     <ModalPicker
@@ -96,16 +99,16 @@ const Modals = () => {
     }
 
     return (
-        <div 
-            ref={modalRef} 
-            className={`modal ${name ? 'modal-' + name: ''} ${isShow ? 'modal-open' : ''}`}
+        <div
+            ref={modalRef}
+            className={`modal ${name ? 'modal-' + name : ''} ${isShow ? 'modal-open' : ''}`}
             data-position={position}
             data-mobile-position={mobilePosition}
         >
             <div className="modal-backdrop">
-                <div 
-                    className={`modal-dialog ${invisibleBackground ? 'modal-invisible-background': ''}`}
-                    style={{width: width}}
+                <div
+                    className={`modal-dialog ${invisibleBackground ? 'modal-invisible-background' : ''}`}
+                    style={{ width: width }}
                 >
                     {showHeader ? (
                         <div className="modal-header">
