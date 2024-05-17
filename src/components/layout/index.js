@@ -93,7 +93,7 @@ const Layout = ({ children }) => {
         // có thể áp dụng cách này cho trường hợp muốn làm chức năng theme dark/light
         // theme dark/light color: --primary, --secondary, --tertiary, --white, --black
         <div 
-            className="page bg-white dark:bg-black text-black dark:text-white"
+            className="page bg-background dark:bg-black text-textcolor dark:text-white"
         >
             <Header />
                 <div className={`page-body-wrapper overflow-x-clip test`}>

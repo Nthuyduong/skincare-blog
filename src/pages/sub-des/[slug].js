@@ -187,7 +187,7 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                                 </div>
                             </div>
 
-                            <div className="destination-title border-solid border-y !border-999 border-ccc md:my-5 py-3">
+                            <div className="md:mb-0 mb-4 destination-title border-solid border-y !border-999 border-ccc md:my-5 py-3">
                                 <div className="flex flex-col md:flex-row md:justify-between">
                                     {/*breadcrumb*/}
                                     <div className="flex">

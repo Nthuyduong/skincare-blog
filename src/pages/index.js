@@ -87,8 +87,8 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                                     </div>
                                     <div className="slide-des">
                                         <div className="py-2 mb-3">
-                                            <div className="mr-auto mb-2 small_text text-black">{blog.categories.map((category) => { return category.name }).join(' | ')}</div>
-                                            <div className="medium_text text-black">{blog.title}</div>
+                                            <div className="mr-auto mb-2 small_text text-textcolor">{blog.categories.map((category) => { return category.name }).join(' | ')}</div>
+                                            <div className="medium_text text-textcolor">{blog.title}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -164,13 +164,13 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                             <div className="grid grid-cols-12 gap-4">
                                 <div className="col-span-3 home-category-card">
                                     <div className="px-3 pt-3">
-                                        <div className="heading_6 !text-black">01/</div>
+                                        <div className="heading_6 !text-textcolor">01/</div>
                                         <Link href={'/sub-des/3'} className="">
-                                            <div className="heading_5 !text-black mt-1 mb-4">Usage Guide</div>
+                                            <div className="heading_5 !text-textcolor mt-1 mb-4">Usage Guide</div>
                                         </Link>
                                     </div>
                                     <div className="relative aspect-square">
-                                        <div className="home-category-card-des body_text !text-black mt-1 mb-5 px-3 cursor-text-wrp">
+                                        <div className="home-category-card-des body_text !text-textcolor mt-1 mb-5 px-3 cursor-text-wrp">
                                             Explore a wealth of knowledge for enhancing your skin's radiance and well-being from the inside out
                                         </div>
                                         <Link href={'/sub-des/3'} className="">
@@ -184,13 +184,13 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                                 </div>
                                 <div className="col-span-3 home-category-card home-category-card-active">
                                     <div className="pt-3 px-3">
-                                        <div className="heading_6 !text-black">01/</div>
+                                        <div className="heading_6 !text-textcolor">01/</div>
                                         <Link href={'/sub-des/9'} className="">
-                                            <div className="heading_5 !text-black mt-1 mb-4">Nourish Beauty</div>
+                                            <div className="heading_5 !text-textcolor mt-1 mb-4">Nourish Beauty</div>
                                         </Link>
                                     </div>
                                     <div className="relative aspect-square">
-                                        <div className="home-category-card-des body_text !text-black mt-1 mb-5 px-3 cursor-text-wrp">
+                                        <div className="home-category-card-des body_text !text-textcolor mt-1 mb-5 px-3 cursor-text-wrp">
                                             Explore a wealth of knowledge for enhancing your skin's radiance and well-being from the inside out
                                         </div>
                                         <Link href={'/sub-des/9'} className="">
@@ -204,13 +204,13 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                                 </div>
                                 <div className="col-span-3 home-category-card">
                                     <div className="px-3 pt-3">
-                                        <div className="heading_6 !text-black">01/</div>
+                                        <div className="heading_6 !text-textcolor">01/</div>
                                         <Link href={'/sub-des/8'} className="">
-                                            <div className="heading_5 !text-black mt-1 mb-4">Mental Health</div>
+                                            <div className="heading_5 !text-textcolor mt-1 mb-4">Mental Health</div>
                                         </Link>
                                     </div>
                                     <div className="relative aspect-square">
-                                        <div className="home-category-card-des body_text !text-black mt-1 mb-5 px-3 cursor-text-wrp">
+                                        <div className="home-category-card-des body_text !text-textcolor mt-1 mb-5 px-3 cursor-text-wrp">
                                             Explore a wealth of knowledge for enhancing your skin's radiance and well-being from the inside out
                                         </div>
                                         <Link href={'/sub-des/8'} className="">
@@ -224,13 +224,13 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                                 </div>
                                 <div className="col-span-3 home-category-card">
                                     <div className="px-3 pt-3">
-                                        <div className="heading_6 !text-black">01/</div>
+                                        <div className="heading_6 !text-textcolor">01/</div>
                                         <Link href={'/sub-des/7'} className="body_text nav-link">
-                                            <div className="heading_5 !text-black mt-1 mb-4">Hair Care</div>
+                                            <div className="heading_5 !text-textcolor mt-1 mb-4">Hair Care</div>
                                         </Link>
                                     </div>
                                     <div className="relative aspect-square">
-                                        <div className="absolute home-category-card-des body_text !text-black mt-1 mb-5 px-3 cursor-text-wrp">
+                                        <div className="absolute home-category-card-des body_text !text-textcolor mt-1 mb-5 px-3 cursor-text-wrp">
                                             Explore a wealth of knowledge for enhancing your skin's radiance and well-being from the inside out
                                         </div>
                                         <Link href={'/sub-des/7'} className="body_text nav-link">
@@ -269,7 +269,40 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                             </div>
                         </div>
                     </div>
-                    <div className="md:mb-9 md-7">
+                </div>
+                <CardSlider
+                    configs={{
+                        vertical: true,
+                        width: 1000,
+                        height: 500,
+                        isText: true,
+                        duration: 3000,
+                        background: '/img/homedecor.png',
+                    }}
+                >
+                    <div className="slide-card-item">
+                        <div className="heading_2 text-center text-textcolor cursor-text-wrp">“You are imperfect, permanently and inevitably flawed. And you are beautiful”</div>
+                        <div className="text-center text-textcolor mt-5 heading_6 cursor-text-wrp">Amy Bloom</div>
+                    </div>
+                    <div className="slide-card-item heading_1 text-center text-textcolor">
+                        <div className="heading_2 text-center text-textcolor cursor-text-wrp">"You yourself, as much as anybody in the entire universe, deserve your love and affection."</div>
+                        <div className="text-center text-textcolor mt-5 heading_6 cursor-text-wrp">Buddha</div>
+                    </div>
+                    <div className="slide-card-item heading_1 text-center text-textcolor">
+                        <div className="heading_2 text-center text-textcolor cursor-text-wrp">"I think happiness is what makes you pretty. Period. Happy people are beautiful. They become like a mirror and they reflect that happiness."</div>
+                        <div className="text-center text-textcolor mt-5 heading_6 cursor-text-wrp">Drew Barrymore</div>
+                    </div>
+                    <div className="slide-card-item heading_1 text-center text-textcolor">
+                        <div className="heading_2 text-center text-textcolor cursor-text-wrp">“Natural beauty is the best beauty. It radiates from within and doesn't need any alterations.”</div>
+                        <div className="text-center text-textcolor mt-5 heading_6 cursor-text-wrp">Radiance Aura Blog</div>
+                    </div>
+                    <div className="slide-card-item heading_1 text-center text-textcolor">
+                        <div className="heading_2 text-center text-textcolor cursor-text-wrp">"The more you praise and celebrate your life, the more there is in life to celebrate."</div>
+                        <div className="text-center text-textcolor mt-5 heading_6 cursor-text-wrp">Oprah Winfrey</div>
+                    </div>
+                </CardSlider>
+                <div className="my-0 mx-auto m-w">
+                    <div className="md:mt-9 mt-7">
                         <div className="animate slideInUp heading_3 mb-1 md:mb-4">Reader's Favorite</div>
                         <div className="">
                             <Slider
@@ -312,53 +345,24 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                         </div>
                     </div>
                 </div>
-                <CardSlider
-                    configs={{
-                        vertical: true,
-                        width: 1000,
-                        height: 500,
-                        isText: true,
-                        duration: 3000,
-                        background: '/img/homedecor.png',
-                    }}
-                >
-                    <div className="slide-card-item">
-                        <div className="heading_2 text-center text-black cursor-text-wrp">“You are imperfect, permanently and inevitably flawed. And you are beautiful”</div>
-                        <div className="text-center text-black mt-5 heading_6 cursor-text-wrp">Amy Bloom</div>
-                    </div>
-                    <div className="slide-card-item heading_1 text-center text-black">
-                        <div className="heading_2 text-center text-black cursor-text-wrp">"You yourself, as much as anybody in the entire universe, deserve your love and affection."</div>
-                        <div className="text-center text-black mt-5 heading_6 cursor-text-wrp">Buddha</div>
-                    </div>
-                    <div className="slide-card-item heading_1 text-center text-black">
-                        <div className="heading_2 text-center text-black cursor-text-wrp">"I think happiness is what makes you pretty. Period. Happy people are beautiful. They become like a mirror and they reflect that happiness."</div>
-                        <div className="text-center text-black mt-5 heading_6 cursor-text-wrp">Drew Barrymore</div>
-                    </div>
-                    <div className="slide-card-item heading_1 text-center text-black">
-                        <div className="heading_2 text-center text-black cursor-text-wrp">“Natural beauty is the best beauty. It radiates from within and doesn't need any alterations.”</div>
-                        <div className="text-center text-black mt-5 heading_6 cursor-text-wrp">Radiance Aura Blog</div>
-                    </div>
-                    <div className="slide-card-item heading_1 text-center text-black">
-                        <div className="heading_2 text-center text-black cursor-text-wrp">"The more you praise and celebrate your life, the more there is in life to celebrate."</div>
-                        <div className="text-center text-black mt-5 heading_6 cursor-text-wrp">Oprah Winfrey</div>
-                    </div>
-                </CardSlider>
-                <div className="px-3 my-0 mx-auto m-w pt-9">
-                    <div className="subscribe-section">
-                        <div className="bg-primary p-5">
-                            <div className="flex">
-                                <div className="hidden md:block">
-                                    <img className="w-full" src="./img/home/subscribe.png" alt="smile" loading="lazy" />
-                                </div>
-                                <div className="ml-5 text-black flex items-center md:pr-8">
-                                    <div>
-                                        <div className="animate slideInUp animate--delay-fast mb-3 heading_2 cursor-text-wrp">Subscribe for newsletters</div>
-                                        <div className="animate slideInUp animate--delay-medium cursor-text-wrp">
-                                            Receive the latest updates straight to your inbox. Get stories, exclusive offers, and promotions when you sign up.
-                                        </div>
-                                        <div className="mt-4 animate animate--delay-slow slideInUp">
-                                            <button className="px-4 my-btn-pr dark:border-white" type="submit">Subscribe</button>
-                                        </div>
+
+            
+
+            <div className="px-3 my-0 mx-auto m-w pt-9">
+                <div className="subscribe-section">
+                    <div className="bg-primary p-5">
+                        <div className="flex">
+                            <div className="hidden md:block">
+                                <img className="w-full" src="./img/home/subscribe.png" alt="smile" loading="lazy" />
+                            </div>
+                            <div className="ml-5 text-textcolor flex items-center md:pr-8">
+                                <div>
+                                    <div className="animate slideInUp animate--delay-fast mb-3 heading_3 cursor-text-wrp">Subscribe for newsletters</div>
+                                    <div className="animate slideInUp animate--delay-medium cursor-text-wrp">
+                                        Receive the latest updates straight to your inbox. Get stories, exclusive offers, and promotions when you sign up.
+                                    </div>
+                                    <div className="mt-4 animate animate--delay-slow slideInUp">
+                                        <button className="px-4 my-btn-pr dark:border-white" type="submit">Subscribe</button>
                                     </div>
                                 </div>
                             </div>
@@ -366,6 +370,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                     </div>
                 </div>
             </div>
+        </div >
         </>
     )
 }

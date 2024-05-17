@@ -15,9 +15,11 @@ module.exports = {
       // serif: ['Merriweather', 'serif'],
     },
     colors: {
-      'primary': '#EBE7E3',
+      'background': '#FBFBFA',
+      'textcolor': '#302615',
+      'primary': '#EBE6E2',
       'secondary': '#DFE3EA',
-      'tertiary': '#131416',
+      'tertiary': '#F4F2F0',
       'white': '#fff',
       'black': '#000',
       'red': 'rgb(239, 68, 68)',

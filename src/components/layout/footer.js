@@ -36,8 +36,8 @@ const Footer = () => {
     }
 
     return (
-        <div className="blog-footer" id="blog-footer">
-            <div className="blog-footer-inner border-solid border-t md:border-y dark:border-999 border-ccc">
+        <div className="blog-footer bg-tertiary md:pt-0 pt-5" id="blog-footer">
+            <div className="blog-footer-inner border-solid dark:border-999 border-ccc">
                 <div className="grid grid-cols-12">
                     {/*<div className="sub-menu">*/}
                     {/*    <div className="mb-3">POPULAR</div>*/}
@@ -57,7 +57,7 @@ const Footer = () => {
 
                     {/*    </ul>*/}
                     {/*</div>*/}
-                    <div className="md:col-span-4 col-span-12 flex justify-center border-b md:border-b-0 border-ccc md:border-r md:!border-999 footer-logo items-center p-4 lg:p-5 border-solid">
+                    <div className="md:col-span-4 col-span-12 flex justify-center border-b md:border-b-0 md:border-ccc md:border-r md:!border-999 footer-logo items-center p-4 lg:p-5 border-solid">
                         <img className="h-fit md:w-2/5 w-2/5 dark:hidden" src="/img/footer-logo.svg" alt="smile" loading="lazy"/>
                         <img className="h-fit md:w-2/5 w-2/5 dark:block hidden" src="/img/footer-logo-2.svg" alt="smile" loading="lazy"/>
                     </div>
@@ -125,10 +125,10 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="footer-copy py-2">
+            <div className="footer-copy py-2 md:border-t border-ccc dark:border-999 border-solid">
                 <div className="grid grid-cols-12">
                     <div className="col-span-12">
-                        <div className="text-center small_text copy-right dark:!text-999 text-333">COPYRIGHT © 2023 · Nthduong Blog. ALL RIGHTS RESERVED</div>
+                        <div className="text-center small_text copy-right dark:!text-999 text-333">COPYRIGHT © 2024 · Radiance Aura Blog. ALL RIGHTS RESERVED</div>
                     </div>
                     {/*<div className="col-span-3">*/}
                     {/*    <div className="my-social flex w-full">*/}

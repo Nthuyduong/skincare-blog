@@ -68,9 +68,9 @@ const Skintype = () => {
                     {faq.question}
                 </div>
                 <div className="btn-question flex justify-center items-center">
-                <svg role="presentation" focusable="false" width="12" height="9" className="icon icon-chevron-bottom-small" viewBox="0 0 8 6">
-                    <path d="m1 1.5 3 3 3-3" fill="none" stroke="currentColor" strokeWidth="1.5"></path>
-                </svg>
+                    <svg role="presentation" focusable="false" width="12" height="9" className="icon icon-chevron-bottom-small" viewBox="0 0 8 6">
+                        <path d="m1 1.5 3 3 3-3" fill="none" stroke="currentColor" strokeWidth="1.5"></path>
+                    </svg>
                 </div>
             </div>
             <div className={`content-container`}>
@@ -84,10 +84,10 @@ const Skintype = () => {
                 <div className="animate slideInUp animate--delay-fast md:grid md:grid-cols-12 gap-5">
                     <div className="md:col-span-4"></div>
                     <div className="md:col-span-3">
-                        <img className="w-full" src="./img/skintype/banner1.jpg" alt="smile" loading="lazy"/>
+                        <img className="w-full" src="./img/skintype/banner1.jpg" alt="smile" loading="lazy" />
                     </div>
                     <div className="md:col-span-1 md:flex hidden items-center">
-                        <img className="w-full" src="./img/skintype/banner2.jpg" alt="smile" loading="lazy"/>
+                        <img className="w-full" src="./img/skintype/banner2.jpg" alt="smile" loading="lazy" />
                     </div>
                     <div className="md:col-span-4"></div>
                 </div>
@@ -107,20 +107,21 @@ const Skintype = () => {
                     </div>
                 </div>
             </div>
-            <div className="container-fluid m-w mx-auto my-0">
+            <div className="m-w mx-auto my-0">
                 <div className="mt-5 skin-bar dark:border-ccc pb-3">
                     <div className="flex">
                         <div className="mr-auto">Scroll to explore</div>
                         <div className="">
-                            <img className="h-4" src="./img/icon/chevron-down-black.svg" alt="smile" loading="lazy"/>
+                            <img className="h-4" src="./img/icon/chevron-down-black.svg" alt="smile" loading="lazy" />
                         </div>
                     </div>
                 </div>
                 <div className="mt-5 all-faq">
                     <div className="md:grid md:grid-cols-12 gap-5">
                         <div className="md:col-span-4 md:border-none border border-ccc">
-                            <div className="md:p-0 p-3 md:pr-5 text-center md:text-left">
-                                <div className="heading_3 mb-3">Connect with me</div>
+                            <div className="md:pt-4 md:p-0 p-3 md:pr-5 text-center md:text-left">
+                                <img className="w-full mb-5" src="./img/skintype/help.jpg" alt="smile" loading="lazy" />
+                                <div className="heading_4 mb-3">Need More Help?</div>
                                 <div>Are you interested in collaborating? Do you want to be a part of us? Join with us now!</div>
                                 <div className="mt-4">
                                     <button className="w-full my-out-line-btn dark:border-ccc" type="submit">Contact us</button>

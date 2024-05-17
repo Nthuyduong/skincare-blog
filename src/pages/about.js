@@ -8,13 +8,13 @@ const About = () => {
             <div className="pb-8 pt-6 relative">
                 <div className="m-w flex justify-center mx-auto gap-6">
                     <div className="hidden sm:block pt-8">
-                        <img className="w-full" src="./img/about1.png" alt="smile" loading="lazy"/>
+                        <img className="w-full" src="./img/about1.png" alt="smile" loading="lazy" />
                     </div>
                     <div className="">
-                        <img className="w-full" src="./img/about2.png" alt="smile" loading="lazy"/>
+                        <img className="w-full" src="./img/about2.png" alt="smile" loading="lazy" />
                     </div>
                     <div className="pt-8">
-                        <img className="w-full" src="./img/about3.png" alt="smile" loading="lazy"/>
+                        <img className="w-full" src="./img/about3.png" alt="smile" loading="lazy" />
                     </div>
                 </div>
                 <div className="absolute t-0 pt-8">
@@ -35,27 +35,29 @@ const About = () => {
                     <div className="intro-inner grid grid-cols-6 gap-4 ">
                         <div className=""></div>
                         <div className="animate slideInUp col-span-4 intro-content heading_5 text-center z-30 cursor-text-wrp">
-                           "True beauty originates from a foundation of healthy skin, echoing the purity within. By tending to your skin with care—cleansing, nourishing, and protecting it—you unveil its innate radiance, enriching both inner and outer beauty."
+                            "True beauty originates from a foundation of healthy skin, echoing the purity within. By tending to your skin with care—cleansing, nourishing, and protecting it—you unveil its innate radiance, enriching both inner and outer beauty."
                         </div>
                     </div>
                 </div>
                 <div className="relative mt-8 px-4">
                     <div className="flex gap-4 max-w-[468px] mx-auto relative z-10">
-                        <div><img className="w-full pt-4" src="./img/about4.jpg" alt="smile" loading="lazy"/></div>
-                        <div><img className="w-full" src="./img/about5.jpg" alt="smile" loading="lazy"/></div>
-                        <div><img className="w-full pt-4" src="./img/about6.jpg" alt="smile" loading="lazy"/></div>
+                        <div><img className="w-full pt-4" src="./img/about4.jpg" alt="smile" loading="lazy" /></div>
+                        <div><img className="w-full" src="./img/about5.jpg" alt="smile" loading="lazy" /></div>
+                        <div><img className="w-full pt-4" src="./img/about6.jpg" alt="smile" loading="lazy" /></div>
                     </div>
                     <div className="absolute top-0 l-0 w-full h-full flex justify-center items-center">
                         <div className="max-w-[840px] h-fit">
-                            <img className="w-full dark:hidden" src="./img/Skincare Blog.png" alt="smile" loading="lazy"/>
-                            <img className="w-full hidden dark:block" src="./img/Skincare Blog2.png" alt="smile" loading="lazy"/>
+                            <img className="w-full dark:hidden" src="./img/Skincare Blog.png" alt="smile" loading="lazy" />
+                            <img className="w-full hidden dark:block" src="./img/Skincare Blog2.png" alt="smile" loading="lazy" />
                         </div>
                     </div>
                 </div>
-                <div className="my-7 border-solid border-y border-ccc py-8 about-me p-60 dark:border-t dark:border-ccc">
+            </div>
+            <div className="bg-primary">
+                <div className="m-w mx-auto my-0 my-8 py-8 about-me p-60">
                     <div className="md:grid md:grid-cols-12 gap-4">
                         <div className="md:col-span-4 md:mb-0 mb-4 animate slideInUp animate--delay-fast">
-                            <img className="w-full" src="./img/about/abt-me1.png" alt="smile" loading="lazy"/>
+                            <img className="w-full" src="./img/about/abt-me1.png" alt="smile" loading="lazy" />
                         </div>
                         <div className="md:col-span-6 about-right flex">
                             <div className="about-content mt-auto dark:!text-white">
@@ -69,10 +71,12 @@ const About = () => {
                             </div>
                         </div>
                         <div className="md:col-span-2 animate slideInUp animate--delay-fast">
-                            <img className="w-full" src="./img/about/abt-me2.jpg" alt="smile" loading="lazy"/>
+                            <img className="w-full" src="./img/about/abt-me2.jpg" alt="smile" loading="lazy" />
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className="m-w mx-auto my-0">
                 {/*What we do new*/}
                 <div className="wedo-new dark:border-solid dark:boder-b dark:border-ccc">
                     <div className="md:grid md:grid-cols-12 gap-5">
@@ -91,7 +95,7 @@ const About = () => {
                                     <div className="we-do-card pl-4 mb-4 mx-3">
                                         <div className="animate slideInUp animate--delay-slow">
                                             <div>
-                                                <img className="" src="./img/about/do.svg" alt="smile" loading="lazy"/>
+                                                <img className="" src="./img/about/do.svg" alt="smile" loading="lazy" />
                                             </div>
                                             <div className="">
                                                 <div className="heading_5 my-2 cursor-text-wrp">
@@ -110,7 +114,7 @@ const About = () => {
                                     <div className="we-do-card card-right px-4 ml-3 md:border-solid md:border-x md:border-ccc">
                                         <div className="animate slideInUp animate--delay-slow">
                                             <div>
-                                                <img className="" src="./img/about/do.svg" alt="smile" loading="lazy"/>
+                                                <img className="" src="./img/about/do.svg" alt="smile" loading="lazy" />
                                             </div>
                                             <div className="">
                                                 <div className="heading_5 my-2 cursor-text-wrp">
@@ -132,7 +136,7 @@ const About = () => {
                                     <div className="we-do-card pl-4 mx-3">
                                         <div className="animate slideInUp animate--delay-slow">
                                             <div>
-                                                <img className="" src="./img/about/do.svg" alt="smile" loading="lazy"/>
+                                                <img className="" src="./img/about/do.svg" alt="smile" loading="lazy" />
                                             </div>
                                             <div className="">
                                                 <div className="heading_5 my-2 cursor-text-wrp">
@@ -151,7 +155,7 @@ const About = () => {
                                     <div className="we-do-card h-full card-right px-4 ml-3 md:border-solid md:border-x md:border-ccc">
                                         <div className="animate slideInUp animate--delay-slow">
                                             <div>
-                                                <img className="" src="./img/about/do.svg" alt="smile" loading="lazy"/>
+                                                <img className="" src="./img/about/do.svg" alt="smile" loading="lazy" />
                                             </div>
                                             <div className="">
                                                 <div className="heading_5 my-2 cursor-text-wrp">
@@ -193,16 +197,16 @@ const About = () => {
                             <div className="text-black dark:!text-white">
                                 <div className="heading_3 mb-4 animate slideInUp animate--delay-medium cursor-text-wrp">Our mission</div>
                                 <div className="animate slideInUp animate--delay-slow cursor-text-wrp">
-                                At Radiance Aura, we're here to guide you through your skincare journey with genuine support and valuable insights. Our goal is to help you achieve radiant, resilient skin that's uniquely yours. With authenticity and care, we celebrate your natural beauty and inspire confidence every step of the way. Join us on this transformative journey toward embracing your radiance.
+                                    At Radiance Aura, we're here to guide you through your skincare journey with genuine support and valuable insights. Our goal is to help you achieve radiant, resilient skin that's uniquely yours. With authenticity and care, we celebrate your natural beauty and inspire confidence every step of the way. Join us on this transformative journey toward embracing your radiance.
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div className="col-span-12 md:col-span-3 img-mission">
-                            <img className="w-100" src="./img/about/mission.jpg" alt="smile" loading="lazy"/>
+                            <img className="w-100" src="./img/about/mission.jpg" alt="smile" loading="lazy" />
                         </div>
                         <div className="col-span-12 md:col-span-3 img-mission">
-                            <img className="w-100" src="./img/about/mission2.jpg" alt="smile" loading="lazy"/>
+                            <img className="w-100" src="./img/about/mission2.jpg" alt="smile" loading="lazy" />
                         </div>
                     </div>
                 </div>
@@ -218,7 +222,7 @@ const About = () => {
                     <div className="bg-primary p-5">
                         <div className="flex">
                             <div className="hidden md:block">
-                                <img className="w-full" src="./img/home/subscribe.png" alt="smile" loading="lazy"/>
+                                <img className="w-full" src="./img/home/subscribe.png" alt="smile" loading="lazy" />
                             </div>
                             <div className="ml-5 text-black flex items-center md:pr-8">
                                 <div>

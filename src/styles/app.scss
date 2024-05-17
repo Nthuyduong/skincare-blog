@@ -22,10 +22,10 @@
 
 //Variant
 $heading: 67px;
-$heading_1: 52px;
+$heading_1: 48px;
 $heading_2: 42px;
-$heading_3: 35px;
-$heading_4: 28px;
+$heading_3: 39px;
+$heading_4: 34px;
 $heading_5: 22px;
 $heading_6: 20px;
 $medium_text: 18px;
@@ -33,7 +33,6 @@ $body_text: 16px;
 $small_text: 14px;
 
 body{
-  background: #fff;
   min-height: 100vh;
   font-family: 'GTlight',serif;
   //font-family: 'Karla', sans-serif;
@@ -79,7 +78,7 @@ root {
   font-weight: 500;
 }
 .heading_4 {
-  font-family: 'GTregular',serif;
+  font-family: 'Forum',serif;
   font-size: $heading_4;
   line-height: $heading_4*1.25;
 }
@@ -116,21 +115,19 @@ root {
 }
 //Button
 .my-out-line-btn{
-  border: 1px solid #000;
+  border: 1px solid #302615;
   padding: 8px 32px;
-  text-transform: uppercase;
 }
 .my-out-line-btn:hover{
-  background: rgba(v.$primary_color, 0.1);
+  background: #EBE6E2;
 }
 .my-btn-pr{
-  background: #000;
+  background: #302615;
   color: #fff;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding: 8px 32px;
 }
 .my-btn-pr:hover{
-  background: #333;
+  background: #302615;
   color: #fff;
 }
 
@@ -249,7 +246,7 @@ textarea:focus-visible{
   left: 0;
   transition: all .3s ease-in-out;
   .search-bar-inner{
-    background: #fff;
+    background: #FBFBFA;
     .search-here{
       padding: 57px 0 57px;
     }
@@ -264,7 +261,7 @@ textarea:focus-visible{
   display: flex;
   justify-content:center;
   align-items: center;
-  background: #FFF;
+  background: #FBFBFA;
   z-index: 9999;
 }
 .header-desktop {
@@ -274,7 +271,7 @@ textarea:focus-visible{
   display: flex;
   justify-content:center;
   align-items: center;
-  background: #Fff;
+  background: #FBFBFA;
   z-index: 9999;
 }
 .heaeder-mobile-contain {
@@ -333,7 +330,7 @@ textarea:focus-visible{
       z-index: 3000;
       display: none;
       width: max-content;
-      background: #fff;
+      background: #FBFBFA;
       .sub-menu{
         color: #666666;
       }

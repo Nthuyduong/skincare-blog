@@ -62,14 +62,14 @@ const Search = () => {
                                     return (
                                         <Link 
                                             href={ROUTER.INGREDIENT + '/' + result.id}
-                                            className="border-solid border-b border-ccc !border-999 pb-4"
+                                            className="border-solid border-b border-ccc !border-999"
                                         >
-                                            <div className="border-solid border-ccc !border-999 border p-4">
-                                                <div className="mb-1">Ingredient</div>
-                                                <div className="heading_2 mb-3">{ result.title }</div>
-                                                <div className="flex">
-                                                    <div className="mr-1 border-solid border-r border-ccc !border-999 pr-1">By Nthduong</div>
-                                                    <div>Publish date: 10/02/2024</div>
+                                            <div className="border-solid border-ccc !border-999 border p-4 mb-6">
+                                                <div className="mb-1 small_text">Skincare Ingredient</div>
+                                                <div className="heading_5 mb-3">{ result.title }</div>
+                                                <div className="">
+                                                    
+                                                    <div className="body_text">Publish date: 10/02/2024</div>
                                                 </div>
                                             </div>
                                         </Link>
@@ -89,7 +89,7 @@ const Search = () => {
                                                 <div className="small_text mb-1">Drink & Coffee</div>
                                                 <div className="heading_5 my-1">{ result.title }</div>
                                                 <div className="flex mb-1">
-                                                    <div>By Nthduong</div>
+                                                   
                                                     <div className="flex ml-3">
                                                         <div>{ result.estimate_time }</div>
                                                     </div>
