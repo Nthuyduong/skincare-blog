@@ -66,3 +66,46 @@
 //    }
 //  }
 //}
+.sub-des-inner {
+  .overflow-hidden {
+    overflow: unset;
+    .slider-content {
+      padding: 0 calc((100vw - min(100vw, 1100px)) / 2);
+      .slider-text-banner {
+        opacity: 0;
+        transition: all 0.5s ease;
+      }
+      .slider-item {
+        display: flex;
+        justify-content: start;
+      }
+      .slider-content-wrp {
+        opacity: 0;
+      }
+      .slider-img {
+        aspect-ratio: 20/9;
+        transform: scale(0.6);
+        transition: all 0.5s ease;
+      }
+      .slider-container {
+        width: 100%;
+      }
+      .slide-active {
+        display: flex;
+        justify-content: end;
+        .slider-text-banner {
+          opacity: 1;
+        }
+        .slider-content-wrp {
+          opacity: 1;
+        }
+        .slider-img {
+          transform: scale(1);
+        }
+        .slider-container {
+          width: 80%;
+        }
+      }
+    }
+  }
+}

@@ -107,7 +107,11 @@ const Slider = ({
         if (slides.length === 0) return;
         // Cập nhật chiều rộng của slider container
         ref.current.style.width = `calc(${(countChildren / sliderPerRow) * 100 + '%'} + ${(gap * maxSlide) / sliderPerRow + 'px'})`;
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].classList.remove('slide-active');
+        }
         if (slides[active]) {
+            slides[active].classList.add('slide-active');
             refContent.current.scrollTo({
                 left:
                     slides[active].offsetLeft -
@@ -121,12 +125,12 @@ const Slider = ({
         if (configs.auto) {
             autoSlideTimeout.current = setTimeout(() => {
                 //nếu active < số slide còn lại -> cập nhật giá trị active bằng setactive (active + 1)
-                if (active < maxSlide) {
-                    setActive(active + 1);
-
-                } else {
-                    setActive(0);
-                }
+                setActive(prev => {
+                    if (prev < maxSlide) {
+                        return prev + 1;
+                    }
+                    return 0;
+                });
             }, configs.autoDuration)
         }
     }

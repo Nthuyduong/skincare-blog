@@ -118,7 +118,7 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
     return (
         <div className="sub-des-page">
             <div className="sub-des-inner">
-                <div>
+                <div className="bg-tertiary">
                     {populars.length > 0 && (
                         <Slider
                             configs={{
@@ -131,34 +131,50 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                                 gap: 0,
                                 gapMobile: 10,
                                 navigator: false,
-                                paginate: true,
+                                paginate: false,
                                 process: false,
                             }}
                         >
                             {populars.map((post, index) => (
-                                <div className="relative title-page overflow-hidden" key={index}>
-                                    {post.banner_img ? (
-                                        <img
-                                            className="absolute w-full h-full md:h-full md:w-full object-cover"
-                                            src={BASE_URL + '/storage/' + post?.banner_img}
-                                            alt="smile"
-                                            loading="lazy"
-                                        />
-                                    ) : (
-                                        <img
-                                            className="absolute w-full h-full md:h-full md:w-full object-cover"
-                                            src={BASE_URL + '/storage/' + category?.featured_img}
-                                            alt="smile"
-                                            loading="lazy"
-                                        />
-                                    )}
-                                    <div className="m-w mx-auto relative h-[400px] mt-auto flex">
-                                        <div className="height-fit absolute bottom-[60px]">
-                                            <div className="mb-3">{post.categories.map((category) => { return category.name }).join(' | ')}</div>
-                                            <div className="heading_3 mb-2">{post.title}</div>
-                                            <div className="small_text">About {post?.estimate_time} minutes to read</div>
-                                        </div>
+                                <div className="relative title-page overflow-hidden pt-6" key={index}>
+                                    <div className="slider-text-banner absolute heading_1 z-10 pt-5 l-0">
+                                        Be Confident, Be <br/> Bold and Be You
                                     </div>
+                                    <div className="slider-container">
+                                        <div className="slider-img">
+                                            {post.banner_img ? (
+                                                <img
+                                                    className="w-full h-full object-cover"
+                                                    src={BASE_URL + '/storage/' + post?.banner_img}
+                                                    alt="smile"
+                                                    loading="lazy"
+                                                    height={200}
+                                                    width={400}
+                                                />
+                                            ) : (
+                                                <img
+                                                    className="w-full h-full object-cover"
+                                                    src={BASE_URL + '/storage/' + category?.featured_img}
+                                                    alt="smile"
+                                                    loading="lazy"
+                                                    height={200}
+                                                    width={400}
+                                                />
+                                            )}
+                                        </div>
+                                        <div className="slider-content-wrp">
+                                            <div className="mb-3 flex justify-between">
+                                                <div>
+                                                    {post.categories.map((category) => { return category.name }).join(' | ')}
+                                                </div>
+                                                <div className="small_text">About {post?.estimate_time} minutes to read</div>
+                                            </div>
+                                            <div className="heading_3 mb-2">{post.title}</div>
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                    
                                 </div>
                             ))}
                         </Slider>
