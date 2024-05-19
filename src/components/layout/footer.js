@@ -2,38 +2,47 @@ import { ROUTER } from "../../utils/constants";
 import Link from 'next/link'
 import React, { useState } from "react";
 import { useApp } from "@hooks/useApp";
+import { useModal } from '@hooks/modal';
 
 const Footer = () => {
-    const { subscribe } = useApp();
 
-    const [email, setEmail] = useState('');
-    const [error, setError] = useState(null);
+    const {
+        hide,
+        show,
+        showLoading,
+        addToast
+    } = useModal();
+    
+    // const { subscribe } = useApp();
 
-    const checkEmail = (email) => {
-        const re = /\S+@\S+\.\S+/;
-        return re.test(email);
-    }
+    // const [email, setEmail] = useState('');
+    // const [error, setError] = useState(null);
 
-    const handleSubscribe = () => {
-        setError(null);
-        let errorTmp = {
-            email: ''
-        };
-        let isError = false;
-        if (!email) {
-            errorTmp.email = 'Email is required';
-            isError = true;
-        }
-        if (!checkEmail(email)) {
-            errorTmp.email = 'Email is invalid';
-            isError = true;
-        }
-        if (isError) {
-            setError(errorTmp);
-            return;
-        };
-        subscribe(email);
-    }
+    // const checkEmail = (email) => {
+    //     const re = /\S+@\S+\.\S+/;
+    //     return re.test(email);
+    // }
+
+    // const handleSubscribe = () => {
+    //     setError(null);
+    //     let errorTmp = {
+    //         email: ''
+    //     };
+    //     let isError = false;
+    //     if (!email) {
+    //         errorTmp.email = 'Email is required';
+    //         isError = true;
+    //     }
+    //     if (!checkEmail(email)) {
+    //         errorTmp.email = 'Email is invalid';
+    //         isError = true;
+    //     }
+    //     if (isError) {
+    //         setError(errorTmp);
+    //         return;
+    //     };
+    //     subscribe(email);
+    // }
 
     return (
         <div className="blog-footer bg-tertiary md:pt-0 pt-5" id="blog-footer">
@@ -106,19 +115,35 @@ const Footer = () => {
                                         <input 
                                             className="w-full py-1 pr-2 w-full"
                                             placeholder="Email address"
-                                            onChange={(e) => setEmail(e.target.value)}
-                                            onKeyDown={(e) => e.key === 'Enter' && handleSubscribe()}
+                                            // onChange={(e) => setEmail(e.target.value)}
+                                            // onKeyDown={(e) => e.key === 'Enter' && handleSubscribe()}
+                                            onClick={() => show({
+                                                name: 'newsletters',
+                                                data: {
+                                                    message: 'This is a notice modal',
+                                                },
+                                                position: 'right',
+                                                mobilePosition: 'right',
+                                            })}
                                         />
                                         <button
                                             className=""
                                             type="submit"
-                                            onClick={handleSubscribe}
+                                            // onClick={handleSubscribe}
+                                            onClick={() => show({
+                                                name: 'newsletters',
+                                                data: {
+                                                    message: 'This is a notice modal',
+                                                },
+                                                position: 'right',
+                                                mobilePosition: 'right',
+                                            })}
                                         >
                                             <img className="w-full dark:hidden" src="../img/icon/arrow-right-circle.svg" alt="smile" loading="lazy"/>
                                             <img className="w-full hidden dark:block" src="../img/icon/arrow-right-circle-white.svg" alt="smile" loading="lazy"/>
                                         </button>
                                     </div>
-                                    {error?.email && <div className="mt-1 small_text text-red mb-3">{error?.email}</div>}
+                                    {/* {error?.email && <div className="mt-1 small_text text-red mb-3">{error?.email}</div>} */}
                                 </div>
                             </div>
                         </div>

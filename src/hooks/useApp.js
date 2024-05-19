@@ -76,6 +76,16 @@ export const useApp = () => {
         }
     }
 
+    async function subscribeWithName(name, email) {
+        showLoading();
+        const res = await subscribeApi(name, email);
+        if (res.status) {
+            addToast('Thanks you for join our newsletter! Welcome to Radiance Aura Home.', 'success');
+        } else {
+            addToast(res.msg, 'error');
+        }
+    }
+
     return {
         paginate,
         keyword,
