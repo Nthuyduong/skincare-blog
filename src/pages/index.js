@@ -71,7 +71,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                         <div className="mx-auto m-w">
                             {/* banner text */}
                             <div>
-                                <div className="flex gap-5 items-center pt-7 mb-6 justify-center">
+                                <div className="flex gap-5 items-center pt-6 mb-5 justify-center">
 
                                     <div className="heading_2">The</div>
                                     <div className="h-px bg-666 w-[20%]"></div>
@@ -93,9 +93,9 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                                 />
                                             </Link>
 
-                                            <div className="mr-auto mb-2 small_text text-textcolor">{tags.categories.map((category) => { return <Link href={'/sub-des/' + category.id} className="">{category.name}</Link> })}</div>
+                                            <div className="mr-auto mb-1 body_text text-textcolor mt-2">{tags.categories.map((category) => { return <Link href={'/sub-des/' + category.id} className="">{category.name}</Link> })}</div>
                                             <Link href={'/article/' + tags.slug} className="">
-                                                <div>
+                                                <div className="heading_6">
                                                     {tags?.title}
                                                 </div>
                                             </Link>
