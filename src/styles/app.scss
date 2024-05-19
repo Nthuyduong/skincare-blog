@@ -323,9 +323,6 @@ textarea:focus-visible{
   border-bottom: 1px solid #e0e0e0;
 }
 .nav_blog{
-  .nav-blog-inner{
-
-  }
   .guide-navdrop, .destination-navdrop{
     .navdrop-inner{
       z-index: 3000;
@@ -624,5 +621,22 @@ textarea:focus-visible{
   max-height: 100% !important;
   .modal-header{
     border-bottom: none;
+  }
+}
+
+// Home banner
+.home-banner{
+  background-image: url("../imgs/homebanner.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  .banner-article:nth-child(2){
+    img{
+      height: 50%;
+    }
+  }
+  .banner-article:last-child{
+    img{
+      height: 70%;
+    }
   }
 }

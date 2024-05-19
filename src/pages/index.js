@@ -4,7 +4,7 @@ import { ROUTER } from "../utils/constants";
 import { BASE_URL } from "@utils/apiUtils";
 import { formatDate } from "@utils/format";
 import { useRouter } from 'next/router';
-import { getBlogNewest, getBlogPopular } from "../services/home";
+import { getBlogNewest, getBlogPopular, getBlogBanner } from "../services/home";
 import dynamic from "next/dynamic";
 import CardSlider from "../components/common/CardSlider";
 import Head from "next/head";
@@ -12,7 +12,7 @@ const Slider = dynamic(() => import("@components/common/slider"), { ssr: false }
 const Scroller = dynamic(() => import("@components/common/scroller"), { ssr: false });
 import { useModal } from '@hooks/modal';
 
-const Home = ({ newestProps, popularProps, isCsr }) => {
+const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
     const router = useRouter();
 
     const {
@@ -24,6 +24,9 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
 
     const [newest, setNewest] = useState(newestProps || []);
     const [popular, setPopular] = useState(popularProps || []);
+    const [banner, setBanner] = useState(bannerProps || []);
+
+    console.log(banner)
 
     useEffect(() => {
         const categoryCard = document.querySelectorAll('.home-category-card');
@@ -47,10 +50,12 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
     const fetchDataCsr = async () => {
         const res = await Promise.all([
             getBlogNewest(10),
-            getBlogPopular(10)
+            getBlogPopular(10),
+            getBlogBanner(3)
         ]);
         setNewest(res[0] || []);
         setPopular(res[1] || []);
+        setBanner(res[2] || [])
     }
 
     return (
@@ -61,18 +66,50 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
             </Head>
             <div>
                 {/* new banner */}
-                <div className="">
-                    <div className="banner-text"></div>
-                    <div className="grid grid-cols-12 gap-4">
-                        <div className="col-span-3"></div>
+                <div className="relative home-banner h-[650px]">
+                    <div className="relative z-20">
+                        <div className="mx-auto m-w">
+                            {/* banner text */}
+                            <div>
+                                <div className="flex gap-5 items-center pt-7 mb-6 justify-center">
 
-                        <div className="col-span-1"></div>
-                        <div className="col-span-4"></div>
-                        <div className="col-span-1"></div>
-                        <div className="col-span-3"></div>
+                                    <div className="heading_2">The</div>
+                                    <div className="h-px bg-666 w-[20%]"></div>
+                                    <div className="heading_2 text-center">Most Useful</div>
+                                    <div className="h-px bg-666 w-[20%]"></div>
+                                    <div className="heading_2">Articles</div>
+
+                                </div>
+                                {/* articles */}
+                                <div className="flex gap-6">
+                                    {banner.map((tags, index) => (
+                                        <div className="banner-article">
+                                            <Link href={'/article/' + tags.slug} className="">
+                                                <img
+                                                    className="set-img"
+                                                    src={BASE_URL + '/storage/' + tags?.featured_img}
+                                                    alt={tags.title}
+                                                    loading="lazy"
+                                                />
+                                            </Link>
+
+                                            <div className="mr-auto mb-2 small_text text-textcolor">{tags.categories.map((category) => { return <Link href={'/sub-des/' + category.id} className="">{category.name}</Link> })}</div>
+                                            <Link href={'/article/' + tags.slug} className="">
+                                                <div>
+                                                    {tags?.title}
+                                                </div>
+                                            </Link>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="absolute top-[30%] z-10">
+                        <img className="w-full " src="./img/Signature.png" alt="Signature" loading="lazy" />
                     </div>
                 </div>
-                <div className="relative">
+                {/* <div className="relative">
                     <CardSlider
                         configs={{
                             background: '/img/slide-card-bg.png',
@@ -111,7 +148,7 @@ const Home = ({ newestProps, popularProps, isCsr }) => {
                             <img className="w-full" src="./img/Signature.png" alt="Signature" loading="lazy" />
                         </div>
                     </div>
-                </div>
+                </div> */}
                 <div className="">
                     <div className="my-0 md:py-8 py-7 mx-auto m-w">
                         <div className="recently-update">
@@ -397,26 +434,32 @@ Home.getInitialProps = async ({ req, query }) => {
         return {
             newestProps: [],
             popularProps: [],
+            bannerProps: [],
             isCsr: true,
         }
     }
     try {
         const res = await Promise.all([
             fetch(`${BASE_URL}/api/blogs/newest?limit=10`, { cache: 'force-cache' }),
-            fetch(`${BASE_URL}/api/blogs/popular?limit=10`, { cache: 'force-cache' })
+            fetch(`${BASE_URL}/api/blogs/popular?limit=10`, { cache: 'force-cache' }),
+            fetch(`${BASE_URL}/api/blogs/tags/tags?=banner`, { cache: 'force-cache' }),
         ])
         let resData = await Promise.all(res.map(r => r.json()));
         const newest = resData[0].data;
         const popular = resData[1].data;
+        const banner = resData[2].data;
+        console.log(banner)
         return {
-            newestProps: newest,
-            popularProps: popular,
+            newestProps: newest || [],
+            popularProps: popular || [],
+            bannerProps: banner || [],
             isCsr: false,
         }
     } catch (error) {
         return {
             newestProps: [],
             popularProps: [],
+            bannerProps: [],
             isCsr: true,
         }
     }

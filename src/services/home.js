@@ -14,3 +14,10 @@ export const getBlogPopular = async (limit = 10, days = null) => {
     });
     return response.data;
 };
+
+export const getBlogBanner = async (limit = 3) => {
+    const response = await getApi("/blogs/tags/?tags=banner", {
+        limit
+    });
+    return response.data;
+};
