@@ -119,12 +119,6 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
         <div className="sub-des-page">
             <div className="sub-des-inner">
                 <div className="bg-tertiary">
-                    <div className="m-w">
-                        <div className="slider-text-banner absolute heading_1 z-10 pt-7 left-[300px]">
-                            Be Confident, Be <br/> Bold and Be You
-                        </div>
-                    </div>
-                    
                     {populars.length > 0 && (
                         <Slider
                             configs={{
@@ -143,7 +137,9 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                         >
                             {populars.map((post, index) => (
                                 <div className="relative title-page overflow-hidden pt-6" key={index}>
-                                    
+                                    <div className="slider-text-banner absolute heading_1 z-10 pt-5 l-0">
+                                        Be Confident, Be <br/> Bold and Be You
+                                    </div>
                                     <div className="slider-container">
                                         <div className="slider-img">
                                             {post.banner_img ? (
