@@ -80,6 +80,21 @@ const Slider = ({
 
     useEffect(() => {
         runSlider();
+        //nếu có auto slide thì thiết lập timeout
+        if (configs.auto) {
+            autoSlideTimeout.current = setTimeout(() => {
+                //nếu active < số slide còn lại -> cập nhật giá trị active bằng setactive (active + 1)
+                setActive(prev => {
+                    if (prev < maxSlide) {
+                        return prev + 1;
+                    }
+                    return 0;
+                });
+            }, configs.autoDuration)
+        }
+        return () => {
+            clearTimeout(autoSlideTimeout.current);
+        }
     }, [countChildren])
 
     const handleScroll = () => {
@@ -118,20 +133,6 @@ const Slider = ({
                     parseInt(getComputedStyle(refContent.current).paddingLeft),
                 behavior: "smooth",
             });
-        }
-        
-
-        //nếu có auto slide thì thiết lập timeout
-        if (configs.auto) {
-            autoSlideTimeout.current = setTimeout(() => {
-                //nếu active < số slide còn lại -> cập nhật giá trị active bằng setactive (active + 1)
-                setActive(prev => {
-                    if (prev < maxSlide) {
-                        return prev + 1;
-                    }
-                    return 0;
-                });
-            }, configs.autoDuration)
         }
     }
 
