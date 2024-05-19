@@ -122,7 +122,7 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                     {populars.length > 0 && (
                         <Slider
                             configs={{
-                                sliderPerRow: 1,
+                                sliderPerRow: 1.2,
                                 sliderPerRowMobile: 1,
                                 allowDrag: true,
                                 duration: 500,

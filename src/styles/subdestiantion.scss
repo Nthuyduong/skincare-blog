@@ -84,7 +84,7 @@
       }
       .slider-img {
         aspect-ratio: 20/9;
-        transform: scale(0.6);
+        transform: scale(0.75) translateY(-50px);
         transition: all 0.5s ease;
       }
       .slider-container {
