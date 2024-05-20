@@ -77,16 +77,16 @@ const Footer = () => {
                                     <div className="mb-3">INTEREST</div>
                                     <ul>
                                         <li>
-                                            <Link href={ROUTER.ABOUT} className="nav-link">Sun care</Link>
+                                            <Link href={'/sub-des/4'} className="nav-link">Sun care</Link>
                                         </li>
                                         <li>
-                                            <Link href={ROUTER.DESTINATION} className="nav-link">Skincare Routine</Link>
+                                            <Link href={'/sub-des/10'} className="nav-link">Skincare Routine</Link>
                                         </li>
                                         <li>
-                                            <Link href={ROUTER.GALLERY} className="nav-link">Nuturish</Link>
+                                            <Link href={'/sub-des/9'} className="nav-link">Nourish beauty</Link>
                                         </li>
                                         <li>
-                                            <Link href={ROUTER.GALLERY} className="nav-link">Skincare Ingredients</Link>
+                                            <Link href={ROUTER.INGREDIENT} className="nav-link">Skincare Ingredients</Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -96,7 +96,7 @@ const Footer = () => {
                                     <div className="mb-3">INFO</div>
                                     <ul>
                                         <li>
-                                            <Link href={ROUTER.CONTACT} className="nav-link">About</Link>
+                                            <Link href={ROUTER.ABOUT} className="nav-link">About</Link>
                                         </li>
                                         <li>
                                             <Link href={ROUTER.CONTACT} className="nav-link">Contact me</Link>
