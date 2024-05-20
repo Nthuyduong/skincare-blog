@@ -54,32 +54,33 @@ const NewslettersModal = () => {
             <div>
                 {status != 'success' ? (
                     <>
-                        <div className="mb-3 w-full flex dark:border-999 dark:focus:border-white focus:border-333 pointer-events-auto border-solid border-b border-ccc focus-visible:outline-none">
+                        <div className="mb-3 w-full flex">
                             <input
-                                className="w-full py-1 pr-2 w-full"
+                                className="w-full py-1 pr-2 dark:border-999 dark:focus:border-white focus:border-333 pointer-events-auto border-solid border-b border-ccc focus-visible:outline-none"
                                 placeholder="Your name"
                                 onChange={(e) => setName(e.target.value)}
                                 onKeyDown={(e) => e.key === 'Enter' && handleSubscribe()}
                             />
                         </div>
-                        <div className="w-full flex dark:border-999 dark:focus:border-white focus:border-333 pointer-events-auto border-solid border-b border-ccc focus-visible:outline-none">
+                        <div className="w-full flex">
                             <input
-                                className="w-full py-1 pr-2 w-full"
+                                className="relative w-full py-1 pr-2 dark:border-999 dark:focus:border-white focus:border-333 pointer-events-auto border-solid border-b border-ccc focus-visible:outline-none"
                                 placeholder="Email address"
                                 onChange={(e) => setEmail(e.target.value)}
                                 onKeyDown={(e) => e.key === 'Enter' && handleSubscribe()}
                             />
 
                             <button
-                                className=""
+                                className="absolute right-[10%]"
                                 type="submit"
                                 onClick={handleSubscribe}
                             >
                                 <img className="w-full dark:hidden" src="../img/icon/arrow-right-circle.svg" alt="smile" loading="lazy" />
                                 <img className="w-full hidden dark:block" src="../img/icon/arrow-right-circle-white.svg" alt="smile" loading="lazy" />
                             </button>
-                            {error?.email && <div className="mt-1 small_text text-red mb-3">{error?.email}</div>}
+                            
                         </div>
+                        {error?.email && <div className="mt-1 small_text text-red mb-3">{error?.email}</div>}
                         <div>{message}</div>
                     </>
                 ) : (
