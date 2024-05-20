@@ -49,8 +49,8 @@ const NewslettersModal = () => {
 
     return (
         <div className="newsletters]">
-            <div className="heading_4 mb-3 mt-7">Join our Newsletter</div>
-            <div className="mb-5">Enter your email address to receive new posts in your inbox and seasonal newsletters!</div>
+            <div className="heading_4 mb-3 mt-7 text-textcolor">Join our Newsletter</div>
+            <div className="mb-5 text-textcolor">Enter your email address to receive new posts in your inbox and seasonal newsletters!</div>
             <div>
                 {status != 'success' ? (
                     <>

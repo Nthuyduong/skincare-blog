@@ -125,6 +125,12 @@ const EditPost = ({ id }) => {
             return item != id;
         }));
     }
+    
+    const handleRemoveSelectTag = (id) => {
+        setTag(tag.filter((item) => {
+            return item != id;
+        }));
+    }
 
     const handleChangeTags = (e) => {
         const { value } = e.target;
@@ -334,7 +340,7 @@ const EditPost = ({ id }) => {
                                         tag.map((item, index) => (
                                             <div key={index} className="flex items-center border-ccc border w-fit py-1 px-2 rounded-full">
                                                 <div className="mr-2">{item}</div>
-                                                <span className="close" onClick={() => {setTag(tag.filter((i) => {return i != item}))}}>x</span>
+                                                <span className="close" onClick={() => {handleRemoveSelectTag(item.id)}}>x</span>
                                             </div>
                                         ))
                                     }

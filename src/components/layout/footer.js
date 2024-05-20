@@ -46,7 +46,7 @@ const Footer = () => {
 
     return (
         <div className="blog-footer bg-tertiary md:pt-0 pt-5" id="blog-footer">
-            <div className="blog-footer-inner border-solid dark:border-999 border-ccc">
+            <div className="blog-footer-inner border-solid border-ccc">
                 <div className="grid grid-cols-12">
                     {/*<div className="sub-menu">*/}
                     {/*    <div className="mb-3">POPULAR</div>*/}
@@ -66,40 +66,40 @@ const Footer = () => {
 
                     {/*    </ul>*/}
                     {/*</div>*/}
-                    <div className="md:col-span-4 col-span-12 flex justify-center border-b md:border-b-0 md:border-ccc md:border-r md:!border-999 footer-logo items-center p-4 lg:p-5 border-solid">
-                        <img className="h-fit md:w-2/5 w-2/5 dark:hidden" src="/img/footer-logo.svg" alt="smile" loading="lazy"/>
-                        <img className="h-fit md:w-2/5 w-2/5 dark:block hidden" src="/img/footer-logo-2.svg" alt="smile" loading="lazy"/>
+                    <div className="md:col-span-4 col-span-12 flex justify-center border-b md:border-b-0 md:border-ccc md:border-r footer-logo items-center p-4 lg:p-5 border-solid">
+                        <img className="h-fit md:w-2/5 w-2/5" src="/img/footer-logo.svg" alt="smile" loading="lazy"/>
+                        {/* <img className="h-fit md:w-2/5 w-2/5 dark:block hidden" src="/img/footer-logo-2.svg" alt="smile" loading="lazy"/> */}
                     </div>
-                    <div className="md:col-span-4 flex items-center md:!px-5 col-span-12 footer-info md:p-4 p-3 lg:p-5 flex border-b border-ccc md:!border-b-0 md:border-r md:border-ccc md:!border-999 border-solid">
+                    <div className="md:col-span-4 flex items-center md:!px-5 col-span-12 footer-info md:p-4 p-3 lg:p-5 flex border-b border-ccc md:!border-b-0 md:border-r md:border-ccc border-solid">
                         <div className="grid grid-cols-4 w-full">
                             <div className="col-span-2 text-center md:text-left">
                                 <div className="sub-menu">
-                                    <div className="mb-3">INTEREST</div>
+                                    <div className="text-textcolor mb-3">INTEREST</div>
                                     <ul>
                                         <li>
-                                            <Link href={'/sub-des/4'} className="nav-link">Sun care</Link>
+                                            <Link href={'/sub-des/4'} className="text-textcolor nav-link">Sun care</Link>
                                         </li>
                                         <li>
-                                            <Link href={'/sub-des/10'} className="nav-link">Skincare Routine</Link>
+                                            <Link href={'/sub-des/10'} className="text-textcolor nav-link">Skincare Routine</Link>
                                         </li>
                                         <li>
-                                            <Link href={'/sub-des/9'} className="nav-link">Nourish beauty</Link>
+                                            <Link href={'/sub-des/9'} className="text-textcolor nav-link">Nourish beauty</Link>
                                         </li>
                                         <li>
-                                            <Link href={ROUTER.INGREDIENT} className="nav-link">Skincare Ingredients</Link>
+                                            <Link href={ROUTER.INGREDIENT} className="text-textcolor nav-link">Skincare Ingredients</Link>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                             <div className="col-span-2 text-center md:text-left">
                                 <div className="sub-menu">
-                                    <div className="mb-3">INFO</div>
+                                    <div className="mb-3 text-textcolor ">INFO</div>
                                     <ul>
                                         <li>
-                                            <Link href={ROUTER.ABOUT} className="nav-link">About</Link>
+                                            <Link href={ROUTER.ABOUT} className="text-textcolor nav-link">About</Link>
                                         </li>
                                         <li>
-                                            <Link href={ROUTER.CONTACT} className="nav-link">Contact me</Link>
+                                            <Link href={ROUTER.CONTACT} className="text-textcolor nav-link">Contact me</Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -108,7 +108,7 @@ const Footer = () => {
                     </div>
                     <div className="md:col-span-4 flex items-center col-span-12 footer-sub p-3 md:p-4 lg:p-5">
                         <div className="">
-                            <div className="mb-2">Enter your email address to receive new posts in your inbox and seasonal newsletters!</div>
+                            <div className="mb-2 text-textcolor">Enter your email address to receive new posts in your inbox and seasonal newsletters!</div>
                             <div>
                                 <div className="">
                                     <div className="w-full flex dark:border-999 dark:focus:border-white focus:border-333 pointer-events-auto border-solid border-b border-ccc focus-visible:outline-none">
@@ -153,7 +153,7 @@ const Footer = () => {
             <div className="footer-copy py-2 md:border-t border-ccc dark:border-999 border-solid">
                 <div className="grid grid-cols-12">
                     <div className="col-span-12">
-                        <div className="text-center small_text copy-right dark:!text-999 text-333">COPYRIGHT © 2024 · Radiance Aura Blog. ALL RIGHTS RESERVED</div>
+                        <div className="text-center small_text copy-right text-textcolor">COPYRIGHT © 2024 · Radiance Aura Blog. ALL RIGHTS RESERVED</div>
                     </div>
                     {/*<div className="col-span-3">*/}
                     {/*    <div className="my-social flex w-full">*/}

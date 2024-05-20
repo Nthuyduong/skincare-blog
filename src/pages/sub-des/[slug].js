@@ -241,11 +241,11 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                                                     <img className="icon-ssm hidden dark:block" src="/img/icon/sort-wh.svg" alt="smile" loading="lazy" />
                                                 </button>
                                                 {show && (
-                                                    <div className="absolute mt-3 w-max right-0 p-3 top-full border border-solid border-x border-b !border-999 border-ccc !bg-black bg-white">
+                                                    <div className="absolute mt-3 w-max right-0 p-3 top-full border border-solid border-x border-b !border-999 border-ccc dark:bg-black bg-white">
                                                         <div className="sort-menu-inner">
                                                             <ul className="">
                                                                 {SORT.map((item, index) => (
-                                                                    <li key={index} className="pb-2 cursor-pointer" onClick={() => { handleSort(item) }}>{item.label}</li>
+                                                                    <li key={index} className="py-1 cursor-pointer" onClick={() => { handleSort(item) }}>{item.label}</li>
                                                                 ))}
                                                             </ul>
                                                         </div>

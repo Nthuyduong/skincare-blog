@@ -73,11 +73,11 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                             <div>
                                 <div className="flex gap-5 items-center pt-6 mb-6 justify-center">
 
-                                    <div className="heading_2">The</div>
+                                    <div className="heading_2 dark:text-textcolor">The</div>
                                     <div className="h-px bg-666 w-[20%]"></div>
-                                    <div className="heading_2 text-center">Most Useful</div>
+                                    <div className="heading_2 text-center dark:text-textcolor">Most Useful</div>
                                     <div className="h-px bg-666 w-[20%]"></div>
-                                    <div className="heading_2">Articles</div>
+                                    <div className="heading_2 dark:text-textcolor">Articles</div>
 
                                 </div>
                                 {/* articles */}
@@ -95,7 +95,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
 
                                             <div className="mr-auto mb-1 body_text text-textcolor mt-2">{tags.categories.map((category) => { return <Link href={'/sub-des/' + category.id} className="">{category.name}</Link> })}</div>
                                             <Link href={'/article/' + tags.slug} className="">
-                                                <div className="heading_6">
+                                                <div className="heading_6 text-textcolor">
                                                     {tags?.title}
                                                 </div>
                                             </Link>
@@ -188,7 +188,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                                         <div className="medium_text">{blog.title}</div>
                                                     </div>
                                                     <div className="md:flex hidden">
-                                                        <div className="cursor-pointer" onClick={() => { router.push("/article/" + blog.slug) }}>Read more</div>
+                                                        <div className="cursor-pointer text-link" onClick={() => { router.push("/article/" + blog.slug) }}>Read more</div>
                                                     </div>
                                                 </div>
                                             </div>
