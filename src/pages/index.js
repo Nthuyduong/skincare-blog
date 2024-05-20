@@ -71,7 +71,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                         <div className="mx-auto m-w">
                             {/* banner text */}
                             <div>
-                                <div className="flex gap-5 items-center pt-6 mb-5 justify-center">
+                                <div className="flex gap-5 items-center pt-6 mb-6 justify-center">
 
                                     <div className="heading_2">The</div>
                                     <div className="h-px bg-666 w-[20%]"></div>

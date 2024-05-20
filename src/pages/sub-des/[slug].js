@@ -118,7 +118,7 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
     return (
         <div className="sub-des-page">
             <div className="sub-des-inner">
-                <div className="bg-tertiary">
+                {/* <div className="bg-tertiary">
                     {populars.length > 0 && (
                         <Slider
                             configs={{
@@ -179,7 +179,7 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                             ))}
                         </Slider>
                     )}
-                </div>
+                </div> */}
                 <div className="m-w mx-auto my-0">
                     <div className="">
                         {/*<div className="col-span-2 left-menu dark:border-r dark:!border-ccc">*/}
@@ -194,8 +194,8 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                         {/*    </div>*/}
                         {/*</div>*/}
                         <div className="col-span-12 right-all-posts">
-                            <div className="max-w-screen-sm mx-auto text-center py-4">
-                                <div className="heading_1 text-black dark:text-white mb-3">{category.name}</div>
+                            <div className="max-w-screen-sm mx-auto text-center py-3">
+                                <div className="heading_1 text-black dark:text-white mb-2">{category.name}</div>
                                 <div class="flex justify-center">
                                     <div className="text-black dark:text-white subcate-des">
                                     {category.description}
