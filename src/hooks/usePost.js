@@ -10,8 +10,11 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "@hooks/modal";
 import { showModal, hideModal } from "@store/modal/modal.action";
+import { useRouter } from "next/router";
 
 export const usePost = () => {
+
+    const router = useRouter()
 
     const { addToast, showLoading, hide } = useModal();
 
@@ -59,6 +62,7 @@ export const usePost = () => {
         hide();
         if (res?.status == 1) {
             addToast('New post created!', 'success');
+            router.push('/admin/posts');
         } else {
             addToast(res.msg, 'error');
         }
@@ -76,9 +80,7 @@ export const usePost = () => {
         formData.append('featured_img', data.featured_img);
         formData.append('banner_img', data.banner_img);
         formData.append('status', data.status);
-        if (data.tag && data.tag.length > 0) {
-            formData.append('tag', data.tag.join(',') || '');
-        }
+        formData.append('tag', data.tag.join(',') || '');
         formData.append('meta_title', data.meta_title);
         formData.append('meta_description', data.meta_description);
         formData.append('author', data.author);
@@ -92,6 +94,7 @@ export const usePost = () => {
         if (res?.status == 1) {
             dispatch(fetchBlogPostsDetailAction(res.data));
             addToast('Post updated!', 'success');
+            router
         } else {
             addToast(res?.msg, 'error');
         }
