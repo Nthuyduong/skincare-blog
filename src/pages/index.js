@@ -392,7 +392,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                 </div>
                 <div className="px-3 my-0 mx-auto m-w pt-9">
                     <div className="subscribe-section">
-                        <div className="bg-primary p-5">
+                        <div className="bg-tertiary p-5">
                             <div className="flex">
                                 <div className="hidden md:block">
                                     <img className="w-full" src="./img/home/subscribe.png" alt="smile" loading="lazy" />
