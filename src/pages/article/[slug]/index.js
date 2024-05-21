@@ -175,7 +175,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                 <div className="small_text cursor-text-wrp">Writen by: {blog?.author}</div>
                                 <div className="small_text my-1 cursor-text-wrp">Publish date: {blog ? formatDate(blog.publish_date) : ''}</div>
                                 <div className="small_text cursor-text-wrp">About 10 minutes to read</div>
-                                <div className="medium_text mt-4">Is this article helpful?</div>
+                                {/* <div className="medium_text mt-4">Is this article helpful?</div> */}
                             </div>
                         </div>
                         <div className="banner-bottom">
@@ -210,8 +210,8 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                     />
                     <div className="w-full flex justify-center items-center">
                         <div className="px-3 w-full mx-4 m-w mx-auto my-0 helpful-rate mt-6">
-                            <div className="flex w-full pt-3 border-solid border-t border-ccc">
-                                <div className="medium_text mr-3">
+                            {/* <div className="flex w-full pt-3 border-solid border-t border-ccc"> */}
+                                {/* <div className="medium_text mr-3">
                                     <a href="#">Was this helpful?</a>
                                 </div>
                                 <div className="flex items-center">
@@ -221,8 +221,8 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                     <div className="thumb">
                                         <img className="icon-ssm" src="/img/icon/thumbs-down.svg" alt="smile" loading="lazy"/>
                                     </div>
-                                </div>
-                            </div>
+                                </div> */}
+                            {/* </div> */}
                             {/*Suggest more article*/}
                             <div className="suggest-article py-7">
                                 <div className="heading_3 mb-4">Related Articles</div>
