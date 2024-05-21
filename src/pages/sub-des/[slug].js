@@ -195,7 +195,7 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                         {/*</div>*/}
                         <div className="col-span-12 right-all-posts">
                             <div className="max-w-screen-sm mx-auto text-center py-3">
-                                <div className="heading_1 text-black dark:text-white mb-2">{category.name}</div>
+                                <div className="heading_2 text-black dark:text-white mb-2">{category.name}</div>
                                 <div class="flex justify-center">
                                     <div className="text-black dark:text-white subcate-des">
                                     {category.description}
@@ -241,7 +241,7 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                                                     <img className="icon-ssm hidden dark:block" src="/img/icon/sort-wh.svg" alt="smile" loading="lazy" />
                                                 </button>
                                                 {show && (
-                                                    <div className="absolute mt-3 w-max right-0 p-3 top-full border border-solid border-x border-b !border-999 border-ccc dark:bg-black bg-white">
+                                                    <div className="absolute mt-3 w-max right-0 p-3 top-full border border-solid border-x border-b !border-999 border-ccc dark:bg-black bg-background">
                                                         <div className="sort-menu-inner">
                                                             <ul className="">
                                                                 {SORT.map((item, index) => (

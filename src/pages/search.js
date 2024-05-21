@@ -100,7 +100,7 @@ const Search = () => {
                                                     </div>
                                                 </div>
                                                 <div>
-                                                    <div className="ml-auto w-fit">
+                                                    <div className="ml-auto w-fit text-link">
                                                         <Link href={ROUTER.ARTICLE}>
                                                             Read more
                                                         </Link>

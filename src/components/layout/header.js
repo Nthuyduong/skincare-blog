@@ -469,7 +469,7 @@ const Header = React.memo(() => {
                                                                     <div className="hover-img">
                                                                         <div className="img-inner">
                                                                             <Link
-                                                                                href={ROUTER.INGREDIENT + '/' + result.id}
+                                                                                href={'/article/' + result.slug}
                                                                                 className="border-solid border-b border-ccc !border-999 pb-4"
                                                                             >
                                                                                 <img
@@ -493,12 +493,12 @@ const Header = React.memo(() => {
                                                     })}
                                                 </div>
                                                 {results.length > 0 && (
-                                                    <div className="">
+                                                    <div className="flex justify-center">
                                                         <div
-                                                            className="mt-3 py-1 px-3 flex justify-center cursor-pointer"
+                                                            className="text-link mt-3 py-1 r w-max cursor-pointer"
                                                             onClick={handleLoadMore}
                                                         >
-                                                            Load more
+                                                         Load more   
                                                         </div>
                                                     </div>
                                                 )}
