@@ -59,15 +59,15 @@ const Categories = ({ categoryProps = [], subCategoriesProps = [], isCsr, slug }
                         <div className="self-center hidden ml-auto md:flex">
                             <div className="flex justify-center">
                                 <div className="flex des-count pr-3 border-solid border-r border-ccc dark:border-999">
-                                    <div className="pr-1">
+                                    {/* <div className="pr-1">
                                         <img className="icon-sm" src="/img/icon/grid.svg" alt="#" loading="lazy"></img>
-                                    </div>
+                                    </div> */}
                                     <div>4 Categories</div>
                                 </div>
                                 <div className="flex location-count pl-3">
-                                    <div className="pr-1">
+                                    {/* <div className="pr-1">
                                         <img className="icon-sm" src="/img/icon/book-open.svg" alt="#" loading="lazy"></img>
-                                    </div>
+                                    </div> */}
                                     <div>40 Articles</div>
                                 </div>
                             </div>
