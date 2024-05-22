@@ -117,7 +117,7 @@ const Skintype = () => {
                     </div>
                 </div>
                 <div className="mt-5 all-faq">
-                    <div className="md:grid md:grid-cols-12 gap-5">
+                    <div className="md:grid md:grid-cols-12 gap-6">
                         <div className="md:col-span-4 md:border-none border border-ccc">
                             <div className="md:pt-4 md:p-0 p-3 md:pr-5 text-center md:text-left">
                                 <img className="w-full mb-5" src="./img/skintype/help.jpg" alt="smile" loading="lazy" />
@@ -128,6 +128,7 @@ const Skintype = () => {
                                 </div>
                             </div>
                         </div>
+                        
                         <div className="md:col-span-8">
                             <div className="pt-4">
                                 {faqElements}
