@@ -193,14 +193,26 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                         {/*        </ul>*/}
                         {/*    </div>*/}
                         {/*</div>*/}
-                        <div className="col-span-12 right-all-posts">
-                            <div className="max-w-screen-sm mx-auto text-center py-3">
-                                <div className="heading_2 text-black dark:text-white mb-2">{category.name}</div>
-                                <div class="flex justify-center">
-                                    <div className="text-black dark:text-white subcate-des">
-                                    {category.description}
+
+                        <div className="right-all-posts">
+                            <div className="md:grid md:grid-cols-12 gap-4 py-5">
+                                <div className="col-span-2"></div>
+                                <div className="col-span-8 flex gap-5">
+                                    <div>
+                                        <img className="w-[340px]" src="/img/subdes/subcate.png" alt="smile" loading="lazy" />
+                                    </div>
+                                    <div class="flex items-center">
+                                        <div>
+                                            <div className="heading_2 text-black dark:text-white mb-2">{category.name}</div>
+                                            <div class="">
+                                                <div className="text-black dark:text-white">
+                                                    {category.description}
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                                <div className="col-span-2"></div>
                             </div>
 
                             <div className="md:mb-6 mb-4 destination-title border-solid border-y !border-999 border-ccc md:my-5 py-3">
