@@ -78,7 +78,7 @@ const About = () => {
             </div>
             <div className="m-w mx-auto my-0">
                 {/*What we do new*/}
-                <div className="wedo-new dark:border-solid dark:boder-b dark:border-ccc">
+                <div className="">
                     <div className="md:grid md:grid-cols-12 gap-5">
                         <div className="md:col-span-4">
                             <div className="md:pr-5 py-4 pr-4 dark:border-333 border mb-4 border-solid border-999 md:border-none">
@@ -90,7 +90,7 @@ const About = () => {
                             </div>
                         </div>
                         <div className="md:col-span-8 wedo-first md:border-solid md:border-l md:border-ccc">
-                            <div className="md:grid md:grid-cols-8">
+                            <div className="md:grid md:grid-cols-8 md:border-solid boder-b dark:border-999 border-ccc">
                                 <div className="col-span-8 md:col-span-4">
                                     <div className="we-do-card pl-4 mb-4 mx-3">
                                         <div className="animate slideInUp animate--delay-slow">
@@ -190,24 +190,27 @@ const About = () => {
                 {/*        </div>*/}
                 {/*    </div>*/}
                 {/*</div>*/}
-                <div className="blog-mission pt-7 pb-9">
+                <div className="blog-mission pt-8 pb-9">
                     <div className="grid grid-cols-12 gap-4 mission-inner flex">
 
                         <div className="col-span-12 md:col-span-6 mission-content m-auto md:py-5 md:mr-5 h-full flex items-center">
                             <div className="text-black dark:!text-white">
                                 <div className="heading_3 mb-4 animate slideInUp animate--delay-medium cursor-text-wrp">Our mission</div>
                                 <div className="animate slideInUp animate--delay-slow cursor-text-wrp">
-                                    At Radiance Aura, we're here to guide you through your skincare journey with genuine support and valuable insights. Our goal is to help you achieve radiant, resilient skin that's uniquely yours. With authenticity and care, we celebrate your natural beauty and inspire confidence every step of the way. Join us on this transformative journey toward embracing your radiance.
+                                    At Radiance Aura, we're here to guide you through your skincare journey with genuine support and valuable insights.
+                                    Our goal is to help you achieve radiant, resilient skin that's uniquely yours. With authenticity and care,
+                                    we celebrate your natural beauty and inspire confidence every step of the way. Join us on this transformative
+                                    journey toward embracing your radiance.
                                 </div>
                             </div>
                         </div>
-
-                        <div className="col-span-12 md:col-span-3 img-mission">
+                        <div className="col-span-12 md:col-span-1"></div>
+                        <div className="col-span-12 md:col-span-5 img-mission">
                             <img className="w-100" src="./img/about/mission.jpg" alt="smile" loading="lazy" />
                         </div>
-                        <div className="col-span-12 md:col-span-3 img-mission">
+                        {/* <div className="col-span-12 md:col-span-3 img-mission">
                             <img className="w-100" src="./img/about/mission2.jpg" alt="smile" loading="lazy" />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 {/*<div className="contact-me p-5 md:p-8">*/}
