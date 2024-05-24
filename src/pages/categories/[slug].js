@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { BASE_URL } from "@utils/apiUtils";
 import { useEffect, useState } from 'react';
-import { getCategoriesByParentIdApi, getCategoryByIdApi } from '@services/categories';
+import { getCategoriesByParentSlugApi, getCategoriesBySlugApi } from '@services/categories';
 import { useRouter } from 'next/router';
 
 const Categories = ({ categoryProps = [], subCategoriesProps = [], isCsr, slug }) => {
@@ -19,8 +19,8 @@ const Categories = ({ categoryProps = [], subCategoriesProps = [], isCsr, slug }
 
     const fetchDataCsr = async () => {
         const res = await Promise.all([
-            getCategoriesByParentIdApi(slug),
-            getCategoryByIdApi(slug)
+            getCategoriesByParentSlugApi(slug),
+            getCategoriesBySlugApi(slug)
         ]);
         setCategories(res[1]?.data || {});
         setSubCategories(res[0]?.data?.results || []);
@@ -131,12 +131,13 @@ Categories.getInitialProps = async({ req, query }) => {
     }
     try {
         const res = await Promise.all([
-            fetch(`${BASE_URL}/api/categories/${slug}`, { cache: 'force-cache' }),
-            fetch(`${BASE_URL}/api/categories/${slug}/childrens`, { cache: 'force-cache' })
+            fetch(`${BASE_URL}/api/categories/slug/${slug}`),
+            fetch(`${BASE_URL}/api/categories/slug/${slug}/childrens`)
         ]);
         let resData = await Promise.all(res.map(r => r.json()));
         const category = resData[0]?.data || {};
         const subCategories = resData[1]?.data?.results || [];
+
         return {
             categoryProps: category,
             subCategoriesProps: subCategories,

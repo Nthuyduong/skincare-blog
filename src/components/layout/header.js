@@ -242,7 +242,7 @@ const Header = React.memo(() => {
                             <div className={`my-collapse dark:border-b dark:border-ccc`}>
                                 <div className="question-container flex">
                                     <div className="question mr-auto">
-                                        <Link href={`/categories/1`}>
+                                        <Link href={`/categories/guides_and_tutorial`}>
                                             {trans.header.guide}
                                         </Link>
                                     </div>
@@ -255,10 +255,10 @@ const Header = React.memo(() => {
                                     </div>
                                 </div>
                                 <div className={`content-container`}>
-                                    <div><Link href={'/sub-des/10'}>Skincare routine</Link></div>
-                                    <div><Link href={'/sub-des/3'}>Usage guide</Link></div>
-                                    <div><Link href={'/sub-des/9'}>Nourish beauty</Link></div>
-                                    <div><Link href={'/sub-des/4'}>Sun care</Link></div>
+                                    <div><Link href={'/sub-des/skincare_routine'}>Skincare routine</Link></div>
+                                    <div><Link href={'/sub-des/usage_guide'}>Usage guide</Link></div>
+                                    <div><Link href={'/sub-des/nourish_beauty'}>Nourish beauty</Link></div>
+                                    <div><Link href={'/sub-des/sun_care'}>Sun care</Link></div>
                                 </div>
                             </div>
                         </div>
@@ -266,7 +266,7 @@ const Header = React.memo(() => {
                             <div className={`my-collapse dark:border-b dark:border-ccc`}>
                                 <div className="question-container flex">
                                     <div className="question mr-auto">
-                                        <Link href={`/categories/2`}>
+                                        <Link href={`/categories/selfcare_nerd`}>
                                             Self-care nerd
                                         </Link>
                                     </div>
@@ -279,10 +279,10 @@ const Header = React.memo(() => {
                                     </div>
                                 </div>
                                 <div className={`content-container`}>
-                                    <div><Link href={'/sub-des/5'}>Skin concerns</Link></div>
-                                    <div><Link href={'/sub-des/6'}>Tips & Advices</Link></div>
-                                    <div><Link href={'/sub-des/7'}>Hair care</Link></div>
-                                    <div><Link href={'/sub-des/8'}>Mental health</Link></div>
+                                    <div><Link href={'/sub-des/skin_concern'}>Skin concerns</Link></div>
+                                    <div><Link href={'/sub-des/tips_advices'}>Tips & Advices</Link></div>
+                                    <div><Link href={'/sub-des/Hair_care'}>Hair care</Link></div>
+                                    <div><Link href={'/sub-des/mental_health'}>Mental health</Link></div>
                                 </div>
                             </div>
                         </div>
@@ -533,10 +533,10 @@ const Header = React.memo(() => {
                                             {/*Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white"*/}
                                             <div 
                                                 className="header-nav-item relative bg-gray-900 guide-navdrop rounded-md"
-                                                data-nav="/categories/1"
+                                                data-nav="/categories/guides_and_tutorial"
                                             >
                                                 <div className="navdrop-title pr-3 py-4">
-                                                    <Link href={`/categories/1`} className="dark:text-white flex nav-link"><span className="nav-text">{trans.header.guide}</span>
+                                                    <Link href={`/categories/guides_and_tutorial`} className="dark:text-white flex nav-link"><span className="nav-text">{trans.header.guide}</span>
                                                         <span className="ml-1 dark:hidden flex items-center">
                                                             <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="lazy" />
                                                         </span>
@@ -547,25 +547,25 @@ const Header = React.memo(() => {
                                                 </div>
                                                 <div className="navdrop-inner absolute py-1 border-x border-solid border-b border-ccc dark:border-999 dark:!bg-black">
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
-                                                        <Link href={'/sub-des/10'} className="body_text dark:text-white nav-link">Skincare routine</Link>
+                                                        <Link href={'/sub-des/skincare_routine'} className="body_text dark:text-white nav-link">Skincare routine</Link>
                                                     </div>
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
-                                                        <Link href={'/sub-des/3'} className="body_text dark:text-white nav-link">Usage guide</Link>
+                                                        <Link href={'/sub-des/usage_guide'} className="body_text dark:text-white nav-link">Usage guide</Link>
                                                     </div>
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
-                                                        <Link href={'/sub-des/9'} className="body_text dark:text-white nav-link">Nourish beauty</Link>
+                                                        <Link href={'/sub-des/nourish_beauty'} className="body_text dark:text-white nav-link">Nourish beauty</Link>
                                                     </div>
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
-                                                        <Link href={'/sub-des/4'} className="body_text dark:text-white nav-link">Sun care</Link>
+                                                        <Link href={'/sub-des/sun_care'} className="body_text dark:text-white nav-link">Sun care</Link>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div 
                                                 className="header-nav-item relative destination-navdrop"
-                                                data-nav="/categories/2"
+                                                data-nav="/categories/selfcare_nerd"
                                             >
                                                 <div className="navdrop-title z-50 text-gray-300 hover:text-gray rounded-md pr-3 py-4">
-                                                    <Link href={`/categories/2`} className="dark:text-white flex nav-link"><span className="nav-text">Self-care nerd</span>
+                                                    <Link href={`/categories/selfcare_nerd`} className="dark:text-white flex nav-link"><span className="nav-text">Self-care nerd</span>
                                                         <span className="ml-1 dark:hidden flex items-center">
                                                             <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="lazy" />
                                                         </span>
@@ -576,16 +576,16 @@ const Header = React.memo(() => {
                                                 </div>
                                                 <div className="navdrop-inner absolute left-30 w-48 py-1 border-solid border-x border-b border-ccc dark:border-999 dark:!bg-black">
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700 dark:!text-white">
-                                                        <Link href={'/sub-des/5'} className="body_text nav-link">Skin concerns</Link>
+                                                        <Link href={'/sub-des/skin_concern'} className="body_text nav-link">Skin concerns</Link>
                                                     </div>
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700 dark:!text-white">
-                                                        <Link href={'/sub-des/6'} className="body_text nav-link">Tips & advices</Link>
+                                                        <Link href={'/sub-des/tips_advices'} className="body_text nav-link">Tips & advices</Link>
                                                     </div>
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700 dark:!text-white">
-                                                        <Link href={'/sub-des/7'} className="body_text nav-link">Hair care</Link>
+                                                        <Link href={'/sub-des/Hair_care'} className="body_text nav-link">Hair care</Link>
                                                     </div>
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700 dark:!text-white">
-                                                        <Link href={'/sub-des/8'} className="body_text nav-link">Mental health</Link>
+                                                        <Link href={'/sub-des/mental_health'} className="body_text nav-link">Mental health</Link>
                                                     </div>
                                                 </div>
                                             </div>

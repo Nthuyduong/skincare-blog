@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { getCategoryByIdApi } from "@services/categories";
-import { fetchBlogPostsByCategoryApi, fetchPopularBlogPostsApi } from "@services/blog";
+import { getCategoryBySlugApi } from "@services/categories";
+import { fetchBlogPostsByCategorySlugApi, fetchPopularBlogPostsApi } from "@services/blog";
 import { BASE_URL } from "@utils/apiUtils";
 import Link from "next/link";
 import { useRouter } from 'next/router';
@@ -88,7 +88,7 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
 
     const fetchPost = async (page) => {
         setLoading(true);
-        const res = await fetchBlogPostsByCategoryApi(slug, page, 10, sort.key);
+        const res = await fetchBlogPostsByCategorySlugApi(slug, page, 10, sort.key);
         setPosts(res?.results || []);
         setLoading(false);
     }
@@ -100,8 +100,8 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
 
     const fetchDataCsr = async () => {
         const res = await Promise.all([
-            getCategoryByIdApi(slug),
-            fetchBlogPostsByCategoryApi(slug)
+            getCategoryBySlugApi(slug),
+            fetchBlogPostsByCategorySlugApi(slug)
             // fetchBlogPostsApi(page)
         ]);
         setCategory(res[0]?.data || {});
@@ -201,10 +201,10 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                                     <div>
                                         <img className="w-[340px]" src="/img/subdes/subcate.png" alt="smile" loading="lazy" />
                                     </div>
-                                    <div class="flex items-center">
+                                    <div className="flex items-center">
                                         <div>
                                             <div className="heading_2 text-black dark:text-white mb-2">{category.name}</div>
-                                            <div class="">
+                                            <div className="">
                                                 <div className="text-black dark:text-white">
                                                     {category.description}
                                                 </div>
@@ -344,13 +344,13 @@ Sub_destination.getInitialProps = async ({ query }) => {
     }
     try {
         const res = await Promise.all([
-            fetch(`${BASE_URL}/api/categories/${slug}`, { cache: 'force-cache' }),
-            fetch(`${BASE_URL}/api/blogs/category/${slug}?page=${page ?? 1}`)
-            // fetch(`${BASE_URL}/api/blogs?page=${page ?? 1}`)
+            fetch(`${BASE_URL}/api/categories/slug/${slug}`),
+            fetch(`${BASE_URL}/api/blogs/category/slug/${slug}?page=${page ?? 1}`)
         ])
         const resData = await Promise.all(res.map(r => r.json()));
         const category = resData[0]?.data || {};
         const posts = resData[1]?.data?.results || [];
+
         return {
             categoryProps: category ?? {},
             postsProps: posts,

@@ -210,7 +210,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                 <div className="col-span-3 home-category-card">
                                     <div className="px-3 pt-3">
                                         <div className="heading_6 !text-textcolor">01/</div>
-                                        <Link href={'/sub-des/3'} className="">
+                                        <Link href={'/sub-des/usage_guide'} className="">
                                             <div className="heading_5 !text-textcolor mt-1 mb-4">Usage Guide</div>
                                         </Link>
                                     </div>
@@ -218,7 +218,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                         <div className="home-category-card-des body_text !text-textcolor mt-1 mb-5 px-3 cursor-text-wrp">
                                             Explore a wealth of knowledge for enhancing your skin's radiance and well-being from the inside out
                                         </div>
-                                        <Link href={'/sub-des/3'} className="">
+                                        <Link href={'/sub-des/usage_guide'} className="">
                                             <img
                                                 className="home-category-card-img"
                                                 src="./img/home/usage guide.png"
@@ -230,7 +230,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                 <div className="col-span-3 home-category-card home-category-card-active">
                                     <div className="pt-3 px-3">
                                         <div className="heading_6 !text-textcolor">01/</div>
-                                        <Link href={'/sub-des/9'} className="">
+                                        <Link href={'/sub-des/nourish_beauty'} className="">
                                             <div className="heading_5 !text-textcolor mt-1 mb-4">Nourish Beauty</div>
                                         </Link>
                                     </div>
@@ -238,7 +238,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                         <div className="home-category-card-des body_text !text-textcolor mt-1 mb-5 px-3 cursor-text-wrp">
                                             Explore a wealth of knowledge for enhancing your skin's radiance and well-being from the inside out
                                         </div>
-                                        <Link href={'/sub-des/9'} className="">
+                                        <Link href={'/sub-des/nourish_beauty'} className="">
                                             <img
                                                 className="home-category-card-img"
                                                 src="./img/home/nourish.png"
@@ -250,7 +250,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                 <div className="col-span-3 home-category-card">
                                     <div className="px-3 pt-3">
                                         <div className="heading_6 !text-textcolor">01/</div>
-                                        <Link href={'/sub-des/8'} className="">
+                                        <Link href={'/sub-des/mental_health'} className="">
                                             <div className="heading_5 !text-textcolor mt-1 mb-4">Mental Health</div>
                                         </Link>
                                     </div>
@@ -258,7 +258,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                         <div className="home-category-card-des body_text !text-textcolor mt-1 mb-5 px-3 cursor-text-wrp">
                                             Explore a wealth of knowledge for enhancing your skin's radiance and well-being from the inside out
                                         </div>
-                                        <Link href={'/sub-des/8'} className="">
+                                        <Link href={'/sub-des/mental_health'} className="">
                                             <img
                                                 className="absolute home-category-card-img"
                                                 src="./img/home/mental health.png"
@@ -270,7 +270,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                 <div className="col-span-3 home-category-card">
                                     <div className="px-3 pt-3">
                                         <div className="heading_6 !text-textcolor">01/</div>
-                                        <Link href={'/sub-des/7'} className="body_text nav-link">
+                                        <Link href={'/sub-des/Hair_care'} className="body_text nav-link">
                                             <div className="heading_5 !text-textcolor mt-1 mb-4">Hair Care</div>
                                         </Link>
                                     </div>
@@ -278,7 +278,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                         <div className="absolute home-category-card-des body_text !text-textcolor mt-1 mb-5 px-3 cursor-text-wrp">
                                             Explore a wealth of knowledge for enhancing your skin's radiance and well-being from the inside out
                                         </div>
-                                        <Link href={'/sub-des/7'} className="body_text nav-link">
+                                        <Link href={'/sub-des/Hair_care'} className="body_text nav-link">
                                             <img
                                                 className="home-category-card-img"
                                                 src="./img/home/hair.png"

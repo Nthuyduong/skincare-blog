@@ -49,6 +49,15 @@ export const fetchBlogPostsByCategoryApi = async (id, page = 1, limit = 10, sort
     return res.data;
 }
 
+export const fetchBlogPostsByCategorySlugApi = async (id, page = 1, limit = 10, sort = '') => {
+    const res = await getApi(`/blogs/category/slug/${id}`, {
+        page,
+        limit,
+        sort
+    });
+    return res.data;
+}
+
 export const fetchPopularBlogPostsApi = async () => {
     const res = await getApi("/blogs/popular?limit=5");
     return res.data;

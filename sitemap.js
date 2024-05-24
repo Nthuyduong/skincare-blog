@@ -40,6 +40,20 @@ const createJson=(post) => {
     }
 }
 
+const createCategoryJson=(category) => {
+    if (category.parent_id) {
+        return {
+            url: `https://radiance-aura.blog/sub-des/${category.slug}`,
+            lastModified: new Date(category.updated_at), // Replace 'updated_at' with the actual field name containing the last modified date for the post
+        }
+    } else {
+        return {
+            url: `https://radiance-aura.blog/categories/${category.slug}`,
+            lastModified: new Date(category.updated_at), // Replace 'updated_at' with the actual field name containing the last modified date for the post
+        }
+    }
+}
+
 async function getAllPostSlugs() {
     try {
         const response = await axios.get('https://app.radiance-aura.blog/api/blogs?limit=100');
@@ -50,37 +64,62 @@ async function getAllPostSlugs() {
         return [];
     }
 }
-getAllPostSlugs().then((posts) => {
 
+async function getCategories() {
+    try {
+        const response = await axios.get('https://app.radiance-aura.blog/api/categories?limit=100');
+        const categories = response.data.data.results;
+        return categories.map((category) => createCategoryJson(category));
+    } catch (error) {
+        console.error('Error fetching categories:', error.message);
+        return [];
+    }
+
+}
+
+Promise.all([getAllPostSlugs(), getCategories()]).then(([posts, categories]) => {
     const routers = getFoldersRecursive(targetPath);
-    const sitemap1 = routers.map((router) => {
-        return `
-            <url>
-                <loc>https://radiance-aura.blog/${router}</loc>
-                <lastmod>${new Date().toISOString()}</lastmod>
-                <changefreq>monthly</changefreq>
-                <priority>0.8</priority>
-            </url>
-            `;
-    });
-
-    const sitemap2 = posts.map((post) => {
-        return `
-            <url>
-                <loc>${post.url}</loc>
-                <lastmod>${post.lastModified.toISOString()}</lastmod>
-                <changefreq>monthly</changefreq>
-                <priority>0.8</priority>
-            </url>
-        `;
-    });
-
-    const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
-        <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-            ${sitemap1.join('')}
-            ${sitemap2.join('')}
-        </urlset>`;
-
+    const sitemapContent = `
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://radiance-aura.blog</loc>
+        <lastmod>${new Date().toISOString()}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://radiance-aura.blog/skintype</loc>
+        <lastmod>${new Date().toISOString()}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://radiance-aura.blog/about</loc>
+        <lastmod>${new Date().toISOString()}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+    </url>\n    ${posts.map((post) => `<url>
+        <loc>${post.url}</loc>
+        <lastmod>${post.lastModified.toISOString()}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>`).join('\n    ')}
+    ${categories.map((category) => `<url>
+        <loc>${category.url}</loc>
+        <lastmod>${category.lastModified.toISOString()}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    `).join('\n    ')}
+    ${routers.map((router) => `<url>
+        <loc>https://radiance-aura.blog/${router}</loc>
+        <lastmod>${new Date().toISOString()}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>`).join('\n    ')}
+</urlset>
+    `;
     fs.writeFileSync('public/sitemap.xml', sitemapContent);
     console.log('Sitemap generated successfully!');
 });

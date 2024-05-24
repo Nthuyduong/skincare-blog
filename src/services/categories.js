@@ -13,8 +13,20 @@ export const getCategoryByIdApi = async (id) => {
     return await getApi(`/categories/${id}`);
 }
 
+export const getCategoryBySlugApi = async (slug) => {
+    return await getApi(`/categories/slug/${slug}`);
+}
+
 export const getCategoriesByParentIdApi = async (id) => {
     return await getApi(`/categories/${id}/childrens`);
+}
+
+export const getCategoriesByParentSlugApi = async (slug) => {
+    return await getApi(`/categories/slug/${slug}/childrens`);
+}
+
+export const getCategoriesBySlugApi = async (slug) => {
+    return await getApi(`/categories/slug/${slug}`);
 }
 
 export const updateSubcategoryApi = async (id, data) => {

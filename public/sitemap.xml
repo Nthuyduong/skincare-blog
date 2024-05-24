@@ -1,279 +1,369 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://radiance-aura.blog/admin</loc>
-        <lastmod>2024-05-22T14:41:32.679Z</lastmod>
+        <loc>https://radiance-aura.blog</loc>
+        <lastmod>2024-05-24T15:19:19.290Z</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://radiance-aura.blog/category</loc>
-        <lastmod>2024-05-22T14:41:32.679Z</lastmod>
+        <loc>https://radiance-aura.blog/skintype</loc>
+        <lastmod>2024-05-24T15:19:19.290Z</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://radiance-aura.blog/comment</loc>
-        <lastmod>2024-05-22T14:41:32.679Z</lastmod>
+        <loc>https://radiance-aura.blog/about</loc>
+        <lastmod>2024-05-24T15:19:19.290Z</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://radiance-aura.blog/contact</loc>
-        <lastmod>2024-05-22T14:41:32.679Z</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://radiance-aura.blog/ingredient</loc>
-        <lastmod>2024-05-22T14:41:32.679Z</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://radiance-aura.blog/posts</loc>
-        <lastmod>2024-05-22T14:41:32.679Z</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://radiance-aura.blog/settings</loc>
-        <lastmod>2024-05-22T14:41:32.679Z</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://radiance-aura.blog/sub-category</loc>
-        <lastmod>2024-05-22T14:41:32.679Z</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://radiance-aura.blog/article</loc>
-        <lastmod>2024-05-22T14:41:32.679Z</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://radiance-aura.blog/categories</loc>
-        <lastmod>2024-05-22T14:41:32.679Z</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://radiance-aura.blog/ingredient</loc>
-        <lastmod>2024-05-22T14:41:32.679Z</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://radiance-aura.blog/sub-des</loc>
-        <lastmod>2024-05-22T14:41:32.679Z</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://radiance-aura.blog/test</loc>
-        <lastmod>2024-05-22T14:41:32.679Z</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://radiance-aura.blog/pagination</loc>
-        <lastmod>2024-05-22T14:41:32.679Z</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://radiance-aura.blog/toast</loc>
-        <lastmod>2024-05-22T14:41:32.679Z</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>1.0</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/article/the_difference_between_cream_and_lotion</loc>
-        <lastmod>2024-05-22T13:55:44.000Z</lastmod>
+        <lastmod>2024-05-23T03:13:38.000Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/article/the_connection_between_a_good_nights_sleep_and_skin</loc>
-        <lastmod>2024-05-22T03:16:15.000Z</lastmod>
+        <lastmod>2024-05-24T13:54:32.000Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/article/happiness-the-secret-to-beautiful-skin-every-day</loc>
-        <lastmod>2024-05-21T02:00:47.000Z</lastmod>
+        <lastmod>2024-05-24T13:50:41.000Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/article/drinking-water-and-improving-skin</loc>
-        <lastmod>2024-05-22T14:13:35.000Z</lastmod>
+        <lastmod>2024-05-24T03:37:17.000Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/article/the-best-food-for-skin-that-is-glowy-and-radiant</loc>
-        <lastmod>2024-05-09T08:05:20.000Z</lastmod>
+        <lastmod>2024-05-24T13:51:30.000Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/article/niacinamide-for-skin</loc>
-        <lastmod>2024-05-22T13:56:15.000Z</lastmod>
+        <lastmod>2024-05-24T09:25:50.000Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/article/how_can_workout_give_you_better_looking_skin</loc>
-        <lastmod>2024-05-09T08:06:15.000Z</lastmod>
+        <lastmod>2024-05-24T13:51:52.000Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/article/what_is_spf_and_what_does_it_mean</loc>
-        <lastmod>2024-05-21T02:16:13.000Z</lastmod>
+        <lastmod>2024-05-24T13:46:20.000Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/article/is_high_spf_sunscreen_better</loc>
-        <lastmod>2024-05-09T08:07:22.000Z</lastmod>
+        <lastmod>2024-05-24T13:46:10.000Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/article/aha_using_guide</loc>
-        <lastmod>2024-05-21T04:29:21.000Z</lastmod>
+        <lastmod>2024-05-24T09:37:23.000Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/article/how_to_determine_your_skin_type</loc>
-        <lastmod>2024-05-09T08:08:47.000Z</lastmod>
+        <lastmod>2024-05-24T09:42:21.000Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/article/bha_vs_aha_the_difference_and_how_to_use</loc>
-        <lastmod>2024-05-22T02:56:37.000Z</lastmod>
+        <lastmod>2024-05-24T09:38:32.000Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/article/what_happens_to_your_skin_when_you_get_sunburnt</loc>
-        <lastmod>2024-05-22T03:05:43.000Z</lastmod>
+        <lastmod>2024-05-24T13:45:57.000Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/article/decoding_the _difference_serum_vs_moisturizer</loc>
-        <lastmod>2024-05-22T03:13:49.000Z</lastmod>
+        <lastmod>2024-05-24T09:41:27.000Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/article/how_to _layer_skincare_ingredients</loc>
-        <lastmod>2024-05-09T08:38:26.000Z</lastmod>
+        <lastmod>2024-05-24T09:40:23.000Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/article/how_to_calm_redness_quickly</loc>
-        <lastmod>2024-05-21T10:23:53.000Z</lastmod>
+        <lastmod>2024-05-24T13:27:03.000Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/article/How_does_sugar_affect_your_skin</loc>
-        <lastmod>2024-05-09T08:37:15.000Z</lastmod>
+        <lastmod>2024-05-24T14:12:57.000Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/article/The_benefits_of_collagen_for_your_skin</loc>
-        <lastmod>2024-05-22T03:06:59.000Z</lastmod>
+        <lastmod>2024-05-24T09:54:29.000Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/article/why_vitamin_c_is_important_for_your_skin</loc>
-        <lastmod>2024-05-22T01:52:11.000Z</lastmod>
+        <lastmod>2024-05-24T09:41:23.000Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/article/what_is_exfoliate_why_should_and_how_to_start</loc>
-        <lastmod>2024-05-09T08:20:50.000Z</lastmod>
+        <lastmod>2024-05-23T03:49:06.000Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/article/does_it_matter_whether_you_use_shampoo_or_conditioner_first</loc>
-        <lastmod>2024-05-17T07:08:55.000Z</lastmod>
+        <lastmod>2024-05-23T03:49:38.000Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/article/how_often_should_you_shampoo_your_hair</loc>
-        <lastmod>2024-05-22T02:58:40.000Z</lastmod>
+        <lastmod>2024-05-23T03:52:13.000Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/article/types_of_hair_what_kind_do_you_have</loc>
-        <lastmod>2024-05-14T04:36:27.000Z</lastmod>
+        <lastmod>2024-05-23T03:52:58.000Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/article/what_does_damaged_hair_actually_look_like</loc>
-        <lastmod>2024-05-14T04:38:17.000Z</lastmod>
+        <lastmod>2024-05-23T03:10:07.000Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/article/what_are_the_best_vitamins_for_hair</loc>
-        <lastmod>2024-05-14T04:34:20.000Z</lastmod>
+        <lastmod>2024-05-23T03:29:17.000Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/article/does_drinking_water_help_hair_growth</loc>
-        <lastmod>2024-05-21T02:37:27.000Z</lastmod>
+        <lastmod>2024-05-23T03:54:18.000Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/article/how_to_listen_to_yourself</loc>
-        <lastmod>2024-05-21T02:37:30.000Z</lastmod>
+        <lastmod>2024-05-24T07:54:04.000Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/article/why_you _should_forgive_but_never_forget</loc>
-        <lastmod>2024-05-20T08:51:04.000Z</lastmod>
+        <lastmod>2024-05-23T06:09:00.000Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/article/is_expensive_shampoo_worth_it</loc>
-        <lastmod>2024-05-21T02:36:40.000Z</lastmod>
+        <lastmod>2024-05-22T18:19:44.000Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/article/how_to_think_positive</loc>
-        <lastmod>2024-05-22T03:04:03.000Z</lastmod>
+        <lastmod>2024-05-23T04:51:33.000Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/article/how_to_live_in_the_moment_and_be_more_present</loc>
-        <lastmod>2024-05-21T02:30:26.000Z</lastmod>
+        <lastmod>2024-05-24T13:30:07.000Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://radiance-aura.blog/categories/guides_and_tutorial</loc>
+        <lastmod>2024-05-08T07:22:07.000Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://radiance-aura.blog/categories/selfcare_nerd</loc>
+        <lastmod>2024-05-08T07:22:27.000Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://radiance-aura.blog/sub-des/usage_guide</loc>
+        <lastmod>2024-02-18T02:20:08.000Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://radiance-aura.blog/sub-des/sun_care</loc>
+        <lastmod>2024-02-13T05:19:38.000Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://radiance-aura.blog/sub-des/skin_concern</loc>
+        <lastmod>2024-02-21T04:35:29.000Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://radiance-aura.blog/sub-des/tips_advices</loc>
+        <lastmod>2024-02-13T05:20:02.000Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://radiance-aura.blog/sub-des/Hair_care</loc>
+        <lastmod>2024-05-09T10:11:36.000Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://radiance-aura.blog/sub-des/mental_health</loc>
+        <lastmod>2024-05-09T10:14:37.000Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://radiance-aura.blog/sub-des/nourish_beauty</loc>
+        <lastmod>2024-05-09T03:17:24.000Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://radiance-aura.blog/sub-des/skincare_routine</loc>
+        <lastmod>2024-02-13T05:20:57.000Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://radiance-aura.blog/admin</loc>
+        <lastmod>2024-05-24T15:19:19.290Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://radiance-aura.blog/category</loc>
+        <lastmod>2024-05-24T15:19:19.290Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://radiance-aura.blog/comment</loc>
+        <lastmod>2024-05-24T15:19:19.290Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://radiance-aura.blog/contact</loc>
+        <lastmod>2024-05-24T15:19:19.290Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://radiance-aura.blog/ingredient</loc>
+        <lastmod>2024-05-24T15:19:19.290Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://radiance-aura.blog/posts</loc>
+        <lastmod>2024-05-24T15:19:19.290Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://radiance-aura.blog/settings</loc>
+        <lastmod>2024-05-24T15:19:19.290Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://radiance-aura.blog/sub-category</loc>
+        <lastmod>2024-05-24T15:19:19.290Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://radiance-aura.blog/article</loc>
+        <lastmod>2024-05-24T15:19:19.290Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://radiance-aura.blog/categories</loc>
+        <lastmod>2024-05-24T15:19:19.290Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://radiance-aura.blog/ingredient</loc>
+        <lastmod>2024-05-24T15:19:19.290Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://radiance-aura.blog/sub-des</loc>
+        <lastmod>2024-05-24T15:19:19.290Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://radiance-aura.blog/test</loc>
+        <lastmod>2024-05-24T15:19:19.290Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://radiance-aura.blog/pagination</loc>
+        <lastmod>2024-05-24T15:19:19.290Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://radiance-aura.blog/toast</loc>
+        <lastmod>2024-05-24T15:19:19.290Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 </urlset>
+    
