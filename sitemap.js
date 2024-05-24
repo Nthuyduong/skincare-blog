@@ -79,8 +79,7 @@ async function getCategories() {
 
 Promise.all([getAllPostSlugs(), getCategories()]).then(([posts, categories]) => {
     const routers = getFoldersRecursive(targetPath);
-    const sitemapContent = `
-<?xml version="1.0" encoding="UTF-8"?>
+    const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://radiance-aura.blog</loc>
