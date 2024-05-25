@@ -213,7 +213,7 @@ const Header = React.memo(() => {
                         <button type="button"
                             onClick={toggleVisibility}
                             className="relative rounded-full bg-gray-800 p-1 text-gray-400 focus:outline-none">
-                            <img className="icon-ssm dark:hidden" src="/img/icon/search.svg" alt="smile" loading="lazy" />
+                            <img className="icon-ssm dark:hidden" src="/img/icon/Search.svg" alt="smile" loading="lazy" />
                             <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy" />
                         </button>
                     </div>
@@ -226,7 +226,7 @@ const Header = React.memo(() => {
                         {/*Search bar mobile*/}
                         <div className="flex pb-3 border-b border-ccc">
                             <div className="flex align-center self-center pr-2">
-                                <img className="icon-ssm dark:hidden" src="/img/icon/search.svg" alt="smile" loading="lazy" />
+                                <img className="icon-ssm dark:hidden" src="/img/icon/Search.svg" alt="smile" loading="lazy" />
                                 <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy" />
                             </div>
                             <div className="my-search-bar nav-search w-full">
@@ -339,7 +339,7 @@ const Header = React.memo(() => {
                     <button type="button"
                         onClick={toggleVisibility}
                         className="relative rounded-full bg-gray-800 p-1 text-gray-400 focus:outline-none">
-                        <img className="icon-ssm dark:hidden" src="/img/icon/search.svg" alt="smile" loading="lazy" />
+                        <img className="icon-ssm dark:hidden" src="/img/icon/Search.svg" alt="smile" loading="lazy" />
                         <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy" />
                     </button>
                 </div>
@@ -362,7 +362,7 @@ const Header = React.memo(() => {
                                     <div className="flex search-box">
                                         <div className="flex mr-auto w-full border-solid border-b border-ccc !border-999 focus-visible:outline-none pointer-events-auto dark:focus:border-white focus:border-333 searchbar-head">
                                             <div className="flex align-center self-center pr-2">
-                                                <img className="icon-ssm dark:hidden" src="/img/icon/search.svg" alt="smile" loading="lazy" />
+                                                <img className="icon-ssm dark:hidden" src="/img/icon/Search.svg" alt="smile" loading="lazy" />
                                                 <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy" />
                                             </div>
                                             <div className="my-search-bar nav-search w-full">

@@ -35,7 +35,7 @@ const Search = () => {
                     <div className="col-span-6">
                         <div className="">
                             {/*<div className="flex align-middle mr-2">*/}
-                            {/*    <img className="icon-ssm" src="./img/icon/search.svg" alt="smile" loading="lazy"/>*/}
+                            {/*    <img className="icon-ssm" src="./img/icon/Search.svg" alt="smile" loading="lazy"/>*/}
                             {/*</div>*/}
                             <div className="my-search-bar">
                                 <input
