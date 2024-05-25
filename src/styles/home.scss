@@ -96,6 +96,7 @@
     bottom: 0;
     position: absolute;
     transition: all 0.8s ease;
+    width: 100%;
   }
 }
 .home-category-card-active {
@@ -115,8 +116,29 @@
 @media (max-width: 768px) {
   .home-category-card-active {
     .home-category-card-img {
-      display: none;
+      width: 100%;
+      padding: 0;
+      position: relative;
+      bottom: 0;
     }
   }
-  
+  .home-category-card {
+    display: flex;
+    .home-category-card-des {
+      opacity: 1;
+    }
+    .home-category-card-title-wrp {
+      width: 100%;
+    }
+    .home-category-card-img-wrp {
+      width: 100%;
+      
+    }
+    .body_text {
+      font-size: 14px;
+    }
+  }
+  .home-category-card:nth-child(odd) {
+    flex-direction: row-reverse;
+  }
 }

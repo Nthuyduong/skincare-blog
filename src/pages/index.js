@@ -61,7 +61,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
     return (
         <>
             <Head>
-                <title>Radiance aura, skincare blog</title>
+                <title>Radiance aura blog | Beauty & skincare blog </title>
                 <meta name="description" content="Welcome to our skincare sanctuary! Here, we celebrate the journey to radiant skin. Join us for expert tips, shared experiences, and a community-driven pursuit of beauty and confidence. Let's embark on a skincare adventure together, where your glow is our priority" />
             </Head>
             <div>
@@ -202,21 +202,25 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                     <div className="flex list-categories md:mb-9 mb-7 justify-center">
                         <div>
                             <div className="flex justify-center">
-                                <div className="title animate sm:max-w-[30%] slideInUp heading_3 mb-1 md:mb-6 text-center mw-5">See what we can help you progress</div>
+                                <div className="title animate sm:max-w-[30%] slideInUp heading_3 mb-2 md:mb-6 text-center mw-5">See what we can help you progress</div>
                             </div>
+
                             <div className="grid grid-cols-12 gap-2 sm:gap-4">
-                                <div className="col-span-6 sm:col-span-3 home-category-card">
-                                    <div className="px-1 pt-1 sm:px-3 sm:pt-3">
+                                <div className="col-span-12 sm:col-span-3 home-category-card">
+                                    <div className="home-category-card-title-wrp px-1 pt-1 sm:px-3 sm:pt-3">
                                         <div className="heading_6 !text-textcolor">01/</div>
                                         <Link href={'/sub-des/usage_guide'} className="">
                                             <div className="heading_5 !text-textcolor sm:mt-1 mb-2 sm:mb-4">Usage Guide</div>
                                         </Link>
-                                    </div>
-                                    <div className="relative aspect-square">
-                                        <div className="home-category-card-des body_text !text-textcolor mt-1 mb-5 px-1 sm:px-3 cursor-text-wrp">
-                                            Explore a wealth of knowledge for enhancing your skin's radiance and well-being from the inside out
+                                        <div className="sm:hidden body_text !text-textcolor cursor-text-wrp">
+                                            Unlock the full potential of your skincare products with comprehensive usage guides and expert tips
                                         </div>
-                                        <Link href={'/sub-des/usage_guide'} className="">
+                                    </div>
+                                    <div className="aspect-square relative home-category-card-img-wrp">
+                                        <div className="hidden sm:block home-category-card-des body_text !text-textcolor mb-5 cursor-text-wrp pt-1 sm:px-3">
+                                            Unlock the full potential of your skincare products with comprehensive usage guides and expert tips
+                                        </div>
+                                        <Link href={'/sub-des/usage_guide'} className="sm:absolute w-full h-full bottom-[0]">
                                             <img
                                                 className="home-category-card-img"
                                                 src="./img/home/usage guide.png"
@@ -225,18 +229,21 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                         </Link>
                                     </div>
                                 </div>
-                                <div className="col-span-6 sm:col-span-3 home-category-card home-category-card-active">
-                                    <div className="px-1 pt-1 sm:px-3 sm:pt-3">
-                                        <div className="heading_6 !text-textcolor">01/</div>
+                                <div className="col-span-12 sm:col-span-3 home-category-card relative home-category-card-active">
+                                    <div className="home-category-card-title-wrp px-1 pt-1 sm:px-3 sm:pt-3">
+                                        <div className="heading_6 !text-textcolor">02/</div>
                                         <Link href={'/sub-des/nourish_beauty'} className="">
                                             <div className="heading_5 !text-textcolor sm:mt-1 mb-2 sm:mb-4">Nourish Beauty</div>
                                         </Link>
-                                    </div>
-                                    <div className="relative aspect-square">
-                                        <div className="home-category-card-des body_text !text-textcolor mt-1 mb-5 px-1 sm:px-3 cursor-text-wrp">
+                                        <div className="sm:hidden body_text !text-textcolor mt-1 cursor-text-wrp">
                                             Explore a wealth of knowledge for enhancing your skin's radiance and well-being from the inside out
                                         </div>
-                                        <Link href={'/sub-des/nourish_beauty'} className="">
+                                    </div>
+                                    <div className="aspect-square relative home-category-card-img-wrp">
+                                        <div className="hidden sm:block home-category-card-des body_text !text-textcolor mt-1 mb-5 cursor-text-wrp pt-1 sm:px-3">
+                                            Explore a wealth of knowledge for enhancing your skin's radiance and well-being from the inside out
+                                        </div>
+                                        <Link href={'/sub-des/nourish_beauty'} className="absolute w-full h-full bottom-[0]">
                                             <img
                                                 className="home-category-card-img"
                                                 src="./img/home/nourish.png"
@@ -245,18 +252,21 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                         </Link>
                                     </div>
                                 </div>
-                                <div className="col-span-6 sm:col-span-3 home-category-card">
-                                    <div className="px-1 pt-1 sm:px-3 sm:pt-3">
-                                        <div className="heading_6 !text-textcolor">01/</div>
+                                <div className="col-span-12 sm:col-span-3 home-category-card relative">
+                                    <div className="home-category-card-title-wrp px-1 pt-1 sm:px-3 sm:pt-3">
+                                        <div className="heading_6 !text-textcolor">03/</div>
                                         <Link href={'/sub-des/mental_health'} className="">
                                             <div className="heading_5 !text-textcolor sm:mt-1 mb-2 sm:mb-4">Mental Health</div>
                                         </Link>
-                                    </div>
-                                    <div className="relative aspect-square">
-                                        <div className="home-category-card-des body_text !text-textcolor mt-1 mb-5 px-1 sm:px-3 cursor-text-wrp">
-                                            Explore a wealth of knowledge for enhancing your skin's radiance and well-being from the inside out
+                                        <div className="sm:hidden body_text !text-textcolor cursor-text-wrp">
+                                            Explore strategies to boost mental well-being, from managing stress to enhancing resilience.
                                         </div>
-                                        <Link href={'/sub-des/mental_health'} className="">
+                                    </div>
+                                    <div className="aspect-square relative home-category-card-img-wrp">
+                                        <div className="hidden sm:block home-category-card-des body_text !text-textcolor mt-1 mb-5 px-1 sm:px-3 cursor-text-wrp">
+                                            Explore strategies to boost mental well-being, from managing stress to enhancing resilience.
+                                        </div>
+                                        <Link href={'/sub-des/mental_health'} className="absolute w-full h-full bottom-[0]">
                                             <img
                                                 className="absolute home-category-card-img"
                                                 src="./img/home/mental health.png"
@@ -265,18 +275,21 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                         </Link>
                                     </div>
                                 </div>
-                                <div className="col-span-6 sm:col-span-3 home-category-card">
-                                    <div className="px-1 pt-1 sm:px-3 sm:pt-3">
-                                        <div className="heading_6 !text-textcolor">01/</div>
+                                <div className="col-span-12 sm:col-span-3 home-category-card relative">
+                                    <div className="home-category-card-title-wrp px-1 pt-1 sm:px-3 sm:pt-3">
+                                        <div className="heading_6 !text-textcolor">04/</div>
                                         <Link href={'/sub-des/Hair_care'} className="body_text nav-link">
                                             <div className="heading_5 !text-textcolor mt-1 mb-2 sm:mb-4">Hair Care</div>
                                         </Link>
-                                    </div>
-                                    <div className="relative aspect-square">
-                                        <div className="absolute home-category-card-des body_text !text-textcolor mt-1 mb-5 px-1 sm:px-3 cursor-text-wrp">
-                                            Explore a wealth of knowledge for enhancing your skin's radiance and well-being from the inside out
+                                        <div className="sm:hidden body_text !text-textcolor cursor-text-wrp">
+                                            Discover essential tips and solutions for healthier hair, tackling issues like dryness, breakage, and more.
                                         </div>
-                                        <Link href={'/sub-des/Hair_care'} className="body_text nav-link">
+                                    </div>
+                                    <div className="aspect-square relative home-category-card-img-wrp">
+                                        <div className="hidden sm:block home-category-card-des body_text !text-textcolor mt-1 mb-5 px-1 sm:px-3 cursor-text-wrp">
+                                            Discover essential tips and solutions for healthier hair, tackling issues like dryness, breakage, and more.
+                                        </div>
+                                        <Link href={'/sub-des/Hair_care'} className="absolute w-full h-full bottom-[0]">
                                             <img
                                                 className="home-category-card-img"
                                                 src="./img/home/hair.png"
@@ -288,7 +301,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                             </div>
                         </div>
                     </div>
-                    <div className="px-3 my-0 mx-auto m-w md:pb-9 pb-7">
+                    <div className="sm:px-3 my-0 mx-auto m-w md:pb-9 pb-7">
                         <div className="home-about dark:border-t dark:border-b dark:!border-ccc">
                             <div className="md:grid md:grid-cols-12 gap-4">
                                 <div className="md:col-span-8 py-6 pr-4 about-intro md:border-r md:border-solid border-999 !border-ccc">
@@ -351,7 +364,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                             <Slider
                                 configs={{
                                     sliderPerRow: 4,
-                                    sliderPerRowMobile: 1.25,
+                                    sliderPerRowMobile: 2.25,
                                     allowDrag: true,
                                     duration: 400,
                                     auto: false,
@@ -388,7 +401,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                         </div>
                     </div>
                 </div>
-                <div className="px-3 my-0 mx-auto m-w pt-9">
+                <div className="px-3 my-0 mx-auto m-w pt-4 sm:pt-9">
                     <div className="subscribe-section">
                         <div className="bg-tertiary p-2 sm:p-5">
                             <div className="flex">

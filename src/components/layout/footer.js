@@ -45,7 +45,7 @@ const Footer = () => {
     // }
 
     return (
-        <div className="blog-footer bg-tertiary md:pt-0 pt-5" id="blog-footer">
+        <div className="blog-footer bg-tertiary md:pt-0 pt-5 mt-2" id="blog-footer">
             <div className="blog-footer-inner border-solid border-ccc">
                 <div className="grid grid-cols-12">
                     {/*<div className="sub-menu">*/}

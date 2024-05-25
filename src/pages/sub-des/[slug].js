@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import dynamic from "next/dynamic";
 const Slider = dynamic(() => import("@components/common/slider"), { ssr: false });
 import SkeletonImage from "@components/common/loading/skeletonImage";
+import Head from "next/head";
 
 const SORT = [
     {
@@ -116,217 +117,223 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
     }
 
     return (
-        <div className="sub-des-page">
-            <div className="sub-des-inner">
-                {/* <div className="bg-tertiary">
-                    {populars.length > 0 && (
-                        <Slider
-                            configs={{
-                                sliderPerRow: 1.2,
-                                sliderPerRowMobile: 1,
-                                allowDrag: true,
-                                duration: 500,
-                                auto: true,
-                                autoDuration: 3000,
-                                gap: 0,
-                                gapMobile: 10,
-                                navigator: false,
-                                paginate: false,
-                                process: false,
-                            }}
-                        >
-                            {populars.map((post, index) => (
-                                <div className="relative title-page overflow-hidden pt-6" key={index}>
-                                    <div className="slider-text-banner absolute heading_1 z-10 pt-5 l-0">
-                                        Be Confident, Be <br/> Bold and Be You
-                                    </div>
-                                    <div className="slider-container">
-                                        <div className="slider-img">
-                                            {post.banner_img ? (
-                                                <img
-                                                    className="w-full h-full object-cover"
-                                                    src={BASE_URL + '/storage/' + post?.banner_img}
-                                                    alt="smile"
-                                                    loading="lazy"
-                                                    height={200}
-                                                    width={400}
-                                                />
-                                            ) : (
-                                                <img
-                                                    className="w-full h-full object-cover"
-                                                    src={BASE_URL + '/storage/' + category?.featured_img}
-                                                    alt="smile"
-                                                    loading="lazy"
-                                                    height={200}
-                                                    width={400}
-                                                />
-                                            )}
+        <>
+            <Head>
+                <title>{category?.meta_title ?? 'Category'}</title>
+                <meta name="description" content={category?.meta_description} />
+            </Head>
+            <div className="sub-des-page">
+                <div className="sub-des-inner">
+                    {/* <div className="bg-tertiary">
+                        {populars.length > 0 && (
+                            <Slider
+                                configs={{
+                                    sliderPerRow: 1.2,
+                                    sliderPerRowMobile: 1,
+                                    allowDrag: true,
+                                    duration: 500,
+                                    auto: true,
+                                    autoDuration: 3000,
+                                    gap: 0,
+                                    gapMobile: 10,
+                                    navigator: false,
+                                    paginate: false,
+                                    process: false,
+                                }}
+                            >
+                                {populars.map((post, index) => (
+                                    <div className="relative title-page overflow-hidden pt-6" key={index}>
+                                        <div className="slider-text-banner absolute heading_1 z-10 pt-5 l-0">
+                                            Be Confident, Be <br/> Bold and Be You
                                         </div>
-                                        <div className="slider-content-wrp">
-                                            <div className="mb-3 flex justify-between">
-                                                <div>
-                                                    {post.categories.map((category) => { return category.name }).join(' | ')}
-                                                </div>
-                                                <div className="small_text">About {post?.estimate_time} minutes to read</div>
-                                            </div>
-                                            <div className="heading_3 mb-2">{post.title}</div>
-                                        </div>
-                                        
-                                        
-                                    </div>
-                                    
-                                </div>
-                            ))}
-                        </Slider>
-                    )}
-                </div> */}
-                <div className="px-2 m-w mx-auto my-0">
-                    <div className="">
-                        {/*<div className="col-span-2 left-menu dark:border-r dark:!border-ccc">*/}
-                        {/*    <div className="left-menu-inner">*/}
-                        {/*        <ul className="menu-fixed">*/}
-                        {/*            <li className="pb-2"><a href="#">All articles</a></li>*/}
-                        {/*            <li className="pb-2 my-2"><a href="#">Recently update</a></li>*/}
-                        {/*            <li className="pb-2"><a href="#">Most useful</a></li>*/}
-                        {/*            <li className="pb-2 my-2"><a href="#">Oldest articles</a></li>*/}
-                        {/*            <li className="pb-2"><a href="#">Already read</a></li>*/}
-                        {/*        </ul>*/}
-                        {/*    </div>*/}
-                        {/*</div>*/}
-
-                        <div className="right-all-posts">
-                            <div className="md:grid md:grid-cols-12 gap-4 py-5">
-                                <div className="col-span-2"></div>
-                                <div className="col-span-8 flex gap-5">
-                                    <div>
-                                        <img className="w-[340px]" src="/img/subdes/subcate.png" alt="smile" loading="lazy" />
-                                    </div>
-                                    <div className="flex items-center">
-                                        <div>
-                                            <div className="heading_2 text-black dark:text-white mb-2">{category.name}</div>
-                                            <div className="">
-                                                <div className="text-black dark:text-white">
-                                                    {category.description}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-span-2"></div>
-                            </div>
-
-                            <div className="md:mb-6 mb-4 destination-title border-solid border-y !border-999 border-ccc md:my-5 py-3">
-                                <div className="flex flex-col md:flex-row md:justify-between">
-                                    {/*breadcrumb*/}
-                                    <div className="flex">
-                                        <ul className="flex">
-                                            <li><a href="#">Home</a></li>
-
-                                            {category.parent && (
-                                                <>
-                                                    <li className="mx-2">/</li>
-                                                    <li><a
-                                                        href={`/categories/${category.parent.id}`}>{category.parent.name}</a>
-                                                    </li>
-                                                </>
-                                            )}
-                                            <li className="mx-2">/</li>
-                                            <li><a href='#'>{category.name}</a></li>
-                                        </ul>
-                                    </div>
-                                    <div className="flex">
-                                        <div className="flex justify-center">
-                                            {/*<div className="flex des-count pr-3">*/}
-                                            {/*    <div className="pr-1">*/}
-                                            {/*        <img className="icon-sm" src="./img/icon/grid.svg" alt="#" loading="lazy"></img>*/}
-                                            {/*    </div>*/}
-                                            {/*    <div>4 Categories</div>*/}
-                                            {/*</div>*/}
-                                            <div className="flex location-count relative">
-                                                <button
-                                                    className="flex"
-                                                    type="button"
-                                                    onClick={toggleSort}
-                                                >
-                                                    <span className="mr-3">{sort ? sort.label : 'All articles'}</span>
-                                                    <img className="icon-ssm dark:hidden" src="/img/icon/sort-bl.svg" alt="smile" loading="lazy" />
-                                                    <img className="icon-ssm hidden dark:block" src="/img/icon/sort-wh.svg" alt="smile" loading="lazy" />
-                                                </button>
-                                                {show && (
-                                                    <div className="absolute mt-3 w-max right-0 p-3 top-full border border-solid border-x border-b !border-999 border-ccc dark:bg-black bg-background">
-                                                        <div className="sort-menu-inner">
-                                                            <ul className="">
-                                                                {SORT.map((item, index) => (
-                                                                    <li key={index} className="py-1 cursor-pointer" onClick={() => { handleSort(item) }}>{item.label}</li>
-                                                                ))}
-                                                            </ul>
-                                                        </div>
-                                                    </div>
+                                        <div className="slider-container">
+                                            <div className="slider-img">
+                                                {post.banner_img ? (
+                                                    <img
+                                                        className="w-full h-full object-cover"
+                                                        src={BASE_URL + '/storage/' + post?.banner_img}
+                                                        alt="smile"
+                                                        loading="lazy"
+                                                        height={200}
+                                                        width={400}
+                                                    />
+                                                ) : (
+                                                    <img
+                                                        className="w-full h-full object-cover"
+                                                        src={BASE_URL + '/storage/' + category?.featured_img}
+                                                        alt="smile"
+                                                        loading="lazy"
+                                                        height={200}
+                                                        width={400}
+                                                    />
                                                 )}
                                             </div>
+                                            <div className="slider-content-wrp">
+                                                <div className="mb-3 flex justify-between">
+                                                    <div>
+                                                        {post.categories.map((category) => { return category.name }).join(' | ')}
+                                                    </div>
+                                                    <div className="small_text">About {post?.estimate_time} minutes to read</div>
+                                                </div>
+                                                <div className="heading_3 mb-2">{post.title}</div>
+                                            </div>
+                                            
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                ))}
+                            </Slider>
+                        )}
+                    </div> */}
+                    <div className="px-2 m-w mx-auto my-0">
+                        <div className="">
+                            {/*<div className="col-span-2 left-menu dark:border-r dark:!border-ccc">*/}
+                            {/*    <div className="left-menu-inner">*/}
+                            {/*        <ul className="menu-fixed">*/}
+                            {/*            <li className="pb-2"><a href="#">All articles</a></li>*/}
+                            {/*            <li className="pb-2 my-2"><a href="#">Recently update</a></li>*/}
+                            {/*            <li className="pb-2"><a href="#">Most useful</a></li>*/}
+                            {/*            <li className="pb-2 my-2"><a href="#">Oldest articles</a></li>*/}
+                            {/*            <li className="pb-2"><a href="#">Already read</a></li>*/}
+                            {/*        </ul>*/}
+                            {/*    </div>*/}
+                            {/*</div>*/}
+
+                            <div className="right-all-posts">
+                                <div className="md:grid md:grid-cols-12 gap-4 py-5">
+                                    <div className="col-span-2"></div>
+                                    <div className="col-span-8 flex gap-5 flex-col sm:flex-row">
+                                        <div>
+                                            <img className="w-[340px]" src="/img/subdes/subcate.png" alt="smile" loading="lazy" />
+                                        </div>
+                                        <div className="flex items-center">
+                                            <div>
+                                                <div className="heading_2 text-black dark:text-white mb-2">{category.name}</div>
+                                                <div className="">
+                                                    <div className="text-black dark:text-white">
+                                                        {category.description}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-span-2"></div>
+                                </div>
+
+                                <div className="md:mb-6 mb-4 destination-title border-solid border-y !border-999 border-ccc md:my-5 py-3">
+                                    <div className="flex flex-col md:flex-row md:justify-between">
+                                        {/*breadcrumb*/}
+                                        <div className="flex">
+                                            <ul className="flex">
+                                                <li><a href="#">Home</a></li>
+
+                                                {category.parent && (
+                                                    <>
+                                                        <li className="mx-2">/</li>
+                                                        <li><a
+                                                            href={`/categories/${category.parent.id}`}>{category.parent.name}</a>
+                                                        </li>
+                                                    </>
+                                                )}
+                                                <li className="mx-2">/</li>
+                                                <li><a href='#'>{category.name}</a></li>
+                                            </ul>
+                                        </div>
+                                        <div className="flex">
+                                            <div className="flex justify-center">
+                                                {/*<div className="flex des-count pr-3">*/}
+                                                {/*    <div className="pr-1">*/}
+                                                {/*        <img className="icon-sm" src="./img/icon/grid.svg" alt="#" loading="lazy"></img>*/}
+                                                {/*    </div>*/}
+                                                {/*    <div>4 Categories</div>*/}
+                                                {/*</div>*/}
+                                                <div className="flex location-count relative">
+                                                    <button
+                                                        className="flex"
+                                                        type="button"
+                                                        onClick={toggleSort}
+                                                    >
+                                                        <span className="mr-3">{sort ? sort.label : 'All articles'}</span>
+                                                        <img className="icon-ssm dark:hidden" src="/img/icon/sort-bl.svg" alt="smile" loading="lazy" />
+                                                        <img className="icon-ssm hidden dark:block" src="/img/icon/sort-wh.svg" alt="smile" loading="lazy" />
+                                                    </button>
+                                                    {show && (
+                                                        <div className="absolute mt-3 w-max right-0 p-3 top-full border border-solid border-x border-b !border-999 border-ccc dark:bg-black bg-background">
+                                                            <div className="sort-menu-inner">
+                                                                <ul className="">
+                                                                    {SORT.map((item, index) => (
+                                                                        <li key={index} className="py-1 cursor-pointer" onClick={() => { handleSort(item) }}>{item.label}</li>
+                                                                    ))}
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="all-post">
-                                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4">
-                                    {loading ? (
-                                        <>
-                                            {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => (
-                                                <SkeletonImage key={index} />
-                                            ))}
-                                        </>
-                                    ) : (
-                                        <>
-                                            {postsCol.map((col, index) => (
-                                                <div className="grid-col" key={index}>
-                                                    {col.map((post, index) => (
-                                                        <div className="grid-item border-b border-ccc" key={index}>
-                                                            <Link className="" href={`/article/${post.slug}`}>
-                                                                <div className="hover-img">
-                                                                    <div className="img-inner">
-                                                                        <img
-                                                                            className={`w-full object-cover`}
-                                                                            src={getImagePreview(post.featured_img)}
-                                                                            alt="smile"
-                                                                            loading="lazy"
-                                                                            height={200}
-                                                                            width={200}
-                                                                        />
+                                <div className="all-post">
+                                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4">
+                                        {loading ? (
+                                            <>
+                                                {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => (
+                                                    <SkeletonImage key={index} />
+                                                ))}
+                                            </>
+                                        ) : (
+                                            <>
+                                                {postsCol.map((col, index) => (
+                                                    <div className="grid-col" key={index}>
+                                                        {col.map((post, index) => (
+                                                            <div className="grid-item border-b border-ccc" key={index}>
+                                                                <Link className="" href={`/article/${post.slug}`}>
+                                                                    <div className="hover-img">
+                                                                        <div className="img-inner">
+                                                                            <img
+                                                                                className={`w-full object-cover`}
+                                                                                src={getImagePreview(post.featured_img)}
+                                                                                alt="smile"
+                                                                                loading="lazy"
+                                                                                height={200}
+                                                                                width={200}
+                                                                            />
+                                                                        </div>
+
                                                                     </div>
+                                                                </Link>
 
-                                                                </div>
-                                                            </Link>
-
-                                                            <div className="py-1 mb-5">
-                                                                {/*<div className="mb-1">*/}
-                                                                {/*    /!*<div*!/*/}
-                                                                {/*    /!*    className="small_text">{formatDate(post.publish_date)}*!/*/}
-                                                                {/*    /!*</div>*!/*/}
-                                                                {/*</div>*/}
-                                                                <div>
-                                                                    <div className="small_text">Subcategory name</div>
-                                                                </div>
-                                                                <div className="medium_text my-1">
-                                                                    <Link href={`/article/${post.slug}`}>{post.title}</Link>
-                                                                </div>
-                                                                <div>
-                                                                    <div className="small_text">About {post?.estimate_time} minutes to read</div>
+                                                                <div className="py-1 mb-5">
+                                                                    {/*<div className="mb-1">*/}
+                                                                    {/*    /!*<div*!/*/}
+                                                                    {/*    /!*    className="small_text">{formatDate(post.publish_date)}*!/*/}
+                                                                    {/*    /!*</div>*!/*/}
+                                                                    {/*</div>*/}
+                                                                    <div>
+                                                                        <div className="small_text">Subcategory name</div>
+                                                                    </div>
+                                                                    <div className="medium_text my-1">
+                                                                        <Link href={`/article/${post.slug}`}>{post.title}</Link>
+                                                                    </div>
+                                                                    <div>
+                                                                        <div className="small_text">About {post?.estimate_time} minutes to read</div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            ))}
-                                        </>
-                                    )}
+                                                        ))}
+                                                    </div>
+                                                ))}
+                                            </>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

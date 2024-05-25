@@ -43,3 +43,22 @@
     background-color: v.$border2_color;
   }
 }
+@media (min-width: 768px) {
+  .about-what-we-do {
+    .slider-process {
+      display: none;
+    }
+    .slider-items {
+      display: grid;
+      width: 100%!important;
+      grid-template-columns: repeat(2, 1fr);
+      .slider-item:nth-child(n - 3) {
+        padding-bottom: 10px;
+      }
+      .slider-item:nth-child(n + 3) {
+        padding-top: 10px;
+        border-top: 1px solid v.$border2_color;
+      }
+    }
+  }
+}

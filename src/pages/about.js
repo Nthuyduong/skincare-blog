@@ -1,6 +1,8 @@
 import React from "react";
 import { ROUTER } from "../utils/constants";
-import Link from 'next/link'
+import Link from 'next/link';
+import dynamic from "next/dynamic";
+const Slider = dynamic(() => import("@components/common/slider"), { ssr: false });
 
 const About = () => {
     return (
@@ -89,88 +91,102 @@ const About = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="md:col-span-8 wedo-first md:border-solid md:border-l md:border-r md:border-ccc">
-                            <div className="md:grid md:grid-cols-8 md:border-solid boder-b dark:border-999 border-ccc">
-                                <div className="col-span-8 md:col-span-4">
-                                    <div className="we-do-card md:pl-4 mb-4 md:mx-3 md:mb-0">
-                                        <div className="animate slideInUp animate--delay-slow">
-                                            <div>
+                        <div className="md:col-span-8 wedo-first md:border-solid md:border-l md:border-ccc about-what-we-do">
+                            <Slider
+                                configs={{
+                                    sliderPerRow: 2,
+                                    sliderPerRowMobile: 1.25,
+                                    allowDrag: true,
+                                    duration: 400,
+                                    auto: false,
+                                    autoDuration: 1000,
+                                    gap: 0,
+                                    gapMobile: 10,
+                                    process: true,
+                                    navigator: false,
+                                }}
+                            >
+                                <div className="">
+                                    <div className="we-do-card md:ml-3 mb-4 md:mb-0">
+                                        <div className="flex gap-4">
+                                            <div className="w-[50px] w-[50px]">
                                                 <img className="" src="./img/about/do.svg" alt="smile" loading="lazy" />
                                             </div>
-                                            <div className="">
-                                                <div className="heading_5 my-2 cursor-text-wrp">
-                                                    Making My Passion
+                                            <div className="w-full">
+                                                <div className="heading_6 cursor-text-wrp">
+                                                    Making my passion
                                                 </div>
-                                                <div className="cursor-text-wrp">
-                                                    Dive into the story of starting this skincare blog, fueled by genuine
-                                                    passion. Share the personal connection to the beauty world and the
-                                                    inspiration creating a space for fellow enthusiasts.
+                                                <div className="cursor-text-wrp pt-2">
+                                                    Dive into the story of starting this skincare blog, fueled by genuine passion. Share the personal connection to the beauty world and the inspiration behind creating a space for fellow enthusiasts.
                                                 </div>
+                                            </div>
+                                            <div className="py-[10%]">
+                                                <div className="border-r border-solid border-ccc h-full"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-span-8 md:col-span-4">
-                                    <div className="we-do-card card-right md:px-4 mb-4 md:mb-0 md:ml-3 md:border-solid md:border-l md:border-ccc">
-                                        <div className="animate slideInUp animate--delay-slow">
-                                            <div>
+                                <div className="">
+                                    <div className="we-do-card md:ml-3 mb-4 md:mb-0">
+                                        <div className="flex gap-4">
+                                            <div className="w-[50px] w-[50px]">
                                                 <img className="" src="./img/about/do.svg" alt="smile" loading="lazy" />
                                             </div>
-                                            <div className="">
-                                                <div className="heading_5 my-2 cursor-text-wrp">
+                                            <div className="w-full">
+                                                <div className="heading_6 cursor-text-wrp">
                                                     Share useful info and tips
                                                 </div>
-                                                <div className="cursor-text-wrp">
-                                                    At our skincare blog, we're all about sharing helpful info and tips.
-                                                    Discover the best ways to choose and use products for a glowing and healthy
-                                                    skin journey. Your go-to source for easy-to-follow advice.
+                                                <div className="cursor-text-wrp pt-2">
+                                                At our skincare blog, we're all about sharing helpful info and tips. Discover the best ways to choose and use products effectively for a glowing and healthy skin journey. Your go-to source for easy-to-follow advice
                                                 </div>
+                                            </div>
+                                            <div className="py-[10%]">
+                                                <div className="border-r border-solid border-ccc h-full"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="md:block hidden decor-line mx-3 mb-4 dark:border-solid dark:bg-ccc"></div>
-                            <div className="md:grid md:grid-cols-8">
-                                <div className="col-span-8 md:col-span-4">
-                                    <div className="we-do-card md:pl-4 md:mx-3 mb-4 md:mb-0">
-                                        <div className="animate slideInUp animate--delay-slow">
-                                            <div>
+                                <div className="">
+                                    <div className="we-do-card md:ml-3 mb-4 md:mb-0">
+                                        <div className="flex gap-4">
+                                            <div className="w-[50px] w-[50px]">
                                                 <img className="" src="./img/about/do.svg" alt="smile" loading="lazy" />
                                             </div>
-                                            <div className="">
-                                                <div className="heading_5 my-2 cursor-text-wrp">
+                                            <div className="w-full">
+                                                <div className="heading_5 cursor-text-wrp">
                                                     Better together
                                                 </div>
                                                 <div className="cursor-text-wrp">
-                                                    Explore shared growth on my skincare blog. The post uncovers how exchanging
-                                                    experiences benefits not just you, but also contributes to my ongoing
-                                                    evolution within the skincare community
+                                                    Explore shared growth on my skincare blog. Blog post uncovers how exchanging experiences benefits not just you, the reader, but also contributes to my ongoing evolution within the skincare community
                                                 </div>
+                                            </div>
+                                            <div className="py-[10%]">
+                                                <div className="border-r border-solid border-ccc h-full"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-span-8 md:col-span-4">
-                                    <div className="we-do-card h-full card-right md:px-4 md:ml-3 md:border-solid md:border-l md:border-ccc">
-                                        <div className="animate slideInUp animate--delay-slow">
-                                            <div>
+                                <div className="">
+                                    <div className="we-do-card md:ml-3 mb-4 md:mb-0">
+                                        <div className="flex gap-4">
+                                            <div className="w-[50px] w-[50px]">
                                                 <img className="" src="./img/about/do.svg" alt="smile" loading="lazy" />
                                             </div>
-                                            <div className="">
-                                                <div className="heading_5 my-2 cursor-text-wrp">
+                                            <div className="w-full">
+                                                <div className="heading_5 cursor-text-wrp">
                                                     Connecting Skincare-e
                                                 </div>
                                                 <div className="cursor-text-wrp">
-                                                    Join fellow skincare enthusiasts as we share tips and info for healthy,
-                                                    radiant skin. Let's journey together towards beauty and confidence,
-                                                    enhancing your glow inside and out
+                                                Join fellow skincare enthusiasts as we share tips and info for healthy, radiant skin. Let's journey together towards beauty and confidence, enhancing your glow inside and out
                                                 </div>
+                                            </div>
+                                            <div className="py-[10%]">
+                                                <div className="border-r border-solid border-ccc h-full"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </Slider>
                         </div>
                     </div>
                 </div>
@@ -190,12 +206,11 @@ const About = () => {
                 {/*        </div>*/}
                 {/*    </div>*/}
                 {/*</div>*/}
-                <div className="blog-mission pt-8 pb-9">
-                    <div className="grid grid-cols-12 gap-4 mission-inner flex">
-
+                <div className="blog-mission pt-4 sm:pt-8 pb-4 sm:pb-9">
+                    <div className="flex flex-col-reverse sm:grid grid-cols-12 gap-4 mission-inner flex">
                         <div className="col-span-12 md:col-span-6 mission-content m-auto md:py-5 md:mr-5 h-full flex items-center">
                             <div className="text-black dark:!text-white">
-                                <div className="heading_3 mb-4 animate slideInUp animate--delay-medium cursor-text-wrp">Our mission</div>
+                                <div className="heading_3 mb-4 animate slideInUp animate--delay-medium cursor-text-wrp">Radiance Aura Mission</div>
                                 <div className="animate slideInUp animate--delay-slow cursor-text-wrp">
                                     At Radiance Aura, we're here to guide you through your skincare journey with genuine support and valuable insights.
                                     Our goal is to help you achieve radiant, resilient skin that's uniquely yours. With authenticity and care,
