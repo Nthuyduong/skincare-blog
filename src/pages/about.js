@@ -39,8 +39,8 @@ const About = () => {
                         </div>
                     </div>
                 </div>
-                <div className="relative mt-8 px-4">
-                    <div className="flex gap-4 max-w-[468px] mx-auto relative z-10">
+                <div className="relative mt-8 px-1 sm:px-4">
+                    <div className="flex gap-1 sm:gap-4 max-w-[468px] mx-auto relative z-10">
                         <div><img className="w-full pt-4" src="./img/about4.jpg" alt="smile" loading="lazy" /></div>
                         <div><img className="w-full" src="./img/about5.jpg" alt="smile" loading="lazy" /></div>
                         <div><img className="w-full pt-4" src="./img/about6.jpg" alt="smile" loading="lazy" /></div>
@@ -54,12 +54,12 @@ const About = () => {
                 </div>
             </div>
             <div className="bg-primary">
-                <div className="m-w mx-auto my-0 my-8 py-8 about-me p-60">
+                <div className="m-w mx-auto my-0 my-4 py-4 md:my-8 md:py-8 about-me p-60">
                     <div className="md:grid md:grid-cols-12 gap-4">
                         <div className="md:col-span-4 md:mb-0 mb-4 animate slideInUp animate--delay-fast">
                             <img className="w-full" src="./img/about/abt-me1.png" alt="smile" loading="lazy" />
                         </div>
-                        <div className="md:col-span-6 about-right flex">
+                        <div className="md:col-span-6 about-right flex px-2 pb-3 md:px-0 md:pb-0">
                             <div className="about-content mt-auto dark:!text-white">
                                 <div className="heading_3 mb-4 animate slideInUp animate--delay-medium cursor-text-wrp">About Us</div>
                                 <div className="animate slideInUp animate--delay-slow cursor-text-wrp">
@@ -76,12 +76,12 @@ const About = () => {
                     </div>
                 </div>
             </div>
-            <div className="m-w mx-auto my-0">
+            <div className="m-w px-2 mx-auto my-0">
                 {/*What we do new*/}
                 <div className="">
                     <div className="md:grid md:grid-cols-12 gap-5">
                         <div className="md:col-span-4">
-                            <div className="md:pr-5 py-4 pr-4 dark:border-333 border mb-4 border-solid border-999 md:border-none">
+                            <div className="px-2 md:pr-5 py-4 pr-4 dark:border-333 border mb-4 border-solid border-999 md:border-none">
                                 <div className="heading_3 mb-3 animate slideInUp cursor-text-wrp">What we do</div>
                                 <div className="animate slideInUp animate--delay-fast cursor-text-wrp">Are you interested in collaborating? Do you want to be a part of us? Join with us now!</div>
                                 <div className="mt-4 animate slideInUp animate--delay-medium">
@@ -89,10 +89,10 @@ const About = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="md:col-span-8 wedo-first md:border-solid md:border-l md:border-ccc">
+                        <div className="md:col-span-8 wedo-first md:border-solid md:border-l md:border-r md:border-ccc">
                             <div className="md:grid md:grid-cols-8 md:border-solid boder-b dark:border-999 border-ccc">
                                 <div className="col-span-8 md:col-span-4">
-                                    <div className="we-do-card pl-4 mb-4 mx-3">
+                                    <div className="we-do-card md:pl-4 mb-4 md:mx-3 md:mb-0">
                                         <div className="animate slideInUp animate--delay-slow">
                                             <div>
                                                 <img className="" src="./img/about/do.svg" alt="smile" loading="lazy" />
@@ -111,7 +111,7 @@ const About = () => {
                                     </div>
                                 </div>
                                 <div className="col-span-8 md:col-span-4">
-                                    <div className="we-do-card card-right px-4 ml-3 md:border-solid md:border-x md:border-ccc">
+                                    <div className="we-do-card card-right md:px-4 mb-4 md:mb-0 md:ml-3 md:border-solid md:border-l md:border-ccc">
                                         <div className="animate slideInUp animate--delay-slow">
                                             <div>
                                                 <img className="" src="./img/about/do.svg" alt="smile" loading="lazy" />
@@ -133,7 +133,7 @@ const About = () => {
                             <div className="md:block hidden decor-line mx-3 mb-4 dark:border-solid dark:bg-ccc"></div>
                             <div className="md:grid md:grid-cols-8">
                                 <div className="col-span-8 md:col-span-4">
-                                    <div className="we-do-card pl-4 mx-3">
+                                    <div className="we-do-card md:pl-4 md:mx-3 mb-4 md:mb-0">
                                         <div className="animate slideInUp animate--delay-slow">
                                             <div>
                                                 <img className="" src="./img/about/do.svg" alt="smile" loading="lazy" />
@@ -152,7 +152,7 @@ const About = () => {
                                     </div>
                                 </div>
                                 <div className="col-span-8 md:col-span-4">
-                                    <div className="we-do-card h-full card-right px-4 ml-3 md:border-solid md:border-x md:border-ccc">
+                                    <div className="we-do-card h-full card-right md:px-4 md:ml-3 md:border-solid md:border-l md:border-ccc">
                                         <div className="animate slideInUp animate--delay-slow">
                                             <div>
                                                 <img className="" src="./img/about/do.svg" alt="smile" loading="lazy" />
@@ -222,12 +222,12 @@ const About = () => {
                 {/*    </div>*/}
                 {/*</div>*/}
                 <div className="subscribe-section">
-                    <div className="bg-primary p-5">
+                    <div className="bg-primary p-2 md:p-5">
                         <div className="flex">
                             <div className="hidden md:block">
                                 <img className="w-full" src="./img/home/subscribe.png" alt="smile" loading="lazy" />
                             </div>
-                            <div className="ml-5 text-black flex items-center md:pr-8">
+                            <div className="md:ml-5 text-black flex items-center md:pr-8">
                                 <div>
                                     <div className="mb-3 heading_2 animate slideInUp">Subscribe for newsletters</div>
                                     <div className="animate slideInUp animate--delay-medium">

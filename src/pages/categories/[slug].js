@@ -34,7 +34,7 @@ const Categories = ({ categoryProps = [], subCategoriesProps = [], isCsr, slug }
     }
 
     return (
-        <div className="px-3 md:px-0 m-w mx-auto my-0">
+        <div className="px-2 m-w mx-auto my-0">
             <div className="">
                 <div className="grid grid-cols-12 pt-60">
                     <div className="col-span-12 md:col-span-7 md:mb-0 mb-3">
@@ -79,12 +79,12 @@ const Categories = ({ categoryProps = [], subCategoriesProps = [], isCsr, slug }
             <div className="destination all-destination-cate m-w mx-auto my-0">
                 <div className="grid grid-cols-12 gap-4 md:gap-5">
                     {subCategories.map((subCategory, index) => (
-                        <div className="col-span-6 md:col-span-3 destination-cate mb-4" key={index}>
+                        <div className="col-span-6 sm:col-span-4 md:col-span-3 destination-cate mb-4" key={index}>
                             <div className="pb-2 heading_6">0{index + 1}/</div>
                             {/*<img className="w-full" src="/img/destination/des2.jpg" alt="smile" loading="lazy"/>*/}
                               <div className="hover-img">
                                   <div className="img-inner">
-                                      <Link href={'/sub-des/' + subCategory.id}>
+                                      <Link href={'/sub-des/' + subCategory.slug}>
                                           <img
                                               className="w-full"
                                               src={getImagePreview(subCategory.featured_img)}
@@ -99,7 +99,7 @@ const Categories = ({ categoryProps = [], subCategoriesProps = [], isCsr, slug }
                             <div className="destination-cate-content">
                                 <div className="flex items-center border-solid border-b border-ccc dark:border-999">
                                     <div className="heading_6 my-1 mr-auto">
-                                        <Link href={'/sub-des/' + subCategory.id}>{subCategory.name}</Link>
+                                        <Link href={'/sub-des/' + subCategory.slug}>{subCategory.name}</Link>
                                     </div>
                                     <span>
                                         <img className="icon-ssm w-full hidden dark:block" src="/img/icon/arrow-up-right.svg" alt="smile" loading="lazy"/>

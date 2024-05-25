@@ -71,7 +71,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                         <div className="mx-auto m-w">
                             {/* banner text */}
                             <div>
-                                <div className="flex gap-5 items-center pt-6 mb-6 justify-center">
+                                <div className="flex gap-1 sm:gap-5 items-center pt-6 mb-6 justify-center">
 
                                     <div className="heading_2 dark:text-textcolor">The</div>
                                     <div className="h-px bg-666 w-[20%]"></div>
@@ -81,7 +81,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
 
                                 </div>
                                 {/* articles */}
-                                <div className="flex gap-6">
+                                <div className="flex gap-2 sm:gap-6">
                                     {banner.map((tags, index) => (
                                         <div className="banner-article">
                                             <Link href={'/article/' + tags.slug} className="">
@@ -93,7 +93,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                                 />
                                             </Link>
 
-                                            <div className="mr-auto mb-1 body_text text-textcolor mt-2">{tags.categories.map((category) => { return <Link href={'/sub-des/' + category.id} className="">{category.name}</Link> })}</div>
+                                            <div className="mr-auto mb-1 body_text text-textcolor mt-2">{tags.categories.map((category) => { return <Link href={'/sub-des/' + category.slug} className="">{category.name}</Link> })}</div>
                                             <Link href={'/article/' + tags.slug} className="">
                                                 <div className="heading_6 text-textcolor">
                                                     {tags?.title}
@@ -150,18 +150,16 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                     </div>
                 </div> */}
                 <div className="">
-                    <div className="my-0 md:py-8 py-7 mx-auto m-w">
+                    <div className="px-2 my-0 md:py-8 py-7 mx-auto m-w">
                         <div className="recently-update">
-                            <div>
-                                <h1 className="title-section-home animate slideInUp heading_2 mb-2 md:mb-6 cursor-text-wrp">
-                                    We inspire people to love themselves because that love shapes beauty.
-                                </h1>
-                            </div>
+                            <h1 className="sm:max-w-[60%] animate slideInUp heading_2 mb-2 md:mb-6 cursor-text-wrp">
+                                We inspire people to love themselves because that love shapes beauty.
+                            </h1>
                             <div className="">
                                 <Slider
                                     configs={{
                                         sliderPerRow: 4,
-                                        sliderPerRowMobile: 1.25,
+                                        sliderPerRowMobile: 2.25,
                                         allowDrag: true,
                                         duration: 400,
                                         auto: false,
@@ -199,23 +197,23 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                         </div>
                     </div>
                 </div>
-                <div className="my-0 mx-auto m-w">
+                <div className="px-2 my-0 mx-auto m-w">
                     {/*List subcategorires*/}
                     <div className="flex list-categories md:mb-9 mb-7 justify-center">
                         <div>
                             <div className="flex justify-center">
-                                <div className="list-category title animate slideInUp heading_3 mb-1 md:mb-6 text-center mw-5">See what we can help you progress</div>
+                                <div className="title animate sm:max-w-[30%] slideInUp heading_3 mb-1 md:mb-6 text-center mw-5">See what we can help you progress</div>
                             </div>
-                            <div className="grid grid-cols-12 gap-4">
-                                <div className="col-span-3 home-category-card">
-                                    <div className="px-3 pt-3">
+                            <div className="grid grid-cols-12 gap-2 sm:gap-4">
+                                <div className="col-span-6 sm:col-span-3 home-category-card">
+                                    <div className="px-1 pt-1 sm:px-3 sm:pt-3">
                                         <div className="heading_6 !text-textcolor">01/</div>
                                         <Link href={'/sub-des/usage_guide'} className="">
-                                            <div className="heading_5 !text-textcolor mt-1 mb-4">Usage Guide</div>
+                                            <div className="heading_5 !text-textcolor sm:mt-1 mb-2 sm:mb-4">Usage Guide</div>
                                         </Link>
                                     </div>
                                     <div className="relative aspect-square">
-                                        <div className="home-category-card-des body_text !text-textcolor mt-1 mb-5 px-3 cursor-text-wrp">
+                                        <div className="home-category-card-des body_text !text-textcolor mt-1 mb-5 px-1 sm:px-3 cursor-text-wrp">
                                             Explore a wealth of knowledge for enhancing your skin's radiance and well-being from the inside out
                                         </div>
                                         <Link href={'/sub-des/usage_guide'} className="">
@@ -227,15 +225,15 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                         </Link>
                                     </div>
                                 </div>
-                                <div className="col-span-3 home-category-card home-category-card-active">
-                                    <div className="pt-3 px-3">
+                                <div className="col-span-6 sm:col-span-3 home-category-card home-category-card-active">
+                                    <div className="px-1 pt-1 sm:px-3 sm:pt-3">
                                         <div className="heading_6 !text-textcolor">01/</div>
                                         <Link href={'/sub-des/nourish_beauty'} className="">
-                                            <div className="heading_5 !text-textcolor mt-1 mb-4">Nourish Beauty</div>
+                                            <div className="heading_5 !text-textcolor sm:mt-1 mb-2 sm:mb-4">Nourish Beauty</div>
                                         </Link>
                                     </div>
                                     <div className="relative aspect-square">
-                                        <div className="home-category-card-des body_text !text-textcolor mt-1 mb-5 px-3 cursor-text-wrp">
+                                        <div className="home-category-card-des body_text !text-textcolor mt-1 mb-5 px-1 sm:px-3 cursor-text-wrp">
                                             Explore a wealth of knowledge for enhancing your skin's radiance and well-being from the inside out
                                         </div>
                                         <Link href={'/sub-des/nourish_beauty'} className="">
@@ -247,15 +245,15 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                         </Link>
                                     </div>
                                 </div>
-                                <div className="col-span-3 home-category-card">
-                                    <div className="px-3 pt-3">
+                                <div className="col-span-6 sm:col-span-3 home-category-card">
+                                    <div className="px-1 pt-1 sm:px-3 sm:pt-3">
                                         <div className="heading_6 !text-textcolor">01/</div>
                                         <Link href={'/sub-des/mental_health'} className="">
-                                            <div className="heading_5 !text-textcolor mt-1 mb-4">Mental Health</div>
+                                            <div className="heading_5 !text-textcolor sm:mt-1 mb-2 sm:mb-4">Mental Health</div>
                                         </Link>
                                     </div>
                                     <div className="relative aspect-square">
-                                        <div className="home-category-card-des body_text !text-textcolor mt-1 mb-5 px-3 cursor-text-wrp">
+                                        <div className="home-category-card-des body_text !text-textcolor mt-1 mb-5 px-1 sm:px-3 cursor-text-wrp">
                                             Explore a wealth of knowledge for enhancing your skin's radiance and well-being from the inside out
                                         </div>
                                         <Link href={'/sub-des/mental_health'} className="">
@@ -267,15 +265,15 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                         </Link>
                                     </div>
                                 </div>
-                                <div className="col-span-3 home-category-card">
-                                    <div className="px-3 pt-3">
+                                <div className="col-span-6 sm:col-span-3 home-category-card">
+                                    <div className="px-1 pt-1 sm:px-3 sm:pt-3">
                                         <div className="heading_6 !text-textcolor">01/</div>
                                         <Link href={'/sub-des/Hair_care'} className="body_text nav-link">
-                                            <div className="heading_5 !text-textcolor mt-1 mb-4">Hair Care</div>
+                                            <div className="heading_5 !text-textcolor mt-1 mb-2 sm:mb-4">Hair Care</div>
                                         </Link>
                                     </div>
                                     <div className="relative aspect-square">
-                                        <div className="absolute home-category-card-des body_text !text-textcolor mt-1 mb-5 px-3 cursor-text-wrp">
+                                        <div className="absolute home-category-card-des body_text !text-textcolor mt-1 mb-5 px-1 sm:px-3 cursor-text-wrp">
                                             Explore a wealth of knowledge for enhancing your skin's radiance and well-being from the inside out
                                         </div>
                                         <Link href={'/sub-des/Hair_care'} className="body_text nav-link">
@@ -346,7 +344,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                         <div className="text-center text-textcolor mt-5 heading_6 cursor-text-wrp">Oprah Winfrey</div>
                     </div>
                 </CardSlider>
-                <div className="my-0 mx-auto m-w">
+                <div className="px-2 my-0 mx-auto m-w">
                     <div className="md:mt-9 mt-7">
                         <div className="animate slideInUp heading_3 mb-1 md:mb-4">Reader's Favorite</div>
                         <div className="">
@@ -392,12 +390,12 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                 </div>
                 <div className="px-3 my-0 mx-auto m-w pt-9">
                     <div className="subscribe-section">
-                        <div className="bg-tertiary p-5">
+                        <div className="bg-tertiary p-2 sm:p-5">
                             <div className="flex">
                                 <div className="hidden md:block">
                                     <img className="w-full" src="./img/home/subscribe.png" alt="smile" loading="lazy" />
                                 </div>
-                                <div className="ml-5 text-textcolor flex items-center md:pr-8">
+                                <div className="sm:ml-5 text-textcolor flex items-center md:pr-8">
                                     <div>
                                         <div className="animate slideInUp animate--delay-fast mb-3 heading_3 cursor-text-wrp">Subscribe for newsletters</div>
                                         <div className="animate slideInUp animate--delay-medium cursor-text-wrp">

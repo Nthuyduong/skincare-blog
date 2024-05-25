@@ -74,7 +74,7 @@ const CardSlider = React.memo(({
             style={{ backgroundImage: `url(${configs.background})`, height: `${configs.height}px` }}
         >
             <div 
-                className="flex absolute h-full items-center"
+                className="card-slider-cont flex absolute h-full items-center"
                 style={{ width: `${configs.width}px` }}
             >
                 {children}

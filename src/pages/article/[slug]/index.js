@@ -84,6 +84,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                     } else {
                         refProcess.current.style.display = 'block';
                         refProcess.current.style.width = `${process}%`;
+                        refProcess.current.style.height = '0.125rem';
                     }
                 }
             }, 1);

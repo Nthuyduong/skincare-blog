@@ -180,7 +180,7 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                         </Slider>
                     )}
                 </div> */}
-                <div className="m-w mx-auto my-0">
+                <div className="px-2 m-w mx-auto my-0">
                     <div className="">
                         {/*<div className="col-span-2 left-menu dark:border-r dark:!border-ccc">*/}
                         {/*    <div className="left-menu-inner">*/}
@@ -269,7 +269,7 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, slug, page }) => {
                                 </div>
                             </div>
                             <div className="all-post">
-                                <div className="grid grid-cols-4 gap-4">
+                                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4">
                                     {loading ? (
                                         <>
                                             {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => (

@@ -81,19 +81,24 @@ const Skintype = () => {
     return (
         <div className="skintype-page md:pt-7">
             <div className="skintype-inner">
-                <div className="animate slideInUp animate--delay-fast md:grid md:grid-cols-12 gap-5">
-                    <div className="md:col-span-4"></div>
-                    <div className="md:col-span-3">
-                        <img className="w-full" src="./img/skintype/banner1.jpg" alt="smile" loading="lazy" />
+                <div className="relative">
+                    <div className="animate slideInUp animate--delay-fast md:grid md:grid-cols-12 gap-5">
+                        <div className="md:col-span-4"></div>
+                        <div className="md:col-span-3">
+                            <img className="w-full max-h-[300px]" src="./img/skintype/banner1.jpg" alt="smile" loading="lazy" />
+                        </div>
+                        <div className="md:col-span-1 md:flex hidden items-center">
+                            <img className="w-full" src="./img/skintype/banner2.jpg" alt="smile" loading="lazy" />
+                        </div>
+                        <div className="md:col-span-4"></div>
                     </div>
-                    <div className="md:col-span-1 md:flex hidden items-center">
-                        <img className="w-full" src="./img/skintype/banner2.jpg" alt="smile" loading="lazy" />
+                    <div className="absolute w-full bottom-[0] md:bottom-[-18px]">
+                        <div className="heading text-center animate slideInUp animate--delay-fast">Skin type & History</div>
                     </div>
-                    <div className="md:col-span-4"></div>
                 </div>
-                <div className="pt-5 head-content md:relative -top-0 md:-top-8">
+                
+                <div className="pt-5 head-content">
                     <div className="text-center mb-4">
-                        <div className="heading text-center my-3 animate slideInUp animate--delay-fast">Skin type & History</div>
                         <div className="heading_4 animate slideInUp animate--delay-medium">It’s All About Me</div>
                     </div>
                     <div className="w-1/6 h-px bg-ccc !bg-ccc mx-auto mb-4 animate slideInUp animate--delay-slow"></div>
@@ -107,7 +112,7 @@ const Skintype = () => {
                     </div>
                 </div>
             </div>
-            <div className="m-w mx-auto my-0">
+            <div className="m-w px-2 mx-auto my-0">
                 <div className="mt-5 skin-bar dark:border-ccc pb-3">
                     <div className="flex">
                         <div className="mr-auto">Scroll to explore</div>

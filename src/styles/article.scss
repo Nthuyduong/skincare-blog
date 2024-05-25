@@ -130,7 +130,8 @@ textarea{
   top: 0;
   z-index: 11111;
   .process-content {
-    height: 0.125rem;
+    width: 0;
+    height: 0;
     background: black;
   }
 }

@@ -112,3 +112,11 @@
     position: absolute;
   }
 }
+@media (max-width: 768px) {
+  .home-category-card-active {
+    .home-category-card-img {
+      display: none;
+    }
+  }
+  
+}

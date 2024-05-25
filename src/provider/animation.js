@@ -95,7 +95,6 @@ export const AnimationProvider = ({ children }) => {
         }
 
         var text = Array.from(document.querySelectorAll('p, span, body_text, .cursor-text-wrp'));
-        console.log(text);
 
         text.forEach(text => {
             text.addEventListener('mousemove', function() {
