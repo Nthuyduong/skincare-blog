@@ -6,18 +6,6 @@ export default function Document() {
     return (
         <Html lang="en">
             <link rel="icon" href="/favicon.png" />
-            <script async src="https://www.googletagmanager.com/gtag/js?id=G-3X4CD847DY"></script>
-            <script
-                dangerouslySetInnerHTML={{
-                __html: `
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-                
-                    gtag('config', 'G-3X4CD847DY');
-                `,
-                }}
-            />
         <Head />
         <body>
             <Main />
