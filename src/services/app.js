@@ -13,8 +13,9 @@ export const sendContactForm = async (data) => {
     return await postApi("/contact", data);
 }
 
-export const subscribeApi = async (email) => {
+export const subscribeApi = async (email, name) => {
     return await postApi("/subscribes", {
-        email
+        email,
+        name
     });
 }

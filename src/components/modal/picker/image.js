@@ -135,14 +135,14 @@ const ImagePicker = ({ onPick, mode }) => {
 
         if (mode === 'simple') {
             selectedImages.forEach((image) => {
-                result += `<img src="${BASE_URL + '/storage/desktop/' + image.url}" alt="${image.alt}" loading="lazy">`;
+                result += `<img src="${BASE_URL + '/storage/desktop/' + encodeURIComponent(image.url)}" alt="${image.alt}" loading="lazy">`;
             });
         } else {
             selectedImages.forEach((image) => {
                 result += `<picture>
-                        <source srcset="${BASE_URL + '/storage/mobile/' + image.url}" media="(max-width: 767px)">
-                        <source srcset="${BASE_URL + '/storage/tablet/' + image.url}" media="(max-width: 1024px)">
-                        <img src="${BASE_URL + '/storage/desktop/' + image.url}" alt="${image.alt}" loading="lazy">
+                        <source srcset="${BASE_URL + '/storage/mobile/' + encodeURIComponent(image.url)}" media="(max-width: 767px)">
+                        <source srcset="${BASE_URL + '/storage/tablet/' + encodeURIComponent(image.url)}" media="(max-width: 1024px)">
+                        <img src="${BASE_URL + '/storage/desktop/' + encodeURIComponent(image.url)}" alt="${image.alt}" loading="lazy">
                     </picture>`;
             });
         }
