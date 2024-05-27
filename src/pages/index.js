@@ -390,7 +390,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                                         <div className="medium_text">{newest.title}</div>
                                                     </div>
                                                     <div className="md:flex hidden">
-                                                        <div className="cursor-pointer" onClick={() => { router.push("/article/" + newest.slug) }}>Read more</div>
+                                                        <div className="cursor-pointer text-link" onClick={() => { router.push("/article/" + newest.slug) }}>Read more</div>
                                                     </div>
                                                 </div>
                                             </div>
