@@ -16,6 +16,10 @@ const tabs = [
     {
         name: 'contact',
         title : 'Email Contact',
+    },
+    {
+        name: 'reply',
+        title : 'Email Reply',
     }
 ]
 
@@ -35,6 +39,7 @@ const Settings = () => {
                 {tab === 'subscribed' && (<MailSubscriber/>)}
                 {tab === 'notication' && (<MailNotication/>)}
                 {tab === 'contact' && (<MailContact/>)}
+                {tab === 'reply' && (<MailReply/>)}
             </div>
             <LibraryIcon
                 mode={'simple'}
