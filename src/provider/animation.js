@@ -133,7 +133,7 @@ export const AnimationProvider = ({ children }) => {
             {rou.includes(pathname) ? (
                 <div className="animation-wrp">
                     {children}
-                <div id="custom-cursor" className="custom-cursor"></div>
+                <div id="custom-cursor" className="hidden sm:block custom-cursor"></div>
             </div>
             ) : (
                 <>{children}</>

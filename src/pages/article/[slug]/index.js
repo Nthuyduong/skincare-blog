@@ -45,32 +45,37 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
         if (blog?.status == BLOG_STATUS.HIDDEN) {
             router.push('/404');
         }
-        if (refContent.current) {
-            const headings = refContent.current.querySelectorAll("h2");
-            const list = refTable.current;
-            if(list) {
-                if (headings.length === 0) {
-                    if (list.closest('.catalog')) {
-                        list.closest('.catalog').style.display = 'none';
+        function handleCatalog() {
+            if (refContent.current) {
+                const headings = refContent.current.querySelectorAll("h2");
+                console.log(headings);
+                const list = refTable.current;
+                list.innerHTML = '';
+                if(list) {
+                    if (headings.length === 0) {
+                        if (list.closest('.catalog')) {
+                            list.closest('.catalog').style.display = 'none';
+                        }
+                    } else {
+                        if (list.closest('.catalog')) {
+                            list.closest('.catalog').style.display = 'block';
+                        }
                     }
-                } else {
-                    if (list.closest('.catalog')) {
-                        list.closest('.catalog').style.display = 'block';
-                    }
-                }
-                headings.forEach((heading) => {
-                    heading.id = heading.textContent.replace(/\s+/g, '-').toLowerCase();
-    
-                    const li = document.createElement("li");
-                    li.classList.add("cursor-pointer");
-                    li.textContent = heading.textContent;
-                    list.appendChild(li);
-                    li.addEventListener("click", () => {
-                        heading.scrollIntoView({ behavior: "smooth" });
+                    headings.forEach((heading) => {
+                        heading.id = heading.textContent.replace(/\s+/g, '-').toLowerCase();
+                        const li = document.createElement("li");
+                        li.classList.add("cursor-pointer");
+                        li.textContent = heading.textContent;
+                        list.appendChild(li);
+                        li.addEventListener("click", () => {
+                            heading.scrollIntoView({ behavior: "smooth" });
+                        });
                     });
-                });
+                }
             }
-           
+        }
+        
+        function functionScoll() {
             const handleScroll = throttle(() => {
                 if(refContent.current) {
                     let process = ((document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight) * 100);
@@ -90,9 +95,15 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
             }, 1);
             window.addEventListener('scroll', handleScroll)
         }
+        handleCatalog();
+        functionScoll();
         if (blog?.id) {
             handleUpdateViewCount();
             fetchRelatedBlogs();
+        }
+        return () => {
+            handleCatalog();
+            functionScoll();
         }
     }, [blog]);
 
