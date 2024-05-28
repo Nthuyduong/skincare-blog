@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import MailSubscriber from "../../../components/view/settings/MailSubscriber";
 import MailNotication from "../../../components/view/settings/MailNotication";
 import MailContact from "../../../components/view/settings/MailContact";
+import MailReply from "../../../components/view/settings/MailReply";
 import LibraryIcon from "../../../components/common/libraryIcon";
 
 const tabs = [
