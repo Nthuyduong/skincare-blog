@@ -209,7 +209,7 @@ const Header = React.memo(() => {
                             <img className="h-3" src="/img/logo2.svg" alt="smile" loading="lazy" />
                         </div>
                     </Link>
-                    <div className="hidden">
+                    {/* <div className="hidden">
                         <button type="button"
                             onClick={toggleVisibility}
                             className="relative rounded-full bg-gray-800 p-1 text-gray-400 focus:outline-none">
@@ -219,7 +219,7 @@ const Header = React.memo(() => {
                     </div>
                     <div>
                         <ThemeToggle />
-                    </div>
+                    </div> */}
                 </div>
                 <div className={`header-mobile-content bg-white dark:bg-black h-full ${showMenu ? 'active' : ''}`}>
                     <div className="p-4">
@@ -286,7 +286,7 @@ const Header = React.memo(() => {
                                 </div>
                             </div>
                         </div>
-                        <div className="py-3 border-b border-ccc"><Link href={ROUTER.INGREDIENT}>Skincare ingredients</Link></div>
+                        <div className="py-3 border-solid border-b border-ccc"><Link href={ROUTER.INGREDIENT}>Skincare ingredients</Link></div>
                         {/*<div className="py-3 border-b border-ccc"><Link href={ROUTER.INGREDIENT}>Testings & Reviews</Link></div>*/}
                         <div className="">
                             <div className={`my-collapse dark:border-b dark:border-ccc`}>
