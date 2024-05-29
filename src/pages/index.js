@@ -152,7 +152,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                 <div className="">
                     <div className="px-2 my-0 md:py-8 py-7 mx-auto m-w">
                         <div className="recently-update">
-                            <h1 className="sm:max-w-[60%] animate slideInUp heading_2 mb-2 md:mb-6 cursor-text-wrp">
+                            <h1 className="sm:max-w-[60%] animate slideInUp heading_2 mb-5 md:mb-6 cursor-text-wrp">
                                 We inspire people to love themselves because that love shapes beauty.
                             </h1>
                             <div className="">

@@ -7,7 +7,7 @@ const Slider = dynamic(() => import("@components/common/slider"), { ssr: false }
 const About = () => {
     return (
         <div>
-            <div className="pb-8 pt-6 relative">
+            <div className="md:pb-8 pb-6 pt-6 relative">
                 <div className="m-w flex justify-center mx-auto gap-6">
                     <div className="hidden sm:block pt-8">
                         <img className="w-full" src="./img/about1.png" alt="smile" loading="lazy" />
@@ -34,14 +34,14 @@ const About = () => {
                     {/*<div className="intro-decor absolute">*/}
                     {/*    <img className="w-full" src="./img/about/decor.svg" alt="smile" loading="lazy"/>*/}
                     {/*</div>*/}
-                    <div className="intro-inner grid grid-cols-6 gap-4 ">
+                    <div className="intro-inner md:grid grid-cols-6 gap-4 ">
                         <div className=""></div>
-                        <div className="animate slideInUp col-span-4 intro-content heading_5 text-center z-30 cursor-text-wrp">
+                        <div className="md:px-0 px-2 animate slideInUp col-span-4 intro-content heading_5 text-center z-30 cursor-text-wrp">
                             "True beauty originates from a foundation of healthy skin, echoing the purity within. By tending to your skin with care—cleansing, nourishing, and protecting it—you unveil its innate radiance, enriching both inner and outer beauty."
                         </div>
                     </div>
                 </div>
-                <div className="relative mt-8 px-1 sm:px-4">
+                <div className="relative md:mt-8 mt-6 px-2 sm:px-4">
                     <div className="flex gap-1 sm:gap-4 max-w-[468px] mx-auto relative z-10">
                         <div><img className="w-full pt-4" src="./img/about4.jpg" alt="smile" loading="lazy" /></div>
                         <div><img className="w-full" src="./img/about5.jpg" alt="smile" loading="lazy" /></div>
@@ -56,10 +56,10 @@ const About = () => {
                 </div>
             </div>
             <div className="bg-primary">
-                <div className="m-w mx-auto my-0 my-4 py-4 md:my-8 md:py-8 about-me p-60">
+                <div className="m-w mx-auto my-0 my-4 py-4 md:my-8 md:py-8 about-me">
                     <div className="md:grid md:grid-cols-12 gap-4">
                         <div className="md:col-span-4 md:mb-0 mb-4 animate slideInUp animate--delay-fast">
-                            <img className="w-full" src="./img/about/abt-me1.png" alt="smile" loading="lazy" />
+                            <img className="md:h-full h-[300px] object-cover w-full" src="./img/about/abt-me1.png" alt="smile" loading="lazy" />
                         </div>
                         <div className="md:col-span-6 about-right flex px-2 pb-3 md:px-0 md:pb-0">
                             <div className="about-content mt-auto dark:!text-white">
@@ -72,7 +72,7 @@ const About = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="md:col-span-2 animate slideInUp animate--delay-fast">
+                        <div className="md:block hidden md:col-span-2 animate slideInUp animate--delay-fast">
                             <img className="w-full" src="./img/about/abt-me2.jpg" alt="smile" loading="lazy" />
                         </div>
                     </div>
@@ -95,7 +95,7 @@ const About = () => {
                             <Slider
                                 configs={{
                                     sliderPerRow: 2,
-                                    sliderPerRowMobile: 1.25,
+                                    sliderPerRowMobile: 2.25,
                                     allowDrag: true,
                                     duration: 400,
                                     auto: false,
@@ -107,9 +107,9 @@ const About = () => {
                                 }}
                             >
                                 <div className="">
-                                    <div className="we-do-card md:ml-3 mb-4 md:mb-0">
-                                        <div className="flex gap-4">
-                                            <div className="w-[50px] w-[50px]">
+                                    <div className="h-full we-do-card md:ml-3 mb-4 md:mb-0 md:border-none border border-solid border-ccc md:p-0 p-4">
+                                        <div className="md:flex gap-4">
+                                            <div className="w-[50px] w-[50px] md:mb-0 mb-3">
                                                 <img className="" src="./img/about/do.svg" alt="smile" loading="lazy" />
                                             </div>
                                             <div className="w-full">
@@ -120,16 +120,16 @@ const About = () => {
                                                     Dive into the story of starting this skincare blog, fueled by genuine passion. Share the personal connection to the beauty world and the inspiration behind creating a space for fellow enthusiasts.
                                                 </div>
                                             </div>
-                                            <div className="py-[10%]">
-                                                <div className="border-r border-solid border-ccc h-full"></div>
+                                            <div className="">
+                                                <div className="border-none border-r md:border-solid border-ccc h-full"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="">
-                                    <div className="we-do-card md:ml-3 mb-4 md:mb-0">
-                                        <div className="flex gap-4">
-                                            <div className="w-[50px] w-[50px]">
+                                    <div className="h-full we-do-card md:ml-3 mb-4 md:mb-0 md:border-none border border-solid border-ccc md:p-0 p-4">
+                                        <div className="md:flex gap-4">
+                                            <div className="w-[50px] w-[50px] md:mb-0 mb-3">
                                                 <img className="" src="./img/about/do.svg" alt="smile" loading="lazy" />
                                             </div>
                                             <div className="w-full">
@@ -137,50 +137,50 @@ const About = () => {
                                                     Share useful info and tips
                                                 </div>
                                                 <div className="cursor-text-wrp pt-2">
-                                                At our skincare blog, we're all about sharing helpful info and tips. Discover the best ways to choose and use products effectively for a glowing and healthy skin journey. Your go-to source for easy-to-follow advice
+                                                    At our skincare blog, we're all about sharing helpful info and tips. Discover the best ways to choose and use products effectively for a glowing and healthy skin journey. Your go-to source for easy-to-follow advice
                                                 </div>
                                             </div>
-                                            <div className="py-[10%]">
+                                            <div className="">
                                                 <div className="border-r border-solid border-ccc h-full"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="">
-                                    <div className="we-do-card md:ml-3 mb-4 md:mb-0">
-                                        <div className="flex gap-4">
-                                            <div className="w-[50px] w-[50px]">
+                                    <div className="h-full we-do-card md:ml-3 mb-4 md:mb-0 md:border-none border border-solid border-ccc md:p-0 p-4">
+                                        <div className="md:flex gap-4">
+                                            <div className="w-[50px] w-[50px] md:mb-0 mb-3">
                                                 <img className="" src="./img/about/do.svg" alt="smile" loading="lazy" />
                                             </div>
                                             <div className="w-full">
-                                                <div className="heading_5 cursor-text-wrp">
+                                                <div className="heading_6 cursor-text-wrp">
                                                     Better together
                                                 </div>
-                                                <div className="cursor-text-wrp">
+                                                <div className="cursor-text-wrp pt-2">
                                                     Explore shared growth on my skincare blog. Blog post uncovers how exchanging experiences benefits not just you, the reader, but also contributes to my ongoing evolution within the skincare community
                                                 </div>
                                             </div>
-                                            <div className="py-[10%]">
-                                                <div className="border-r border-solid border-ccc h-full"></div>
+                                            <div className="">
+                                                <div className="border-r border-none md:border-solid border-ccc h-full"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="">
-                                    <div className="we-do-card md:ml-3 mb-4 md:mb-0">
-                                        <div className="flex gap-4">
-                                            <div className="w-[50px] w-[50px]">
+                                    <div className=" h-full md:we-do-card md:ml-3 mb-4 md:mb-0 md:border-none border border-solid border-ccc md:p-0 p-4">
+                                        <div className="md:flex gap-4">
+                                            <div className="w-[50px] w-[50px] md:mb-0 mb-3">
                                                 <img className="" src="./img/about/do.svg" alt="smile" loading="lazy" />
                                             </div>
                                             <div className="w-full">
-                                                <div className="heading_5 cursor-text-wrp">
+                                                <div className="heading_6 cursor-text-wrp">
                                                     Connecting Skincare-e
                                                 </div>
-                                                <div className="cursor-text-wrp">
-                                                Join fellow skincare enthusiasts as we share tips and info for healthy, radiant skin. Let's journey together towards beauty and confidence, enhancing your glow inside and out
+                                                <div className="cursor-text-wrp pt-2">
+                                                    Join fellow skincare enthusiasts as we share tips and info for healthy, radiant skin. Let's journey together towards beauty and confidence, enhancing your glow inside and out
                                                 </div>
                                             </div>
-                                            <div className="py-[10%]">
+                                            <div className="">
                                                 <div className="border-r border-solid border-ccc h-full"></div>
                                             </div>
                                         </div>
@@ -206,12 +206,12 @@ const About = () => {
                 {/*        </div>*/}
                 {/*    </div>*/}
                 {/*</div>*/}
-                <div className="blog-mission pt-4 sm:pt-8 pb-4 sm:pb-9">
+                <div className="blog-mission pt-6 sm:pt-8 pb-4 sm:pb-9">
                     <div className="flex flex-col-reverse sm:grid grid-cols-12 gap-4 mission-inner flex">
                         <div className="col-span-12 md:col-span-6 mission-content m-auto md:py-5 md:mr-5 h-full flex items-center">
                             <div className="text-black dark:!text-white">
                                 <div className="heading_3 mb-4 animate slideInUp animate--delay-medium cursor-text-wrp">Radiance Aura Mission</div>
-                                <div className="animate slideInUp animate--delay-slow cursor-text-wrp">
+                                <div className="animate slideInUp animate--delay-slow cursor-text-wrp md:body_text small_text">
                                     At Radiance Aura, we're here to guide you through your skincare journey with genuine support and valuable insights.
                                     Our goal is to help you achieve radiant, resilient skin that's uniquely yours. With authenticity and care,
                                     we celebrate your natural beauty and inspire confidence every step of the way. Join us on this transformative
@@ -237,15 +237,15 @@ const About = () => {
                 {/*    </div>*/}
                 {/*</div>*/}
                 <div className="subscribe-section">
-                    <div className="bg-primary p-2 md:p-5">
+                    <div className="bg-primary p-3 md:p-5">
                         <div className="flex">
                             <div className="hidden md:block">
                                 <img className="w-full" src="./img/home/subscribe.png" alt="smile" loading="lazy" />
                             </div>
                             <div className="md:ml-5 text-black flex items-center md:pr-8">
                                 <div>
-                                    <div className="mb-3 heading_2 animate slideInUp">Subscribe for newsletters</div>
-                                    <div className="animate slideInUp animate--delay-medium">
+                                    <div className="mb-3 heading_4 md:heading_2 animate slideInUp">Subscribe for newsletters</div>
+                                    <div className="animate slideInUp animate--delay-medium md:body_text small_text">
                                         Receive the latest updates straight to your inbox. Get stories, exclusive offers, and promotions when you sign up.
                                     </div>
                                     <div className="mt-4 animate slideInUp animate--delay-slow">
