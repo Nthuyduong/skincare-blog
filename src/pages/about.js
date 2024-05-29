@@ -95,7 +95,7 @@ const About = () => {
                             <Slider
                                 configs={{
                                     sliderPerRow: 2,
-                                    sliderPerRowMobile: 2.25,
+                                    sliderPerRowMobile: 1.25,
                                     allowDrag: true,
                                     duration: 400,
                                     auto: false,
