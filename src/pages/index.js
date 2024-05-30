@@ -305,11 +305,11 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                         <div className="border-y border-solid border-ccc dark:border-999">
                             <div className="md:grid md:grid-cols-12 gap-4">
                                 <div className="md:col-span-8 md:pb-6 pb-4 pt-6 pr-4 about-intro md:border-r md:border-solid border-999 !border-ccc">
-                                    <div className="relative">
-                                        <div className="heading_2 animate slideInUp">
+                                    <div className="flex flex-col h-full">
+                                        <div className="heading_2 animate slideInUp h-full">
                                             “Start with clear, healthy skin. Nurture your radiance—embrace pure beauty, inside and out”
                                         </div>
-                                        <div className="absolute heading_6 md:mt-auto md:block hidden animate slideInUp">Hello & Welcome!</div>
+                                        <div className="heading_6 md:block hidden animate slideInUp">Hello & Welcome!</div>
                                     </div>
                                 </div>
                                 <div className="md:col-span-4 about-content pt-3 pb-6 md:py-6">
@@ -348,9 +348,11 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
 
                             <div className="md:flex items-center justify-end">
                                 <div className="mr-2">Explore now</div>
-                                <div>
-                                    <img className="" src="../img/icon/arrow-right-circle.svg" alt="smile" loading="lazy" />
-                                </div>
+                                <Link href={ROUTER.INGREDIENT}>
+                                    <div>
+                                        <img className="" src="../img/icon/arrow-right-circle.svg" alt="smile" loading="lazy" />
+                                    </div>
+                                </Link>
                             </div>
 
                         </div>
