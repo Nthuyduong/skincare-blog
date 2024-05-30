@@ -17,9 +17,11 @@ module.exports = {
     colors: {
       'background': '#FBFBFA',
       'textcolor': '#242424',
-      'primary': '#F4F2F0',
+      'primary': '#EAE3D9',
+      'primaryvariant1': '#F3EFE9',
+      'primaryvariant2': '#F7F4F1',
       'secondary': '#DFE3EA',
-      'tertiary': '#F4F2F0',
+      'tertiary': '#EAE3D9',
       'white': '#fff',
       'black': '#000',
       'red': 'rgb(239, 68, 68)',

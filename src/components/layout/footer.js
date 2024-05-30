@@ -66,7 +66,7 @@ const Footer = () => {
 
                     {/*    </ul>*/}
                     {/*</div>*/}
-                    <div className="md:col-span-4 col-span-12 flex justify-center border-b md:border-b-0 md:border-ccc md:border-r footer-logo items-center p-4 lg:p-5 border-solid">
+                    <div className="md:col-span-4 col-span-12 flex justify-center border-b md:border-b-0 border-ccc md:border-r footer-logo items-center p-4 lg:p-5 border-solid">
                         <img className="h-fit md:w-2/5 w-2/5" src="/img/footer-logo.svg" alt="smile" loading="lazy"/>
                         {/* <img className="h-fit md:w-2/5 w-2/5 dark:block hidden" src="/img/footer-logo-2.svg" alt="smile" loading="lazy"/> */}
                     </div>
@@ -114,7 +114,7 @@ const Footer = () => {
                                     <div className="w-full flex dark:border-999 dark:focus:border-white focus:border-333 pointer-events-auto border-solid border-b border-ccc focus-visible:outline-none">
                                         <input 
                                             className="w-full py-1 pr-2 w-full"
-                                            placeholder="Email address"
+                                            placeholder="Join Radiance Aura Newsletters"
                                             // onChange={(e) => setEmail(e.target.value)}
                                             // onKeyDown={(e) => e.key === 'Enter' && handleSubscribe()}
                                             onClick={() => show({

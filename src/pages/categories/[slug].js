@@ -49,7 +49,7 @@ const Categories = ({ categoryProps = [], subCategoriesProps = [], isCsr, slug }
                         <h3 className="col-span-12 md:col-span-5 animate slideInUp">{ category.description }</h3>
                     </div>
                 </div>
-                <div className="py-6 m-w mx-auto my-0">
+                <div className="py-4 md:py-6 m-w mx-auto my-0">
                     <div className="destination-title border-solid border-y border-ccc dark:border-y dark:border-999 py-3">
                         <div className="md:flex md:justify-center">
                             {/*breadcrumb*/}
@@ -86,7 +86,7 @@ const Categories = ({ categoryProps = [], subCategoriesProps = [], isCsr, slug }
                     <div className="grid grid-cols-12 gap-4 md:gap-5">
                         {subCategories.map((subCategory, index) => (
                             <div className="col-span-6 sm:col-span-4 md:col-span-3 destination-cate mb-4" key={index}>
-                                <div className="pb-2 heading_6">0{index + 1}/</div>
+                                <div className="md:block hidden pb-2 heading_6">0{index + 1}/</div>
                                 {/*<img className="w-full" src="/img/destination/des2.jpg" alt="smile" loading="lazy"/>*/}
                                 <div className="hover-img">
                                     <div className="img-inner">
@@ -113,7 +113,7 @@ const Categories = ({ categoryProps = [], subCategoriesProps = [], isCsr, slug }
                                         </span>
                                     </div>
                                     <div className="flex more-info pt-2">
-                                        <div className="small_text cursor-text-wrp">{ subCategory.description }</div>
+                                        <div className="body_text cursor-text-wrp">{ subCategory.description }</div>
                                     </div>
                                 </div>
                             </div>

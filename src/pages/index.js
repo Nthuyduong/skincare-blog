@@ -301,10 +301,10 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                             </div>
                         </div>
                     </div>
-                    <div className="sm:px-3 my-0 mx-auto m-w md:pb-9 pb-7">
-                        <div className="home-about dark:border-t dark:border-b dark:!border-ccc">
+                    <div className="my-0 mx-auto m-w md:pb-9 pb-7">
+                        <div className="border-y border-solid border-ccc dark:border-999">
                             <div className="md:grid md:grid-cols-12 gap-4">
-                                <div className="md:col-span-8 py-6 pr-4 about-intro md:border-r md:border-solid border-999 !border-ccc">
+                                <div className="md:col-span-8 md:pb-6 pb-4 pt-6 pr-4 about-intro md:border-r md:border-solid border-999 !border-ccc">
                                     <div className="relative">
                                         <div className="heading_2 animate slideInUp">
                                             “Start with clear, healthy skin. Nurture your radiance—embrace pure beauty, inside and out”
@@ -323,6 +323,36 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                {/* INGREDIENT SECTION */}
+                <div className="px-2 md:px-0 mx-auto m-w md:mb-9 mb-7">
+                    <div className="md:grid grid-cols-12 gap-4">
+                        <div className="col-span-5">
+                            <img
+                                className=""
+                                src="./img/home/ingredient_home.png"
+                                alt="Ingredient"
+                            />
+                        </div>
+                        <div className="col-span-7 md:p-6 p-5 border-solid border border-ccc dark:border-ccc flex-col flex">
+                            <div className="h-full">
+                                <div className=" heading_3 animate slideInUp md:mb-4 mb-3">
+                                    Empowered Understanding
+                                </div>
+                                <div className="heading_5 mr-auto">
+                                    “Knowing a product's ingredients lets you use it more effectively and maximize its benefits.”
+                                </div>
+                            </div>
+
+                            <div className="md:flex items-center justify-end">
+                                <div className="mr-2">Explore now</div>
+                                <div>
+                                    <img className="" src="../img/icon/arrow-right-circle.svg" alt="smile" loading="lazy" />
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -357,7 +387,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                         <div className="text-center text-textcolor mt-5 heading_6 cursor-text-wrp">Oprah Winfrey</div>
                     </div>
                 </CardSlider>
-                <div className="px-2 my-0 mx-auto m-w">
+                <div className="px-2 md:px-0 my-0 mx-auto m-w">
                     <div className="md:mt-9 mt-7">
                         <div className="animate slideInUp heading_3 mb-1 md:mb-4">Reader's Favorite</div>
                         <div className="">
@@ -401,9 +431,9 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                         </div>
                     </div>
                 </div>
-                <div className="px-3 my-0 mx-auto m-w pt-4 sm:pt-9">
+                {/* <div className="px-3 my-0 mx-auto m-w pt-4 sm:pt-9">
                     <div className="subscribe-section">
-                        <div className="bg-tertiary p-2 sm:p-5">
+                        <div className="bg-primaryvariant1 p-2 sm:p-5">
                             <div className="flex">
                                 <div className="hidden md:block">
                                     <img className="w-full" src="./img/home/subscribe.png" alt="smile" loading="lazy" />
@@ -434,7 +464,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div >
         </>
     )
