@@ -9,6 +9,8 @@ const createIngredient = () => {
 
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
+    const [metaTitle, setMetaTitle] = useState("");
+    const [metaDescription, setMetaDescription] = useState("");
     const [content, setContent] = useState("");
     const [featuredImage, setFeaturedImage] = useState('')
     const [details, setDetails] = useState([]);
@@ -26,7 +28,7 @@ const createIngredient = () => {
         return URL.createObjectURL(featuredImage);
     }
 
-    const handleCreate = async() => {
+    const handleCreate = async () => {
         await createIngredient({
             name: name,
             description: description,
@@ -51,18 +53,43 @@ const createIngredient = () => {
                             type="text"
                             placeholder="Enter name"
                             value={name || ""}
-                            onChange={(e) => {setName(e.target.value)}}
+                            onChange={(e) => { setName(e.target.value) }}
                         />
                     </div>
                 </div>
-                <div className="">
+                <div className="mb-3">
                     <div className="mb-1">Description</div>
                     <div className="search-bar-box">
                         <textarea
                             className="w-full"
                             rows="2"
                             value={description || ""}
-                            onChange={(e) => {setDescription(e.target.value)}}
+                            onChange={(e) => { setDescription(e.target.value) }}
+                        ></textarea>
+                    </div>
+                </div>
+                <div className="mb-3">
+                    <div className="mb-1">Meta Title</div>
+                    <div className="search-bar-box">
+                        <input
+                            name="Meta title"
+                            id=""
+                            className="w-full"
+                            type="text"
+                            placeholder="Enter meta title"
+                            value={metaTitle || ""}
+                            onChange={(e) => { setMetaTitle(e.target.value) }}
+                        />
+                    </div>
+                </div>
+                <div>
+                    <div className="mb-1">Meta Description</div>
+                    <div className="search-bar-box">
+                        <textarea
+                            className="w-full"
+                            rows="2"
+                            value={metaDescription || ""}
+                            onChange={(e) => { setMetaDescription(e.target.value) }}
                         ></textarea>
                     </div>
                 </div>
@@ -80,7 +107,7 @@ const createIngredient = () => {
                         <input
                             id="featured-image-file"
                             type='file'
-                            style={{display: "none"}}
+                            style={{ display: "none" }}
                             onChange={(e) => {
                                 setFeaturedImage(e.target.files[0]);
                             }}
@@ -92,13 +119,13 @@ const createIngredient = () => {
                     setDetails={setDetails}
                 />
             </div>
-            <div className="callback-btn mt-4 bg-white sticky py-3 border-t border-ccc border-solid" style={{bottom: 0}}>
+            <div className="callback-btn mt-4 bg-white sticky py-3 border-t border-ccc border-solid" style={{ bottom: 0 }}>
                 <div className="grid grid-cols-2 gap-3">
                     <div className="col-span-1">
                         <button className="my-out-line-btn w-full">Cancel</button>
                     </div>
                     <div className="col-span-1">
-                        <button onClick={() => {handleCreate()}} className="my-btn-pr w-full">Add new ingredient</button>
+                        <button onClick={() => { handleCreate() }} className="my-btn-pr w-full">Add new ingredient</button>
                     </div>
 
                 </div>

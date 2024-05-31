@@ -10,6 +10,8 @@ const editIngredient = ({ id }) => {
 
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
+    const [metaTitle, setMetaTitle] = useState("");
+    const [metaDescription, setMetaDescription] = useState("");
     const [content, setContent] = useState("");
     const [featuredImage, setFeaturedImage] = useState('');
     const [featuredImage2, setFeaturedImage2] = useState('')
@@ -85,7 +87,7 @@ const editIngredient = ({ id }) => {
                         />
                     </div>
                 </div>
-                <div className="">
+                <div className="mb-3">
                     <div className="mb-1">Description</div>
                     <div className="search-bar-box">
                         <textarea
@@ -93,6 +95,31 @@ const editIngredient = ({ id }) => {
                             rows="2"
                             value={description || ""}
                             onChange={(e) => {setDescription(e.target.value)}}
+                        ></textarea>
+                    </div>
+                </div>
+                <div className="mb-3">
+                    <div className="mb-1">Meta Title</div>
+                    <div className="search-bar-box">
+                        <input
+                            name="Meta title"
+                            id=""
+                            className="w-full"
+                            type="text"
+                            placeholder="Enter meta title"
+                            value={metaTitle || ""}
+                            onChange={(e) => { setMetaTitle(e.target.value) }}
+                        />
+                    </div>
+                </div>
+                <div>
+                    <div className="mb-1">Meta Description</div>
+                    <div className="search-bar-box">
+                        <textarea
+                            className="w-full"
+                            rows="2"
+                            value={metaDescription || ""}
+                            onChange={(e) => { setMetaDescription(e.target.value) }}
                         ></textarea>
                     </div>
                 </div>
