@@ -202,7 +202,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                         </div>
                         {/*menu*/}
                         <div className="catalog w-full my-3">
-                            <div className="list dark:!border-999">
+                            <div className="list border border-ccc border-solid dark:border-999">
                                 <div className="list-title heading_4 mb-3 cursor-text-wrp">In this post</div>
                                 <div className="all-list">
                                     {/* table of content */}
