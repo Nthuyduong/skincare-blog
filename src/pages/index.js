@@ -341,8 +341,8 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                 <div className=" heading_3 animate slideInUp md:mb-4 mb-3">
                                     Empowered Understanding
                                 </div>
-                                <div className="heading_5 mr-auto">
-                                    “Knowing a product's ingredients lets you use it more effectively and maximize its benefits.”
+                                <div className="body_text mr-auto">
+                                    Knowing a product's ingredients lets you use it more effectively and maximize its benefits.
                                 </div>
                             </div>
 
@@ -435,7 +435,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                 </div>
                 <div className="px-3 my-0 mx-auto m-w pt-4 sm:pt-9">
                     <div className="subscribe-section">
-                        <div className="bg-primaryvariant1 p-2 sm:p-5">
+                        <div className="bg-primaryvariant1 p-4 sm:p-5">
                             <div className="flex">
                                 <div className="hidden md:block">
                                     <img className="w-full" src="./img/home/subscribe.png" alt="smile" loading="lazy" />
