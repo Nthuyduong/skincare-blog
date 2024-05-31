@@ -76,7 +76,7 @@ const IngredientDetail = ({ ingredientProps , id , isCrs }) => {
                                         ingredient.details.map((item, index) => {
                                             return (
                                                 <div 
-                                                    className={`my-collapse dark:border-b dark:border-ccc`}
+                                                    className={`my-collapse border-b dark:border-999 border-ccc border-solid`}
                                                     key={index}
                                                 >
                                                     <div className="mb-1 question-container flex">
