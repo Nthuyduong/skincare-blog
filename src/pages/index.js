@@ -433,7 +433,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                         </div>
                     </div>
                 </div>
-                {/* <div className="px-3 my-0 mx-auto m-w pt-4 sm:pt-9">
+                <div className="px-3 my-0 mx-auto m-w pt-4 sm:pt-9">
                     <div className="subscribe-section">
                         <div className="bg-primaryvariant1 p-2 sm:p-5">
                             <div className="flex">
@@ -466,7 +466,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                             </div>
                         </div>
                     </div>
-                </div> */}
+                </div>
             </div >
         </>
     )

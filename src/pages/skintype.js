@@ -62,7 +62,7 @@ const Skintype = () => {
     ];
 
     const faqElements = faqData.map((faq, index) => (
-        <div key={index} className={`my-collapse dark:border-b dark:border-ccc`}>
+        <div key={index} className={`my-collapse border-b dark:border-999 border-ccc border-solid`}>
             <div className="mb-1 question-container flex">
                 <div className="question mr-auto medium_text">
                     {faq.question}
@@ -113,7 +113,7 @@ const Skintype = () => {
                 </div>
             </div>
             <div className="m-w px-2 mx-auto my-0">
-                <div className="mt-5 skin-bar dark:border-ccc pb-3">
+                <div className="mt-5 skin-bar dark:border-999 border-ccc border-b border-solid pb-3">
                     <div className="flex">
                         <div className="mr-auto">Scroll to explore</div>
                         <div className="">

@@ -123,13 +123,13 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                 </div>
                 <div className="test-review-page w-full">
                     {/*website banner*/}
-                    <div className="md:block hidden review-banner w-full">
+                    <div className="md:block hidden review-banner bg-primary w-full">
                         <div className="relative">
                             <div className="banner-left dark:text-black m-w mx-auto px-3">
                                 <div className="grid grid-cols-12">
                                     <div className="col-span-5">
                                         {/*breadcrumb*/}
-                                        <div className="mb-3 my-breadcrumb">
+                                        <div className="md:mb-5 mb-3 my-breadcrumb">
                                             <ul className="flex">
                                                 <li><a href="#">Home</a></li>
                                                 {blog?.categories?.[0]?.parent && (
@@ -147,11 +147,11 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                             </ul>
                                         </div>
                                         <div className="heading_3 mb-3 cursor-text-wrp">{blog?.title}</div>
-                                        <div className="mb-4 cursor-text-wrp">{blog?.excerpt}</div>
+                                        <div className="md:mb-5 mb-4 cursor-text-wrp">{blog?.excerpt}</div>
                                         <div className="small_text mb-1 cursor-text-wrp">Writen by: {blog?.author}</div>
                                         <div className="small_text cursor-text-wrp">About {blog?.estimate_time} minutes to read</div>
 
-                                        <div className="medium_text mt-4">Is this article helpful?</div>
+                                        {/* <div className="medium_text mt-4">Is this article helpful?</div> */}
                                     </div>
                                 </div>
                             </div>

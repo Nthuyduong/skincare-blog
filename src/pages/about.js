@@ -237,7 +237,7 @@ const About = () => {
                 {/*    </div>*/}
                 {/*</div>*/}
                 <div className="subscribe-section">
-                    <div className="bg-primary p-3 md:p-5">
+                    <div className="bg-primaryvariant1 p-3 md:p-5">
                         <div className="flex">
                             <div className="hidden md:block">
                                 <img className="w-full" src="./img/home/subscribe.png" alt="smile" loading="lazy" />
