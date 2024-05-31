@@ -28,6 +28,7 @@ export const useIngredient = () => {
         formData.append('name', data.name);
         formData.append('description', data.description);
         formData.append('content', data.content);
+        formData.append('slug', data.slug);
         formData.append('meta_title', data.meta_title);
         formData.append('meta_description', data.meta_description);
         formData.append('status', 0);
@@ -57,6 +58,7 @@ export const useIngredient = () => {
         formData.append('content', data.content);
         formData.append('status', 0);
         formData.append('meta_title', data.meta_title);
+        formData.append('slug', data.slug);
         formData.append('meta_description', data.meta_description);
         if (data.featured_img){
             formData.append('featured_img', data.featured_img);

@@ -10,6 +10,7 @@ const editIngredient = ({ id }) => {
 
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
+    const [slug, setSlug] = useState("");
     const [metaTitle, setMetaTitle] = useState("");
     const [metaDescription, setMetaDescription] = useState("");
     const [content, setContent] = useState("");
@@ -25,6 +26,9 @@ const editIngredient = ({ id }) => {
         if (id) {
             setName(ingredient?.name);
             setDescription(ingredient?.description);
+            setSlug(ingredient?.slug);
+            setMetaDescription(ingredient?.metadescription);
+            setMetaTitle(ingredient?.metatitle);
             setContent(ingredient?.content);
             setDetails(ingredient?.details ?? []);
         } else {
@@ -60,6 +64,9 @@ const editIngredient = ({ id }) => {
             id: id,
             name: name,
             description: description,
+            metaitle: metaTitle,
+            metadescription: metaDescription,
+            description: description,
             content: content,
             featured_img: featuredImage,
             featured_img2: featuredImage2,
@@ -84,6 +91,20 @@ const editIngredient = ({ id }) => {
                             placeholder="Enter name"
                             value={name || ""}
                             onChange={(e) => {setName(e.target.value)}}
+                        />
+                    </div>
+                </div>
+                <div className="mb-3">
+                    <div className="mb-1">Slug</div>
+                    <div className="search-bar-box">
+                        <input
+                            name="Slug"
+                            id=""
+                            className="w-full"
+                            type="text"
+                            placeholder="Enter slug"
+                            value={metaTitle || ""}
+                            onChange={(e) => { setSlug(e.target.value) }}
                         />
                     </div>
                 </div>
