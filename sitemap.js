@@ -56,7 +56,7 @@ const createCategoryJson=(category) => {
 
 const createIngredientJson=(ingredient) => {
     return {
-        url: `https://radiance-aura.blog/ingredients/${ingredient.slug}`,
+        url: `https://radiance-aura.blog/ingredient/${ingredient.slug}`,
         lastModified: new Date(ingredient.updated_at), // Replace 'updated_at' with the actual field name containing the last modified date for the post
     }
 }
