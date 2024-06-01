@@ -11,6 +11,7 @@ const Categories = ({ categoryProps = [], subCategoriesProps = [], isCsr, slug }
 
     const [category, setCategories] = useState(categoryProps);
     const [subCategories, setSubCategories] = useState(subCategoriesProps);
+    console.log(subCategories);
 
     useEffect(() => {
         if (isCsr) {
@@ -90,7 +91,7 @@ const Categories = ({ categoryProps = [], subCategoriesProps = [], isCsr, slug }
                                 {/*<img className="w-full" src="/img/destination/des2.jpg" alt="smile" loading="lazy"/>*/}
                                 <div className="hover-img">
                                     <div className="img-inner">
-                                        <Link href={'/sub-des/' + subCategory.slug}>
+                                        <Link href={`/categories/${subCategory?.parent?.slug ?? 'sub-des'}/${subCategory.slug}`}>
                                             <img
                                                 className="w-full"
                                                 src={getImagePreview(subCategory.featured_img)}
@@ -105,7 +106,7 @@ const Categories = ({ categoryProps = [], subCategoriesProps = [], isCsr, slug }
                                 <div className="destination-cate-content">
                                     <div className="flex items-center border-solid border-b border-ccc dark:border-999">
                                         <div className="heading_6 my-1 mr-auto">
-                                            <Link href={'/sub-des/' + subCategory.slug}>{subCategory.name}</Link>
+                                            <Link href={`/categories/${subCategory?.parent?.slug ?? 'sub-des'}/${subCategory.slug}`}>{subCategory.name}</Link>
                                         </div>
                                         <span>
                                             <img className="icon-ssm w-full hidden dark:block" src="/img/icon/arrow-up-right.svg" alt="smile" loading="lazy"/>

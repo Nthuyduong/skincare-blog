@@ -43,7 +43,7 @@ const createJson=(post) => {
 const createCategoryJson=(category) => {
     if (category.parent_id) {
         return {
-            url: `https://radiance-aura.blog/sub-des/${category.slug}`,
+            url: `https://radiance-aura.blog/categories/${category?.parent?.slug}/${category.slug}`,
             lastModified: new Date(category.updated_at), // Replace 'updated_at' with the actual field name containing the last modified date for the post
         }
     } else {
@@ -54,9 +54,16 @@ const createCategoryJson=(category) => {
     }
 }
 
+const createIngredientJson=(ingredient) => {
+    return {
+        url: `https://radiance-aura.blog/ingredients/${ingredient.slug}`,
+        lastModified: new Date(ingredient.updated_at), // Replace 'updated_at' with the actual field name containing the last modified date for the post
+    }
+}
+
 async function getAllPostSlugs() {
     try {
-        const response = await axios.get('https://app.radiance-aura.blog/api/blogs?limit=100');
+        const response = await axios.get('https://api.radiance-aura.blog/api/blogs?limit=100');
         const posts = response.data.data.results;
         return posts.map((post) => createJson(post));
     } catch (error) {
@@ -67,7 +74,7 @@ async function getAllPostSlugs() {
 
 async function getCategories() {
     try {
-        const response = await axios.get('https://app.radiance-aura.blog/api/categories?limit=100');
+        const response = await axios.get('https://api.radiance-aura.blog/api/categories?limit=100');
         const categories = response.data.data.results;
         return categories.map((category) => createCategoryJson(category));
     } catch (error) {
@@ -77,7 +84,18 @@ async function getCategories() {
 
 }
 
-Promise.all([getAllPostSlugs(), getCategories()]).then(([posts, categories]) => {
+async function getIngredients() {
+    try {
+        const response = await axios.get('https://api.radiance-aura.blog/api/ingredients?limit=100');
+        const ingredients = response.data.data.results;
+        return ingredients.map((ingredient) => createIngredientJson(ingredient));
+    } catch (error) {
+        console.error('Error fetching ingredients:', error.message);
+        return [];
+    }
+}
+
+Promise.all([getAllPostSlugs(), getCategories(), getIngredients()]).then(([posts, categories, ingredients]) => {
     const routers = getFoldersRecursive(targetPath);
     const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -111,6 +129,12 @@ Promise.all([getAllPostSlugs(), getCategories()]).then(([posts, categories]) => 
         <priority>0.8</priority>
     </url>
     `).join('\n    ')}
+    ${ingredients.map((ingredient) => `<url>
+        <loc>${ingredient.url}</loc>
+        <lastmod>${ingredient.lastModified.toISOString()}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>`).join('\n    ')}
     ${routers.map((router) => `<url>
         <loc>https://radiance-aura.blog/${router}</loc>
         <lastmod>${new Date().toISOString()}</lastmod>

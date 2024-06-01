@@ -72,13 +72,11 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                             {/* banner text */}
                             <div>
                                 <div className="flex gap-1 sm:gap-5 items-center pt-6 mb-6 justify-center">
-
                                     <div className="heading_2 dark:text-textcolor">The</div>
                                     <div className="h-px bg-666 w-[20%]"></div>
                                     <div className="heading_2 text-center dark:text-textcolor">Most Useful</div>
                                     <div className="h-px bg-666 w-[20%]"></div>
                                     <div className="heading_2 dark:text-textcolor">Articles</div>
-
                                 </div>
                                 {/* articles */}
                                 <div className="flex gap-2 sm:gap-6">
@@ -93,7 +91,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                                 />
                                             </Link>
 
-                                            <div className="mr-auto mb-1 body_text text-textcolor mt-2">{tags.categories.map((category) => { return <Link href={'/sub-des/' + category.slug} className="">{category.name}</Link> })}</div>
+                                            <div className="mr-auto mb-1 body_text text-textcolor mt-2">{tags.categories.map((category) => { return <Link href={`/categories/${category?.parent?.slug ?? 'sub-des'}/${category.slug}`} className="">{category.name}</Link> })}</div>
                                             <Link href={'/article/' + tags.slug} className="">
                                                 <div className="heading_6 text-textcolor">
                                                     {tags?.title}
@@ -209,7 +207,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                 <div className="col-span-12 sm:col-span-3 home-category-card">
                                     <div className="home-category-card-title-wrp px-1 pt-1 sm:px-3 sm:pt-3">
                                         <div className="heading_6 !text-textcolor">01/</div>
-                                        <Link href={'/sub-des/usage_guide'} className="">
+                                        <Link href={'/categories/guides-and-tutorial/usage-guide'} className="">
                                             <div className="heading_5 !text-textcolor sm:mt-1 mb-2 sm:mb-4">Usage Guide</div>
                                         </Link>
                                         <div className="sm:hidden body_text !text-textcolor cursor-text-wrp">
@@ -220,7 +218,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                         <div className="hidden sm:block home-category-card-des body_text !text-textcolor mb-5 cursor-text-wrp pt-1 sm:px-3">
                                             Unlock the full potential of your skincare products with comprehensive usage guides and expert tips
                                         </div>
-                                        <Link href={'/sub-des/usage_guide'} className="sm:absolute w-full h-full bottom-[0]">
+                                        <Link href={'/categories/guides-and-tutorial/usage-guide'} className="sm:absolute w-full h-full bottom-[0]">
                                             <img
                                                 className="home-category-card-img"
                                                 src="./img/home/usage guide.png"
@@ -232,7 +230,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                 <div className="col-span-12 sm:col-span-3 home-category-card relative home-category-card-active">
                                     <div className="home-category-card-title-wrp px-1 pt-1 sm:px-3 sm:pt-3">
                                         <div className="heading_6 !text-textcolor">02/</div>
-                                        <Link href={'/sub-des/nourish_beauty'} className="">
+                                        <Link href={'/categories/guides-and-tutorial/nourish-beauty'} className="">
                                             <div className="heading_5 !text-textcolor sm:mt-1 mb-2 sm:mb-4">Nourish Beauty</div>
                                         </Link>
                                         <div className="sm:hidden body_text !text-textcolor mt-1 cursor-text-wrp">
@@ -243,7 +241,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                         <div className="hidden sm:block home-category-card-des body_text !text-textcolor mt-1 mb-5 cursor-text-wrp pt-1 sm:px-3">
                                             Explore a wealth of knowledge for enhancing your skin's radiance and well-being from the inside out
                                         </div>
-                                        <Link href={'/sub-des/nourish_beauty'} className="absolute w-full h-full bottom-[0]">
+                                        <Link href={'/categories/guides-and-tutorial/nourish-beauty'} className="absolute w-full h-full bottom-[0]">
                                             <img
                                                 className="home-category-card-img"
                                                 src="./img/home/nourish.png"
@@ -255,7 +253,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                 <div className="col-span-12 sm:col-span-3 home-category-card relative">
                                     <div className="home-category-card-title-wrp px-1 pt-1 sm:px-3 sm:pt-3">
                                         <div className="heading_6 !text-textcolor">03/</div>
-                                        <Link href={'/sub-des/mental_health'} className="">
+                                        <Link href={'/categories/selfcare-nerd/mental-health'} className="">
                                             <div className="heading_5 !text-textcolor sm:mt-1 mb-2 sm:mb-4">Mental Health</div>
                                         </Link>
                                         <div className="sm:hidden body_text !text-textcolor cursor-text-wrp">
@@ -266,7 +264,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                         <div className="hidden sm:block home-category-card-des body_text !text-textcolor mt-1 mb-5 px-1 sm:px-3 cursor-text-wrp">
                                             Explore strategies to boost mental well-being, from managing stress to enhancing resilience.
                                         </div>
-                                        <Link href={'/sub-des/mental_health'} className="absolute w-full h-full bottom-[0]">
+                                        <Link href={'/categories/selfcare-nerd/mental-health'} className="absolute w-full h-full bottom-[0]">
                                             <img
                                                 className="absolute home-category-card-img"
                                                 src="./img/home/mental health.png"
@@ -278,7 +276,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                 <div className="col-span-12 sm:col-span-3 home-category-card relative">
                                     <div className="home-category-card-title-wrp px-1 pt-1 sm:px-3 sm:pt-3">
                                         <div className="heading_6 !text-textcolor">04/</div>
-                                        <Link href={'/sub-des/Hair_care'} className="body_text nav-link">
+                                        <Link href={'/categories/selfcare-nerd/hair-care'} className="body_text nav-link">
                                             <div className="heading_5 !text-textcolor mt-1 mb-2 sm:mb-4">Hair Care</div>
                                         </Link>
                                         <div className="sm:hidden body_text !text-textcolor cursor-text-wrp">
@@ -289,7 +287,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                         <div className="hidden sm:block home-category-card-des body_text !text-textcolor mt-1 mb-5 px-1 sm:px-3 cursor-text-wrp">
                                             Discover essential tips and solutions for healthier hair, tackling issues like dryness, breakage, and more.
                                         </div>
-                                        <Link href={'/sub-des/Hair_care'} className="absolute w-full h-full bottom-[0]">
+                                        <Link href={'/categories/selfcare-nerd/hair-care'} className="absolute w-full h-full bottom-[0]">
                                             <img
                                                 className="home-category-card-img"
                                                 src="./img/home/hair.png"

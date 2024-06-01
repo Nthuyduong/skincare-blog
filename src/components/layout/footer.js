@@ -77,13 +77,13 @@ const Footer = () => {
                                     <div className="text-textcolor mb-3">INTEREST</div>
                                     <ul>
                                         <li>
-                                            <Link href={'/sub-des/sun_care'} className="text-textcolor nav-link">Sun care</Link>
+                                            <Link href={'/categories/guides-and-tutorial/sun-care'} className="text-textcolor nav-link">Sun care</Link>
                                         </li>
                                         <li>
-                                            <Link href={'/sub-des/skincare_routine'} className="text-textcolor nav-link">Skincare Routine</Link>
+                                            <Link href={'/categories/guides-and-tutorial/skincare-routine'} className="text-textcolor nav-link">Skincare Routine</Link>
                                         </li>
                                         <li>
-                                            <Link href={'/sub-des/nourish_beauty'} className="text-textcolor nav-link">Nourish beauty</Link>
+                                            <Link href={'/categories/guides-and-tutorial/nourish-beauty'} className="text-textcolor nav-link">Nourish beauty</Link>
                                         </li>
                                         <li>
                                             <Link href={ROUTER.INGREDIENT} className="text-textcolor nav-link">Skincare Ingredients</Link>

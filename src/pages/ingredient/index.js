@@ -108,7 +108,7 @@ const Ingredient = ({ ingredientsProps = [], isCrs }) => {
                                 {item.value.map((value, index) => (
                                     <div className="col-span-3" key={index}>
                                         <div>
-                                            <Link href={`/ingredient/${value.id}`}>{value.name}</Link>
+                                            <Link href={`/ingredient/${value.slug}`}>{value.name}</Link>
                                         </div>
                                     </div>
                                 ))}

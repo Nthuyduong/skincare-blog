@@ -28,3 +28,7 @@ export const createIngredientApi = async (data) => {
 export const getAllWithoutPagination = async () => {
     return await getApi("/ingredients/getAll");
 }
+
+export const getIngredientBySlugApi = async (slug) => {
+    return await getApi(`/ingredients/slug/${slug}`);
+}

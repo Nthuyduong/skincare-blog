@@ -255,10 +255,10 @@ const Header = React.memo(() => {
                                     </div>
                                 </div>
                                 <div className={`content-container`}>
-                                    <div><Link href={'/sub-des/skincare-routine'}>Skincare routine</Link></div>
-                                    <div><Link href={'/sub-des/usage-guide'}>Usage guide</Link></div>
-                                    <div><Link href={'/sub-des/nourish-beauty'}>Nourish beauty</Link></div>
-                                    <div><Link href={'/sub-des/sun-care'}>Sun care</Link></div>
+                                    <div><Link href={'/categories/guides-and-tutorial/skincare-routine'}>Skincare routine</Link></div>
+                                    <div><Link href={'/categories/guides-and-tutorial/usage-guide'}>Usage guide</Link></div>
+                                    <div><Link href={'/categories/guides-and-tutorial/nourish-beauty'}>Nourish beauty</Link></div>
+                                    <div><Link href={'/categories/guides-and-tutorial/sun-care'}>Sun care</Link></div>
                                 </div>
                             </div>
                         </div>
@@ -279,10 +279,10 @@ const Header = React.memo(() => {
                                     </div>
                                 </div>
                                 <div className={`content-container`}>
-                                    <div><Link href={'/sub-des/skin-concern'}>Skin concerns</Link></div>
-                                    <div><Link href={'/sub-des/tips-advices'}>Tips & Advices</Link></div>
-                                    <div><Link href={'/sub-des/hair-care'}>Hair care</Link></div>
-                                    <div><Link href={'/sub-des/mental-health'}>Mental health</Link></div>
+                                    <div><Link href={'/categories/selfcare-nerd/skin-concern'}>Skin concerns</Link></div>
+                                    <div><Link href={'/categories/selfcare-nerd/tips-advices'}>Tips & Advices</Link></div>
+                                    <div><Link href={'/categories/selfcare-nerd/hair-care'}>Hair care</Link></div>
+                                    <div><Link href={'/categories/selfcare-nerd/mental-health'}>Mental health</Link></div>
                                 </div>
                             </div>
                         </div>
@@ -547,16 +547,16 @@ const Header = React.memo(() => {
                                                 </div>
                                                 <div className="navdrop-inner absolute py-1 border-x border-solid border-b border-ccc dark:border-999 dark:!bg-black">
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
-                                                        <Link href={'/sub-des/skincare-routine'} className="body_text dark:text-white nav-link">Skincare routine</Link>
+                                                        <Link href={'/categories/guides-and-tutorial/skincare-routine'} className="body_text dark:text-white nav-link">Skincare routine</Link>
                                                     </div>
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
-                                                        <Link href={'/sub-des/usage-guide'} className="body_text dark:text-white nav-link">Usage guide</Link>
+                                                        <Link href={'/categories/guides-and-tutorial/usage-guide'} className="body_text dark:text-white nav-link">Usage guide</Link>
                                                     </div>
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
-                                                        <Link href={'/sub-des/nourish-beauty'} className="body_text dark:text-white nav-link">Nourish beauty</Link>
+                                                        <Link href={'/categories/guides-and-tutorial/nourish-beauty'} className="body_text dark:text-white nav-link">Nourish beauty</Link>
                                                     </div>
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700">
-                                                        <Link href={'/sub-des/sun-care'} className="body_text dark:text-white nav-link">Sun care</Link>
+                                                        <Link href={'/categories/guides-and-tutorial/sun-care'} className="body_text dark:text-white nav-link">Sun care</Link>
                                                     </div>
                                                 </div>
                                             </div>
@@ -576,16 +576,16 @@ const Header = React.memo(() => {
                                                 </div>
                                                 <div className="navdrop-inner absolute left-30 w-48 py-1 border-solid border-x border-b border-ccc dark:border-999 dark:!bg-black">
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700 dark:!text-white">
-                                                        <Link href={'/sub-des/skin-concern'} className="body_text nav-link">Skin concerns</Link>
+                                                        <Link href={'/categories/selfcare-nerd/skin-concern'} className="body_text nav-link">Skin concerns</Link>
                                                     </div>
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700 dark:!text-white">
-                                                        <Link href={'/sub-des/tips-advices'} className="body_text nav-link">Tips & advices</Link>
+                                                        <Link href={'/categories/selfcare-nerd/tips-advices'} className="body_text nav-link">Tips & advices</Link>
                                                     </div>
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700 dark:!text-white">
-                                                        <Link href={'/sub-des/hair-care'} className="body_text nav-link">Hair care</Link>
+                                                        <Link href={'/categories/selfcare-nerd/hair-care'} className="body_text nav-link">Hair care</Link>
                                                     </div>
                                                     <div className="sub-menu block px-4 py-2 text-sm text-gray-700 dark:!text-white">
-                                                        <Link href={'/sub-des/mental-health'} className="body_text nav-link">Mental health</Link>
+                                                        <Link href={'/categories/selfcare-nerd/mental-health'} className="body_text nav-link">Mental health</Link>
                                                     </div>
                                                 </div>
                                             </div>
