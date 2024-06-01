@@ -3,14 +3,17 @@ import { useIngredient } from "@hooks/useIngredient";
 import { fetchIngredientsApi } from "@services/ingredients";
 import Dragable from "@components/common/dragable/dragable";
 import { BASE_URL } from "@utils/apiUtils";
+import { useRouter } from "next/router";
 
 const createIngredient = () => {
+    const router = useRouter();
     const { createIngredient, } = useIngredient();
 
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [metaTitle, setMetaTitle] = useState("");
     const [metaDescription, setMetaDescription] = useState("");
+    const [slug, setSlug] = useState("");
     const [content, setContent] = useState("");
     const [featuredImage, setFeaturedImage] = useState('')
     const [details, setDetails] = useState([]);
@@ -34,7 +37,11 @@ const createIngredient = () => {
             description: description,
             featured_img: featuredImage,
             details: details,
+            meta_title: metaTitle,
+            meta_description: metaDescription,
+            slug: slug,
         })
+        router.push('/admin/ingredient')
     }
 
     return (
@@ -54,6 +61,20 @@ const createIngredient = () => {
                             placeholder="Enter name"
                             value={name || ""}
                             onChange={(e) => { setName(e.target.value) }}
+                        />
+                    </div>
+                </div>
+                <div className="mb-3">
+                    <div className="mb-1">Slug</div>
+                    <div className="search-bar-box">
+                        <input
+                            name="Slug"
+                            id="slug"
+                            className="w-full"
+                            type="text"
+                            placeholder="Enter slug"
+                            value={slug || ""}
+                            onChange={(e) => { setSlug(e.target.value) }}
                         />
                     </div>
                 </div>

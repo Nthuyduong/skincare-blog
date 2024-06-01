@@ -27,14 +27,17 @@ const editIngredient = ({ id }) => {
             setName(ingredient?.name);
             setDescription(ingredient?.description);
             setSlug(ingredient?.slug);
-            setMetaDescription(ingredient?.metadescription);
-            setMetaTitle(ingredient?.metatitle);
+            setMetaDescription(ingredient?.meta_description);
+            setMetaTitle(ingredient?.meta_title);
             setContent(ingredient?.content);
             setDetails(ingredient?.details ?? []);
         } else {
             setName("");
             setDescription("");
             setContent("");
+            setSlug("");
+            setMetaTitle("");
+            setMetaDescription("");
         }
 
     }, [ingredient]);
@@ -64,8 +67,9 @@ const editIngredient = ({ id }) => {
             id: id,
             name: name,
             description: description,
-            metaitle: metaTitle,
-            metadescription: metaDescription,
+            meta_title: metaTitle,
+            meta_description: metaDescription,
+            slug: slug,
             description: description,
             content: content,
             featured_img: featuredImage,
@@ -103,7 +107,7 @@ const editIngredient = ({ id }) => {
                             className="w-full"
                             type="text"
                             placeholder="Enter slug"
-                            value={metaTitle || ""}
+                            value={slug || ""}
                             onChange={(e) => { setSlug(e.target.value) }}
                         />
                     </div>
