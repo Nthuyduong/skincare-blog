@@ -80,4 +80,6 @@ export const MAIL_TYPE = {
     SUBSCRIBER: 1,
     CONTACT: 2,
     NOTIFICATION: 3,
+    PORTFOLIO: 4,
+    REPLY: 5,
 }

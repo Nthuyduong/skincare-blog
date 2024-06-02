@@ -4,6 +4,7 @@ import MailNotication from "../../../components/view/settings/MailNotication";
 import MailContact from "../../../components/view/settings/MailContact";
 import MailReply from "../../../components/view/settings/MailReply";
 import LibraryIcon from "../../../components/common/libraryIcon";
+import MailPortfolio from "../../../components/view/settings/MailPortfolio";
 
 const tabs = [
     {
@@ -21,6 +22,10 @@ const tabs = [
     {
         name: 'reply',
         title : 'Email Reply',
+    },
+    {
+        name: 'portfolio',
+        title : 'Portfolio',
     }
 ]
 
@@ -41,6 +46,7 @@ const Settings = () => {
                 {tab === 'notication' && (<MailNotication/>)}
                 {tab === 'contact' && (<MailContact/>)}
                 {tab === 'reply' && (<MailReply/>)}
+                {tab === 'portfolio' && (<MailPortfolio/>)}
             </div>
             <LibraryIcon
                 mode={'simple'}

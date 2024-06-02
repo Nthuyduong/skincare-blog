@@ -3,7 +3,7 @@ import Editor from '@components/common/editor/editor';
 import { MAIL_TYPE } from "../../../utils/constants";
 import { useSetting } from "@hooks/useSetting";
 
-const MailReply = () => {
+const MailPortfolio = () => {
     const { setting, fetchSetting, updateSetting, testSetting } = useSetting();
 
     const editerRef = useRef(null);
@@ -12,7 +12,7 @@ const MailReply = () => {
     const [content, setContent] = useState('<p>Thank you for contacting us</p>');
 
     useEffect(() => {
-        fetchSetting(MAIL_TYPE.REPLY);
+        fetchSetting(MAIL_TYPE.PORTFOLIO);
     }, []);
 
     useEffect(() => {
@@ -27,7 +27,7 @@ const MailReply = () => {
             const newContent = editerRef.current.getContent();
             setContent(newContent);
             updateSetting(
-                MAIL_TYPE.REPLY,
+                MAIL_TYPE.PORTFOLIO,
                 {
                     title: title,
                     content: newContent
@@ -39,7 +39,7 @@ const MailReply = () => {
         if (!email) {
             return;
         }
-        testSetting(MAIL_TYPE.REPLY, email);
+        testSetting(MAIL_TYPE.PORTFOLIO, email);
     }
 
     return (
@@ -94,4 +94,4 @@ const MailReply = () => {
     )
 }
 
-export default MailReply;
+export default MailPortfolio;
