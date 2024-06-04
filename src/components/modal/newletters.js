@@ -71,7 +71,7 @@ const NewslettersModal = () => {
                 <div>
                     {status != 'success' ? (
                         <>
-                            <div className="mb-3 w-full flex">
+                            <div className="mb-3 w-full">
                                 <input
                                     className="w-full py-1 pr-2 dark:border-999 dark:focus:border-white focus:border-333 pointer-events-auto border-solid border-b border-ccc focus-visible:outline-none"
                                     placeholder="Your name"
@@ -79,7 +79,7 @@ const NewslettersModal = () => {
                                     onKeyDown={(e) => e.key === 'Enter' && handleSubscribe()}
                                 />
                             </div>
-                            <div className="w-full flex">
+                            <div className="w-full flex items-center">
                                 <input
                                     className="relative w-full py-1 pr-2 dark:border-999 dark:focus:border-white focus:border-333 pointer-events-auto border-solid border-b border-ccc focus-visible:outline-none"
                                     placeholder="Email address"
