@@ -2,12 +2,13 @@ import React from "react";
 import { ROUTER } from "../utils/constants";
 import Link from 'next/link';
 import dynamic from "next/dynamic";
+import Scroller from "../components/common/scroller";
 const Slider = dynamic(() => import("@components/common/slider"), { ssr: false });
 
 const About = () => {
     return (
         <div>
-            <div className="md:pb-8 pb-6 pt-6 relative">
+            <div className="md:pb-8 pb-6 pt-6 relative border-b border-solid border-999">
                 <div className="m-w flex justify-center mx-auto gap-6">
                     <div className="hidden sm:block pt-8">
                         <img className="w-full" src="./img/about1.png" alt="smile" loading="lazy" />
@@ -26,22 +27,48 @@ const About = () => {
                     </div>
                 </div>
             </div>
+            {/* NEW banner */}
+            <div className=" md:mb-8 mb-6">
+                <div className="px-2 md:px-0 m-w mx-auto md:py-8 py-6 border-b border-999 border-solid">
+                    <div className="md:grid grid-cols-12 gap-5">
+                        <div className="col-span-5 md:mb-0 mb-5">
+                            <div className="flex-col flex h-full">
+                                <div className="animate slideInUp heading_6 mb-4 cursor-text-wrp">
+                                    ABOUT US
+                                </div>
+                                <div className="animate slideInUp heading_1 cursor-text-wrp h-full md:mb-0 mb-4">
+                                    BE YOU, BE BEAUTIFUL, BE HAPPY.
+                                </div>
+                                <div className="animate slideInUp body_text cursor-text-wrp">
+                                    Welcome to our blog, where we provide valuable tips and information on skincare, hair care, and inner health. We are dedicated to helping you achieve beauty and wellness from the inside out. We genuinely care about your journey and are here to support you in reaching your goals. Together, let's embrace beauty and confidence with love and authenticity, nurturing both your inner and outer self.</div>
+                            </div>
+
+                        </div>
+                        <div className="col-span-2"></div>
+                        <div className="col-span-5">
+                            <img className="w-full" src="./img/aboutnew.png" alt="smile" loading="lazy" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
             {/* <div className="about-banner">
                 <img className="w-full" src="./img/about/banner.png" alt="smile" loading="lazy"/>
             </div> */}
-            <div className="about-blog-page m-w mx-auto my-0">
-                <div className="about-intro">
-                    {/*<div className="intro-decor absolute">*/}
-                    {/*    <img className="w-full" src="./img/about/decor.svg" alt="smile" loading="lazy"/>*/}
-                    {/*</div>*/}
-                    <div className="intro-inner md:grid grid-cols-6 gap-4 ">
+            {/* <div className="about-blog-page m-w mx-auto my-0">
+                <div className="about-intro"> */}
+            {/*<div className="intro-decor absolute">*/}
+            {/*    <img className="w-full" src="./img/about/decor.svg" alt="smile" loading="lazy"/>*/}
+            {/*</div>*/}
+            {/* <div className="intro-inner md:grid grid-cols-6 gap-4 ">
                         <div className=""></div>
                         <div className="md:px-0 px-2 animate slideInUp col-span-4 intro-content heading_5 text-center z-30 cursor-text-wrp">
                             "True beauty originates from a foundation of healthy skin, echoing the purity within. By tending to your skin with care—cleansing, nourishing, and protecting it—you unveil its innate radiance, enriching both inner and outer beauty."
                         </div>
-                    </div>
-                </div>
-                <div className="relative md:mt-8 mt-6 px-2 sm:px-4">
+                    </div> */}
+            {/* </div> */}
+            {/* <div className="relative md:mt-8 mt-6 px-2 sm:px-4">
                     <div className="flex gap-1 sm:gap-4 max-w-[468px] mx-auto relative z-10">
                         <div><img className="w-full pt-4" src="./img/about4.jpg" alt="smile" loading="lazy" /></div>
                         <div><img className="w-full" src="./img/about5.jpg" alt="smile" loading="lazy" /></div>
@@ -53,9 +80,9 @@ const About = () => {
                             <img className="w-full hidden dark:block" src="./img/Skincare Blog2.png" alt="smile" loading="lazy" />
                         </div>
                     </div>
-                </div>
-            </div>
-            <div className="bg-primary">
+                </div> */}
+            {/* </div> */}
+            {/* <div className="">
                 <div className="m-w mx-auto my-0 my-4 py-4 md:my-8 md:py-8 about-me">
                     <div className="md:grid md:grid-cols-12 gap-4">
                         <div className="md:col-span-4 md:mb-0 mb-4 animate slideInUp animate--delay-fast">
@@ -77,10 +104,124 @@ const About = () => {
                         </div>
                     </div>
                 </div>
+            </div> */}
+            <div className="m-w md:px-0 px-2 mx-auto my-0">
+                {/*What we do new*/}
+
+                <div className="md:mb-8 mb-6">
+                    <div className="animate slideInUp heading_3 mb-1 md:mb-4">What We Do</div>
+                    <div className="md:grid grid-cols-12 gap-6 md:flex items-center">
+                        <div className="col-span-3 animate slideInUp md:mb-0 mb-4">
+                            <div className="p-2 border border-solid border-ccc dark:border-999">
+                                <img className="w-full mb-4" src="./img/about/do1.png" alt="smile" loading="lazy" />
+                                <div className="w-full">
+                                    <div className="heading_6 cursor-text-wrp">
+                                        Making my passion
+                                    </div>
+                                    <div className="cursor-text-wrp pt-2">
+                                        Dive into the story of starting this skincare blog, fueled by genuine passion. Share the personal connection to the beauty world and the inspiration behind creating a space for fellow enthusiasts.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-span-3 animate slideInUp md:mb-0 mb-4">
+                            <div className="p-2 border border-solid border-ccc dark:border-999">
+                                <img className="w-full mb-4" src="./img/about/do2.png" alt="smile" loading="lazy" />
+                                <div className="w-full">
+                                    <div className="heading_6 cursor-text-wrp">
+                                        Making my passion
+                                    </div>
+                                    <div className="cursor-text-wrp pt-2">
+                                        Dive into the story of starting this skincare blog, fueled by genuine passion. Share the personal connection to the beauty world and the inspiration behind creating a space for fellow enthusiasts.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-span-3 animate slideInUp md:mb-0 mb-4">
+                            <div className="p-2 border border-solid border-ccc dark:border-999">
+                                <img className="w-full mb-4" src="./img/about/do3.jpg" alt="smile" loading="lazy" />
+                                <div className="w-full">
+                                    <div className="heading_6 cursor-text-wrp">
+                                        Making my passion
+                                    </div>
+                                    <div className="cursor-text-wrp pt-2">
+                                        Dive into the story of starting this skincare blog, fueled by genuine passion. Share the personal connection to the beauty world and the inspiration behind creating a space for fellow enthusiasts.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-span-3 animate slideInUp">
+                            <div className="p-2 border border-solid border-ccc dark:border-999">
+                                <img className="w-full mb-4" src="./img/about/do4.png" alt="smile" loading="lazy" />
+                                <div className="w-full">
+                                    <div className="heading_6 cursor-text-wrp">
+                                        Making my passion
+                                    </div>
+                                    <div className="cursor-text-wrp pt-2">
+                                        Dive into the story of starting this skincare blog, fueled by genuine passion. Share the personal connection to the beauty world and the inspiration behind creating a space for fellow enthusiasts.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="md:mb-8 mb-6 section-full scroll-container text-decor bg-primaryvariant1">
+                <Scroller>
+
+                    <div className="heading_4 cursor-text-wrp mx-4">WELCOME TO OUR BEAUTY BLOG</div>
+                    <div className="heading_4 cursor-text-wrp mx-4">LET'S CONTACT WITH US</div>
+                    <div className="heading_4 cursor-text-wrp mx-4">WELCOME TO OUR BEAUTY BLOG</div>
+                    <div className="heading_4 cursor-text-wrp mx-4">LET'S CONTACT WITH US</div>
+                    <div className="heading_4 cursor-text-wrp mx-4">WELCOME TO OUR BEAUTY BLOG</div>
+                    <div className="heading_4 cursor-text-wrp mx-4">LET'S CONTACT WITH US</div>
+                    
+                </Scroller>
             </div>
             <div className="m-w px-2 mx-auto my-0">
-                {/*What we do new*/}
-                <div className="">
+                <div className="md:mb-8 mb-6">
+                    <div className="md:grid grid-cols-12 gap-5">
+                        <div className="col-span-5 animate slideInUp">
+                            <img className="w-full mb-4" src="./img/about/mission.png" alt="smile" loading="lazy" />
+                        </div>
+                        <div className="col-span-7 md:pl-5 pl-0 md:flex items-center">
+                            <div>
+                                <div className="heading_3 cursor-text-wrp animate slideInUp">
+                                    Our Mission
+                                </div>
+                                <div className="cursor-text-wrp pt-2 animate slideInUp">
+                                    At Radiance Aura, we're here to guide you through your skincare journey with genuine support and valuable insights.
+                                    Our goal is to help you achieve radiant, resilient skin that's uniquely yours. With authenticity and care,
+                                    we celebrate your natural beauty and inspire confidence every step of the way. Join us on this transformative
+                                    journey toward embracing your radiance.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* <div className="subscribe-section">
+                    <div className="bg-primaryvariant1 p-3 md:p-5">
+                        <div className="flex">
+                            <div className="hidden md:block">
+                                <img className="w-full" src="./img/home/subscribe.png" alt="smile" loading="lazy" />
+                            </div>
+                            <div className="md:ml-5 text-black flex items-center md:pr-8">
+                                <div>
+                                    <div className="mb-3 heading_4 md:heading_2 animate slideInUp">Subscribe for newsletters</div>
+                                    <div className="animate slideInUp animate--delay-medium md:body_text small_text">
+                                        Receive the latest updates straight to your inbox. Get stories, exclusive offers, and promotions when you sign up.
+                                    </div>
+                                    <div className="mt-4 animate slideInUp animate--delay-slow">
+                                        <button className="px-4 my-btn-pr dark:border-white" type="submit">Subscribe</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> */}
+            </div>
+
+            {/* <div className="">
                     <div className="md:grid md:grid-cols-12 gap-5">
                         <div className="md:col-span-4">
                             <div className="px-2 md:pr-5 py-4 pr-4 dark:border-333 border mb-4 border-solid border-999 md:border-none">
@@ -189,24 +330,24 @@ const About = () => {
                             </Slider>
                         </div>
                     </div>
-                </div>
-                {/*<div className="about-blog py-7 border-solid border-b border-ccc">*/}
-                {/*    <div className="grid grid-cols-12 about-blog-inner flex gap-4">*/}
-                {/*        <div className="col-span-12 md:col-span-6 about-content m-auto md:p-5">*/}
-                {/*            <div className="heading_3 mb-2">About blog</div>*/}
-                {/*            <div className="">*/}
-                {/*                Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat*/}
-                {/*                quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut*/}
-                {/*                sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Diam nec ut*/}
-                {/*                sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.*/}
-                {/*            </div>*/}
-                {/*        </div>*/}
-                {/*        <div className="col-span-12 md:col-span-6 img-abt-blog">*/}
-                {/*            <img className="w-100" src="./img/about/abt-blog.png" alt="smile" loading="lazy"/>*/}
-                {/*        </div>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-                <div className="blog-mission pt-6 sm:pt-8 pb-4 sm:pb-9">
+                </div> */}
+            {/*<div className="about-blog py-7 border-solid border-b border-ccc">*/}
+            {/*    <div className="grid grid-cols-12 about-blog-inner flex gap-4">*/}
+            {/*        <div className="col-span-12 md:col-span-6 about-content m-auto md:p-5">*/}
+            {/*            <div className="heading_3 mb-2">About blog</div>*/}
+            {/*            <div className="">*/}
+            {/*                Tempus, tristique morbi scelerisque sed. Diam nec ut sed est sit in tortor. Blandit consequat*/}
+            {/*                quisque vitae ornare diam netus tellus. Tempus, tristique morbi scelerisque sed. Diam nec ut*/}
+            {/*                sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus. Diam nec ut*/}
+            {/*                sed est sit in tortor. Blandit consequat quisque vitae ornare diam netus tellus.*/}
+            {/*            </div>*/}
+            {/*        </div>*/}
+            {/*        <div className="col-span-12 md:col-span-6 img-abt-blog">*/}
+            {/*            <img className="w-100" src="./img/about/abt-blog.png" alt="smile" loading="lazy"/>*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+            {/* <div className="blog-mission pt-6 sm:pt-8 pb-4 sm:pb-9">
                     <div className="flex flex-col-reverse sm:grid grid-cols-12 gap-4 mission-inner flex">
                         <div className="col-span-12 md:col-span-6 mission-content m-auto md:py-5 md:mr-5 h-full flex items-center">
                             <div className="text-black dark:!text-white">
@@ -226,38 +367,18 @@ const About = () => {
                         {/* <div className="col-span-12 md:col-span-3 img-mission">
                             <img className="w-100" src="./img/about/mission2.jpg" alt="smile" loading="lazy" />
                         </div> */}
-                    </div>
-                </div>
-                {/*<div className="contact-me p-5 md:p-8">*/}
-                {/*    <div className="contact-me-inner p-5 md:p-7 bg-white dark:text-black">*/}
-                {/*        <div className="heading_3 mb-3 md:mb-4">Work With Me</div>*/}
-                {/*        <div className="mb-3">Are you interested in collaborating? Contact me for more information or hire me for a UI freelance,*/}
-                {/*            please visit my portfolio <a>https://nthuyduong.github.io.</a></div>*/}
-                {/*        <div className="medium_text">Get in touch: Nthduong898@gmail.com</div>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-                <div className="subscribe-section">
-                    <div className="bg-primaryvariant1 p-3 md:p-5">
-                        <div className="flex">
-                            <div className="hidden md:block">
-                                <img className="w-full" src="./img/home/subscribe.png" alt="smile" loading="lazy" />
-                            </div>
-                            <div className="md:ml-5 text-black flex items-center md:pr-8">
-                                <div>
-                                    <div className="mb-3 heading_4 md:heading_2 animate slideInUp">Subscribe for newsletters</div>
-                                    <div className="animate slideInUp animate--delay-medium md:body_text small_text">
-                                        Receive the latest updates straight to your inbox. Get stories, exclusive offers, and promotions when you sign up.
-                                    </div>
-                                    <div className="mt-4 animate slideInUp animate--delay-slow">
-                                        <button className="px-4 my-btn-pr dark:border-white" type="submit">Subscribe</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            {/* </div>
+                </div> */}
+            {/*<div className="contact-me p-5 md:p-8">*/}
+            {/*    <div className="contact-me-inner p-5 md:p-7 bg-white dark:text-black">*/}
+            {/*        <div className="heading_3 mb-3 md:mb-4">Work With Me</div>*/}
+            {/*        <div className="mb-3">Are you interested in collaborating? Contact me for more information or hire me for a UI freelance,*/}
+            {/*            please visit my portfolio <a>https://nthuyduong.github.io.</a></div>*/}
+            {/*        <div className="medium_text">Get in touch: Nthduong898@gmail.com</div>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+
+        </div >
     )
 }
 

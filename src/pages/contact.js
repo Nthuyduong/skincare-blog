@@ -60,8 +60,8 @@ const Contact = () => {
             <div className="grid grid-cols-12 gap-3">
                 <div className="col-span-12 md:col-span-6 border-b border-ccc border-solid md:border-none">
                     <div className="mb-5">
-                        <div className="heading mb-3 md:mb-4">Connect Us</div>
-                        <div>Questions or comments about something you read here? I’d love to hear from you!</div>
+                        <div className="heading mb-3 md:mb-4 animate slideInUp">Connect Us</div>
+                        <div className="animate slideInUp">Questions or comments about something you read here? I’d love to hear from you!</div>
                     </div>
                     <div>
                         <div className="grid grid-cols-2 gap-5 mb-3">
