@@ -71,7 +71,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                         <div className="mx-auto m-w">
                             {/* banner text */}
                             <div>
-                                <div className="flex gap-1 sm:gap-5 items-center pt-6 mb-6 justify-center">
+                                <div className="flex gap-1 sm:gap-5 items-center pt-6 mb-6 justify-center animate slideInUp animate--delay-fast">
                                     <div className="heading_2 dark:text-textcolor">The</div>
                                     <div className="h-px bg-666 w-[20%]"></div>
                                     <div className="heading_2 text-center dark:text-textcolor">Most Useful</div>
@@ -79,7 +79,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                     <div className="heading_2 dark:text-textcolor">Articles</div>
                                 </div>
                                 {/* articles */}
-                                <div className="flex gap-2 sm:gap-6">
+                                <div className="flex gap-2 sm:gap-6 animate slideInUp animate--delay-medium">
                                     {banner.map((tags, index) => (
                                         <div className="banner-article">
                                             <Link href={'/article/' + tags.slug} className="">
@@ -153,7 +153,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                             <h1 className="sm:max-w-[60%] animate slideInUp heading_2 mb-5 md:mb-6 cursor-text-wrp">
                                 We inspire people to love themselves because that love shapes beauty.
                             </h1>
-                            <div className="">
+                            <div className="animate slideInUp animate--delay-medium">
                                 <Slider
                                     configs={{
                                         sliderPerRow: 4,
@@ -203,7 +203,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                 <div className="title animate sm:max-w-[30%] slideInUp heading_3 mb-2 md:mb-6 text-center mw-5">See what we can help you progress</div>
                             </div>
 
-                            <div className="grid grid-cols-12 gap-2 sm:gap-4">
+                            <div className="grid grid-cols-12 gap-2 sm:gap-4 animate slideInUp animate--delay-medium">
                                 <div className="col-span-12 sm:col-span-3 home-category-card">
                                     <div className="home-category-card-title-wrp px-1 pt-1 sm:px-3 sm:pt-3">
                                         <div className="heading_6 !text-textcolor">01/</div>
@@ -304,19 +304,19 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                             <div className="md:grid md:grid-cols-12 gap-4">
                                 <div className="md:col-span-8 md:pb-6 pb-4 pt-6 pr-4 about-intro md:border-r md:border-solid border-999 !border-ccc">
                                     <div className="flex flex-col h-full">
-                                        <div className="heading_2 animate slideInUp h-full">
+                                        <div className="heading_2 animate slideInUp animate--delay-medium h-full">
                                             “Start with clear, healthy skin. Nurture your radiance—embrace pure beauty, inside and out”
                                         </div>
-                                        <div className="heading_6 md:block hidden animate slideInUp">Hello & Welcome!</div>
+                                        <div className="heading_6 md:block hidden animate slideInUp animate--delay-medium">Hello & Welcome!</div>
                                     </div>
                                 </div>
                                 <div className="md:col-span-4 about-content pt-3 pb-6 md:py-6">
-                                    <div className="animate slideInUp">Welcome to our skincare sanctuary! Here, we celebrate the journey to radiant skin. Join
+                                    <div className="animate slideInUp animate--delay-medium">Welcome to our skincare sanctuary! Here, we celebrate the journey to radiant skin. Join
                                         us for expert tips, shared experiences, and a community-driven pursuit of beauty and confidence.
                                         Let's embark on a skincare adventure together, where your glow is our priority.</div>
                                     <div className="mt-6">
                                         <Link href={ROUTER.ABOUT}>
-                                            <button className="animate slideInUp my-out-line-btn dark:border-ccc" type="submit">MORE ABOUT US</button>
+                                            <button className="animate slideInUp animate--delay-medium my-out-line-btn dark:border-ccc" type="submit">MORE ABOUT US</button>
                                         </Link>
                                     </div>
                                 </div>
@@ -327,7 +327,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                 {/* INGREDIENT SECTION */}
                 <div className="px-2 md:px-0 mx-auto m-w md:mb-9 mb-7">
                     <div className="md:grid grid-cols-12 gap-4">
-                        <div className="col-span-5">
+                        <div className="col-span-5 animate slideInUp">
                             <img
                                 className=""
                                 src="./img/home/ingredient_home.png"
@@ -339,12 +339,12 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                 <div className=" heading_3 animate slideInUp md:mb-4 mb-3">
                                     Empowered Understanding
                                 </div>
-                                <div className="body_text mr-auto">
+                                <div className="body_text mr-auto animate slideInUp">
                                     Knowing a product's ingredients lets you use it more effectively and maximize its benefits.
                                 </div>
                             </div>
 
-                            <div className="md:flex items-center justify-end">
+                            <div className="md:flex items-center justify-end animate slideInUp">
                                 <div className="mr-2">Explore now</div>
                                 <Link href={ROUTER.INGREDIENT}>
                                     <div>
@@ -390,7 +390,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                 <div className="px-2 md:px-0 my-0 mx-auto m-w">
                     <div className="md:mt-9 mt-7">
                         <div className="animate slideInUp heading_3 mb-1 md:mb-4">Reader's Favorite</div>
-                        <div className="">
+                        <div className="animate slideInUp animate--delay-medium">
                             <Slider
                                 configs={{
                                     sliderPerRow: 4,
