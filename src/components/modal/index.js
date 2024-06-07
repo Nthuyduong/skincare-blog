@@ -9,6 +9,7 @@ import ModalNotice from "./notice";
 import ModalIngredient from "./ingredient";
 import ModalPicker from "./picker";
 import NewslettersModal from "./newletters";
+import ModalContact from "./contact";
 
 import { useClickOutside } from "../../hooks/dom";
 
@@ -49,6 +50,9 @@ const Modals = () => {
                 return <ModalPost />
             case "ingredient":
                 return <ModalIngredient id={data?.id}
+                />
+            case "contact":
+                return <ModalContact id={data?.id}
                 />
             case "subcate":
                 return <ModalSubcate id={data?.id}

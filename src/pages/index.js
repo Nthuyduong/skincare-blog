@@ -431,7 +431,9 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                         </div>
                     </div>
                 </div>
-                <div className="px-3 my-0 mx-auto m-w pt-4 sm:pt-9">
+
+                {/* OLD SUBSCRIBE */}
+                {/* <div className="px-3 my-0 mx-auto m-w pt-4 sm:pt-9">
                     <div className="subscribe-section">
                         <div className="bg-primaryvariant1 p-4 sm:p-5">
                             <div className="flex">
@@ -464,7 +466,36 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                             </div>
                         </div>
                     </div>
+                </div> */}
+
+                {/* NEW SUBSCRIBE */}
+                <div className="mx-auto m-w pt-8">
+                    <div className="md:grid grid-cols-12 gap-5">
+                        <div className="col-span-6"></div>
+                        <div className="col-span-6">
+                            <div className="heading_5 mb-4 pt-3">Subscribe newsletters</div>
+                            <div className="animate slideInUp heading_2 mb-5 md:mb-6 cursor-text-wrp">
+                                Never miss out on beauty tips and trends! Stay updated with our latest posts.
+                            </div>
+                            <div className="mt-4 animate animate--delay-slow slideInUp">
+                                <button
+                                    onClick={() => show({
+                                        name: 'newsletters',
+                                        data: {
+                                            message: 'This is a notice modal',
+                                        },
+                                        position: 'right',
+                                        mobilePosition: 'right',
+                                    })}
+                                    className="px-4 my-btn-pr dark:border-white"
+                                    type="submit">
+                                    Subscribe
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div >
         </>
     )
