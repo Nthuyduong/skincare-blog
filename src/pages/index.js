@@ -343,16 +343,14 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                     Knowing a product's ingredients lets you use it more effectively and maximize its benefits.
                                 </div>
                             </div>
-
-                            <div className="md:flex items-center justify-end animate slideInUp">
-                                <div className="mr-2">Explore now</div>
-                                <Link href={ROUTER.INGREDIENT}>
+                            <Link href={ROUTER.INGREDIENT}>
+                                <div className="md:flex items-center justify-end animate slideInUp">
+                                    <div className="mr-2">Explore now</div>
                                     <div>
                                         <img className="" src="../img/icon/arrow-right-circle.svg" alt="smile" loading="lazy" />
                                     </div>
-                                </Link>
-                            </div>
-
+                                </div>
+                            </Link>
                         </div>
                     </div>
                 </div>
