@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export const BASE_URL = "https://api.radiance-aura.blog";
-// export const BASE_URL = "http://localhost:8000";
+// export const BASE_URL = "https://api.radiance-aura.blog";
+export const BASE_URL = "http://localhost:8000";
 
 export const fetchApi = axios.create({
     baseURL: BASE_URL + "/api",
@@ -9,6 +9,46 @@ export const fetchApi = axios.create({
         "Content-Type": "application/json"
     },
 });
+
+fetchApi.interceptors.request.use(
+    (config) => {
+        if (localStorage.getItem("access_token")) {
+            config.headers.Authorization = "Bearer " + localStorage.getItem("access_token");
+        }
+        return config;
+    },
+    (error) => {
+        return Promise.reject(error);
+    }
+);
+
+fetchApi.interceptors.response.use(
+    (response) => {
+        return response;
+    },
+    async (error) => {
+        const originalRequest = error.config;
+        originalRequest._limit = originalRequest._limit ? originalRequest._limit + 1 : 1;
+        if (error.response?.status === 468 && !originalRequest._retry && originalRequest._limit < 3 && originalRequest.url !== "/refresh" && originalRequest.url !== "/login") {
+            originalRequest._retry = true;
+            const res = await getApi("/refresh");
+            if (res?.access_token) {
+                localStorage.setItem("access_token", res.access_token);
+                originalRequest.headers.Authorization = "Bearer " + res.access_token;
+                return fetchApi(originalRequest);
+            }
+        } else {
+            if (error.response?.data) {
+                return error.response;
+            } else {
+                return {
+                    status: 0,
+                    msg: error.response?.statusText,
+                };
+            }
+        }
+    }
+);
 
 export const getApi = async (url, params, config) => {
     try {

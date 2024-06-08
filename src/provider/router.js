@@ -1,18 +1,19 @@
 import { useRouter } from 'next/router';
-import { throttle } from '@utils/common';
 import React, { createContext, useContext, useEffect } from 'react';
 import { useModal } from '@hooks/modal';
 import { useAdmin } from "@hooks/useAdmin";
 
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
-import { ADMIN_ROUTER, ADMIN_ROUTERS } from '../utils/constants';
+import { ADMIN_ROUTER, ADMIN_ROUTERS } from '@utils/constants';
+import { useApp } from '@hooks/useApp';
 
 const RouterContext = createContext();
 
 export const RouterProvider = ({ children }) => {
 
     const { getAdminInfo, admin } = useAdmin();
+    const { getUserInfo, user } = useApp();
 
     const {
         hide
@@ -31,8 +32,12 @@ export const RouterProvider = ({ children }) => {
       }, [])
 
     useEffect(() => {
-        getAdminInfo();
+        console.log('user', user)
+    }, [user]);
 
+    useEffect(() => {
+        getAdminInfo();
+        getUserInfo();
         // const pageAccessedByReload = window.performance
         //     .getEntriesByType('navigation')
         //     .map((nav) => nav.type)

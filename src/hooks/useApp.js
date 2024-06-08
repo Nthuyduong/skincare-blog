@@ -12,10 +12,16 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "@hooks/modal";
 import { showModal, hideModal } from "@store/modal/modal.action";
+import { getApiUserInfo } from "../services/auth";
+import { setUserAction } from "../store/app/app.action";
+import { USER_ROUTERS } from "../utils/constants";
+import { useRouter } from "next/router";
 
 export const useApp = () => {
     const { addToast, showLoading, hide } = useModal();
     const { keyword, results, paginate, loadingSearch } = useSelector((state) => state.app);
+    const { user } = useSelector((state) => state.app);
+    const router = useRouter();
 
     const dispatch = useDispatch();
 
@@ -86,6 +92,22 @@ export const useApp = () => {
         }
     }
 
+    const getUserInfo = async () => {
+        if (localStorage.getItem("access_token")) {
+            if(USER_ROUTERS.includes(router.route)){
+                let res = null;
+                if(!user?.id){
+                    res = await getApiUserInfo();
+                } else {
+                    res = user
+                }
+                if (res) {
+                    dispatch(setUserAction(res));
+                }
+            }
+        }
+    }
+
     return {
         paginate,
         keyword,
@@ -96,5 +118,7 @@ export const useApp = () => {
         loadMore,
         sendContact,
         subscribe,
+        getUserInfo,
+        user,
     }
 }

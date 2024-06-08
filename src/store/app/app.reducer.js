@@ -12,6 +12,9 @@ const reducer = {
     SET_LOADING_SEARCH: (state, {payload}) => {
         state.loadingSearch = payload;
     },
+    SET_USER: (state, { payload }) => {
+        state.user = payload;
+    },
 }
 
 export default reducer;

@@ -1,4 +1,5 @@
 const state = {
+    user: null,
     keyword: '',
     results: [],
     loadingSearch: false,

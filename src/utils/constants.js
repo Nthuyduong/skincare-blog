@@ -67,6 +67,10 @@ export const ADMIN_ROUTERS = [
     ADMIN_ROUTER.HOME
 ]
 
+export const USER_ROUTERS = [
+    '/auth',
+]
+
 export const BLOG_STATUS = {
     HIDDEN: 0,
     VISIBLE: 1,
