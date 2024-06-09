@@ -1,23 +1,33 @@
 import {useDispatch} from "react-redux";
 import {showModal} from "@store/modal/modal.action";
 import {ROUTER} from "@utils/constants";
-import React from "react";
+import React, { useState } from "react";
 import Link from 'next/link'
 import { useEffect } from "react";
 import { usePost } from "@hooks/usePost";
 import { formatDate } from "@utils/format";
 import Pagination from "@components/common/pagination";
 import { useRouter } from 'next/router';
+import { fetchCategoriesApi } from "@services/categories";
 
 const Adminpostpage = ({ page }) => {
 
     const router = useRouter();
 
     const { fetchBlogPosts, posts, paginate } = usePost();
+    const [filters, setFilters] = useState(null);
+    const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        fetchBlogPosts(page || 1);
-    }, []);
+        const { page, search, status, category_id, publish_from, publish_to } = router.query;
+        if (search || status || category_id || publish_from || publish_to) {
+            setFilters({ search, status, category_id, publish_from, publish_to });
+        }
+        fetchBlogPosts(page || 1, { search, status, category_id, publish_from, publish_to });
+        fetchCategoriesApi(1, true).then(res => {
+            setCategories(res.results || []);
+        });
+    }, [router.query]);
 
     const handlePageClick = (go) => {
         router.push({
@@ -35,6 +45,23 @@ const Adminpostpage = ({ page }) => {
             name: "deletepopup",
             enableClickOutside: true,
         }))
+    }
+    
+
+    const handleChangeFilter = (e, name) => {
+        if (!name) {
+            setFilters(null);
+            router.replace(ROUTER.ADPOST);
+            fetchBlogPosts(1);
+            return;
+        }
+        const value = e.target.value;
+        setFilters({ ...filters, [name]: value });
+        router.replace({
+            pathname: ROUTER.ADPOST,
+            query: { page: 1, [name]: value },
+        });
+        fetchBlogPosts(1, { ...filters, [name]: value });
     }
 
     return(
@@ -61,38 +88,65 @@ const Adminpostpage = ({ page }) => {
                 <div className="grid grid-cols-5 gap-4 items-end mb-5">
                     <div className="col-span-1">
                         <div className="flex">
-                            <input name="findOrder" id="findOrder" className="w-full py-1 px-2 border border-solid border-ccc dark:border-999 search-input w-100" type="text"
-                                   placeholder="Enter name/id post..."/>
+                            <input
+                                name="findOrder"
+                                id="findOrder"
+                                className="w-full py-1 px-2 border border-solid border-ccc dark:border-999 search-input w-100"
+                                type="text"
+                                placeholder="Enter name/id post..."
+                                value={filters?.search}
+                                onChange={(e) => setFilters({ ...filters, search: e.target.value })}
+                                onKeyDown={(e) => {if (e.key === 'Enter') {handleChangeFilter(e, 'search')}}}
+                            />
                         </div>
                     </div>
                     <div className="col-span-1">
-                        <select className="border-solid border dark:border-999 border-ccc py-1 px-2 w-full">
+                        <select
+                            className="border-solid border dark:border-999 border-ccc py-1 px-2 w-full"
+                            onChange={(e) => handleChangeFilter(e, 'status')}
+                        >
                             <option value="" defaultValue hidden>Status</option>
-                            <option value="">Published</option>
-                            <option value="">Draft</option>
-                            <option value="">New</option>
+                            <option value={0}>Hidden</option>
+                            <option value={1}>Show</option>
                         </select>
                     </div>
                     <div className="col-span-1">
-                        <select className="border-solid border dark:border-999 border-ccc py-1 px-2 w-full">
+                        <select
+                            className="border-solid border dark:border-999 border-ccc py-1 px-2 w-full"
+                            onChange={(e) => handleChangeFilter(e, 'category_id')}
+                        >
                             <option value="" defaultValue hidden>Category</option>
-                            <option value="">Guides & Tutorials</option>
-                            <option value="">Skincare nerd</option>
+                            {categories.map((category, index) => (
+                                <option key={index} value={category.id}>{category.name}</option>
+                            ))}
                         </select>
                     </div>
                     <div className="col-span-1">
                         <div className="flex flex-col">
                             <label>Public start</label>
-                            <input className="sort-date" type="datetime-local" placeholder="dd/mm/yyyy"/>
+                            <input 
+                                className="sort-date"
+                                type="datetime-local"
+                                placeholder="dd/mm/yyyy"
+                                value={filters?.publish_from}
+                                onChange={(e) => handleChangeFilter(e, 'publish_from')}
+                            />
                         </div>
                     </div>
                     <div className="col-span-1">
                         <div className="flex flex-col">
                             <label>Public end</label>
-                            <input className="sort-date" type="datetime-local" placeholder="dd/mm/yyyy"/>
+                            <input
+                                className="sort-date"
+                                type="datetime-local"
+                                placeholder="dd/mm/yyyy"
+                                value={filters?.publish_to}
+                                onChange={(e) => handleChangeFilter(e, 'publish_to')}
+                            />
                         </div>
                     </div>
                 </div>
+                {filters && (<div onClick={handleChangeFilter}>Clear filters</div>)}
                 {/*POST TABLE*/}
                 <div className="admin-tbl">
                     <div className="flex tbl-row admin-tbl-title">

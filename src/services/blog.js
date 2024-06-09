@@ -1,9 +1,10 @@
 import { getApi, postApiAdmin, postApi } from "@utils/apiUtils";
 
-export const fetchBlogPostsApi = async (page = 1, limit = 10) => {
+export const fetchBlogPostsApi = async (page = 1, limit = 10, filters = null) => {
     const response = await getApi("/blogs", {
         page,
         limit,
+        ...filters
     });
     return response.data;
 };

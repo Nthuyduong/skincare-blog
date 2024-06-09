@@ -22,8 +22,8 @@ export const usePost = () => {
 
     const dispatch = useDispatch();
 
-    async function fetchBlogPosts(page = 1) {
-        const res = await fetchBlogPostsApi(page);
+    async function fetchBlogPosts(page = 1, filter = null) {
+        const res = await fetchBlogPostsApi(page, 10, filter);
         if (res) {
             dispatch(fetchBlogPostsAction(res));
         }
