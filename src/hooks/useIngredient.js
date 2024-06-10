@@ -9,8 +9,8 @@ export const useIngredient = () => {
 
     const dispatch = useDispatch();
 
-    async function fetchIngredients(page = 1) {
-        const res = await fetchIngredientsApi(page);
+    async function fetchIngredients(page = 1, filter = null) {
+        const res = await fetchIngredientsApi(page, 10, filter);
         if (res) {
             dispatch(fetchIngredientsAction(res));
         }

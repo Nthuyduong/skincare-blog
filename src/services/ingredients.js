@@ -1,10 +1,11 @@
 import { getApi, postApiAdmin } from "@utils/apiUtils";
 
-export const fetchIngredientsApi = async (page = 1, has_parent = null) => {
+export const fetchIngredientsApi = async (page = 1, limit = 10, filters = null, has_parent = null) => {
     const response = await getApi("/ingredients", {
         page,
         limit: 10,
         has_parent,
+        ...filters
     });
     return response.data;
 };
