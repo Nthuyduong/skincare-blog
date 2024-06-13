@@ -140,9 +140,9 @@ const ImagePicker = ({ onPick, mode }) => {
         } else {
             selectedImages.forEach((image) => {
                 result += `<picture>
-                        <source srcset="${BASE_URL + '/storage/mobile/' + encodeURIComponent(image.url)}" media="(max-width: 767px)">
-                        <source srcset="${BASE_URL + '/storage/tablet/' + encodeURIComponent(image.url)}" media="(max-width: 1024px)">
-                        <img src="${BASE_URL + '/storage/desktop/' + encodeURIComponent(image.url)}" alt="${image.alt}" loading="lazy">
+                        <source srcset="${BASE_URL + '/storage/desktop/' + encodeURIComponent(image.url)}" media="(min-width: 1024px)">
+                        <source srcset="${BASE_URL + '/storage/tablet/' + encodeURIComponent(image.url)}" media="(min-width: 767px)">
+                        <img src="${BASE_URL + '/storage/mobile/' + encodeURIComponent(image.url)}" alt="${image.alt}" loading="lazy" height="500" width="500">
                     </picture>`;
             });
         }

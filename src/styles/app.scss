@@ -64,76 +64,49 @@ root {
 }
 .heading_1 {
   font-family: 'Forum',serif;
-  font-size: $heading_1;
+  font-size: clamp(42px, 5vw, 48px);
   line-height: $heading_1*1.25;
 }
 .heading_2 {
   font-family: 'Forum',serif;
-  font-size: $heading_2;
+  font-size: clamp(36px, 5vw, 42px);
   line-height: $heading_2*1.25;
 }
 .heading_3 {
   font-family: 'Forum',serif;
-  font-size: $heading_3;
+  font-size: clamp(32px, 5vw, 36px);
   line-height: $heading_3*1.25;
   font-weight: 500;
 }
 .heading_4 {
   font-family: 'Forum',serif;
-  font-size: $heading_4;
+  font-size: clamp(26px, 5vw, 33px);
   line-height: $heading_4*1.25;
 }
 .heading_5 {
   font-family: 'GTregular',serif;
-  font-size: $heading_5;
+  font-size: clamp(20px, 5vw, 22px);
   line-height: $heading_5*1.25;
 }
 .heading_6 {
   font-family: 'GTregular',serif;
-  font-size: $medium_text;
+  font-size: clamp(18px, 5vw, 20px);
   line-height: $medium_text*1.3;
 }
 .body_text {
   font-family: 'GTlight',serif;
-  font-size: $body_text;
+  font-size: clamp(14px, 5vw, 16px);
   line-height: $body_text*1.5;
 }
 .medium_text {
   font-family: 'GTregular',serif;
-  font-size: $medium_text;
+  font-size: clamp(16px, 5vw, 18px);
   line-height: $medium_text*1.5;
 }
 .small_text {
   font-family: 'GTlight',serif;
-  font-size: $small_text;
+  font-size: clamp(14px, 5vw, 14px);
   line-height: $small_text*1.5;
-}
-@media screen and (max-width: 768px){
-  .heading{
-    font-size: 42px;
-    line-height: $heading_5 * 1.5;
-  }
-  .body_text{
-    font-size: 14px;
-  }
-  .medium_text{
-    font-size: 16px;
-  }
-  .heading_2{
-    font-size: 36px;
-  }
-  .heading_3{
-    font-size: 32px;
-  }
-  .heading_4{
-    font-size: 26px;
-  }
-  .heading_5{
-    font-size: 20px;
-  }
-  .heading_6{
-    font-size: 18px;
-  }
 }
 
 //Button
@@ -401,11 +374,10 @@ textarea:focus-visible{
   .search-bar-inner{
     padding-left: 120px;
     padding-right: 120px;
-  }
-  .m-w{
-    max-width: 1100px;
-  }
-  
+  } 
+}
+.m-w{
+  max-width: min(1100px, calc(100% - min(5vw, 40px)));
 }
 //icon size
 .icon-lg{

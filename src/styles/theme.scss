@@ -20,6 +20,7 @@
 	align-items: center;
 	-webkit-tap-highlight-color: transparent;
 	transform: scale(0.5);
+	transform-origin: left;
 }
 .theme__fill,
 .theme__icon {
@@ -177,9 +178,6 @@
 }
 .theme__toggle:checked ~ .theme__icon .theme__icon-part:nth-child(9) {
 	transform: rotate(360deg) translateY(0.8em);
-}
-.theme__toggle-wrap {
-	margin: 0 0.75em;
 }
 
 @supports selector(:focus-visible) {
