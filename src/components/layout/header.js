@@ -143,7 +143,7 @@ const Header = React.memo(() => {
         // change just the locale and maintain all other route information including href's query
         router.push({ pathname, query }, asPath, { locale: nextLocale })
     }
-   
+
 
     const handleSetTheme = (theme) => {
         setTheme(theme);
@@ -206,7 +206,7 @@ const Header = React.memo(() => {
                             <img className="h-3" src="/img/logo1.svg" alt="smile" loading="lazy" />
                         </div>
                         <div className="flex items-center justify-center w-full dark:hidden">
-                            <img className="h-3" src="/img/logo2.svg" alt="smile" loading="lazy" height={200} width={200}/>
+                            <img className="h-3" src="/img/logo2.svg" alt="smile" loading="lazy" height={200} width={200} />
                         </div>
                     </Link>
                     {/* <div className="hidden">
@@ -226,8 +226,8 @@ const Header = React.memo(() => {
                         {/*Search bar mobile*/}
                         <div className="flex pb-3 border-b border-ccc">
                             <div className="flex align-center self-center pr-2">
-                                <img className="icon-ssm dark:hidden" src="/img/icon/Search.svg" alt="smile" loading="lazy" height={100} width={100}/>
-                                <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy" height={100} width={100}/>
+                                <img className="icon-ssm dark:hidden" src="/img/icon/Search.svg" alt="smile" loading="lazy" height={100} width={100} />
+                                <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy" height={100} width={100} />
                             </div>
                             <div className="my-search-bar nav-search w-full">
                                 <input
@@ -267,7 +267,7 @@ const Header = React.memo(() => {
                                 <div className="question-container flex">
                                     <div className="question mr-auto">
                                         <Link href={`/categories/selfcare-nerd`}>
-                                            Self-care nerd
+                                            {trans.header.nerd}
                                         </Link>
                                     </div>
                                     <div className="btn-question flex justify-center items-center">
@@ -292,7 +292,7 @@ const Header = React.memo(() => {
                             <div className={`my-collapse dark:border-b dark:border-ccc`}>
                                 <div className="question-container flex">
                                     <div className="question mr-auto">
-                                        About
+                                        {trans.header.about}
                                     </div>
                                     <div className="btn-question flex justify-center items-center">
                                         <svg role="presentation" focusable="false" width="12" height="9"
@@ -308,7 +308,11 @@ const Header = React.memo(() => {
                                 </div>
                             </div>
                         </div>
-                        <div className="py-3 border-b border-ccc"><Link href={ROUTER.CONTACT}>Contact us</Link></div>
+                        <div className="py-3 border-b border-ccc">
+                            <Link href={ROUTER.CONTACT}>
+                                {trans.header.contact}
+                            </Link>
+                        </div>
                     </div>
                 </div>
                 <div className={`mobile-menu-overlay ${showMenu ? 'block' : 'hidden'}`}>
@@ -323,7 +327,7 @@ const Header = React.memo(() => {
                         <img className="h-4" src="/img/logo1.svg" alt="smile" loading="lazy" />
                     </div>
                     <div className="flex items-center justify-center w-full dark:hidden">
-                        <img className="h-4" src="/img/logo2.svg" alt="smile" loading="lazy"  height={200} width={200}/>
+                        <img className="h-4" src="/img/logo2.svg" alt="smile" loading="lazy" height={200} width={200} />
                     </div>
                 </Link>
                 <div className="flex mr-4 !hidden md:!flex">
@@ -339,18 +343,18 @@ const Header = React.memo(() => {
                     <button type="button"
                         onClick={toggleVisibility}
                         className="relative rounded-full bg-gray-800 p-1 text-gray-400 focus:outline-none">
-                        <img className="icon-ssm dark:hidden" src="/img/icon/Search.svg" alt="smile" loading="lazy" height={100} width={100}/>
-                        <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy" height={100} width={100}/>
+                        <img className="icon-ssm dark:hidden" src="/img/icon/Search.svg" alt="smile" loading="lazy" height={100} width={100} />
+                        <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy" height={100} width={100} />
                     </button>
                 </div>
             </div>
             {/*${show ? 'search-hide' : 'search-unhide'}*/}
             {/*search popdown*/}
-            <div 
-                id="search-popdown" 
+            <div
+                id="search-popdown"
                 className={`searchbar ${showw ? 'search-true' : 'search-false'} `}
             >
-                <div 
+                <div
                     className="border-solid border-ccc dark:border-999 border-b"
                     ref={ref}
                 >
@@ -362,8 +366,8 @@ const Header = React.memo(() => {
                                     <div className="flex search-box">
                                         <div className="flex mr-auto w-full border-solid border-b border-ccc !border-999 focus-visible:outline-none pointer-events-auto dark:focus:border-white focus:border-333 searchbar-head">
                                             <div className="flex align-center self-center pr-2">
-                                                <img className="icon-ssm dark:hidden" src="/img/icon/Search.svg" alt="smile" loading="lazy" height={100} width={100}/>
-                                                <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy" height={100} width={100}/>
+                                                <img className="icon-ssm dark:hidden" src="/img/icon/Search.svg" alt="smile" loading="lazy" height={100} width={100} />
+                                                <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy" height={100} width={100} />
                                             </div>
                                             <div className="my-search-bar nav-search w-full">
                                                 <input
@@ -376,9 +380,9 @@ const Header = React.memo(() => {
                                                 />
                                             </div>
                                             <button type="button"
-                                                    onClick={(e) => {setKeywordType("")}}
-                                                    className="relative rounded-full bg-gray-800 pl-1 py-1 text-gray-400 focus:outline-none">
-                                                <img className="icon-ssm dark:hidden" src="/img/icon/x.svg" alt="smile" loading="lazy" height={100} width={100}/>
+                                                onClick={(e) => { setKeywordType("") }}
+                                                className="relative rounded-full bg-gray-800 pl-1 py-1 text-gray-400 focus:outline-none">
+                                                <img className="icon-ssm dark:hidden" src="/img/icon/x.svg" alt="smile" loading="lazy" height={100} width={100} />
                                                 <img className="icon-ssm hidden dark:block" src="/img/icon/x-light.svg" alt="smile" loading="lazy" />
                                             </button>
                                         </div>
@@ -394,9 +398,9 @@ const Header = React.memo(() => {
                                         <Loading />
                                     </div>
                                 </>
-                                ) : (
+                            ) : (
                                 <>
-                                    { results?.length == 0 && (
+                                    {results?.length == 0 && (
                                         <div className="grid grid-cols-12 mt-4">
                                             <div className="col-span-2"></div>
                                             <div className="col-span-8">
@@ -417,7 +421,7 @@ const Header = React.memo(() => {
                                             <div className="col-span-2"></div>
                                         </div>
                                     )}
-                                    { results?.length > 0 && (
+                                    {results?.length > 0 && (
                                         <div className="grid grid-cols-12">
                                             <div className="col-span-2"></div>
                                             <div className="pt-4 col-span-8">
@@ -448,7 +452,7 @@ const Header = React.memo(() => {
                                                                             </div>
                                                                         </div>
                                                                     )}
-                                                                    
+
                                                                     <div className="category-des-content">
                                                                         <Link
                                                                             href={ROUTER.INGREDIENT + '/' + result.id}
@@ -461,7 +465,7 @@ const Header = React.memo(() => {
                                                                     </div>
                                                                 </div>
                                                             )
-                                                            
+
                                                         }
                                                         return (
                                                             <div className="h-popular-des-ct" key={index}>
@@ -498,18 +502,18 @@ const Header = React.memo(() => {
                                                             className="text-link mt-3 py-1 r w-max cursor-pointer"
                                                             onClick={handleLoadMore}
                                                         >
-                                                         Load more   
+                                                            Load more
                                                         </div>
                                                     </div>
                                                 )}
                                             </div>
                                             <div className="col-span-2"></div>
                                         </div>
-                                        
+
                                     )}
                                 </>
                             )}
-                            
+
                         </div>
                     </div>
                 </div>
@@ -524,12 +528,12 @@ const Header = React.memo(() => {
                     <nav className="nav_blog w-full" id="blog-nav">
                         <div className="nav-blog-inner px-0 sm:px-0 lg:px-0">
                             <div className="relative flex h-16 items-center justify-between">
-                               
+
                                 <div className="hidden lg:!block dark:text-black flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                                     <div className="w-full hidden sm:ml-0 md:ml-0 sm:block">
                                         <div className="header-nav relative flex space-x-4 justify-center">
                                             {/*Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white"*/}
-                                            <div 
+                                            <div
                                                 className="header-nav-item relative bg-gray-900 guide-navdrop rounded-md"
                                                 data-nav="/categories/guides_and_tutorial"
                                             >
@@ -558,12 +562,12 @@ const Header = React.memo(() => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div 
+                                            <div
                                                 className="header-nav-item relative destination-navdrop"
                                                 data-nav="/categories/selfcare_nerd"
                                             >
                                                 <div className="navdrop-title z-50 text-gray-300 hover:text-gray rounded-md pr-3 py-4">
-                                                    <Link href={`/categories/selfcare-nerd`} className="dark:text-white flex nav-link"><span className="nav-text">Self-care nerd</span>
+                                                    <Link href={`/categories/selfcare-nerd`} className="dark:text-white flex nav-link"><span className="nav-text">{trans.header.nerd}</span>
                                                         <span className="ml-1 dark:hidden flex items-center">
                                                             <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="lazy" />
                                                         </span>
@@ -588,21 +592,21 @@ const Header = React.memo(() => {
                                                 </div>
                                             </div>
 
-                                            <div 
+                                            <div
                                                 className="header-nav-item text-gray-300 hover:text-gray rounded-md pr-3 py-4"
                                                 data-nav={ROUTER.INGREDIENT}
                                             >
-                                                <Link href={ROUTER.INGREDIENT} className="dark:text-white nav-link"><span className="nav-text">Skincare ingredients</span></Link>
+                                                <Link href={ROUTER.INGREDIENT} className="dark:text-white nav-link"><span className="nav-text">{trans.header.ingredient}</span></Link>
                                             </div>
                                             {/*<div className="text-gray-300 hover:text-gray rounded-md pr-3 py-4">*/}
                                             {/*    <Link href={ROUTER.SUBDES} className="dark:text-white nav-link">Testings & Reviews</Link>*/}
                                             {/*</div>*/}
-                                            <div 
+                                            <div
                                                 className="header-nav-item relative destination-navdrop"
                                                 data-nav="/about"
                                             >
                                                 <div className="navdrop-title z-50 text-gray-300 hover:text-gray py-4 pr-0">
-                                                    <Link href={ROUTER.ABOUT} className="dark:text-white nav-link flex"><span className="nav-text">About</span>
+                                                    <Link href={ROUTER.ABOUT} className="dark:text-white nav-link flex"><span className="nav-text">{trans.header.about}</span>
                                                         <span className="ml-1 dark:hidden flex items-center">
                                                             <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="lazy" />
                                                         </span>
@@ -623,19 +627,19 @@ const Header = React.memo(() => {
                                                     {/*</div>*/}
                                                 </div>
                                             </div>
-                                            <div 
+                                            <div
                                                 className="header-nav-item text-gray-300 hover:text-gray rounded-md py-4"
                                                 data-nav={ROUTER.CONTACT}
                                             >
-                                                <Link href={ROUTER.CONTACT} className="dark:text-white nav-link"><span className="nav-text">Contact us</span></Link>
+                                                <Link href={ROUTER.CONTACT} className="dark:text-white nav-link"><span className="nav-text">{trans.header.contact}</span></Link>
                                             </div>
                                             {/*Nên copy Animation border button hover xinh xinh */}
                                             <div className="header-hover-bar"></div>
                                         </div>
                                     </div>
-                                    
+
                                 </div>
-                                
+
                             </div>
                         </div>
                         {/*Mobile menu, show/hide based on menu state.*/}

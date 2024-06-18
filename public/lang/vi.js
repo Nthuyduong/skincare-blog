@@ -1,10 +1,11 @@
 export default {
     home: "Huong dan & Hoc tap",
     header: {
-        guide: "Huong dan & Hoc tap",
-        routine: "The Skincare Routines",
-        review: "Testings & Reviews",
+        guide: "Hướng dẫn sử dụng", 
         tips: "Tips & Advices",
-        about: "Về chúng tôi"
+        about: "Về chúng tôi",
+        nerd: "Chăm sóc toàn diện",
+        contact: "Liên hệ",
+        ingredient: "Thành phần mỹ phầm"
     }
 }

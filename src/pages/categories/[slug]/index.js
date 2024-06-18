@@ -41,8 +41,8 @@ const Categories = ({ categoryProps = [], subCategoriesProps = [], isCsr, slug }
                 <title>{category?.meta_title ?? 'Category'}</title>
                 <meta name="description" content={category?.meta_description} />
             </Head>
-            <div className="px-2 m-w mx-auto my-0">
-                <div className="">
+            <div className="m-w mx-auto my-0">
+                <div className="m-w mx-auto">
                     <div className="grid grid-cols-12 pt-60">
                         <div className="col-span-12 md:col-span-7 md:mb-0 mb-3">
                             <h1 className="heading animate slideInUp">{ category.name }</h1>
@@ -105,7 +105,7 @@ const Categories = ({ categoryProps = [], subCategoriesProps = [], isCsr, slug }
                                 </div>
                                 <div className="destination-cate-content">
                                     <div className="flex items-center border-solid border-b border-ccc dark:border-999">
-                                        <div className="heading_6 my-1 mr-auto">
+                                        <div className="heading_6 my-3 mr-auto">
                                             <Link href={`/categories/${subCategory?.parent?.slug ?? 'sub-des'}/${subCategory.slug}`}>{subCategory.name}</Link>
                                         </div>
                                         <span>

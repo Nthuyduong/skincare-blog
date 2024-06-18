@@ -1,10 +1,11 @@
 export default {
     home: "Guides & Tutorials",
     header: {
-        guide: "Guides & Tutorials",
-        routine: "The Skincare Routines",
-        review: "Testings & Reviews",
+        guide: "Skincare Guides",
         tips: "Tips & Advices",
-        about: "About"
+        about: "About",
+        nerd: "Self-care nerd",
+        contact: "Contact us",
+        ingredient: "Skincare ingredients"
     }
 }

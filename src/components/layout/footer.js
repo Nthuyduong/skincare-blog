@@ -66,11 +66,11 @@ const Footer = () => {
 
                     {/*    </ul>*/}
                     {/*</div>*/}
-                    <div className="md:col-span-4 col-span-12 flex justify-center border-b md:border-b-0 border-ccc md:border-r footer-logo items-center p-4 lg:p-5 border-solid">
+                    <div className="md:col-span-4 col-span-12 flex justify-center border-b md:border-b-0 border-999 md:border-r footer-logo items-center p-4 lg:p-5 border-solid">
                         <img className="h-fit md:w-2/5 w-2/5" src="/img/footer-logo.svg" alt="smile" loading="lazy"/>
                         {/* <img className="h-fit md:w-2/5 w-2/5 dark:block hidden" src="/img/footer-logo-2.svg" alt="smile" loading="lazy"/> */}
                     </div>
-                    <div className="md:col-span-4 flex items-center md:!px-5 col-span-12 footer-info md:p-4 p-3 lg:p-5 flex border-b border-ccc md:!border-b-0 md:border-r md:border-ccc border-solid">
+                    <div className="md:col-span-4 flex items-center md:!px-5 col-span-12 footer-info md:p-4 p-3 lg:p-5 flex border-b border-999 md:!border-b-0 md:border-r md:border-999 border-solid">
                         <div className="grid grid-cols-4 w-full">
                             <div className="col-span-2 text-center md:text-left">
                                 <div className="sub-menu">
@@ -111,7 +111,7 @@ const Footer = () => {
                             <div className="mb-2 text-textcolor">Enter your email address to receive new posts in your inbox and seasonal newsletters!</div>
                             <div>
                                 <div className="">
-                                    <div className="w-full flex dark:border-999 dark:focus:border-white focus:border-333 pointer-events-auto border-solid border-b border-ccc focus-visible:outline-none">
+                                    <div className="w-full flex dark:border-999 dark:focus:border-white focus:border-333 pointer-events-auto border-solid border-b border-999 focus-visible:outline-none">
                                         <input 
                                             className="w-full py-1 pr-2 w-full"
                                             placeholder="Join Radiance Aura Newsletters"
@@ -150,7 +150,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="footer-copy py-2 md:border-t border-ccc dark:border-999 border-solid">
+            <div className="footer-copy py-2 md:border-t border-999 dark:border-999 border-solid">
                 <div className="grid grid-cols-12">
                     <div className="col-span-12">
                         <div className="text-center small_text copy-right text-textcolor">COPYRIGHT © 2024 · Radiance Aura Blog. ALL RIGHTS RESERVED</div>
