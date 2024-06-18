@@ -11,9 +11,8 @@ const AuthCallback = ({ provider, code }) => {
   }, []);
 
   const handleLoginCallback = async () => {
-    console.log(provider, code);
     const response = await loginCallbackApi(provider, code);
-    console.log(response);
+
     if (response.status) {
       localStorage.setItem('access_token', response.token);
       const redirectUrl = sessionStorage.getItem('redirectUrl');

@@ -37,11 +37,19 @@ const IngredientDetail = ({ ingredientProps, slug, isCrs }) => {
 
     const handleClick = (index) => {
         setClickedIndex(index);
-        contentRefs.current[index].scrollIntoView({ behavior: 'smooth' });
+        if (contentRefs.current && contentRefs.current[index]) {
+            
+            if (index >= clickedIndex) {
+                contentRefs.current[index].scrollIntoView({ behavior: 'smooth' });
+            } else {
+                window.scrollTo({
+                    top: contentRefs.current[index].offsetTop - 90,
+                    behavior: 'smooth'
+                });
+            }
+            
+        }
     };
-    useEffect(() => {
-        contentRefs.current[clickedIndex].scrollIntoView({ behavior: 'smooth' });
-    }, []);
 
     return (
         <>
@@ -81,7 +89,7 @@ const IngredientDetail = ({ ingredientProps, slug, isCrs }) => {
                         <div className="col-span-2 hidden sm:block"></div>
                     </div>
                     <div className="mt-5 border-t border-ccc">
-                        <div className="grid grid-cols-12">
+                        <div className="sm:hidden grid grid-cols-12">
                             <div className="col-span-2 hidden sm:block"></div>
                             <div className="col-span-12 sm:col-span-8 px-3 sm:px-0">
                                 {/*Ingredient detail*/}
@@ -124,7 +132,7 @@ const IngredientDetail = ({ ingredientProps, slug, isCrs }) => {
 
 
                         {/* NEW ingredient DETAILS */}
-                        <div className="mt-7">
+                        <div className="hidden sm:block mt-7">
                             <div className="md:grid grid-cols-12 lg:gap-6">
                                 <div className="col-span-6">
                                     <div className="sticky top-[70px]">
