@@ -23,6 +23,8 @@ const Slider = ({
         navigator: true,
         process: false,
         paginate: false,
+        title: null,
+        navigatorTitle: false,
     }
 
     // toán tử spread (...) để tạo một bản sao của tất cả các thuộc tính trong đối tượng defaultConfigs
@@ -198,62 +200,79 @@ const Slider = ({
         }
     }
     return (
-        <div
-            className="slider-wrp"
-            ref={refWrp}
-        >   <div className="overflow-hidden">
-                <div className="slider-content" ref={refContent}>
-                    <div
-                        className="slider-items"
-                        ref={ref}
-                        style={{ 
-                            width: `var(${(countChildren / configs.sliderPerRow) * 100}% + ${(gap * maxSlide) / configs.sliderPerRow}px)`, 
-                            "--transition-duration": `${configs.duration ?? 400}ms`,
-                            "--slide-gap": `${configs.gap ?? 0}px`,
-                            "--slide-gap-mobile": `${configs.gapMobile ?? 0}px`,
-                        }}
-                    >
-                        {Children.map(children, (child, index) => {
-                            return cloneElement(child, {
-                                className: `slider-item ${child.props.className} ${active === index ? 'slide-active' : ''}`,
-                            })
-                        })}
-                    </div>
-                </div>
-            </div>
-            {configs.navigator && (
-                <div className="slider-control">
-                    <div className={`prev-button ${ disablePrev ? 'btn-disable': '' }`}>
+        <>
+            <div className="flex justify-between">
+                {configs.title && (configs.title)}
+                {configs.navigatorTitle && (
+                    <div className="flex">
                         <button className="my-prev-btn bg-white dark:bg-black" onClick={prevSlide}>
                             <img className="w-full icon-sm dark:hidden" src="/img/icon/chevron-left-black.svg" alt="smile" loading="lazy"/>
                             <img className="w-full icon-sm hidden dark:block" src="/img/icon/chevron-left.svg" alt="smile" loading="lazy"/>
                         </button>
-                    </div>
-                    <div className={`next-button ${ disableNext ? 'btn-disable': ''}`}>
                         <button className="my-next-btn bg-white dark:bg-black" onClick={nextSlide}>
                             <img className="w-full icon-sm dark:hidden" src="/img/icon/chevron-right-black.svg" alt="smile" loading="lazy"/>
                             <img className="w-full icon-sm hidden dark:block" src="/img/icon/chevron-right.svg" alt="smile" loading="lazy"/>
                         </button>
                     </div>
-                </div>
-            )}
-            {configs.paginate && (
-                <div className="slider-paginate">
-                    {Array.from({ length: countChildren }, (_, i) => (
+                )}
+            </div>
+            <div
+                className="slider-wrp"
+                ref={refWrp}
+            >   <div className="overflow-hidden">
+                    <div className="slider-content" ref={refContent}>
                         <div
-                            key={i}
-                            className={`paginate-item ${active === i ? 'active' : ''}`}
-                            onClick={() => changeSlide(i)}
-                        ></div>
-                    ))}
+                            className="slider-items"
+                            ref={ref}
+                            style={{ 
+                                width: `var(${(countChildren / configs.sliderPerRow) * 100}% + ${(gap * maxSlide) / configs.sliderPerRow}px)`, 
+                                "--transition-duration": `${configs.duration ?? 400}ms`,
+                                "--slide-gap": `${configs.gap ?? 0}px`,
+                                "--slide-gap-mobile": `${configs.gapMobile ?? 0}px`,
+                            }}
+                        >
+                            {Children.map(children, (child, index) => {
+                                return cloneElement(child, {
+                                    className: `slider-item ${child.props.className} ${active === index ? 'slide-active' : ''}`,
+                                })
+                            })}
+                        </div>
+                    </div>
                 </div>
-            )}
-            {configs.process && (
-                <div className="slider-process" >
-                    <div ref={refProcess} className="process-wrp bg-black dark:bg-white" ></div>
-                </div>
-            )}
-        </div>
+                {configs.navigator && (
+                    <div className="slider-control">
+                        <div className={`prev-button ${ disablePrev ? 'btn-disable': '' }`}>
+                            <button className="my-prev-btn bg-white dark:bg-black" onClick={prevSlide}>
+                                <img className="w-full icon-sm dark:hidden" src="/img/icon/chevron-left-black.svg" alt="smile" loading="lazy"/>
+                                <img className="w-full icon-sm hidden dark:block" src="/img/icon/chevron-left.svg" alt="smile" loading="lazy"/>
+                            </button>
+                        </div>
+                        <div className={`next-button ${ disableNext ? 'btn-disable': ''}`}>
+                            <button className="my-next-btn bg-white dark:bg-black" onClick={nextSlide}>
+                                <img className="w-full icon-sm dark:hidden" src="/img/icon/chevron-right-black.svg" alt="smile" loading="lazy"/>
+                                <img className="w-full icon-sm hidden dark:block" src="/img/icon/chevron-right.svg" alt="smile" loading="lazy"/>
+                            </button>
+                        </div>
+                    </div>
+                )}
+                {configs.paginate && (
+                    <div className="slider-paginate">
+                        {Array.from({ length: countChildren }, (_, i) => (
+                            <div
+                                key={i}
+                                className={`paginate-item ${active === i ? 'active' : ''}`}
+                                onClick={() => changeSlide(i)}
+                            ></div>
+                        ))}
+                    </div>
+                )}
+                {configs.process && (
+                    <div className="slider-process" >
+                        <div ref={refProcess} className="process-wrp bg-black dark:bg-white" ></div>
+                    </div>
+                )}
+            </div>
+        </>
     )
 }
 

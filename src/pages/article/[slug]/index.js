@@ -125,7 +125,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                     {/*website banner*/}
                     <div className="md:block hidden review-banner bg-primary w-full">
                         <div className="relative">
-                            <div className="banner-left dark:text-black m-w mx-auto px-3">
+                            <div className="banner-left dark:text-black m-w mx-auto">
                                 <div className="grid grid-cols-12">
                                     <div className="col-span-5">
                                         {/*breadcrumb*/}
@@ -156,14 +156,19 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                 </div>
                             </div>
                             <div className="banner-right">
-                                <img className="w-full object-cover" src={BASE_URL + '/storage/' + blog?.banner_img} alt="smile" loading="lazy" />
+                                <picture>
+                                    <source srcSet={BASE_URL + '/storage/desktop/' + blog?.banner_img} media="(min-width: 1024px)" />
+                                    <source srcSet={BASE_URL + '/storage/tablet/' + blog?.banner_img} media="(min-width: 767px)" />
+                                    <img src={BASE_URL + '/storage/mobile/' + blog?.banner_img} alt={blog.title} loading="eager" height={500} width={500}/>
+                                </picture>
+                                {/* <img className="w-full object-cover" src={BASE_URL + '/storage/desktop/' + blog?.banner_img} alt="smile" loading="lazy" /> */}
                             </div>
                         </div>
                     </div>
                     {/*Mobile banner*/}
                     <div className="md:hidden block">
-                        <div className="banner-top p-4 bg-primary text-black">
-                            <div className="">
+                        <div className="banner-top py-4 bg-primary text-black">
+                            <div className="m-w m-auto ">
                                 {/*breadcrumb*/}
                                 <div className="mb-3 my-breadcrumb">
                                     <ul className="flex">
@@ -191,11 +196,15 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                             </div>
                         </div>
                         <div className="banner-bottom">
-                            <img className="w-full" src={BASE_URL + '/storage/desktop/' + blog?.banner_img} alt="smile" loading="lazy" />
+                            <picture>
+                                <source srcSet={BASE_URL + '/storage/desktop/' + blog?.banner_img} media="(min-width: 1024px)" />
+                                <source srcSet={BASE_URL + '/storage/tablet/' + blog?.banner_img} media="(min-width: 767px)" />
+                                <img className="w-full" src={BASE_URL + '/storage/mobile/' + blog?.banner_img} alt={blog.title} loading="eager" height={500} width={500}/>
+                            </picture>
                         </div>
                     </div>
                 </div>
-                <div className="container-fluid px-3 m-w mx-auto w-full my-0">
+                <div className="container-fluid m-w mx-auto w-full my-0">
                     <div className="article-out">
                         <div className="article-summary mb-4">
                             <div className="">{blog?.summary}</div>
@@ -221,7 +230,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                         }}
                     />
                     <div className="w-full flex justify-center items-center">
-                        <div className="px-3 w-full mx-4 m-w mx-auto my-0 helpful-rate mt-6">
+                        <div className="w-full mx-4 m-w mx-auto my-0 helpful-rate mt-6">
                             {/* <div className="flex w-full pt-3 border-solid border-t border-ccc"> */}
                                 {/* <div className="medium_text mr-3">
                                     <a href="#">Was this helpful?</a>
@@ -237,7 +246,6 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                             {/* </div> */}
                             {/*Suggest more article*/}
                             <div className="suggest-article py-7">
-                                <div className="heading_3 mb-4">Related Articles</div>
                                 <div className="">
                                     <Slider
                                         configs={{
@@ -249,17 +257,17 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                             autoDuration: 1000,
                                             gap: 30,
                                             gapMobile: 10,
+                                            title: <div className="heading_3 mb-4">Related Articles</div>,
+                                            navigatorTitle: true,
                                         }}
                                     >
                                         
                                         {relatedBlogs.map((blog, index) => (
-                                            <div className="justify-center" key={index}>
+                                            <div className="justify-center pb-1" key={index}>
                                                 <div className="col-span-12 md:col-span-4">
                                                     <div className="hover-img">
-                                                        <div className="img-inner">
-                                                            <Link href={"/article/" + blog.slug}>
-                                                                <img className="set-img" src={BASE_URL + '/storage/' + blog?.featured_img} alt="smile" loading="lazy"/>
-                                                            </Link>
+                                                        <div className="img-inner cursor-pointer" onClick={() => { router.push("/article/" + blog.slug) }}>
+                                                            <img className="set-img" src={BASE_URL + '/storage/mobile/' + blog?.featured_img} alt={blog.title} loading="lazy" height={500} width={500}/>
                                                         </div>
                                                         <div>
                                                             <div className="article-info py-2 mb-1 md:!border-b md:!border-ccc border-b-0">
@@ -270,7 +278,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                                                 <div className="medium_text">{ blog.title }</div>
                                                             </div>
                                                             <div className="md:flex hidden">
-                                                                <div className=""><Link className="text-link" href={"/article/" + blog.slug}>Read more</Link></div>
+                                                                <div className="text-link cursor-pointer" onClick={() => { router.push("/article/" + blog.slug) }} href={"/article/" + blog.slug}>Read more</div>
                                                             </div>
                                                         </div>
                                                     </div>

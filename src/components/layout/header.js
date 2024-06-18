@@ -174,7 +174,7 @@ const Header = React.memo(() => {
             {/*MOBILE HEADER*/}
             <div
                 ref={headerMobileRef}
-                className="heaed-mobile border-solid border-ccc dark:border-999 border-b dark:!bg-black !bg-white md:hidden sticky bg-white z-50 top-header justify-center w-full m-w mx-auto my-0"
+                className="heaed-mobile border-solid border-ccc dark:border-999 border-b dark:!bg-black !bg-white md:hidden sticky bg-white z-50 top-header justify-center w-full mx-auto my-0"
                 style={{ top: '0' }}
             >
                 <div className="py-2 relative heaeder-mobile-contain flex justify-center items-center w-full bg-white dark:bg-black">
@@ -206,7 +206,7 @@ const Header = React.memo(() => {
                             <img className="h-3" src="/img/logo1.svg" alt="smile" loading="lazy" />
                         </div>
                         <div className="flex items-center justify-center w-full dark:hidden">
-                            <img className="h-3" src="/img/logo2.svg" alt="smile" loading="lazy" />
+                            <img className="h-3" src="/img/logo2.svg" alt="smile" loading="lazy" height={200} width={200}/>
                         </div>
                     </Link>
                     {/* <div className="hidden">
@@ -226,8 +226,8 @@ const Header = React.memo(() => {
                         {/*Search bar mobile*/}
                         <div className="flex pb-3 border-b border-ccc">
                             <div className="flex align-center self-center pr-2">
-                                <img className="icon-ssm dark:hidden" src="/img/icon/Search.svg" alt="smile" loading="lazy" />
-                                <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy" />
+                                <img className="icon-ssm dark:hidden" src="/img/icon/Search.svg" alt="smile" loading="lazy" height={100} width={100}/>
+                                <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy" height={100} width={100}/>
                             </div>
                             <div className="my-search-bar nav-search w-full">
                                 <input
@@ -316,14 +316,14 @@ const Header = React.memo(() => {
             </div>
 
             {/*WEBSITE HEADER*/}
-            <div className="hidden md:flex top-header justify-center p-3 justify-center w-full items-center m-w mx-auto my-0">
+            <div className="hidden md:flex top-header justify-center py-3 justify-center w-full items-center m-w mx-auto my-0">
                 <ThemeToggle />
                 <Link href={ROUTER.HOME} className="flex-1">
                     <div className="items-center justify-center w-full hidden dark:flex">
                         <img className="h-4" src="/img/logo1.svg" alt="smile" loading="lazy" />
                     </div>
                     <div className="flex items-center justify-center w-full dark:hidden">
-                        <img className="h-4" src="/img/logo2.svg" alt="smile" loading="lazy" />
+                        <img className="h-4" src="/img/logo2.svg" alt="smile" loading="lazy"  height={200} width={200}/>
                     </div>
                 </Link>
                 <div className="flex mr-4 !hidden md:!flex">
@@ -339,8 +339,8 @@ const Header = React.memo(() => {
                     <button type="button"
                         onClick={toggleVisibility}
                         className="relative rounded-full bg-gray-800 p-1 text-gray-400 focus:outline-none">
-                        <img className="icon-ssm dark:hidden" src="/img/icon/Search.svg" alt="smile" loading="lazy" />
-                        <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy" />
+                        <img className="icon-ssm dark:hidden" src="/img/icon/Search.svg" alt="smile" loading="lazy" height={100} width={100}/>
+                        <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy" height={100} width={100}/>
                     </button>
                 </div>
             </div>
@@ -362,8 +362,8 @@ const Header = React.memo(() => {
                                     <div className="flex search-box">
                                         <div className="flex mr-auto w-full border-solid border-b border-ccc !border-999 focus-visible:outline-none pointer-events-auto dark:focus:border-white focus:border-333 searchbar-head">
                                             <div className="flex align-center self-center pr-2">
-                                                <img className="icon-ssm dark:hidden" src="/img/icon/Search.svg" alt="smile" loading="lazy" />
-                                                <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy" />
+                                                <img className="icon-ssm dark:hidden" src="/img/icon/Search.svg" alt="smile" loading="lazy" height={100} width={100}/>
+                                                <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy" height={100} width={100}/>
                                             </div>
                                             <div className="my-search-bar nav-search w-full">
                                                 <input
@@ -378,7 +378,7 @@ const Header = React.memo(() => {
                                             <button type="button"
                                                     onClick={(e) => {setKeywordType("")}}
                                                     className="relative rounded-full bg-gray-800 pl-1 py-1 text-gray-400 focus:outline-none">
-                                                <img className="icon-ssm dark:hidden" src="/img/icon/x.svg" alt="smile" loading="lazy" />
+                                                <img className="icon-ssm dark:hidden" src="/img/icon/x.svg" alt="smile" loading="lazy" height={100} width={100}/>
                                                 <img className="icon-ssm hidden dark:block" src="/img/icon/x-light.svg" alt="smile" loading="lazy" />
                                             </button>
                                         </div>

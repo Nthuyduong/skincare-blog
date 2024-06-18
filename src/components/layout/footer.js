@@ -76,17 +76,17 @@ const Footer = () => {
                                 <div className="sub-menu">
                                     <div className="text-textcolor mb-3">INTEREST</div>
                                     <ul>
-                                        <li>
-                                            <Link href={'/categories/guides-and-tutorial/sun-care'} className="text-textcolor nav-link">Sun care</Link>
+                                        <li className="mb-1">
+                                            <Link href={'/categories/guides-and-tutorial/sun-care'} className="text-textcolor nav-link w-full block">Sun care</Link>
+                                        </li>
+                                        <li className="mb-1">
+                                            <Link href={'/categories/guides-and-tutorial/skincare-routine'} className="text-textcolor nav-link w-full block">Skincare Routine</Link>
+                                        </li>
+                                        <li className="mb-1">
+                                            <Link href={'/categories/guides-and-tutorial/nourish-beauty'} className="text-textcolor nav-link w-full block">Nourish beauty</Link>
                                         </li>
                                         <li>
-                                            <Link href={'/categories/guides-and-tutorial/skincare-routine'} className="text-textcolor nav-link">Skincare Routine</Link>
-                                        </li>
-                                        <li>
-                                            <Link href={'/categories/guides-and-tutorial/nourish-beauty'} className="text-textcolor nav-link">Nourish beauty</Link>
-                                        </li>
-                                        <li>
-                                            <Link href={ROUTER.INGREDIENT} className="text-textcolor nav-link">Skincare Ingredients</Link>
+                                            <Link href={ROUTER.INGREDIENT} className="text-textcolor nav-link w-full block">Skincare Ingredients</Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -95,11 +95,11 @@ const Footer = () => {
                                 <div className="sub-menu">
                                     <div className="mb-3 text-textcolor ">INFO</div>
                                     <ul>
-                                        <li>
-                                            <Link href={ROUTER.ABOUT} className="text-textcolor nav-link">About</Link>
+                                        <li className="mb-1">
+                                            <Link href={ROUTER.ABOUT} className="text-textcolor nav-link w-full block">About</Link>
                                         </li>
                                         <li>
-                                            <Link href={ROUTER.CONTACT} className="text-textcolor nav-link">Contact me</Link>
+                                            <Link href={ROUTER.CONTACT} className="text-textcolor nav-link w-full block">Contact me</Link>
                                         </li>
                                     </ul>
                                 </div>

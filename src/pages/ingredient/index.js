@@ -74,8 +74,6 @@ const Ingredient = ({ ingredientsProps = [], isCrs }) => {
                             <ul className="flex">
                                 <li><a href="src/pages/ingredient/ingredients#index.js">Home</a></li>
                                 <li className="mx-2">/</li>
-                                <li><a href="src/pages/ingredient/ingredients#index.js">Skincare nerd</a></li>
-                                <li className="mx-2">/</li>
                                 <li><a href="src/pages/ingredient/ingredients#index.js">Skincare ingredients</a></li>
                             </ul>
                         </div>

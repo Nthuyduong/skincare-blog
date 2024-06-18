@@ -148,7 +148,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                     </div>
                 </div> */}
                 <div className="">
-                    <div className="px-2 my-0 md:py-8 py-7 mx-auto m-w">
+                    <div className="my-0 md:py-8 py-7 mx-auto m-w">
                         <div className="recently-update">
                             <h1 className="sm:max-w-[60%] animate slideInUp heading_2 mb-5 md:mb-6 cursor-text-wrp">
                                 We inspire people to love themselves because that love shapes beauty.
@@ -195,7 +195,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                         </div>
                     </div>
                 </div>
-                <div className="px-2 my-0 mx-auto m-w">
+                <div className="my-0 mx-auto m-w">
                     {/*List subcategorires*/}
                     <div className="flex list-categories md:mb-9 mb-7 justify-center">
                         <div>
@@ -299,7 +299,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                             </div>
                         </div>
                     </div>
-                    <div className="my-0 mx-auto m-w md:pb-9 pb-7">
+                    <div className="my-0 mx-auto md:pb-9 pb-7">
                         <div className="border-y border-solid border-ccc dark:border-999">
                             <div className="md:grid md:grid-cols-12 gap-4">
                                 <div className="md:col-span-8 md:pb-6 pb-4 pt-6 pr-4 about-intro md:border-r md:border-solid border-999 !border-ccc">
@@ -325,7 +325,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                     </div>
                 </div>
                 {/* INGREDIENT SECTION */}
-                <div className="px-2 md:px-0 mx-auto m-w md:mb-9 mb-7">
+                <div className="md:px-0 mx-auto m-w md:mb-9 mb-7">
                     <div className="md:grid grid-cols-12 gap-4">
                         <div className="col-span-5 animate slideInUp">
                             <img
@@ -385,7 +385,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                         <div className="text-center text-textcolor mt-5 heading_6 cursor-text-wrp">Oprah Winfrey</div>
                     </div>
                 </CardSlider>
-                <div className="px-2 md:px-0 my-0 mx-auto m-w">
+                <div className="md:px-0 my-0 mx-auto m-w">
                     <div className="md:mt-9 mt-7">
                         <div className="animate slideInUp heading_3 mb-1 md:mb-4">Reader's Favorite</div>
                         <div className="animate slideInUp animate--delay-medium">
