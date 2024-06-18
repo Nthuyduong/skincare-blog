@@ -26,7 +26,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
     const [popular, setPopular] = useState(popularProps || []);
     const [banner, setBanner] = useState(bannerProps || []);
 
-    console.log(banner)
+    // console.log(banner)
 
     useEffect(() => {
         const categoryCard = document.querySelectorAll('.home-category-card');
@@ -431,7 +431,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                 </div>
 
                 {/* OLD SUBSCRIBE */}
-                {/* <div className="px-3 my-0 mx-auto m-w pt-4 sm:pt-9">
+                <div className="px-3 my-0 mx-auto m-w pt-4 sm:pt-9">
                     <div className="subscribe-section">
                         <div className="bg-primaryvariant1 p-4 sm:p-5">
                             <div className="flex">
@@ -464,18 +464,18 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                             </div>
                         </div>
                     </div>
-                </div> */}
+                </div>
 
                 {/* NEW SUBSCRIBE */}
-                <div className="mx-auto m-w pt-8">
+                {/* <div className="mx-auto m-w pt-8">
                     <div className="md:grid grid-cols-12 gap-5">
-                        <div className="col-span-6"></div>
-                        <div className="col-span-6">
-                            <div className="heading_5 mb-4 pt-3">Subscribe newsletters</div>
-                            <div className="animate slideInUp heading_2 mb-5 md:mb-6 cursor-text-wrp">
+
+                        <div className="col-span-7">
+
+                            <div className="animate slideInUp heading_2 cursor-text-wrp">
                                 Never miss out on beauty tips and trends! Stay updated with our latest posts.
-                            </div>
-                            <div className="mt-4 animate animate--delay-slow slideInUp">
+                            </div> */}
+                            {/* <div className="mt-4 animate animate--delay-slow slideInUp">
                                 <button
                                     onClick={() => show({
                                         name: 'newsletters',
@@ -489,10 +489,49 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                     type="submit">
                                     Subscribe
                                 </button>
+                            </div> */}
+                        {/* </div>
+                        <div className="col-span-1"></div>
+                        <div className="col-span-4 md:flex flex-col">
+                            
+                            <div className="body_text h-full">
+                                Enter your email address to receive new posts in your inbox and seasonal newsletters!
                             </div>
-                        </div>
-                    </div>
-                </div>
+                            <div className="w-full flex dark:border-999 dark:focus:border-white focus:border-333 pointer-events-auto border-solid border-b border-ccc focus-visible:outline-none">
+                                <input
+                                    className="w-full py-1 pr-2 w-full"
+                                    placeholder="Join Radiance Aura Newsletters"
+                                    // onChange={(e) => setEmail(e.target.value)}
+                                    // onKeyDown={(e) => e.key === 'Enter' && handleSubscribe()}
+                                    onClick={() => show({
+                                        name: 'newsletters',
+                                        data: {
+                                            message: 'This is a notice modal',
+                                        },
+                                        position: 'right',
+                                        mobilePosition: 'right',
+                                    })}
+                                />
+                                <button
+                                    className=""
+                                    type="submit"
+                                    // onClick={handleSubscribe}
+                                    onClick={() => show({
+                                        name: 'newsletters',
+                                        data: {
+                                            message: 'This is a notice modal',
+                                        },
+                                        position: 'right',
+                                        mobilePosition: 'right',
+                                    })}
+                                >
+                                    <img className="w-full dark:hidden" src="../img/icon/arrow-right-circle.svg" alt="smile" loading="lazy" />
+                                    <img className="w-full hidden dark:block" src="../img/icon/arrow-right-circle-white.svg" alt="smile" loading="lazy" />
+                                </button>
+                            </div>
+                        </div> */}
+                    {/* </div>
+                </div> */}
 
             </div >
         </>

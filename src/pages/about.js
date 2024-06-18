@@ -3,9 +3,13 @@ import { ROUTER } from "../utils/constants";
 import Link from 'next/link';
 import dynamic from "next/dynamic";
 import Scroller from "../components/common/scroller";
+import { useModal } from '@hooks/modal';
 const Slider = dynamic(() => import("@components/common/slider"), { ssr: false });
 
 const About = () => {
+
+    const { show } = useModal();
+
     return (
         <div>
             <div className="md:pb-8 pb-6 pt-6 relative border-b border-solid border-999">
@@ -46,7 +50,7 @@ const About = () => {
                         </div>
                         <div className="col-span-2"></div>
                         <div className="col-span-5">
-                            <img className="w-full" src="./img/aboutnew.png" alt="smile" loading="lazy" />
+                            <img className="w-full md:h-auto sm:h-[380px] h-[300px] object-cover" src="./img/aboutnew.png" alt="smile" loading="lazy" />
                         </div>
                     </div>
                 </div>
@@ -110,10 +114,23 @@ const About = () => {
 
                 <div className="md:mb-8 mb-6">
                     <div className="animate slideInUp heading_3 mb-1 md:mb-4">What We Do</div>
-                    <div className="md:grid grid-cols-12 gap-6 md:flex items-center">
-                        <div className="col-span-3 animate slideInUp md:mb-0 mb-4">
+                    <div className="md:grid grid-cols-12 gap-6 lg:flex lg:items-center">
+                        <div className="md:col-span-6 lg:col-span-3 animate slideInUp md:mb-0 mb-4">
                             <div className="p-2 border border-solid border-ccc dark:border-999">
-                                <img className="w-full mb-4" src="./img/about/do1.png" alt="smile" loading="lazy" />
+                                <img className="w-full mb-4 lg:h-full md:h-[360px] h-[260px] object-cover" src="./img/about/do1.png" alt="smile" loading="lazy" />
+                                <div className="w-full">
+                                    <div className="heading_6 cursor-text-wrp">
+                                        Share useful info and tips
+                                    </div>
+                                    <div className="cursor-text-wrp pt-2">
+                                        At our skincare blog, we're all about sharing helpful info and tips. Discover the best ways to choose and use products effectively for a glowing and healthy skin journey. Your go-to source for easy-to-follow advice
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="md:col-span-6 lg:col-span-3 animate slideInUp md:mb-0 mb-4">
+                            <div className="p-2 border border-solid border-ccc dark:border-999">
+                                <img className="w-full mb-4 lg:h-full md:h-[360px] h-[260px] object-cover" src="./img/about/do2.png" alt="smile" loading="lazy" />
                                 <div className="w-full">
                                     <div className="heading_6 cursor-text-wrp">
                                         Making my passion
@@ -124,41 +141,28 @@ const About = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-span-3 animate slideInUp md:mb-0 mb-4">
+                        <div className="md:col-span-6 lg:col-span-3 animate slideInUp md:mb-0 mb-4">
                             <div className="p-2 border border-solid border-ccc dark:border-999">
-                                <img className="w-full mb-4" src="./img/about/do2.png" alt="smile" loading="lazy" />
+                                <img className="w-full mb-4 lg:h-full md:h-[360px] h-[260px] object-cover" src="./img/about/do3.jpg" alt="smile" loading="lazy" />
                                 <div className="w-full">
                                     <div className="heading_6 cursor-text-wrp">
-                                        Making my passion
+                                        Better together
                                     </div>
                                     <div className="cursor-text-wrp pt-2">
-                                        Dive into the story of starting this skincare blog, fueled by genuine passion. Share the personal connection to the beauty world and the inspiration behind creating a space for fellow enthusiasts.
+                                        Explore shared growth on my skincare blog. Blog post uncovers how exchanging experiences benefits not just you, the reader, but also contributes to my ongoing evolution within the skincare community
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-span-3 animate slideInUp md:mb-0 mb-4">
+                        <div className="md:col-span-6 lg:col-span-3 animate slideInUp">
                             <div className="p-2 border border-solid border-ccc dark:border-999">
-                                <img className="w-full mb-4" src="./img/about/do3.jpg" alt="smile" loading="lazy" />
+                                <img className="w-full mb-4 lg:h-full md:h-[360px] h-[260px] object-cover" src="./img/about/do4.png" alt="smile" loading="lazy" />
                                 <div className="w-full">
                                     <div className="heading_6 cursor-text-wrp">
-                                        Making my passion
+                                        Connecting Skincare-e
                                     </div>
                                     <div className="cursor-text-wrp pt-2">
-                                        Dive into the story of starting this skincare blog, fueled by genuine passion. Share the personal connection to the beauty world and the inspiration behind creating a space for fellow enthusiasts.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-span-3 animate slideInUp">
-                            <div className="p-2 border border-solid border-ccc dark:border-999">
-                                <img className="w-full mb-4" src="./img/about/do4.png" alt="smile" loading="lazy" />
-                                <div className="w-full">
-                                    <div className="heading_6 cursor-text-wrp">
-                                        Making my passion
-                                    </div>
-                                    <div className="cursor-text-wrp pt-2">
-                                        Dive into the story of starting this skincare blog, fueled by genuine passion. Share the personal connection to the beauty world and the inspiration behind creating a space for fellow enthusiasts.
+                                        Join fellow skincare enthusiasts as we share tips and info for healthy, radiant skin. Let's journey together towards beauty and confidence, enhancing your glow inside and out
                                     </div>
                                 </div>
                             </div>
@@ -175,7 +179,7 @@ const About = () => {
                     <div className="heading_4 cursor-text-wrp mx-4">LET'S CONTACT WITH US</div>
                     <div className="heading_4 cursor-text-wrp mx-4">WELCOME TO OUR BEAUTY BLOG</div>
                     <div className="heading_4 cursor-text-wrp mx-4">LET'S CONTACT WITH US</div>
-                    
+
                 </Scroller>
             </div>
             <div className="m-w px-2 mx-auto my-0">
@@ -377,7 +381,71 @@ const About = () => {
             {/*        <div className="medium_text">Get in touch: Nthduong898@gmail.com</div>*/}
             {/*    </div>*/}
             {/*</div>*/}
+            <div className="mx-auto m-w py-5 md:py-7 border-t border-solid border-ccc dark:border-999">
+                <div className="md:grid grid-cols-12 gap-5">
 
+                    <div className="col-span-7">
+
+                        <div className="animate slideInUp heading_2 cursor-text-wrp mb-4 md:mb-0">
+                            Never miss out on beauty tips and trends! Stay updated with our latest posts.
+                        </div>
+                        {/* <div className="mt-4 animate animate--delay-slow slideInUp">
+                                <button
+                                    onClick={() => show({
+                                        name: 'newsletters',
+                                        data: {
+                                            message: 'This is a notice modal',
+                                        },
+                                        position: 'right',
+                                        mobilePosition: 'right',
+                                    })}
+                                    className="px-4 my-btn-pr dark:border-white"
+                                    type="submit">
+                                    Subscribe
+                                </button>
+                            </div> */}
+                    </div>
+                    <div className="col-span-1"></div>
+                    <div className="col-span-4 md:flex flex-col">
+
+                        <div className="body_text h-full mb-4 md:mb-0">
+                            Enter your email address to receive new posts in your inbox and seasonal newsletters!
+                        </div>
+                        <div className="w-full flex dark:border-999 dark:focus:border-white focus:border-333 pointer-events-auto border-solid border-b border-ccc focus-visible:outline-none">
+                            <input
+                                className="w-full py-1 pr-2 w-full"
+                                placeholder="Join Radiance Aura Newsletters"
+                                // onChange={(e) => setEmail(e.target.value)}
+                                // onKeyDown={(e) => e.key === 'Enter' && handleSubscribe()}
+                                onClick={() => show({
+                                    name: 'newsletters',
+                                    data: {
+                                        message: 'This is a notice modal',
+                                    },
+                                    position: 'right',
+                                    mobilePosition: 'right',
+                                })}
+                            />
+                            <button
+                                className=""
+                                type="submit"
+                                // onClick={handleSubscribe}
+                                onClick={() => show({
+                                    name: 'newsletters',
+                                    data: {
+                                        message: 'This is a notice modal',
+                                    },
+                                    position: 'right',
+                                    mobilePosition: 'right',
+                                })}
+                            >
+                                <img className="w-full dark:hidden" src="../img/icon/arrow-right-circle.svg" alt="smile" loading="lazy" />
+                                <img className="w-full hidden dark:block" src="../img/icon/arrow-right-circle-white.svg" alt="smile" loading="lazy" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div >
     )
 }

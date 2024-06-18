@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Ingredient from "../index";
 import { getIngredientByIdApi, getIngredientBySlugApi } from "@services/ingredients"
 import { BASE_URL } from "@utils/apiUtils";
@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import { useAnimation } from "@hooks/useAnimation";
 import Head from "next/head";
 
-const IngredientDetail = ({ ingredientProps , slug , isCrs }) => {
+const IngredientDetail = ({ ingredientProps, slug, isCrs }) => {
 
     const { handleAccordion } = useAnimation();
 
@@ -31,6 +31,18 @@ const IngredientDetail = ({ ingredientProps , slug , isCrs }) => {
         }
     }, [ingredient]);
 
+    // TEST
+    const [clickedIndex, setClickedIndex] = useState(0);
+    const contentRefs = useRef([]);
+
+    const handleClick = (index) => {
+        setClickedIndex(index);
+        contentRefs.current[index].scrollIntoView({ behavior: 'smooth' });
+    };
+    useEffect(() => {
+        contentRefs.current[clickedIndex].scrollIntoView({ behavior: 'smooth' });
+    }, []);
+
     return (
         <>
             <Head>
@@ -45,8 +57,8 @@ const IngredientDetail = ({ ingredientProps , slug , isCrs }) => {
                         <div className="col-span-8 sm:col-span-8 px-3 sm:px-0">
                             <div className="grid grid-cols-8 gap-5">
                                 <div className="col-span-12 sm:col-span-3 border border-solid border-ccc !border-999">
-                                    <img className="w-full dark:hidden" src={BASE_URL + '/storage/' + ingredient?.featured_img} alt="smile" loading="lazy"/>
-                                    <img className="w-full dark:block hidden" src={BASE_URL + '/storage/' + ingredient?.featured_img2} alt="smile" loading="lazy"/>
+                                    <img className="w-full dark:hidden" src={BASE_URL + '/storage/' + ingredient?.featured_img} alt="smile" loading="lazy" />
+                                    <img className="w-full dark:block hidden" src={BASE_URL + '/storage/' + ingredient?.featured_img2} alt="smile" loading="lazy" />
                                 </div>
                                 <div className="col-span-12 sm:col-span-5 flex items-center">
                                     <div className="">
@@ -78,14 +90,14 @@ const IngredientDetail = ({ ingredientProps , slug , isCrs }) => {
                                         ingredient?.details ? (
                                             ingredient.details.map((item, index) => {
                                                 return (
-                                                    <div 
+                                                    <div
                                                         className={`my-collapse border-b dark:border-999 border-ccc border-solid`}
                                                         key={index}
                                                     >
                                                         <div className="mb-1 question-container flex">
                                                             <div className="question mr-auto medium_text">
                                                                 <div className="flex">
-                                                                    <div className="heading_6 mr-2">{index +1}/</div>
+                                                                    <div className="heading_6 mr-2">{index + 1}/</div>
                                                                     <div className="heading_6">{item?.name}</div>
                                                                 </div>
                                                             </div>
@@ -109,6 +121,60 @@ const IngredientDetail = ({ ingredientProps , slug , isCrs }) => {
                             </div>
                             <div className="col-span-2 hidden sm:block"></div>
                         </div>
+
+
+                        {/* NEW ingredient DETAILS */}
+                        <div className="mt-7">
+                            <div className="md:grid grid-cols-12 lg:gap-6">
+                                <div className="col-span-6">
+                                    <div className="sticky top-[70px]">
+                                        {
+                                            ingredient?.details ? (
+                                                ingredient.details.map((item, index) => {
+                                                    return (
+                                                        <div className="py-3 border-t border-solid border-ccc">
+                                                            <div
+                                                                key={index}
+                                                                className={`flex items-center ${clickedIndex === index ? 'click' : ''}`}
+                                                                onClick={() => handleClick(index)}
+                                                            >
+                                                                <div className="spot"></div>
+                                                                <div className="flex">
+                                                                    <div className="heading_6 mr-2">{index + 1}/</div>
+                                                                    <div className="heading_6">{item?.name}</div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    )
+                                                })
+                                            ) : ''
+                                        }
+                                    </div>
+                                </div>
+                                <div className="col-span-6">
+                                    {
+                                        ingredient?.details ? (
+                                            ingredient.details.map((item, index) => {
+                                                return (
+                                                    <div
+                                                        className="mb-4"
+                                                        key={index}
+                                                        ref={(el) => (contentRefs.current[index] = el)}
+                                                    >
+                                                        <div className="flex mb-2">
+                                                            <div className="heading_5 mr-2">{index + 1}/</div>
+                                                            <div className="heading_5">{item?.name}</div>
+                                                        </div>
+                                                        <div>{item?.content}</div>
+                                                    </div>
+                                                )
+                                            })
+                                        ) : ''
+                                    }
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -116,7 +182,7 @@ const IngredientDetail = ({ ingredientProps , slug , isCrs }) => {
     )
 }
 
-IngredientDetail.getInitialProps = async({ req, res, query }) => {
+IngredientDetail.getInitialProps = async ({ req, res, query }) => {
     const { slug } = query;
     if (typeof window != 'undefined') {
         return {
@@ -127,14 +193,14 @@ IngredientDetail.getInitialProps = async({ req, res, query }) => {
     }
     try {
         const response = await fetch(`${BASE_URL}/api/ingredients/slug/${slug}`);
-        
+
         const resData = await response.json();
         return {
             ingredientProps: resData?.data || {},
             isCrs: false,
             slug,
         }
-        
+
     } catch (error) {
         return {
             ingredientProps: {},
