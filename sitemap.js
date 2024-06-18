@@ -29,7 +29,8 @@ function getFoldersRecursive(filePath) {
 }
 
 // Usage example
-const targetPath = 'C:/Users/Giang Nguyen/Documents/code/skincare-blog/src/pages';
+const targetPath = './src/pages';
+// const targetPath = 'C:/Users/Giang Nguyen/Documents/code/skincare-blog/src/pages';
 // const folderNames = getFoldersRecursive(targetPath);
 // console.log(folderNames);
 
