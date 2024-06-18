@@ -327,7 +327,7 @@ const Header = React.memo(() => {
                         <img className="h-4" src="/img/logo1.svg" alt="smile" loading="lazy" />
                     </div>
                     <div className="flex items-center justify-center w-full dark:hidden">
-                        <img className="h-4" src="/img/logo2.svg" alt="smile" loading="lazy" height={200} width={200} />
+                        <img className="h-4" src="/img/logo2.svg" alt="smile" loading="lazy" height={200} width={300} />
                     </div>
                 </Link>
                 <div className="flex mr-4 !hidden md:!flex">
