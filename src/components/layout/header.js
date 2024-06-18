@@ -342,7 +342,7 @@ const Header = React.memo(() => {
                 <div className="">
                     <button type="button"
                         onClick={toggleVisibility}
-                        className="relative rounded-full bg-gray-800 p-1 text-gray-400 focus:outline-none">
+                        className="relative rounded-full bg-gray-800 py-1 text-gray-400 focus:outline-none">
                         <img className="icon-ssm dark:hidden" src="/img/icon/Search.svg" alt="smile" loading="lazy" height={100} width={100} />
                         <img className="icon-ssm hidden dark:block" src="/img/icon/Search-white.svg" alt="smile" loading="lazy" height={100} width={100} />
                     </button>
