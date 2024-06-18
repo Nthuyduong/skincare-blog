@@ -40,15 +40,15 @@ const IngredientDetail = ({ ingredientProps , slug , isCrs }) => {
             <div className="detail-ingredient pt-7">
                 <div className="mx-auto m-w my-0">
                     {/*BANNER*/}
-                    <div className="grid grid-cols-12">
+                    <div className="md:grid grid-cols-12">
                         <div className="col-span-2 hidden sm:block"></div>
-                        <div className="col-span-12 sm:col-span-8 px-3 sm:px-0">
-                            <div className="grid grid-cols-9 gap-5">
+                        <div className="col-span-8 sm:col-span-8 px-3 sm:px-0">
+                            <div className="grid grid-cols-8 gap-5">
                                 <div className="col-span-12 sm:col-span-3 border border-solid border-ccc !border-999">
                                     <img className="w-full dark:hidden" src={BASE_URL + '/storage/' + ingredient?.featured_img} alt="smile" loading="lazy"/>
                                     <img className="w-full dark:block hidden" src={BASE_URL + '/storage/' + ingredient?.featured_img2} alt="smile" loading="lazy"/>
                                 </div>
-                                <div className="col-span-12 sm:col-span-6 flex items-center">
+                                <div className="col-span-12 sm:col-span-5 flex items-center">
                                     <div className="">
                                         {/*breadscrumb*/}
                                         <div className="flex pb-3">
