@@ -38,7 +38,7 @@ const IngredientDetail = ({ ingredientProps, slug, isCrs }) => {
     const handleClick = (index) => {
         setClickedIndex(index);
         if (contentRefs.current && contentRefs.current[index]) {
-            
+
             if (index >= clickedIndex) {
                 contentRefs.current[index].scrollIntoView({ behavior: 'smooth' });
             } else {
@@ -47,9 +47,37 @@ const IngredientDetail = ({ ingredientProps, slug, isCrs }) => {
                     behavior: 'smooth'
                 });
             }
-            
+
         }
     };
+
+
+    // Test image change when scroll
+
+    // const [isScaled, setIsScaled] = useState(false);
+    // const prevScrollY = useRef(0);
+
+    // const handleScroll = () => {
+    //     const currentScrollY = window.scrollY;
+
+    //     if (currentScrollY > prevScrollY.current) {
+    //         // Scrolling down
+    //         setIsScaled(true);
+    //     } else {
+    //         // Scrolling up
+    //         setIsScaled(false);
+    //     }
+
+    //     prevScrollY.current = currentScrollY;
+    // };
+
+    // useEffect(() => {
+    //     window.addEventListener('scroll', handleScroll);
+
+    //     return () => {
+    //         window.removeEventListener('scroll', handleScroll);
+    //     };
+    // }, []);
 
     return (
         <>
@@ -60,7 +88,7 @@ const IngredientDetail = ({ ingredientProps, slug, isCrs }) => {
             <div className="detail-ingredient pt-7">
                 <div className="mx-auto m-w my-0">
                     {/*BANNER*/}
-                    <div className="md:grid grid-cols-12">
+                    {/* <div className="md:grid grid-cols-12">
                         <div className="col-span-2 hidden sm:block"></div>
                         <div className="col-span-8 sm:col-span-8 px-3 sm:px-0">
                             <div className="grid grid-cols-8 gap-5">
@@ -69,26 +97,13 @@ const IngredientDetail = ({ ingredientProps, slug, isCrs }) => {
                                     <img className="w-full dark:block hidden" src={BASE_URL + '/storage/' + ingredient?.featured_img2} alt="smile" loading="lazy" />
                                 </div>
                                 <div className="col-span-12 sm:col-span-5 flex items-center">
-                                    <div className="">
-                                        {/*breadscrumb*/}
-                                        <div className="flex pb-3">
-                                            <ul className="flex body_text">
-                                                <li><a href="src/pages/ingredient/ingredients#index.js">Home</a></li>
-                                                <li className="sm:mx-2 mx-1">/</li>
-                                                <li><a href="src/pages/ingredient/ingredients#index.js">Skincare ingredients</a></li>
-                                                <li className="sm:mx-2 mx-1">/</li>
-                                                <li><a href="src/pages/ingredient/ingredients#index.js">{ingredient?.name}</a></li>
-                                            </ul>
-                                        </div>
-                                        <h1 className="heading_2 mb-2">{ingredient?.name}</h1>
-                                        <h3>{ingredient?.description}</h3>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
                         <div className="col-span-2 hidden sm:block"></div>
-                    </div>
-                    <div className="mt-5 border-t border-ccc">
+                    </div> */}
+                    <div className="border-t border-ccc">
                         <div className="sm:hidden grid grid-cols-12">
                             <div className="col-span-2 hidden sm:block"></div>
                             <div className="col-span-12 sm:col-span-8 px-3 sm:px-0">
@@ -130,37 +145,105 @@ const IngredientDetail = ({ ingredientProps, slug, isCrs }) => {
                             <div className="col-span-2 hidden sm:block"></div>
                         </div>
 
+                        <div className="">
+                            {/*breadscrumb*/}
+                            <div className="flex pb-3">
+                                <ul className="flex body_text">
+                                    <li><a href="src/pages/ingredient/ingredients#index.js">Home</a></li>
+                                    <li className="sm:mx-2 mx-1">/</li>
+                                    <li><a href="src/pages/ingredient/ingredients#index.js">Skincare ingredients</a></li>
+                                    <li className="sm:mx-2 mx-1">/</li>
+                                    <li><a href="src/pages/ingredient/ingredients#index.js">{ingredient?.name}</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+
 
                         {/* NEW ingredient DETAILS */}
-                        <div className="hidden sm:block mt-7">
+                        <div className="hidden sm:block mt-4">
                             <div className="md:grid grid-cols-12 lg:gap-6">
-                                <div className="col-span-6">
+                                <div className="col-span-6 ">
                                     <div className="sticky top-[70px]">
-                                        {
-                                            ingredient?.details ? (
-                                                ingredient.details.map((item, index) => {
-                                                    return (
-                                                        <div className="py-3 border-t border-solid border-ccc">
-                                                            <div
-                                                                key={index}
-                                                                className={`flex items-center ${clickedIndex === index ? 'click' : ''}`}
-                                                                onClick={() => handleClick(index)}
-                                                            >
-                                                                <div className="spot"></div>
-                                                                <div className="flex">
-                                                                    <div className="heading_6 mr-2">{index + 1}/</div>
-                                                                    <div className="heading_6">{item?.name}</div>
-                                                                </div>
-                                                            </div>
+                                        {/*BANNER*/}
+                                        <div className="md:grid grid-cols-12">
+                                            <div className="col-span-10">
+                                                {/* <div className={`border border-solid border-ccc !border-999 banner-image ${isScaled ? 'scale-down' : ''}`}> */}
+                                                {/* <div className="border border-solid border-ccc !border-999 banner-image">
+                                                    <img
+                                                        className="`w-full dark:hidden"
+                                                        src={BASE_URL + '/storage/' + ingredient?.featured_img}
+                                                        alt="smile"
+                                                        loading="lazy"
+                                                    />
+                                                    <img
+                                                        className="w-full dark:block hidden"
+                                                        src={BASE_URL + '/storage/' + ingredient?.featured_img2}
+                                                        alt="smile"
+                                                        loading="lazy"
+                                                    />
+                                                </div> */}
+                                            </div>
+                                            <div className="col-span-2"></div>
+                                        </div>
 
-                                                        </div>
-                                                    )
-                                                })
-                                            ) : ''
-                                        }
+                                        <div>
+                                            <h1 className="heading_3 mb-4">{ingredient?.name}</h1>
+                                            {/* <h3>{ingredient?.description}</h3> */}
+                                        </div>
+                                        <div className="py-3 border-t border-solid border-ccc flex items-center">
+                                            <div className="medium_text">Detailed Ingredient Information</div>
+                                            <div className="ml-auto">(04)</div>
+                                        </div>
+                                        <div className="">
+                                            {
+                                                ingredient?.details ? (
+                                                    ingredient.details.map((item, index) => {
+                                                        return (
+                                                            <div className="py-3 border-t border-solid border-ccc">
+                                                                <div
+                                                                    key={index}
+                                                                    className={`flex items-center ${clickedIndex === index ? 'click' : ''}`}
+                                                                    onClick={() => handleClick(index)}
+                                                                >
+                                                                    <div className="spot"></div>
+                                                                    <div className="flex">
+                                                                        <div className="medium_text mr-2">{index + 1}/</div>
+                                                                        <div className="medium_text">{item?.name}</div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        )
+                                                    })
+                                                ) : ''
+                                            }
+                                            <div className="md:grid grid-cols-12 mt-5">
+                                                <div className="col-span-8">
+                                                    {/* <div className={`border border-solid border-ccc !border-999 banner-image ${isScaled ? 'scale-down' : ''}`}> */}
+                                                    <div className="border border-solid border-ccc !border-999 banner-image">
+                                                        <img
+                                                            className="`w-full dark:hidden"
+                                                            src={BASE_URL + '/storage/' + ingredient?.featured_img}
+                                                            alt="smile"
+                                                            loading="lazy"
+                                                        />
+                                                        <img
+                                                            className="w-full dark:block hidden"
+                                                            src={BASE_URL + '/storage/' + ingredient?.featured_img2}
+                                                            alt="smile"
+                                                            loading="lazy"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div className="col-span-4"></div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="col-span-6">
+
                                     {
                                         ingredient?.details ? (
                                             ingredient.details.map((item, index) => {
@@ -185,7 +268,7 @@ const IngredientDetail = ({ ingredientProps, slug, isCrs }) => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     )
 }
