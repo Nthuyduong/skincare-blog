@@ -107,8 +107,37 @@ const IngredientDetail = ({ ingredientProps, slug, isCrs }) => {
                         <div className="sm:hidden grid grid-cols-12">
                             <div className="col-span-2 hidden sm:block"></div>
                             <div className="col-span-12 sm:col-span-8 px-3 sm:px-0">
+                                {/*breadscrumb*/}
+                                <div className="md:hidden flex pb-3">
+                                    <ul className="flex body_text">
+                                        <li><a href="src/pages/ingredient/ingredients#index.js">Home</a></li>
+                                        <li className="sm:mx-2 mx-1">/</li>
+                                        <li><a href="src/pages/ingredient/ingredients#index.js">Skincare ingredients</a></li>
+                                        <li className="sm:mx-2 mx-1">/</li>
+                                        <li><a href="src/pages/ingredient/ingredients#index.js">{ingredient?.name}</a></li>
+                                    </ul>
+                                </div>
+                                {/* BANNER IN MOBILE */}
+                                <div className="mb-4 border border-solid border-ccc !border-999 banner-image block md:hidden">
+                                    <img
+                                        className="`w-full dark:hidden"
+                                        src={BASE_URL + '/storage/' + ingredient?.featured_img}
+                                        alt="smile"
+                                        loading="lazy"
+                                    />
+                                    <img
+                                        className="w-full dark:block hidden"
+                                        src={BASE_URL + '/storage/' + ingredient?.featured_img2}
+                                        alt="smile"
+                                        loading="lazy"
+                                    />
+                                </div>
+                                <div className="md:hidden block mb-6">
+                                            <h1 className="heading_3 mb-4">{ingredient?.name}</h1>
+                                            {/* <h3>{ingredient?.description}</h3> */}
+                                        </div>
                                 {/*Ingredient detail*/}
-                                <div className="">
+                                <div className="mb-6">
                                     {
                                         ingredient?.details ? (
                                             ingredient.details.map((item, index) => {
@@ -145,27 +174,24 @@ const IngredientDetail = ({ ingredientProps, slug, isCrs }) => {
                             <div className="col-span-2 hidden sm:block"></div>
                         </div>
 
-                        <div className="">
-                            {/*breadscrumb*/}
-                            <div className="flex pb-3">
-                                <ul className="flex body_text">
-                                    <li><a href="src/pages/ingredient/ingredients#index.js">Home</a></li>
-                                    <li className="sm:mx-2 mx-1">/</li>
-                                    <li><a href="src/pages/ingredient/ingredients#index.js">Skincare ingredients</a></li>
-                                    <li className="sm:mx-2 mx-1">/</li>
-                                    <li><a href="src/pages/ingredient/ingredients#index.js">{ingredient?.name}</a></li>
-                                </ul>
-                            </div>
-
-                        </div>
-
-
-
                         {/* NEW ingredient DETAILS */}
                         <div className="hidden sm:block mt-4">
-                            <div className="md:grid grid-cols-12 lg:gap-6">
-                                <div className="col-span-6 ">
+                            <div className="md:grid grid-cols-12 md:gap-6">
+                                <div className="col-span-5 lg:col-span-6 ">
                                     <div className="sticky top-[70px]">
+                                        <div className="md:block hidden">
+                                            {/*breadscrumb*/}
+                                            <div className="flex pb-3">
+                                                <ul className="flex body_text">
+                                                    <li><a href="src/pages/ingredient/ingredients#index.js">Home</a></li>
+                                                    <li className="sm:mx-2 mx-1">/</li>
+                                                    <li><a href="src/pages/ingredient/ingredients#index.js">Skincare ingredients</a></li>
+                                                    <li className="sm:mx-2 mx-1">/</li>
+                                                    <li><a href="src/pages/ingredient/ingredients#index.js">{ingredient?.name}</a></li>
+                                                </ul>
+                                            </div>
+
+                                        </div>
                                         {/*BANNER*/}
                                         <div className="md:grid grid-cols-12">
                                             <div className="col-span-10">
@@ -188,7 +214,7 @@ const IngredientDetail = ({ ingredientProps, slug, isCrs }) => {
                                             <div className="col-span-2"></div>
                                         </div>
 
-                                        <div>
+                                        <div className="md:block hidden">
                                             <h1 className="heading_3 mb-4">{ingredient?.name}</h1>
                                             {/* <h3>{ingredient?.description}</h3> */}
                                         </div>
@@ -219,8 +245,8 @@ const IngredientDetail = ({ ingredientProps, slug, isCrs }) => {
                                                     })
                                                 ) : ''
                                             }
-                                            <div className="md:grid grid-cols-12 mt-5">
-                                                <div className="col-span-8">
+                                            <div className="md:grid grid-cols-12 mt-5 lg:mb-0 mb-6">
+                                                <div className="col-span-12 lg:col-span-8">
                                                     {/* <div className={`border border-solid border-ccc !border-999 banner-image ${isScaled ? 'scale-down' : ''}`}> */}
                                                     <div className="border border-solid border-ccc !border-999 banner-image">
                                                         <img
@@ -237,12 +263,12 @@ const IngredientDetail = ({ ingredientProps, slug, isCrs }) => {
                                                         />
                                                     </div>
                                                 </div>
-                                                <div className="col-span-4"></div>
+                                                <div className="md:block hidde col-span-4"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-span-6">
+                                <div className="col-span-7 lg:col-span-6">
 
                                     {
                                         ingredient?.details ? (
