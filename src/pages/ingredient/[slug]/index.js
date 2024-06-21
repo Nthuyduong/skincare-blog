@@ -160,9 +160,11 @@ const IngredientDetail = ({ ingredientProps, slug, isCrs }) => {
                                                             </div>
                                                         </div>
                                                         <div className={`content-container pl-3`}>
+
                                                             <div
                                                                 className="whitespace-pre-line"
-                                                            >{item?.content}</div>
+                                                                dangerouslySetInnerHTML={{ __html: item?.content }}
+                                                            ></div>
                                                         </div>
                                                     </div>
                                                 )
@@ -283,7 +285,10 @@ const IngredientDetail = ({ ingredientProps, slug, isCrs }) => {
                                                             <div className="heading_5 mr-2">{index + 1}/</div>
                                                             <div className="heading_5">{item?.name}</div>
                                                         </div>
-                                                        <div>{item?.content}</div>
+                                                        <div
+                                                            className="whitespace-pre-line"
+                                                            dangerouslySetInnerHTML={{ __html: item?.content }}
+                                                        ></div>
                                                     </div>
                                                 )
                                             })
