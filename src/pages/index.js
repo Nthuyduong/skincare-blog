@@ -206,16 +206,16 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                             <div className="grid grid-cols-12 gap-2 sm:gap-4 animate slideInUp animate--delay-medium">
                                 <div className="col-span-12 sm:col-span-3 home-category-card">
                                     <div className="home-category-card-title-wrp px-1 pt-1 sm:px-3 sm:pt-3">
-                                        <div className="heading_6 !text-textcolor">01/</div>
+                                        <div className="heading_6">01/</div>
                                         <Link href={'/categories/guides-and-tutorial/usage-guide'} className="">
-                                            <div className="heading_5 !text-textcolor sm:mt-1 mb-2 sm:mb-4">Usage Guide</div>
+                                            <div className="heading_5 sm:mt-1 mb-2 sm:mb-4">Usage Guide</div>
                                         </Link>
-                                        <div className="sm:hidden body_text !text-textcolor cursor-text-wrp">
+                                        <div className="sm:hidden body_text  cursor-text-wrp">
                                             Unlock the full potential of your skincare products with comprehensive usage guides and expert tips
                                         </div>
                                     </div>
                                     <div className="aspect-square relative home-category-card-img-wrp">
-                                        <div className="hidden sm:block home-category-card-des body_text !text-textcolor mb-5 cursor-text-wrp pt-1 sm:px-3">
+                                        <div className="hidden sm:block home-category-card-des body_text  mb-5 cursor-text-wrp pt-1 sm:px-3">
                                             Unlock the full potential of your skincare products with comprehensive usage guides and expert tips
                                         </div>
                                         <Link href={'/categories/guides-and-tutorial/usage-guide'} className="sm:absolute w-full h-full bottom-[0]">
@@ -229,16 +229,16 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                 </div>
                                 <div className="col-span-12 sm:col-span-3 home-category-card relative home-category-card-active">
                                     <div className="home-category-card-title-wrp px-1 pt-1 sm:px-3 sm:pt-3">
-                                        <div className="heading_6 !text-textcolor">02/</div>
+                                        <div className="heading_6 ">02/</div>
                                         <Link href={'/categories/guides-and-tutorial/nourish-beauty'} className="">
-                                            <div className="heading_5 !text-textcolor sm:mt-1 mb-2 sm:mb-4">Nourish Beauty</div>
+                                            <div className="heading_5  sm:mt-1 mb-2 sm:mb-4">Nourish Beauty</div>
                                         </Link>
-                                        <div className="sm:hidden body_text !text-textcolor mt-1 cursor-text-wrp">
+                                        <div className="sm:hidden body_text  mt-1 cursor-text-wrp">
                                             Explore a wealth of knowledge for enhancing your skin's radiance and well-being from the inside out
                                         </div>
                                     </div>
                                     <div className="aspect-square relative home-category-card-img-wrp">
-                                        <div className="hidden sm:block home-category-card-des body_text !text-textcolor mt-1 mb-5 cursor-text-wrp pt-1 sm:px-3">
+                                        <div className="hidden sm:block home-category-card-des body_text  mt-1 mb-5 cursor-text-wrp pt-1 sm:px-3">
                                             Explore a wealth of knowledge for enhancing your skin's radiance and well-being from the inside out
                                         </div>
                                         <Link href={'/categories/guides-and-tutorial/nourish-beauty'} className="absolute w-full h-full bottom-[0]">
@@ -252,16 +252,16 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                 </div>
                                 <div className="col-span-12 sm:col-span-3 home-category-card relative">
                                     <div className="home-category-card-title-wrp px-1 pt-1 sm:px-3 sm:pt-3">
-                                        <div className="heading_6 !text-textcolor">03/</div>
+                                        <div className="heading_6 ">03/</div>
                                         <Link href={'/categories/selfcare-nerd/mental-health'} className="">
-                                            <div className="heading_5 !text-textcolor sm:mt-1 mb-2 sm:mb-4">Mental Health</div>
+                                            <div className="heading_5  sm:mt-1 mb-2 sm:mb-4">Mental Health</div>
                                         </Link>
-                                        <div className="sm:hidden body_text !text-textcolor cursor-text-wrp">
+                                        <div className="sm:hidden body_text  cursor-text-wrp">
                                             Explore strategies to boost mental well-being, from managing stress to enhancing resilience.
                                         </div>
                                     </div>
                                     <div className="aspect-square relative home-category-card-img-wrp">
-                                        <div className="hidden sm:block home-category-card-des body_text !text-textcolor mt-1 mb-5 px-1 sm:px-3 cursor-text-wrp">
+                                        <div className="hidden sm:block home-category-card-des body_text  mt-1 mb-5 px-1 sm:px-3 cursor-text-wrp">
                                             Explore strategies to boost mental well-being, from managing stress to enhancing resilience.
                                         </div>
                                         <Link href={'/categories/selfcare-nerd/mental-health'} className="absolute w-full h-full bottom-[0]">
@@ -275,16 +275,16 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                 </div>
                                 <div className="col-span-12 sm:col-span-3 home-category-card relative">
                                     <div className="home-category-card-title-wrp px-1 pt-1 sm:px-3 sm:pt-3">
-                                        <div className="heading_6 !text-textcolor">04/</div>
+                                        <div className="heading_6 ">04/</div>
                                         <Link href={'/categories/selfcare-nerd/hair-care'} className="body_text nav-link">
-                                            <div className="heading_5 !text-textcolor mt-1 mb-2 sm:mb-4">Hair Care</div>
+                                            <div className="heading_5  mt-1 mb-2 sm:mb-4">Hair Care</div>
                                         </Link>
-                                        <div className="sm:hidden body_text !text-textcolor cursor-text-wrp">
+                                        <div className="sm:hidden body_text  cursor-text-wrp">
                                             Discover essential tips and solutions for healthier hair, tackling issues like dryness, breakage, and more.
                                         </div>
                                     </div>
                                     <div className="aspect-square relative home-category-card-img-wrp">
-                                        <div className="hidden sm:block home-category-card-des body_text !text-textcolor mt-1 mb-5 px-1 sm:px-3 cursor-text-wrp">
+                                        <div className="hidden sm:block home-category-card-des body_text  mt-1 mb-5 px-1 sm:px-3 cursor-text-wrp">
                                             Discover essential tips and solutions for healthier hair, tackling issues like dryness, breakage, and more.
                                         </div>
                                         <Link href={'/categories/selfcare-nerd/hair-care'} className="absolute w-full h-full bottom-[0]">
