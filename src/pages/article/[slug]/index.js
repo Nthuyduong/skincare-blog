@@ -12,8 +12,15 @@ import Head from "next/head";
 import { usePost } from "@hooks/usePost";
 import { BASE_URL } from "../../../utils/apiUtils";
 import { fetchRelatedBlogPostsApi } from "@services/blog";
+import { fetchCommentByBlogIdApi, createCommentApi, createCommentGuestApi } from "@services/comment";
+import Pagination from "@components/common/pagination";
+import { useApp } from '@hooks/useApp';
+import { getGetLoginUrl } from "@services/auth";
+import { prettyDate } from "../../../utils/format";
 
 const ArticleDetail = ({ blogProps, isCrs, slug }) => {
+
+    const { getUserInfo, user } = useApp();
 
     const { updateBlogViewCount } = usePost();
     
@@ -24,6 +31,14 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
     const refProcess = useRef(null);
     const [blog, setBlog] = useState(blogProps);
     const [relatedBlogs, setRelatedBlogs] = useState([]);
+    const [comments, setComments] = useState([]);
+    const [page, setPage] = useState(1);
+    const [sort, setSort] = useState('created_at:desc');
+    const [paginate, setPaginate] = useState({});
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+
+    const [comment, setComment] = useState('');
 
     useEffect(() => {
         if (isCrs) {
@@ -31,6 +46,13 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
         }
     }, [router.asPath]);
 
+    const fetchComments = async () => {
+        const res = await fetchCommentByBlogIdApi(blog.id, page, sort);
+        if (res?.status) {
+            setComments(res?.data?.results || []);
+            setPaginate(res?.data?.paginate || {});
+        }
+    }
     const fetchDataCsr = async () => {
         const res = await getBlogBySlugApi(slug);
         setBlog(res?.data || {});
@@ -100,6 +122,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
         if (blog?.id) {
             handleUpdateViewCount();
             fetchRelatedBlogs();
+            fetchComments();
         }
         return () => {
             handleCatalog();
@@ -109,6 +132,44 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
 
     const handleUpdateViewCount = async () => {
         await updateBlogViewCount(blog.id);
+    }
+
+    const handleLogin = async(provider) =>  {
+        const res = await getGetLoginUrl(provider);
+
+        if (res.status) {
+            const currentUrl = window.location.href;
+            sessionStorage.setItem('redirectUrl', currentUrl);
+            window.location.href = res.url;
+        }
+    }
+
+    const handleSendComment = async () => {
+        if (!comment) {
+            return;
+        }
+        if (user) {
+            const res = await createCommentApi({
+                blog_id: blog.id, 
+                content: comment
+            });
+            if (res?.status) {
+                setComment('');
+                setComments([res?.data, ...comments]);
+            }
+            return;
+        } else {
+            const res = await createCommentGuestApi({
+                blog_id: blog.id, 
+                content: comment,
+                name: name,
+                email: email
+            });
+            if (res?.status) {
+                setComment('');
+                setComments([res?.data, ...comments]);
+            }
+        }
     }
 
     return (
@@ -281,149 +342,113 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                 </div>
                             </div>
                             {/*Comment section*/}
-                            {/*<div className="comment py-7">*/}
-                            {/*    <div className="flex">*/}
-                            {/*        <div className="heading_2 mb-4">Comments</div>*/}
-                            {/*        <div className="ml-auto">*/}
-                            {/*            <select className="cmt-select dark:border dark:border-white">*/}
-                            {/*                <option value="">Newest comments</option>*/}
-                            {/*                <option value="">Oldest comments</option>*/}
-                            {/*            </select>*/}
-                            {/*        </div>*/}
-                            {/*    </div>*/}
-                            {/*    <div className="comment-main">*/}
-                            {/*        <div className="flex">*/}
-                            {/*            <div className="flex">*/}
-                            {/*                <div className="mr-2">*/}
-                            {/*                    <img className="w-full rounded-3xl" src="./img/article/avata.jpg" alt="smile" loading="lazy"/>*/}
-                            {/*                </div>*/}
-                            {/*                <div>*/}
-                            {/*                    <div className="medium_text">Nthuyduong</div>*/}
-                            {/*                    <div>3 days ago</div>*/}
-                            {/*                </div>*/}
-                            {/*            </div>*/}
-                            {/*            <div className="flex ml-auto">*/}
-                            {/*                <div className="mr-2">10</div>*/}
-                            {/*                <div>heart</div>*/}
-                            {/*            </div>*/}
-                            {/*        </div>*/}
-                            {/*        <div className="mt-2">*/}
-                            {/*            Baking time will vary if you change the pan size. Every oven is different so I can’t say*/}
-                            {/*            for certain what you’ll need to adjust it to. Be  sure to check on the cakes while they are baking.*/}
-                            {/*        </div>*/}
-                            {/*        <div className="mt-3"><a className="text-link" href="#">Reply</a></div>*/}
-                            {/*    </div>*/}
-                            {/*    <div className="comment-border"></div>*/}
-                            {/*    <div className="comment-main">*/}
-                            {/*        <div className="flex">*/}
-                            {/*            <div className="flex">*/}
-                            {/*                <div className="mr-2">*/}
-                            {/*                    <img className="w-full rounded-3xl" src="./img/article/avata.jpg" alt="smile" loading="lazy"/>*/}
-                            {/*                </div>*/}
-                            {/*                <div>*/}
-                            {/*                    <div className="medium_text">Nthuyduong</div>*/}
-                            {/*                    <div>3 days ago</div>*/}
-                            {/*                </div>*/}
-                            {/*            </div>*/}
-                            {/*            <div className="flex ml-auto">*/}
-                            {/*                <div className="mr-2">10</div>*/}
-                            {/*                <div>heart</div>*/}
-                            {/*            </div>*/}
-                            {/*        </div>*/}
-                            {/*        <div className="mt-2">*/}
-                            {/*            Baking time will vary if you change the pan size. Every oven is different so I can’t say*/}
-                            {/*            for certain what you’ll need to adjust it to. Be  sure to check on the cakes while they are baking.*/}
-                            {/*        </div>*/}
-                            {/*        <div className="mt-3"><a className="text-link" href="#">Reply</a></div>*/}
-                            {/*    </div>*/}
-                            {/*    <div className="comment-border"></div>*/}
-                            {/*    <div className="comment-main">*/}
-                            {/*        <div className="flex">*/}
-                            {/*            <div className="flex">*/}
-                            {/*                <div className="mr-2">*/}
-                            {/*                    <img className="w-full rounded-3xl" src="./img/article/avata.jpg" alt="smile" loading="lazy"/>*/}
-                            {/*                </div>*/}
-                            {/*                <div>*/}
-                            {/*                    <div className="medium_text">Nthuyduong</div>*/}
-                            {/*                    <div>3 days ago</div>*/}
-                            {/*                </div>*/}
-                            {/*            </div>*/}
-                            {/*            <div className="flex ml-auto">*/}
-                            {/*                <div className="mr-2">10</div>*/}
-                            {/*                <div>heart</div>*/}
-                            {/*            </div>*/}
-                            {/*        </div>*/}
-                            {/*        <div className="mt-2">*/}
-                            {/*            Baking time will vary if you change the pan size. Every oven is different so I can’t say*/}
-                            {/*            for certain what you’ll need to adjust it to. Be  sure to check on the cakes while they are baking.*/}
-                            {/*        </div>*/}
-                            {/*        <div className="mt-3"><a className="text-link" href="#">Reply</a></div>*/}
-                            {/*    </div>*/}
-                            {/*    <div className="comment-border"></div>*/}
-                            {/*    <div className="comment-main">*/}
-                            {/*        <div className="flex">*/}
-                            {/*            <div className="flex">*/}
-                            {/*                <div className="mr-2">*/}
-                            {/*                    <img className="w-full rounded-3xl" src="./img/article/avata.jpg" alt="smile" loading="lazy"/>*/}
-                            {/*                </div>*/}
-                            {/*                <div>*/}
-                            {/*                    <div className="medium_text">Nthuyduong</div>*/}
-                            {/*                    <div className="">3 days ago</div>*/}
-                            {/*                </div>*/}
-                            {/*            </div>*/}
-                            {/*            <div className="flex ml-auto">*/}
-                            {/*                <div className="mr-2">10</div>*/}
-                            {/*                <div>heart</div>*/}
-                            {/*            </div>*/}
-                            {/*        </div>*/}
-                            {/*        <div className="mt-2">*/}
-                            {/*            Baking time will vary if you change the pan size. Every oven is different so I can’t say*/}
-                            {/*            for certain what you’ll need to adjust it to. Be  sure to check on the cakes while they are baking.*/}
-                            {/*        </div>*/}
-                            {/*        <div className="mt-3"><a className="text-link" href="#">Reply</a></div>*/}
-                            {/*    </div>*/}
+                            <div className="comment py-7">
+                               <div className="flex">
+                                   <div className="heading_2 mb-4">Comments</div>
+                                   <div className="ml-auto">
+                                       <select className="cmt-select dark:border dark:border-white">
+                                           <option value="">Newest comments</option>
+                                           <option value="">Oldest comments</option>
+                                       </select>
+                                   </div>
+                               </div>
+                               {comments.map((comment, index) => (
+                                    <React.Fragment key={index}>
+                                        <div className="comment-main">
+                                            <div className="flex">
+                                                <div className="flex">
+                                                    <div className="mr-2">
+                                                        <img className="w-full rounded-3xl" src={comment?.user?.avatar} alt="smile" loading="lazy"/>
+                                                    </div>
+                                                    <div>
+                                                        <div className="medium_text">{comment?.name ? comment?.name : comment?.user?.name}</div>
+                                                        <div>{prettyDate(comment?.created_at)}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="mt-2">
+                                                {comment?.content}
+                                            </div>
+                                        </div>
+                                        <div className="comment-border"></div>
+                                    </React.Fragment>
+                               ))}
+                               
                             {/*    /!*paginate*!/*/}
-                            {/*    <div className="mt-5 paginate flex w-full justify-center">*/}
-                            {/*        <a>*/}
-                            {/*            Previous*/}
-                            {/*            <span></span>*/}
-                            {/*        </a>*/}
-                            {/*        <div className="mx-2 pagi-item p-3 rounded-full flex">1</div>*/}
-                            {/*        <div className="pagi-item p-3 rounded-full flex">2</div>*/}
-                            {/*        <div className="mx-2 pagi-item p-3 rounded-full flex">3</div>*/}
-                            {/*        <a>*/}
-                            {/*            Next*/}
-                            {/*            <span></span>*/}
-                            {/*        </a>*/}
-                            {/*    </div>*/}
-                            {/*</div>*/}
-                            {/*Leave a comment*/}
-                            {/*<div className="leavecmt">*/}
-                            {/*    <div className="mb-5 text-center">*/}
-                            {/*        <div className="heading_2 mb-2">Leave a comment</div>*/}
-                            {/*        <div>Your email address will not be published. Required fields are marked *</div>*/}
-                            {/*    </div>*/}
-                            {/*    <div className="">*/}
-                            {/*        <div className="grid grid-cols-12 gap-3">*/}
-                            {/*            <div className="md:col-span-6 col-span-12">*/}
-                            {/*                <div className="my-input md:mb-3 dark:border-white">*/}
-                            {/*                    <input className="w-full p-1" placeholder="Your name"/>*/}
-                            {/*                </div>*/}
-                            {/*            </div>*/}
-                            {/*            <div className="md:col-span-6 col-span-12">*/}
-                            {/*                <div className="my-input mb-3 dark:border-white">*/}
-                            {/*                    <input className="w-full p-1" placeholder="Email address *"/>*/}
-                            {/*                </div>*/}
-                            {/*            </div>*/}
-                            {/*        </div>*/}
-                            {/*        <div className="my-input mb-3 user-cmt dark:border-white">*/}
-                            {/*            <textarea rows="5" className="w-full p-1" placeholder="Message *"></textarea>*/}
-                            {/*        </div>*/}
-                            {/*        <div className="flex justify-center dark:border dark:border-white">*/}
-                            {/*            <button className="w-3/12 my-btn-pr" type="submit">Subscribe</button>*/}
-                            {/*        </div>*/}
-                            {/*    </div>*/}
-                            {/*</div>*/}
+                            {paginate.total > 1 && (
+                                <Pagination
+                                    className="pagination-bar"
+                                    currentPage={paginate?.current}
+                                    totalCount={paginate?.count}
+                                    pageSize={paginate?.limit}
+                                    finalPage={paginate?.last}
+                                    onPageChange={page => handlePageClick(page)}
+                                />
+                            )}
+                            </div>
+                            Leave a comment
+                            <div className="leavecmt">
+                               <div className="mb-5 text-center">
+                                   <div className="heading_2 mb-2">Leave a comment</div>
+                                   <div>Your email address will not be published. Required fields are marked *</div>
+                               </div>
+                               <div className="">
+                                    {user ? (
+                                        <div className="flex">
+                                            <div className="h-[40px] w-[40px]">
+                                                <img className="w-full rounded-3xl"  src={user.avatar} alt="smile" loading="lazy"/>
+                                            </div>
+                                            <div>{user.name}</div>
+                                        </div>
+                                    ) : (
+                                        <div className="grid grid-cols-12 gap-3">
+                                        <div className="md:col-span-6 col-span-12">
+                                                Sign up or log in
+                                                <div>
+                                                    <p className="cursor-pointer" onClick={() => handleLogin('facebook')}>Facebook</p>
+                                                    <p className="cursor-pointer" onClick={() => handleLogin('google')}>Google</p>
+                                                </div>
+                                        </div>
+                                        <div className="md:col-span-6 col-span-12">
+                                                Post as a guest
+                                                <div className="my-input md:mb-3 dark:border-white">
+                                                    <input
+                                                        className="w-full p-1"
+                                                        placeholder="Your name"
+                                                        value={name}
+                                                        onChange={(e) => setName(e.target.value)}
+                                                    />
+                                                </div>
+                                                <div className="my-input mb-3 dark:border-white">
+                                                    <input
+                                                        className="w-full p-1"
+                                                        placeholder="Email address *"
+                                                        value={email}
+                                                        onChange={(e) => setEmail(e.target.value)}
+                                                    />
+                                                </div>
+                                        </div>
+                                    </div>
+                                    )}
+                                   
+                                   <div className="my-input mb-3 user-cmt dark:border-white">
+                                        <textarea
+                                            rows="5"
+                                            className="w-full p-1"
+                                            placeholder="Message *"
+                                            value={comment}
+                                            onChange={(e) => setComment(e.target.value)}
+                                        ></textarea>
+                                   </div>
+                                   <div className="flex justify-center dark:border dark:border-white">
+                                       <button
+                                        className="w-3/12 my-btn-pr"
+                                        type="submit"
+                                        onClick={handleSendComment}
+                                    >Subscribe</button>
+                                   </div>
+                               </div>
+                            </div>
                         </div>
                     </div>
                 </div>

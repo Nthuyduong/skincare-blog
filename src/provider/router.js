@@ -7,6 +7,9 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import { ADMIN_ROUTER, ADMIN_ROUTERS } from '@utils/constants';
 import { useApp } from '@hooks/useApp';
+import dinamic from 'next/dynamic';
+const GoogleOneTab = dinamic(() => import('../components/common/GoogleOneTab'), { ssr: false });
+import { USER_ROUTERS } from '../utils/constants';
 
 const RouterContext = createContext();
 
@@ -30,10 +33,6 @@ export const RouterProvider = ({ children }) => {
             router.events.off('routeChangeError', NProgress.done)
         }
       }, [])
-
-    useEffect(() => {
-        console.log('user', user)
-    }, [user]);
 
     useEffect(() => {
         getAdminInfo();
@@ -77,6 +76,8 @@ export const RouterProvider = ({ children }) => {
     return (
         <RouterContext.Provider value={router}>
             {children}
+            {/* {(!user && USER_ROUTERS.includes(router.asPath)) && <GoogleOneTab />} */}
+            <GoogleOneTab />
         </RouterContext.Provider>
     );
 };
