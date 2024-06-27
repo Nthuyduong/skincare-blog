@@ -547,10 +547,10 @@ const Header = React.memo(() => {
                                                 <div className="navdrop-title pr-3 py-4">
                                                     <Link href={`/categories/guides-and-tutorial`} className="dark:text-white flex nav-link"><span className="nav-text">{trans.header.guide}</span>
                                                         <span className="ml-1 dark:hidden flex items-center">
-                                                            <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="lazy" />
+                                                            <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="eager" height={20} width={20} />
                                                         </span>
                                                         <span className="ml-1 hidden dark:flex items-center">
-                                                            <img className="icon-ssm" src="/img/icon/chevron-down.svg" alt="smile" loading="lazy" />
+                                                            <img className="icon-ssm" src="/img/icon/chevron-down.svg" alt="smile" loading="eager" height={20} width={20} />
                                                         </span>
                                                     </Link>
                                                 </div>
@@ -576,10 +576,10 @@ const Header = React.memo(() => {
                                                 <div className="navdrop-title z-50 text-gray-300 hover:text-gray rounded-md pr-3 py-4">
                                                     <Link href={`/categories/selfcare-nerd`} className="dark:text-white flex nav-link"><span className="nav-text">{trans.header.nerd}</span>
                                                         <span className="ml-1 dark:hidden flex items-center">
-                                                            <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="lazy" />
+                                                            <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="eager" height={20} width={20} />
                                                         </span>
                                                         <span className="ml-1 hidden dark:flex items-center">
-                                                            <img className="icon-ssm" src="/img/icon/chevron-down.svg" alt="smile" loading="lazy" />
+                                                            <img className="icon-ssm" src="/img/icon/chevron-down.svg" alt="smile" loading="eager" height={20} width={20} />
                                                         </span>
                                                     </Link>
                                                 </div>
@@ -615,10 +615,10 @@ const Header = React.memo(() => {
                                                 <div className="navdrop-title z-50 text-gray-300 hover:text-gray py-4 pr-0">
                                                     <Link href={ROUTER.ABOUT} className="dark:text-white nav-link flex"><span className="nav-text">{trans.header.about}</span>
                                                         <span className="ml-1 dark:hidden flex items-center">
-                                                            <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="lazy" />
+                                                            <img className="icon-ssm" src="/img/icon/chevron-down-black.svg" alt="smile" loading="eager" height={20} width={20} />
                                                         </span>
                                                         <span className="ml-1 hidden dark:flex items-center">
-                                                            <img className="icon-ssm" src="/img/icon/chevron-down.svg" alt="smile" loading="lazy" />
+                                                            <img className="icon-ssm" src="/img/icon/chevron-down.svg" alt="smile" loading="eager" height={20} width={20} />
                                                         </span>
                                                     </Link>
                                                 </div>
