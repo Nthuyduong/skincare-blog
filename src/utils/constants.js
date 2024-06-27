@@ -69,6 +69,7 @@ export const ADMIN_ROUTERS = [
 
 export const USER_ROUTERS = [
     '/auth',
+    '/article/[slug]',
 ]
 
 export const BLOG_STATUS = {
