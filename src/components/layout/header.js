@@ -45,13 +45,16 @@ const Header = React.memo(() => {
             function activeNav(item) {
                 if (hoverBar) {
                     const navText = item.querySelector('.nav-text');
+                    
                     hoverBar.style.width = `${navText.offsetWidth}px`;
                     hoverBar.style.transform = `translateX(${item.offsetLeft}px)`;
                     hoverBar.style.opacity = '1';
                 }
             }
             navItems.forEach((item) => {
+                const navText = item.querySelector('.nav-text');
                 const dataNav = item.getAttribute('data-nav');
+                console.log(navText.offsetWidth, item.offsetLeft)
                 if (dataNav === router.asPath) {
                     activeNav(item);
                 }
