@@ -55,7 +55,9 @@ const Header = React.memo(() => {
                 const navText = item.querySelector('.nav-text');
                 const dataNav = item.getAttribute('data-nav');
                 if (dataNav === router.asPath) {
-                    activeNav(item);
+                    setTimeout(() => {
+                        activeNav(item);
+                    }, 100);
                 }
                 item.addEventListener('mouseenter', () => {
                     activeNav(item);
