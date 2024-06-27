@@ -54,7 +54,6 @@ const Header = React.memo(() => {
             navItems.forEach((item) => {
                 const navText = item.querySelector('.nav-text');
                 const dataNav = item.getAttribute('data-nav');
-                console.log(navText.offsetWidth, item.offsetLeft)
                 if (dataNav === router.asPath) {
                     activeNav(item);
                 }
