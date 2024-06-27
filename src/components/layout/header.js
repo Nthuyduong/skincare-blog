@@ -544,7 +544,7 @@ const Header = React.memo(() => {
                                             {/*Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white"*/}
                                             <div
                                                 className="header-nav-item relative bg-gray-900 guide-navdrop rounded-md"
-                                                data-nav="/categories/guides_and_tutorial"
+                                                data-nav="/categories/guides-and-tutorial"
                                             >
                                                 <div className="navdrop-title pr-3 py-4">
                                                     <Link href={`/categories/guides-and-tutorial`} className="dark:text-white flex nav-link"><span className="nav-text">{trans.header.guide}</span>
@@ -573,7 +573,7 @@ const Header = React.memo(() => {
                                             </div>
                                             <div
                                                 className="header-nav-item relative destination-navdrop"
-                                                data-nav="/categories/selfcare_nerd"
+                                                data-nav="/categories/selfcare-nerd"
                                             >
                                                 <div className="navdrop-title z-50 text-gray-300 hover:text-gray rounded-md pr-3 py-4">
                                                     <Link href={`/categories/selfcare-nerd`} className="dark:text-white flex nav-link"><span className="nav-text">{trans.header.nerd}</span>
