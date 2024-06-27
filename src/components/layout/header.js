@@ -437,7 +437,7 @@ const Header = React.memo(() => {
                                                                             <div className="hover-img">
                                                                                 <div className="img-inner">
                                                                                     <Link
-                                                                                        href={ROUTER.INGREDIENT + '/' + result.id}
+                                                                                        href={'/ingredient/' + result.slug}
                                                                                         className="border-solid border-b border-ccc !border-999 pb-4"
                                                                                     >
                                                                                         <img
@@ -455,7 +455,7 @@ const Header = React.memo(() => {
 
                                                                     <div className="category-des-content">
                                                                         <Link
-                                                                            href={ROUTER.INGREDIENT + '/' + result.id}
+                                                                            href={'/ingredient/' + result.slug}
                                                                             className="border-solid border-b border-ccc !border-999 pb-4"
                                                                         >
                                                                             <div className="medium_text top-destination-title py-2 dark:border-b dark:!border-ccc">
@@ -488,9 +488,14 @@ const Header = React.memo(() => {
                                                                     </div>
                                                                 </div>
                                                                 <div className="category-des-content">
-                                                                    <div className="medium_text top-destination-title py-2 dark:border-b dark:!border-ccc">
-                                                                        {result?.title}
-                                                                    </div>
+                                                                    <Link
+                                                                        href={'/article/' + result.slug}
+                                                                        className="border-solid border-b border-ccc !border-999 pb-4"
+                                                                    >
+                                                                        <div className="medium_text top-destination-title py-2 dark:border-b dark:!border-ccc">
+                                                                            {result?.title}
+                                                                        </div>
+                                                                    </Link>
                                                                 </div>
                                                             </div>
                                                         )

@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://radiance-aura.blog</loc>
-        <lastmod>2024-06-26T07:11:03.500Z</lastmod>
+        <lastmod>2024-06-27T02:15:23.463Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/skintype</loc>
-        <lastmod>2024-06-26T07:11:03.500Z</lastmod>
+        <lastmod>2024-06-27T02:15:23.463Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/about</loc>
-        <lastmod>2024-06-26T07:11:03.500Z</lastmod>
+        <lastmod>2024-06-27T02:15:23.463Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
@@ -218,7 +218,7 @@
     </url>
     <url>
         <loc>https://radiance-aura.blog/article/blue-light-protection-skincare</loc>
-        <lastmod>2024-06-19T09:55:15.000Z</lastmod>
+        <lastmod>2024-06-26T07:24:47.000Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -485,104 +485,128 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://radiance-aura.blog/ingredient/bio-oil</loc>
+        <lastmod>2024-06-26T07:50:32.000Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://radiance-aura.blog/ingredient/black-seed-oil</loc>
+        <lastmod>2024-06-26T09:08:26.000Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://radiance-aura.blog/ingredient/emu-oil</loc>
+        <lastmod>2024-06-26T09:19:22.000Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://radiance-aura.blog/ingredient/epsom-salt</loc>
+        <lastmod>2024-06-26T10:14:43.000Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://radiance-aura.blog/admin</loc>
-        <lastmod>2024-06-26T07:11:03.501Z</lastmod>
+        <lastmod>2024-06-27T02:15:23.463Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/category</loc>
-        <lastmod>2024-06-26T07:11:03.501Z</lastmod>
+        <lastmod>2024-06-27T02:15:23.463Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/comment</loc>
-        <lastmod>2024-06-26T07:11:03.501Z</lastmod>
+        <lastmod>2024-06-27T02:15:23.463Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/contact</loc>
-        <lastmod>2024-06-26T07:11:03.501Z</lastmod>
+        <lastmod>2024-06-27T02:15:23.463Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/ingredient</loc>
-        <lastmod>2024-06-26T07:11:03.501Z</lastmod>
+        <lastmod>2024-06-27T02:15:23.463Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/posts</loc>
-        <lastmod>2024-06-26T07:11:03.501Z</lastmod>
+        <lastmod>2024-06-27T02:15:23.463Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/settings</loc>
-        <lastmod>2024-06-26T07:11:03.501Z</lastmod>
+        <lastmod>2024-06-27T02:15:23.463Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/sub-category</loc>
-        <lastmod>2024-06-26T07:11:03.501Z</lastmod>
+        <lastmod>2024-06-27T02:15:23.463Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/article</loc>
-        <lastmod>2024-06-26T07:11:03.501Z</lastmod>
+        <lastmod>2024-06-27T02:15:23.463Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/auth</loc>
-        <lastmod>2024-06-26T07:11:03.501Z</lastmod>
+        <lastmod>2024-06-27T02:15:23.463Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/callback</loc>
-        <lastmod>2024-06-26T07:11:03.501Z</lastmod>
+        <lastmod>2024-06-27T02:15:23.463Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/categories</loc>
-        <lastmod>2024-06-26T07:11:03.501Z</lastmod>
+        <lastmod>2024-06-27T02:15:23.463Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/ingredient</loc>
-        <lastmod>2024-06-26T07:11:03.501Z</lastmod>
+        <lastmod>2024-06-27T02:15:23.463Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/sub-des</loc>
-        <lastmod>2024-06-26T07:11:03.501Z</lastmod>
+        <lastmod>2024-06-27T02:15:23.463Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/test</loc>
-        <lastmod>2024-06-26T07:11:03.501Z</lastmod>
+        <lastmod>2024-06-27T02:15:23.463Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/pagination</loc>
-        <lastmod>2024-06-26T07:11:03.501Z</lastmod>
+        <lastmod>2024-06-27T02:15:23.463Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://radiance-aura.blog/toast</loc>
-        <lastmod>2024-06-26T07:11:03.501Z</lastmod>
+        <lastmod>2024-06-27T02:15:23.463Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>

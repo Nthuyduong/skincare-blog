@@ -61,7 +61,7 @@ const Search = () => {
                                 if (result.table_name === 'ingredient') {
                                     return (
                                         <Link
-                                            href={ROUTER.INGREDIENT + '/' + result.id}
+                                            href={'/ingredient' + result.slug}
                                             className="border-solid border-b border-ccc !border-999"
                                         >
                                             <div className="border-solid border-ccc !border-999 border p-4 mb-6">
@@ -77,7 +77,7 @@ const Search = () => {
                                 }
                                 return (
                                     <Link
-                                        href={ROUTER.ARTICLE + '/' + result.slug}
+                                        href={'/article/' + result.slug}
                                         className="block search-result border-solid border-b border-ccc !border-999 py-4"
                                         key={index}
                                     >
@@ -101,7 +101,7 @@ const Search = () => {
                                                 </div>
                                                 <div>
                                                     <div className="ml-auto w-fit text-link">
-                                                        <Link href={ROUTER.ARTICLE + '/' + result.slug}>
+                                                        <Link href={'/article/' + result.slug}>
                                                             Read more
                                                         </Link>
                                                     </div>
