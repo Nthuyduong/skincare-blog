@@ -114,7 +114,7 @@ const About = () => {
 
                 <div className="md:mb-8 mb-6">
                     <div className="animate slideInUp heading_3 mb-1 md:mb-4">What We Do</div>
-                    <div className="md:grid grid-cols-12 gap-6 lg:flex lg:items-center">
+                    <div className="md:grid grid-cols-12 gap-6 lg:items-center">
                         <div className="md:col-span-6 lg:col-span-3 animate slideInUp md:mb-0 mb-4">
                             <div className="p-2 border border-solid border-ccc dark:border-999">
                                 <img className="w-full mb-4 lg:h-full md:h-[360px] h-[260px] object-cover" src="./img/about/do1.png" alt="smile" loading="lazy" />
