@@ -13,6 +13,9 @@ const reducer = {
         if (payload.invisibleBackground !== undefined) {
             state.modal.invisibleBackground = payload.invisibleBackground;
         }
+        if (payload.invisibleBackdrop !== undefined) {
+            state.modal.invisibleBackdrop = payload.invisibleBackdrop;
+        }
         if (payload.enableClickOutside !== undefined) {
             state.modal.enableClickOutside = payload.enableClickOutside;
         }
@@ -46,6 +49,7 @@ const reducer = {
         state.modal.invisibleBackground = false;
         state.modal.enableClickOutside = true;
         state.modal.showHeader = true;
+        state.modal.invisibleBackdrop = false;
         state.modal.width = '500px';
     }
 

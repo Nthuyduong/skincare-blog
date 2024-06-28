@@ -17,13 +17,19 @@ import Pagination from "@components/common/pagination";
 import { useApp } from '@hooks/useApp';
 import { getGetLoginUrl } from "@services/auth";
 import { prettyDate } from "../../../utils/format";
+import { useModal } from '@hooks/modal';
 
 const ArticleDetail = ({ blogProps, isCrs, slug }) => {
 
     const { getUserInfo, user } = useApp();
 
+    const {
+        hide,
+        show,
+    } = useModal();
+
     const { updateBlogViewCount } = usePost();
-    
+
     const router = useRouter();
 
     const refContent = useRef(null);
@@ -39,6 +45,12 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
     const [email, setEmail] = useState('');
 
     const [comment, setComment] = useState('');
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const toggleModal = () => {
+        setIsModalOpen(!isModalOpen);
+    };
 
     useEffect(() => {
         if (isCrs) {
@@ -72,8 +84,10 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                 const headings = refContent.current.querySelectorAll("h2");
                 console.log(headings);
                 const list = refTable.current;
-                list.innerHTML = '';
-                if(list) {
+
+                if (list) {
+                    list.innerHTML = '';
+
                     if (headings.length === 0) {
                         if (list.closest('.catalog')) {
                             list.closest('.catalog').style.display = 'none';
@@ -96,10 +110,10 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                 }
             }
         }
-        
+
         function functionScoll() {
             const handleScroll = throttle(() => {
-                if(refContent.current) {
+                if (refContent.current) {
                     let process = ((document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight) * 100);
                     if (process < 0) {
                         process = 0;
@@ -128,13 +142,13 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
             handleCatalog();
             functionScoll();
         }
-    }, [blog]);
+    }, [blog, isModalOpen]);
 
     const handleUpdateViewCount = async () => {
         await updateBlogViewCount(blog.id);
     }
 
-    const handleLogin = async(provider) =>  {
+    const handleLogin = async (provider) => {
         const res = await getGetLoginUrl(provider);
 
         if (res.status) {
@@ -150,7 +164,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
         }
         if (user) {
             const res = await createCommentApi({
-                blog_id: blog.id, 
+                blog_id: blog.id,
                 content: comment
             });
             if (res?.status) {
@@ -160,7 +174,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
             return;
         } else {
             const res = await createCommentGuestApi({
-                blog_id: blog.id, 
+                blog_id: blog.id,
                 content: comment,
                 name: name,
                 email: email
@@ -220,7 +234,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                 <picture>
                                     <source srcSet={BASE_URL + '/storage/desktop/' + blog?.banner_img} media="(min-width: 1024px)" />
                                     <source srcSet={BASE_URL + '/storage/tablet/' + blog?.banner_img} media="(min-width: 767px)" />
-                                    <img src={BASE_URL + '/storage/mobile/' + blog?.banner_img} alt={blog.title} loading="eager" height={500} width={500}/>
+                                    <img src={BASE_URL + '/storage/mobile/' + blog?.banner_img} alt={blog.title} loading="eager" height={500} width={500} />
                                 </picture>
                                 {/* <img className="w-full object-cover" src={BASE_URL + '/storage/desktop/' + blog?.banner_img} alt="smile" loading="lazy" /> */}
                             </div>
@@ -260,7 +274,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                             <picture>
                                 <source srcSet={BASE_URL + '/storage/desktop/' + blog?.banner_img} media="(min-width: 1024px)" />
                                 <source srcSet={BASE_URL + '/storage/tablet/' + blog?.banner_img} media="(min-width: 767px)" />
-                                <img className="w-full" src={BASE_URL + '/storage/mobile/' + blog?.banner_img} alt={blog.title} loading="eager" height={500} width={500}/>
+                                <img className="w-full" src={BASE_URL + '/storage/mobile/' + blog?.banner_img} alt={blog.title} loading="eager" height={500} width={500} />
                             </picture>
                         </div>
                     </div>
@@ -271,15 +285,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                             <div className="">{blog?.summary}</div>
                         </div>
                         {/*menu*/}
-                        <div className="catalog w-full my-3">
-                            <div className="list border border-ccc border-solid dark:border-999">
-                                <div className="list-title heading_4 mb-3 cursor-text-wrp">In this post</div>
-                                <div className="all-list">
-                                    {/* table of content */}
-                                    <ul className="list-here" ref={refTable} />
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
                 <div className="my-article w-full">
@@ -290,10 +296,37 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                             __html: blog?.detail?.content
                         }}
                     />
+                    {/* TABLE OF CONTENT TEST */}
+                    <div className="toc-wrapper">
+                        <div
+                            onClick={toggleModal}
+                            className={`toc-btn mb-4 ${isModalOpen ? 'Close' : 'Open'}`}>
+                            <div className="collapsed body_text">Table of contents</div>
+                        </div>
+                        {isModalOpen && (
+                            <div className="modal-bg">
+                                <div className="toc-content">
+                                    <div className="catalog my-3">
+                                        <div className="list">
+                                            <div className="flex items-center mb-4">
+                                                <div className="list-title heading_4 cursor-text-wrp">In this post</div>
+                                                <div class="ml-auto" onClick={toggleModal}>Close</div>
+                                            </div>
+                                            <div className="all-list">
+                                                {/* table of content */}
+                                                <ul className="list-here" ref={refTable} />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        )}
+                    </div>
                     <div className="w-full flex justify-center items-center">
                         <div className="w-full mx-4 m-w mx-auto my-0 helpful-rate mt-6">
                             {/* <div className="flex w-full pt-3 border-solid border-t border-ccc"> */}
-                                {/* <div className="medium_text mr-3">
+                            {/* <div className="medium_text mr-3">
                                     <a href="#">Was this helpful?</a>
                                 </div>
                                 <div className="flex items-center">
@@ -322,21 +355,21 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                             navigatorTitle: true,
                                         }}
                                     >
-                                        
+
                                         {relatedBlogs.map((blog, index) => (
                                             <div className="justify-center pb-1" key={index}>
                                                 <div className="col-span-12 md:col-span-4">
                                                     <div className="hover-img">
                                                         <div className="img-inner cursor-pointer" onClick={() => { router.push("/article/" + blog.slug) }}>
-                                                            <img className="set-img" src={BASE_URL + '/storage/mobile/' + blog?.featured_img} alt={blog.title} loading="lazy" height={500} width={500}/>
+                                                            <img className="set-img" src={BASE_URL + '/storage/mobile/' + blog?.featured_img} alt={blog.title} loading="lazy" height={500} width={500} />
                                                         </div>
                                                         <div>
                                                             <div className="article-info py-2 mb-1 md:!border-b md:!border-ccc border-b-0">
                                                                 <div className="md:flex mb-1">
-                                                                    <div className="mr-auto small_text">{ blog.categories.map((category) => {return category.name}).join(' | ') }</div>
+                                                                    <div className="mr-auto small_text">{blog.categories.map((category) => { return category.name }).join(' | ')}</div>
                                                                     {/* <div className="small_text">{formatDate(blog.publish_date)}</div> */}
                                                                 </div>
-                                                                <div className="medium_text">{ blog.title }</div>
+                                                                <div className="medium_text">{blog.title}</div>
                                                             </div>
                                                             <div className="md:flex hidden">
                                                                 <div className="text-link cursor-pointer" onClick={() => { router.push("/article/" + blog.slug) }} href={"/article/" + blog.slug}>Read more</div>
@@ -351,22 +384,22 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                             </div>
                             {/*Comment section*/}
                             <div className="comment py-7">
-                               <div className="flex">
-                                   <div className="heading_2 mb-4">Comments</div>
-                                   <div className="ml-auto">
-                                       <select className="cmt-select dark:border dark:border-white">
-                                           <option value="">Newest comments</option>
-                                           <option value="">Oldest comments</option>
-                                       </select>
-                                   </div>
-                               </div>
-                               {comments.map((comment, index) => (
+                                <div className="flex">
+                                    <div className="heading_2 mb-4">Comments</div>
+                                    <div className="ml-auto">
+                                        <select className="cmt-select dark:border dark:border-white">
+                                            <option value="">Newest comments</option>
+                                            <option value="">Oldest comments</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                {comments.map((comment, index) => (
                                     <React.Fragment key={index}>
                                         <div className="comment-main">
                                             <div className="flex">
                                                 <div className="flex">
                                                     <div className="mr-2">
-                                                        <img className="w-full rounded-3xl" src={comment?.user?.avatar} alt="smile" loading="lazy"/>
+                                                        <img className="w-full rounded-3xl" src={comment?.user?.avatar} alt="smile" loading="lazy" />
                                                     </div>
                                                     <div>
                                                         <div className="medium_text">{comment?.name ? comment?.name : comment?.user?.name}</div>
@@ -380,44 +413,44 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                         </div>
                                         <div className="comment-border"></div>
                                     </React.Fragment>
-                               ))}
-                               
-                            {/*    /!*paginate*!/*/}
-                            {paginate.total > 1 && (
-                                <Pagination
-                                    className="pagination-bar"
-                                    currentPage={paginate?.current}
-                                    totalCount={paginate?.count}
-                                    pageSize={paginate?.limit}
-                                    finalPage={paginate?.last}
-                                    onPageChange={page => handlePageClick(page)}
-                                />
-                            )}
+                                ))}
+
+                                {/*    /!*paginate*!/*/}
+                                {paginate.total > 1 && (
+                                    <Pagination
+                                        className="pagination-bar"
+                                        currentPage={paginate?.current}
+                                        totalCount={paginate?.count}
+                                        pageSize={paginate?.limit}
+                                        finalPage={paginate?.last}
+                                        onPageChange={page => handlePageClick(page)}
+                                    />
+                                )}
                             </div>
                             Leave a comment
                             <div className="leavecmt">
-                               <div className="mb-5 text-center">
-                                   <div className="heading_2 mb-2">Leave a comment</div>
-                                   <div>Your email address will not be published. Required fields are marked *</div>
-                               </div>
-                               <div className="">
+                                <div className="mb-5 text-center">
+                                    <div className="heading_2 mb-2">Leave a comment</div>
+                                    <div>Your email address will not be published. Required fields are marked *</div>
+                                </div>
+                                <div className="">
                                     {user ? (
                                         <div className="flex">
                                             <div className="h-[40px] w-[40px]">
-                                                <img className="w-full rounded-3xl"  src={user.avatar} alt="smile" loading="lazy"/>
+                                                <img className="w-full rounded-3xl" src={user.avatar} alt="smile" loading="lazy" />
                                             </div>
                                             <div>{user.name}</div>
                                         </div>
                                     ) : (
                                         <div className="grid grid-cols-12 gap-3">
-                                        <div className="md:col-span-6 col-span-12">
+                                            <div className="md:col-span-6 col-span-12">
                                                 Sign up or log in
                                                 <div>
                                                     <p className="cursor-pointer" onClick={() => handleLogin('facebook')}>Facebook</p>
                                                     <p className="cursor-pointer" onClick={() => handleLogin('google')}>Google</p>
                                                 </div>
-                                        </div>
-                                        <div className="md:col-span-6 col-span-12">
+                                            </div>
+                                            <div className="md:col-span-6 col-span-12">
                                                 Post as a guest
                                                 <div className="my-input md:mb-3 dark:border-white">
                                                     <input
@@ -435,11 +468,11 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                                         onChange={(e) => setEmail(e.target.value)}
                                                     />
                                                 </div>
+                                            </div>
                                         </div>
-                                    </div>
                                     )}
-                                   
-                                   <div className="my-input mb-3 user-cmt dark:border-white">
+
+                                    <div className="my-input mb-3 user-cmt dark:border-white">
                                         <textarea
                                             rows="5"
                                             className="w-full p-1"
@@ -447,26 +480,26 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                             value={comment}
                                             onChange={(e) => setComment(e.target.value)}
                                         ></textarea>
-                                   </div>
-                                   <div className="flex justify-center dark:border dark:border-white">
-                                       <button
-                                        className="w-3/12 my-btn-pr"
-                                        type="submit"
-                                        onClick={handleSendComment}
-                                    >Subscribe</button>
-                                   </div>
-                               </div>
+                                    </div>
+                                    <div className="flex justify-center dark:border dark:border-white">
+                                        <button
+                                            className="w-3/12 my-btn-pr"
+                                            type="submit"
+                                            onClick={handleSendComment}
+                                        >Subscribe</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </>
-        
+
     )
 }
 
-ArticleDetail.getInitialProps = async({ req, res, query }) => {
+ArticleDetail.getInitialProps = async ({ req, res, query }) => {
     const { slug } = query;
     if (typeof window != 'undefined') {
         return {
