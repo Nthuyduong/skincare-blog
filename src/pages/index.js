@@ -387,7 +387,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                 </CardSlider>
                 <div className="md:px-0 my-0 mx-auto m-w">
                     <div className="md:mt-9 mt-7">
-                        <div className="animate slideInUp heading_3 mb-1 md:mb-4">Reader's Favorite</div>
+                        
                         <div className="animate slideInUp animate--delay-medium">
                             <Slider
                                 configs={{
@@ -400,6 +400,8 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                     gap: 30,
                                     gapMobile: 10,
                                     process: true,
+                                    navigatorTitle: true,
+                                    title: <div className="heading_3 mb-4">Related Articles</div>,
                                 }}
                             >
                                 {newest.map((newest, index) => (
@@ -475,7 +477,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                             <div className="animate slideInUp heading_2 cursor-text-wrp">
                                 Never miss out on beauty tips and trends! Stay updated with our latest posts.
                             </div> */}
-                            {/* <div className="mt-4 animate animate--delay-slow slideInUp">
+                {/* <div className="mt-4 animate animate--delay-slow slideInUp">
                                 <button
                                     onClick={() => show({
                                         name: 'newsletters',
@@ -490,7 +492,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                     Subscribe
                                 </button>
                             </div> */}
-                        {/* </div>
+                {/* </div>
                         <div className="col-span-1"></div>
                         <div className="col-span-4 md:flex flex-col">
                             
@@ -530,7 +532,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                 </button>
                             </div>
                         </div> */}
-                    {/* </div>
+                {/* </div>
                 </div> */}
 
             </div >

@@ -204,12 +204,12 @@ const Slider = ({
             <div className="flex justify-between">
                 {configs.title && (configs.title)}
                 {configs.navigatorTitle && (
-                    <div className="flex">
-                        <button className="my-prev-btn bg-white dark:bg-black" onClick={prevSlide}>
+                    <div className="flex items-center">
+                        <button className="h-[30px] w-[30px] rounded-full border border-solid dark:border-fff border-333 my-prev-btn" onClick={prevSlide}>
                             <img className="w-full icon-sm dark:hidden" src="/img/icon/chevron-left-black.svg" alt="smile" loading="lazy"/>
                             <img className="w-full icon-sm hidden dark:block" src="/img/icon/chevron-left.svg" alt="smile" loading="lazy"/>
                         </button>
-                        <button className="my-next-btn bg-white dark:bg-black" onClick={nextSlide}>
+                        <button className="ml-2 h-[30px] w-[30px] rounded-full border border-solid dark:border-fff border-333 my-next-btn" onClick={nextSlide}>
                             <img className="w-full icon-sm dark:hidden" src="/img/icon/chevron-right-black.svg" alt="smile" loading="lazy"/>
                             <img className="w-full icon-sm hidden dark:block" src="/img/icon/chevron-right.svg" alt="smile" loading="lazy"/>
                         </button>

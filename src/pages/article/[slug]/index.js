@@ -259,6 +259,8 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                             gapMobile: 10,
                                             title: <div className="heading_3 mb-4">Related Articles</div>,
                                             navigatorTitle: true,
+                                            process: true,
+                                            
                                         }}
                                     >
                                         
