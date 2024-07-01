@@ -186,6 +186,24 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
         }
     }
 
+    // display and hide table of content
+    const [appear, setAppear] = useState(false);
+
+    const controlBtn = () => {
+        if (window.scrollY > 300) {
+            setAppear(true)
+        } else {
+            setAppear(false)
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', controlBtn)
+        return () => {
+            window.removeEventListener('scroll', controlBtn)
+        }
+    }, [])
+
     return (
         <>
             <Head>
@@ -297,10 +315,10 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                         }}
                     />
                     {/* TABLE OF CONTENT TEST */}
-                    <div className="toc-wrapper">
+                    <div className={`toc-wrapper ${appear && 'toc-show'}`}>
                         <div
                             onClick={toggleModal}
-                            className={`toc-btn mb-4 ${isModalOpen ? 'Close' : 'Open'}`}>
+                            className={`toc-btn mb-5 ${isModalOpen ? 'Close' : 'Open'}`}>
                             <div className="collapsed body_text">Table of contents</div>
                         </div>
                         {isModalOpen && (
@@ -309,8 +327,8 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                     <div className="catalog my-3">
                                         <div className="list">
                                             <div className="flex items-center mb-4">
-                                                <div className="list-title heading_4 cursor-text-wrp">In this post</div>
-                                                <div class="ml-auto" onClick={toggleModal}>Close</div>
+                                                <div className="list-title heading_5 cursor-text-wrp">In this post</div>
+                                                <div class="ml-auto cursor-pointer" onClick={toggleModal}>Close</div>
                                             </div>
                                             <div className="all-list">
                                                 {/* table of content */}
@@ -324,26 +342,14 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                         )}
                     </div>
                     <div className="w-full flex justify-center items-center">
-                        <div className="w-full mx-4 m-w mx-auto my-0 helpful-rate mt-6">
-                            {/* <div className="flex w-full pt-3 border-solid border-t border-ccc"> */}
-                            {/* <div className="medium_text mr-3">
-                                    <a href="#">Was this helpful?</a>
-                                </div>
-                                <div className="flex items-center">
-                                    <div className="thumb mr-3">
-                                        <img className="icon-ssm" src="/img/icon/thumbs-up.svg" alt="smile" loading="lazy"/>
-                                    </div>
-                                    <div className="thumb">
-                                        <img className="icon-ssm" src="/img/icon/thumbs-down.svg" alt="smile" loading="lazy"/>
-                                    </div>
-                                </div> */}
-                            {/* </div> */}
+                        <div className="container-fluid w-full mx-4 m-w mx-auto my-0 helpful-rate mt-6">
+
                             {/*Suggest more article*/}
                             <div className="suggest-article py-7">
                                 <div className="">
                                     <Slider
                                         configs={{
-                                            sliderPerRow: 4,
+                                            sliderPerRow: 3,
                                             sliderPerRowMobile: 2.5,
                                             allowDrag: true,
                                             duration: 400,
@@ -442,51 +448,49 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                             <div>{user.name}</div>
                                         </div>
                                     ) : (
-                                        <div className="grid grid-cols-12 gap-3">
-                                            <div className="md:col-span-6 col-span-12">
-                                                Sign up or log in
-                                                <div>
-                                                    <p className="cursor-pointer" onClick={() => handleLogin('facebook')}>Facebook</p>
-                                                    <p className="cursor-pointer" onClick={() => handleLogin('google')}>Google</p>
-                                                </div>
+                                        <div className="">
+                                            <div className="mb-3">
+                                                <input
+                                                    className="py-1 pr-2 border-solid border-b border-ccc dark:border-999 py-1 dark:focus:border-white focus:border-333 w-full focus-visible:outline-none"
+                                                    placeholder="Your name"
+                                                    value={name}
+                                                    onChange={(e) => setName(e.target.value)}
+                                                />
                                             </div>
-                                            <div className="md:col-span-6 col-span-12">
-                                                Post as a guest
-                                                <div className="my-input md:mb-3 dark:border-white">
-                                                    <input
-                                                        className="w-full p-1"
-                                                        placeholder="Your name"
-                                                        value={name}
-                                                        onChange={(e) => setName(e.target.value)}
-                                                    />
-                                                </div>
-                                                <div className="my-input mb-3 dark:border-white">
-                                                    <input
-                                                        className="w-full p-1"
-                                                        placeholder="Email address *"
-                                                        value={email}
-                                                        onChange={(e) => setEmail(e.target.value)}
-                                                    />
-                                                </div>
+                                            <div className="mb-3">
+                                                <input
+                                                    className="py-1 pr-2 border-solid border-b border-ccc dark:border-999 py-1 dark:focus:border-white focus:border-333 w-full focus-visible:outline-none"
+                                                    placeholder="Email address *"
+                                                    value={email}
+                                                    onChange={(e) => setEmail(e.target.value)}
+                                                />
                                             </div>
+
                                         </div>
                                     )}
 
-                                    <div className="my-input mb-3 user-cmt dark:border-white">
+                                    <div className="mb-5">
                                         <textarea
                                             rows="5"
-                                            className="w-full p-1"
+                                            className="dark:border-999 dark:focus:border-white focus:border-333 border-solid border-b border-ccc py-1 pr-2 w-full focus-visible:outline-none"
                                             placeholder="Message *"
                                             value={comment}
                                             onChange={(e) => setComment(e.target.value)}
                                         ></textarea>
+                                    </div>
+                                    <div>
+                                        <label class="custom-checkbox">
+                                            <input type="checkbox" />
+                                            <span class="checkmark ml-1"></span>
+                                            I agree to the terms and conditions
+                                        </label>
                                     </div>
                                     <div className="flex justify-center dark:border dark:border-white">
                                         <button
                                             className="w-3/12 my-btn-pr"
                                             type="submit"
                                             onClick={handleSendComment}
-                                        >Subscribe</button>
+                                        >post comment</button>
                                     </div>
                                 </div>
                             </div>

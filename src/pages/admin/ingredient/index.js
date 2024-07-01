@@ -75,6 +75,10 @@ const Adminingredient = () => {
         }
     }
 
+    const handleChangeFilter = (e, name) => {
+        
+    }
+
     return(
         <div className="pt-5">
             <div className="heading_1 mb-6">Skincare Ingredients</div>
