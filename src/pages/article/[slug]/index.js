@@ -391,111 +391,109 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                 </div>
                             </div>
                             {/*Comment section*/}
-                            <div className="comment py-7">
-                                <div className="flex">
-                                    <div className="heading_2 mb-4">Comments</div>
-                                    <div className="ml-auto">
-                                        <select className="cmt-select dark:border dark:border-white">
-                                            <option value="">Newest comments</option>
-                                            <option value="">Oldest comments</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                {comments.map((comment, index) => (
-                                    <React.Fragment key={index}>
-                                        <div className="comment-main">
-                                            <div className="flex">
-                                                <div className="flex">
-                                                    <div className="mr-2">
-                                                        <img className="w-full rounded-3xl" src={comment?.user?.avatar} alt="smile" loading="lazy" />
-                                                    </div>
-                                                    <div>
-                                                        <div className="medium_text">{comment?.name ? comment?.name : comment?.user?.name}</div>
-                                                        <div>{prettyDate(comment?.created_at)}</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="mt-2">
-                                                {comment?.content}
-                                            </div>
-                                        </div>
-                                        <div className="comment-border"></div>
-                                    </React.Fragment>
-                                ))}
+                            {/*
+<div className="comment py-7">
+    <div className="flex">
+        <div className="heading_2 mb-4">Comments</div>
+        <div className="ml-auto">
+            <select className="cmt-select dark:border dark:border-white">
+                <option value="">Newest comments</option>
+                <option value="">Oldest comments</option>
+            </select>
+        </div>
+    </div>
+    {comments.map((comment, index) => (
+        <React.Fragment key={index}>
+            <div className="comment-main">
+                <div className="flex">
+                    <div className="flex">
+                        <div className="mr-2">
+                            <img className="w-full rounded-3xl" src={comment?.user?.avatar} alt="smile" loading="lazy" />
+                        </div>
+                        <div>
+                            <div className="medium_text">{comment?.name ? comment?.name : comment?.user?.name}</div>
+                            <div>{prettyDate(comment?.created_at)}</div>
+                        </div>
+                    </div>
+                </div>
+                <div className="mt-2">
+                    {comment?.content}
+                </div>
+            </div>
+            <div className="comment-border"></div>
+        </React.Fragment>
+    ))}
+    {paginate.total > 1 && (
+        <Pagination
+            className="pagination-bar"
+            currentPage={paginate?.current}
+            totalCount={paginate?.count}
+            pageSize={paginate?.limit}
+            finalPage={paginate?.last}
+            onPageChange={page => handlePageClick(page)}
+        />
+    )}
+</div>
+<div className="leavecmt">
+    <div className="mb-5 text-center">
+        <div className="heading_2 mb-2">Leave a comment</div>
+        <div>Your email address will not be published. Required fields are marked *</div>
+    </div>
+    <div>
+        {user ? (
+            <div className="flex">
+                <div className="h-[40px] w-[40px]">
+                    <img className="w-full rounded-3xl" src={user.avatar} alt="smile" loading="lazy" />
+                </div>
+                <div>{user.name}</div>
+            </div>
+        ) : (
+            <div>
+                <div className="mb-3">
+                    <input
+                        className="py-1 pr-2 border-solid border-b border-ccc dark:border-999 py-1 dark:focus:border-white focus:border-333 w-full focus-visible:outline-none"
+                        placeholder="Your name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                    />
+                </div>
+                <div className="mb-3">
+                    <input
+                        className="py-1 pr-2 border-solid border-b border-ccc dark:border-999 py-1 dark:focus:border-white focus:border-333 w-full focus-visible:outline-none"
+                        placeholder="Email address *"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                </div>
+            </div>
+        )}
+        <div className="mb-5">
+            <textarea
+                rows="5"
+                className="dark:border-999 dark:focus:border-white focus:border-333 border-solid border-b border-ccc py-1 pr-2 w-full focus-visible:outline-none"
+                placeholder="Message *"
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
+            ></textarea>
+        </div>
+        <div>
+            <label className="custom-checkbox">
+                <input type="checkbox" />
+                <span className="checkmark ml-1"></span>
+                I agree to the terms and conditions
+            </label>
+        </div>
+        <div className="flex justify-center dark:border dark:border-white">
+            <button
+                className="w-3/12 my-btn-pr"
+                type="submit"
+                onClick={handleSendComment}
+            >Post comment</button>
+        </div>
+    </div>
+</div>
+*/}
 
-                                {/*    /!*paginate*!/*/}
-                                {paginate.total > 1 && (
-                                    <Pagination
-                                        className="pagination-bar"
-                                        currentPage={paginate?.current}
-                                        totalCount={paginate?.count}
-                                        pageSize={paginate?.limit}
-                                        finalPage={paginate?.last}
-                                        onPageChange={page => handlePageClick(page)}
-                                    />
-                                )}
-                            </div>
-                            Leave a comment
-                            <div className="leavecmt">
-                                <div className="mb-5 text-center">
-                                    <div className="heading_2 mb-2">Leave a comment</div>
-                                    <div>Your email address will not be published. Required fields are marked *</div>
-                                </div>
-                                <div className="">
-                                    {user ? (
-                                        <div className="flex">
-                                            <div className="h-[40px] w-[40px]">
-                                                <img className="w-full rounded-3xl" src={user.avatar} alt="smile" loading="lazy" />
-                                            </div>
-                                            <div>{user.name}</div>
-                                        </div>
-                                    ) : (
-                                        <div className="">
-                                            <div className="mb-3">
-                                                <input
-                                                    className="py-1 pr-2 border-solid border-b border-ccc dark:border-999 py-1 dark:focus:border-white focus:border-333 w-full focus-visible:outline-none"
-                                                    placeholder="Your name"
-                                                    value={name}
-                                                    onChange={(e) => setName(e.target.value)}
-                                                />
-                                            </div>
-                                            <div className="mb-3">
-                                                <input
-                                                    className="py-1 pr-2 border-solid border-b border-ccc dark:border-999 py-1 dark:focus:border-white focus:border-333 w-full focus-visible:outline-none"
-                                                    placeholder="Email address *"
-                                                    value={email}
-                                                    onChange={(e) => setEmail(e.target.value)}
-                                                />
-                                            </div>
-
-                                        </div>
-                                    )}
-
-                                    <div className="mb-5">
-                                        <textarea
-                                            rows="5"
-                                            className="dark:border-999 dark:focus:border-white focus:border-333 border-solid border-b border-ccc py-1 pr-2 w-full focus-visible:outline-none"
-                                            placeholder="Message *"
-                                            value={comment}
-                                            onChange={(e) => setComment(e.target.value)}
-                                        ></textarea>
-                                    </div>
-                                    <div>
-                                        <label class="custom-checkbox">
-                                            <input type="checkbox" />
-                                            <span class="checkmark ml-1"></span>
-                                            I agree to the terms and conditions
-                                        </label>
-                                    </div>
-                                    <div className="flex justify-center dark:border dark:border-white">
-                                        <button
-                                            className="w-3/12 my-btn-pr"
-                                            type="submit"
-                                            onClick={handleSendComment}
-                                        >post comment</button>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
