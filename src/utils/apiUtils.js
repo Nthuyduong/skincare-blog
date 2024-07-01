@@ -36,6 +36,8 @@ fetchApi.interceptors.response.use(
                 localStorage.setItem("access_token", res.access_token);
                 originalRequest.headers.Authorization = "Bearer " + res.access_token;
                 return fetchApi(originalRequest);
+            } else {
+                localStorage.removeItem("access_token");
             }
         } else {
             if (error.response?.data) {

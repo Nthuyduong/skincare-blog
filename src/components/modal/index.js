@@ -10,6 +10,7 @@ import ModalIngredient from "./ingredient";
 import ModalPicker from "./picker";
 import NewslettersModal from "./newletters";
 import ModalContact from "./contact";
+import TableOfContents from "./toc";
 
 import { useClickOutside } from "../../hooks/dom";
 
@@ -38,6 +39,8 @@ const Modals = () => {
         showHeader,
         confirmCallback,
         width,
+        invisibleBackdrop,
+     
     } = useSelector(state => state.modal.modal);
 
     const getModal = () => {
@@ -73,6 +76,8 @@ const Modals = () => {
                         mode={data?.mode}
                     />
                 );
+                case "toc":
+                    return <TableOfContents/>;
             default:
                 return <></>;
         }
@@ -108,8 +113,9 @@ const Modals = () => {
             className={`modal ${name ? 'modal-' + name : ''} ${isShow ? 'modal-open' : ''}`}
             data-position={position}
             data-mobile-position={mobilePosition}
+        
         >
-            <div className="modal-backdrop">
+            <div className={`modal-backdrop ${invisibleBackdrop ? 'backdrop-background' : ''}`}>
                 <div
                     className={`modal-dialog ${invisibleBackground ? 'modal-invisible-background' : ''}`}
                     style={{ width: width }}

@@ -1,71 +1,89 @@
 @use "variables" as v;
-.article-single-post{
+
+.article-single-post {
   display: flex;
   flex-direction: column;
   align-items: center;
+
   //margin-top: 60px;
-  .article-out{
+  .article-out {
     padding: 60px 0px 0 0px;
-    .catalog{
+
+    .catalog {
       margin-bottom: 30px;
-      .list{
+
+      .list {
         padding: 30px;
-        .all-list{
-          ul li{
+
+        .all-list {
+          ul li {
             margin-bottom: 8px;
           }
-          ul li:last-child{
+
+          ul li:last-child {
             margin-bottom: 0px;
           }
         }
       }
     }
-    .article-content{
+
+    .article-content {
       padding-bottom: 60px;
     }
   }
 }
-.article-sidebar{
+
+.article-sidebar {
   padding-top: 60px;
-  .sidebar{
+
+  .sidebar {
     position: -webkit-sticky;
     position: sticky;
     top: 100px;
-    .article-recently{
+
+    .article-recently {
       border: 1px solid v.$border2_color;
       padding: 20px;
     }
-    .welcome-content{
+
+    .welcome-content {
       border: 1px solid v.$border2_color;
       padding: 20px;
     }
-    .share-on-social{
+
+    .share-on-social {
       border: 1px solid v.$border2_color;
       padding: 20px;
     }
   }
 }
-.main-article{
-  .sub-main-article{
-    border-top :1px solid v.$border2_color;
-    border-bottom :1px solid v.$border2_color;
-  }
-}
-.comment{
-  .comment-main{
-    padding: 24px 0;
-  }
-  .comment-border{
+
+.main-article {
+  .sub-main-article {
+    border-top: 1px solid v.$border2_color;
     border-bottom: 1px solid v.$border2_color;
   }
-  .cmt-select{
+}
+
+.comment {
+  .comment-main {
+    padding: 24px 0;
+  }
+
+  .comment-border {
+    border-bottom: 1px solid v.$border2_color;
+  }
+
+  .cmt-select {
     border: 1px solid v.$border2_color;
     padding: 8px 8px;
     background: transparent;
   }
-  .paginate{
+
+  .paginate {
     align-items: center;
-    .pagi-item{
+
+    .pagi-item {
       background: #ccc;
       height: 12px;
       width: 12px;
@@ -74,27 +92,31 @@
     }
   }
 }
-.leavecmt{
-  padding-top:60px;
+
+.leavecmt {
+  padding-top: 60px;
   border-top: 1px solid v.$border2_color;
-  .user-cmt{
+
+  .user-cmt {
     display: inline-grid;
     width: 100%;
   }
 }
-textarea{
+
+textarea {
   background: transparent;
 }
 
 //article single page - test n review page
-.test-review-page{
-  .review-banner{
-    .banner-left{
+.test-review-page {
+  .review-banner {
+    .banner-left {
       padding-top: 60px;
       padding-bottom: 60px;
     }
-    .banner-right{
-      img{
+
+    .banner-right {
+      img {
         position: absolute;
         object-fit: cover;
         height: 100%;
@@ -104,18 +126,23 @@ textarea{
       }
     }
   }
-  .main-content{
+
+  .main-content {
     margin-top: 60px;
-    .ntd-tabs{
+
+    .ntd-tabs {
       height: 400px;
       margin-bottom: 60px;
-      .tabs-all-here{
+
+      .tabs-all-here {
         border-bottom: 1px solid #999;
         cursor: pointer;
-        .my-tabs{
+
+        .my-tabs {
           color: #999;
         }
-        .my-tabs.active{
+
+        .my-tabs.active {
           color: #333;
           border-bottom: 1px solid #333;
         }
@@ -125,9 +152,10 @@ textarea{
 }
 
 .process-bar {
-  position:sticky;
+  position: sticky;
   top: 0;
   z-index: 11111;
+
   .process-content {
     width: 0;
     height: 0;
@@ -138,5 +166,65 @@ textarea{
 .dark {
   .process-content {
     background: white;
+  }
+}
+
+// TABLE OF CONTENTS TEST
+.toc-show{
+  opacity: 1 !important;
+  display: flex !important;
+  transform: translateX(0) !important;
+  transition: transform 5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 5s ease;
+}
+.toc-wrapper {
+  display: none;
+  opacity: 0;
+  justify-content: flex-start;
+  align-items: flex-end;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 1000;
+  overflow: hidden;
+  transition: width 0.3s;
+  transform: translateX(-100%);
+
+  .collapsed {
+    writing-mode: vertical-rl;
+    white-space: nowrap;
+    cursor: pointer;
+    padding: 24px 16px;
+    background: #000;
+    color: #FBFBFA;
+  }
+}
+
+.toc-btn.Close {
+  transform: translateX(-100%);
+  /* Move the vertical text off-screen */
+  opacity: 0;
+  /* Fade out the vertical text */
+  width: 0;
+  transition: transform 0.3s ease, opacity 0.1s ease;
+}
+
+.toc-content {
+  box-shadow: 2px 2px 6px rgba(22, 27, 29, 0.12);
+  margin-bottom: 32px;
+  background: #FBFBFA;
+  padding: 30px;
+  text-align: left;
+  transform: translateX(0);
+  
+  width: 500px;
+  .all-list{
+    .list-here li{
+      margin-bottom: 8px;
+    }
+    .list-here li:last-child{
+      margin-bottom: 0;
+    }
+
   }
 }

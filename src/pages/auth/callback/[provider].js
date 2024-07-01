@@ -29,6 +29,7 @@ const AuthCallback = ({ provider, code }) => {
 }
 
 AuthCallback.getInitialProps = ({ query }) => {
+  console.log(query);
   const { provider, code } = query;
   return { 
     provider: provider,

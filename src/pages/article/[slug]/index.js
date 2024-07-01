@@ -12,11 +12,24 @@ import Head from "next/head";
 import { usePost } from "@hooks/usePost";
 import { BASE_URL } from "../../../utils/apiUtils";
 import { fetchRelatedBlogPostsApi } from "@services/blog";
+import { fetchCommentByBlogIdApi, createCommentApi, createCommentGuestApi } from "@services/comment";
+import Pagination from "@components/common/pagination";
+import { useApp } from '@hooks/useApp';
+import { getGetLoginUrl } from "@services/auth";
+import { prettyDate } from "../../../utils/format";
+import { useModal } from '@hooks/modal';
 
 const ArticleDetail = ({ blogProps, isCrs, slug }) => {
 
+    const { getUserInfo, user } = useApp();
+
+    const {
+        hide,
+        show,
+    } = useModal();
+
     const { updateBlogViewCount } = usePost();
-    
+
     const router = useRouter();
 
     const refContent = useRef(null);
@@ -24,6 +37,20 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
     const refProcess = useRef(null);
     const [blog, setBlog] = useState(blogProps);
     const [relatedBlogs, setRelatedBlogs] = useState([]);
+    const [comments, setComments] = useState([]);
+    const [page, setPage] = useState(1);
+    const [sort, setSort] = useState('created_at:desc');
+    const [paginate, setPaginate] = useState({});
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+
+    const [comment, setComment] = useState('');
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const toggleModal = () => {
+        setIsModalOpen(!isModalOpen);
+    };
 
     useEffect(() => {
         if (isCrs) {
@@ -31,6 +58,13 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
         }
     }, [router.asPath]);
 
+    const fetchComments = async () => {
+        const res = await fetchCommentByBlogIdApi(blog.id, page, sort);
+        if (res?.status) {
+            setComments(res?.data?.results || []);
+            setPaginate(res?.data?.paginate || {});
+        }
+    }
     const fetchDataCsr = async () => {
         const res = await getBlogBySlugApi(slug);
         setBlog(res?.data || {});
@@ -50,8 +84,10 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                 const headings = refContent.current.querySelectorAll("h2");
                 console.log(headings);
                 const list = refTable.current;
-                list.innerHTML = '';
-                if(list) {
+
+                if (list) {
+                    list.innerHTML = '';
+
                     if (headings.length === 0) {
                         if (list.closest('.catalog')) {
                             list.closest('.catalog').style.display = 'none';
@@ -74,10 +110,10 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                 }
             }
         }
-        
+
         function functionScoll() {
             const handleScroll = throttle(() => {
-                if(refContent.current) {
+                if (refContent.current) {
                     let process = ((document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight) * 100);
                     if (process < 0) {
                         process = 0;
@@ -100,16 +136,73 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
         if (blog?.id) {
             handleUpdateViewCount();
             fetchRelatedBlogs();
+            fetchComments();
         }
         return () => {
             handleCatalog();
             functionScoll();
         }
-    }, [blog]);
+    }, [blog, isModalOpen]);
 
     const handleUpdateViewCount = async () => {
         await updateBlogViewCount(blog.id);
     }
+
+    const handleLogin = async (provider) => {
+        const res = await getGetLoginUrl(provider);
+
+        if (res.status) {
+            const currentUrl = window.location.href;
+            sessionStorage.setItem('redirectUrl', currentUrl);
+            window.location.href = res.url;
+        }
+    }
+
+    const handleSendComment = async () => {
+        if (!comment) {
+            return;
+        }
+        if (user) {
+            const res = await createCommentApi({
+                blog_id: blog.id,
+                content: comment
+            });
+            if (res?.status) {
+                setComment('');
+                setComments([res?.data, ...comments]);
+            }
+            return;
+        } else {
+            const res = await createCommentGuestApi({
+                blog_id: blog.id,
+                content: comment,
+                name: name,
+                email: email
+            });
+            if (res?.status) {
+                setComment('');
+                setComments([res?.data, ...comments]);
+            }
+        }
+    }
+
+    // display and hide table of content
+    const [appear, setAppear] = useState(false);
+
+    const controlBtn = () => {
+        if (window.scrollY > 300) {
+            setAppear(true)
+        } else {
+            setAppear(false)
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', controlBtn)
+        return () => {
+            window.removeEventListener('scroll', controlBtn)
+        }
+    }, [])
 
     return (
         <>
@@ -159,7 +252,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                 <picture>
                                     <source srcSet={BASE_URL + '/storage/desktop/' + blog?.banner_img} media="(min-width: 1024px)" />
                                     <source srcSet={BASE_URL + '/storage/tablet/' + blog?.banner_img} media="(min-width: 767px)" />
-                                    <img src={BASE_URL + '/storage/mobile/' + blog?.banner_img} alt={blog.title} loading="eager" height={500} width={500}/>
+                                    <img src={BASE_URL + '/storage/mobile/' + blog?.banner_img} alt={blog.title} loading="eager" height={500} width={500} />
                                 </picture>
                                 {/* <img className="w-full object-cover" src={BASE_URL + '/storage/desktop/' + blog?.banner_img} alt="smile" loading="lazy" /> */}
                             </div>
@@ -199,7 +292,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                             <picture>
                                 <source srcSet={BASE_URL + '/storage/desktop/' + blog?.banner_img} media="(min-width: 1024px)" />
                                 <source srcSet={BASE_URL + '/storage/tablet/' + blog?.banner_img} media="(min-width: 767px)" />
-                                <img className="w-full" src={BASE_URL + '/storage/mobile/' + blog?.banner_img} alt={blog.title} loading="eager" height={500} width={500}/>
+                                <img className="w-full" src={BASE_URL + '/storage/mobile/' + blog?.banner_img} alt={blog.title} loading="eager" height={500} width={500} />
                             </picture>
                         </div>
                     </div>
@@ -210,15 +303,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                             <div className="">{blog?.summary}</div>
                         </div>
                         {/*menu*/}
-                        <div className="catalog w-full my-3">
-                            <div className="list border border-ccc border-solid dark:border-999">
-                                <div className="list-title heading_4 mb-3 cursor-text-wrp">In this post</div>
-                                <div className="all-list">
-                                    {/* table of content */}
-                                    <ul className="list-here" ref={refTable} />
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
                 <div className="my-article w-full">
@@ -229,27 +314,42 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                             __html: blog?.detail?.content
                         }}
                     />
-                    <div className="w-full flex justify-center items-center">
-                        <div className="w-full mx-4 m-w mx-auto my-0 helpful-rate mt-6">
-                            {/* <div className="flex w-full pt-3 border-solid border-t border-ccc"> */}
-                                {/* <div className="medium_text mr-3">
-                                    <a href="#">Was this helpful?</a>
+                    {/* TABLE OF CONTENT TEST */}
+                    <div className={`toc-wrapper ${appear && 'toc-show'}`}>
+                        <div
+                            onClick={toggleModal}
+                            className={`toc-btn mb-5 ${isModalOpen ? 'Close' : 'Open'}`}>
+                            <div className="collapsed body_text">Table of contents</div>
+                        </div>
+                        {isModalOpen && (
+                            <div className="modal-bg">
+                                <div className="toc-content">
+                                    <div className="catalog my-3">
+                                        <div className="list">
+                                            <div className="flex items-center mb-4">
+                                                <div className="list-title heading_5 cursor-text-wrp">In this post</div>
+                                                <div class="ml-auto cursor-pointer" onClick={toggleModal}>Close</div>
+                                            </div>
+                                            <div className="all-list">
+                                                {/* table of content */}
+                                                <ul className="list-here" ref={refTable} />
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
-                                <div className="flex items-center">
-                                    <div className="thumb mr-3">
-                                        <img className="icon-ssm" src="/img/icon/thumbs-up.svg" alt="smile" loading="lazy"/>
-                                    </div>
-                                    <div className="thumb">
-                                        <img className="icon-ssm" src="/img/icon/thumbs-down.svg" alt="smile" loading="lazy"/>
-                                    </div>
-                                </div> */}
-                            {/* </div> */}
+                            </div>
+                        )}
+                    </div>
+                    <div className="w-full flex justify-center items-center">
+                        <div className="container-fluid w-full mx-4 m-w mx-auto my-0 helpful-rate mt-6">
+
                             {/*Suggest more article*/}
                             <div className="suggest-article py-7">
                                 <div className="">
                                     <Slider
                                         configs={{
-                                            sliderPerRow: 4,
+                                            sliderPerRow: 3,
                                             sliderPerRowMobile: 2.5,
                                             allowDrag: true,
                                             duration: 400,
@@ -263,21 +363,21 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                             
                                         }}
                                     >
-                                        
+
                                         {relatedBlogs.map((blog, index) => (
                                             <div className="justify-center pb-1" key={index}>
                                                 <div className="col-span-12 md:col-span-4">
                                                     <div className="hover-img">
                                                         <div className="img-inner cursor-pointer" onClick={() => { router.push("/article/" + blog.slug) }}>
-                                                            <img className="set-img" src={BASE_URL + '/storage/mobile/' + blog?.featured_img} alt={blog.title} loading="lazy" height={500} width={500}/>
+                                                            <img className="set-img" src={BASE_URL + '/storage/mobile/' + blog?.featured_img} alt={blog.title} loading="lazy" height={500} width={500} />
                                                         </div>
                                                         <div>
                                                             <div className="article-info py-2 mb-1 md:!border-b md:!border-ccc border-b-0">
                                                                 <div className="md:flex mb-1">
-                                                                    <div className="mr-auto small_text">{ blog.categories.map((category) => {return category.name}).join(' | ') }</div>
+                                                                    <div className="mr-auto small_text">{blog.categories.map((category) => { return category.name }).join(' | ')}</div>
                                                                     {/* <div className="small_text">{formatDate(blog.publish_date)}</div> */}
                                                                 </div>
-                                                                <div className="medium_text">{ blog.title }</div>
+                                                                <div className="medium_text">{blog.title}</div>
                                                             </div>
                                                             <div className="md:flex hidden">
                                                                 <div className="text-link cursor-pointer" onClick={() => { router.push("/article/" + blog.slug) }} href={"/article/" + blog.slug}>Read more</div>
@@ -291,159 +391,121 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                 </div>
                             </div>
                             {/*Comment section*/}
-                            {/*<div className="comment py-7">*/}
-                            {/*    <div className="flex">*/}
-                            {/*        <div className="heading_2 mb-4">Comments</div>*/}
-                            {/*        <div className="ml-auto">*/}
-                            {/*            <select className="cmt-select dark:border dark:border-white">*/}
-                            {/*                <option value="">Newest comments</option>*/}
-                            {/*                <option value="">Oldest comments</option>*/}
-                            {/*            </select>*/}
-                            {/*        </div>*/}
-                            {/*    </div>*/}
-                            {/*    <div className="comment-main">*/}
-                            {/*        <div className="flex">*/}
-                            {/*            <div className="flex">*/}
-                            {/*                <div className="mr-2">*/}
-                            {/*                    <img className="w-full rounded-3xl" src="./img/article/avata.jpg" alt="smile" loading="lazy"/>*/}
-                            {/*                </div>*/}
-                            {/*                <div>*/}
-                            {/*                    <div className="medium_text">Nthuyduong</div>*/}
-                            {/*                    <div>3 days ago</div>*/}
-                            {/*                </div>*/}
-                            {/*            </div>*/}
-                            {/*            <div className="flex ml-auto">*/}
-                            {/*                <div className="mr-2">10</div>*/}
-                            {/*                <div>heart</div>*/}
-                            {/*            </div>*/}
-                            {/*        </div>*/}
-                            {/*        <div className="mt-2">*/}
-                            {/*            Baking time will vary if you change the pan size. Every oven is different so I can’t say*/}
-                            {/*            for certain what you’ll need to adjust it to. Be  sure to check on the cakes while they are baking.*/}
-                            {/*        </div>*/}
-                            {/*        <div className="mt-3"><a className="text-link" href="#">Reply</a></div>*/}
-                            {/*    </div>*/}
-                            {/*    <div className="comment-border"></div>*/}
-                            {/*    <div className="comment-main">*/}
-                            {/*        <div className="flex">*/}
-                            {/*            <div className="flex">*/}
-                            {/*                <div className="mr-2">*/}
-                            {/*                    <img className="w-full rounded-3xl" src="./img/article/avata.jpg" alt="smile" loading="lazy"/>*/}
-                            {/*                </div>*/}
-                            {/*                <div>*/}
-                            {/*                    <div className="medium_text">Nthuyduong</div>*/}
-                            {/*                    <div>3 days ago</div>*/}
-                            {/*                </div>*/}
-                            {/*            </div>*/}
-                            {/*            <div className="flex ml-auto">*/}
-                            {/*                <div className="mr-2">10</div>*/}
-                            {/*                <div>heart</div>*/}
-                            {/*            </div>*/}
-                            {/*        </div>*/}
-                            {/*        <div className="mt-2">*/}
-                            {/*            Baking time will vary if you change the pan size. Every oven is different so I can’t say*/}
-                            {/*            for certain what you’ll need to adjust it to. Be  sure to check on the cakes while they are baking.*/}
-                            {/*        </div>*/}
-                            {/*        <div className="mt-3"><a className="text-link" href="#">Reply</a></div>*/}
-                            {/*    </div>*/}
-                            {/*    <div className="comment-border"></div>*/}
-                            {/*    <div className="comment-main">*/}
-                            {/*        <div className="flex">*/}
-                            {/*            <div className="flex">*/}
-                            {/*                <div className="mr-2">*/}
-                            {/*                    <img className="w-full rounded-3xl" src="./img/article/avata.jpg" alt="smile" loading="lazy"/>*/}
-                            {/*                </div>*/}
-                            {/*                <div>*/}
-                            {/*                    <div className="medium_text">Nthuyduong</div>*/}
-                            {/*                    <div>3 days ago</div>*/}
-                            {/*                </div>*/}
-                            {/*            </div>*/}
-                            {/*            <div className="flex ml-auto">*/}
-                            {/*                <div className="mr-2">10</div>*/}
-                            {/*                <div>heart</div>*/}
-                            {/*            </div>*/}
-                            {/*        </div>*/}
-                            {/*        <div className="mt-2">*/}
-                            {/*            Baking time will vary if you change the pan size. Every oven is different so I can’t say*/}
-                            {/*            for certain what you’ll need to adjust it to. Be  sure to check on the cakes while they are baking.*/}
-                            {/*        </div>*/}
-                            {/*        <div className="mt-3"><a className="text-link" href="#">Reply</a></div>*/}
-                            {/*    </div>*/}
-                            {/*    <div className="comment-border"></div>*/}
-                            {/*    <div className="comment-main">*/}
-                            {/*        <div className="flex">*/}
-                            {/*            <div className="flex">*/}
-                            {/*                <div className="mr-2">*/}
-                            {/*                    <img className="w-full rounded-3xl" src="./img/article/avata.jpg" alt="smile" loading="lazy"/>*/}
-                            {/*                </div>*/}
-                            {/*                <div>*/}
-                            {/*                    <div className="medium_text">Nthuyduong</div>*/}
-                            {/*                    <div className="">3 days ago</div>*/}
-                            {/*                </div>*/}
-                            {/*            </div>*/}
-                            {/*            <div className="flex ml-auto">*/}
-                            {/*                <div className="mr-2">10</div>*/}
-                            {/*                <div>heart</div>*/}
-                            {/*            </div>*/}
-                            {/*        </div>*/}
-                            {/*        <div className="mt-2">*/}
-                            {/*            Baking time will vary if you change the pan size. Every oven is different so I can’t say*/}
-                            {/*            for certain what you’ll need to adjust it to. Be  sure to check on the cakes while they are baking.*/}
-                            {/*        </div>*/}
-                            {/*        <div className="mt-3"><a className="text-link" href="#">Reply</a></div>*/}
-                            {/*    </div>*/}
-                            {/*    /!*paginate*!/*/}
-                            {/*    <div className="mt-5 paginate flex w-full justify-center">*/}
-                            {/*        <a>*/}
-                            {/*            Previous*/}
-                            {/*            <span></span>*/}
-                            {/*        </a>*/}
-                            {/*        <div className="mx-2 pagi-item p-3 rounded-full flex">1</div>*/}
-                            {/*        <div className="pagi-item p-3 rounded-full flex">2</div>*/}
-                            {/*        <div className="mx-2 pagi-item p-3 rounded-full flex">3</div>*/}
-                            {/*        <a>*/}
-                            {/*            Next*/}
-                            {/*            <span></span>*/}
-                            {/*        </a>*/}
-                            {/*    </div>*/}
-                            {/*</div>*/}
-                            {/*Leave a comment*/}
-                            {/*<div className="leavecmt">*/}
-                            {/*    <div className="mb-5 text-center">*/}
-                            {/*        <div className="heading_2 mb-2">Leave a comment</div>*/}
-                            {/*        <div>Your email address will not be published. Required fields are marked *</div>*/}
-                            {/*    </div>*/}
-                            {/*    <div className="">*/}
-                            {/*        <div className="grid grid-cols-12 gap-3">*/}
-                            {/*            <div className="md:col-span-6 col-span-12">*/}
-                            {/*                <div className="my-input md:mb-3 dark:border-white">*/}
-                            {/*                    <input className="w-full p-1" placeholder="Your name"/>*/}
-                            {/*                </div>*/}
-                            {/*            </div>*/}
-                            {/*            <div className="md:col-span-6 col-span-12">*/}
-                            {/*                <div className="my-input mb-3 dark:border-white">*/}
-                            {/*                    <input className="w-full p-1" placeholder="Email address *"/>*/}
-                            {/*                </div>*/}
-                            {/*            </div>*/}
-                            {/*        </div>*/}
-                            {/*        <div className="my-input mb-3 user-cmt dark:border-white">*/}
-                            {/*            <textarea rows="5" className="w-full p-1" placeholder="Message *"></textarea>*/}
-                            {/*        </div>*/}
-                            {/*        <div className="flex justify-center dark:border dark:border-white">*/}
-                            {/*            <button className="w-3/12 my-btn-pr" type="submit">Subscribe</button>*/}
-                            {/*        </div>*/}
-                            {/*    </div>*/}
-                            {/*</div>*/}
+                            <div className="comment py-7">
+                                <div className="flex">
+                                    <div className="heading_2 mb-4">Comments</div>
+                                    <div className="ml-auto">
+                                        <select className="cmt-select dark:border dark:border-white">
+                                            <option value="">Newest comments</option>
+                                            <option value="">Oldest comments</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                {comments.map((comment, index) => (
+                                    <React.Fragment key={index}>
+                                        <div className="comment-main">
+                                            <div className="flex">
+                                                <div className="flex">
+                                                    <div className="mr-2">
+                                                        <img className="w-full rounded-3xl" src={comment?.user?.avatar} alt="smile" loading="lazy" />
+                                                    </div>
+                                                    <div>
+                                                        <div className="medium_text">{comment?.name ? comment?.name : comment?.user?.name}</div>
+                                                        <div>{prettyDate(comment?.created_at)}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="mt-2">
+                                                {comment?.content}
+                                            </div>
+                                        </div>
+                                        <div className="comment-border"></div>
+                                    </React.Fragment>
+                                ))}
+
+                                {/*    /!*paginate*!/*/}
+                                {paginate.total > 1 && (
+                                    <Pagination
+                                        className="pagination-bar"
+                                        currentPage={paginate?.current}
+                                        totalCount={paginate?.count}
+                                        pageSize={paginate?.limit}
+                                        finalPage={paginate?.last}
+                                        onPageChange={page => handlePageClick(page)}
+                                    />
+                                )}
+                            </div>
+                            Leave a comment
+                            <div className="leavecmt">
+                                <div className="mb-5 text-center">
+                                    <div className="heading_2 mb-2">Leave a comment</div>
+                                    <div>Your email address will not be published. Required fields are marked *</div>
+                                </div>
+                                <div className="">
+                                    {user ? (
+                                        <div className="flex">
+                                            <div className="h-[40px] w-[40px]">
+                                                <img className="w-full rounded-3xl" src={user.avatar} alt="smile" loading="lazy" />
+                                            </div>
+                                            <div>{user.name}</div>
+                                        </div>
+                                    ) : (
+                                        <div className="">
+                                            <div className="mb-3">
+                                                <input
+                                                    className="py-1 pr-2 border-solid border-b border-ccc dark:border-999 py-1 dark:focus:border-white focus:border-333 w-full focus-visible:outline-none"
+                                                    placeholder="Your name"
+                                                    value={name}
+                                                    onChange={(e) => setName(e.target.value)}
+                                                />
+                                            </div>
+                                            <div className="mb-3">
+                                                <input
+                                                    className="py-1 pr-2 border-solid border-b border-ccc dark:border-999 py-1 dark:focus:border-white focus:border-333 w-full focus-visible:outline-none"
+                                                    placeholder="Email address *"
+                                                    value={email}
+                                                    onChange={(e) => setEmail(e.target.value)}
+                                                />
+                                            </div>
+
+                                        </div>
+                                    )}
+
+                                    <div className="mb-5">
+                                        <textarea
+                                            rows="5"
+                                            className="dark:border-999 dark:focus:border-white focus:border-333 border-solid border-b border-ccc py-1 pr-2 w-full focus-visible:outline-none"
+                                            placeholder="Message *"
+                                            value={comment}
+                                            onChange={(e) => setComment(e.target.value)}
+                                        ></textarea>
+                                    </div>
+                                    <div>
+                                        <label class="custom-checkbox">
+                                            <input type="checkbox" />
+                                            <span class="checkmark ml-1"></span>
+                                            I agree to the terms and conditions
+                                        </label>
+                                    </div>
+                                    <div className="flex justify-center dark:border dark:border-white">
+                                        <button
+                                            className="w-3/12 my-btn-pr"
+                                            type="submit"
+                                            onClick={handleSendComment}
+                                        >post comment</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </>
-        
+
     )
 }
 
-ArticleDetail.getInitialProps = async({ req, res, query }) => {
+ArticleDetail.getInitialProps = async ({ req, res, query }) => {
     const { slug } = query;
     if (typeof window != 'undefined') {
         return {
