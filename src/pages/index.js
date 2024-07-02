@@ -11,6 +11,7 @@ import Head from "next/head";
 const Slider = dynamic(() => import("@components/common/slider"), { ssr: false });
 const Scroller = dynamic(() => import("@components/common/scroller"), { ssr: false });
 import { useModal } from '@hooks/modal';
+import Image from "next/image";
 
 const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
     const router = useRouter();
@@ -86,7 +87,13 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                                 <picture>
                                                     <source srcSet={BASE_URL + '/storage/desktop/' + tags?.featured_img} media="(min-width: 1024px)" />
                                                     <source srcSet={BASE_URL + '/storage/tablet/' +  tags?.featured_img} media="(min-width: 767px)" />
-                                                    <img className="set-img" src={BASE_URL + '/storage/mobile/' + tags?.featured_img} alt={tags.title} loading="eager" height={500} width={500} />
+                                                    <Image
+                                                        src={BASE_URL + '/storage/mobile/' + tags?.featured_img}
+                                                        alt={tags.title}
+                                                        height={500}
+                                                        width={500}
+                                                        loading="eager"
+                                                    />
                                                 </picture>
                                             </Link>
 
@@ -103,7 +110,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                         </div>
                     </div>
                     <div className="absolute top-[30%] z-10">
-                        <img className="w-full " src="./img/Signature.png" alt="Signature" loading="lazy" />
+                        <Image className="w-full " src="/img/Signature.png" alt="Signature" loading="lazy" height={500} width={500} />
                     </div>
                 </div>
                 {/* <div className="relative">
@@ -119,7 +126,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                 <div className="col-span-12 md:col-span-4">
                                     <div className="hover-img">
                                         <div className="img-inner">
-                                            <img
+                                            <Image
                                                 className="set-img"
                                                 src={BASE_URL + '/storage/' + blog?.featured_img}
                                                 alt={blog.title}
@@ -139,10 +146,10 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                     </CardSlider>
                     <div className="absolute t-0 l-0 w-full h-full flex justify-center items-center">
                         <div className="max-w-[293px] absolute z-10 top-8 left-[30%]">
-                            <img className="w-full" src="./img/Topmost.svg" alt="Topmost" loading="lazy" />
+                            <Image className="w-full" src="./img/Topmost.svg" alt="Topmost" loading="lazy" />
                         </div>
                         <div>
-                            <img className="w-full" src="./img/Signature.png" alt="Signature" loading="lazy" />
+                            <Image className="w-full" src="./img/Signature.png" alt="Signature" loading="lazy" />
                         </div>
                     </div>
                 </div> */}
@@ -174,7 +181,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                                         <picture>
                                                             <source srcSet={BASE_URL + '/storage/desktop/' + blog?.featured_img} media="(min-width: 1024px)" />
                                                             <source srcSet={BASE_URL + '/storage/tablet/' + blog?.featured_img} media="(min-width: 767px)" />
-                                                            <img className="set-img" src={BASE_URL + '/storage/mobile/' + blog?.featured_img} alt={blog.title} loading="lazy" height={500} width={500} />
+                                                            <Image className="set-img" src={BASE_URL + '/storage/mobile/' + blog?.featured_img} alt={blog.title} loading="lazy" height={500} width={500} />
                                                         </picture>
                                                     </div>
                                                 </div>
@@ -222,10 +229,12 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                             Unlock the full potential of your skincare products with comprehensive usage guides and expert tips
                                         </div>
                                         <Link href={'/categories/guides-and-tutorial/usage-guide'} className="sm:absolute w-full h-full bottom-[0]">
-                                            <img
+                                            <Image
                                                 className="home-category-card-img"
-                                                src="./img/home/usage guide.png"
+                                                src="/img/home/usage guide.png"
                                                 alt="Usage Guide"
+                                                height={500}
+                                                width={500}
                                             />
                                         </Link>
                                     </div>
@@ -245,10 +254,12 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                             Explore a wealth of knowledge for enhancing your skin's radiance and well-being from the inside out
                                         </div>
                                         <Link href={'/categories/guides-and-tutorial/nourish-beauty'} className="absolute w-full h-full bottom-[0]">
-                                            <img
+                                            <Image
                                                 className="home-category-card-img"
-                                                src="./img/home/nourish.png"
+                                                src="/img/home/nourish.png"
                                                 alt="Nourish Beauty"
+                                                height={500}
+                                                width={500}
                                             />
                                         </Link>
                                     </div>
@@ -268,10 +279,12 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                             Explore strategies to boost mental well-being, from managing stress to enhancing resilience.
                                         </div>
                                         <Link href={'/categories/selfcare-nerd/mental-health'} className="absolute w-full h-full bottom-[0]">
-                                            <img
+                                            <Image
                                                 className="absolute home-category-card-img"
-                                                src="./img/home/mental health.png"
+                                                src="/img/home/mental health.png"
                                                 alt="Mental Health"
+                                                height={500}
+                                                width={500}
                                             />
                                         </Link>
                                     </div>
@@ -291,10 +304,12 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                             Discover essential tips and solutions for healthier hair, tackling issues like dryness, breakage, and more.
                                         </div>
                                         <Link href={'/categories/selfcare-nerd/hair-care'} className="absolute w-full h-full bottom-[0]">
-                                            <img
+                                            <Image
                                                 className="home-category-card-img"
-                                                src="./img/home/hair.png"
+                                                src="/img/home/hair.png"
                                                 alt="Hair Care"
+                                                height={500}
+                                                width={500}
                                             />
                                         </Link>
                                     </div>
@@ -331,10 +346,12 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                 <div className="md:px-0 mx-auto m-w md:mb-9 mb-7">
                     <div className="md:grid grid-cols-12 gap-4">
                         <div className="col-span-5 animate slideInUp">
-                            <img
+                            <Image
                                 className=""
-                                src="./img/home/ingredient_home.png"
+                                src="/img/home/ingredient_home.png"
                                 alt="Ingredient"
+                                height={500}
+                                width={500}
                             />
                         </div>
                         <div className="col-span-7 md:p-6 p-5 border-solid border border-ccc dark:border-ccc flex-col flex">
@@ -350,7 +367,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                 <div className="md:flex items-center justify-end animate slideInUp">
                                     <div className="mr-2">Explore now</div>
                                     <div>
-                                        <img className="" src="../img/icon/arrow-right-circle.svg" alt="smile" loading="lazy" />
+                                        <Image className="" src="../img/icon/arrow-right-circle.svg" alt="smile" loading="lazy"  height={100} width={100} />
                                     </div>
                                 </div>
                             </Link>
@@ -415,7 +432,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                                 <picture>
                                                     <source srcSet={BASE_URL + '/storage/desktop/' + newest?.featured_img} media="(min-width: 1024px)" />
                                                     <source srcSet={BASE_URL + '/storage/tablet/' + newest?.featured_img} media="(min-width: 767px)" />
-                                                    <img className="set-img" src={BASE_URL + '/storage/mobile/' + newest?.featured_img} alt={newest.title} loading="lazy" height={500} width={500} />
+                                                    <Image className="set-img" src={BASE_URL + '/storage/mobile/' + newest?.featured_img} alt={newest.title} loading="lazy" height={500} width={500} />
                                                 </picture>
                                                 </div>
                                                 <div>
@@ -445,7 +462,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                         <div className="bg-primaryvariant1 p-4 sm:p-5">
                             <div className="flex">
                                 <div className="hidden md:block">
-                                    <img className="w-full" src="./img/home/subscribe.png" alt="smile" loading="lazy" />
+                                    <Image className="w-full" src="/img/home/subscribe.png" alt="smile" loading="lazy" height={100} width={100} />
                                 </div>
                                 <div className="sm:ml-5 text-textcolor flex items-center md:pr-8">
                                     <div>
@@ -534,8 +551,8 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                         mobilePosition: 'right',
                                     })}
                                 >
-                                    <img className="w-full dark:hidden" src="../img/icon/arrow-right-circle.svg" alt="smile" loading="lazy" />
-                                    <img className="w-full hidden dark:block" src="../img/icon/arrow-right-circle-white.svg" alt="smile" loading="lazy" />
+                                    <Image className="w-full dark:hidden" src="../img/icon/arrow-right-circle.svg" alt="smile" loading="lazy" />
+                                    <Image className="w-full hidden dark:block" src="../img/icon/arrow-right-circle-white.svg" alt="smile" loading="lazy" />
                                 </button>
                             </div>
                         </div> */}
