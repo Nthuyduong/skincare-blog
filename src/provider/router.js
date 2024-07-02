@@ -77,7 +77,7 @@ export const RouterProvider = ({ children }) => {
         <RouterContext.Provider value={router}>
             {children}
             {/* {(!user && USER_ROUTERS.includes(router.asPath)) && <GoogleOneTab />} */}
-            <GoogleOneTab />
+            {/* <GoogleOneTab /> */}
         </RouterContext.Provider>
     );
 };
