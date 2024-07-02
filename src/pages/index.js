@@ -83,12 +83,11 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                     {banner.map((tags, index) => (
                                         <div className="banner-article">
                                             <Link href={'/article/' + tags.slug} className="">
-                                                <img
-                                                    className="set-img"
-                                                    src={BASE_URL + '/storage/' + tags?.featured_img}
-                                                    alt={tags.title}
-                                                    loading="lazy"
-                                                />
+                                                <picture>
+                                                    <source srcSet={BASE_URL + '/storage/desktop/' + tags?.featured_img} media="(min-width: 1024px)" />
+                                                    <source srcSet={BASE_URL + '/storage/tablet/' +  tags?.featured_img} media="(min-width: 767px)" />
+                                                    <img className="set-img" src={BASE_URL + '/storage/mobile/' + tags?.featured_img} alt={tags.title} loading="eager" height={500} width={500} />
+                                                </picture>
                                             </Link>
 
                                             <div className="mr-auto mb-1 body_text text-textcolor mt-2">{tags.categories.map((category) => { return <Link href={`/categories/${category?.parent?.slug ?? 'sub-des'}/${category.slug}`} className="">{category.name}</Link> })}</div>
@@ -172,7 +171,11 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                             <div className="col-span-12 md:col-span-4">
                                                 <div className="hover-img">
                                                     <div className="img-inner cursor-pointer" onClick={() => { router.push("/article/" + blog.slug) }}>
-                                                        <img className="set-img" src={BASE_URL + '/storage/' + blog?.featured_img} alt={blog.title} loading="lazy" />
+                                                        <picture>
+                                                            <source srcSet={BASE_URL + '/storage/desktop/' + blog?.featured_img} media="(min-width: 1024px)" />
+                                                            <source srcSet={BASE_URL + '/storage/tablet/' + blog?.featured_img} media="(min-width: 767px)" />
+                                                            <img className="set-img" src={BASE_URL + '/storage/mobile/' + blog?.featured_img} alt={blog.title} loading="lazy" height={500} width={500} />
+                                                        </picture>
                                                     </div>
                                                 </div>
                                                 <div className="">
@@ -409,7 +412,11 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                         <div className="col-span-12 md:col-span-4">
                                             <div className="hover-img">
                                                 <div className="img-inner cursor-pointer" onClick={() => { router.push("/article/" + newest.slug) }}>
-                                                    <img className="set-img" src={BASE_URL + '/storage/' + newest?.featured_img} alt="smile" loading="lazy" />
+                                                <picture>
+                                                    <source srcSet={BASE_URL + '/storage/desktop/' + newest?.featured_img} media="(min-width: 1024px)" />
+                                                    <source srcSet={BASE_URL + '/storage/tablet/' + newest?.featured_img} media="(min-width: 767px)" />
+                                                    <img className="set-img" src={BASE_URL + '/storage/mobile/' + newest?.featured_img} alt={newest.title} loading="lazy" height={500} width={500} />
+                                                </picture>
                                                 </div>
                                                 <div>
                                                     <div className="article-info py-2 mb-1 md:!border-b md:!border-ccc border-b-0">
