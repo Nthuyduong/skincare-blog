@@ -243,8 +243,14 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                 <title>{blog?.meta_title ?? 'Article'}</title>
                 <meta name="description" content={blog?.meta_description} />
 
+                <meta property="og:title" content={blog.title} />
+                <meta property="og:description" content={blog.summary} />
+                <meta property="og:image" content={blog.featured_img} />
+                <meta property="og:url" content="https://radiance-aura.blog/" />
+
                 <meta name="twitter:card" content="summary" />
                 <meta name="twitter:title" content={blog.title} />
+                <meta name="twitter:url" content="https://radiance-aura.blog/" />
                 <meta name="twitter:description" content={blog.summary} />
                 <meta name="twitter:image" content={blog.featured_img} />
             </Head>
