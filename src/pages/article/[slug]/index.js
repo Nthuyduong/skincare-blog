@@ -245,14 +245,14 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
 
                 <meta property="og:title" content={blog.title} />
                 <meta property="og:description" content={blog.summary} />
-                <meta property="og:image" content={blog.featured_img} />
+                <meta property="og:image" content={BASE_URL + '/storage/desktop/' + blog.featured_img} />
                 <meta property="og:url" content="https://radiance-aura.blog/" />
 
                 <meta name="twitter:card" content="summary" />
                 <meta name="twitter:title" content={blog.title} />
                 <meta name="twitter:url" content="https://radiance-aura.blog/" />
                 <meta name="twitter:description" content={blog.summary} />
-                <meta name="twitter:image" content={blog.featured_img} />
+                <meta name="twitter:image" content={BASE_URL + '/storage/desktop/' + blog.featured_img} />
             </Head>
             <div className="article-single-post">
                 <div className="process-bar w-full">
