@@ -18,6 +18,7 @@ import { useApp } from '@hooks/useApp';
 import { getGetLoginUrl } from "@services/auth";
 import { prettyDate } from "../../../utils/format";
 import { useModal } from '@hooks/modal';
+import { useClickOutside } from "@hooks/dom";
 
 const ArticleDetail = ({ blogProps, isCrs, slug }) => {
 
@@ -27,6 +28,8 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
         hide,
         show,
     } = useModal();
+
+    
 
     const { updateBlogViewCount } = usePost();
 
@@ -43,6 +46,17 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
     const [paginate, setPaginate] = useState({});
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+
+    // button sort
+    const [showShare, setShowShare] = useState(false);
+    const toggleShare = () => {
+        setShowShare(!showShare);
+    };
+
+
+    const refShare = useClickOutside(() => {
+        setShowShare(false);
+    });
 
     const [comment, setComment] = useState('');
 
@@ -204,11 +218,35 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
         }
     }, [])
 
+    const handleShare = (type) => {
+        // let url = window.location.href;
+        let url = 'https://radiance-aura.blog/article/' + blog.slug;
+        switch (type) {
+            case 'facebook':
+                url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+                break;
+            case 'twitter':
+                url = `https://twitter.com/intent/tweet?url=${url}`;
+                break;
+            default:
+                navigator.clipboard.writeText(url);
+                break;
+        }
+        if (type) {
+            window.open(url, '_blank');
+        }
+    }
+
     return (
         <>
             <Head>
                 <title>{blog?.meta_title ?? 'Article'}</title>
                 <meta name="description" content={blog?.meta_description} />
+
+                <meta name="twitter:card" content="summary" />
+                <meta name="twitter:title" content={blog.title} />
+                <meta name="twitter:description" content={blog.summary} />
+                <meta name="twitter:image" content={blog.featured_img} />
             </Head>
             <div className="article-single-post">
                 <div className="process-bar w-full">
@@ -341,9 +379,41 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                             </div>
                         )}
                     </div>
+                    
                     <div className="w-full flex justify-center items-center">
                         <div className="container-fluid w-full mx-4 m-w mx-auto my-0 helpful-rate mt-6">
-
+                            <div className="flex">
+                                <div className="flex justify-center">
+                                    {/*<div className="flex des-count pr-3">*/}
+                                    {/*    <div className="pr-1">*/}
+                                    {/*        <img className="icon-sm" src="./img/icon/grid.svg" alt="#" loading="lazy"></img>*/}
+                                    {/*    </div>*/}
+                                    {/*    <div>4 Categories</div>*/}
+                                    {/*</div>*/}
+                                    <div className="flex location-count relative">
+                                        <button
+                                            className="flex"
+                                            type="button"
+                                            onClick={toggleShare}
+                                        >
+                                            <span className="mr-3">{sort ? sort.label : 'All articles'}</span>
+                                            <img className="icon-ssm dark:hidden" src="/img/icon/sort-bl.svg" alt="smile" loading="lazy" />
+                                            <img className="icon-ssm hidden dark:block" src="/img/icon/sort-wh.svg" alt="smile" loading="lazy" />
+                                        </button>
+                                        {showShare && (
+                                            <div ref={refShare} className="absolute mt-3 w-max p-3 top-full border border-solid border-x border-b !border-999 border-ccc dark:bg-black bg-background">
+                                                <div className="sort-menu-inner">
+                                                    <ul className="">
+                                                        <li className="py-1 cursor-pointer" onClick={() => {handleShare()}}>Copy</li>
+                                                        <li className="py-1 cursor-pointer" onClick={() => {handleShare('facebook')}}>Facebook</li>
+                                                        <li className="py-1 cursor-pointer" onClick={() => {handleShare('twitter')}}>Twitter</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
                             {/*Suggest more article*/}
                             <div className="suggest-article py-7">
                                 <div className="">
@@ -360,7 +430,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                             title: <div className="heading_3 mb-4">Related Articles</div>,
                                             navigatorTitle: true,
                                             process: true,
-                                            
+                                            navigator: false,
                                         }}
                                     >
 
