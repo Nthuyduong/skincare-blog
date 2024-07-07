@@ -109,7 +109,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                             </div>
                         </div>
                     </div>
-                    <div className="absolute top-[30%] z-10">
+                    <div className="absolute top-[30%] z-10 w-full">
                         <Image className="w-full " src="/img/Signature.png" alt="Signature" loading="lazy" height={500} width={500} />
                     </div>
                 </div>

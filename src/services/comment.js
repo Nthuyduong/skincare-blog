@@ -1,7 +1,7 @@
 import { getApi, postApiAdmin, postApi } from "@utils/apiUtils";
 
-export const fetchCommentByBlogIdApi = async (id, page) => {
-    return await getApi(`/blogs/comments/${id}`);
+export const fetchCommentByBlogIdApi = async (id, page, sort) => {
+    return await getApi(`/blogs/comments/${id}`, { page, sort });
 }
 
 export const createCommentApi = async (data) => {

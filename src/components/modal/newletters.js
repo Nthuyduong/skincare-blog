@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useApp } from "@hooks/useApp";
 import { subscribeApi } from "@services/app";
-import { getUserLetter, setUserLetter } from "@utils/sessionStorage";
 import Loading from "../common/loading/loading";
+import { saveUser, getUser } from "@utils/local-store";
 
 const NewslettersModal = () => {
 
@@ -22,7 +22,7 @@ const NewslettersModal = () => {
     }
 
     useEffect(() => {
-        const userLetterSession = getUserLetter();
+        const { name: userLetterSession } = getUser();
         if (userLetterSession) {
             setStatus('success');
             setMessage('Hello ' + userLetterSession + '! ' + 'Thanks you for join our newsletter! Welcome to Radiance Aura Home.');
@@ -53,10 +53,10 @@ const NewslettersModal = () => {
         if (res.status) {
             setStatus('success');
             setMessage('Hello ' + name + '! ' + 'Thanks you for join our newsletter! Welcome to Radiance Aura Home.');
-            setUserLetter(name);
+            saveUser({ name: name, email: email });
         } else {
             setStatus('fail');
-            setMessage('Error')
+            setMessage(res.msg || 'Error')
         }
         setLoading(false);
     }
