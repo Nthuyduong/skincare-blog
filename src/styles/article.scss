@@ -174,11 +174,14 @@ textarea {
 }
 
 // TABLE OF CONTENTS TEST
-.toc-show{
+.toc-wrapper.toc-show{
   opacity: 1 !important;
   display: flex !important;
   transform: translateX(0px) !important;
  
+}
+.toc-wrapper.toc-visible {
+  transform: translateX(calc(-100% + 56px));
 }
 .toc-wrapper {
   display: flex;
@@ -191,7 +194,7 @@ textarea {
   width: fit-content;
   z-index: 1000;
   transition: transform 0.5s, opacity 0.5s ease;
-  transform: translateX(calc(-100% + 56px));
+  transform: translateX(calc(-100%));
 
   .collapsed {
     writing-mode: vertical-rl;

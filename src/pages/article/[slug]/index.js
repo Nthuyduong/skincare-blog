@@ -553,7 +553,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                 </div>
                 
                 {/* TABLE OF CONTENT TEST */}
-                <div className={`toc-wrapper ${isModalOpen && 'toc-show'}`}>
+                <div className={`toc-wrapper ${appear && 'toc-visible' } ${isModalOpen && 'toc-show'}`}>
                     <div className="modal-bg">
                         <div className="toc-content">
                             <div className="catalog my-3">
