@@ -192,9 +192,10 @@ textarea {
   left: 0;
   height: 0;
   width: fit-content;
+
   z-index: 1000;
   transition: transform 0.5s, opacity 0.5s ease;
-  transform: translateX(calc(-100%));
+  transform: translateX(-100%);
 
   .collapsed {
     writing-mode: vertical-rl;
@@ -243,6 +244,7 @@ textarea {
   .toc-wrapper {
     top: 0;
     align-items: flex-start;
+    width: calc(100vw + 56px);
   }
   .toc-content {
     width: 100vw;
