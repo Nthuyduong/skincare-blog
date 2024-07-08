@@ -367,7 +367,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                 <div className="md:flex items-center justify-end animate slideInUp">
                                     <div className="mr-2">Explore now</div>
                                     <div>
-                                        <Image className="" src="../img/icon/arrow-right-circle.svg" alt="smile" loading="lazy"  height={100} width={100} />
+                                        <Image className="" src="../img/icon/arrow-right-circle.svg" alt="smile" loading="lazy"  height={100} width={40} />
                                     </div>
                                 </div>
                             </Link>
