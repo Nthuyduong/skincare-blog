@@ -462,7 +462,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                         <div className="bg-primaryvariant1 p-4 sm:p-5">
                             <div className="flex">
                                 <div className="hidden md:block">
-                                    <Image className="w-full" src="/img/home/subscribe.png" alt="smile" loading="lazy" height={100} width={100} />
+                                    <img className="w-full" src="/img/home/subscribe.png" alt="smile" loading="lazy" height={100} width={100} />
                                 </div>
                                 <div className="sm:ml-5 text-textcolor flex items-center md:pr-8">
                                     <div>
