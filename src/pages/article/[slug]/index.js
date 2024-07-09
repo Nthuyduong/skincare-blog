@@ -265,7 +265,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                 <meta name="twitter:image" content={BASE_URL + '/storage/mobile/' + blog.featured_img} />
             </Head>
             <div className="article-single-post">
-                <div>
+                <div className="">
                     <div className="process-bar w-full">
                         <div ref={refProcess} className='process-content'></div>
                     </div>
@@ -557,7 +557,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                 <div className={`toc-wrapper ${appear && 'toc-visible' } ${(isModalOpen && appear) && 'toc-show'}`}>
                     <div className="modal-bg">
                         <div className="toc-content">
-                            <div className="catalog my-3">
+                            <div className="catalog">
                                 <div className="list">
                                     <div className="flex items-center mb-4">
                                         <div className="list-title heading_5 cursor-text-wrp">In this post</div>
@@ -573,7 +573,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                     </div>
                     <div
                         onClick={toggleModal}
-                        className={`toc-btn mb-5 ${isModalOpen ? 'Close' : 'Open'}`}
+                        className={`toc-btn ${isModalOpen ? 'Close' : 'Open'}`}
                     >
                         <div className="collapsed body_text">Table of contents</div>
                     </div>

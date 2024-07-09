@@ -97,12 +97,14 @@ const Layout = ({ children }) => {
         >
             <Header />
                 <div className={`page-body-wrapper overflow-x-clip test`}>
-                    {children}
+                    <div className="pb-[32px]">
+                        {children}
+                        <div className={`back-to-top ${appear && 'back-show'}`} onClick={() => { scrollToTop() }}>
+                            <img className="icon-sm" src="/img/icon/chevron-up-black.svg" alt="smile" loading="lazy"/>
+                        </div>
+                    </div>
                 </div>
             <Footer />
-            <div className={`back-to-top ${appear && 'back-show'}`} onClick={() => { scrollToTop() }}>
-                <img className="icon-sm" src="/img/icon/chevron-up-black.svg" alt="smile" loading="lazy"/>
-            </div>
             <Modals/>
             <Toasts />
         </div>

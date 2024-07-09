@@ -188,7 +188,7 @@ textarea {
   justify-content: flex-start;
   align-items: flex-end;
   position: sticky;
-  bottom: 0;
+  bottom: 32px;
   left: 0;
   height: 0;
   width: fit-content;
@@ -222,7 +222,6 @@ textarea {
 
 .toc-content {
   box-shadow: 2px 2px 6px rgba(22, 27, 29, 0.12);
-  margin-bottom: 32px;
   background: #FBFBFA;
   padding: 30px;
   text-align: left;
