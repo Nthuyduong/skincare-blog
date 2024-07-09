@@ -88,9 +88,10 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                                     <source srcSet={BASE_URL + '/storage/desktop/' + tags?.featured_img} media="(min-width: 1024px)" />
                                                     <source srcSet={BASE_URL + '/storage/tablet/' +  tags?.featured_img} media="(min-width: 767px)" />
                                                     <Image
+                                                        className="object-cover"
                                                         src={BASE_URL + '/storage/mobile/' + tags?.featured_img}
                                                         alt={tags.title}
-                                                        height={500}
+                                                        height={600}
                                                         width={500}
                                                         loading="eager"
                                                     />
@@ -421,6 +422,7 @@ const Home = ({ newestProps, popularProps, bannerProps, isCsr }) => {
                                     gapMobile: 10,
                                     process: true,
                                     navigatorTitle: true,
+                                    navigator: false,
                                     title: <div className="heading_3 mb-4">Related Articles</div>,
                                 }}
                             >

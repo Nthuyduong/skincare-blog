@@ -78,7 +78,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
         if (userComment) {
             setCheck(true);
             setName(userComment?.name || '');
-            setEmail(userComment?.email || '');   
+            setEmail(userComment?.email || '');
         }
     }, []);
 
@@ -225,7 +225,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
 
     const handleShare = (type) => {
         // let url = window.location.href;
-        
+
         let url = 'https://radiance-aura.blog/article/' + blog.slug;
         switch (type) {
             case 'facebook':
@@ -371,30 +371,34 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                         />
                         <div className="w-full flex justify-center items-center">
                             <div className="container-fluid w-full mx-4 m-w mx-auto my-0 helpful-rate mt-6">
-                                <div className="flex">
-                                    <div className="flex justify-center">
+                                <div className="flex pt-5 border-t border-solid border-ccc justify-end">
+                                    <div className="flex ">
                                         {/*<div className="flex des-count pr-3">*/}
                                         {/*    <div className="pr-1">*/}
                                         {/*        <img className="icon-sm" src="./img/icon/grid.svg" alt="#" loading="lazy"></img>*/}
                                         {/*    </div>*/}
                                         {/*    <div>4 Categories</div>*/}
                                         {/*</div>*/}
-                                        <div className="flex location-count relative">
-                                            <button
-                                                className="flex"
-                                                type="button"
-                                                onClick={toggleShare}
-                                            >
-                                                <img className="icon-ssm dark:hidden" src="/img/icon/sort-bl.svg" alt="smile" loading="lazy" />
-                                                <img className="icon-ssm hidden dark:block" src="/img/icon/sort-wh.svg" alt="smile" loading="lazy" />
-                                            </button>
+                                        <div className="location-count relative">
+                                            <div onClick={toggleShare} className="flex items-center ">
+                                                <button
+                                                    className="flex"
+                                                    type="button"
+
+                                                >
+                                                    <img className="icon-sm dark:hidden" src="/img/icon/share.svg" alt="smile" loading="lazy" />
+                                                    <img className="icon-sm hidden dark:block" src="/img/icon/sharewhite.svg" alt="smile" loading="lazy" />
+                                                </button>
+                                                <div className="ml-2">Share it on</div>
+                                            </div>
+
                                             {showShare && (
-                                                <div ref={refShare} className="absolute mt-3 w-max p-3 top-full border border-solid border-x border-b !border-999 border-ccc dark:bg-black bg-background">
+                                                <div ref={refShare} className="absolute mt-3 w-max p-3 top-full border border-solid border-x border-b border-999 dark:bg-black bg-background">
                                                     <div className="sort-menu-inner">
                                                         <ul className="">
-                                                            <li className="py-1 cursor-pointer" onClick={() => {handleShare()}}>Copy</li>
-                                                            <li className="py-1 cursor-pointer" onClick={() => {handleShare('facebook')}}>Facebook</li>
-                                                            <li className="py-1 cursor-pointer" onClick={() => {handleShare('twitter')}}>Twitter</li>
+                                                            <li className="pb-2 border-b border-solid border-ccc flex cursor-pointer" onClick={() => { handleShare() }}><img className="w-auto mr-2 icon-sm dark:hidden" src="/img/icon/link.svg" alt="smile" loading="lazy" /> Copy</li>
+                                                            <li className="flex pb-1 pt-2 cursor-pointer" onClick={() => { handleShare('twitter') }}><img className="w-auto mr-2 icon-sm dark:hidden" src="/img/icon/twitter.svg" alt="smile" loading="lazy" /> Share on X</li>
+                                                            <li className="flex cursor-pointer" onClick={() => { handleShare('facebook') }}><img className="w-auto mr-2 icon-sm dark:hidden" src="/img/icon/fb.svg" alt="smile" loading="lazy" />Share on Facebook</li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -403,7 +407,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                     </div>
                                 </div>
                                 {/*Suggest more article*/}
-                                <div className="suggest-article py-7">
+                                <div className="suggest-article py-8">
                                     <div className="">
                                         <Slider
                                             configs={{
@@ -449,7 +453,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                     </div>
                                 </div>
                                 {/*Comment section*/}
-                                                            
+
                                 <div className="comment py-7">
                                     <div className="flex">
                                         <div className="heading_2 mb-4">Comments</div>
@@ -533,13 +537,13 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                                 <input
                                                     type="checkbox"
                                                     checked={check}
-                                                    onChange={() => {setCheck(!check)}}
+                                                    onChange={() => { setCheck(!check) }}
                                                 />
                                                 <span className="checkmark ml-1"></span>
                                                 Save my name, email, and website in this browser for the next time I comment.
                                             </label>
                                         </div>
-                                        <div className="flex justify-center dark:border dark:border-white">
+                                        <div className="flex justify-center dark:border dark:border-white mt-6">
                                             <button
                                                 className="w-3/12 my-btn-pr"
                                                 type="submit"
@@ -552,9 +556,9 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                         </div>
                     </div>
                 </div>
-                
+
                 {/* TABLE OF CONTENT TEST */}
-                <div className={`toc-wrapper ${appear && 'toc-visible' } ${(isModalOpen && appear) && 'toc-show'}`}>
+                <div className={`toc-wrapper ${appear && 'toc-visible'} ${(isModalOpen && appear) && 'toc-show'}`}>
                     <div className="modal-bg">
                         <div className="toc-content">
                             <div className="catalog">
@@ -578,7 +582,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                         <div className="collapsed body_text">Table of contents</div>
                     </div>
                 </div>
-                
+
             </div>
         </>
 
