@@ -310,7 +310,23 @@ const Sub_destination = ({ categoryProps, postsProps, isCsr, sub_slug, page }) =
                                                                     {/*    /!*    className="small_text">{formatDate(post.publish_date)}*!/*/}
                                                                     {/*    /!*</div>*!/*/}
                                                                     {/*</div>*/}
-                                                                    <div className="mr-auto mb-1 body_text text-textcolor mt-2">{post.categories.map((category) => { return <Link href={`/categories/${category?.parent?.slug ?? 'sub-des'}/${category.slug}`} className="">{category.name}</Link> })}</div>
+                                                                    {/* <div className="mr-auto mb-1 body_text text-textcolor mt-2">{post.categories.map((category) => { return <Link href={`/categories/${category?.parent?.slug ?? 'sub-des'}/${category.slug}`} className="">{category.name}</Link> })}</div> */}
+
+                                                                    <div className="mr-auto mb-1 body_text text-textcolor mt-2">
+                                                                        {post.categories.map((category, index) => {
+                                                                            return (
+                                                                                <>
+                                                                                    <Link
+                                                                                        href={`/categories/${category?.parent?.slug ?? 'sub-des'}/${category.slug}`}
+                                                                                        className=""
+                                                                                    >{category.name}
+                                                                                    </Link>
+                                                                                    {index < post.categories.length - 1 ? ' | ' : ''}
+                                                                                </>
+
+                                                                            )
+                                                                        })}
+                                                                    </div>
                                                                     <div className="medium_text my-1">
                                                                         <Link href={`/article/${post.slug}`}>{post.title}</Link>
                                                                     </div>
