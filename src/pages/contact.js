@@ -56,7 +56,7 @@ const Contact = () => {
     }
 
     return (
-        <div className="px-3 md:px-0 pt-6 contact_page m-w mx-auto my-0">
+        <div className="px-3 md:px-0 pb-4 lg:pb-8 pt-7 contact_page m-w mx-auto my-0">
             <div className="grid grid-cols-12 gap-3">
                 <div className="col-span-12 md:col-span-6 border-b border-ccc border-solid md:border-none">
                     <div className="mb-5">
