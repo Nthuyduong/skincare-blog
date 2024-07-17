@@ -454,7 +454,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                 </div>
                                 {/*Comment section*/}
 
-                                <div className="comment py-7">
+                                {/* <div className="comment py-7">
                                     <div className="flex">
                                         <div className="heading_2 mb-4">Comments</div>
                                         <div className="ml-auto">
@@ -498,8 +498,8 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                             onPageChange={page => handlePageClick(page)}
                                         />
                                     )}
-                                </div>
-                                <div className="leavecmt">
+                                </div> */}
+                                {/* <div className="leavecmt">
                                     <div className="mb-5 text-center">
                                         <div className="heading_2 mb-2">Leave a comment</div>
                                         <div>Your email address will not be published. Required fields are marked *</div>
@@ -551,7 +551,7 @@ const ArticleDetail = ({ blogProps, isCrs, slug }) => {
                                             >Post comment</button>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>
